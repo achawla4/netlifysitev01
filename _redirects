@@ -1,0 +1,24 @@
+# Permanent Geo-Block: Seychelles (Country Code: SC) - Spurious Tollbit bypass protection
+/*  /403.html  403!  Country=sc,SC
+
+/prajnanabha.v1.i5   /v1/i5   200
+/ark:/37285/p*    /paper:splat.html    301
+/consumer         /consumer.html       200
+/consumer/        /consumer.html       200
+/welcome          /welcome.html        200
+/start            /welcome.html        200
+/hologram         /hologram_inference.html 200
+/hologram-ai      /hologram_inference.html 200
+/inference        /hologram_inference.html 200
+/masters          /masters.html        200
+/forbears         /forbears.html       200
+/forebears        /forebears.html       200
+/leibnitz         /leibnitz6.html      200
+/leibnitz6        /leibnitz6.html      200
+/dashboard        /dashboard.html      200
+/account          /dashboard.html      200
+/api/*            https://leibnitz6.onrender.com/api/:splat  200
+
+
+
+

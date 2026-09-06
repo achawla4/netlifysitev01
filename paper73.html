@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Probability Theory, Logic and LLMs: A Prediction of Jaynes (1990) - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Probability Theory, Logic and LLMs: A Prediction of Jaynes (1990)</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this brief note, we would like to present a prediction of Jaynes from 1990 which seems to be pertinent with regards to the recent success of Large Language Models (LLMs). To quote E. T. Jaynes from 1990 [1]: ... We predict that AI will continue to stumble about, producing results that a Bayesian considers always trivial, usually quantita- tively wrong, and often qualitatively wrong, until it recognizes that to dissociate itself from Bayesian probability theory was a disastrous error. In this context, if we ask ChatGPT-4 whether LLMs use Bayesian probability at their core, the answer (please see the Appendix) is not wholly armative. This corroborates well with [2] where the authors state that applying Bayesian analysis to AI is yet a major goal for the next decade. Apparently therefore, it seems that AI has been already quite successful in its results despite non- extensive use of Bayesian probability theory, which puts Jaynes' message (above) in sharp contrast. However, a deeper study of this issue is required and left for future work. Acknowledgment The author would like to thank OpenAI for access to ChatGPT-4. Appendix: GPT-4 on the Role of Bayesian Prob- ability in LLMs In the context of Large Language Models (LLMs) like GPT (Generative Pre- trained Transformer) series, BERT (Bidirectional Encoder Representations from Transformers), and others, Bayesian probability plays a more nuanced role. 1</p> <p>While the core architecture of these models is not explicitly Bayesian in the traditional sense, Bayesian principles and techniques can be applied to various aspects of LLMs for improvement and analysis. Bayesian Methods in LLM Training and Fine-tuning Bayesian Optimization This is used for hyperparameter tuning in the training process of LLMs. Bayesian optimization is a strategy for nding the set of hyperparameters that optimize a loss function, by treating the hyperparameter space probabilistically. It can e- ciently guide the search for optimal model congurations, balancing exploration and exploitation of the search space. Uncertainty Estimation Bayesian methods can provide estimates of uncertainty in the predictions of LLMs. This is particularly useful in applications requiring robustness and reli- ability. Techniques such as Bayesian Neural Networks (BNNs) or Monte Carlo Dropout can be adapted to estimate uncertainty in the outputs of LLMs, though implementing these techniques directly in the scale of LLMs involves computa- tional and methodological challenges. Bayesian Approaches to LLM Interpretability and Analysis Bayesian Deep Learning While not directly applied to the architecture of most LLMs, Bayesian deep learning concepts can be used to analyze and interpret the behavior of these models. For example, Bayesian methods can help in understanding the con- dence of model predictions or in exploring how changes in input aect the model's output distribution. Probabilistic Programming Some research integrates LLMs with probabilistic programming, where Bayesian inference is used to reason about the outputs of the model or to incorporate external knowledge. This approach can enhance the model's capabilities in specic tasks, such as reasoning, causal inference, or generating explanations. Challenges and Considerations The direct application of Bayesian inference at the scale of current LLMs faces signicant computational challenges. Bayesian methods often require extensive computation, such as sampling from posterior distributions, which can be pro- hibitive for models with billions of parameters. However, research into scalable 2</p> <p>Bayesian methods, approximate inference techniques, and ecient computa- tional strategies continues to advance, potentially enabling more extensive use of Bayesian principles in LLMs. In summary, while Bayesian probability is not at the core of how LLMs operate, Bayesian techniques and principles nd application in optimizing their training, enhancing their interpretability, and providing measures of uncertainty. The integration of Bayesian methods into LLMs is an active area of research, reecting the ongoing exploration of how best to combine probabilistic reasoning with deep learning. References [1] Edwin Thompson Jaynes. Probability theory as logic. In Maximum entropy and Bayesian methods, pages 116. Springer, 1990. [2] Rens van de Schoot, Sarah Depaoli, Ruth King, Bianca Kramer, Kaspar Märtens, Mahlet G Tadesse, Marina Vannucci, Andrew Gelman, Duco Veen, Joukje Willemsen, et al. Bayesian statistics and modelling. Nature Reviews Methods Primers, 1(1):1, 2021.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Probability_Theory_Logic_and_LLMs_A_Prediction_of_Jaynes_1990.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

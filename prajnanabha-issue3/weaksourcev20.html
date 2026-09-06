@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weaksourcev20 | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 3 · V1I3-A03</div>
+            <h1>weaksourcev20</h1>
+            <div class="hero-meta">weaksourcev20.pdf</div>
+            <div class="hero-meta">Source PDF: weaksourcev20.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_3.html">Issue 3</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>In this paper, the authors provide a weak decoding version of the traditional source coding theorem of Claude Shannon. The central bound that is obtained is {{} \[ >_{}(2^{-n(H(X)+)}) \] where \[ ={(k)}{n(H(X)+)} \] and $k$ is the number of unsupervised learning classes formed out of the non-typical source sequences. The bound leads to the conclusion that if the number of classes is high enough, the reliability function might possibly be improved. The specific regime in which this improvement might be allowable is the one in which the atypical-sequence clusters are small in size and sparsely placed; similar regimes might also show an improvement. }{}</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p>{Towards Weak Source Coding} {Aman Chawla IIT Delhi and REAL Institute, Gurugram, India} {December 31, 2025}</p>
+<h2 id="introduction">Introduction</h2>
+<p>In this paper we will attempt to lower the upper bound $$ on the source coding probability of error. The paper assumes readers' familiarity with source coding. Consider that in traditional source coding<span class="footnote-inline"><sup>†</sup>A very simply described - and hence accessible - version of Shannon&#x27;s source coding theorem can be found in <span class="citation" title="wikipediaSourceCoding">[1]</span>.</span>, the probability of error of the encoder is bounded above by a small positive constant $$. This means that the error-exponent, which captures the rate of decay of the probability of error with block length, is bounded below by $-{}{N}$. So if we change ${}{2}$, say, and so reduce the upper bound, it is equivalent to adding ${2}{N}$ to the lower bound. A larger lower bound means that the rate of decay of the probability of error with blocklength is higher. In this work, we will thus aim for a reduction in the upper bound.</p>
+<p>In the traditional source coding procedure, if the input sequence doesn&#x27;t lie in the typical set, the encoder outputs an arbitrary $n(H(X)+)$ bit number which represents the error condition. In this paper we will ask the question whether we can do better in a specific sense.</p>
+<p>Figure [fig:The-space-of] shows the space of all sequences divided into the typical and atypical subsets. The typical sequences are encoded according to their position in a numbered list. They constitute a high probability set. The atypical sequences lead to the error declaration.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I3-A03_weaksourcev20/images/images/typicalsetv2.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I3-A03_weaksourcev20/images/images/typicalsetv2.jpg</div><figcaption><span>Figure 1.</span> The space of all sequences is divided into the typical and atypical sets.</figcaption></figure>
+<h2 id="innovation-and-its-analysis">Innovation and its Analysis</h2>
+<p>Let $A_{}^{n}$ denote the typical set and let $B_{}^{n}$ be the associated non-typical set. Their union is the space of all sequences, ${X}^{n}$. If the sequence $x^{n}$ does not belong to the typical set, instead of declaring an error, we classify the sequence into one of $k$ classes or clusters within $B_{}^{n}$. Suppose we classify it into the $j^{th}$ class where $j{ 1,...,k} $. Further, suppose the classification obeys the rule that $d(x^{n},_{j})$ is the lowest amongst choices of $j{ 1,...,k} $, $$ standing for the mean of a cluster.</p>
+<p>In more detail, we output an error, but specify that it is of the $j^{th}$ type. Since we want to encode the source, we attempt to do unsupervised learning within $B_{}^{n}$. We keep building up $k$ clusters whenever $x^{n}$ lies in $B_{}^{n}$. After a while of `training,&#x27; the cluster-formation will more or less represent the part of the source that generates $B_{}^{n}$ members.</p>
+<p>We will extend the encoding scheme in such a way that $(k)$ bits will be appended to the $n(H(X)+)$ bits previously created for the typical sequences. If we include another bit to specify that we are now beginning to index from the atypical set, then the net length of the encoding becomes $1+n(H(X)+)$+$(k)$ bits.</p>
+<p>At the same time, the error will be constrained by the size of the largest of the $k$ clusters. Since $k2$, the size of the largest cluster belongs to the closed interval $[1,|B_{}^{n}|-k+1]$. In other words, the ambiguity is constrained by $|B_{}^{n}|-k+1$ as opposed to $|B_{}^{n}|$. These $(k-1)$ fewer sequences are the means of the unity-sized (non-largest) clusters. Let $B'$ denote the set with the size $|B_{}^{n}|-k+1$. Since $B_{}^{n}$ is the atypical set, the probability of lying in it is upper-bounded (strictly) by $$. In this section, we are interested in saying something about the <em>probability of lying in $B'$</em>.</p>
+<p>Note that $B_{}^{n}$ contains such sequences $x^{n}$ as having $p(x_{1},...,x_{n})<2^{-n(H(X)+)}$ or $p(x_{1},...,x_{n})>2^{-n(H(X)-)}$. Denote the former inequality as specifying a VLPZ or Very Low Probability Zone and the latter inequality as specifying a VHPZ or Very High Probability Zone. The typical sequences lie in MPZ or the Medium Probability Zone between these two extremes. Also note that sequences within a cluster are &quot;close&quot; to each other, i.e., they are separated by a few bit flips only. Thus, their probabilities are alike. Hence, a cluster will lie either completely in VHPZ or completely in VLPZ.</p>
+<p>Suppose the largest cluster lies in VLPZ and the other $k-1$ mean sequences are in VHPZ. Then the probability of $B'$ is approximately $0$. On the other hand, suppose the largest cluster lies in VHPZ and the other $k-1$ mean sequences are in VLPZ. Then the probability of $B'$ is the probability of the largest cluster. Denote this probability as PLC. Clearly PLC is strictly less than the probability of $B_{}^{n}$ which in turn is strictly less than $$.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>To summarize, if PoE1 is strictly less than $$, and requires $n(H(X)+)$ bits for operationalization<span class="footnote-inline"><sup>†</sup>By operationalization, we refer to the process of enumerating the members of the set whose probability we are discussing. This enumeration requires a certain number of bits for the description of the enumerated sequences.</span>, and additionally, if PoE2 is equal to PLC which is strictly less than PoE1, and requires $1+n(H(X)+)+(k)$ bits for operationalization, it is easy to show, as is done in the Appendix, that the exponent corresponding to the second situation can possibly be better in some similar settings.</p>
+<p>To conclude, we have demonstrated that there may be room for improvement in the traditional source coding error exponent by making use of a simple $k$-means clustering approach to the atypical sequences. Thus machine learning might be of aid in generating (marginal) improvements to the source coding reliability function. In upcoming work, the authors will focus on a quantum information theoretic version of the present paper. We will also utilize MATLAB simulations to concretely see the gains from using machine learning, as was done in the channel coding case <span class="citation" title="chawlamorgeraweak12022">[2]</span>.</p>
+<h2 id="appendix-1">Appendix 1</h2>
+<p>Consider two cases:</p>
+<h3 id="case-1">Case 1</h3>
+<p>The error exponent is $e_{1}$. The PoE is PoE1. The blocklength of sequences is $N_{1}$. Thus, we can write:</p>
+<div class="math-block">$$
+e_{1}=-\frac{\ln(PoE1)}{N_{1}}
+$$</div>
+<h3 id="case-2">Case 2</h3>
+<p>The error exponent is $e_{2}$. The PoE is PoE2. The blocklength of sequences is $N_{2}$. Thus, we can write:</p>
+<div class="math-block">$$
+e_{2}=-\frac{\ln(PoE2)}{N_{2}}
+$$</div>
+<p>From Section [sec:Conclusion], we have</p>
+<div class="math-block">$$
+PoE1<\epsilon,
+$$</div>
+<div class="math-block">$$
+N_{1}=n(H(X)+\epsilon),
+$$</div>
+<div class="math-block">$$
+PoE2=PLC
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+N_{2}=1+n(H(X)+\epsilon)+\log(k).
+$$</div>
+<p>We ask the question: when is $e_{2}>e_{1}$? Expanding the LHS and the RHS in this question, we obtain the relation</p>
+<div class="math-block">$$
+-\frac{\ln(PoE2)}{N_{2}}>-\frac{\ln(PoE1)}{N_{1}}
+$$</div>
+<p>from the definitions. This implies that</p>
+<div class="math-block">$$
+-\frac{\ln(PLC)}{1+n(H(X)+\epsilon)+\log(k)}>-\frac{\ln(PoE1)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Upon multiplying throughout by negative unity, we get</p>
+<div class="math-block">$$
+\frac{\ln(PLC)}{1+n(H(X)+\epsilon)+\log(k)}<\frac{\ln(PoE1)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Utilizing the bound on $PoE1$ we get</p>
+<div class="math-block">$$
+\frac{\ln(PLC)}{1+n(H(X)+\epsilon)+\log(k)}<\frac{\ln(\epsilon)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Upon rearranging we get</p>
+<div class="math-block">$$
+\ln(PLC)<\frac{\ln(\epsilon)\cdot(1+n(H(X)+\epsilon)+\log(k))}{n(H(X)+\epsilon)}.
+$$</div>
+<p>This can be simplified to</p>
+<div class="math-block">$$
+\ln(PLC)<\ln(\epsilon)\cdot(1+\frac{1}{n(H(X)+\epsilon)}+\frac{\log(k)}{n(H(X)+\epsilon)}).
+$$</div>
+<p>For large $n$, the second term on the RHS vanishes, but the third term can linger if the number of clusters formed within the atypical set also increases. Denote,</p>
+<div class="math-block">$$
+\chi=\frac{\log(k)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Thus, for large $n$,</p>
+<div class="math-block">$$
+\ln(PLC)<\ln(\epsilon)\cdot(1+\chi).
+$$</div>
+<p>where $>0$. These considerations imply that $e_{2}<e_{1}.$ However, note that this is only one setting and was described in Section [sec:Analysis-of-Innovation].</p>
+<p>We next study the other extreme case wherein there were exactly $k$ sequences in $B_{}^{n}$, each forming its own cluster. Here suppose that the largest cluster is in VLPZ. Then $P(B')<2^{-n(H(X)+)}$. On the other hand, if the largest cluster is in VHPZ, then $P(B')>2^{-n(H(X)-)}$. Since the error depends upon the size of the largest cluster, we can quantify it exactly as $PoE2=P({{Cluster}1mean}) P({Cluster1})+...+P({Clusterkmean}) P({Clusterk})$. This gives the upper bound $PoE2<2^{-n(H(X)+)}$.</p>
+<p>We use the just obtained bound. We have</p>
+<div class="math-block">$$
+PoE1<\epsilon,
+$$</div>
+<div class="math-block">$$
+N_{1}=n(H(X)+\epsilon),
+$$</div>
+<div class="math-block">$$
+PoE2<\epsilon\cdot2^{-n(H(X)+\epsilon)}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+N_{2}=1+n(H(X)+\epsilon)+\log(k).
+$$</div>
+<p>We again ask the question: when is $e_{2}>e_{1}$? Expanding the LHS and the RHS in this question, we obtain the relation</p>
+<div class="math-block">$$
+-\frac{\ln(PoE2)}{N_{2}}>-\frac{\ln(PoE1)}{N_{1}}
+$$</div>
+<p>which implies that</p>
+<div class="math-block">$$
+-\frac{\ln(PoE2)}{1+n(H(X)+\epsilon)+\log(k)}>-\frac{\ln(PoE1)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Upon multiplying throughout by negative unity we get</p>
+<div class="math-block">$$
+\frac{\ln(PoE2)}{1+n(H(X)+\epsilon)+\log(k)}<\frac{\ln(PoE1)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Utilizing the bound (Equation ([eq:poe1bound])) on $PoE1$ we get</p>
+<div class="math-block">$$
+\frac{\ln(PoE2)}{1+n(H(X)+\epsilon)+\log(k)}<\frac{\ln(\epsilon)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Upon rearranging we get</p>
+<div class="math-block">$$
+\ln(PoE2)<\frac{\ln(\epsilon)\cdot(1+n(H(X)+\epsilon)+\log(k))}{n(H(X)+\epsilon)}.
+$$</div>
+<p>This can be simplified to</p>
+<div class="math-block">$$
+\ln(PoE2)<\ln(\epsilon)\cdot(1+\frac{1}{n(H(X)+\epsilon)}+\frac{\log(k)}{n(H(X)+\epsilon)}).
+$$</div>
+<p>For large $n$, the second term on the RHS vanishes, but the third term can linger if the number of clusters formed within the atypical set also increases. Denote,</p>
+<div class="math-block">$$
+\chi=\frac{\log(k)}{n(H(X)+\epsilon)}.
+$$</div>
+<p>Thus, for large $n$,</p>
+<div class="math-block">$$
+\ln(PoE2)<\ln(\epsilon)\cdot(1+\chi).
+$$</div>
+<p>where $>0$. Compare Equation ([eq:poe2secondextreme]) with,</p>
+<div class="math-block">$$
+\ln(PoE2)<\ln(\epsilon)+\ln(2^{-n(H(X)+\epsilon)})
+$$</div>
+<p>which is the inequality one obtains based on Equation ([eq:poe2bound]). The comparison yields that both inequalities can be satisfied if</p>
+<div class="math-block">$$
+\chi>\log_{\epsilon}(2^{-n(H(X)+\epsilon)}),
+$$</div>
+<p>which, being a non-integer-logarithmic lower bound that involves the number of clusters $k$ on the LHS, shows that there is a region wherein having $k$-means clustering in the atypical set can improve the reliability function in this extreme setting. Since the usual setting will possibly lie somewhere in between the two extreme regimes studied in Section [sec:Analysis-of-Innovation] and the present Appendix, we may conclude that a gain (i.e. $e_{2}>e_{1}$) from machine learning is <em>not</em> ruled out.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-wikipediaSourceCoding"><span class="ref-key">[1]</span> Reference entry not found for key wikipediaSourceCoding.</li><li id="ref-chawlamorgeraweak12022"><span class="ref-key">[2]</span> Reference entry not found for key chawlamorgeraweak12022.</li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,5 @@
+# robots.txt for yogoreal.net
+# Purpose: Block all web crawlers and bots completely
+
+User-agent: *
+Disallow: /

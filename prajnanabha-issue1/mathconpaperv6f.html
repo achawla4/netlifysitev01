@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Mathematical Theory of Consciousness | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-title {
+            margin: 0 0 0.4rem;
+            font-size: 2rem;
+            line-height: 1.15;
+            color: #1d2438;
+        }
+
+        .article-byline {
+            margin: 0 0 0.25rem;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .article-date {
+            margin: 0 0 1.6rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.8rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .callout-block p {
+            margin: 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .notation-table td:first-child,
+        .notation-table th:first-child {
+            white-space: nowrap;
+            width: 1%;
+            font-family: "Latin Modern Math", "Cambria Math", serif;
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote {
+            display: block;
+            margin: 0.85rem 0 1rem;
+            padding: 0.7rem 0.95rem;
+            border-left: 3px solid var(--accent-soft);
+            background: #faf4ea;
+            color: var(--muted);
+            font-size: 0.95rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .footnote sup {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha · Volume 1, Issue 1 · V1I1-A01</div>
+            <h1>A Mathematical Theory of Consciousness</h1>
+            <div class="hero-meta">Aman Chawla &middot; December 5, 2025</div>
+            <div class="hero-meta">Source PDF: mathConpaperv6forZenodo.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-iss.html">Issue 1</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card">
+                <h2>Abstract</h2>
+                <p>In this paper, the author proposes a phenomenological ansatz, \[ \Delta t = f(\Delta I), \] to relate objective information gained by an organism and its perception of time. Intervals of spacetime are thus perceived on the basis of information acquired from sensory sampling. We show that this ansatz clarifies our view of entropy amplification in axon tracts and the presence of multiple time scales in subjective perception, the latter being a phenomenon recorded in psychophysics.</p>
+            </section>
+            <section class="meta-card">
+                <h2>Article Information</h2>
+                <p><strong>Author:</strong> Aman Chawla<br>
+                <strong>Date:</strong> December 5, 2025<br>
+                <strong>Journal:</strong> Prajnanabha &mdash; Information and Physics<br>
+                <strong>Issue:</strong> Volume 1, Issue 1 (December 2025)<br>
+                <strong>Publisher:</strong> REAL Institute, Gurugram, India</p>
+            </section>
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h1 class="article-title">A Mathematical Theory of Consciousness</h1>
+            <p class="article-byline">Aman Chawla</p>
+            <p class="article-date">December 5, 2025</p>
+
+            <div class="callout-block">
+                <p>Having paid reverence to Brahman who is one, many, the true deity, the Supreme Spirit, Aryabhata sets forth three things: mathematics, the reckoning of time, and the sphere <span class="citation" title="clark1930aryabhatiya">[1]</span>. &ndash; <em>Aryabhatiya</em> of Aryabhata.</p>
+            </div>
+
+            <h2 id="introduction">1. Introduction</h2>
+            <p>Developing a mathematical theory of consciousness appears as an intractable problem at which several great minds have had a stab <span class="citation" title="Shannon1948">[2]</span>, <span class="citation" title="tegmark2000importance">[3]</span>, <span class="citation" title="tononi2016integrated">[4]</span>, <span class="citation" title="koch2006quantum">[5]</span>. While math is the language of science and science is material, or physical, consciousness is subjective. We can circumvent this stumbling block if, like in the three axioms of quantum mechanics which distinguish its domain from that of classical mechanics <span class="citation" title="nielsen2010quantum">[6]</span>, we acknowledge this difficulty and work with an ansatz that delineates the domain of the new theory.</p>
+
+            <p>This work is dedicated to a phenomenological expression, an ansatz,</p>
+            <div class="math-block">$$ \Delta t = f(\Delta I), $$</div>
+            <p>that relates the subjective and objective worlds.<sup>1</sup></p>
+            <p class="footnote"><sup>1</sup>An ansatz is a device for making progress in a domain in which exact logical underpinnings are unknown to the investigator. See for example <span class="citation" title="chawlamorgerasnider2020">[7]</span>.</p>
+
+            <p>Information gained by the brain from the objective world is related to the perception of elapsed time in the subjective world. This relationship is further related with the expression that shows entropy amplification in certain brain regions such as coupled axon tracts, to arrive at the conclusion that the subjective perception of the &ldquo;rate&rdquo; of flow of time is dependent on the depth of information processing that has gone before arriving at the present brain region.<sup>2</sup></p>
+            <p class="footnote"><sup>2</sup>This conclusion can be used to &lsquo;test&rsquo; or &lsquo;falsify&rsquo; the theory and equations presented in this work &mdash; which is important from the Karl Popper perspective <span class="citation" title="popper2005popper">[8]</span>. If we can find ways of testing, in lab animals such as the rodent, their subjective perception of the rate of passage of time, and simultaneously record the brain region that is most activated at such time, then, comparing at different depths of information processing we should be able to find different subjective perceptions of the rate of passage of time. The pertinent information could also be Tononi&rsquo;s integrated information <span class="citation" title="tononi2016integrated">[4]</span>, not necessarily Shannon information <span class="citation" title="Shannon1948">[2]</span>. An example of how the subjective perception of the rate of passage of time by a rodent can be experimentally tested is as follows. We first note that when time is perceived to be flowing very rapidly, the subject is usually in a deeply introverted state, sampling from its senses minimally (note that this relationship is guided by an inverting definition of $f$ as used in this paper). Thus rodents involved in a laboratory activity, when quiescent, can be assumed to be in a state where time is perceived to be flowing rapidly. fMRI recordings during such periods via body-mounted sensors could be useful aids to correlating the brain regions being activated during such periods and the (hypothesized) rate of passage of subjective time.</p>
+
+            <p>The goal of our work is a conceptual unification. The work meanders around the view that information in the brain is best seen as identical with consciousness. As an application of our work, we show connections with Daniel Kahneman&rsquo;s work. Thus, the ansatz and theory are shown to be versatile, and enable moving back and forth between the subjective and objective worlds in a coherent manner. The ansatz, in its corresponding physical form, is also shown to occur in data bearing channels such as the Gaussian channel. This potentially bolsters the validity of our theory, and provides a &lsquo;physical-justification&rsquo; for our ansatz. For similar work which came to the author&rsquo;s attention recently, see <span class="citation" title="shan2021space">[9]</span>.</p>
+
+            <p>The present work is structured as follows. In Section&nbsp;2 we work out the physical justification of our ansatz. In Section&nbsp;3 we outline the philosophical justification of the ansatz. In Section&nbsp;4 we apply the ansatz in two physical cases. We conclude in Section&nbsp;5. In the Appendix we discuss subjective consequences.</p>
+
+            <h2 id="table-of-notation">Table of Notation</h2>
+            <p>In the table provided we list all the principal symbols and their meanings as used in the present work.</p>
+            <figure class="article-table">
+                <div class="table-scroll">
+                    <table class="notation-table">
+                        <thead>
+                            <tr><th>Symbol</th><th>Meaning</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$A,\ B$</td><td>test mass names</td></tr>
+                            <tr><td>$x_{\alpha}^{\hat{n}}(t)$</td><td>position vector component in the $\hat{n}$ direction, of test mass $\alpha$ at time $t$</td></tr>
+                            <tr><td>$\delta_{ij}$</td><td>Kronecker delta which is unity when the indices match and 0 otherwise</td></tr>
+                            <tr><td>$h_{jk}^{TT}$</td><td>metric perturbation in the transverse-traceless gauge</td></tr>
+                            <tr><td>$x(t),\ y(t),\ z(t)$</td><td>channel (input, output, noise)</td></tr>
+                            <tr><td>$\triangle$</td><td>nominal separation between the transmitter and the receiver</td></tr>
+                            <tr><td>$c$</td><td>speed of light</td></tr>
+                            <tr><td>$\gamma$</td><td>time delay between transmission and reception</td></tr>
+                            <tr><td>$A,\ \omega$</td><td>(amplitude, angular frequency) of the gravitational radiation</td></tr>
+                            <tr><td>$W,\ SNR$</td><td>(bandwidth, signal-to-noise ratio) of the channel</td></tr>
+                            <tr><td>$a$</td><td>scaling factor</td></tr>
+                            <tr><td>$s$</td><td>scaled time variable</td></tr>
+                            <tr><td>$\Delta t,\ \Delta x$</td><td>elapsed time, spatial interval</td></tr>
+                            <tr><td>$\Delta I$</td><td>information gain or loss</td></tr>
+                            <tr><td>$f$</td><td>possibly non-linear function or mapping, empirically measurable</td></tr>
+                            <tr><td>$x_1,\ x_2$</td><td>distinct spatial locations</td></tr>
+                            <tr><td>$d(\cdot,\cdot)$</td><td>difference</td></tr>
+                            <tr><td>$K$</td><td>spiritual, non-physical, subjective knowledge of an individual</td></tr>
+                            <tr><td>$E$</td><td>subjective energy of an individual</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <figcaption><span>Table 1.</span> Principal symbols and their meanings.</figcaption>
+            </figure>
+
+            <h2 id="relation-between-information-and-spacetime">2. Relation Between Information and Spacetime</h2>
+            <p>For the physical preliminaries for reading this section, please see <span class="citation" title="straumann2012general">[10]</span> for space, time and gravitation in General Relativity and <span class="citation" title="Shannon1948">[2]</span> for Claude Shannon&rsquo;s mathematical theory of communication, commonly known as Information Theory.</p>
+
+            <h3 id="the-context">2.1 The Context</h3>
+            <p>Imagine a tortuous landscape of spacetime, with pockmarks here and there where matter has left its signature. From one corner of it you send a signal and it is received at another point. As you are viewing this entire process, you &lsquo;sample&rsquo; it with your senses (aided or unaided). This gives you a notion of elapsed time. As you sample, you also gain information about the progress of the experiment. Is there any relationship between elapsed time and information gain? In this work we not only propose that there is such a relationship in the subjective sense (Section&nbsp;3), but also show that such relationships are everywhere in nature. In particular, they arise in the setting of transmitting data over a Gaussian channel in the presence of spacetime perturbations, also known as gravitational waves (Subsection&nbsp;2.2). By juxtaposing our proposal with our Gaussian derivation, we leave the reader with the suggestion that such a relationship is quite natural. If so, then we may have uncovered a fundamental connection between information and the structure of spacetime and our universe itself. In the context of neuroscience, where information flow is key to the internal representation of the objective universe, such a connection guides us in the understanding of timelessness and eternity, two subjective experiences which are much sought after in the folklore of humanity.</p>
+
+            <h3 id="capacity-of-a-gaussian-channel">2.2 Capacity of a Gaussian Channel in the Presence of Gravitational Radiation</h3>
+            <p>In a prior paper <span class="citation" title="chawla2021fields">[11]</span> we had studied the influence of gravitational radiation on the information transmission intricacies of a biological channel. Here we will consider the Gaussian channel.</p>
+
+            <h4 id="case-a">2.2.1 Case A: No Influence of Gravitational Radiation on Channel Capacity</h4>
+            <p>We will begin our investigation by noting how linearized gravitational radiation influences the relative positions of two test masses $A$ and $B$, separated by some distance. This is captured by the following formula from Misner-Thorne-Wheeler <span class="citation" title="misner1973gravitation">[12]</span>, Equation (35.15):</p>
+            <div class="math-block">$$ x_{B}^{\hat{j}}(\tau) = x_{B}^{\hat{k}}(0)\left[\delta_{jk} + \tfrac{1}{2} h_{jk}^{TT}\right] \tag{1} $$</div>
+
+            <p>Consider a communication scheme wherein the channel input is $x(t)$, the channel output is $y(t)$ and the channel noise is $z(t)$. Usually, such a channel is written mathematically as</p>
+            <div class="math-block">$$ y(t) = x(t) + z(t) \tag{2} $$</div>
+
+            <p>However, note that the above equation does not feature any delay required in receiving the transmitted channel input at the destination. Motivated by Equation&nbsp;(1), we propose the following modification to $x(t)$:</p>
+            <div class="math-block">$$ x''(t) = x(t - \gamma). \tag{3} $$</div>
+
+            <p>Here $\gamma = \tfrac{\triangle}{c}$ is the time delay in receiving the signal from the transmitter at the receiver, and $\triangle$ is the nominal separation between the two. If gravitational radiation is involved, this $\triangle$ will vary with time, based on Equation&nbsp;(1). An example of such a variation is</p>
+            <div class="math-block">$$ \triangle \rightarrow \triangle\left(1 + \tfrac{1}{2} A \cos(\omega t)\right) \tag{4} $$</div>
+
+            <p>where $A$ and $\omega$ are, respectively, the amplitude and angular frequency of the gravitational radiation (see Equation (35.16) in <span class="citation" title="misner1973gravitation">[12]</span>). If the frequency of the gravitational radiation is very low, then we get the following channel:</p>
+            <div class="math-block">$$ y''(t) = x\!\left(t - \tfrac{\triangle}{c}\!\left(1 + \tfrac{A}{2}\right)\right) + z(t) \tag{5} $$</div>
+
+            <p>This is a general linear Gaussian channel with C.I.R. (channel impulse response) as a delta function. Specifically,</p>
+            <div class="math-block">$$ \mathrm{C.I.R.}(t) = \delta\!\left(t - \tfrac{\triangle}{c}\!\left(1 + \tfrac{A}{2}\right)\right) \tag{6} $$</div>
+
+            <p>Since the Fourier transform of a delta function is unity, the channel impulse response does not contribute to the channel capacity, and we recover the usual relation for the capacity of the channel, namely, $W \log(1 + SNR)$, derived by Shannon <span class="citation" title="Shannon1948">[2]</span>. Hence, the gravitational radiation of the form chosen for illustrative purposes in this section, has no impact on the channel capacity.</p>
+
+            <h4 id="case-b">2.2.2 Case B: Gravitational Radiation With an Impact on Channel Capacity</h4>
+            <p>In this subsection we will examine the conditions needed for gravitational radiation to have an impact on channel capacity. We will work with an example. Suppose we start with the transmitted signal as specified in Equation&nbsp;(3). Our goal will be to express it such that the resulting Gaussian channel has a non-trivial contribution to capacity from the gravitational radiation. We have,</p>
+            <div class="math-block">$$ x\!\left(t - a\!\left(\tfrac{\gamma}{a}\right)\right) = x\!\left(a\!\left(s - \tfrac{\gamma}{a}\right)\right) \tag{7} $$</div>
+
+            <p>We have made a change in the time variable by scaling it:</p>
+            <div class="math-block">$$ \tfrac{t}{a} \to s. $$</div>
+
+            <p>Since the Fourier transform of the time-scaled version of a function is the scaled version of the frequency-scaled frequency domain signal, therefore having expressed the transmitted signal as in Equation&nbsp;(7), we obtain a factor of $a$ in front of the channel impulse response which is an exponential in the frequency domain. This factor, related to the gravitational radiation&rsquo;s amplitude, means that the time domain channel impulse response will be a scaled and shifted delta function. The height-scaling factor will contribute to the channel capacity formula and we will have obtained a capacity which depends on the gravitational radiation.<sup>3</sup></p>
+            <p class="footnote"><sup>3</sup>We emphasize that there are several considerations related to gravitational radiation that have been overlooked in this section. For example, we have used the linearized theory of gravitational radiation, which is an approximation. Moreover, Equation (35.15), which we have used, assumes that the test masses are at rest before the gravitational wave arrives and would need to be modified for other settings. Further, we have taken a Shannon theoretic approach to characterizing gravitational waves information theoretically. There is also an entire branch of physics literature which uses concepts such as entropy and information in the context of physical systems, including gravitating systems.</p>
+
+            <p>Further, we have the rudiments of a relationship between the time delay $\gamma$ and the channel capacity in bits per channel use. In other words, various different time delays would lead to different bounds on the number of bits one can gain from the channel per use of the channel. Succinctly, bits gained is related to delay suffered. We may write this out in a more general way, as</p>
+            <div class="math-block">$$ \Delta t = f(\Delta I) \tag{8} $$</div>
+
+            <p>In Section&nbsp;3 we recover just such a relationship from a subjective argument.</p>
+
+            <h2 id="subjective-relation">3. Subjective Relation Between Spatiotemporal Intervals and Information</h2>
+            <p>In this section we will argue for the validity of Equation&nbsp;(8) from a subjective standpoint. The foundational material for this subjective standpoint can be found in <span class="citation" title="chalmers2002philosophy">[13]</span> and <span class="citation" title="komito1987nagarjuna">[14]</span>. We will start with a discussion of what life can mean and let that lead us into a study of the concepts of space and time. We will relate time to the perception of change. These concepts have been treated by many scientists and philosophers (see <span class="citation" title="pearson1892grammar">[15]</span>, <span class="citation" title="mach1914analysis">[16]</span>).</p>
+
+            <h3 id="life-time-change">3.1 Life, Time and Change</h3>
+            <p>Consider a nerve, one of the finer parts that compose the system of nerves with which we sense and operate in the world. I will try to describe this &ldquo;object&rdquo; which has probably not been seen by many of us. The nerve is what is known as a &ldquo;cell.&rdquo; As the name suggests a cell is a tiny unit which composes a biological organism. We don&rsquo;t encounter cells on a daily basis, but if we were to take some biological tissue under a microscope we would see thousands of these cells, tightly packed against each other. The fundamental processes of life go on in these very cells.</p>
+
+            <h4 id="time-as-experience">3.1.1 Time as Experience</h4>
+            <p>Life requires time to play out on the conspicuous level. Note that this does not mean that life &ldquo;is&rdquo; time, or that life is limited by and confined to operate within the bounds of time. The world literature is rife with accounts of those (living organisms) who have seen and felt their life to be sourced from beyond time. Nevertheless, in an important way, we commonly think of life as a process that plays out in time. Let me make clear what I mean by this. Consider an ordinary process such as a molecule &ldquo;going&rdquo; from one point of a cell-membrane to another point, to perform some biological function. We are so used to imagining motion, that when you read the word &ldquo;going&rdquo; you conjured up some image sequence in time &ndash; snapshots of the molecule at various positions, initially near the start and finally near the end point.</p>
+
+            <p>We can analyze motion more deeply. First of all, we have to begin by saying that the molecule &ldquo;is&rdquo; at the starting point. This implies that the molecule &ldquo;exists&rdquo; and its spatiotemporal environment allows us to &ldquo;locate&rdquo; it near the starting point. For the molecule to exist we must answer if it exists for everyone, only for us, or &ldquo;in reality&rdquo; if there is some such thing. Further, there is the question of &ldquo;when&rdquo; does it exist. Thus we see that to explain time we invoked motion but to explain motion we need a concept of time. So, there is no &ldquo;inherent existence&rdquo; of either motion or time. See also <span class="citation" title="komito1987nagarjuna">[14]</span> for a systematic exposition of dependent origination.<sup>4</sup></p>
+            <p class="footnote"><sup>4</sup>The referenced literature cited herein is source material. There is also a significant branch of philosophical study of this source material which post-dates this source material and has not been used in this work.</p>
+
+            <h4 id="change">3.1.2 Change</h4>
+            <p>Apart from an &ldquo;agreed upon&rdquo; definition of time, which really caters to a common denominator populated by non-thinkers, there isn&rsquo;t much of a validity in defining time using change when one needs change to even conceive of time. This puts the onus on us thinkers as to how we are then to operate in a world of change. In the absence of an alternate modality, we may agree to utilize time as a convenience of thought, a fulcrum within our mass of ideas, around which all those ideas can pivot. In this line of thinking, most of human discourse may be the use of a convenience (such as time) to explain other conveniences, for when the foundation is a convenience, can the superstructure have any &ldquo;real&rdquo; value, impact or import? Nevertheless, this is a limitation which we have to work within.</p>
+
+            <p>We have come back to our original query of whether life itself is limited, bound by or circumscribed by time. If life is just a concept that relies on the pivot for its description and use, then of course life is bound by time. The actuality however is beyond any description. This, many thinkers have said, is where we must stop &ndash; we cannot go beyond. It is like the island of thought on which we are, has a boundary, and we have reached the edge.</p>
+
+            <h3 id="space-and-time">3.2 Space and Time</h3>
+            <p>From the very notation $(x, t)$ we glean locality. We should probably stick with $(\Delta x, \Delta t)$ which are only intervals in space and time as opposed to absolute coordinates. Let us examine duration. Duration implies three things:</p>
+            <ul class="article-list">
+                <li>Start</li>
+                <li>Direction, and</li>
+                <li>Finish or termination</li>
+            </ul>
+            <p>How is an interval of space cognized? Either with reference to our own body-dimensions, or other bodies&rsquo; dimensions. We are able to &lsquo;move&rsquo; our body in relation to ambient bodies. This relative &lsquo;motion&rsquo; creates the interval $\Delta x$. Again, when talking about motion we run into the problem of localization in time. Thus, &lsquo;$\Delta x$&rsquo; depends on a sound foundation or basis for time &lsquo;$t$.&rsquo; $\Delta x$ is cognized by a &lsquo;change&rsquo; in relative configuration, locally. Initially, there is configuration 1 and finally there is configuration 2. Within configuration 1, I am located at $x_1$ and within configuration 2, I am located at $x_2$. Since $\Delta x = x_2 - x_1$ separates my two positions, I can think of a spatial interval. $x_1$, $x_2$, their absolute values are irrelevant because an infinite number of configuration pairs can give rise to the same separation $\Delta x$. Thus spatial intervals are fundamental.</p>
+
+            <p>Configuration 1 was at time &ldquo;1&rdquo; and at a later time &ldquo;2&rdquo; we had configuration 2. &lsquo;Later&rsquo; implies change with respect to a reference. The reference is my sampling of the &lsquo;present&rsquo; state of things. I sample now and I sample again and find a difference which I ascribe to the passage of time. If I found no difference I would say time has not passed. This difference can be:</p>
+            <ol class="article-list">
+                <li>Sensory</li>
+                <li>Emotional, or</li>
+                <li>Mental.</li>
+            </ol>
+            <p>There is therefore something which is aware of the state of 1, 2, and/or 3. This awareness is continuous for the most part but lapses periodically in deep sleep. Of course, to know that it has lapsed, it itself must be undergoing sampling. At the deepest level, the &lsquo;I&rsquo; must be that which knows my own awareness.</p>
+
+            <h3 id="information">3.3 Information</h3>
+            <p>To be more precise, the reference is the information that is gleaned from the sampling. If information piece 1 is different from information piece 2, I decree that change has occurred and thus time has flowed. We may therefore write $\Delta I = $ &ldquo;$I_2 - I_1$&rdquo; $ = d(I_1, I_2)$. Assuming that things change non-discontinuously, the larger the change, the greater the time that has passed, although the rate of change could also be important. Thus,</p>
+            <div class="math-block">$$ \Delta t = f(\Delta I) \tag{9} $$</div>
+
+            <p>and $f$ may be a nonlinear function as well, empirically measurable<sup>5</sup> as explained in Section&nbsp;1 (see the footnote in Section&nbsp;1). We may thus surmise that information is fundamental, not space or time. This is because $\Delta t$ is linked to $\Delta x$ via general relativity. Further, if we look at the inverse problem, $\Delta I = f^{-1}(\Delta t)$, we can ask what is the structure imposed on the information space given the differential geometric structure on $(\Delta t, \Delta x)$. Furthermore, could this be exploited to develop optimal encoding strategies for communication which is consonant with this view of reality?</p>
+            <p class="footnote"><sup>5</sup>We remark here that the empirical determination of the form of $f$ is not a simple task, even for ordinary states of consciousness. For rare states, such as those obtained in deep meditation, this becomes a harder task.</p>
+
+            <p>Since $\Delta t$ is a function of $\Delta I$, if some $\Delta I$ is &ldquo;lost&rdquo; what that means is simply that the black hole is a natural time-keeper. Any singularity, in fact, such as the big bang, may be thought of as a reference time keeper. Thus, information loss in a black hole <span class="citation" title="giddings1995black">[17]</span> may not be a paradox after all. Of course, we have to investigate Liouville&rsquo;s theorem first <span class="citation" title="Goldstein2002">[18]</span> and examine its foundations in light of the discussion in this work (see also <span class="citation" title="susskind2004introduction">[19]</span> for the relation of Liouville&rsquo;s theorem to the information loss problem).</p>
+
+            <p>To summarize, in this section we have really zoomed into the problem of space, time and information along with life and change and showed that all of these problems are inter-related at a very deep level. This interrelationship can yield interesting new insights into the world we live in and observe, including our own minds, a few of which we will see in Sections&nbsp;4 and&nbsp;5 to follow.</p>
+
+            <h2 id="physical-application">4. Physical Application of the Developed Equation</h2>
+            <p>In this section we discuss some physical applications and consequences of Equation&nbsp;(8).</p>
+
+            <h3 id="entropy-amplification">4.1 Connection with Entropy Amplification and Implications</h3>
+            <p>In <span class="citation" title="chawla2014ephaptic">[20]</span> and <span class="citation" title="chawlamorgera2020bernstein">[21]</span> the authors showed the phenomenon of entropy amplification &mdash; the entropy after neural processing is greater than the input entropies to an axon tract in an organism. The reader is referred to those original works for rigorous details on the relationship between depth of neural processing and entropy modification. Combining this with the fundamental relation derived above (see Equation&nbsp;(9)), we get to the conclusion that perceived, or psychological time intervals must be distorted with respect to &ldquo;actual&rdquo; or objective time intervals in the physical world &mdash; if there are such things as objective or &ldquo;actual&rdquo; time intervals (consider the special theory of relativity <span class="citation" title="einstein1905electrodynamics">[22]</span>). Such distortions have also been reported in the psychophysics literature (see for example <span class="citation" title="van2008distortions">[23]</span>).</p>
+
+            <h3 id="kahneman">4.2 Connection with Daniel Kahneman&rsquo;s Two Selves</h3>
+            <p>Though his insight is arguably not new (see for example <span class="citation" title="singh1987mundaka">[24]</span>), in <span class="citation" title="kahneman2011thinking">[25]</span> Kahneman argues for a remembering self and an experiencing self. These two have two different perceptions of temporal processing. The remembering self, ostensibly deeper in the brain, reached after much prior information processing, will naturally experience (in light of Subsection&nbsp;4.1) a more distorted version of time than the &lsquo;surface&rsquo; or experiencing self, closer to the senses. This picture seems to explain the continually changing perception of time that individuals experience &ndash; sometimes time appears to rush and sometimes to stand still.</p>
+
+            <h3 id="gravity-bits">4.3 Future Research: Connection with Gravity Bits</h3>
+            <p>We leave the reader here with some directions for future research &mdash; in particular, some questions: can there be some such thing as &lsquo;gravitational time interval&rsquo;, &lsquo;auditory time interval&rsquo; and &lsquo;visual time interval&rsquo; etc.? What might they mean? Will they be distinct and distinguishable by the being or brain? A gravitational time interval might be generated after entropy amplification of the &lsquo;gravity bits&rsquo;, or gravitational information<sup>6</sup> mentioned in <span class="citation" title="chawla2021fields">[11]</span>. What bearing does this have on the &lsquo;binding&rsquo; problem <span class="citation" title="treisman1996binding">[27]</span>?</p>
+            <p class="footnote"><sup>6</sup>These bits of information are those gleaned by the organism from the universe via the weak interaction between neurons and gravitational radiation <span class="citation" title="chawla2023computer">[26]</span>.</p>
+
+            <h3 id="summary">4.4 Summary</h3>
+            <p>The key implications, in brief are:</p>
+            <ul class="article-list">
+                <li>Distortion of psychological time with respect to objective time</li>
+                <li>Distortion of deep psychological time with respect to surface psychological time</li>
+                <li>Distortion of universal psychological time with respect to deep psychological time, surface psychological time and objective time</li>
+            </ul>
+
+            <h2 id="conclusion">5. Conclusion</h2>
+            <p>With a philosophically and physically justifiable ansatz, Equation&nbsp;(9), and its implications (Subsection&nbsp;4.4), in this work we have made a case for unique worlds existing within every individual brain, with multiple time scales, one per world. This closely resembles the Eastern philosophies where consciousness is thought of as being different for different &ldquo;levels&rdquo; of beings or Gods &mdash; from the mundane, human level, to the level of a Brahma (see for example <span class="citation" title="venkatesananda2010vasistha">[28]</span>). It also resembles middle Eastern literature which speaks of individuals attaining enlarged states of universal consciousness (see for example Genesis 37:9 in the King James version of the Holy Bible).</p>
+
+            <p>Our long-term goal is to build a bridge between subjectivity and objectivity, and we take a step forward in this work. By means of several examples, we show that the central relationship presented in this work has applications in neuroscience and psychology. The gap between what we intuit about consciousness and what can be said about it rigorously is therefore narrowed in this work.<sup>7</sup></p>
+            <p class="footnote"><sup>7</sup>Another important work which came to the author&rsquo;s attention after the submission of this work for publication is <span class="citation" title="gilson2023entropy">[29]</span>, where normal consciousness and Shannon theoretic quantities are found to be correlated experimentally.</p>
+
+            <h2 id="appendix">Appendix: Some Subjective Applications of the Developed Equation</h2>
+            <p>In this appendix, we place this work in the context of Indian philosophy. Some terminology will be used in this section that may be unfamiliar to the Western reader. The same self is called <em>Prajna</em> in sound sleep, <em>Vishva</em> in the waking state and <em>Taijasa</em> in the dreaming state (<span class="citation" title="sharma2000critical">[30]</span>, page 23). As <em>Vishva</em> it is the entire external world, and as <em>Taijasa</em> it is the entire dream world. This self, when one is concentrated upon it, filled by it, so to say, contributes to a stability in the awareness of the individual. The greater the repose in the self, the greater the stability of the individual, and the lower the encounter with uncomfortable change. This is a reason why this repose is synonymous with advanced spiritual knowledge, or <em>jnana</em>. To the <em>jnani</em>, the possessor of <em>jnana</em>, when he or she samples the world of senses, he or she finds very little change. How is this possible, if there is a definite, given, fixed, or actual world out there? It must imply that this fixed &lsquo;out there&rsquo; is an imagination itself. Instead, every individual has his or her own imaginary &lsquo;out there&rsquo;, partly bolstered by actual experience, but much of it a figment of the creative mind&rsquo;s imaginary sojourns. More precisely, each individual is the center of an awareness which has, in actuality, an infinity of &lsquo;centers&rsquo; <span class="citation" title="tirtha2002woods">[31]</span>.</p>
+
+            <p>If we let $K$ stand for the spiritual knowledge of an individual and $\Delta I$ stand for the change in information about &lsquo;out there&rsquo; obtained via the senses between samplings, then the above discussion implies a sort of uncertainty principle:</p>
+            <div class="math-block">$$ K \cdot \Delta I = \mathrm{constant} \tag{10} $$</div>
+
+            <p>Our whole goal is to approach the behemoth, &lsquo;subjectivity,&rsquo; from all possible angles in the hope of defining and delimiting it precisely. The above equation implies that <em>as knowledge increases, the perceived change in time goes down</em>. To see this, consider the expression written down in Section&nbsp;2, where perceived change in time is written as a function of the change in information about &lsquo;out there,&rsquo; as:</p>
+            <div class="math-block">$$ \Delta t = f(\Delta I) \tag{11} $$</div>
+
+            <p>Introducing $g = f^{-1}$ we may get</p>
+            <div class="math-block">$$ K \cdot g(\Delta t) = \mathrm{constant} \tag{12} $$</div>
+
+            <p>Assuming $g$ is non-decreasing, we immediately obtain the stated implication above. In the extreme case of infinite spiritual knowledge, then, the perceived change in time would go down to a nullity and one would observe, &ldquo;nothing ever changes.&rdquo; One would have hit the oft-quoted &ldquo;eternal life,&rdquo; a metaphor for timelessness, here and now (see for example <span class="citation" title="boff2001prayer">[32]</span>).</p>
+
+            <p>Consider also the common observation that a person with spiritual knowledge is really filled with subjective or metaphorical &ldquo;energy,&rdquo; which manifests as a gigantic will to do things and be productive. This may be encoded in the relation:</p>
+            <div class="math-block">$$ K = \alpha \cdot E \tag{13} $$</div>
+
+            <p>where $\alpha$ is a constant of proportionality. Upon combining (12) and (13), we may write down a time-energy uncertainty relationship of subjectivity:</p>
+            <div class="math-block">$$ \alpha \cdot E \cdot g(\Delta t) = \mathrm{constant} \tag{14} $$</div>
+
+            <p>Absorbing the constant of proportionality in the Right Hand Side, we may write:</p>
+            <div class="math-block">$$ E \cdot g(\Delta t) = \mathrm{constant} \tag{15} $$</div>
+
+            <p>Thus, when we are filled with a surplus of spiritual energy, subjectively, very little time passes or elapses. We remain in the &lsquo;zone&rsquo;, a concentrated state, a region of high productivity, where we are in touch with our spiritual nature, the self.</p>
+
+            <section class="references">
+                <h2>References</h2>
+                <ol class="reference-list">
+                    <li id="ref-clark1930aryabhatiya"><span class="ref-key">[1]</span> Walter Eugene Clark. <em>The Aryabhatiya of Aryabhata: An Ancient Indian Work on Mathematics and Astronomy</em>. University of Chicago Press, 1930.</li>
+                    <li id="ref-Shannon1948"><span class="ref-key">[2]</span> Claude E. Shannon. A mathematical theory of communication. <em>The Bell System Technical Journal</em>, 27:379&ndash;423, 1948.</li>
+                    <li id="ref-tegmark2000importance"><span class="ref-key">[3]</span> Max Tegmark. Importance of quantum decoherence in brain processes. <em>Physical Review E</em>, 61(4):4194, 2000.</li>
+                    <li id="ref-tononi2016integrated"><span class="ref-key">[4]</span> Giulio Tononi, Melanie Boly, Marcello Massimini, and Christof Koch. Integrated information theory: from consciousness to its physical substrate. <em>Nature Reviews Neuroscience</em>, 17(7):450&ndash;461, 2016.</li>
+                    <li id="ref-koch2006quantum"><span class="ref-key">[5]</span> Christof Koch and Klaus Hepp. Quantum mechanics in the brain. <em>Nature</em>, 440(7084):611&ndash;611, 2006.</li>
+                    <li id="ref-nielsen2010quantum"><span class="ref-key">[6]</span> Michael A. Nielsen and Isaac L. Chuang. <em>Quantum Computation and Quantum Information</em>. Cambridge University Press, 2010.</li>
+                    <li id="ref-chawlamorgerasnider2020"><span class="ref-key">[7]</span> Aman Chawla, Salvatore D. Morgera, and Arthur D. Snider. On axon interaction and its role in neurological networks. <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em>, 18(2):790&ndash;796, 2019.</li>
+                    <li id="ref-popper2005popper"><span class="ref-key">[8]</span> Karl Popper. <em>The Logic of Scientific Discovery</em>. New York: Taylor &amp; Francis, 2005.</li>
+                    <li id="ref-shan2021space"><span class="ref-key">[9]</span> Liang Shan. Space-time structure as a property derived from the operation of consciousness at the quantum-classical boundary. <em>Physics Essays</em>, 34(1):6&ndash;11, 2021.</li>
+                    <li id="ref-straumann2012general"><span class="ref-key">[10]</span> Norbert Straumann. <em>General Relativity</em>. Springer Science &amp; Business Media, 2012.</li>
+                    <li id="ref-chawla2021fields"><span class="ref-key">[11]</span> Aman Chawla, Salvatore D. Morgera, and Arthur D. Snider. Fields, geometry, and their impact on axon interaction. <em>Journal of Applied Mathematics and Physics</em>, 9(4):751&ndash;778, 2021.</li>
+                    <li id="ref-misner1973gravitation"><span class="ref-key">[12]</span> Charles W. Misner, Kip S. Thorne, and John Archibald Wheeler. <em>Gravitation</em>. Macmillan, 1973.</li>
+                    <li id="ref-chalmers2002philosophy"><span class="ref-key">[13]</span> David J. Chalmers. <em>Philosophy of Mind: Classical and Contemporary Readings</em>. Oxford University Press, USA, 2002.</li>
+                    <li id="ref-komito1987nagarjuna"><span class="ref-key">[14]</span> David Ross Komito, Sonam Rinchen, and Tenzin Dorjee. <em>Nagarjuna&rsquo;s Seventy Stanzas: a Buddhist Psychology of Emptiness</em>. Snow Lion Publications, 1987.</li>
+                    <li id="ref-pearson1892grammar"><span class="ref-key">[15]</span> Karl Pearson. The grammar of science. <em>Nature</em>, 46(1185):247&ndash;247, 1892.</li>
+                    <li id="ref-mach1914analysis"><span class="ref-key">[16]</span> Ernst Mach. <em>The Analysis of Sensations, and the Relation of the Physical to the Psychical</em>. Open Court Publishing Company, 1914.</li>
+                    <li id="ref-giddings1995black"><span class="ref-key">[17]</span> Steven B. Giddings. The black hole information paradox. <em>arXiv preprint hep-th/9508151</em>, 1995.</li>
+                    <li id="ref-Goldstein2002"><span class="ref-key">[18]</span> H. Goldstein, C. Poole, and J. Safko. <em>Classical Mechanics</em>, 2002.</li>
+                    <li id="ref-susskind2004introduction"><span class="ref-key">[19]</span> Leonard Susskind and James Lindesay. <em>An Introduction to Black Holes, Information and the String Theory Revolution: The Holographic Universe</em>. World Scientific, 2004.</li>
+                    <li id="ref-chawla2014ephaptic"><span class="ref-key">[20]</span> Aman Chawla and Salvatore D. Morgera. Ephaptic synchronization as a mechanism for selective amplification of stimuli. <em>BMC Neuroscience</em>, 15(1):1&ndash;1, 2014.</li>
+                    <li id="ref-chawlamorgera2020bernstein"><span class="ref-key">[21]</span> Aman Chawla and Salvatore D. Morgera. Ephaptic coupling in axon tracts under time and rate coding of information: a computer study. <em>Bernstein Conference</em>, 2020.</li>
+                    <li id="ref-einstein1905electrodynamics"><span class="ref-key">[22]</span> Albert Einstein. On the electrodynamics of moving bodies. <em>Annalen der Physik</em>, 17(10):891&ndash;921, 1905.</li>
+                    <li id="ref-van2008distortions"><span class="ref-key">[23]</span> Virginie Van Wassenhove, Dean V. Buonomano, Shinsuke Shimojo, and Ladan Shams. Distortions of subjective time perception within and across senses. <em>PLoS ONE</em>, 3(1):e1437, 2008.</li>
+                    <li id="ref-singh1987mundaka"><span class="ref-key">[24]</span> Karan Singh. <em>Mundaka Upanishad: The Bridge to Immortality</em>. Bhavans Book University, 1987.</li>
+                    <li id="ref-kahneman2011thinking"><span class="ref-key">[25]</span> Daniel Kahneman. <em>Thinking, Fast and Slow</em>. Macmillan, 2011.</li>
+                    <li id="ref-chawla2023computer"><span class="ref-key">[26]</span> Aman Chawla and Salvatore Domenic Morgera. Computer study of metric perturbations impinging on coupled axon tracts. <em>Physics Essays</em>, 36(2):160&ndash;167, 2023.</li>
+                    <li id="ref-treisman1996binding"><span class="ref-key">[27]</span> Anne Treisman. The binding problem. <em>Current Opinion in Neurobiology</em>, 6(2):171&ndash;178, 1996.</li>
+                    <li id="ref-venkatesananda2010vasistha"><span class="ref-key">[28]</span> Swami Venkatesananda. <em>Vasistha&rsquo;s Yoga</em>. SUNY Press, 2010.</li>
+                    <li id="ref-gilson2023entropy"><span class="ref-key">[29]</span> Matthieu Gilson, Enzo Tagliazucchi, and Rodrigo Cofr&eacute;. Entropy production of multivariate Ornstein-Uhlenbeck processes correlates with consciousness levels in the human brain. <em>Physical Review E</em>, 107(2):024121, 2023.</li>
+                    <li id="ref-sharma2000critical"><span class="ref-key">[30]</span> Chandradhar Sharma. <em>A Critical Survey of Indian Philosophy</em>. Motilal Banarsidass Publ., 2000.</li>
+                    <li id="ref-tirtha2002woods"><span class="ref-key">[31]</span> Rama Tirtha. <em>In the Woods of God Realization, vol. 1&ndash;7</em>. Lucknow: Swami Rama Pratishthan, 2002.</li>
+                    <li id="ref-boff2001prayer"><span class="ref-key">[32]</span> Leonardo Boff. <em>The Prayer of Saint Francis: A Message of Peace for the World Today</em>. Orbis Books, 2001.</li>
+                </ol>
+            </section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>

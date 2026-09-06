@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Note on Message Passing Decoding Over Non-Gaussian Channels - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">A Note on Message Passing Decoding Over Non-Gaussian Channels</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In these notes, the authors work out the outline of the analysis of SPARC codes when the channel model is free space optical (FSO). In this study, the fading coefficient is assumed to be a known constant. The key contribution is an application of Shannon’s standard noisy channel coding theorem to the aforementioned channel model. Fading Coefficients are Known Constants: Chan- nel Model and Initial Time In this section we setup the case where the fading coefficient of the FSO channel is known. Then we input a SPARC codeword [1] into the channel. Then we step forward in time using the AMP algorithm and obtain the decoding estimate for the input codeword coordinate (see Equation 26 in Subsection 1.2). Working this out explicitly sets the stage for an application of the Shannon theorem in Section 2. x = CoeffF SO · Aβ0 (1) where CoeffF SO is known and Aβ0 is a single codeword coordinate. We have the channel equation, Y = Hx + Ith (2) where H is treated as a constant at present. Next we let J = Y H = x + Ith H . (3) where J represents a single number and H represents a single fading coefficient. We assume H is known. Therefore, Ji = CoeffF SO(Aβ0)i + Ith Hi . (4) 1</p> <p>Since CoeffF SO is a known constant, Ki ≡ Ji CoeffF SO = (Aβ)i + Ith CoeffF SO · Hi (5) where A is a known, sparse, design matrix, β is a sparse message vector and the last term is the noise term. In vector form, ⃗K = → −→ A−→ β0 + −→ n (6) which belongs to Rn with −→ β0 ∈RN. Here → −→ A is the design matrix of the SPARC code, −→ β0 is the message vector and −→ n is the i.i.d. noise vector. The variance of each i.i.d. r.v. is ¯ I2 th (CoeffF SOHi)2 where CoeffF SO = 2RP √ T and Hi is a known constant. Given −→ K and → −→ A 1, we wish to reconstruct −→ β0. Next, we will advance through the AMP algorithm steps, indexed by the time t. We start with Step 1, at time t = 0. We guess β0 0 = 0. Therefore, z0 = −→ K − → −→ Aβ0 0 + 1 δ z−1 1 N N X i=1 η′ −1( → −→ A † z−1 + β−1 0 ) (7) where δ = n LM . Further, any variable with a negative index is assumed to be 0, as per Montanari. Thus, z−1 ≡0 (8) η′ −1 ≡0 (9) and β−1 ≡0. (10) Therefore, z0 = −→ K − → −→ Aβ0 0 + 0 (11) with β0 0 = 0. Therefore, z0 = −→ K. (12) 1Note that this design matrix is n × LM, with N ≡LM. 2</p> <p>1.1 First Time Step Next, β1 0 = η0( → −→ A † z0 + β0 0) (13) where z0 = −→ K (14) and β0 0 = 0. Further, η0 ≡η0 i |i=0(s) (15) and η0 i = p nPl e si √ nPl τ2 P j∈sec(i) e sj √ nPl τ2 (16) where 1 ≤i ≤N. Evaluating the expression at i = 0, we get η0 = p nPl e s0 √ nPl τ2 P j∈sec(0) e sj √ nPl τ2 (17) We define, τ 2 0 ≡ ith (2RP √ THi)2 + E[β2 0] δ (18) where β0 is a random variable whose distribution coincides with the empirical distribution of the entries of −→ β0. This is based on Equation (1.4) and adjoining text from Montanari’s paper [2], and Equation [8] of the reference DMM09 from the same paper. Here δ = n LM and Pl is the allocated power. We find, z1 = −→ K − → −→ Aβ0 0 + 1 δ z0⟨η′ 0( → −→ A † z0 + x0)⟩ (19) where z0 = −→ K and x0 = 02 . Recall that η′ 0 was specified earlier. Therefore, z1 = −→ K + 1 δ −→ K⟨η′ → −→ A †−→ K⟩. (20) 2Note that: β0 ≡x, β0 0 ≡x0,. . ., βt 0 ≡xt. 3</p> <p>1.2 Second Time Step Then β2 0 = η1( → −→ A † z1 + β1 0). (21) Here we ask the question as to what is τ 2 1 , which is needed in η1? We refer the reader to Equation (1.4) from Montanari’s paper. There, τ 2 1 = ith (2RP √ THi)2 + 1 δ E[η0(β0 + τ0z) −β0]2 (22) where η0 is specified in Ⅎ, β0 has a pdf which matches the empirical distribution of the entries of −→ β0 and z ∼N (0, 1) is independent of β0. Further, Equation (18) specifies τ0. Next, z2 = −→ K − → −→ Aη1( → −→ A † z1 + β1 0) + 1 δ z1⟨η′ 1( → −→ A † z1 + β1 0)⟩ (23) and so therefore, z2 = −→ K − → −→ Aη1( → −→ A † z1 + β1 0) + 1 δ z1⟨η′ 1( → −→ A † z1 + β1 0)⟩. (24) Therefore, z2 = −→ K − → −→ Aη1( → −→ A † (−→ K + 1 δ −→ K⟨η′ → −→ A †−→ K⟩) + β1 0) . . . (25) . . . + 1 δ (−→ K + 1 δ −→ K⟨η′ → −→ A †−→ K⟩)⟨η′ 1( → −→ A † (−→ K + 1 δ −→ K⟨η′ → −→ A †−→ K⟩) + β1 0)⟩. (26) and so on, for the higher indices. Thus, we have a nested or iterative zt from which we reconstruct βt+1 us- ing Montanari’s Equation (1.1), and that gives us, for large enough t, a good approximation to β0. Analysis Outline In this section, our goal is to characterize the performance of the SPARC-FSO- AMP system. We break down the characterization into a sequence of steps. 1. We fix some large t 2. Get the equation for βt+1 , as in the parts above. It will be in terms of the received vector, −→k , the empirical distribution of the message vector (via τ ), g P− → β0, the power allocation Pl, the SPARC structure (si, sj, sec(j) etc.) and FSO channel-noise and modulation constants. 4</p> <p>3. Assume a uniform distribution on the messages and derive g P− → β0. 4. Fix a power allocation Pl, for example an exponential power allocation. 5. Fix the SPARC structure si, sj, sec(j) etc. 6. Fix the channel noise and modulation parameters as constants. 7. Thus we have, βt+1 ∼f(−→ K, g P− → β0, Pl, si, sj, Ith, H). (27) Define R′ ≡(g P− → β0, Pl, si, sj, Ith, H). That is, βt+1 ∼g(−→ K), since R′ is known, where −→ K was received and βt+1 is our approximation to the mes- sage vector of the pseudo-channel. 8. Finally, using g(−→ K) as the decoding, we are done. 9. Then we compare g(−→ K) with β0 to determine whether the decoding is correct and thus the overall transmission goal is met or not. 10. So we want the following quantity: Pr{β0 ̸= g(−→ K)} (28) 11. For different t, we could say that since the decoding structure was different, the code is different. 12. As t →∞,we have here a sequence of codes. 13. Recall the noisy channel coding theorem: for every rate R &lt; C, there exists a sequence of codes whose Poemax →0 as t →∞.3 14. Thus, fix a rate R and so a SPARC structure (L, n, N) and then we have here a customized (that is, (L, n, N)-dependent) code for each t. That is, we have a code sequence. Find the maximum value of R such that Equation (28) converges to 0 as t →∞. This would be the “capacity” or maximum achievable rate Rmax on an FSO, using the SPARC-AMP code. 15. Finally, we may compare this Rmax with LDPC-FSO-Belief-Propagation code’s maximum achiveable rate to decide whether SPARCs are “better” vis-a-vis LDPC codes. 3Note that Equation (1) in Greig-Venkataramanan states that R = L log(M) n = L n (log N L ) (29) where L is the number of sections and n, N are dimensional parameters. 5</p> <p>3 Conclusion In this note we have setup the exact analysis outline to determine the com- parative performance of different codes such as LDPC and SPARCs over the free space optical channel with approximate message passing decoding. Note that the channel model of the FSO system is itself under development, with effects such as turbulence not fully accounted for yet in the literature (see the text of Andrews and Phillips for example), and therefore the steps presented in this work, if used with the basic model should be taken with some degree of uncertainty. If such a coding/decoding system is to be used in the control setting for say synchronization, then Sahai’s anytime framework will need to be integrated within this setup. One imagines a sequential semi-orthogonal repeated pulse position modulation system, but with AMP decoding which itself plays out online. The coding side will need to be reformulated as well. Some steps in this direction were taken in the following preprint: [3]. References [1] Kuan Hsieh and Ramji Venkataramanan. Modulated sparse superposition codes for the complex awgn channel. IEEE Transactions on Information Theory, 67(7):4385–4404, 2021. [2] Mohsen Bayati and Andrea Montanari. The dynamics of message passing on dense graphs, with applications to compressed sensing. IEEE Transactions on Information Theory, 57(2):764–785, 2011. [3] Aman Chawla. Anytime reliability analysis of finite state slow fading free space optical channels. June 2025.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/A_Note_on_Message_Passing_Decoding_Over_Non_Gaussian_Channels.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

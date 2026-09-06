@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leibnitz 4.0 — Architecture Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy:#0d2436;
+    --ink-navy-deep:#081a28;
+    --ink-navy-raised:#123449;
+    --signal-green: #2ee59d;
+    --signal-blue: #4da3ff;
+    --blueprint-line: rgba(111,167,192,0.16);
+    --blueprint-line-strong: rgba(143,193,216,0.32);
+    --paper:#eaf2f5;
+    --muted:#8fa9b8;
+    --muted-dim:#5c7a89;
+    --amber:#f2a93b;
+    --amber-soft: rgba(242,169,59,0.14);
+    --cyan:#6fe7dd;
+    --cyan-soft: rgba(111,231,221,0.14);
+    --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink-navy);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--blueprint-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px);
+    background-size:36px 36px;
+  }
+
+  ::selection{ background:var(--amber); color:var(--ink-navy-deep); }
+
+  a{color:var(--cyan);}
+
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .sheet-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .sheet-label::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--amber);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  header.topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(8,26,40,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--blueprint-line-strong);
+  }
+  .topbar-inner{
+    max-width:1120px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+  }
+  .leibnitz-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            font-weight: 400;
+            background: linear-gradient(135deg, var(--signal-green) 0%, var(--signal-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            margin: 0;
+   }
+
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.04em;
+    color:var(--paper);
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand span.ver{ color:var(--amber); }
+  nav.links{ display:flex; gap:28px; }
+  nav.links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:3px;
+    transition:color .15s, border-color .15s;
+  }
+  nav.links a:hover{ color:var(--paper); border-color:var(--amber); }
+  .nav-toggle{ display:none; }
+
+  @media(max-width:760px){
+    nav.links{ display:none; }
+  }
+
+  /* ---------- TRACE DIVIDER (signature element) ---------- */
+  .trace-divider{
+    max-width:1120px; margin:0 auto; padding:0 28px;
+  }
+  .trace-divider svg{ width:100%; height:34px; display:block; }
+  .trace-path{
+    fill:none;
+    stroke:var(--cyan);
+    stroke-width:1.4;
+    stroke-dasharray: 6 5;
+    opacity:0.55;
+    animation: trace-flow 3.4s linear infinite;
+  }
+  @keyframes trace-flow{
+    to{ stroke-dashoffset: -110; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .trace-path{ animation:none; }
+  }
+
+  /* ---------- LAYOUT SHELLS ---------- */
+  main{ max-width:1120px; margin:0 auto; padding:0 28px; }
+  section{ padding:96px 0; border-bottom:1px solid var(--blueprint-line); }
+  section:last-of-type{ border-bottom:none; }
+
+  h1,h2,h3{ font-family:'IBM Plex Mono', monospace; font-weight:600; margin:0; color:var(--paper); }
+  h2{ font-size:26px; letter-spacing:0.01em; margin-bottom:14px; }
+  h3{ font-size:15px; letter-spacing:0.04em; text-transform:uppercase; color:var(--amber); margin-bottom:10px;}
+  p{ color:var(--muted); max-width:640px; }
+  p.lede{ color:#c3d5de; font-size:17.5px; max-width:680px; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding-top:72px; padding-bottom:88px; }
+  .status-chip{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.05em;
+    color:var(--amber);
+    border:1px solid rgba(242,169,59,0.35);
+    background:var(--amber-soft);
+    padding:6px 12px;
+    border-radius:2px;
+    margin-bottom:28px;
+  }
+  .status-chip .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 0 3px rgba(242,169,59,0.18);
+  }
+  .hero h1{
+    font-size:clamp(30px, 4vw, 46px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
+    font-weight:500;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--paper);
+  }
+  .hero-sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--cyan);
+    letter-spacing:0.02em;
+    margin:0 0 26px;
+  }
+  .hero-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:2px;
+    display:inline-block;
+    transition: transform .15s, background .15s, border-color .15s;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--amber); color:var(--ink-navy-deep); font-weight:600; }
+  .btn-primary:hover{ background:#ffbb55; }
+  .btn-ghost{ border:1px solid var(--blueprint-line-strong); color:var(--paper); }
+  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+  /* ---------- CONSTRAINTS LIST (Sheet 01) ---------- */
+  .constraints{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:1px; background:var(--blueprint-line-strong);
+    border:1px solid var(--blueprint-line-strong);
+    margin-top:36px;
+  }
+  .constraint-cell{
+    background:var(--ink-navy);
+    padding:22px 20px;
+  }
+  .constraint-cell .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--muted); letter-spacing:0.06em;
+  }
+  .constraint-cell p{ margin:8px 0 0; font-size:14.5px; color:#b9cad3; max-width:none;}
+
+  /* ---------- ARCHITECTURE DIAGRAM (Sheet 02) ---------- */
+  .diagram{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .diagram-node{
+    width:100%; max-width:520px;
+    border:1px solid var(--blueprint-line-strong);
+    background:var(--ink-navy-raised);
+    padding:16px 22px;
+    text-align:center;
+    position:relative;
+  }
+  .diagram-node .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px; letter-spacing:0.02em; color:var(--paper);
+  }
+  .diagram-node .sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--muted); margin-top:4px;
+  }
+  .diagram-node.optional{
+    border-style:dashed;
+    color:var(--muted);
+  }
+  .diagram-node.optional .label{ color:var(--muted); }
+  .diagram-node.core{
+    border-color:var(--amber);
+    box-shadow: 0 0 0 1px rgba(242,169,59,0.15);
+  }
+  .diagram-connector{
+    width:1px; height:30px;
+    background:repeating-linear-gradient(var(--cyan) 0 4px, transparent 4px 8px);
+    position:relative;
+  }
+  .diagram-connector::after{
+    content:"";
+    position:absolute; left:-3px; bottom:-1px;
+    width:0; height:0;
+    border-left:3.5px solid transparent;
+    border-right:3.5px solid transparent;
+    border-top:5px solid var(--cyan);
+  }
+  .diagram-fanout{
+    display:flex; gap:16px; width:100%; max-width:520px; justify-content:center;
+  }
+  .diagram-fanout .diagram-node{ max-width:none; flex:1; padding:14px 12px; }
+
+  /* ---------- API CATEGORY GRID (Sheet 03) ---------- */
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:16px; margin-top:36px;
+  }
+  .cat-card{
+    border:1px solid var(--blueprint-line-strong);
+    padding:20px 22px;
+    background: linear-gradient(180deg, rgba(18,52,73,0.4), transparent);
+  }
+  .cat-card h4{
+    margin:0 0 10px; font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px; color:var(--cyan); letter-spacing:0.03em;
+  }
+  .cat-card ul{ margin:0; padding:0; list-style:none; }
+  .cat-card li{
+    font-size:13.5px; color:var(--muted);
+    padding:4px 0; border-top:1px solid rgba(111,167,192,0.08);
+  }
+  .cat-card li:first-child{ border-top:none; }
+
+  /* ---------- INCREMENTAL ENGINE (Sheet 04) ---------- */
+  .research-panel{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap:44px;
+    margin-top:36px; align-items:start;
+  }
+  @media(max-width:840px){ .research-panel{ grid-template-columns:1fr; } }
+  .citation-box{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--muted);
+    border-left:2px solid var(--amber);
+    padding:12px 16px;
+    background:rgba(242,169,59,0.05);
+    margin-top:22px;
+  }
+  .chart-wrap{
+    border:1px solid var(--blueprint-line-strong);
+    padding:18px 18px 10px;
+    background:var(--ink-navy-raised);
+  }
+  .chart-wrap .cap{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--muted); margin-top:8px; text-align:center;
+  }
+
+  /* ---------- FLOW STEPS (patch lifecycle) ---------- */
+  .flow-steps{
+    display:flex; flex-wrap:wrap; gap:0; margin-top:26px;
+    border:1px solid var(--blueprint-line-strong);
+  }
+  .flow-step{
+    flex:1; min-width:150px;
+    padding:16px 16px;
+    border-right:1px solid var(--blueprint-line-strong);
+    position:relative;
+  }
+  .flow-step:last-child{ border-right:none; }
+  .flow-step .n{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--amber); letter-spacing:0.08em;
+  }
+  .flow-step .t{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--paper); margin-top:6px;
+  }
+
+  /* ---------- SDK / ACCESS (Sheet 05) ---------- */
+  .sdk-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr));
+    gap:16px; margin-top:32px;
+  }
+  .sdk-card{
+    border:1px solid var(--blueprint-line-strong);
+    padding:20px;
+    text-align:left;
+  }
+  .sdk-card .lang{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; color:var(--paper); margin-bottom:6px;
+  }
+  .sdk-card .state{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--muted);
+    border:1px solid var(--blueprint-line-strong);
+    display:inline-block; padding:2px 8px; margin-top:8px;
+    border-radius:2px;
+  }
+  .sdk-card .state.active{ color:var(--cyan); border-color:rgba(111,231,221,0.4); }
+
+  code.snippet-inline{
+    font-family:'IBM Plex Mono', monospace;
+    background:rgba(111,167,192,0.1);
+    padding:1px 6px;
+    border-radius:2px;
+    font-size:0.92em;
+    color:var(--cyan);
+  }
+
+  /* ---------- ROADMAP (Sheet 06) ---------- */
+  .roadmap-quote{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:20px; line-height:1.5;
+    color:var(--paper);
+    max-width:760px;
+    margin-top:10px;
+  }
+  .roadmap-quote .accent{ color:var(--amber); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:48px 0 60px;
+    text-align:center;
+  }
+  footer .foot-inner{ max-width:1120px; margin:0 auto; padding:0 28px; }
+  footer p{ margin:0 auto; font-size:12.5px; color:var(--muted-dim); max-width:none; }
+  footer a{ color:var(--muted); }
+  footer a:hover{ color:var(--cyan); }
+
+  .toc{
+    display:flex; gap:0; flex-wrap:wrap;
+    margin-top:44px;
+    border-top:1px solid var(--blueprint-line-strong);
+    border-bottom:1px solid var(--blueprint-line-strong);
+  }
+  .toc a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--muted); text-decoration:none;
+    padding:12px 18px;
+    border-right:1px solid var(--blueprint-line-strong);
+  }
+  .toc a:last-child{ border-right:none; }
+  .toc a:hover{ color:var(--amber); }
+  @media(max-width:760px){
+    .toc a{ padding:10px 12px; font-size:10.5px; }
+  }
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="leibnitz-name">Leibnitz 4.0</div>
+    <nav class="links">
+      <a href="#breakpoint">Breakpoint</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#api-surface">API Surface</a>
+      <a href="#incremental">Incremental Engine</a>
+      <a href="#access">SDKs</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <a class="btn btn-ghost" href="https://leibnitz3.onrender.com/" style="padding:8px 14px; font-size:12px;">Leibnitz 3.x ↗</a>
+  </div>
+</header>
+
+<main data-pagefind-body data-pagefind-filter="type:Research">
+
+  <!-- SHEET 00 — COVER -->
+  <section class="hero" id="cover">
+    <div class="status-chip"><span class="dot"></span> ARCHITECTURE PREVIEW — ENGINE NOT YET DEPLOYED</div>
+    <h1>The browser becomes<br><em>optional.</em></h1>
+    <p class="hero-sub">SHEET 00 / 06 — LEIBNITZ 4.0 ENGINEERING NOTE</p>
+    <p class="lede">Leibnitz 3.x proved that signal processing could run inside a browser tab. Leibnitz 4.0 stops trying to fit a research lab inside JavaScript, and instead becomes a scientific computation platform reached through an API — with the website serving as its documentation, onboarding, and showcase.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#architecture">See the architecture</a>
+      <a class="btn btn-ghost" href="#incremental">Read the research contribution</a>
+    </div>
+
+    <div class="toc">
+      <a href="#breakpoint">01 Breakpoint</a>
+      <a href="#architecture">02 Architecture</a>
+      <a href="#api-surface">03 API Surface</a>
+      <a href="#incremental">04 Incremental Engine</a>
+      <a href="#access">05 SDKs &amp; Access</a>
+      <a href="#roadmap">06 Roadmap</a>
+    </div>
+  </section>
+
+  <div class="trace-divider">
+    <svg viewBox="0 0 1000 34" preserveAspectRatio="none">
+      <polyline class="trace-path" points="0,17 60,17 80,4 100,30 120,17 260,17 280,26 300,8 320,17 500,17 520,4 540,30 560,17 740,17 760,26 780,8 800,17 1000,17"/>
+    </svg>
+  </div>
+
+  <!-- SHEET 01 — THE BREAKPOINT -->
+  <section id="breakpoint">
+    <div class="sheet-label">SHEET 01 — WHY LEAVE THE BROWSER</div>
+    <h2>The browser was the right prototype. It isn't the right platform.</h2>
+    <p class="lede">A signal-processing environment that lives entirely in a browser tab hits the same walls no matter how well it's built. None of these are bugs — they're the shape of the container itself.</p>
+
+    <div class="constraints">
+      <div class="constraint-cell">
+        <div class="tag">01 — COMPUTE</div>
+        <p>JavaScript isn't built for heavy numerical workloads. Large transforms and iterative solvers slow down exactly when precision matters most.</p>
+      </div>
+      <div class="constraint-cell">
+        <div class="tag">02 — LIBRARIES</div>
+        <p>CUDA, MKL, OpenCV, ITK, GSL, FFTW, and TensorRT have no clean path into a browser sandbox. Every one of them has to be reinvented or left behind.</p>
+      </div>
+      <div class="constraint-cell">
+        <div class="tag">03 — MEMORY</div>
+        <p>File size and browser memory ceilings cap how much signal a person can even load, let alone process.</p>
+      </div>
+      <div class="constraint-cell">
+        <div class="tag">04 — HARDWARE</div>
+        <p>GPUs and specialized instruments stay out of reach when everything runs behind a tab.</p>
+      </div>
+      <div class="constraint-cell">
+        <div class="tag">05 — DURATION</div>
+        <p>Long-running or distributed jobs don't survive a closed laptop lid or a refreshed page.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="trace-divider">
+    <svg viewBox="0 0 1000 34" preserveAspectRatio="none">
+      <polyline class="trace-path" points="0,17 60,17 80,4 100,30 120,17 260,17 280,26 300,8 320,17 500,17 520,4 540,30 560,17 740,17 760,26 780,8 800,17 1000,17"/>
+    </svg>
+  </div>
+
+  <!-- SHEET 02 — ARCHITECTURE -->
+  <section id="architecture">
+    <div class="sheet-label">SHEET 02 — SYSTEM ARCHITECTURE</div>
+    <h2>Everything is an API call.</h2>
+    <p class="lede">Every algorithm — FFT, Hilbert transform, PCA, wavelets, PDE solvers, MRI reconstruction — becomes its own service, reached the same way regardless of what runs underneath it.</p>
+
+    <div class="diagram">
+      <div class="diagram-node optional">
+        <div class="label">Browser</div>
+        <div class="sub">documentation · onboarding · showcase — optional at runtime</div>
+      </div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-node">
+        <div class="label">REST / gRPC / WebSocket API</div>
+        <div class="sub">stateless calls, sessions, streaming</div>
+      </div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-node">
+        <div class="label">Authentication &amp; Scheduler</div>
+        <div class="sub">keys · OAuth · institutional accounts · job queue</div>
+      </div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-node core">
+        <div class="label">Leibnitz Engine — Processing Graph</div>
+        <div class="sub">the computation graph lives here, not in the client</div>
+      </div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-node">
+        <div class="label">Native Plugin Modules</div>
+        <div class="sub">fft · wavelet · opencv · cuda · torch</div>
+      </div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-fanout">
+        <div class="diagram-node">
+          <div class="label">CPU</div>
+        </div>
+        <div class="diagram-node">
+          <div class="label">GPU / Cluster</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trace-divider">
+    <svg viewBox="0 0 1000 34" preserveAspectRatio="none">
+      <polyline class="trace-path" points="0,17 60,17 80,4 100,30 120,17 260,17 280,26 300,8 320,17 500,17 520,4 540,30 560,17 740,17 760,26 780,8 800,17 1000,17"/>
+    </svg>
+  </div>
+
+  <!-- SHEET 03 — API SURFACE -->
+  <section id="api-surface">
+    <div class="sheet-label">SHEET 03 — API SURFACE</div>
+    <h2>Six categories, one calling convention.</h2>
+    <p class="lede">Whether the request is a single-shot transform or a standing session, it's addressed the same way. A quick look at how the surface is organized:</p>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <h4>Core Signal Processing</h4>
+        <ul>
+          <li>FFT / IFFT / DCT</li>
+          <li>Hilbert transform</li>
+          <li>Convolution &amp; correlation</li>
+          <li>Resampling</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <h4>Spectral</h4>
+        <ul>
+          <li>Spectrogram · STFT · Welch</li>
+          <li>Lomb periodogram</li>
+          <li>Wavelets</li>
+          <li>Synchrosqueezing</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <h4>Image</h4>
+        <ul>
+          <li>Filtering &amp; denoising</li>
+          <li>Segmentation</li>
+          <li>Registration</li>
+          <li>Morphology &amp; feature extraction</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <h4>Machine Learning</h4>
+        <ul>
+          <li>Classification &amp; regression</li>
+          <li>Autoencoders</li>
+          <li>CNNs &amp; transformers</li>
+          <li>LLM interface</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <h4>Biomedical</h4>
+        <ul>
+          <li>EEG · ECG · EMG</li>
+          <li>MRI reconstruction</li>
+          <li>CT</li>
+          <li>Ultrasound</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <h4>Mathematical</h4>
+        <ul>
+          <li>PDE &amp; ODE solvers</li>
+          <li>Optimization</li>
+          <li>Monte Carlo methods</li>
+          <li>Sparse recovery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="trace-divider">
+    <svg viewBox="0 0 1000 34" preserveAspectRatio="none">
+      <polyline class="trace-path" points="0,17 60,17 80,4 100,30 120,17 260,17 280,26 300,8 320,17 500,17 520,4 540,30 560,17 740,17 760,26 780,8 800,17 1000,17"/>
+    </svg>
+  </div>
+
+  <!-- SHEET 04 — INCREMENTAL ENGINE -->
+  <section id="incremental">
+    <div class="sheet-label">SHEET 04 — THE INCREMENTAL ENGINE</div>
+    <h2>Change one sample. Don't recompute everything.</h2>
+
+    <div class="research-panel">
+      <div>
+        <p class="lede">Most numerical APIs treat every request as a clean slate: new signal in, full recomputation out. Leibnitz 4.0's engine instead keeps a live computation graph and cached intermediate results, so a small change to the input only touches the part of the graph downstream of it.</p>
+        <p>The idea is grounded in a real result from filter design research: Li Lee and Alan Oppenheim's study of Parks–McClellan filters (MIT, 1997) found that individual filter coefficients settle toward a steady value as filter length grows. Coefficients from a shorter, already-computed filter turn out to be close approximations of the corresponding coefficients in a longer one — which means a filtering operation can be built up in stages instead of redesigned from scratch each time the length changes.</p>
+        <p>Leibnitz generalizes that observation past filter design: cache what's already converged, patch only what changed, and reuse the rest of the graph.</p>
+        <div class="citation-box">Lee, L. &amp; Oppenheim, A.V. — "Properties of Approximate Parks–McClellan Filters," MIT Research Laboratory of Electronics. Referenced as the conceptual basis for Leibnitz's incremental refinement model.</div>
+      </div>
+
+      <div class="chart-wrap">
+        <svg viewBox="0 0 340 220" width="100%">
+          <!-- axes -->
+          <line x1="30" y1="10" x2="30" y2="190" stroke="rgba(111,167,192,0.4)" stroke-width="1"/>
+          <line x1="30" y1="190" x2="320" y2="190" stroke="rgba(111,167,192,0.4)" stroke-width="1"/>
+          <!-- converging traces (illustrative, not source data) -->
+          <path d="M40,60 C70,90 90,140 120,144 C160,148 220,150 300,150" fill="none" stroke="#f2a93b" stroke-width="1.6"/>
+          <path d="M40,170 C70,120 90,90 120,86 C160,82 220,80 300,80" fill="none" stroke="#6fe7dd" stroke-width="1.6"/>
+          <path d="M40,40 C70,70 90,105 120,110 C160,114 220,116 300,116" fill="none" stroke="#e8f0f3" stroke-width="1.2" opacity="0.6"/>
+          <path d="M40,180 C70,150 90,130 120,126 C160,122 220,120 300,120" fill="none" stroke="#e8f0f3" stroke-width="1.2" opacity="0.4"/>
+          <text x="34" y="205" font-family="IBM Plex Mono" font-size="9" fill="#8fa9b8">N (filter length) →</text>
+          <text x="6" y="20" font-family="IBM Plex Mono" font-size="9" fill="#8fa9b8" transform="rotate(-90 6 20)">h[n]</text>
+        </svg>
+        <div class="cap">Illustrative — coefficients settle as N grows, so later stages can reuse earlier ones</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:52px;">A patch, end to end</h3>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="n">01</div><div class="t">Client sends changed samples only</div></div>
+      <div class="flow-step"><div class="n">02</div><div class="t">Engine computes the delta</div></div>
+      <div class="flow-step"><div class="n">03</div><div class="t">Unaffected graph nodes are reused, not rerun</div></div>
+      <div class="flow-step"><div class="n">04</div><div class="t">Only the downstream outputs are returned</div></div>
+    </div>
+  </section>
+
+  <div class="trace-divider">
+    <svg viewBox="0 0 1000 34" preserveAspectRatio="none">
+      <polyline class="trace-path" points="0,17 60,17 80,4 100,30 120,17 260,17 280,26 300,8 320,17 500,17 520,4 540,30 560,17 740,17 760,26 780,8 800,17 1000,17"/>
+    </svg>
+  </div>
+
+  <!-- SHEET 05 — SDKs / ACCESS -->
+  <section id="access">
+    <div class="sheet-label">SHEET 05 — SDKs &amp; ACCESS</div>
+    <h2>Written for the language you already use.</h2>
+    <p class="lede">The API surface is designed so most people never write a raw HTTP call. A signal goes in, and a result — <code class="snippet-inline">spec = leibnitz.fft(signal)</code> in Python, the equivalent call in MATLAB — comes back. Full installers and reference docs land alongside the engine; for now, here's what's planned.</p>
+
+    <div class="sdk-grid">
+      <div class="sdk-card">
+        <div class="lang">Python</div>
+        <div class="state">Planned — v4.0</div>
+      </div>
+      <div class="sdk-card">
+        <div class="lang">MATLAB</div>
+        <div class="state">Planned — v4.0</div>
+      </div>
+      <div class="sdk-card">
+        <div class="lang">Julia</div>
+        <div class="state">Planned — later</div>
+      </div>
+      <div class="sdk-card">
+        <div class="lang">R</div>
+        <div class="state">Planned — later</div>
+      </div>
+      <div class="sdk-card">
+        <div class="lang">C++ / Rust</div>
+        <div class="state">Planned — later</div>
+      </div>
+      <div class="sdk-card">
+        <div class="lang">Command line</div>
+        <div class="state">Planned — v4.0</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:52px;">Access model</h3>
+    <p>Anonymous demo access, API keys, OAuth, and institutional or team workspaces are all planned, so a solo researcher and a shared lab can both use the same engine without stepping on each other's jobs.</p>
+  </section>
+
+  <div class="trace-divider">
+    <svg viewBox="0 0 1000 34" preserveAspectRatio="none">
+      <polyline class="trace-path" points="0,17 60,17 80,4 100,30 120,17 260,17 280,26 300,8 320,17 500,17 520,4 540,30 560,17 740,17 760,26 780,8 800,17 1000,17"/>
+    </svg>
+  </div>
+
+  <!-- SHEET 06 — ROADMAP -->
+  <section id="roadmap">
+    <div class="sheet-label">SHEET 06 — LONG-TERM VISION</div>
+    <h2>From software to operating system.</h2>
+    <p class="roadmap-quote">Leibnitz 4.0 is meant to grow from <span class="accent">software for signal processing</span> into a scientific computation operating system — algorithms as composable services, processing graphs that can be saved and shared, native libraries integrated once and reused everywhere, reached through a stable API instead of a browser-specific interface.</p>
+    <p style="margin-top:22px;">That's the shape this documentation exists to describe before a line of the engine ships: desktop clients, notebook integrations, command-line tools, lab instruments, and cloud clusters, all speaking to the same computational core.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>© 2026 <a href="https://realinstitute.netlify.app">REAL Institute</a> — this page documents the planned Leibnitz 4.0 architecture; no engine is deployed yet. Leibnitz 3.x remains live at <a href="https://leibnitz3.onrender.com/">leibnitz3.onrender.com</a>.</p>
+  </div>
+</footer>
+
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

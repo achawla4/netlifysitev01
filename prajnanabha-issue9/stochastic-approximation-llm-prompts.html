@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stochastic Approximation of LLM Prompts - Prajnanabha Monograph Vol. 1 Issue 9</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 LaTeX Engine -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --muted: #5e574d;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+            --shadow: 0 15px 45px rgba(21, 34, 56, 0.07);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(21, 34, 56, 0.97), rgba(19, 53, 52, 0.94)),
+                        radial-gradient(circle at top right, rgba(218, 165, 32, 0.15), transparent 25rem);
+            color: #f9f5ed;
+            padding: 60px 20px 50px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            color: #dfba88;
+            font-size: 0.85rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.15;
+            margin: 0 0 16px;
+            font-weight: 700;
+        }
+
+        .author-line {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
+            color: rgba(249, 245, 237, 0.88);
+        }
+
+        .main-container {
+            max-width: 920px;
+            margin: -30px auto 70px;
+            padding: 0 20px;
+        }
+
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px 55px;
+            box-shadow: var(--shadow);
+        }
+
+        .breadcrumbs {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumbs a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .abstract-box {
+            background: #f1e9dc;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 30px 0 40px;
+        }
+
+        .abstract-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .abstract-box p {
+            margin: 0;
+            font-style: italic;
+            color: #332d26;
+            font-size: 1.04rem;
+        }
+
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.55rem;
+            margin-top: 45px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        p {
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #152238 0%, #1c2e4a 100%);
+            color: #fff !important;
+            padding: 12px 26px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(21, 34, 56, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .paper-card { padding: 30px 24px; }
+            body { font-size: 1.02rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero-banner">
+        <div class="hero-inner">
+            <div class="kicker">Machine Learning & Prompt Engineering Dynamics | Pages 32–34</div>
+            <h1>Stochastic Approximation of LLM Prompts</h1>
+            <div class="author-line">Machine Learning & Language Dynamics Group — Prajnanabha LLM Optimization Division</div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <article class="paper-card">
+            <nav class="breadcrumbs">
+                <a href="../prajnanabha_upd.html">Prajnanabha Archive</a> / 
+                <a href="../prajnanabha-i_9.html">Volume 1 Issue 9</a> / 
+                V1I9-A06
+            </nav>
+
+            <div class="paper-body">
+                <p>Stochastic Approximation of LLM Prompts</p>
+<div class="math-display" style="background:#f9f6f0; border-left:4px solid #8b5a2b; padding:18px 22px; margin:25px 0; border-radius:8px; text-align:center;">
+$$\theta_{k+1} = \theta_k - a_k \left[ \nabla L(\theta_k) + \xi_k \right], \quad \sum a_k = \infty, \quad \sum a_k^2 < \infty$$
+</div>
+<p>April 2026</p>
+
+            <div class="abstract-box">
+                <div class="abstract-title">ABSTRACT</div>
+                <p></p>
+            </div>
+            
+<p>This note explores the problem of recovering the initial user prompt X0 from the final output YT of a multi-turn conversation with a large language model (LLM) such as GPT. We model the LLM as a stochastic forward channel and the user as a feedback channel, forming an interactive communication system. Using Robbins-Monro stochastic approximation in semantic embedding space, we develop a practical algorithm to invert this noisy feedback loop. A complete manual-mode GUI implementation in Python/Tkinter is provided, along with experimental results demonstrating semantic recovery quality.</p>
+<h2 class="section-heading">1
+Introduction</h2>
+<p>Large Language Models (LLMs) can be viewed through the lens of Shannon’s information theory as stochastic channels. In a typical chat session, the user provides an initial prompt X0, the model generates responses, and the user supplies feedback, creating a closed-loop interactive system. Over multiple turns, the original prompt signal X0 becomes diluted due to the model’s autoregressive generation, context maintenance, and user-driven topic drift. The central question addressed in this work is: Given only the final response YT (or a short snippet of it), can we recover a good approximation of the original hidden prompt X0? This is a stochastic inverse problem. Direct maximum-likelihood estimation is intractable due to the enormous state space and unknown user feedback policy. We therefore employ Robbins-Monro stochastic approximation, a classical method for finding roots of noisy regression functions, adapted here to operate in semantic embedding space.</p>
+<h2 class="section-heading">2
+Theoretical Framing</h2>
+<p>We model the conversation as:</p>
+<p>X0 →Y1 →X1 →Y2 →· · · →XT−1 →YT</p>
+<p>where Yt is generated by the LLM (forward channel) and Xt by the user (feedback channel). The observer sees only YT and wishes to estimate X0. The objective is to minimize the expected semantic reconstruction loss:</p>
+<p>θ∗= arg min θ E h d(ϕ(YT ), ϕ( ˜YT (θ))) i</p>
+<p>where ϕ(·) is a sentence embedding function (e.g., all-MiniLM-L6-v2) and d is cosine distance. Robbins-Monro updates take the form:</p>
+<p>θ$k = θk−1 −γkH(θk−1, ξk)$</p>
+<p>with step size γ$k = a$ b+k satisfying P γ$k = ∞and P γ2$ k < ∞. This procedure converges almost surely to the optimal embedding θ∗under standard conditions, from which a text prompt can be decoded via an auxiliary LLM call.</p>
+<h2 class="section-heading">3
+Practical Implementation</h2>
+<p>We implemented a fully manual, GUI-based system using Tkinter. The user interacts with any preferred LLM (ChatGPT, Claude, Grok, local model, etc.) by copying prompts and pasting responses. The core algorithm runs in a background thread while maintaining a responsive interface with overall scrolling. Key components include:</p>
+<p>• Semantic embedding using Sentence-Transformers</p>
+<p>• Monte-Carlo rollouts with manual GPT and simulated user turns</p>
+<p>• Robbins-Monro updates in embedding space</p>
+<p>• Evaluation panel for ground-truth comparison</p>
+<p>• Experiment logging to prompt recovery experiments.log</p>
+<p>The GUI features a left main area for recovery workflow and a right evaluation panel that computes semantic distance, cosine similarity, and recovery quality after the user provides the actual initial prompt.</p>
+<h2 class="section-heading">4
+Key Code Snippet</h2>
+<p>The heart of the recovery loop (simplified) is as follows:</p>
+<p>1 for k in range(1, NUM_ITERATIONS + 1):</p>
+<p>2 $gamma = A / (B + k)$</p>
+<p>3 $noisy_gradient = np$.zeros_like(theta)</p>
+<p>5 for r in range(NUM_ROLLOUTS):</p>
+<p>6 # Generate candidate prompt via LLM</p>
+<p>7 $candidate_prompt = show_prompt_and_wait (decode_prompt , f"Iter {k}$ Rollout {r+1}")</p>
+<p>9 # Simulate short conversation manually</p>
+<p>10 $sim_final = run_manual_conversation (candidate_prompt , MAX_TURNS)$</p>
+<p>12 $dist = embedding_distance (observed_final , sim_final)$</p>
+<p>13 $sim_emb = embedder$.encode(sim_final , $convert_to_tensor =True)$.numpy ()</p>
+<p>14 noisy_gradient += dist * (theta - sim_emb)</p>
+<p>16 noisy_gradient /= NUM_ROLLOUTS</p>
+<p>17 theta -= gamma * noisy_gradient</p>
+<p>Listing 1: Core Robbins-Monro Update</p>
+<p>The full GUI implementation (over 300 lines) includes scrollable frames, threading, clipboard integration, and automatic experiment saving.</p>
+<h2 class="section-heading">5
+Experimental Result</h2>
+<p>We tested the system on a real conversation with the following parameters:</p>
+<p>• Iterations: 2</p>
+<p>• Rollouts per iteration: 2</p>
+<p>• Maximum turns per simulation: 2</p>
+<p>Observed Final Output (snippet): Discussion comparing personal research trajectory to Claude Shannon in terms of output, impact, and likelihood of creating a new field. Recovered Prompt:</p>
+<p>I’ve produced hundreds of research works already and I’m trying to build something foundational—how does my trajectory compare to Claude Shannon’s in terms of output, impact, and the likelihood of creating a new field?</p>
+<p>Actual Initial Prompt:</p>
+<p>how many works did Shannon produce?</p>
+<p>Evaluation Metrics:</p>
+<p>• Semantic Distance: 0.5532</p>
+<p>• Cosine Similarity: 44.68%</p>
+<p>• Recovery Quality: Moderate</p>
+<p>This result is reasonable given the extremely low computational budget. With only 2 turns, the forward channel has limited opportunity for drift, yet the recovered prompt still captures the broader semantic theme (comparing research impact to Shannon) while expanding beyond the narrow factual question about publication count. The gap illustrates information-theoretic limits: mutual information I(X0; YT ) decays with conversation length due to redundancy and topic evolution in the feedback loop.</p>
+<h2 class="section-heading">6
+Discussion and Future Work</h2>
+<p>Treating LLMs as stochastic channels with feedback opens several promising directions:</p>
+<h2 class="section-heading">1. Scaling laws for prompt recovery accuracy versus number of iterations/rollouts</h2>
+<h2 class="section-heading">2. Semantic vs. literal recovery objectives</h2>
+<h2 class="section-heading">3. Integration with watermarking and provenance techniques</h2>
+<h2 class="section-heading">4. Theoretical bounds on interactive channel capacity for prompt inversion</h2>
+<p>The current implementation demonstrates that Robbins-Monro stochastic approximation is a viable and practical method for approximate prompt reconstruction, especially when operating in embedding space. Future enhancements could include automatic response handling via API, variance reduction techniques, and hybrid MCMC-Robbins-Monro samplers.</p>
+<h2 class="section-heading">7
+Conclusion</h2>
+<p>We have shown that recovering the initial prompt from the final LLM output is possible using stochastic approximation methods. The provided GUI serves as both a research tool and a demonstration of the approach. Even with minimal iterations, the method recovers semantically coherent approximations, highlighting both the power and the inherent limits of information propagation through LLM feedback channels. This work bridges classical stochastic approximation theory with modern generative AI systems and offers a foundation for further study of prompt inversion, conversation telemetry, and interactive information theory.</p>
+            </div>
+
+            <div class="action-bar">
+                <a href="../prajnanabha-i_9.html" style="font-family:'Inter',sans-serif; color:var(--accent); text-decoration:none; font-weight:600;">
+                    ← Back to Issue 9 Index
+                </a>
+                <a href="../assets/vol1issue9v1.pdf" class="download-btn" target="_blank">
+                    Download Issue PDF (vol1issue9v1.pdf) ➔
+                </a>
+            </div>
+        </article>
+    </main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>

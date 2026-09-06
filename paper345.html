@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Towards Emulating AI - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Towards Emulating AI</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">—This paper presents an analytical study of two incremental fine-tuning pipelines designed to build a continuously adapting conversational model based on a distilled transformer architecture. The systems operate by assimilating structured conversational logs and incrementally updating a lightweight causal language model. We examine their architecture, data ingestion strategy, training dynamics, strengths, weaknesses, and long-term scalability constraints. Particular emphasis is placed on the broader vision motivating such systems: the progressive emulation of large language model (LLM) behavior using smaller, domain-adaptive, continually trained models. The work frames these scripts not merely as engineering utilities, but as early-stage components in a larger attempt to emulate artificial intelligence through iterative data assimilation and stylistic convergence. I. INTRODUCTION Large Language Models (LLMs) have demonstrated re- markable capability in reasoning, dialogue generation, sum- marization, and contextual understanding. However, training such models from scratch requires immense computational resources, large-scale data, and specialized infrastructure. An alternative pathway is the emulation approach: constructing progressively adaptive models that approximate LLM behavior through incremental fine-tuning on curated interaction data. This paper analyzes two Python-based training pipelines that implement incremental conversational learning using a distilled transformer backbone. These systems aim to build a continuously updating responder model by assimilating newly logged conversational data. Rather than training a model from scratch, they leverage transfer learning, starting from a pretrained causal language model and adapting it to domain- specific conversational patterns. The broader goal underlying this work is the development of a scalable framework for emulating intelligent conversational behavior through iterative refinement. While modest in scale compared to frontier LLMs, such systems offer insights into continual learning, personalization, and behavioral imitation. II. SYSTEM OVERVIEW Both pipelines share a common architectural foundation. They utilize: • A pretrained distilled GPT-2 model as the base architec- ture. • The Hugging Face Transformers framework. • The Trainer API for fine-tuning. • CSV-based conversational logs as training data. The primary workflow can be summarized as follows: 1) Automatically install required dependencies. 2) Detect the most recent conversational data file based on a date-encoded filename. 3) Identify previously processed entries to enable incre- mental learning. 4) Format conversational data into a causal language mod- eling prompt. 5) Fine-tune the model on new data. 6) Save the updated model locally. The second version extends this design by incorporating structured metadata and more refined training dynamics. III. INCREMENTAL LEARNING MECHANISM A defining feature of both pipelines is incremental assimi- lation. Rather than retraining from scratch, the system: • Maintains a log of previously processed responses. • Filters incoming CSV rows against this log. • Trains only on newly discovered entries. This design enables periodic execution, allowing the model to adapt as new conversational data becomes available. Con- ceptually, this approximates a continual learning paradigm, though implemented in a simplified batch-update fashion. The incremental approach offers computational efficiency but introduces long-term stability concerns, which are dis- cussed later. IV. PROMPT ENGINEERING STRATEGY Version 1 adopts a minimal format: Question: <text> Answer: <text>&lt;|endoftext|&gt; Version 2 enhances this by incorporating metadata: [Timestamp] [User_A to User_B] Input: <text> Response: <text>&lt;|endoftext|&gt; The inclusion of metadata enables: • Stylized imitation of speaker identities. • Temporal context awareness. • Structured dialogue pattern learning. This shift transforms the model from a simple Q/A mimic into a structured conversational emulator. V. PROMPT STRUCTURE: DESIGN, MODIFICATIONS, AND LIMITATIONS IN DEPTH A. Baseline Prompt Design A central component of the analyzed pipelines is the trans- formation of structured conversational logs into a linear textual</text></text></text></text></p> <p>prompt suitable for causal language modeling (CLM). Since transformer-based generative models such as GPT-style archi- tectures operate on next-token prediction, the entire dialogue must be represented as a single autoregressive sequence. In Version 1, the prompt format is minimalistic: Question: <question text=""> Answer: <response text="">&lt;|endoftext|&gt; This design frames the interaction as a two-turn exchange. The model is implicitly trained to generate the “Answer” given the preceding “Question” tokens. The end-of-text token enforces termination boundaries and prevents uncontrolled continuation during training. Version 2 introduces structured metadata: [Timestamp] [User_QID to User_RID] Input: <question text=""> Response: <response text="">&lt;|endoftext|&gt; This modification embeds contextual information directly into the token stream. Rather than modeling a generic Q/A exchange, the system models relational and temporal structure. B. Role of Prompt Engineering in Emulation Prompt structure in these pipelines performs several critical functions: • Encodes speaker identity and relational direction. • Embeds temporal cues. • Separates input and output roles explicitly. • Imposes consistent formatting for stable gradient learn- ing. In effect, the prompt serves as a lightweight schema for con- versational state representation. Since no architectural changes are made to the transformer, all structure must be communi- cated through textual tokens. The model therefore learns not only lexical mapping but structural regularities embedded in prompt formatting. This is essential for emulating multi-speaker dialogue behavior. C. Structural Assumptions The current prompt formats rely on several implicit assump- tions: 1) Interactions are strictly two-turn (input →response). 2) Dialogue context does not span multiple historical turns. 3) Metadata can be faithfully represented as plain text. 4) The model can infer role boundaries from formatting tokens. These assumptions simplify training but constrain represen- tational fidelity. D. Potential Prompt Modifications To move closer toward robust LLM emulation, several prompt enhancements may be considered. 1) Multi-Turn Context Windows: Instead of single-turn pairs, prompts could incorporate sliding conversational win- dows: User_A: ... User_B: ... User_A: ... User_B: ... This would allow modeling of discourse continuity and contextual memory within the transformer’s context window. 2) Special Delimiter Tokens: Rather than using plain text markers (e.g., “Input:”, “Response:”), custom special tokens could be added to the tokenizer vocabulary. This would: • Reduce token fragmentation. • Improve structural consistency. • Lower ambiguity in role boundaries. 3) Structured Metadata Encoding: Metadata could be com- pressed into standardized symbolic tags: <time=20260225><from=12><to=7> This reduces verbosity and encourages the model to treat metadata as structured signals rather than natural language fragments. 4) Instructional Framing: Incorporating instruction-style prefixes (e.g., “Generate a response consistent with prior be- havior:”) may align the system more closely with instruction- tuned LLM paradigms. E. Limitations of Current Prompt Strategy Despite its functional simplicity, the current prompt struc- ture has several limitations. 1) Token Inefficiency: Verbose textual markers consume valuable context window space. In small-context models, this reduces effective capacity for substantive content. 2) Ambiguity of Role Boundaries: Plain text separators rely on the model learning formatting conventions. Without explicit architectural segmentation, role confusion may occur under distributional shift. 3) Limited Dialogue Depth: Single-pair prompts prevent modeling of long conversational arcs. The model therefore learns local response imitation rather than discourse-level reasoning. 4) Temporal Overfitting: Embedding literal timestamps may encourage spurious correlations. For example, the model may associate stylistic changes with specific dates rather than evolving interaction patterns. 5) Lack of External Memory: All contextual awareness is internal to the prompt window. There is no persistent state beyond what is explicitly included in each training sequence. F. Prompt Design as a Proxy for Architecture Because the underlying transformer architecture remains fixed, prompt engineering becomes a proxy for architec- tural modification. Structure that would normally be encoded via system-level design (speaker embeddings, conversation graphs, memory layers) must instead be encoded textually.</to=7></from=12></time=20260225></response></question></response></question></p> <p>This strategy is powerful but limited. Textual encoding imposes an information bottleneck: all relational, temporal, and identity cues must compete within the same token budget used for semantic content. G. Implications for LLM Emulation If the objective is to emulate large language model behav- ior, prompt structure becomes foundational. LLMs internally manage: • Role conditioning • Multi-turn state tracking • Implicit instruction following • Long-context reasoning In the analyzed pipelines, these capabilities must emerge purely from repeated exposure to formatted token sequences. The prompt thus functions as both training data and structural scaffold. Refining this scaffold is likely to produce disproportionately large improvements relative to parameter count increases. In resource-constrained emulation systems, prompt architecture may be as important as model architecture. H. Toward a Formal Prompt Schema A future direction involves defining a formal conversational markup language optimized for causal transformers. Such a schema would: • Standardize turn boundaries. • Compress metadata representation. • Support hierarchical dialogue nesting. • Enable deterministic parsing during inference. By formalizing prompt structure, the system could transi- tion from ad hoc formatting toward principled conversational encoding — a necessary step in progressing from imitation toward structured AI emulation. In summary, the prompt design in the present work serves as the central mechanism by which structure is injected into an otherwise generic language model. While effective for basic conversational mimicry, its limitations highlight the gap between incremental adaptation and full LLM-level conver- sational intelligence. Addressing these limitations is essential in advancing the broader vision articulated in this paper: the disciplined, iterative emulation of AI behavior through structured continual learning. VI. TRAINING CONFIGURATION AND OPTIMIZATION Both pipelines utilize causal language modeling (CLM) without masked language modeling. Key parameters include: • Small batch sizes to accommodate memory constraints. • Moderate epoch counts. • A held-out validation split. • Learning rates appropriate for fine-tuning. Version 2 introduces gradient accumulation and a reduced learning rate to stabilize training over longer sequences. This reflects a recognition of overfitting risks when assimilating small monthly conversational batches. The use of a distilled GPT-2 backbone offers computational efficiency while retaining transformer-based generative capa- bility. VII. STRENGTHS OF THE APPROACH The system exhibits several noteworthy strengths: A. Practical Continual Learning The incremental design allows gradual adaptation without large retraining cycles. B. Low Infrastructure Barrier By using lightweight models and modest batch sizes, the system can run on consumer-grade hardware. C. Behavioral Imitation The model progressively learns conversational tone, format- ting, and stylistic elements from logged interactions. D. Structured Metadata Integration Version 2 improves fidelity by embedding relational and temporal information directly into prompts. VIII. LIMITATIONS Despite its ingenuity, the system has substantial constraints. A. Catastrophic Forgetting Training exclusively on new data risks drift away from earlier conversational patterns. Without periodic replay of historical samples, older behaviors may degrade. B. Duplicate Detection Fragility Filtering based solely on response text matching may fail under minor textual variation. A hash-based or ID-based approach would improve robustness. C. Padding Inefficiency Using fixed-length padding for all sequences increases com- putational overhead and may degrade gradient signal quality. D. Limited Context Window Distilled GPT-2 supports limited sequence lengths, con- straining long-form reasoning. E. Absence of Alignment Mechanisms There is no reinforcement learning, reward modeling, or human feedback integration. F. No Knowledge Expansion The system learns style and phrasing but does not acquire fundamentally new world knowledge beyond conversational logs.</p> <p>IX. SCALABILITY CONSTRAINTS Scaling this approach to emulate full LLM capabilities presents challenges: • Data volume growth necessitates replay buffers. • Long-term training accumulation risks overfitting. • Model size limits representational capacity. • Hardware constraints limit context expansion. Without architectural modifications such as parameter- efficient fine-tuning (e.g., LoRA) or memory-augmented sys- tems, scalability remains bounded. X. VISION: EMULATING LLMS THROUGH ITERATIVE REFINEMENT The overarching ambition behind this work can be framed as LLM emulation. Rather than building a frontier-scale model, the goal is to approximate intelligent conversational behavior through: 1) Transfer learning from pretrained transformers. 2) Continuous data assimilation. 3) Structured prompt design. 4) Iterative refinement. This paradigm views intelligence as emergent from repeated adaptation to conversational structure. Over time, the model converges toward a behavioral mirror of its data source. Such emulation systems could: • Personalize digital assistants. • Preserve stylistic identity. • Model domain-specific expertise. • Serve as lightweight cognitive replicas. While not matching the reasoning depth of frontier LLMs, these systems demonstrate that behavioral imitation can be achieved with constrained resources. XI. FUTURE DIRECTIONS Several extensions could significantly enhance this frame- work: A. Replay Buffer Integration Mixing historical samples with new data would mitigate forgetting. B. Parameter-Efficient Fine-Tuning Using adapters or low-rank updates would enable safer incremental learning. C. Dynamic Padding Batch-wise padding would improve training efficiency. D. Retrieval-Augmented Generation Integrating vector search over past conversations would enhance contextual continuity. E. Long-Term Memory Modules External memory structures could extend effective context beyond transformer limits. XII. PHILOSOPHICAL CONSIDERATIONS The attempt to emulate AI via incremental conversational adaptation raises deeper questions. Is intelligence merely com- pression of interaction patterns? Can identity be approximated through statistical mimicry? These scripts represent a minimal experimental probe into such questions. They do not claim to reproduce cognition. Rather, they explore whether persistent imitation, reinforced over time, produces the appearance of intelligence. XIII. CONCLUSION This study examined two incremental conversational fine- tuning pipelines aimed at building a continuously updating re- sponder model. The systems demonstrate practical, lightweight continual learning through transformer-based causal modeling. While limited in scope and capacity, they offer a compelling proof-of-concept for AI emulation via iterative assimilation. The broader vision extends beyond code: to explore whether artificial intelligence can be approximated not through scale alone, but through structured accumulation, behavioral conver- gence, and disciplined adaptation. In this sense, these pipelines represent early steps toward emulating AI — not by recreating massive foundation models, but by iteratively sculpting smaller systems into coherent conversational agents. ACKNOWLEDGMENT The author acknowledges the open-source transformer ecosystem and the conceptual inspiration derived from con- tinual learning research. LLMs were used to prepare this document.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Experimental_Characterization_of_Thermal_Fluctuations_in_a_Tethered_Micron_Scale_Structure_Initial_Steps_Toward_Diffusion_Based_Signaling.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

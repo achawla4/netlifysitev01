@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Mathematical Theory of Consciousness - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">A Mathematical Theory of Consciousness</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this note the authors present first steps in an elaborate theory linking genes to flow patterns of information in the nervous system. They also present a rudimentary Python simulation of the framework. Toward a Unified Algebraic–Informational Framework Linking Genes and Neural Information Flow 1. Objective and Guiding Principle The objective of this work is to construct a unified mathematical framework that connects genetic structure to neuronal information flow through the intermediate layer of axonal geometry and interaction. The central thesis is that genetic algebra (in the sense of Shannon’s formulation) determines structural constraints on neuronal substrates, which in turn define communication channels whose properties can be analyzed via information theory. The resulting chain is: Genes −→Axon Geometry −→Channel Properties −→Network Information Flow. This framework aims to unify four conceptual layers: 1. Algebra of genetic inheritance, 2. Information-theoretic communication, 3. Biophysical axon interaction, 4. Collective neuronal information processing. 2. Algebraic Structure of Genetic Systems Shannon’s algebra for theoretical genetics introduces a symbolic system in which genes are treated as algebraic entities indexed over loci and chromosomes. Genetic configurations are represented as indexed arrays: λhi jk, where indices correspond to loci, alleles, and chromosomal positions :contentReference[oaicite:0]index=0. Two key operations define the algebra: • Addition: combination of populations, • Multiplication: cross-breeding (non-associative in general). Thus, the genetic state space is not merely combinatorial but algebraic, with structure resembling tensor algebras over discrete indices. 1</p> <p>Interpretation for Neuroscience We reinterpret: • Each genetic configuration λ as a parameter vector, • Indices as encoding developmental degrees of freedom, • Algebraic operations as transformations in developmental trajectories. Define a genetic state: G = {λhi jk} ∈G, where G is a structured (possibly non-associative) algebra. We posit a mapping: Φ : G →M, where M is the space of axonal morphologies. 3. From Genetic Algebra to Axon Morphology Axon morphology includes: • Diameter d, • Myelination m, • Spatial trajectory γ(z), • Packing density and tract topology. We model morphology as a geometric object: M = (γi(z), di, θi, ρij), where ρij encodes spatial proximity between axons. The mapping Φ becomes: M = Φ(G), which is interpreted as a developmental operator translating genetic information into geometric constraints. Key Hypothesis Genetic algebra induces constraints rather than exact forms: Φ(G) = arg min M E(M; G), where E is a developmental energy functional. 4. Axons as Communication Channels Following Shannon’s mathematical theory of communication, each axon is modeled as a stochastic commu- nication channel: X →Y, with: • Input X: stimulus waveform, • Output Y : propagated waveform, • Noise arising from ionic fluctuations and extracellular effects. The mutual information: I(X; Y ) = H(X) −H(X|Y ), quantifies the information transmission. In the Chawla–Morgera framework, the waveform is expanded in an orthonormal basis and coefficients are treated as random variables :contentReference[oaicite:1]index=1. This yields: I(v0; vL), where v0 and vL are input and output coefficients. 2</p> <p>Geometry Dependence We extend the model: I = I(M), i.e., information transmission depends on morphology. Thus: I = I(Φ(G)). 5. Coupled Axons and Ephaptic Interaction For N axons, Chawla–Morgera describe coupled PDEs: ∂Vi ∂t = Li[Vi] + X j WijKj[Vj], where: • Wij encodes ephaptic coupling, • Li intrinsic dynamics, • Kj coupling operators. Crucially, the coupling matrix W may be vector-valued to incorporate extracellular effects :contentRef- erence[oaicite:2]index=2. Information-Theoretic Consequence Empirical result: ∂I ∂∥W∥&lt; 0, i.e., increasing ephaptic coupling reduces mutual information :contentReference[oaicite:3]index=3. Thus, coupling introduces structured noise or distortion. 6. Genetic Control of Coupling We now connect genetics to coupling: W = Ψ(M) = Ψ(Φ(G)). This reflects: • Axonal spacing →coupling strength, • Diameter →field interaction, • Alignment →anisotropy. Hence: W = Ψ ◦Φ(G). 7. Network-Level Information Flow Define a network of axons as a graph: N = (V, E, W), where: • Nodes V : neurons, 3</p> <p>• Edges E: synaptic + ephaptic, • Weights W: coupling strengths. Information flow across the network is characterized by: Inet = I({Xi}; {Yi}). We define: Inet = I(W, M). Substituting: Inet = I(Ψ(Φ(G)), Φ(G)). 8. Emergent Effects in Groups of Neurons Chawla–Morgera show that: • Coupling reduces pairwise mutual information, • Synaptic output depends on extracellular coupling, • Collective dynamics introduce new dependencies. Thus, information is not simply additive: Ineteq X i Ii. Instead: Inet = X i Ii − X i<j (collective="" (interference),="" (shared="" 4<="" 9.="" assemble="" captures="" central="" coupling="" creates:="" crosstalk="" emergent="" ephaptic="" equivalently:="" full="" functional="" g="" inet="(I" interference.="" interpretation="" is="" i−→inet.="" mapping="" noise),="" now="" p="" pathways="" pipeline:="" redundancy="" relationship.="" signaling).="" the="" this="" unified="" we="" where="" φ="" ψ="" •="" ∆ij="" ∆ij,="" −→m="" −→w="" ◦φ)(g).="" ◦ψ=""> <p>10. Algebraic Reformulation We elevate the framework into algebraic form. Let: • G: genetic algebra, • M: geometry manifold, • W: coupling algebra, • I: information functional space. Define morphisms: Φ : G →M, Ψ : M →W, I : W →R. Thus: Inet = I ◦Ψ ◦Φ. Category-Theoretic View This suggests a functorial structure: G →M →W →Info. 11. Variational Principle We propose that biological systems optimize: max G Inet −λ C(G), where C(G) is a metabolic/developmental cost. Thus, evolution selects genetic configurations that balance: • Information efficiency, • Structural cost, • Robustness to noise. 12. Predictions and Implications The framework yields several predictions: 1. Genetic variations affecting axon spacing should alter mutual information. 2. Increased ephaptic coupling should reduce channel capacity. 3. Optimal neural architectures balance redundancy and interference. 4. Network topology is genetically constrained via geometry. 13. Extensions Future elaborations may include: • Time-dependent genetic expression: G(t), • Learning-induced morphology changes, • Quantum or field-theoretic generalizations of coupling, • Integration with synaptic plasticity models. 5</p> <p>14. Conclusion We have outlined a unified algebraic–informational framework in which: • Shannon’s genetic algebra defines the parameter space of biological structure, • Information theory quantifies signal transmission, • Axon interaction provides the physical bridge, • Ephaptic coupling introduces collective effects. The resulting synthesis demonstrates that genetic structures do not merely encode biological form but fundamentally shape the geometry of communication channels, thereby regulating the flow of information across neuronal networks. This establishes a principled mathematical pathway from genotype to information dynamics in the brain. Predictive Algebraic–Informational Model for Genetic Intervention in Neural Systems 1. Objective We now extend the unified framework into a predictive model capable of forecasting the consequences of genetic interventions on neuronal information flow and network connectivity. The central pipeline becomes: Gene Editing −→Altered Morphology −→Modified Information Flow −→Reconfigured Connectivity. Formally, we seek an operator: P : ∆G 7→(∆M, ∆I, ∆N), where ∆G denotes a genetic perturbation. 2. Genetic Intervention as Algebraic Perturbation In Shannon’s genetic algebra, a genetic state is: G = {λhi jk}. A gene edit (e.g., CRISPR modification) is modeled as an algebraic perturbation: G′ = G + ∆G, where ∆G is a structured modification in the indexed tensor. Types of Perturbations • Allelic substitution: λhi jk →λhi jk + δ, • Locus activation/suppression: index-dependent masking, • Recombination modification: altered coupling between indices. Thus, gene editing corresponds to an operator: E : G →G, G′ = E(G). 6</p> <p>3. Morphological Response Functional Morphology arises via: M = Φ(G), M ′ = Φ(G′). We linearize for small perturbations: ∆M = ∂Φ ∂G · ∆G. Let: M = (γi(z), di, θi, ρij), then: ∆M = (∆γi(z), ∆di, ∆θi, ∆ρij) . Interpretation • Changes in λ indices →altered axon diameters, • Modified recombination structure →tract topology, • Gene expression gradients →spatial trajectories. 4. Geometry to Channel Transformation Axons act as channels governed by: ∂Vi ∂t = Li[Vi; M] + X j Wij(M) Kj[Vj]. Thus: W = Ψ(M), W ′ = Ψ(M ′). Perturbation: ∆W = ∂Ψ ∂M · ∆M. Key dependencies: • ρij (spacing) →coupling strength, • di (diameter) →conduction velocity and field spread, • γi (trajectory) →interaction geometry. 5. Information Flow Transformation For each axon: Ii = I(Xi; Yi; M, W). For the network: Inet = I(M, W). Perturbation expansion: ∆Inet = ∂I ∂M · ∆M + ∂I ∂W · ∆W. Using empirical insight from ephaptic studies: ∂I ∂Wij &lt; 0, i.e., increased coupling reduces mutual information. 7</p> <p>Thus: ∆Inet ≈  ∂I ∂M + ∂I ∂W ∂Ψ ∂M  ∆M. Substituting ∆M: ∆Inet = JIG · ∆G, where JIG is the composite Jacobian: JIG = ∂I ∂M ∂Φ ∂G + ∂I ∂W ∂Ψ ∂M ∂Φ ∂G. 6. Network Connectivity Reconfiguration Define network: N = (V, E, W, S), where S denotes synaptic strengths. Connectivity depends on: • Structural adjacency (geometry), • Functional coupling (information flow), • Synaptic modulation. We define: N = C(M, Inet). Perturbation: ∆N = ∂C ∂M ∆M + ∂C ∂I ∆Inet. Thus: ∆N = JNG · ∆G, with: JNG = ∂C ∂M ∂Φ ∂G + ∂C ∂I JIG. 7. Full Predictive Operator Combining all stages: P(∆G) = (∆M, ∆Inet, ∆N) , where: ∆M = JMG · ∆G, ∆Inet = JIG · ∆G, ∆N = JNG · ∆G. This defines a predictive algebraic–informational model. 8. Nonlinear Regime For large genetic edits: M ′ = Φ(G + ∆G), I′ = I(Ψ(Φ(G + ∆G)), Φ(G + ∆G)), N ′ = C(M ′, I′). Thus: P = C ◦I ◦Ψ ◦Φ ◦E. 8</p> <p>9. Predictive Use Cases 1. Axon Diameter Editing • ∆G →∆di &gt; 0, • Increased ephaptic coupling, • Decreased mutual information, • Increased redundancy in network. 2. Spacing Modification • ∆ρij &gt; 0, • Reduced coupling, • Increased channel independence, • Higher network capacity. 3. Myelination Changes • Alters conduction velocity, • Changes temporal alignment, • Modifies mutual information timing structure. 10. Stability and Robustness Define sensitivity: SG =</p><p style="margin-bottom: 0.8rem; line-height: 1.75;">∂Inet ∂G</p><p style="margin-bottom: 0.8rem; line-height: 1.75;">. • High SG: system sensitive to genetic edits, • Low SG: robust architecture. Evolution may minimize: min G SG subject to Inet constraints. 11. Control-Theoretic Interpretation Treat genetic editing as control input: u = ∆G. System dynamics:      M = Φ(G), I = I(M), N = C(M, I). Control objective: max u Inet(u) −λCbio(u). Thus, gene editing becomes control of information flow via geometry. 9</p> <p>12. Conceptual Summary The predictive chain is: ∆G Φ −→∆M Ψ −→∆W I−→∆Inet C−→∆N This establishes: • Genes as algebraic generators, • Morphology as geometric realization, • Axons as communication channels, • Networks as emergent information structures. 13. Conclusion The proposed predictive algebraic–informational model provides a principled framework for forecasting how genetic interventions propagate through biological structure into information dynamics. It unifies: • Shannon’s algebra of heredity (structure), • Shannon’s communication theory (information), • Axon interaction physics (mechanism), • Network-level cognition (emergence). Most importantly, it transforms gene editing from a purely biological act into a mathematically analyzable intervention on information flow, enabling predictive neuroscience grounded in algebra and information theory. Simulation We develop a .py script that simulates the pipeline described above. Its output is shown below: = == Predictive Algebraic–Informational Results === Scenario A: Normal Gene (L1CAM normal expression) Diameter: 1.0 Spacing: 2.0 Mutual Information: 0.069429 Scenario B: Variant Gene (L1CAM pathogenic variant) Diameter: 1.5 Spacing: 1.0 Mutual Information: 0.024316 === Interpretation === • Variant gene increases axon diameter and reduces spacing • This increases ephaptic coupling • Increased coupling acts as interference • Mutual information decreases • Network becomes more densely coupled (less independent channels) Script Acknowledgments This is a working draft and was produced with the assistance of language models. 10</p> <p>Predictive Algebraic–Informational Model Demo ——————————————- This script demonstrates: Gene →Morphology →Information Flow →Network Connectivity Example gene: L1CAM (axon guidance disorder gene) Variant: pathogenic mutation affecting axonal growth (simplified model) Requirements: pip install numpy matplotlib networkx Run: python geneneuralinfomodel.py import numpy as np import matplotlib.pyplot as plt import networkx as nx =============================== 1. Gene → Morphology Mapping =============================== class Morphology: def init(self, diameter, spacing, numaxons): self.diameter = diameter self.spacing = spacing self.numaxons = numaxons def genetomorphology(genestate=”normal”): ””” Simulated mapping from gene expression to axonal mor- phology. L1CAM (ClinGen-associated gene): - Normal: proper axon guidance - Variant: abnormal growth →thicker axons + tighter packing ””” if genestate == ”normal”: return Morphology( diameter=1.0, baseline axon diameter spacing=2.0, larger spacing →less ephaptic coupling numaxons=10 ) elif genestate == ”variant”: return Morphology( diameter=1.5, increased diameter spacing=1.0, tighter packing →stronger coupling numaxons=10 ) =============================== 2. Morphology → Coupling Matrix =============================== def computecouplingmatrix(morph): ””” Ephaptic coupling model: Coupling   diameter / distance Larger diameter + smaller spacing →stronger interaction ””” N = morph.numaxons W = np.zeros((N, N)) for i in range(N): for j in range(N): if i != j: distance = abs(i - j) * morph.spacing + 1e-3 W[i, j] = morph.diameter / distance return W =============================== 3. Information Flow Model =============================== def mutualinformationapprox(W): ””” Approximate mutual information: More coupling →more interference →lower information Simple proxy: I   log2(1 + signal / (1 + totalcoupling)) ””” totalcoupling = np.sum(W) signal = 1.0 MI = np.log2(1 + signal / (1 + totalcoupling)) return MI =============================== 4. Network Construction =============================== def buildnetwork(W, threshold=0.1): ””” Build graph from coupling matrix. Edges represent strong ephaptic interactions. ””” G = nx.Graph() N = W.shape[0] for i in range(N): G.addnode(i) for i in range(N): for j in range(i + 1, N): if W[i, j] &gt; threshold: G.addedge(i, j, weight=W[i, j]) return G =============================== 5. Scenario Runner =============================== def runscenario(genestate): morph = genetomorphology(genestate) W = computecouplingmatrix(morph) MI = mutualinformationapprox(W) G = buildnetwork(W) return morph, W, MI, G =============================== 6. Execute Both Scenarios =============================== morphA, WA, MIA, GA = runscenario(”normal”) morphB, WB, MIB, GB = runscenario(”variant”) =============================== 7. Visualization =============================== vmax = max(WA.max(), WB.max()) plt.figure() plt.title(”Coupling Matrix - Scenario A (Normal)”) plt.imshow(WA, vmin=0, vmax=vmax) plt.colorbar() plt.figure() plt.title(”Coupling Matrix - Scenario B (Variant)”) plt.imshow(WB, vmin=0, vmax=vmax) plt.colorbar() Network graphs plt.figure() plt.title(”Network Connectivity - Scenario A”) nx.draw(GA, withlabels=True) plt.figure() plt.title(”Network Connectivity - Scenario B”) nx.draw(GB, withlabels=True) 11</p> <p>=============================== 8. Output Results =============================== print(”=== Predictive Algebraic–Informational Results ===”) print(”Scenario A: Normal Gene (L1CAM normal expression)”) print(f” Diameter: morphA.diameter”) print(f” Spacing: morphA.spacing”) print(f” Mutual Information: MIA:.6f”) print(”Scenario B: Variant Gene (L1CAM pathogenic variant)”) print(f” Diameter: morphB.diameter”) print(f” Spacing: morphB.spacing”) print(f” Mutual Information: MIB:.6f”) print(”=== Interpretation ===”) print(”• Variant gene increases axon diameter and reduces spacing”) print(”• This increases ephaptic coupling”) print(”• Increased coupling acts as interference”) print(”• Mu- tual information decreases”) print(”• Network becomes more densely coupled (less independent channels)”) plt.show() 12</p> </j></p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="mailto:aman.chawla@gmail.com?subject=Request%20PDF%20for%20Paper%20188:%20A%20Mathematical%20Theory%20of%20Consciousness" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #27ae60; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">✉️ Request Author for PDF</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

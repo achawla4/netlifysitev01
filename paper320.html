@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Networks of Transformers - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Networks of Transformers</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">—This note analyzes a Python implementation of a one-teacher–many-student transformer training framework based on GPT-2 language models. The system instantiates a single pretrained teacher network and multiple student networks that are trained in parallel to match the teacher’s internal representations via mean-squared error loss. Unlike standard knowledge distillation approaches that focus on output logits or task-specific objectives, the present implementation emphasizes representational alignment across multiple student models. We describe the code structure, execution methodology, and pre- dicted training behavior, and discuss the broader research vision of scalable, decentralized knowledge transfer in large language model ecosystems. I. INTRODUCTION Knowledge distillation has emerged as a key technique for compressing and distributing the capabilities of large neural networks. Traditional formulations involve training a smaller student model to reproduce the outputs of a larger teacher model, often using softened logits or task-specific supervision. More recent work has explored representational distillation, multi-student setups, and collaborative learning paradigms. The code analyzed in this note implements a minimal but conceptually significant variant of these ideas: a single teacher transformer model supervises multiple student transformer models simultaneously. Each student attempts to match the teacher’s outputs on shared inputs using a simple regression- based loss. Although the implementation is exploratory and omits several production-level considerations, it captures an important architectural motif for scalable learning systems. II. CODE STRUCTURE AND COMPONENTS The codebase consists of a single Python script, oneTeachermanyStudsv1.py, implemented using Py- Torch and the Hugging Face Transformers library. A. Model Definitions Two neural network classes are defined: • TeacherTransformer: wraps a pretrained GPT2LMHeadModel and serves as the fixed reference model. • StudentTransformer: also wraps a GPT2LMHeadModel, but its parameters are trainable. Notably, both teacher and students share the same architec- tural capacity in this prototype. This design choice emphasizes representational transfer and synchronization rather than com- pression. B. Tokenization and Inputs The GPT-2 tokenizer is used to convert raw text into token IDs and attention masks. Inputs are shared across the teacher and all students, ensuring that representational comparisons are well-defined. C. Training Loop The training procedure iterates over epochs and over each student model. For each student: 1) Input text is tokenized. 2) The student produces output logits. 3) The teacher produces output logits under a no_grad context. 4) A mean-squared error (MSE) loss is computed between student and teacher outputs. 5) Gradients are backpropagated and the student parameters are updated. The teacher model remains frozen throughout training. III. EXECUTION METHODOLOGY The script is intended to be executed as a standalone Python program: python oneTeachermanyStudsv1.py Execution requires: • PyTorch • Transformers (Hugging Face) • Sufficient memory to load multiple GPT-2 models At runtime, one teacher model and a fixed number of student models (25 in the provided script) are instantiated. All students are trained sequentially within each epoch, sharing the same optimizer configuration. IV. PREDICTED OUTPUTS AND TRAINING BEHAVIOR The primary observable output of the script is the printed loss value for each student at each epoch. These losses represent the degree of mismatch between student and teacher outputs. A. Expected Loss Dynamics Given identical architectures and initialization from pre- trained weights, one predicts: • Rapid initial loss reduction as students align with the teacher. • Diminishing returns in later epochs as representations converge.</p> <p>• Small variance in final loss values across students due to stochastic optimization effects. Because no task-specific objective is applied, the loss does not directly reflect downstream performance but rather repre- sentational similarity. B. Computational Considerations The parallel instantiation of 25 GPT-2 models is compu- tationally expensive. In practice, GPU memory limitations may necessitate batching or model sharding. The current implementation should therefore be interpreted as a conceptual prototype rather than a production-ready training system. V. INTERPRETATION AND LIMITATIONS Several limitations are apparent: • The loss function compares raw output tensors without normalization or temperature scaling. • All students have the same capacity as the teacher, eliminating compression benefits. • Students are trained independently rather than collabora- tively. • No evaluation on downstream tasks is performed. However, these limitations also clarify the experimental in- tent: to explore the dynamics of multi-student representational alignment rather than to optimize task performance. VI. BROADER VISION AND RESEARCH CONTEXT The one-teacher–many-student architecture points toward a broader research vision in which large foundation models act as centralized knowledge sources that can be incrementally replicated, specialized, or localized across multiple agents. Potential extensions of this paradigm include: • Heterogeneous student architectures for compression or specialization. • Decentralized or federated distillation settings. • Curriculum-based or layer-wise distillation strategies. • Collaborative student–student alignment. In this context, the teacher model functions as a stable epistemic anchor, while students represent adaptive or de- ployable instances. Such architectures are relevant to scalable AI deployment, continual learning, and networked intelligence systems. VII. CONCLUSION The analyzed code provides a concise implementation of a one-teacher–many-student transformer training framework. While minimal, it captures a significant architectural idea: scalable knowledge transfer through parallel representational alignment. The predicted training behavior is consistent with established distillation theory, and the design naturally extends to more sophisticated and practical learning systems. As such, the script can be viewed as an exploratory stepping stone toward distributed and modular AI training paradigms. VIII. ACKNOWLEDGMENTS This work was produced with the assistance of large lan- guage models.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Networks_of_Transformers.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

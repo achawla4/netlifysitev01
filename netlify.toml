@@ -1,0 +1,43 @@
+# Netlify Configuration File for REAL Institute Web Portal (Leibnitz 6.0)
+
+[build]
+  publish = "."
+
+[[edge_functions]]
+  function = "analytics"
+  path = "/*"
+
+[[edge_functions]]
+  function = "live_viewers"
+  path = "/api/live-viewers"
+
+
+# Permanent Geo-Block for Seychelles (Country Code: SC) - Spurious Tollbit bypass protection
+[[redirects]]
+  from = "/*"
+  to = "/403.html"
+  status = 403
+  force = true
+  conditions = {Country = ["sc", "SC"]}
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/install.py"
+  [headers.values]
+    Content-Type = "text/x-python; charset=utf-8"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/intro.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Access-Control-Allow-Origin = "*"

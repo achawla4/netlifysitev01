@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nonlinear Neural Correlates of Nonlocal Consciousness | Prajnanabha</title>
+<script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                tags: 'ams'
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner, .content { max-width: 1080px; margin: 0 auto; }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content { padding: 34px 20px 88px; }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card, .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card { padding: 24px 26px; }
+
+        .meta-card h2, .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell { padding: 34px 34px 42px; }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 1.4rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4, .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p { margin: 0 0 1rem; font-size: 1.05rem; }
+
+        .article-figure, .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        figcaption .fig-label {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li { margin-bottom: 0.45rem; }
+
+        .theorem-block, .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th, td {
+            padding: 0.55rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .citation a { color: inherit; text-decoration: none; }
+        .citation a:hover { text-decoration: underline; }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li { margin-bottom: 0.8rem; }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .glossary dl {
+            display: grid;
+            grid-template-columns: minmax(180px, 1fr) 3fr;
+            gap: 0.45rem 1.4rem;
+            margin: 0;
+        }
+
+        .glossary dt {
+            color: #24304c;
+            font-weight: 600;
+        }
+
+        .glossary dd {
+            margin: 0;
+            color: var(--ink);
+        }
+
+        @media (max-width: 780px) {
+            .hero { padding-top: 56px; }
+            .meta-grid { grid-template-columns: 1fr; }
+            .article-shell { padding: 22px 18px 28px; }
+            .glossary dl { grid-template-columns: 1fr; gap: 0.2rem 0; }
+            .glossary dd { margin-bottom: 0.7rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<header class="hero">
+<div class="hero-inner">
+<div class="eyebrow">Prajnanabha &middot; Volume 1 Issue 1 &middot; V1I1-A02</div>
+<h1>Nonlinear Neural Correlates of Nonlocal Consciousness</h1>
+<div class="hero-meta">A. Chawla &mdash; Research Enlightenment And Life Institute, India &middot; <a href="mailto:aman.chawla@gmail.com" style="color:#f4d6a8;">aman.chawla@gmail.com</a></div>
+<div class="hero-meta">July 30, 2025 &middot; Source: <em>hubelWieselEntropyv22.pdf</em></div>
+</div>
+</header>
+<main class="content">
+<div class="breadcrumbs">
+<a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-iss.html">Issue 1</a>
+</div>
+<div class="meta-grid">
+<section class="meta-card">
+<h2>Abstract</h2>
+<p>The Hubel&ndash;Wiesel model shows simple cells feeding complex cells via spatial pooling for position invariance. We propose that ephaptic coupling in axon tracts amplifies entropy, enhancing temporal-coding information from simple to complex cells. This mirrors observer functions in Nonlocal Consciousness (NC), where each function samples a broader informational field. Ephaptic interactions among axons with varied conduction velocities increase output spike-timing entropy, enabling complex cells to retain orientation selectivity and position tolerance. This tract-level preprocessing parallels observer functions in NC, boosting self-mutual information as signals ascend the cortical hierarchy. Testable predictions involve extracellular manipulations, conduction velocity differences, and developmental critical periods affecting visual cortical selectivity.</p>
+</section>
+<section class="meta-card">
+<h2>At a Glance</h2>
+<p><strong>Field:</strong> Computational neuroscience, information theory, foundations of consciousness.</p>
+<p><strong>Core claim:</strong> Ephaptic coupling among axons with varied conduction velocities is an entropy-amplifying preprocessing stage between simple and complex cells, paralleling observer functions in the Nonlocal Unification (NU) framework.</p>
+<p><strong>Methods used:</strong> Coupled cable equations, Shannon entropy analysis, Crank&ndash;Nicolson discretization of nonlinear PDEs, control-theoretic interpretation.</p>
+</section>
+</div>
+<article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+<p><strong>Keywords:</strong> visual cortex, Hubel&ndash;Wiesel model, ephaptic coupling, entropy amplification, temporal coding, complex cells, axon tracts, information theory, neural computation, nonlocal consciousness, observer functions.</p>
+<div class="theorem-block">
+<div class="theorem-title">Background</div>
+<p>This study integrates several scientific traditions to explore entropy amplification in neural processing. The foundational work of Hubel and Wiesel established the hierarchical structure of the visual cortex, where simple cells detect specific orientations and positions, feeding into complex cells that achieve feature invariance <span class="citation">[<a href="#ref-1">1</a>, <a href="#ref-2">2</a>, <a href="#ref-3">3</a>]</span>. Comparative studies in rodents confirm conserved orientation tuning and hierarchical organization <span class="citation">[<a href="#ref-4">4</a>, <a href="#ref-5">5</a>]</span>. Information theory, rooted in Shannon's entropy, quantifies uncertainty in neural spike timing, providing a framework to assess how ephaptic coupling increases output entropy <span class="citation">[<a href="#ref-6">6</a>, <a href="#ref-7">7</a>]</span>. Ephaptic interactions, driven by extracellular electric fields, introduce nonlinear dynamics among axons with varying conduction velocities, as evidenced by prior research <span class="citation">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>]</span>. This mechanism aligns with the Nonlocal Unification (NU) framework, where observer functions sample an informational field, enhancing entropy across processing levels <span class="citation">[<a href="#ref-10">10</a>, <a href="#ref-11">11</a>]</span>. Thermodynamic principles distinguish neural entropy from physical entropy, ensuring computational efficiency <span class="citation">[<a href="#ref-12">12</a>]</span>. The model also draws on electrophysiological methods, such as patch-clamp and multi-electrode arrays, to propose experiments testing entropy changes <span class="citation">[<a href="#ref-13">13</a>, <a href="#ref-14">14</a>]</span>. Furthermore, it connects to bio-inspired computing, suggesting that timing-sensitive mechanisms could enhance spiking neural networks, analogous to pooling in convolutional networks <span class="citation">[<a href="#ref-10">10</a>]</span>. This multidisciplinary synthesis of neuroscience, information theory, thermodynamics, and speculative consciousness frameworks provides a robust foundation for investigating how axon tracts amplify temporal-coding entropy, distinct from the hierarchical and nonsynaptic mechanisms introduced earlier.</p>
+</div>
+<h3 id="reading-guide">Reading Guide</h3>
+<p>This paper offers multiple paths based on reader goals. Readers may follow the suggested paths to explore specific aspects of the proposed model.</p>
+<figure class="article-figure" id="fig-reading-guide">
+<svg aria-label="Reading guide flowchart" role="img" viewbox="0 0 720 420">
+<defs>
+<marker id="arrow1" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6a2f"></path>
+</marker>
+<style>
+                            .node { fill: #fffdfa; stroke: #9a6a2f; stroke-width: 1.6; }
+                            .col-head { fill: #1d2438; font: 600 13px "Palatino Linotype", Palatino, serif; }
+                            .label { fill: #22211d; font: 14px "Palatino Linotype", Palatino, serif; text-anchor: middle; }
+                            .edge { stroke: #9a6a2f; stroke-width: 1.4; fill: none; }
+                        </style>
+</defs>
+<text class="col-head" text-anchor="middle" x="120" y="22">Neural Mechanisms</text>
+<text class="col-head" text-anchor="middle" x="360" y="22">Theoretical Foundations</text>
+<text class="col-head" text-anchor="middle" x="600" y="22">Applications &amp; Predictions</text>
+<rect class="node" height="40" rx="8" width="160" x="40" y="40"></rect>
+<text class="label" x="120" y="65">Introduction</text>
+<rect class="node" height="40" rx="8" width="160" x="280" y="40"></rect>
+<text class="label" x="360" y="65">Temporal Coding &amp;</text>
+<text class="label" style="font-size:11px" x="360" y="80">Ephaptic Coupling</text>
+<rect class="node" height="40" rx="8" width="160" x="40" y="110"></rect>
+<text class="label" x="120" y="135">Hubel&ndash;Wiesel Integration</text>
+<rect class="node" height="40" rx="8" width="160" x="280" y="110"></rect>
+<text class="label" x="360" y="135">Mathematical Formulation</text>
+<rect class="node" height="40" rx="8" width="160" x="520" y="110"></rect>
+<text class="label" x="600" y="135">Hierarchical Processing</text>
+<rect class="node" height="40" rx="8" width="160" x="40" y="180"></rect>
+<text class="label" x="120" y="205">Efficient Coding &amp; NC</text>
+<rect class="node" height="40" rx="8" width="160" x="280" y="180"></rect>
+<text class="label" x="360" y="205">Thermodynamics &amp; Capacity</text>
+<rect class="node" height="40" rx="8" width="160" x="520" y="180"></rect>
+<text class="label" x="600" y="205">Testable Predictions</text>
+<rect class="node" height="40" rx="8" width="160" x="40" y="250"></rect>
+<text class="label" x="120" y="275">Limitations</text>
+<rect class="node" height="40" rx="8" width="160" x="280" y="250"></rect>
+<text class="label" x="360" y="275">Deep Learning Implications</text>
+<rect class="node" height="40" rx="8" width="160" x="520" y="250"></rect>
+<text class="label" x="600" y="275">Direction Selectivity</text>
+<rect class="node" height="40" rx="8" width="160" x="280" y="320"></rect>
+<text class="label" x="360" y="345">Future Research</text>
+<rect class="node" height="32" rx="8" style="fill:#fbf6ef" width="160" x="280" y="380"></rect>
+<text class="label" style="font-weight:600" x="360" y="400">Conclusion</text>
+<path class="edge" d="M120 80 V110" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M120 150 V180" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M120 220 V250" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M360 80 V110" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M360 150 V180" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M360 220 V250" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M360 290 V320" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M600 150 V180" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M600 220 V250" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M200 270 H280" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M520 270 H440" marker-end="url(#arrow1)"></path>
+<path class="edge" d="M360 360 V380" marker-end="url(#arrow1)"></path>
+</svg>
+<figcaption><span class="fig-label">Figure 1.</span> Reading-guide map of the paper's argument across neural mechanisms, theoretical foundations, and applications.</figcaption>
+</figure>
+<p>The following introduction outlines the foundational concepts and sets the stage for exploring temporal coding mechanisms.</p>
+<h3 id="introduction">Introduction</h3>
+<p>The Hubel&ndash;Wiesel model explains how simple cells in the visual cortex, sensitive to specific orientations and positions, feed complex cells that achieve position invariance and direction selectivity through spatial pooling <span class="citation">[<a href="#ref-1">1</a>, <a href="#ref-2">2</a>, <a href="#ref-3">3</a>]</span>. Studies in rodents confirm similar hierarchical organization and orientation tuning despite anatomical differences <span class="citation">[<a href="#ref-4">4</a>, <a href="#ref-15">15</a>]</span>. In mice, layer 2/3 neurons show position-tolerant responses and direction selectivity, indicating conserved computational principles <span class="citation">[<a href="#ref-5">5</a>]</span>. Recent research emphasizes temporal coding and spike timing in encoding dynamic stimuli <span class="citation">[<a href="#ref-16">16</a>]</span>. This temporal dimension suggests a need to explore nonsynaptic mechanisms influencing information flow. We propose that ephaptic coupling in axon tracts amplifies temporal spike-pattern entropy, enhancing information flow from simple to complex cells. This aligns with the Nonlocal Unification (NU) framework, where observer functions sample a universal informational field (NC), increasing entropy <span class="citation">[<a href="#ref-10">10</a>, <a href="#ref-11">11</a>]</span>. Ephaptic interactions, supported by studies showing extracellular fields influencing cortical activity <span class="citation">[<a href="#ref-8">8</a>, <a href="#ref-9">9</a>]</span>, enable complex cells to maintain selectivity and invariance. Axon tracts thus act as computational analogs to observer functions, reformatting information for higher cortical processing. This hypothesis bridges neural mechanisms with information-theoretic principles, which we explore next.</p>
+<h3 id="temporal-coding">Temporal Coding and Ephaptic Coupling</h3>
+<p>The role of ephaptic coupling in temporal coding provides a novel perspective on neural information processing.</p>
+<figure class="article-figure">
+  <img src="figure2.png" alt="Description of figure">
+  <figcaption>Figure 2.</figcaption>
+</figure>
+<p>Temporal coding uses spike timing to encode information. Let $X_i$ denote the spike-time variable for the $i$th axon at a downstream detection point. Without coupling, the output $X_i^{\text{out}}$ mirrors the input, limited by channel noise. Ephaptic coupling among axons with different conduction velocities introduces nonlinear interactions via extracellular fields, transforming inputs $\{X_i\}$ into outputs $\{Y_k\}$ with higher entropy, $H(Y_k) \geq \max_i H(X_i)$ <span class="citation">[<a href="#ref-6">6</a>, <a href="#ref-7">7</a>]</span>. This mirrors NU's observer functions, where each function $f_i^j$ samples a larger NC subset, increasing entropy <span class="citation">[<a href="#ref-10">10</a>]</span>. This entropy amplification enhances the information available to complex cells. We now examine how this mechanism integrates with the Hubel&ndash;Wiesel model.</p>
+<figure class="article-figure">
+  <img src="figure3.png" alt="Description of figure">
+  <figcaption>Figure 3.</figcaption>
+</figure>
+<h3 id="hubel-wiesel-integration">Hubel&ndash;Wiesel Integration</h3>
+<p>The entropy amplification in axon tracts directly supports the hierarchical processing in the Hubel&ndash;Wiesel model. Axons $\{a_1, \ldots, a_N\}$ from simple cells with shared orientation but varied positions carry spike-time variables $\{X_i\}$. Ephaptic coupling transforms these into $\{Y_k\}$, with $H(Y_k) \geq \max_i H(X_i)$. Complex cells integrate these high-entropy signals, maintaining orientation selectivity and position invariance via nonlinear dendritic dynamics. Tracts thus act as observer-like functions, enhancing information before synaptic integration. This preprocessing step ensures robust feature detection in complex cells. The next section explores how this contributes to position invariance and information preservation.</p>
+<h3 id="invariance-information">Invariance and Information</h3>
+<p>The enhanced entropy from ephaptic coupling supports robust invariant feature encoding. Pooling for position invariance typically reduces positional data. Ephaptic entropy amplification preserves or boosts temporal-coding entropy, aligning with NU's information-preserving observer functions <span class="citation">[<a href="#ref-10">10</a>]</span>. Tracts enable complex cells to encode invariant features while retaining temporal fidelity, supporting efficient coding. This balance of invariance and information retention is critical for efficient neural computation. We now formalize these interactions mathematically to clarify the underlying dynamics.</p>
+<h3 id="mathematical-formulation">Mathematical Formulation</h3>
+<p>The mathematical framework quantifies how ephaptic coupling enhances entropy in neural signals. For two axons with membrane potentials $V_i(x,t)$, $i=1,2$, along axial coordinate $x \in [0,L]$, coupled cable equations describe dynamics <span class="citation">[<a href="#ref-17">17</a>]</span>:</p>
+<div class="math-block">
+$$
+C_m \frac{\partial V_i}{\partial t} \;=\; \frac{1}{R_a}\,\frac{\partial^2 V_i}{\partial x^2} \;-\; \frac{1}{R_m}\,V_i \;+\; I_i(x,t) \;+\; \kappa\,(V_j - V_i), \qquad i \neq j. \tag{1}
+$$
+            </div>
+<p>Here $C_m$ is capacitance, $R_a$ axial resistance, $R_m$ membrane resistance, $I_i$ input current, and $\kappa$ coupling strength. Coupling can also be nonlinear and this is investigated in Appendix B. Varied conduction velocities yield outputs $Y$ with $H(Y) \geq \max\{H(X_1), H(X_2)\}$ <span class="citation">[<a href="#ref-6">6</a>]</span>. In NU, this maps to observer functions $f(\Delta I)$, increasing entropy toward NC <span class="citation">[<a href="#ref-10">10</a>]</span>. This model provides a rigorous basis for understanding entropy amplification. The following section connects these principles to efficient coding in sensory systems.</p>
+<h3 id="efficient-coding">Efficient Coding and NC</h3>
+<p>The entropy amplification aligns with principles of efficient neural coding. Natural images have high redundancy. Sensory systems reduce it to prioritize informative features. Ephaptic coupling selects high-entropy spike patterns, akin to NU's observer functions sampling richer NC subsets. This preprocessing enhances coding efficiency before synaptic integration, suggesting neural tracts implement informational geometry. This efficient coding mechanism supports robust sensory processing. We now explore how this fits into the broader cortical hierarchy.</p>
+<h3 id="hierarchical-processing">Hierarchical Processing</h3>
+<p>The hierarchical organization of the visual cortex leverages entropy amplification for robust feature extraction. Simple cells (Level 1) produce spike-time variables $\{X_i\}$ with entropies $\{H_i\}$. Ephaptic coupling yields Level 1.5 variables $\{Y_k\}$ with $H(Y_k) \geq \max_i H_i$. Complex cells (Level 2) detect high-entropy patterns via dendritic nonlinearities, mirroring NU's observer sequences increasing entropy <span class="citation">[<a href="#ref-10">10</a>]</span>. Higher levels achieve greater invariance while preserving information. This hierarchical entropy increase enhances cortical processing efficiency. The thermodynamic implications of this process are considered next.</p>
+<h3 id="thermodynamics">Thermodynamics and Capacity</h3>
+<p>The thermodynamic perspective clarifies the energetic constraints of entropy amplification. Entropy amplification aligns with thermodynamics, as tracts are active systems. Shannon entropy reflects spike-timing uncertainty, not thermodynamic entropy. Downstream synapses must handle amplified entropy, consistent with NU's informational manifolds <span class="citation">[<a href="#ref-10">10</a>, <a href="#ref-6">6</a>]</span>. This balance ensures sustainable neural computation. We now outline testable predictions to validate this model.</p>
+<h3 id="testable-predictions">Testable Predictions</h3>
+<p>Experimental validation is essential to confirm the proposed entropy amplification mechanism. The model predicts:</p>
+<ol class="article-list">
+<li>Altering extracellular resistivity (e.g., via osmotic changes) affects ephaptic coupling and complex-cell information.</li>
+<li>Modifying conduction velocities (e.g., via myelination) impacts entropy amplification.</li>
+<li>Multi-electrode recordings show higher joint entropy at tract termini.</li>
+<li>Developmental tract geometry changes affect complex-cell invariance <span class="citation">[<a href="#ref-2">2</a>]</span>.</li>
+</ol>
+<p>These predictions provide a roadmap for empirical testing. The limitations of the model are discussed next to provide a balanced perspective.</p>
+<h3 id="limitations">Limitations</h3>
+<p>Understanding the model's constraints is crucial for interpreting its applicability. Entropy amplification assumes independent inputs. Correlated simple-cell inputs require mutual information analysis, $I(Y;S) \geq \max_i I(X_i;S)$. This model complements synaptic mechanisms, integrating with dendritic and inhibitory processes. These limitations highlight areas for refinement. We now consider implications for artificial neural networks.</p>
+<h3 id="deep-learning">Deep Learning Implications</h3>
+<p>The principles of entropy amplification offer insights for designing robust artificial systems. Convolutional networks lose information during pooling. Ephaptic-like timing-sensitive layers in spiking networks could enhance robustness, mirroring NU's information preservation <span class="citation">[<a href="#ref-10">10</a>]</span>. These insights could improve neural network architectures. The role of ephaptic coupling in direction selectivity is explored next.</p>
+<h3 id="direction-selectivity">Direction Selectivity</h3>
+<p>Direction selectivity benefits from the temporal precision enabled by ephaptic coupling. Ephaptic coupling enhances direction selectivity by aligning spike timing with motion, amplifying entropy for preferred directions, akin to NU's observer functions shaping temporal experience <span class="citation">[<a href="#ref-10">10</a>]</span>. This mechanism supports dynamic visual processing. Future research directions to further explore these ideas are outlined next.</p>
+<h3 id="future-research">Future Research</h3>
+<p>Further studies can refine and expand the proposed model. Simulations of $N$ coupled axons with realistic parameters&mdash;using spike-time ensembles from simple cells&mdash;can quantify mutual information $I(Y; S)$ as a function of coupling strength $\kappa$ and conduction-velocity dispersion. This would help identify optimal regimes for entropy amplification, aligning with NU's empirical probing of observer functions <span class="citation">[<a href="#ref-10">10</a>]</span>.</p>
+<p>In parallel, an alternate but complementary hypothesis suggests the existence of frequency-specific <em>metric cells</em> in the brain, sensitive to gravitational-wave perturbations originating from distinct epochs of universal history. If time is fundamentally discrete, these cells may receive metric information from across the spacetime manifold, effectively sampling temporally distributed subsets of Nonlocal Consciousness (NC). Unlike the tract-level preprocessing proposed here, which enhances entropy locally via ephaptic coupling, metric cells may enable <em>selective activation of entire temporal epochs</em>, inundating the brain with frequency-specific information from different stages of cosmic expansion <span class="citation">[<a href="#ref-18">18</a>, <a href="#ref-19">19</a>]</span>.</p>
+<p>Future work could clarify and explore how these two mechanisms&mdash;ephaptic entropy amplification and metric-cell selectivity&mdash;interact or converge within a unified framework of neural-spacetime integration, and whether they jointly bolster the case for a neural correlate of nonlocal consciousness.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Axon tracts amplify temporal-coding entropy via ephaptic coupling, paralleling NU's observer functions converging to NC. This reframes the Hubel&ndash;Wiesel model as an information-preserving system, with tracts as computational elements. The synthesis offers testable predictions and insights for artificial systems.</p>
+<h3 id="acknowledgment">Acknowledgment</h3>
+<p>This work was prepared in collaboration with an LLM.</p>
+<h2 id="appendix-a">Appendix A &mdash; Testing Prediction 1: Experimental Proposal</h2>
+<figure class="article-figure" id="fig-experiment">
+<svg aria-label="Experimental setup for testing entropy amplification" role="img" viewbox="0 0 720 360">
+<defs>
+<marker id="arrow3" markerheight="7" markerwidth="7" orient="auto-start-reverse" refx="9" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#24304c"></path>
+</marker>
+<style>
+                            .box { fill: #fffdfa; stroke: #24304c; stroke-width: 1.5; }
+                            .b-label { fill: #22211d; font: 14px "Palatino Linotype", Palatino, serif; text-anchor: middle; }
+                            .b-sub { fill: #6f6658; font: 12px "Palatino Linotype", Palatino, serif; text-anchor: middle; }
+                            .e { stroke: #24304c; stroke-width: 1.4; fill: none; }
+                            .note { fill: #9a6a2f; font: italic 12px "Palatino Linotype", Palatino, serif; text-anchor: middle; }
+                        </style>
+</defs>
+<rect class="box" height="60" rx="8" width="200" x="60" y="40"></rect>
+<text class="b-label" x="160" y="65">Cortical Slice</text>
+<text class="b-sub" x="160" y="85">(Visual Cortex)</text>
+<rect class="box" height="60" rx="8" width="200" x="460" y="40"></rect>
+<text class="b-label" x="560" y="65">Mannitol</text>
+<text class="b-sub" x="560" y="85">(&darr; Resistivity)</text>
+<line class="e" marker-end="url(#arrow3)" x1="260" x2="460" y1="70" y2="70"></line>
+<rect class="box" height="60" rx="8" width="200" x="60" y="160"></rect>
+<text class="b-label" x="160" y="195">Patch-Clamp</text>
+<rect class="box" height="60" rx="8" width="200" x="460" y="160"></rect>
+<text class="b-label" x="560" y="195">Multi-Electrode Array</text>
+<line class="e" marker-end="url(#arrow3)" x1="160" x2="160" y1="100" y2="160"></line>
+<line class="e" marker-end="url(#arrow3)" x1="560" x2="560" y1="100" y2="160"></line>
+<text class="note" x="360" y="135">Captures joint entropy</text>
+<rect class="box" height="60" rx="8" width="200" x="260" y="280"></rect>
+<text class="b-label" x="360" y="305">Spike-Timing</text>
+<text class="b-label" x="360" y="325">Entropy Analysis</text>
+<line class="e" marker-end="url(#arrow3)" x1="160" x2="280" y1="220" y2="280"></line>
+<line class="e" marker-end="url(#arrow3)" x1="560" x2="440" y1="220" y2="280"></line>
+</svg>
+<figcaption><span class="fig-label">Figure 4.</span> Proposed in-vitro experiment combining osmotic modulation of extracellular resistivity with patch-clamp and multi-electrode recordings to quantify the entropy amplification predicted by the model.</figcaption>
+</figure>
+<p>To test entropy amplification via ephaptic coupling, we propose an in-vitro experiment using cortical slices from the visual cortex. Osmotic agents like mannitol reduce extracellular resistivity, modulating ephaptic interactions <span class="citation">[<a href="#ref-12">12</a>, <a href="#ref-20">20</a>]</span>. Acute slices preserve laminar geometry and tract integrity. Graded mannitol concentrations alter resistivity, affecting spike-timing dynamics. Patch-clamp recordings from complex cells measure orientation selectivity, position invariance, and entropy. Multi-electrode arrays quantify joint entropy at tract termini <span class="citation">[<a href="#ref-13">13</a>, <a href="#ref-14">14</a>]</span>. This tests whether ephaptic coupling increases spike-timing entropy, supporting the model's coupling term $\kappa$. Reducing resistivity may weaken timing precision, while restoring it enhances it, confirming tracts' role in information processing. This aligns with NU's observer-like functions, thermodynamics, and mutual-information analyses, offering insights for neural network designs.</p>
+<h2 id="appendix-b">Appendix B &mdash; Theoretical Underpinnings of Ephaptic Coupling</h2>
+<p>In this appendix, the authors present the Crank&ndash;Nicolson formulae for simulation of nonlinearities introduced in the current-coupling term of the coupled-axon governing equation of Reutskiy. The exact matrix equation is obtained for this case. The setting is also generalized to higher-order nonlinearities.</p>
+<h3 id="b-introduction">B.1  Introduction</h3>
+<p>Mathematical modeling of nerve cells plays a critical role in understanding their function under idealized conditions. Modeling methods include formulation of differential equations via circuit theory as well as formation of these equations by analogy with Newtonian mechanics. Idealized conditions include benign settings of external fluid pressure or internal concentrations. By formulating differential equations one sees how various parameters of nerve-cell structure interact with conditions in the milieu. Thus, these models offer insight into the underlying mechanisms of neural activity and help predict responses in more realistic or perturbed scenarios. In particular, simulating signal propagation in axons and axon bundles is a key aspect of such modeling efforts.</p>
+<p>These numerical simulations are often unavoidably performed using coarse linear approximations. However, biological systems are rarely linear in nature. Nonlinear phenomena&mdash;where outputs do not scale proportionally with inputs&mdash;are ubiquitous in both natural and engineered systems <span class="citation">[<a href="#ref-21">21</a>]</span>. Many engineered electronic components, for instance, exhibit nonlinear current&ndash;voltage relationships. For instance, the ubiquitous circuit component, the diode, has a nonlinear I&ndash;V curve. Since standard literature and neuroscience textbooks often draw an analogy between the nervous system and a massive, complex electrical circuit, it is natural to hypothesize that nonlinearities may also play a role in neural behavior.</p>
+<p>Nonlinear coupling mechanisms also appear in physical systems such as groups of proximal candle flames. In <span class="citation">[<a href="#ref-22">22</a>]</span>, the authors report nonlinear coupling terms of the form $\sigma T^n$, where $\sigma$ is the Stefan&ndash;Boltzmann constant, $T$ is temperature, and $n$ ranges from 2 to 4. These terms enable phase synchronization between individual flame oscillators. Motivated by the potential relevance of such nonlinear terms in neural ephaptic interactions (see Equation (7) in <span class="citation">[<a href="#ref-23">23</a>]</span>), we explore their incorporation into multi-axon models. Our interest is further inspired by forms such as the Burgers'&ndash;Huxley equation, which has been applied to model wave-like propagation in neural tissue <span class="citation">[<a href="#ref-24">24</a>]</span>.</p>
+<p>In this paper, we investigate the discretization of a nonlinear PDE model in which the transmembrane potential acts as a coefficient on the second spatial derivative&mdash;a basic but representative form of nonlinear coupling. Related work on nonlinear PDE dynamics includes <span class="citation">[<a href="#ref-25">25</a>, <a href="#ref-26">26</a>, <a href="#ref-27">27</a>]</span>.</p>
+<p>The remainder of this paper is structured as follows. Section B.2 surveys relevant literature on axonal modeling and ephaptic interactions. Section B.3 introduces notation and summarizes classical models. Section B.4 presents the standard multi-axon ephaptic model. In Section B.5, we introduce and motivate a nonlinear coupling term. Section B.6 discusses its numerical discretization, followed by a generalization in Section B.7. Section B.8 concludes the appendix.</p>
+<h3 id="b-literature">B.2  Literature Review</h3>
+<p>Initially, the view of neuroscientists for a long time was unclear that cells were the basic building blocks of brain function <span class="citation">[<a href="#ref-28">28</a>]</span>. With the works of Cajal the neuron doctrine gained prevalence <span class="citation">[<a href="#ref-29">29</a>]</span>. As per the neuron doctrine, neurons were the structures that were fundamental in the brain. Many types of neurons were soon discovered and classified. Through the technique of staining, their morphology could easily be identified <span class="citation">[<a href="#ref-30">30</a>]</span>. Their connectivity surprised many by the complexity of the neuronal arbor. Dendrites and axons were identified. Synapses were discovered as the place of information exchange between neighboring connected neurons <span class="citation">[<a href="#ref-31">31</a>]</span>. Various types of synapses such as axo-axonal and axo-dendritic were identified. In the 1940s non-synaptic longitudinal connectivity was also discovered, as though the old argument for a diffuse and 'whole' medium was rearing its head again. The work of Arvanitaki <span class="citation">[<a href="#ref-32">32</a>]</span> proved critical and she named the new connectivity as 'ephaptic.'</p>
+<p>Later in the second half of the twentieth century many works appeared which analyzed not only the Hodgkin&ndash;Huxley single axon situation, but also the ephaptic case <span class="citation">[<a href="#ref-33">33</a>]</span>. The complexity of the Hodgkin&ndash;Huxley formulation guaranteed many interesting studies and phenomena. Nevertheless, in the hope of explaining the ephaptic case, and accounting for three-dimensional geometry, new variables such as a connectivity-capturing geometric matrix were introduced <span class="citation">[<a href="#ref-34">34</a>]</span>. The nonlinearity considered in this paper is but a continuation of this long program of better understanding the brain and capturing its complexity in a single formula.</p>
+<h3 id="b-preliminaries">B.3  Preliminaries</h3>
+<p>The precursors to the nonlinear equation of this paper are: the Hodgkin&ndash;Huxley equation <span class="citation">[<a href="#ref-35">35</a>, <a href="#ref-36">36</a>]</span>, the Reutskiy equation <span class="citation">[<a href="#ref-23">23</a>]</span> and the geometrical ephaptic equation <span class="citation">[<a href="#ref-37">37</a>]</span>. We present here a table which contains the notation used in this paper.</p>
+<figure class="article-table">
+<div class="table-scroll">
+<table>
+<thead>
+<tr><th>S.No.</th><th>Symbol</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>$C_i$</td><td>Capacitance of the $i$-th axon's myelin sheath, per unit length</td></tr>
+<tr><td>2</td><td>$V_i$</td><td>Transmembrane voltage of the $i$-th axon</td></tr>
+<tr><td>3</td><td>$(x,t)$</td><td>Space and time variables</td></tr>
+<tr><td>4</td><td>$\kappa,\;\kappa_i$</td><td>Conductivity constants for the $i$-th axon</td></tr>
+<tr><td>5</td><td>$\varsigma_k,\;\zeta_k$</td><td>Coupling coefficients for the $k$-th axon</td></tr>
+<tr><td>6</td><td>$\xi$</td><td>Weighting factor for conductance term</td></tr>
+<tr><td>7</td><td>$\alpha,\;\alpha_i$</td><td>Coefficients related to time discretization for the $i$-th axon</td></tr>
+<tr><td>8</td><td>$\beta,\;\beta_i$</td><td>Coefficients related to spatial discretization for the $i$-th axon</td></tr>
+<tr><td>9</td><td>$G,\;G_i$</td><td>Conductance per unit length for the $i$-th axon</td></tr>
+<tr><td>10</td><td>$I^{\text{ion,inj}}$</td><td>Ionic or injected current</td></tr>
+<tr><td>11</td><td>$L$</td><td>Number of spatial discretizations</td></tr>
+<tr><td>12</td><td>$\vec{x}^{\,n+1}$</td><td>Systematized vector of transmembrane voltages at the $(n+1)$-th time instant</td></tr>
+<tr><td>13</td><td>$F$</td><td>Order of the general nonlinearity</td></tr>
+<tr><td>14</td><td>$\Delta t$</td><td>Time-step size in discretization</td></tr>
+<tr><td>15</td><td>$\Delta x$</td><td>Spatial step size in discretization</td></tr>
+<tr><td>16</td><td>$S_i^n$</td><td>Second spatial-derivative term for the $i$-th axon at time $n$</td></tr>
+<tr><td>17</td><td>$R_n$</td><td>Second spatial-derivative term used in matrix formulation at time $n$</td></tr>
+<tr><td>18</td><td>$A_n,\;B_n$</td><td>Matrices in the discretized system for coupled axons</td></tr>
+<tr><td>19</td><td>$\mathrm{RHS}_1^{\le n},\;\mathrm{RHS}_2^{\le n}$</td><td>Right-hand-side vectors for the discretized system at or before time $n$</td></tr>
+<tr><td>20</td><td>$D$</td><td>Diffusion coefficient</td></tr>
+<tr><td>21</td><td>$\gamma$</td><td>Coefficient for the first spatial derivative</td></tr>
+<tr><td>22</td><td>$V_2^n(i)$</td><td>Discretized value of $V_2$ at spatial point $i$ and time $n$</td></tr>
+<tr><td>23</td><td>$\Sigma^{(n)}$</td><td>Diagonal matrix with entries proportional to $V_2^{2,\,n+1/2}(i)$</td></tr>
+<tr><td>24</td><td>$\sigma_i^{(n)}$</td><td>Diagonal entries of $\Sigma^{(n)}$</td></tr>
+<tr><td>25</td><td>$A^{(n)},\;B^{(n)}$</td><td>Tridiagonal matrices for the discretized system</td></tr>
+<tr><td>26</td><td>$\Phi_n$</td><td>State-transition matrix</td></tr>
+<tr><td>27</td><td>$\Gamma_n$</td><td>Input matrix</td></tr>
+<tr><td>28</td><td>$C_n$</td><td>Output matrix</td></tr>
+<tr><td>29</td><td>$\mathcal{C}_n$</td><td>Controllability matrix</td></tr>
+<tr><td>30</td><td>$\mathcal{O}_n$</td><td>Observability matrix</td></tr>
+</tbody>
+</table>
+</div>
+<figcaption><span class="fig-label">Table 1.</span> Symbols and their meanings as used in the manuscript and appendices.</figcaption>
+</figure>
+<h3 id="b-coupled-equation">B.4  The Coupled Equation</h3>
+<p>The multiple-axon equation is</p>
+<div class="math-block">
+$$
+C_i\,\frac{\partial V_i}{\partial t} \;=\; \kappa\,\frac{\partial^2 V_i}{\partial x^2} \;+\; \sum_{k\neq i}\varsigma_k\,\frac{\partial^2 V_k}{\partial x^2} \;-\; \xi\,G\,V \;+\; (1-\xi)\,I^{\text{ion,inj}}, \tag{2}
+$$
+            </div>
+<p>and we wish to modify the coupling term. Note that whether we introduce a voltage-squared in place of a voltage in the coupling sum or in the term outside and prior to the coupling sum, we will have to deal with discretization of terms of the form</p>
+<div class="math-block">
+$$
+V_i\,\frac{\partial^2 V_i}{\partial x^2}. \tag{3}
+$$
+            </div>
+<p>This is the nature of the basic nonlinearity. For basic details on discretization, we refer the reader to Crank and Nicolson's original paper <span class="citation">[<a href="#ref-38">38</a>]</span>.</p>
+<h3 id="b-nonlinearity">B.5  Introduction of Nonlinearity</h3>
+<p>We begin with the two equations which are to be discretized after nonlinearization,</p>
+<div class="math-block">
+$$
+C_1\,\frac{\partial V_1}{\partial t} \;=\; \kappa_1\,\frac{\partial^2 V_1}{\partial x^2} \;+\; \varsigma_2\,\frac{\partial^2 V_2}{\partial x^2} \;-\; G_1 V_1, \tag{4}
+$$
+            </div>
+<p>and</p>
+<div class="math-block">
+$$
+C_2\,\frac{\partial V_2}{\partial t} \;=\; \kappa_2\,\frac{\partial^2 V_2}{\partial x^2} \;+\; \varsigma_1\,\frac{\partial^2 V_1}{\partial x^2} \;-\; G_2 V_2. \tag{5}
+$$
+            </div>
+<p>While several types of nonlinearities might be considered, we will discretize the following two coupled nonlinear equations:</p>
+<div class="math-block">
+$$
+C_1\,\frac{\partial V_1}{\partial t} \;=\; \kappa_1\,\frac{\partial^2 V_1}{\partial x^2} \;+\; \varsigma_2\,V_2\,\frac{\partial^2 V_2}{\partial x^2} \;-\; G_1 V_1, \tag{6}
+$$
+            </div>
+<p>and</p>
+<div class="math-block">
+$$
+C_2\,\frac{\partial V_2}{\partial t} \;=\; \kappa_2\,\frac{\partial^2 V_2}{\partial x^2} \;+\; \varsigma_1\,V_1\,\frac{\partial^2 V_1}{\partial x^2} \;-\; G_2 V_2. \tag{7}
+$$
+            </div>
+<p>The nonlinear term can be discretized by viewing it as the product of two terms whose individual discretizations are known. The remaining terms are quite standard and commonplace.</p>
+<h3 id="b-crank-nicolson">B.6  Crank&ndash;Nicolson Discretization of Nonlinearity</h3>
+<p>We start with Equation (6),</p>
+<div class="math-block">
+$$
+C_1\,\frac{\partial V_1}{\partial t} \;=\; \kappa_1\,\frac{\partial^2 V_1}{\partial x^2} \;+\; \zeta_2\,V_2\,\frac{\partial^2 V_2}{\partial x^2} \;-\; G_1 V_1. \tag{8}
+$$
+            </div>
+<p>We will use the following discretization formulae. The time derivative $\dfrac{\partial V_1}{\partial t}$ can be discretized as</p>
+<div class="math-block">
+$$
+\frac{V_1(i,n+1) - V_1(i,n-1)}{2\Delta t}, \tag{9}
+$$
+            </div>
+<p>$\dfrac{\partial^2 V_1}{\partial x^2}$ as</p>
+<div class="math-block">
+$$
+\frac{V_1(i+1,n) - 2 V_1(i,n) + V_1(i-1,n)}{(\Delta x)^2}, \tag{10}
+$$
+            </div>
+<p>$V_2$ as</p>
+<div class="math-block">
+$$
+\tfrac{1}{2}\bigl[V_2(i,n+1) + V_2(i,n-1)\bigr], \tag{11}
+$$
+            </div>
+<p>and $\dfrac{\partial^2 V_2}{\partial x^2}$ as</p>
+<div class="math-block">
+$$
+\frac{V_2(i+1,n) - 2 V_2(i,n) + V_2(i-1,n)}{(\Delta x)^2}. \tag{12}
+$$
+            </div>
+<p>Assuming 'zero' initial conditions, at time $n=1$ we have:</p>
+<div class="math-block">
+$$
+\alpha_1 V_{1,i}^{2} \;=\; \beta_2\,V_{2,i}^{2}\bigl[V_{2,i+1}^{1} - 2V_{2,i}^{1} + V_{2,i-1}^{1}\bigr] \;+\; \beta_1\bigl[V_{1,i+1}^{1} - 2V_{1,i}^{1} + V_{1,i-1}^{1}\bigr] \tag{13}
+$$
+            </div>
+<p>and</p>
+<div class="math-block">
+$$
+\alpha_2 V_{2,i}^{2} \;=\; \beta_1\,V_{1,i}^{2}\bigl[V_{1,i+1}^{1} - 2V_{1,i}^{1} + V_{1,i-1}^{1}\bigr] \;+\; \beta_2\bigl[V_{2,i+1}^{1} - 2V_{2,i}^{1} + V_{2,i-1}^{1}\bigr]. \tag{14}
+$$
+            </div>
+<p>Next, we introduce the definition of $S_2^{1}$ as</p>
+<div class="math-block">
+$$
+V_{2,i+1}^{1} - 2V_{2,i}^{1} + V_{2,i-1}^{1} \tag{15}
+$$
+            </div>
+<p>and $S_1^{1}$ as</p>
+<div class="math-block">
+$$
+V_{1,i+1}^{1} - 2V_{1,i}^{1} + V_{1,i-1}^{1}. \tag{16}
+$$
+            </div>
+<p>The subscript on $S$ is axon number and the superscript is time. This leads to the following simplified system:</p>
+<div class="math-block">
+$$
+\alpha_1 V_{1,i}^{2} \;=\; \beta_2\,V_{2,i}^{2}\,S_2^{1} \;+\; \beta_1\,S_1^{1} \tag{17}
+$$
+            </div>
+<p>and</p>
+<div class="math-block">
+$$
+\alpha_2 V_{2,i}^{2} \;=\; \beta_1\,V_{1,i}^{2}\,S_1^{1} \;+\; \beta_2\,S_2^{1}. \tag{18}
+$$
+            </div>
+<p>For a general time $n$, the system is</p>
+<div class="math-block">
+$$
+\alpha_1 V_{1,i}^{n+1} \;=\; \beta_2\,V_{2,i}^{n+1}\,S_2^{n} \;+\; \beta_1\,S_1^{n} \tag{19}
+$$
+            </div>
+<p>and</p>
+<div class="math-block">
+$$
+\alpha_2 V_{2,i}^{n+1} \;=\; \beta_1\,V_{1,i}^{n+1}\,S^{n} \;+\; \alpha_2 V_{2,i}^{n-1} \;+\; \beta_2\,R^{n} \;-\; \beta_1\,V_{1,i}^{n-1}\,S^{n}. \tag{20}
+$$
+            </div>
+<p>Next, we focus on the matrix equation corresponding to Equation (19). We have</p>
+<div class="math-block">
+$$
+\alpha_1 V_{1,i}^{n+1} - \beta_2\,V_{2,i}^{n+1}\,R^{n} \;=\; \alpha_1 V_{1,i}^{n-1} + \beta_1\,S^{n} - \beta_2\,V_{2,i}^{n-1}\,R^{n}. \tag{21}
+$$
+            </div>
+<p>The various vectors involved in the above equation are as follows when the spatial index is explicit:</p>
+<div class="math-block">
+$$
+V_{1,i}^{n+1} \;=\; \begin{bmatrix} V_1(0,n+1) \\ V_1(1,n+1) \\ V_1(2,n+1) \\ V_1(3,n+1) \\ V_1(4,n+1) \\ \vdots \end{bmatrix}, \tag{22}
+$$
+            </div>
+<div class="math-block">
+$$
+V_{2,i}^{n+1} \;=\; \begin{bmatrix} V_2(0,n+1) \\ V_2(1,n+1) \\ V_2(2,n+1) \\ V_2(3,n+1) \\ V_2(4,n+1) \\ \vdots \end{bmatrix}, \tag{23}
+$$
+            </div>
+<div class="math-block">
+$$
+V_{1,i}^{n-1} \;=\; \begin{bmatrix} V_1(0,n-1) \\ V_1(1,n-1) \\ V_1(2,n-1) \\ \vdots \end{bmatrix}, \tag{24}
+$$
+            </div>
+<p>and</p>
+<div class="math-block">
+$$
+V_{2,i}^{n-1} \;=\; \begin{bmatrix} V_2(0,n-1) \\ V_2(1,n-1) \\ V_2(2,n-1) \\ \vdots \end{bmatrix}. \tag{25}
+$$
+            </div>
+<p>Next we note that in matrix form the second term on the LHS of Equation (21) can be expressed as</p>
+<div class="math-block">
+$$
+\beta_2 \cdot \operatorname{diag}\bigl[V_2(0,n+1),\,V_2(1,n+1),\,V_2(2,n+1),\,\ldots\bigr]_{(L+1)\times(L+1)}\cdot R^{n}_{(L+1)\times 1}. \tag{26}
+$$
+            </div>
+<p>Thus, the nonlinearity stands resolved for computational purposes. Likewise, the last term on the RHS of Equation (21) can also be written out.</p>
+<p>The algorithm to be followed is straightforward. We treat $R^{n}$ as a constant and plug it on the LHS along with other $n$-type plugins on the RHS. We thus obtain the $(n+1)$-type terms. Then this process is repeated for every $n$. We require the simple representation of the following type of terms:</p>
+<div class="math-block">
+$$
+\alpha_1 \begin{bmatrix} V_{1,i}^{n+1} \\ \vdots \end{bmatrix} - \beta_2 \cdot \operatorname{diag}\!\bigl(V_{2,i}^{n+1}\bigr)\,R^{n}. \tag{27}
+$$
+            </div>
+<p>These can be written as</p>
+<div class="math-block">
+$$
+\begin{bmatrix} \alpha_1 I &amp; -\beta_2 R^{n} \end{bmatrix} \begin{bmatrix} V_{1,i}^{n+1} \\ V_{2,i}^{n+1} \end{bmatrix} \;=\; \mathrm{RHS} \tag{28}
+$$
+            </div>
+<p>which can succinctly be written as</p>
+<div class="math-block">
+$$
+A_n\,\vec{x}^{\,n+1} \;=\; \mathrm{RHS}^{\le n}, \tag{29}
+$$
+            </div>
+<p>and, upon inverting, we can isolate the variable of interest:</p>
+<div class="math-block">
+$$
+\vec{x}^{\,n+1} \;=\; A_n^{-1}\,\mathrm{RHS}^{\le n}. \tag{30}
+$$
+            </div>
+<p>Next, we look at the joint evolution of coupled equations. For the second axon, we can write similarly</p>
+<div class="math-block">
+$$
+B_n\,\vec{x}^{\,n+1} \;=\; \mathrm{RHS}_2^{\le n}, \tag{31}
+$$
+            </div>
+<p>where</p>
+<div class="math-block">
+$$
+B_n \;=\; \begin{bmatrix} -\beta_1 S^{n} &amp; \alpha_2 I \end{bmatrix}, \tag{32}
+$$
+            </div>
+<p>and we make it a point to subscript the term $\mathrm{RHS}$ in Equation (29) with the subscript 1. Then we can put together Equations (29) and (31) in a single matrix equation which can be propagated in time after inversion:</p>
+<div class="theorem-block">
+<div class="theorem-title">Main Result &mdash; Joint Update Equation</div>
+<div class="math-block">
+$$
+\begin{bmatrix} A_n \\ B_n \end{bmatrix} \vec{x}^{\,n+1} \;=\; \begin{bmatrix} \mathrm{RHS}_1^{\le n} \\ \mathrm{RHS}_2^{\le n} \end{bmatrix}. \tag{33}
+$$
+                </div>
+<p>In Equation (33), the superscript $\le n$ indicates that the time instant of relevance is earlier than or equal to $n$.</p>
+</div>
+<h3 id="b-general-nonlinearity">B.7  General Nonlinearity and Its Discretization</h3>
+<p>Recall that we started the last section, Section B.6, by using:</p>
+<div class="math-block">
+$$
+C_1\,\frac{\partial V_1}{\partial t} \;=\; \kappa_1\,\frac{\partial^2 V_1}{\partial x^2} \;+\; \zeta_2\,V_2\,\frac{\partial^2 V_2}{\partial x^2} \;-\; G_1 V_1. \tag{34}
+$$
+            </div>
+<p>This can be modified as follows, by introducing a quadratic pre-multiplier in the nonlinear term, instead of the linear pre-multiplicative factor:</p>
+<div class="math-block">
+$$
+C_1\,\frac{\partial V_1}{\partial t} \;=\; \kappa_1\,\frac{\partial^2 V_1}{\partial x^2} \;+\; \zeta_2\,V_2^{2}\,\frac{\partial^2 V_2}{\partial x^2} \;-\; G_1 V_1. \tag{35}
+$$
+            </div>
+<p>In general,</p>
+<div class="math-block">
+$$
+C_1\,\frac{\partial V_1}{\partial t} \;=\; \kappa_1\,\frac{\partial^2 V_1}{\partial x^2} \;+\; \zeta_2\,V_2^{F}\,\frac{\partial^2 V_2}{\partial x^2} \;-\; G_1 V_1. \tag{36}
+$$
+            </div>
+<p>To discretize the $F$-th-order general nonlinearity of Equation (36) using the Crank&ndash;Nicolson method, we use the binomial expansion after replacing $V_2$ by its discretized version. Appendix A provides details related to discretizing the quadratic case.</p>
+<h3 id="b-discussion">B.8  Discussion</h3>
+<p>In this appendix, we studied the Crank&ndash;Nicolson discretization of Reutskiy's ephaptic-coupling equations when a nonlinearity was introduced in them. The nonlinearity was further generalized and discretized. In future work, these discretized equations will be simulated extensively. All of the developments related to the $F=0$ case can be replicated for general $F$. One can also link $F$ itself to the geometry and inter-axonal distances by some form of proportionality. This could be useful in settings where the nonlinearity is due in part to the inter-axonal medium. Further, if the medium is noisy, $F$ can be augmented with a random variable. This would then change the problem to one of the simulation of <em>stochastic</em> nonlinear partial differential equations. Considerations of information theory such as channel capacity and reliability can also be invoked in such a setting, as the multiple axons will act as sources and destinations for one another, forming a network. For general $F$, we can study focal demyelination, noisy ion channels, tortuous tracts and the machine-learning analogy <span class="citation">[<a href="#ref-39">39</a>]</span>. We can also study the impact of the general nonlinearity on universal quantum computation in the brain <span class="citation">[<a href="#ref-40">40</a>, <a href="#ref-41">41</a>]</span>. Furthermore, the role of electric fields can also be explored in the nonlinear setting <span class="citation">[<a href="#ref-42">42</a>]</span>.</p>
+<p>Nonlinear waves have long been considered in the axonal context, though there are almost no studies in the ephaptic setting. For example, solitons have been studied extensively <span class="citation">[<a href="#ref-43">43</a>, <a href="#ref-44">44</a>, <a href="#ref-45">45</a>, <a href="#ref-46">46</a>]</span>. Unlike <span class="citation">[<a href="#ref-43">43</a>]</span>, we did not consider methods other than the Crank&ndash;Nicolson discretization method. The solitons considered in these papers are related to non-electrical aspects of nerve signaling. As such, it would be interesting to combine the study of non-electrical and electrical effects by juxtaposition. This would require additional theoretical work and can be taken up in future. There are also additional papers which have looked at other types of nonlinearities in neural networks and neurons <span class="citation">[<a href="#ref-47">47</a>, <a href="#ref-48">48</a>, <a href="#ref-49">49</a>, <a href="#ref-50">50</a>]</span>.</p>
+<p>In the context of these referenced efforts, the present work opens up the additional possibility that novel and interesting nonlinear effects in action-potential propagation may arise in the current-coupled axonal setting.</p>
+<h3 id="b-quadratic">B.9  Discretization of Quadratic Nonlinear PDE</h3>
+<p>This subsection presents the discretization of the nonlinear partial differential equation introduced in Equation (34) of Section B.7:</p>
+<div class="math-block">
+$$
+\frac{\partial V_1}{\partial t} \;=\; V_2^{2}(x,t)\left( D\,\frac{\partial^2 V_1}{\partial x^2} + \gamma\,\frac{\partial V_1}{\partial x} \right), \tag{A1}
+$$
+            </div>
+<p>where $V_2(x,t)$ is a known function of both space and time. The goal is to follow the Crank&ndash;Nicolson approach outlined in Section B.6, while accounting for the spatially varying nonlinear factor $V_2^{2}$.</p>
+<h4>B.9.1  Discretization Grid and Notation</h4>
+<p>Let the spatial domain be discretized as $x_i = i\,\Delta x$ for $i = 0, 1, \ldots, M$, and time as $t^{n} = n\,\Delta t$ for $n = 0, 1, 2, \ldots$. Let $V_1^{n}(i) \equiv V_1(x_i, t^{n})$ and $V_2^{n}(i) \equiv V_2(x_i, t^{n})$. The factor $V_2^{2}$ is discretized at the midpoint in time using the binomial expansion:</p>
+<div class="math-block">
+$$
+V_2^{2,\,n+\frac{1}{2}}(i) \;=\; \left( \frac{V_2^{n+1}(i) + V_2^{n}(i)}{2} \right)^{2} \;=\; \tfrac{1}{4}\Bigl[ V_2^{n+1}(i)^{2} + 2 V_2^{n+1}(i)\,V_2^{n}(i) + V_2^{n}(i)^{2} \Bigr]. \tag{A2--A3}
+$$
+            </div>
+<h4>B.9.2  Crank&ndash;Nicolson Derivatives</h4>
+<p>The time derivative is approximated as</p>
+<div class="math-block">
+$$
+\left.\frac{\partial V_1}{\partial t}\right|_i^{n+1/2} \approx \frac{V_1^{n+1}(i) - V_1^{n}(i)}{\Delta t}.
+$$
+            </div>
+<p>The spatial second derivative is approximated using a centered average between time levels $n$ and $n+1$:</p>
+<div class="math-block">
+$$
+\left.\frac{\partial^2 V_1}{\partial x^2}\right|_i^{n+1/2} \approx \frac{1}{2(\Delta x)^{2}} \Bigl[\, V_1^{n+1}(i+1) - 2 V_1^{n+1}(i) + V_1^{n+1}(i-1) \;+\; V_1^{n}(i+1) - 2 V_1^{n}(i) + V_1^{n}(i-1) \,\Bigr].
+$$
+            </div>
+<p>The spatial first derivative is approximated similarly:</p>
+<div class="math-block">
+$$
+\left.\frac{\partial V_1}{\partial x}\right|_i^{n+1/2} \approx \frac{1}{4\,\Delta x}\Bigl[\, V_1^{n+1}(i+1) - V_1^{n+1}(i-1) + V_1^{n}(i+1) - V_1^{n}(i-1) \,\Bigr].
+$$
+            </div>
+<h4>B.9.3  Discrete Evolution Equation</h4>
+<p>Substituting these into Equation (A1), the evolution equation becomes:</p>
+<div class="math-block">
+$$
+\frac{V_1^{n+1}(i) - V_1^{n}(i)}{\Delta t} \;=\; V_2^{\,2,\,n+1/2}(i)\,\Biggl[ \frac{D}{2(\Delta x)^{2}}\Bigl( V_1^{n+1}(i+1) - 2 V_1^{n+1}(i) + V_1^{n+1}(i-1) + V_1^{n}(i+1) - 2 V_1^{n}(i) + V_1^{n}(i-1) \Bigr)
+$$
+$$
+\;+\; \frac{\gamma}{4\,\Delta x}\Bigl( V_1^{n+1}(i+1) - V_1^{n+1}(i-1) + V_1^{n}(i+1) - V_1^{n}(i-1) \Bigr) \Biggr]. \tag{A4--A5}
+$$
+            </div>
+<h4>B.9.4  Matrix Representation</h4>
+<p>Let $\vec{V}_1^{\,n}$ be the vector of solution values $V_1^{n}(i)$, and define a diagonal matrix $\Sigma^{(n)}$ with entries</p>
+<div class="math-block">
+$$
+\sigma_i^{(n)} \;:=\; \frac{\Delta t}{2}\,V_2^{\,2,\,n+1/2}(i),
+$$
+            </div>
+<p>which vary with spatial position due to the $x$-dependence of $V_2$.</p>
+<p>Define tridiagonal matrices $A^{(n)}$ and $B^{(n)}$, which act on $\vec{V}_1^{\,n+1}$ and $\vec{V}_1^{\,n}$ respectively. The entries of $A^{(n)}$ are:</p>
+<div class="math-block">
+$$
+A_{i,i-1} = -\sigma_i^{(n)}\!\left( \frac{D}{(\Delta x)^{2}} + \frac{\gamma}{2\,\Delta x} \right), \qquad
+A_{i,i}   = 1 + 2\sigma_i^{(n)}\cdot \frac{D}{(\Delta x)^{2}}, \qquad
+A_{i,i+1} = -\sigma_i^{(n)}\!\left( \frac{D}{(\Delta x)^{2}} - \frac{\gamma}{2\,\Delta x} \right).
+$$
+            </div>
+<p>The corresponding entries of $B^{(n)}$ are:</p>
+<div class="math-block">
+$$
+B_{i,i-1} = \sigma_i^{(n)}\!\left( \frac{D}{(\Delta x)^{2}} + \frac{\gamma}{2\,\Delta x} \right), \qquad
+B_{i,i}   = 1 - 2\sigma_i^{(n)}\cdot \frac{D}{(\Delta x)^{2}}, \qquad
+B_{i,i+1} = \sigma_i^{(n)}\!\left( \frac{D}{(\Delta x)^{2}} - \frac{\gamma}{2\,\Delta x} \right).
+$$
+            </div>
+<p>The full update equation is therefore</p>
+<div class="math-block">
+$$
+A^{(n)}\,\vec{V}_1^{\,n+1} \;=\; B^{(n)}\,\vec{V}_1^{\,n}. \tag{A6}
+$$
+            </div>
+<h4>B.9.5  Discussion</h4>
+<p>This matrix equation provides a consistent second-order accurate time-evolution scheme for Equation (A1). The time-dependent coefficient $V_2^{2}(x,t)$ is incorporated via midpoint binomial expansion, ensuring that spatial variation is preserved in the discretization. The matrices $A^{(n)}$ and $B^{(n)}$ are tridiagonal but spatially non-uniform, and can be efficiently solved using specialized solvers for variable-coefficient tridiagonal systems. If $V_2(x,t)$ arises from a coupled system, then a predictor-corrector or iterative approach may be used to ensure consistency between fields at each time step. The next section examines the update equation from the control-theory perspective.</p>
+<h4>B.9.6  Controlling the Axon</h4>
+<p>In this subsection, we explore the feasibility of applying control-theoretic tools to the discretized matrix equations derived in the main body of the paper, specifically Equations (33) and (A4). These equations describe the evolution of transmembrane voltages in coupled axons under nonlinear ephaptic interactions. Our goal is to interpret these equations within the framework of discrete-time linear systems and assess their controllability and observability.</p>
+<p>We begin with Equation (33), which describes the joint evolution of two axons. This equation can be written as</p>
+<div class="math-block">
+$$
+\begin{bmatrix} A_n &amp; B_n \end{bmatrix} \begin{bmatrix} \mathbf{v}_1^{n+1} \\ \mathbf{v}_2^{n+1} \end{bmatrix} \;=\; \begin{bmatrix} \mathrm{RHS}_1^{\le n} \\ \mathrm{RHS}_2^{\le n} \end{bmatrix}.
+$$
+            </div>
+<p>Here, $\mathbf{v}_1^{n+1}$ and $\mathbf{v}_2^{n+1}$ represent the voltage vectors of the two axons at time step $n+1$, while the right-hand side contains terms dependent on previous time steps. We define the state vector $\mathbf{x}^{n+1}$ as the concatenation of the two voltage vectors, and the input vector $\mathbf{u}^{n}$ as the combined right-hand side. Assuming the matrix formed by $A_n$ and $B_n$ is invertible, we obtain a state-space update of the form</p>
+<div class="math-block">
+$$
+\mathbf{x}^{n+1} \;=\; M_n^{-1}\,\mathbf{u}^{n}.
+$$
+            </div>
+<p>This equation resembles a discrete-time linear system where the state at the next time step is determined by a linear transformation of the input.</p>
+<p>Next, we consider Equation (A4), which governs the evolution of a single axon with spatially varying nonlinear coefficients. This equation is given by</p>
+<div class="math-block">
+$$
+A^{(n)}\,\mathbf{v}^{n+1} \;=\; B^{(n)}\,\mathbf{v}^{n}.
+$$
+            </div>
+<p>Solving for $\mathbf{v}^{n+1}$ yields</p>
+<div class="math-block">
+$$
+\mathbf{v}^{n+1} \;=\; \Phi_n\,\mathbf{v}^{n}, \qquad \text{where } \Phi_n = A^{(n)\,-1}\,B^{(n)}.
+$$
+            </div>
+<p>This represents a linear time-varying system, where the state-transition matrix $\Phi_n$ changes with each time step due to the underlying nonlinearities.</p>
+<p>To analyze these systems from a control-theoretic perspective, we adopt the standard discrete-time linear system model:</p>
+<div class="math-block">
+$$
+\mathbf{x}^{n+1} \;=\; \Phi_n\,\mathbf{x}^{n} + \Gamma_n\,\mathbf{u}^{n}, \qquad \mathbf{y}^{n} = C_n\,\mathbf{x}^{n}.
+$$
+            </div>
+<p>In this formulation, $\Phi_n$ is the state-transition matrix, $\Gamma_n$ is the input matrix that maps external inputs (such as injected currents) to state changes, and $C_n$ is the output matrix that selects observable components of the state (such as voltages at specific spatial nodes).</p>
+<p>Controllability refers to the ability to drive the system from any initial state to any desired final state using appropriate inputs. This property is determined by the rank of the controllability matrix:</p>
+<div class="math-block">
+$$
+\mathcal{C}_n \;=\; \bigl[\Gamma_n,\;\Phi_n\Gamma_n,\;\Phi_n^{2}\Gamma_n,\;\ldots,\;\Phi_n^{L-1}\Gamma_n\bigr].
+$$
+            </div>
+<p>If this matrix has full rank equal to the dimension of the state vector, the system is controllable.</p>
+<p>Observability, on the other hand, concerns the ability to reconstruct the full state of the system from output measurements. This is assessed using the observability matrix:</p>
+<div class="math-block">
+$$
+\mathcal{O}_n \;=\; \begin{bmatrix} C_n \\ C_n\,\Phi_n \\ C_n\,\Phi_n^{2} \\ \vdots \\ C_n\,\Phi_n^{L-1} \end{bmatrix}.
+$$
+            </div>
+<p>Full rank of this matrix implies that the system is observable.</p>
+<p>The time-varying nature of the matrices $A^{(n)}$ and $B^{(n)}$ introduces additional complexity. One may perform frozen-time analysis, treating the system as time-invariant at each step, or adopt time-varying control-theory frameworks. If stochasticity is introduced, as suggested in Section B.8, then stochastic controllability and filtering techniques such as the Kalman filter become relevant.</p>
+<p>From an information-theoretic standpoint, controllability can be interpreted as a measure of channel capacity in a multi-axon network, where each axon acts as a source or destination. Observability aligns with inference capabilities, determining how well hidden neural states can be reconstructed from surface measurements.</p>
+<p>Finally, learning-based control methods, such as reinforcement learning or neural ordinary differential equations, may offer data-driven approaches to controlling ephaptic systems. These methods could be particularly useful in settings where the system dynamics are partially unknown or highly nonlinear.</p>
+<p>In summary, the discretized equations derived in this work lend themselves naturally to control-theoretic analysis. Constructing explicit matrices $\Phi_n$, $\Gamma_n$, and $C_n$ for simplified models would be a valuable next step, enabling simulation and deeper understanding of the controllability and observability of ephaptic coupling in neural systems.</p>
+<h2 id="glossary">Glossary</h2>
+<section class="glossary">
+<dl>
+<dt>Axon tract</dt><dd>A bundle of axons transmitting signals between neural regions, proposed here to act as an entropy amplifier via ephaptic coupling.</dd>
+<dt>Channel capacity</dt><dd>The maximum rate at which information can be reliably transmitted through a communication channel, relevant to synaptic integration.</dd>
+<dt>Complex cell</dt><dd>A neuron in the visual cortex that integrates inputs from simple cells to detect orientation and motion with position invariance.</dd>
+<dt>Conduction velocity</dt><dd>The speed at which an action potential travels along an axon, influencing timing and ephaptic interactions.</dd>
+<dt>Direction selectivity</dt><dd>The ability of neurons to respond preferentially to motion in a specific direction, potentially enhanced by ephaptic timing alignment.</dd>
+<dt>Ephaptic coupling</dt><dd>Non-synaptic interaction between adjacent neurons or axons via extracellular electric fields, influencing spike timing and neural dynamics.</dd>
+<dt>Filtration</dt><dd>In NU, a sequence of transformations that preserve or enhance information as observer functions sample larger subsets of NC.</dd>
+<dt>Hubel&ndash;Wiesel hierarchy</dt><dd>A model of visual cortical processing where simple cells detect specific orientations and positions, and complex cells integrate these inputs to achieve position invariance and direction selectivity.</dd>
+<dt>Informational geometry</dt><dd>A conceptual framework where information transformations are mapped onto geometric structures, used here to describe entropy amplification.</dd>
+<dt>Nonlocal Consciousness (NC)</dt><dd>A proposed universal informational field from which observer functions sample, increasing informational entropy as they converge toward NC.</dd>
+<dt>Observer function</dt><dd>In the Nonlocal Unification framework, a mathematical function representing an observer's sampling of a subset of a universal informational field.</dd>
+<dt>Self-mutual information</dt><dd>A term used to describe the internal entropy or informational richness of a signal as it transforms within a system.</dd>
+<dt>Shannon entropy</dt><dd>A measure of uncertainty or information content in a random variable, used to quantify spike-timing variability in neural coding.</dd>
+<dt>Spiking neural network</dt><dd>A type of artificial neural network that uses spike timing for computation, potentially benefiting from ephaptic-like mechanisms.</dd>
+<dt>Temporal coding</dt><dd>A neural coding scheme where information is represented by the precise timing of spikes rather than their average firing rate.</dd>
+</dl>
+</section>
+<section class="references">
+<h2 id="references">References</h2>
+<ol class="reference-list">
+<li id="ref-1"><span class="ref-key">[1]</span> Hubel, D. H., &amp; Wiesel, T. N. (1959). Receptive fields of single neurones in the cat's striate cortex. <em>Journal of Physiology</em>, 148, 574&ndash;591.</li>
+<li id="ref-2"><span class="ref-key">[2]</span> Hubel, D. H., &amp; Wiesel, T. N. (1962). Receptive fields, binocular interaction and functional architecture in the cat's visual cortex. <em>Journal of Physiology</em>, 160, 106&ndash;154.</li>
+<li id="ref-3"><span class="ref-key">[3]</span> Hubel, D. H., &amp; Wiesel, T. N. (1968). Receptive fields and functional architecture of monkey striate cortex. <em>Journal of Physiology</em>, 195, 215&ndash;243.</li>
+<li id="ref-4"><span class="ref-key">[4]</span> Niell, C. M., &amp; Stryker, M. P. (2008). Highly selective receptive fields in mouse visual cortex. <em>Journal of Neuroscience</em>, 28(30), 7520&ndash;7536.</li>
+<li id="ref-5"><span class="ref-key">[5]</span> Marshel, J. H., Kaye, Y. M., Nauhaus, M. A., &amp; Carandini, M. (2011). Functional specialization of seven mouse visual cortical areas. <em>Neuron</em>, 72(6), 1040&ndash;1054.</li>
+<li id="ref-6"><span class="ref-key">[6]</span> Chawla, A., &amp; Morgera, S. D. (2014). Ephaptic synchronization as a mechanism for selective amplification of stimuli. <em>BMC Neuroscience</em>, 15, P87.</li>
+<li id="ref-7"><span class="ref-key">[7]</span> Chawla, A., &amp; Morgera, S. D. (2020). Ephaptic Coupling in Axon Tracts under Time and Rate Coding of Information: a Computer Study. In <em>Bernstein Conference 2020</em>.</li>
+<li id="ref-8"><span class="ref-key">[8]</span> Anastassiou, C. A., Perin, R., Markram, H., &amp; Koch, C. (2011). Ephaptic coupling of cortical neurons. <em>Nature Neuroscience</em>, 14(2), 217&ndash;223.</li>
+<li id="ref-9"><span class="ref-key">[9]</span> Fr&ouml;hlich, F., &amp; McCormick, D. A. (2010). Endogenous electric fields may guide neocortical network activity. <em>Neuron</em>, 67(1), 129&ndash;143.</li>
+<li id="ref-10"><span class="ref-key">[10]</span> Chawla, A. (2025b). Theory of Nonlocal Unification: The Foundation and Its Application. <em>Submitted to Foundations of Physics</em>.</li>
+<li id="ref-11"><span class="ref-key">[11]</span> Chawla, A. (2025a). Consequences of Nonlocal Unification for Limit Observers.</li>
+<li id="ref-12"><span class="ref-key">[12]</span> Buzs&aacute;ki, G., Anastassiou, C. A., &amp; Koch, C. (2004). The origin of extracellular fields and currents &mdash; EEG, ECoG, LFP and spikes. <em>Nature Reviews Neuroscience</em>, 13(6), 407&ndash;420.</li>
+<li id="ref-13"><span class="ref-key">[13]</span> Molleman, A. (2002). <em>Patch Clamping: An Introductory Guide to Electrophysiology</em>. Wiley.</li>
+<li id="ref-14"><span class="ref-key">[14]</span> Stevenson, I. H., &amp; Kording, K. P. (2011). How advances in neural recording affect data analysis. <em>Nature Neuroscience</em>, 14(2), 139&ndash;142.</li>
+<li id="ref-15"><span class="ref-key">[15]</span> Andermann, M. L., Kerlin, A. M., &amp; Reid, C. (2011). Chronic cellular imaging of mouse visual cortex during operant behavior and passive viewing. <em>Frontiers in Cellular Neuroscience</em>, 5, 3.</li>
+<li id="ref-16"><span class="ref-key">[16]</span> Reinhold, K., Lien, F. L., &amp; Scanziani, M. (2015). Distinct recurrent versus afferent dynamics in cortical visual processing. <em>Nature Neuroscience</em>, 18, 1789&ndash;1797.</li>
+<li id="ref-17"><span class="ref-key">[17]</span> Chawla, A., Morgera, S. D., &amp; Snider, A. (2021a). On Axon Interaction and Its Role in Neurological Networks. <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em>, 18(2), 790&ndash;796.</li>
+<li id="ref-18"><span class="ref-key">[18]</span> Chawla, A. (2023). On the Representation of Time in the Brain.</li>
+<li id="ref-19"><span class="ref-key">[19]</span> Chawla, A. (2024). Impact of the Expansion of the Universe on Tract Information Processing.</li>
+<li id="ref-20"><span class="ref-key">[20]</span> Fries, P. (2005). A mechanism for cognitive dynamics: neuronal communication through neuronal coherence. <em>Trends in Cognitive Sciences</em>, 9(10), 474&ndash;480.</li>
+<li id="ref-21"><span class="ref-key">[21]</span> Scott, A. (2007). <em>The Nonlinear Universe: Chaos, Emergence, Life</em>. Springer.</li>
+<li id="ref-22"><span class="ref-key">[22]</span> Kitahata, H., Taguchi, J., Nagayama, M., Sakurai, T., Ikura, Y., Osa, A., Sumino, Y., Tanaka, M., Yokoyama, E., &amp; Miike, H. (2009). Oscillation and synchronization in the combustion of candles. <em>The Journal of Physical Chemistry A</em>, 113(29), 8164&ndash;8168.</li>
+<li id="ref-23"><span class="ref-key">[23]</span> Reutskiy, S., Rossoni, E., &amp; Tirozzi, B. (2003). Conduction in bundles of demyelinated nerve fibers: computer simulation. <em>Biological Cybernetics</em>, 89(6), 439&ndash;448.</li>
+<li id="ref-24"><span class="ref-key">[24]</span> Yefimova, O. Yu, &amp; Kudryashov, N. A. (2004). Exact solutions of the Burgers&ndash;Huxley equation. <em>Journal of Applied Mathematics and Mechanics</em>, 3(68), 413&ndash;420.</li>
+<li id="ref-25"><span class="ref-key">[25]</span> Boldrighini, C., Frigio, S., &amp; Maponi, P. (2012). Exploding solutions of the complex two-dimensional Burgers equations: Computer simulations. <em>Journal of Mathematical Physics</em>, 53(8).</li>
+<li id="ref-26"><span class="ref-key">[26]</span> Li, D., &amp; Sinai, Ya. G. (2010). Singularities of complex-valued solutions of the two-dimensional Burgers system. <em>Journal of Mathematical Physics</em>, 51(1).</li>
+<li id="ref-27"><span class="ref-key">[27]</span> Li, D., &amp; Sinai, Ya. G. (2008). Complex singularities of solutions of some 1D hydrodynamic models. <em>Physica D: Nonlinear Phenomena</em>, 237(14&ndash;17), 1945&ndash;1950.</li>
+<li id="ref-28"><span class="ref-key">[28]</span> Kandel, E. R., Schwartz, J. H., Jessell, T. M., Siegelbaum, S., Hudspeth, A. J., Mack, S., et al. (2000). <em>Principles of Neural Science</em>, Vol. 4. McGraw-Hill, New York.</li>
+<li id="ref-29"><span class="ref-key">[29]</span> Cajal, S. Ram&oacute;n y. (1894). La fine structure des centres nerveux. The Croonian Lecture. <em>Proc. R. Soc. Lond.</em>, 55, 444&ndash;468.</li>
+<li id="ref-30"><span class="ref-key">[30]</span> Golgi, C. (1873). Sulla sostanza grigia del cervello. <em>Gazzetta Medica Italiana</em>, 33, 244&ndash;246.</li>
+<li id="ref-31"><span class="ref-key">[31]</span> Eccles, J. (1965). The synapse. <em>Scientific American</em>, 212(1), 56&ndash;69.</li>
+<li id="ref-32"><span class="ref-key">[32]</span> Arvanitaki, A. (1942). Effects evoked in an axon by the activity of a contiguous one. <em>Journal of Neurophysiology</em>, 5(2), 89&ndash;108.</li>
+<li id="ref-33"><span class="ref-key">[33]</span> Bell, J. (1981). Modeling parallel, unmyelinated axons: pulse trapping and ephaptic transmission. <em>SIAM Journal on Applied Mathematics</em>, 41(1), 168&ndash;180.</li>
+<li id="ref-34"><span class="ref-key">[34]</span> Chawla, A. (2017). <em>On Axon-Axon Interaction via Currents and Fields</em>. Ph.D. thesis, University of South Florida.</li>
+<li id="ref-35"><span class="ref-key">[35]</span> Hodgkin, A. L., &amp; Huxley, A. F. (1952b). Propagation of electrical signals along giant nerve fibres. <em>Proceedings of the Royal Society of London B</em>, 140(899), 177&ndash;183.</li>
+<li id="ref-36"><span class="ref-key">[36]</span> Hodgkin, A. L., &amp; Huxley, A. F. (1952a). A quantitative description of membrane current and its application to conduction and excitation in nerve. <em>The Journal of Physiology</em>, 117(4), 500.</li>
+<li id="ref-37"><span class="ref-key">[37]</span> Chawla, A., Morgera, S., &amp; Snider, A. (2019). On axon interaction and its role in neurological networks. <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em>.</li>
+<li id="ref-38"><span class="ref-key">[38]</span> Crank, J., &amp; Nicolson, P. (1947). A practical method for numerical evaluation of solutions of partial differential equations of the heat-conduction type. In <em>Mathematical Proceedings of the Cambridge Philosophical Society</em>, vol. 43, pp. 50&ndash;67. Cambridge University Press.</li>
+<li id="ref-39"><span class="ref-key">[39]</span> Chawla, A., &amp; Morgera, S. D. (2022b). On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties. <em>bioRxiv</em>.</li>
+<li id="ref-40"><span class="ref-key">[40]</span> Chawla, A. (2022). A Gedanken Experiment on the Brain as a Quantum Computer. <em>ResearchGate Preprint</em>.</li>
+<li id="ref-41"><span class="ref-key">[41]</span> Chawla, A., &amp; Morgera, S. D. (2022a). Mechanism of Universal Quantum Computation in the Brain. <em>arXiv</em>.</li>
+<li id="ref-42"><span class="ref-key">[42]</span> Chawla, A., Morgera, S. D., &amp; Snider, A. D. (2021b). Fields, geometry, and their impact on axon interaction. <em>Journal of Applied Mathematics and Physics</em>, 9(4), 751&ndash;778.</li>
+<li id="ref-43"><span class="ref-key">[43]</span> Mattsson, K., &amp; Werpers, J. (2016). High-fidelity numerical simulation of solitons in the nerve axon. <em>Journal of Computational Physics</em>, 305, 793&ndash;816.</li>
+<li id="ref-44"><span class="ref-key">[44]</span> Priya, R., &amp; Kavitha, L. (2022). Solitons in nerve axons. <em>Materials Today: Proceedings</em>, 51, 1782&ndash;1787.</li>
+<li id="ref-45"><span class="ref-key">[45]</span> Scott, A. C., Chu, F. Y. F., &amp; McLaughlin, D. W. (1973). The soliton: a new concept in applied science. <em>Proceedings of the IEEE</em>, 61(10), 1443&ndash;1483.</li>
+<li id="ref-46"><span class="ref-key">[46]</span> Cano, G., &amp; Dil&atilde;o, R. (2022). Action potential solitons and waves in axons. <em>arXiv preprint</em> arXiv:2207.05491.</li>
+<li id="ref-47"><span class="ref-key">[47]</span> Nfor, N. O., Ghomsi, P. G., &amp; Kakmeni, F. M. M. (2022). Localized nonlinear waves in a myelinated nerve fiber with self-excitable membrane. <em>Chinese Physics B</em>.</li>
+<li id="ref-48"><span class="ref-key">[48]</span> Zhou, P., Ma, J., &amp; Xu, Y. (2023). Phase synchronization between neurons under nonlinear coupling via hybrid synapse. <em>Chaos, Solitons &amp; Fractals</em>, 169, 113238.</li>
+<li id="ref-49"><span class="ref-key">[49]</span> Kakmeni, F. M. M., Inack, E. M., &amp; Yamakou, E. M. (2014). Localized nonlinear excitations in diffusive Hindmarsh&ndash;Rose neural networks. <em>Physical Review E</em>, 89(5), 052919.</li>
+<li id="ref-50"><span class="ref-key">[50]</span> Achu, G. F., Kakmeni, F. M. M., &amp; Dikande, A. M. (2018). Breathing pulses in the damped-soliton model for nerves. <em>Physical Review E</em>, 97(1), 012211.</li>
+</ol>
+</section>
+</article>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+

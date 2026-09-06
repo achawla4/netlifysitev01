@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bi-stochastic Versions of Hairer Coupling | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 2 · V1I2-A01</div>
+            <h1>Bi-stochastic Versions of Hairer Coupling</h1>
+            <div class="hero-meta">A. Chawla\\ REAL Institute, Gurugram</div>
+            <div class="hero-meta">Source PDF: hairerCouplingv6.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_2.html">Issue 2</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>Coupling methods provide powerful tools for studying long-time behavior of stochastic dynamical systems. Hairer (2001) introduced an influential framework of asymptotic coupling to obtain exponential mixing results for stochastic partial differential equations. In his presentation, the bi-stochastic process arises as a pair of state and noise variables on a single probability space. In this note we propose a bi-stochastic formulation built on two distinct probability spaces, and show how the original Hairer construction is recovered as a special case. We also discuss how asymptotic coupling arguments adapt to this broader framework.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>Coupling arguments are now central in the analysis of stochastic processes, from Markov chains to stochastic partial differential equations (SPDEs). The underlying idea is to construct two processes on a common probability space in such a way that they eventually meet or contract. This makes it possible to derive mixing rates and uniqueness of invariant measures. The work of Hairer <span class="citation" title="Hairer2001">[1]</span> developed an asymptotic coupling method that yields exponential mixing properties for stochastic PDEs, building on earlier coupling methods for Markov chains <span class="citation" title="Lindvall1992; Thorisson2000">[2, 3]</span>.</p>
+<p>In Hairer’s formulation, a toy model is introduced in Section 1.1 of <span class="citation" title="Hairer2001">[1]</span> as a stochastic recursion driven by independent and identically distributed noise variables. He then defines a &quot;bi-stochastic process&quot; as the pair consisting of the state and the driving noise, both defined on the same probability space. This construction is perfectly adapted to the ergodic-theoretic perspective, but from the point of view of probability space structure it hides a simplification: the two sources of randomness are forced to coincide at the level of sample space.</p>
+<p>This bi-stochastic approach is particularly relevant for modern communication systems, such as 6G networks, where heterogeneous dynamics and feedback loops require flexible coupling methods to ensure reliable data transmission.</p>
+<p>This paper is structured as follows. We list the notation next. In Section 2, we discuss bi-stochastic processes with two distinct sample spaces, the key structure introduced herein. In Section 3 we show how to recover Hairer&#x27;s results and the novelty of our view. In Section 4 we discuss the application to feedback communication. In Section 5 we conclude.</p>
+<h2 id="table-of-notation">Table of Notation</h2>
+<p>{|p{3cm}|p{8cm}|p{2cm}|} <strong>Symbol</strong> &amp; <strong>Definition</strong> &amp; <strong>First Use</strong></p>
+<p>$(,{F},{P})$ &amp; First probability space &amp; Section 2</p>
+<p>$({K},{G},{Q})$ &amp; Second probability space &amp; Section 2</p>
+<p>$$ & Sample point in $$ &amp; Section 2</p>
+<p>${K}$ &amp; Sample point in ${K}$ (also used as space name) &amp; Section 2</p>
+<p>${P} {Q}$ &amp; Product measure on $ {K}$ &amp; Section 2</p>
+<p>$P Q$ &amp; Alternative notation for product measure &amp; Section 3.1.2</p>
+<p>$$ &amp; Coupling measure on $ {K}$ &amp; Section 3.1.2</p>
+<p>$$ &amp; Unique invariant measure of the original system &amp; Section 3.4</p>
+<p>$P^{x_0}$ &amp; Law of the original system started from $x_0$ &amp; Section 3.4</p>
+<p>$X(t,)$ &amp; Stochastic process on $$ &amp; Section 2</p>
+<p>$Y(t,{K})$ &amp; Stochastic process on ${K}$ &amp; Section 2</p>
+<p>$Z(t,,{K})$ &amp; Bi-stochastic process $(X(t,), Y(t,{K}))$ &amp; Section 2</p>
+<p>$X_t$ &amp; Alternative notation for $X(t,)$ &amp; Section 3.1.1</p>
+<p>$Y_t$ &amp; Alternative notation for $Y(t,{K})$ &amp; Section 3.1.1</p>
+<p>$_t$ &amp; Difference process $X_t - Y_t$ &amp; Section 3.1.1</p>
+<p>$W^{(1)}_t$ &amp; First Brownian motion &amp; Section 3.1.1</p>
+<p>$W^{(2)}_t$ &amp; Second Brownian motion &amp; Section 3.1.1</p>
+<p>$b()$ &amp; Drift function &amp; Section 3.1.1</p>
+<p>$()$ &amp; Diffusion coefficient function &amp; Section 3.1.1</p>
+<p>$()$ &amp; Binding function &amp; Section 3.1.1</p>
+<p>$h()$ &amp; Cutoff function in binding function definition &amp; Section 3.1.1</p>
+<p>$V()$ &amp; Lyapunov function ${1}{2}||^2$ &amp; Section 3.3</p>
+<p>$f$ &amp; Bounded measurable function &amp; Section 3.4</p>
+<p>$t$ &amp; Time parameter &amp; Section 2</p>
+<p>$T$ &amp; Terminal time &amp; Section 3.1.2</p>
+<p>$d$ &amp; Dimension of state space &amp; Section 3.1.1</p>
+<p>$$ &amp; Coupling strength parameter &amp; Section 3.1.1</p>
+<p>$C$ &amp; Generic positive constant &amp; Section 3.3</p>
+<p>$$ &amp; Exponential decay rate &amp; Section 3.3</p>
+<p>$$ &amp; Coupling threshold parameter &amp; Section 3.3</p>
+<p>$u_s$ &amp; Integrand $(Y_s)^{-1} (X_s - Y_s)$ &amp; Section 3.1.2</p>
+<p>${d}{d(P Q)}$ &amp; Radon-Nikodym derivative of coupling measure &amp; Section 3.1.2</p>
+<p>$||$ &amp; Euclidean norm &amp; Section 3.1.1</p>
+<p>$||^2$ &amp; Squared Euclidean norm &amp; Section 3.1.1</p>
+<p>${Tr}[]$ &amp; Matrix trace &amp; Section 3.3</p>
+<p>$()^T$ &amp; Matrix transpose &amp; Section 3.3</p>
+<p>$x_0$ &amp; Arbitrary initial condition &amp; Section 3.4</p>
+<p>$y_0$ &amp; Initial condition drawn from invariant measure &amp; Section 3.4</p>
+<p>$\|\|_{{Lip}}$ &amp; Lipschitz norm &amp; Section 3.4</p>
+<p>${E}$ &amp; Expectation operator (generic) &amp; Section 3.2</p>
+<p>${E}_{P Q}$ &amp; Expectation under product measure &amp; Section 3.2</p>
+<p>${E}_$ &amp; Expectation under coupling measure &amp; Section 3.3</p>
+<p>${R}^2$ &amp; Two-dimensional real space &amp; Section 2</p>
+<p>${R}^d$ &amp; $d$-dimensional real space &amp; Section 3.1.1</p>
+<p>$ {K}$ &amp; Product space &amp; Section 2</p>
+<p>${F} {G}$ &amp; Product $$-algebra &amp; Section 2</p>
+<p>${(, ) : }$ &amp; Diagonal subset of $ $ &amp; Section 3.5</p>
+<p>$f_t(,)$ &amp; Encoder function of feedback communication system &amp; Section 4</p>
+<h2 id="bi-stochastic-processes-with-two-sample-spaces">Bi-stochastic processes with two sample spaces</h2>
+<p>We propose instead to formulate a bi-stochastic process using two distinct probability spaces. Let $(,{F},{P})$ and $({K},{G},{Q})$ be two measurable probability spaces. On $$ we define a stochastic process $X(t,)$, and on ${K}$ we define another process $Y(t,{K})$. The natural way to synchronize them in time is to consider the product space $( {K}, {F} {G}, {P} {Q})$ and define \[ Z(t,,{K}) = (X(t,), Y(t,{K})) {R}^2. \] This $Z$ is a genuine stochastic process in the plane with common time parameter $t$, but it carries with it the additional structure that each coordinate originates from an independent source of randomness. This structure is richer than Hairer’s original definition, since it allows us to treat the two coordinate processes as truly independent subsystems until we impose a coupling through a suitable joint law.</p>
+<p>The Hairer construction corresponds precisely to the special case $ = {K}$ and ${P} = {Q}$, where both processes are built from the same underlying noise sequence. In that situation, the joint law of the pair is concentrated on the diagonal of the product space, and the distinction between the two sources of randomness disappears.</p>
+<h2 id="recovery-of-hairer-style-results-in-the-bi-stochastic-framework">Recovery of Hairer-style Results in the Bi-stochastic Framework</h2>
+<p>Having established our bi-stochastic framework with two distinct probability spaces, we now demonstrate that all essential results from Hairer&#x27;s asymptotic coupling method can be recovered within this setting. The key technical steps—binding functions, Girsanov changes of measure, and exponential contraction analysis—translate directly, while the two-space structure provides additional clarity about the coupling construction.</p>
+<h3 id="implementation-of-binding-and-measure-change">Implementation of Binding and Measure Change</h3>
+<p>Within our two-space framework, the coupling is implemented by defining a new probability measure $$ on $ K$ that preserves the marginals while introducing dependence between the noise processes.</p>
+<h4 id="binding-function-construction">Binding Function Construction</h4>
+<p>Let $: {R}^d {R}^d$ be a binding function that depends on the state difference $_t = X_t - Y_t$. Under the coupling measure $$, the process $Y_t$ evolves according to:</p>
+<div class="math-block">$$
+dY_t = \left[b(Y_t) + \Phi(\Delta_t)\right] dt + \sigma(Y_t) dW^{(2)}_t
+$$</div>
+<p>while $X_t$ follows its original dynamics:</p>
+<div class="math-block">$$
+dX_t = b(X_t) dt + \sigma(X_t) dW^{(1)}_t
+$$</div>
+<p>The binding function is typically chosen to provide contraction when $|_t|$ is large, for example:</p>
+<div class="math-block">$$
+\Phi(\Delta) = \alpha \Delta \cdot h(|\Delta|)
+$$</div>
+<p>where $ > 0$ controls the coupling strength and $h$ is a cutoff function that vanishes for small $||$.</p>
+<h4 id="measure-change-via-radon-nikodym-derivative">Measure Change via Radon-Nikodym Derivative</h4>
+<p>The coupling measure $$ is defined through its Radon-Nikodym derivative with respect to the product measure:</p>
+<div class="math-block">$$
+\frac{d\mu}{d(P \otimes Q)} = \exp\left(\int_0^T u_s \cdot dW^{(2)}_s - \frac{1}{2}\int_0^T |u_s|^2 ds\right)
+$$</div>
+<p>where the integrand is:</p>
+<div class="math-block">$$
+u_s = \sigma(Y_s)^{-1} \Phi(X_s - Y_s)
+$$</div>
+<p>This is precisely the exponential martingale form that appears in Hairer&#x27;s original construction, but now the probabilistic structure is explicit: we are changing measure on the $K$ component of the product space while leaving the $$ component unchanged.</p>
+<h3 id="verification-of-absolute-continuity">Verification of Absolute Continuity</h3>
+<p>For the measure change to be well-defined, Novikov&#x27;s condition must hold:</p>
+<div class="math-block">$$
+\mathbb{E}_{P \otimes Q}\left[\exp\left(\frac{1}{2}\int_0^T |u_s|^2 ds\right)\right] < \infty
+$$</div>
+<p>In the two-space framework, this condition takes the form:</p>
+<div class="math-block">$$
+\mathbb{E}_{P \otimes Q}\left[\exp\left(\frac{1}{2}\int_0^T \left|\sigma(Y_s)^{-1} \Phi(X_s - Y_s)\right|^2 ds\right)\right] < \infty
+$$</div>
+<p>The verification typically relies on:</p>
+<ul class="article-list"><li><p>Moment bounds for the processes $X_t$ and $Y_t$ under the product measure</p></li><li><p>Growth conditions on the binding function $$</p></li><li><p>Non-degeneracy assumptions on the diffusion coefficient $$</p></li></ul>
+<p>The two-space structure makes the independence assumptions explicit, facilitating the application of concentration inequalities and moment bounds for the individual processes.</p>
+<h3 id="exponential-contraction-in-the-coupled-system">Exponential Contraction in the Coupled System</h3>
+<p>Under the coupling measure $$, the difference process $_t = X_t - Y_t$ satisfies:</p>
+<div class="math-block">$$
+d\Delta_t = [b(X_t) - b(Y_t) - \Phi(\Delta_t)] dt + \sigma(X_t)dW^{(1)}_t - \sigma(Y_t)dW^{(2)}_t
+$$</div>
+<p>The analysis of exponential contraction proceeds through Lyapunov methods. Consider $V() = {1}{2}||^2$ and apply Itô&#x27;s formula:</p>
+<div class="math-block">$$
+\begin{align}
+dV(\Delta_t) &= \Delta_t \cdot [b(X_t) - b(Y_t) - \Phi(\Delta_t)] dt 
+
+&\quad + \Delta_t \cdot [\sigma(X_t)dW^{(1)}_t - \sigma(Y_t)dW^{(2)}_t] 
+
+&\quad + \frac{1}{2}\text{Tr}[(\sigma(X_t) - \sigma(Y_t))(\sigma(X_t) - \sigma(Y_t))^T] dt
+\end{align}
+$$</div>
+<p>The key observation is that the drift term provides contraction when the binding function is appropriately chosen. Under standard Lipschitz conditions on $b$ and suitable choice of $$, one establishes:</p>
+<div class="math-block">$$
+\mathbb{E}_\mu[V(\Delta_t)] \leq C e^{-\lambda t} V(\Delta_0) + C\varepsilon^2
+$$</div>
+<p>for constants $C, > 0$ and coupling threshold $$.</p>
+<p>The two-space formulation clarifies that this contraction occurs under the joint law $$ while each marginal process retains its original law. This separation is crucial for transferring the contraction property to mixing results for the original system.</p>
+<h3 id="transfer-of-mixing-properties">Transfer of Mixing Properties</h3>
+<p>The exponential contraction established under the coupling measure $$ directly implies exponential mixing for the original system. The argument proceeds by coupling an arbitrary initial condition with a trajectory started from the invariant distribution.</p>
+<p>Let $$ denote the unique invariant measure of the original system, and consider initial conditions $x_0$ (arbitrary) and $y_0 $. Under the coupling measure $$:</p>
+<ul class="article-list"><li><p>The $X$-marginal has law $P^{x_0}$ (the original system started from $x_0$)</p></li><li><p>The $Y$-marginal maintains the invariant distribution $$</p></li><li><p>The coupled trajectories contract exponentially: ${E}_ C e^{- t}$</p></li></ul>
+<p>For any bounded measurable function $f$, this yields:</p>
+<div class="math-block">$$
+\begin{align}
+|\mathbb{E}[f(X_t)] - \pi(f)| &= |\mathbb{E}_\mu[f(X_t)] - \mathbb{E}_\mu[f(Y_t)]| 
+
+&\leq \mathbb{E}_\mu[|f(X_t) - f(Y_t)|] 
+
+&\leq \|f\|_{\text{Lip}} \mathbb{E}_\mu[|X_t - Y_t|] 
+
+&\leq C\|f\|_{\text{Lip}} e^{-\lambda t/2}
+\end{align}
+$$</div>
+<p>The key insight made transparent by the two-space formulation is that we are using the coupling measure $$ for the contraction analysis while simultaneously preserving the marginal distributions required for the mixing argument.</p>
+<h3 id="equivalence-with-original-hairer-framework">Equivalence with Original Hairer Framework</h3>
+<p>The construction presented above recovers Hairer&#x27;s results as a special case when $ = K$ and $P = Q$. In this degenerate situation:</p>
+<ul class="article-list"><li><p>The product space $ K$ becomes $ $</p></li><li><p>The product measure $P Q$ becomes $P P$</p></li><li><p>The coupling measure $$ is supported on the diagonal ${(, ) : }$</p></li></ul>
+<p>Under these identifications, both processes $X_t()$ and $Y_t()$ are driven by correlated noise derived from the same underlying Brownian motion, which matches Hairer&#x27;s original construction exactly. The exponential mixing results follow with identical constants and rates.</p>
+<p>However, the two-space formulation provides additional structure that can be exploited in extensions:</p>
+<ol class="article-list"><li><p><strong>Heterogeneous systems</strong>: When coupling processes with different state spaces or dynamics</p></li><li><p><strong>Multi-scale analysis</strong>: When different components evolve on different time scales</p></li><li><p><strong>Partial coupling</strong>: When only certain modes or degrees of freedom are coupled</p></li></ol>
+<p>In each case, the freedom to choose distinct probability spaces $(, P)$ and $(K, Q)$ allows for more flexible and transparent constructions than forcing both processes onto a single sample space.</p>
+<h2 id="use-case-application-to-continuous-time-feedback-systems">Use Case: Application to Continuous-Time Feedback Systems</h2>
+<p>The bi-stochastic formulation of Hairer coupling proves particularly valuable in analyzing continuous-time additive white Gaussian noise (AWGN) channels with perfect feedback <span class="citation" title="chawla2021continuous">[4]</span>. In such systems, the encoder function $f_t(, Y_{[0,t)})$ depends causally on channel output observations, creating a feedback loop that complicates traditional reliability analysis. The two-space construction allows us to decouple the forward channel dynamics from the feedback mechanism by placing the transmitted signal process $X_t$ on probability space $(, {F}, P)$ while the received signal process $Y_t$ evolves on $(K, {G}, Q)$. Under the coupling measure $$, the binding function $(_t)$ can be designed to account for the encoder's response to feedback, where $_t = X_t - Y_t$ represents the instantaneous transmission error. This framework enables rigorous analysis of the expected decoding time bounds while maintaining the causal structure essential to feedback communication. The exponential contraction properties established under $$ may directly translate to lower bounds on communication reliability, as the Lyapunov analysis of $V(_t) = {1}{2}|_t|^2$ captures both the channel noise effects and the encoder&#x27;s adaptive behavior.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The bi-stochastic reformulation clarifies the probabilistic structure underlying Hairer’s coupling method. By starting from two distinct sample spaces and considering their product, we gain a transparent view of the independence of the two noise sources, and can then recover Hairer’s asymptotic coupling by imposing a special joint law. This perspective may be particularly valuable when one wishes to analyze couplings between heterogeneous systems or when dealing with multi-scale stochastic models, since it makes explicit the freedom to choose joint distributions beyond the diagonal case.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>This work was produced with the assistance of a language model.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-Doeblin1938"><span class="ref-key">[1]</span> <p>Doeblin, W. (1938). Exposé de la théorie des chaînes simples constantes de Markov à un nombre fini d’états. <em>Rev. Math. Union Interbalcanique</em>, 2, 77–105.</p></li><li id="ref-Kolmogorov1933"><span class="ref-key">[2]</span> <p>Kolmogorov, A. N. (1933). Grundbegriffe der Wahrscheinlichkeitsrechnung. Springer.</p></li><li id="ref-Feller1950"><span class="ref-key">[3]</span> <p>Feller, W. (1950). <em>An Introduction to Probability Theory and Its Applications</em>, Vol. I. Wiley.</p></li><li id="ref-Doob1953"><span class="ref-key">[4]</span> <p>Doob, J. L. (1953). <em>Stochastic Processes</em>. Wiley.</p></li><li id="ref-Skorokhod1956"><span class="ref-key">[5]</span> <p>Skorokhod, A. V. (1956). Limit theorems for stochastic processes. <em>Theory Probab. Appl.</em>, 1, 261–290.</p></li><li id="ref-Ito1951"><span class="ref-key">[6]</span> <p>Itô, K. (1951). On stochastic differential equations. <em>Mem. Amer. Math. Soc.</em>, 4, 1–51.</p></li><li id="ref-Harris1956"><span class="ref-key">[7]</span> <p>Harris, T. E. (1956). The existence of stationary measures for certain Markov processes. <em>Proc. Third Berkeley Symp. Math. Statist. Prob.</em>, 2, 113–124.</p></li><li id="ref-FortetMourier1953"><span class="ref-key">[8]</span> <p>Fortet, R. and Mourier, E. (1953). Les fonctions aléatoires du type Markov associées à certaines équations linéaires aux dérivées partielles. <em>Ann. Sci. École Norm. Sup.</em>, 70, 267–284.</p></li><li id="ref-DoeblinFortet1937"><span class="ref-key">[9]</span> <p>Doeblin, W. and Fortet, R. (1937). Sur les chaînes à liaisons complètes. <em>Bull. Soc. Math. France</em>, 65, 132–148.</p></li><li id="ref-Lindvall1992"><span class="ref-key">[10]</span> <p>Lindvall, T. (1992). <em>Lectures on the Coupling Method</em>. Wiley.</p></li><li id="ref-Thorisson2000"><span class="ref-key">[11]</span> <p>Thorisson, H. (2000). <em>Coupling, Stationarity, and Regeneration</em>. Springer.</p></li><li id="ref-Hairer2001"><span class="ref-key">[12]</span> <p>Hairer, M. (2001). Exponential mixing properties of stochastic PDEs through asymptotic coupling. <em>Probab. Theory Relat. Fields</em>, 124, 345–380.</p></li><li id="ref-MeynTweedie1993"><span class="ref-key">[13]</span> <p>Meyn, S. P. and Tweedie, R. L. (1993). <em>Markov Chains and Stochastic Stability</em>. Springer.</p></li><li id="ref-Kifer1986"><span class="ref-key">[14]</span> <p>Kifer, Y. (1986). <em>Ergodic Theory of Random Transformations</em>. Birkhäuser.</p></li><li id="ref-Arnold1998"><span class="ref-key">[15]</span> <p>Arnold, L. (1998). <em>Random Dynamical Systems</em>. Springer.</p></li><li id="ref-RevuzYor1991"><span class="ref-key">[16]</span> <p>Revuz, D. and Yor, M. (1991). <em>Continuous Martingales and Brownian Motion</em>. Springer.</p></li><li id="ref-EthierKurtz1986"><span class="ref-key">[17]</span> <p>Ethier, S. N. and Kurtz, T. G. (1986). <em>Markov Processes: Characterization and Convergence</em>. Wiley.</p></li><li id="ref-StroockVaradhan1979"><span class="ref-key">[18]</span> <p>Stroock, D. W. and Varadhan, S. R. S. (1979). <em>Multidimensional Diffusion Processes</em>. Springer.</p></li><li id="ref-Khasminskii1960"><span class="ref-key">[19]</span> <p>Khasminskii, R. Z. (1960). Ergodic properties of recurrent diffusion processes and stabilization of the solution of the Cauchy problem for parabolic equations. <em>Theory Probab. Appl.</em>, 5, 179–196.</p></li><li id="ref-Hasminskii1980"><span class="ref-key">[20]</span> <p>Has’minskii, R. Z. (1980). <em>Stochastic Stability of Differential Equations</em>. Sijthoff &amp; Noordhoff.</p></li><li id="ref-Dobrushin1956"><span class="ref-key">[21]</span> <p>Dobrushin, R. L. (1956). Central limit theorem for non-stationary Markov chains. I. <em>Theory Probab. Appl.</em>, 1, 65–80.</p></li><li id="ref-Dobrushin1970"><span class="ref-key">[22]</span> <p>Dobrushin, R. L. (1970). Prescribing a system of random variables by conditional distributions. <em>Theory Probab. Appl.</em>, 15, 458–486.</p></li><li id="ref-Villani2009"><span class="ref-key">[23]</span> <p>Villani, C. (2009). <em>Optimal Transport: Old and New</em>. Springer.</p></li><li id="ref-Kantorovich1942"><span class="ref-key">[24]</span> <p>Kantorovich, L. V. (1942). On the translocation of masses. <em>C. R. (Doklady) Acad. Sci. URSS</em>, 37, 199–201.</p></li><li id="ref-Marton1996"><span class="ref-key">[25]</span> <p>Marton, K. (1996). Bounding ${d}$-distance by informational divergence: a method to prove measure concentration. <em>Ann. Probab.</em>, 24, 857–866.</p></li><li id="ref-Dobrushin1971"><span class="ref-key">[26]</span> <p>Dobrushin, R. L. (1971). Definition of random variables through conditional distributions. <em>Theory Probab. Appl.</em>, 16, 458–486.</p></li><li id="ref-KipnisVaradhan1986"><span class="ref-key">[27]</span> <p>Kipnis, C. and Varadhan, S. R. S. (1986). Central limit theorem for additive functionals of reversible Markov processes. <em>Commun. Math. Phys.</em>, 104, 1–19.</p></li><li id="ref-Liggett1985"><span class="ref-key">[28]</span> <p>Liggett, T. M. (1985). <em>Interacting Particle Systems</em>. Springer.</p></li><li id="ref-HolleyStroock1987"><span class="ref-key">[29]</span> <p>Holley, R. and Stroock, D. (1987). Logarithmic Sobolev inequalities and stochastic Ising models. <em>J. Stat. Phys.</em>, 46, 1159–1194.</p></li><li id="ref-BakryEmery1985"><span class="ref-key">[30]</span> <p>Bakry, D. and Émery, M. (1985). Diffusions hypercontractives. <em>Séminaire de probabilités XIX</em>, 177–206.</p></li><li id="ref-Girsanov1960"><span class="ref-key">[31]</span> <p>Girsanov, I. V. (1960). On transforming a certain class of stochastic processes by absolutely continuous substitution of measures. <em>Theory Probab. Appl.</em>, 5, 285–301.</p></li><li id="ref-Rosenblatt1956"><span class="ref-key">[32]</span> <p>Rosenblatt, M. (1956). A central limit theorem and a strong mixing condition. <em>Proc. Natl. Acad. Sci. USA</em>, 42, 43–47.</p></li><li id="ref-IonescuTulcea1950"><span class="ref-key">[33]</span> <p>Ionescu Tulcea, C. T. and Marinescu, G. (1950). Théorie ergodique pour des classes d’opérations non complètement continues. <em>Annals of Math.</em>, 52(1), 140–147.</p></li><li id="ref-chawla2021continuous"><span class="ref-key">[34]</span> <p>A. Chawla and S. D. Morgera, &quot;On the continuous time additive Gaussian noise channel in the presence of perfect feedback,&quot; in <em>Proc. 2020 IEEE Information Theory Workshop (ITW)</em>, pp. 1–5, IEEE, 2021.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

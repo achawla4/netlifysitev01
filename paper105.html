@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Joint View of Computation and Learning - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">A Joint View of Computation and Learning</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">Control theory is a versatile tool. In controls thinking, one works with system transfer functions as modules. In this note, the authors propose to apply Willems' behavioral approach to interconnections, feedback and control to the quantum setting where metric perturbations direct the quantum computation occurring in axon tracts. Partial feedback loops are induced and learning can go on in parallel. In systems [1] and control theory [2], parts of systems are broken down into various sub-system blocks. Each sub-system block interacts with others to perform its part in the overall system operation. Normally, we write transfer functions for each block. These transfer functions, when interconnected, combine in specic ways and so one gets the transfer function of the overall system. Further analysis of the system transfer function can then be done for stability, bounded-ness of outputs and so on. Transfer function in hand, one knows how the system will respond to any given input. With such a versatile model, one can then predict system responses to various input conditions and use the model as a module or part of a larger system. Unbounded complexity can thus be managed in this manner. In this vein, we can model the orchestration of brain quantum computation [3], where a universe of gravitational waves plays the piano of our brain, by breaking the computational process down into the following system and sub-system blocks: 1. Generator of Metric Perturbations. 2. Axon Tract 2a. Node of Ranvier 2ai. Ion at the Node The signal emitted by the generator of metric perturbations is a gravitational wave. The signal applied to the node of Ranvier, a subsystem of the axon tract is the transduced voltage [4]. The ion at the node picks up this voltage and its quantum trajectory or behavior gets modied accordingly. Via the electric eld generated, the behavior of distant ions at other nodes of Ranvier gets aected ever so slightly and, at the quantum level, the axon tract's information processing gets modied. With initial conditions in the form of modied temporal dynamics, the axon tract interacts dierently with future impinging metric perturbations. Thus there is a partial feedback loop [2] within the axon tract. In Willems' behavioral approach [5], behaviors are akin to the various trajectories that system signals can take. In related work [6] he also introduces a tearing and zooming approach to modeling control systems. The above mentioned multi-partite classical-quantum system can be a ground for application of Willems' methods. The modularization involved (see Figure 1 which shows a block diagram for the classical part of the problem) may help in scaling up the setup to the case of a very large number of generators, tracts, nodes and ions. An analysis of such a very large system will ultimately be necessary to extract testable neuro- behavioral predictions based on our model of brain quantum computation. It would also be interesting to consider the overlap of Willems' approach with the simulation of system dynamics, including the classical trajectories. The advantages of the behavioral approach are many. First of all, Willems' development is considered to be a beautiful approach to control systems. Neat categorization of parts into signals, voltages and systems among others, behaviors for the systems and an algebraic approach which is rigorous are some of the other advantages. M. R. James, V. P. Belavkin and co-authors [8, 9] have already systematized quantum control, 1</p> <p>Figure 1: Classical part of a c-q computation in the brain. 2</p> <p>Figure 2: Quantum part of a c-q brain quantum computation with parallels to the quperceptron [7] setup. 3</p> <p>particularly in the behavioral framework, and so cross-application of their results to our setting might be feasible. References [1] Alan S Willsky and Ian T Young. Signals and systems. Prentice-Hall International, 1997. [2] Karl Johan Åström and Richard Murray. Feedback systems: an introduction for scientists and engineers. Princeton university press, 2021. [3] Aman Chawla. A gedanken experiment on the brain as a quantum computer. ResearchGate Preprint, 2022. [4] Aman Chawla, Salvatore D. Morgera, and Arthur D. Snider. Fields, geometry, and their impact on axon interaction. Journal of Applied Mathematics and Physics, 9(4):751778, 2021. [5] Jan C Willems. On interconnections, control, and feedback. IEEE Transactions on Automatic control, 42(3):326339, 1997. [6] Jan C Willems. The behavioral approach to open and interconnected systems. IEEE control systems magazine, 27(6):4699, 2007. [7] Aman Chawla. Quantum perceptrons and evolution. March 2024. [8] VP Belavkin. Theory of the control of observable quantum systems. Automatica and Remote Control, 44(2):178188, 1983. [9] Matthew R James and John E Gough. Quantum dissipative systems and feedback control design by interconnection. IEEE Transactions on Automatic Control, 55(8):18061821, 2010.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/A_Joint_View_of_Computation_and_Learning.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

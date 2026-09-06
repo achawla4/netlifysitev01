@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman and Morgera, Salvatore D</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In a data communication network, the nodes can be organized or ar- ranged in various ways. For small networks, there are some typical ar- rangements of nodes. In this paper we discuss how the standard buttery network, a network of six nodes, might be implemented in the nervous system by means of current-mediated coupling between axons. The im- plementation is in the context of the well-known network coding gains. Specically, we show how two current-coupled axons can exchange infor- mation in a `contact-less' manner. Our strategy provides throughput- enhancement, that is, a network coding gain, resulting from the synchro- nization of action potentials. We therefore move incrementally towards a better understanding of networks of neurons and how information is transmitted by them and processed in them. Introduction The nervous system serves various purposes in vertebrates and invertebrates, including higher-order ones such as emotional response, planning and creative activity. The motor control function performed by the nervous system is a case in point. For a specic example, one has only to look at the sino-atrial node where neural commands from the higher regions of the brain and spinal cord are translated into motor regulatory signals for the heart muscles. In humans, the nervous system consists of several major nerves such as the cranial nerves, each having several main components. In a typical nerve, the components include several axons, each of which may or may not be divided further into several segmented regions with `nodes of Ranvier' demarcating o internodal zones. The importance of each component of a nerve is highlighted by neurode- generative diseases wherein one or more components fail. In diseases such as multiple sclerosis (MS), depleted myelination leads to exposure of underlying tissue which enhances the leaked communication current between cells. It is not clearly known whether weakening myelination is useful or pernicious, but it certainly has an eect on the action potential conduction velocity. However, the communication current allows the formation of `coalitions' or networks of 1</p> <p>axons, which can act collaboratively. The biological basis of this network for- mation was rst proposed by Arvanitaki in the 1940s through the rst paper on `ephaptic' coupling - `touching,' but not quite. Our goal for this paper is to show that such collaborative action can lead to enhanced throughput in the associated nerve network. We do this by means of network coding. Simple net- work coding consists of a graphical network in which the nodes do some simple computation. Network coding was introduced in (Li et al., 2003). It is discussed further in Section 2 This paper is organized as follows: in Section 2 we present a review of net- work coding in the buttery network, one of the simplest examples. In Section 3 we perform a review of ephaptic coupling that can lead to synchronization of the coupled axons and show how synchronization in the buttery conguration, under certain conditions, can lead to throughput gain. Finally, we conclude in Section 4. Network Coding and The Buttery Network For a review of the fundamentals of network coding please see the excellent foundational paper by Ahlswede et. al. (Ahlswede et al., 2000). In this section we will describe, in an overview, the essence of the buttery network and how network coding works in it. The buttery network, shown in Figure 1, is a simple network of six nodes. On the top we have two input nodes, which lead in to a central node. The central node has a bottom counterpart which leads out to two output nodes. The input nodes also directly connect to the respective output nodes on the bottom. Suppose the input signals are A and B, respectively, on the two input nodes. These get network coded into A+B in the central line and each destination gets this central line. In addition, the bottom right destination gets the top left input and the bottom left destination gets the top right input. Thus each destination, by means of simple subtraction, is able to get both the messages. Ahlswede et. al. also show that throughput is increased by employing network coding (Ahlswede et al., 2000). Ephaptic Coupling and Synchronization In current-mediated coupling between axons, impulses traveling with dierent velocities on two neighboring axons tend to adjust their speeds Scott (2002). The speed adjustment is such that the slower one speeds up and the faster one slows down until they both travel at the same velocity. This velocity is inter- mediate between the two initial velocities. In this section we show that under certain conditions, the temporally coded information carried by the individual axons prior to synchronization, becomes the sum of the random variables post- synchronization. This allows the possibility of network coding in a buttery-like network. 2</p> <p>Figure 1: The Butterfly Network</p> <p>Consider the case of ephaptic synchronization of N = 2 axons, A and B. Let vA and vB, respectively, be the velocities of the impulses on the two axons. Suppose that the distance to be covered by each impulse is d meters. The time taken by the impulse on axon A is thus tA = d vA seconds and that on axon B is tB = d vB seconds. The velocity due to coupling is a vsync = λvA + (1 −λ)vB. In what follows, we will assume that λ = 1 2. Suppose after synchronization, the two impulses travel together for a distance βd meters where 0 &lt; β &lt; 1. Simple book-keeping then shows that if β = (t1 + t2)2 t1t2 (1) then t = t1 + t2. (2) In other words, the temporally coded `new' information is the sum of the two input variables. Thus, ephaptic coupling is performing network coding on the two component axonal variables. So any destination that receives the post- coupling temporally coded information, as well as a copy of one of the initial components, is able to compute both of them. In a buttery-like arrangement therefore, both the destinations get both the components, and all the gains of network coding such as the rise in throughput are available to the nervous system. Discussion and Future Work Beyond the buttery network case, our scenario can also be viewed as contact- less information transfer due to ephaptic coupling. In what follows, let A stand for t1 and B stand for t2. Say the left axon is from an arbor that does not know B, while the right axon is from an arbor that does not know A. After the left and right axons undergo ephaptic coupling, provided Equation (1) is met, each axon carries A+B. Thus both arbors acquire A+B. Since they also have their original A or B, they eectively have provided each other with their original data without any neurotransmitter exchange. To summarize, in this paper we have presented a very important observa- tion of contact-less information exchange between axons when they are placed in close proximity of one another. Combined with our earlier observation that ephaptic interactions can be signed (Chawla &amp; Morgera, 2022), we have eec- tively shown full-edged information exchange in ephaptic networks. This raises the status of ephaptic networks almost at a par with synaptic ones, even per- haps more ecient since no biophysical molecules need be exchanged. In future work, we would also like to study if there is a trade-o relationship between the network coding throughput gain and the change in the conduction velocity due to demyelinating diseases such as multiple sclerosis; and this could be signicant for our understanding of the utility of coupling in these diseases. 4</p> <p>References Ahlswede, Rudolf, Cai, Ning, Li, S-YR, &amp; Yeung, Raymond W. 2000. Network information ow. Ieee transactions on information theory, 46(4), 12041216. Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022. Dierential ephaptic networks. Journal of applied mathematics and physics, 10(10), 28762882. Li, S-YR, Yeung, Raymond W, &amp; Cai, Ning. 2003. Linear network coding. Ieee transactions on information theory, 49(2), 371381. Scott, Alwyn. 2002. Neuroscience: A mathematical primer. Springer Science &amp; Business Media.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/ChawlaMorgeraBMC.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

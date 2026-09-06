@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" href="favicon.png">
+  <meta charset="UTF-8">
+  <title>Prajnanabha Press - REAL Institute</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: #fafaf8;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(218,165,32,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero .subtitle {
+      font-size: 1.3em;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+    }
+    
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(218,165,32,0.2);
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: 2px solid #daa520;
+      margin-top: 15px;
+      position: relative;
+      z-index: 1;
+      font-size: 0.95em;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .submissions-banner {
+      background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+      color: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 60px;
+      box-shadow: 0 8px 20px rgba(218,165,32,0.3);
+    }
+    
+    .submissions-banner h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    
+    .submissions-banner p {
+      font-size: 1.1em;
+      margin-bottom: 25px;
+      opacity: 0.95;
+    }
+    
+    .submit-btn {
+      display: inline-block;
+      padding: 18px 45px;
+      background: white;
+      color: #1a1a2e;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.15em;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin: 0 10px 10px 10px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      background: #f5f5f5;
+    }
+    
+    .submit-btn.portal {
+      background: #1a1a2e;
+      color: white;
+    }
+    
+    .submit-btn.portal:hover {
+      background: #16213e;
+    }
+    
+    .section-title {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #1a1a2e;
+      text-align: center;
+    }
+    
+    .two-column-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .announcements-section {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .announcements-section h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #1a1a2e;
+      border-bottom: 3px solid #daa520;
+      padding-bottom: 15px;
+    }
+    
+    .announcement-item {
+      margin-bottom: 25px;
+      padding-left: 20px;
+      border-left: 4px solid #daa520;
+    }
+    
+    .announcement-date {
+      font-weight: bold;
+      color: #daa520;
+      font-size: 0.95em;
+      margin-bottom: 5px;
+    }
+    
+    .announcement-text {
+      color: #666;
+      line-height: 1.7;
+    }
+    
+    .announcement-text a {
+      color: #1a1a2e;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    
+    .announcement-text a:hover {
+      color: #daa520;
+    }
+    
+    .current-issue-card {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-top: 5px solid #daa520;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+    }
+    
+    .current-issue-card h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+    
+    .issue-cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .issue-cover img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    
+    .issue-cover .volume {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #daa520;
+    }
+    
+    .issue-cover .title {
+      font-size: 1.1em;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .issue-cover .date {
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+    
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #1a1a2e;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      margin-bottom: 15px;
+    }
+    
+    .download-btn:hover {
+      background: #16213e;
+    }
+    
+    .editorial-link {
+      display: block;
+      text-align: center;
+      color: #daa520;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: color 0.3s ease;
+    }
+    
+    .editorial-link:hover {
+      color: #b8860b;
+      text-decoration: underline;
+    }
+
+    /* Legacy Catalog Section */
+    .catalog-section {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    .catalog-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #1a1a2e;
+      text-align: center;
+      border-bottom: 3px solid #daa520;
+      padding-bottom: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .book-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .book-cover-container {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book-cover-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-cover-placeholder {
+      color: white;
+      font-size: 1.5em;
+      font-style: italic;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .book-info {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-product-num {
+      font-size: 0.85em;
+      color: #daa520;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .book-title {
+      font-size: 1.4em;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .book-author {
+      color: #666;
+      font-size: 1em;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .book-description {
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .book-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .book-date {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    .book-price {
+      font-size: 1.1em;
+      color: #1a1a2e;
+      font-weight: bold;
+    }
+
+    .book-purchase-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #daa520;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .book-purchase-btn:hover {
+      background: #b8860b;
+    }
+
+    .book-purchase-btn.disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    
+    .dedication-section {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      padding: 50px 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .dedication-section h3 {
+      font-size: 1.6em;
+      margin-bottom: 15px;
+      color: #daa520;
+    }
+    
+    .dedication-section p {
+      font-size: 1.15em;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    
+    .dedication-section .sanskrit {
+      font-size: 1.3em;
+      margin: 20px 0;
+      color: #daa520;
+    }
+    
+    .contact-info {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .contact-info h3 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+    
+    .contact-info p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .contact-info a {
+      color: #daa520;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      background: #f0f0ed;
+      color: #1a1a2e;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      background: #e0e0dd;
+      transform: translateX(-5px);
+    }
+    
+    @media (max-width: 968px) {
+      .two-column-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .current-issue-card {
+        position: relative;
+        top: 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.2em;
+      }
+      
+      .hero .subtitle {
+        font-size: 1.1em;
+      }
+      
+      .section-title {
+        font-size: 1.8em;
+      }
+
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+
+<body>
+  <div class="hero">
+    <h1>Prajnanabha Press</h1>
+    <p class="subtitle">Long-Form Publishing</p>
+    <div class="tagline">REAL's flagship book publishing platform for sustained philosophical and scientific works</div>
+  </div>
+
+  <div class="container" data-pagefind-body data-pagefind-filter="type:Journal">
+    <div class="submissions-banner">
+      <h2>Featured Release</h2>
+      <p>Now Available: <em>Living Fire</em>A philosophical exploration of miracles, consciousness, and empiricism</p>
+      <p>Product Number: 1002. Price: Rs. 299/- via Paypal to amanalliance[at]gmail[dot]com.</p>
+      <a href="" class="submit-btn portal">Purchase via Paypal</a>
+    </div>
+
+    <div class="two-column-layout">
+      <div class="announcements-section">
+        <h2>Recent Announcements</h2>
+<div class="announcement-item">
+          <div class="announcement-date">18 May 2026</div>
+          <div class="announcement-text">REAL Institute sales is migrating to <a href="https://kriyadisnance.myshopify.com">shopify</a>.</div>
+        </div>
+
+<div class="announcement-item">
+          <div class="announcement-date">13 May 2026</div>
+          <div class="announcement-text">The first copy of Living Fire, a Prajnanabha Press publication, is printed.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date">13 December 2025</div>
+          <div class="announcement-text">Prajnanabha Press is launched.</div>
+        </div>
+        <div class="announcement-item">
+          <div class="announcement-date">13 December 2025</div>
+          <div class="announcement-text">First book selected: <em>Living Fire</em> by REAL's founder.</div>
+        </div>
+      </div>
+
+      <div class="issue-cover">
+        <img src="./assets/livingfirefrontv3.png" alt="Living Fire Cover" height="200">
+        <div class="volume"></div>
+        <div class="title">Living Fire</div>
+        <div class="date">December 2025</div>
+      </div>
+    </div>
+
+    <!-- Legacy Catalog Section -->
+    <div class="catalog-section">
+	<h2></h2>
+	<h2></h2>
+      <h2>Complete Catalog</h2>
+      <h3> Full Book Sales <a href="book_sales_catalog.html">page</a></h3>
+      
+      <div class="books-grid">
+        <!-- Book 1: Living Fire -->
+        <div class="book-card">
+          <div class="book-cover-container">
+            <img src="./assets/livingfirefrontv3.png" alt="Living Fire Cover">
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1002</div>
+            <div class="book-title">Living Fire</div>
+            <div class="book-author">REAL Institute Founder</div>
+            <div class="book-description">
+              A philosophical exploration of miracles, consciousness, and empiricism. This groundbreaking work examines the intersection of spiritual experience and rational inquiry.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">December 2025</span>
+              <span class="book-price">Rs. 299/-</span>
+            </div>
+            <a href="" class="book-purchase-btn">Purchase via PayPal</a>
+          </div>
+        </div>
+
+        <!-- Example Book 2 - Template for future additions -->
+        <div class="book-card">
+          <div class="book-cover-container">
+            <img src="./assets/overcomingFearcover.png" alt="Overcoming Fear Through Knowledge Cover">
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1003</div>
+            <div class="book-title">Overcoming Fear Through Knowledge</div>
+            <div class="book-author">Aman Chawla</div>
+            <div class="book-description">
+              Fears in our minds stem from the unknown, from ignorance. This little volume sheds light on various features of self-knowledge, thereby helping the reader to domains of knowledge and hence fearlessness.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">August 4, 2024</span>
+              <span class="book-price">USD 3.83</span>
+            </div>
+            <a href="" class="book-purchase-btn disabled">Purchase via Paypal</a>
+          </div>
+        </div>
+
+<!-- Example Book 2 - Template for future additions -->
+        <div class="book-card">
+          <div class="book-cover-container">
+            <img src="./assets/pathAcrossDespondencycover.png" alt="The Path Across Despondency Cover">
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1004</div>
+            <div class="book-title">The Path Across Despondency</div>
+            <div class="book-author">Aman Chawla</div>
+            <div class="book-description">
+              Despondency is the loss of hope, a mix of pessimism and sadness This is rooted in ignorance and the localization of the mental-physical consciousness. Freedom from this limitation does away with despondency and in this book the subtle thoughts which lead thus across are provided as food for the soul.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">August 9, 2024</span>
+              <span class="book-price">USD 3.83</span>
+            </div>
+            <a href="" class="book-purchase-btn disabled">Purchase via Paypal</a>
+          </div>
+        </div>
+
+<!-- Example Book 2 - Template for future additions -->
+        <div class="book-card">
+          <div class="book-cover-container">
+            <img src="./assets/pathOfInformationCover.png" alt="Path of Information Cover">
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1005</div>
+            <div class="book-title">Path Of Information</div>
+            <div class="book-author">Aman Chawla</div>
+            <div class="book-description">
+              Sri Aurobindo has long worked on and for a science of consciousness. All of his works develop towards such a science. His objective is a rational approach to spiritual life. Much of the inspiration behind the present volume comes from Sri Aurobindo and Paramahamsa Yogananda, whose chapter, An Experience in Cosmic Consciousness, has long motivated the present author.
+
+As a scientific topic, a subset of neuroscience, consciousness has been looked at in detail by the modern neuroscientists around the world. Authors such as Koch, Tononi, Crick and Dennett have contributed much to a systematization of the scientific effort in this direction. We are grateful for all their work and the advancement that they have wrought in man's understanding of this abstruse topic.
+
+Another modern development which demands similar commitment to its study is quantum mechanics. The gulf between quantum considerations and the classical world is so vast, that very few are able to successfully traverse the
+chasm. Many fall into it and some are rescued by their scientific colleagues. We draw inspiration from the quantum physicists in this book. They forged boldly ahead, regardless of possible errors and missteps, when there was darkness all
+around. Thanks to them, the classical world is not the only world known to man today.
+
+Any author is successful if his reader finds a gem or two in his book, that would advance the reader's understanding on the topic under discussion. If the present volume is able to do so for even a handful of readers, the author's efforts
+would have been meaningful.
+
+Finally, it must be mentioned, that India has long specialized in consciousness - just take the Upanishads for example. So it is apt that the present volume is being composed in India. Once again, the author expresses a feeling of fulfilment
+and thanks those who have made his stay in India very productive thus far. Thanks to Sankara, and Brahma.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">December 12, 2023</span>
+              <span class="book-price">USD 4.71</span>
+            </div>
+            <a href="" class="book-purchase-btn disabled">Purchase via Paypal</a>
+          </div>
+        </div>
+
+
+<!-- Example Book 2 - Template for future additions -->
+        <div class="book-card">
+          <div class="book-cover-container">
+           <img src="./assets/pathOfInformationvol2Cover.png" alt="Path of Information Vol 2 Cover">
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1006</div>
+            <div class="book-title">Path of Information Volume 2</div>
+            <div class="book-author">Aman Chawla</div>
+            <div class="book-description">
+              Using the intellectual methods to clarify our Kriya practice is like using a raft on an ocean. We leave the raft once the ocean is crossed. The readings you’ll find herein are little raftlets for divine contemplation and deep thinking.
+
+It is the hope of the author that this offering will find useful purpose in your daily sadhana and discipline.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">November 7, 2024</span>
+              <span class="book-price">USD 3.83</span>
+            </div>
+            <a href="" class="book-purchase-btn disabled">Purchase via Paypal</a>
+          </div>
+        </div>
+<!-- Example Book 2 - Template for future additions -->
+        <div class="book-card">
+          <div class="book-cover-container">
+            <img src="./assets/bodhamalaCover.png" alt="Bodhamala Cover">
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1007</div>
+            <div class="book-title">Bodhamala</div>
+            <div class="book-author">Aman Chawla</div>
+            <div class="book-description">
+              Understanding Vedanta in the modern world. If we want to progress more on the spiritual path, we should also comprehend the basics of where we are trying to reach. For this was created the Vedantic path. In this volume, you will find how Vedanta's application in the modern context manifests itself.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">January 26, 2026</span>
+              <span class="book-price">USD 3.83</span>
+            </div>
+            <a href="" class="book-purchase-btn disabled">Purchase via Paypal</a>
+          </div>
+        </div>
+
+
+        <!-- Example Book 3 - Template for future additions 
+        <div class="book-card">
+          <div class="book-cover-container">
+            <div class="book-cover-placeholder">Future Release</div>
+          </div>
+          <div class="book-info">
+            <div class="book-product-num">Product #1004</div>
+            <div class="book-title">Another Title</div>
+            <div class="book-author">Author Name</div>
+            <div class="book-description">
+              Future publication in the Prajnanabha Press catalog. More information will be announced as the publication date approaches.
+            </div>
+            <div class="book-meta">
+              <span class="book-date">TBA 2026</span>
+              <span class="book-price">TBA</span>
+            </div>
+            <a href="#" class="book-purchase-btn disabled">Coming Soon</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="dedication-section">
+      <h3>Truth & Service</h3>
+      <p>To Shri Gurudev</p>
+      <p>Satyameva Jayate Sarvada, Nanrtam</p>
+      <p style="font-size: 0.95em; margin-top: 20px; opacity: 0.9;">Under the inspiration of the shastras and Masters</p>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contact & Information</h3>
+      <p><strong>Editor Contact:</strong> <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a></p>
+      <p><strong>Registration:</strong> UDYAM-HR-Registered</p>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-link"> <-- Back to REAL Institute</a>
+    </div>
+  </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

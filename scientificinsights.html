@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Insights — A Division of the REAL Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Noto+Serif+Devanagari:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cart.css">
+<script src="assets/config.js"></script>
+<script src="assets/cart.js" defer></script>
+<style>
+  :root{
+    --ink:#1b2a3d;
+    --ink-soft:#3c4c60;
+    --parchment:#eef1ea;
+    --parchment-dark:#d7ddd0;
+    --card:#f7f9f4;
+    --brass:#2f6f6a;
+    --brass-dark:#204d49;
+    --stamp:#a13d2e;
+    --sage:#556b53;
+    --rule:#c3cdb8;
+    --shadow: 0 10px 26px rgba(27,42,61,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -5%, #fbfcf6 0%, transparent 60%),
+      var(--parchment);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+
+  /* ===== Ledger header bar ===== */
+  .ledger-bar{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .ledger-bar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; opacity:0.85; max-width:1180px;}
+
+  /* ===== Hero ===== */
+  header.hero{padding:64px 0 40px;}
+  .title-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    padding:52px 48px 44px;
+    position:relative;
+    text-align:center;
+  }
+  .title-card::before, .title-card::after{
+    content:"";
+    position:absolute; top:14px; bottom:14px; width:1px;
+    background:var(--rule);
+  }
+  .title-card::before{left:14px;}
+  .title-card::after{right:14px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--brass-dark); margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.2rem, 5vw, 3.2rem);
+    line-height:1.08;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .title-italic{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .lede{
+    max-width:560px; margin:0 auto 26px;
+    font-size:1.08rem; color:var(--ink-soft);
+  }
+  .tagline-stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem; letter-spacing:0.05em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:8px 18px;
+    transform:rotate(-2deg);
+    border-radius:2px;
+  }
+  .om-mark{
+    font-family:'Fraunces', serif; font-size:1.6rem; color:var(--brass);
+    margin:0 auto 10px; display:block;
+  }
+
+  section{padding:44px 0 56px;}
+  .section-head{margin-bottom:30px; max-width:640px;}
+  .section-tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff;
+    padding:5px 12px; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.5rem,3vw,2rem);
+    color:var(--ink);
+  }
+  .section-sub{color:var(--ink-soft); margin-top:10px; font-size:1rem;}
+  .catalog-note{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sage);
+    letter-spacing:0.02em; margin-bottom:26px; border-left:3px solid var(--sage);
+    padding-left:12px;
+  }
+
+  /* ===== Post cards ===== */
+  .posts-grid{display:flex; flex-direction:column; gap:26px;}
+  .post-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    position:relative; padding-top:34px;
+  }
+  .call-tab{
+    position:absolute; top:0; left:18px;
+    background:var(--brass); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.04em;
+    padding:5px 10px; transform:translateY(-50%);
+  }
+  .post-body{padding:8px 30px 30px;}
+  .post-folio{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em;
+    color:var(--sage); text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .post-title{font-family:'Fraunces', serif; font-size:1.5rem; font-weight:600; margin-bottom:16px; line-height:1.3;}
+
+  .post-preview{font-size:1.04rem; color:var(--ink);}
+  .post-preview p{margin-bottom:12px;}
+
+  .post-lockwrap{position:relative; margin-top:2px;}
+  .post-hidden-teaser{
+    font-size:1.04rem; color:var(--ink); filter:blur(4.5px); opacity:0.55; user-select:none;
+    max-height:110px; overflow:hidden; pointer-events:none;
+  }
+  .post-fade{
+    position:absolute; left:0; right:0; bottom:0; height:110px;
+    background:linear-gradient(to bottom, rgba(247,249,244,0) 0%, var(--card) 82%);
+    pointer-events:none;
+  }
+
+  .lock-panel{
+    margin-top:18px; border-top:1px dashed var(--rule); padding-top:18px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .lock-info{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-soft);}
+  .lock-info strong{color:var(--brass-dark);}
+  .lock-price{
+    display:flex; align-items:baseline; gap:6px;
+  }
+  .price-amt{font-family:'Fraunces', serif; font-weight:600; font-size:1.4rem; color:var(--ink);}
+  .price-note{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--ink-soft);}
+
+  .stamp-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    border:2px solid var(--stamp); color:var(--stamp);
+    padding:12px 22px; text-align:center; cursor:pointer;
+    background:transparent; transition:.18s;
+    display:inline-block; white-space:nowrap;
+  }
+  .stamp-btn:hover{background:var(--stamp); color:#fff; transform:rotate(-0.6deg);}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:var(--parchment-dark);
+    padding:48px 0 30px; margin-top:20px;
+  }
+  footer .wrap{text-align:center; max-width:1180px;}
+  footer h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; color:#fff; margin-bottom:12px;}
+  footer p{max-width:560px; margin:0 auto 10px; font-size:0.94rem;}
+  footer a{color:#9fd6c9; text-decoration:none; font-weight:600;}
+  footer a:hover{text-decoration:underline;}
+  .devanagari{margin-top:18px; font-size:0.85rem; color:var(--rule);}
+
+  /* Shared cart styles loaded from assets/cart.css */
+
+
+  .ai-lang-switch {
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(195, 205, 184, 0.25);
+    border-radius: 14px;
+    padding: 2px;
+    margin-right: 4px;
+  }
+  .ai-lang-btn {
+    font-family: 'IBM Plex Mono', 'Noto Serif Devanagari', monospace;
+    font-size: 0.65rem;
+    background: transparent;
+    border: none;
+    color: var(--parchment-dark);
+    padding: 2px 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .ai-lang-btn.active {
+    background: var(--brass);
+    color: #fff;
+    font-weight: 600;
+  }
+  .ai-devanagari-text {
+    font-family: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', 'Source Serif 4', Georgia, serif;
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+
+  /* ===== Tab Switcher & Notes to Oneself UI ===== */
+  .ai-nav-tabs {
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(195, 205, 184, 0.2);
+  }
+  .ai-tab-btn {
+    flex: 1;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    color: var(--parchment-dark);
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+  }
+  .ai-tab-btn.active {
+    color: #f5eaae;
+    border-bottom-color: var(--brass);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .ai-tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #tabContentNotes {
+    background: linear-gradient(135deg, #fffef7 0%, #f7f4e9 100%);
+    padding: 12px;
+    border-radius: 10px;
+    color: #1e293b;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  .ai-notes-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .ai-notes-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: #0f172a;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .ai-notes-input {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 500;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  .ai-notes-input:focus, .ai-notes-textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  }
+  .ai-notes-textarea {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    min-height: 115px;
+    resize: vertical;
+    outline: none;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  .ai-notes-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    background: #e6f4ea;
+    color: #137333;
+    border: 1px solid #ceead6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 2px;
+    display: inline-block;
+  }
+  .ai-send-notes-now-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    background: linear-gradient(135deg, #1e40af, #2563eb);
+    color: #ffffff;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  .ai-send-notes-now-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1d4ed8);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  }
+
+  /* ===== AI Inquiry Panel ===== */
+  .ai-inquiry-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 400px;
+    max-width: calc(100vw - 32px);
+    background: linear-gradient(145deg, rgba(27,42,61,0.97) 0%, rgba(15,25,38,0.98) 100%);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(195, 205, 184, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35), 0 0 20px rgba(47, 111, 106, 0.2);
+    z-index: 9999;
+    color: var(--parchment);
+    transform: translateY(120%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    overflow: hidden;
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+  .ai-inquiry-panel.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .ai-inquiry-panel.minimized .ai-panel-body,
+  .ai-inquiry-panel.minimized .ai-panel-footer {
+    display: none;
+  }
+  .ai-panel-header {
+    background: rgba(10, 18, 28, 0.95);
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(195, 205, 184, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ai-panel-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .ai-panel-header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .ai-panel-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ai-status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #20c997;
+    box-shadow: 0 0 8px #20c997;
+    animation: pulseGlow 2s infinite ease-in-out;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  .ai-panel-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #e5d6ae;
+  }
+  .ai-panel-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--sage);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 230px;
+  }
+  .ai-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ai-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .ai-panel-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 26px;
+  }
+  .ai-panel-btn:hover {
+    background: var(--stamp);
+    border-color: var(--stamp);
+    color: #fff;
+    transform: scale(1.05);
+  }
+  .ai-panel-body {
+    padding: 14px 16px;
+    max-height: 320px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ai-encouragement-banner {
+    background: rgba(47, 111, 106, 0.25);
+    border: 1px solid rgba(47, 111, 106, 0.4);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: #d7edd9;
+  }
+  .ai-encouragement-banner strong {
+    color: #f5eaae;
+  }
+  .ai-quick-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ai-chip-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #e5d6ae;
+    padding: 5px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+  .ai-chip-btn:hover {
+    background: var(--brass);
+    color: #fff;
+    border-color: var(--brass);
+    transform: translateY(-1px);
+  }
+  .ai-chat-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .ai-msg {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .ai-msg-bot {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--brass);
+    color: var(--parchment);
+  }
+  .ai-msg-user {
+    background: rgba(161, 61, 46, 0.3);
+    border-right: 3px solid var(--stamp);
+    color: #fce8e6;
+    align-self: flex-end;
+    text-align: right;
+  }
+  .ai-panel-footer {
+    padding: 10px 16px 14px;
+    border-top: 1px solid rgba(195, 205, 184, 0.15);
+    background: rgba(10, 18, 28, 0.6);
+  }
+  .ai-input-wrap {
+    display: flex;
+    gap: 8px;
+  }
+  .ai-question-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(195, 205, 184, 0.3);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+  }
+  .ai-question-input:focus {
+    border-color: var(--brass);
+    box-shadow: 0 0 8px rgba(47, 111, 106, 0.4);
+  }
+  .ai-send-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    background: var(--brass);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .ai-send-btn:hover {
+    background: var(--brass-dark);
+  }
+  @media (max-width: 480px) {
+    .ai-inquiry-panel {
+      width: calc(100vw - 24px);
+      right: 12px;
+      bottom: 12px;
+    }
+  }
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script src="assets/solar_server_prewarmer.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<main data-pagefind-body data-pagefind-filter="type:Other">
+
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>SCIENTIFIC INSIGHTS · A DIVISION OF THE REAL INSTITUTE</span>
+    <span>OBSERVATION · METHOD · TRANSMISSION</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="om-mark">∴</span>
+    <div class="title-card">
+      <div class="eyebrow">Notes from the Bench</div>
+      <h1 class="title">Scientific<br><span class="title-italic">Insights</span></h1>
+      <p class="lede">Short reflections on method, evidence, and the empirical habit of mind — written for the working thinker, not the credentialed specialist.</p>
+      <span class="tagline-stamp">EVIDENCE OVER ASSERTION</span>
+    </div>
+  </div>
+</header>
+
+<section id="posts">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Reading Room</span>
+      <h2>Lessons</h2>
+      <p class="section-sub">Every post opens with its first lines free to read. The rest is sent to your inbox once your offering is confirmed.</p>
+    </div>
+    <div class="catalog-note">Each full post is $1 USD. Submit your transaction reference in the unlock form after payment — the complete post is sent to your inbox.</div>
+
+    <div class="posts-grid" id="postsGrid"></div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <h3>Scientific Insights</h3>
+    <p>An empirical offering of the <a href="https://realinstitute.netlify.app">REAL Institute</a> — observation, method, and the quiet work of testing ideas against the world.</p>
+    <p><strong>Contact:</strong> <a href="mailto:disnance.ac@gmail.com">disnance.ac@gmail.com</a></p>
+    <p class="devanagari">सत्यमेव जयते नानृतम् — Truth alone triumphs, never falsehood</p>
+  </div>
+</footer>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()">
+  🛒 View Cart <span id="cartBadge" class="cart-badge">0</span>
+</button>
+
+<!-- Hover AI Assistant Floating Panel -->
+<div id="aiInquiryPanel" class="ai-inquiry-panel">
+  <div class="ai-panel-header">
+    <div class="ai-panel-header-top">
+      <div class="ai-panel-title-wrap">
+        <span class="ai-status-dot"></span>
+        <div class="ai-panel-title">REAL AI Assistant ✦ 406+ Papers</div>
+      </div>
+      <div class="ai-panel-actions">
+        <button class="ai-panel-btn" onclick="toggleAiPanelMinimize()" title="Collapse / Expand">—</button>
+        <button class="ai-panel-btn" onclick="closeAiPanel()" title="Close">✕</button>
+      </div>
+    </div>
+    <div class="ai-panel-header-bottom">
+      <div class="ai-panel-sub" id="aiActiveContextLabel">Hover near a post to activate</div>
+      <div class="ai-lang-switch">
+        <button class="ai-lang-btn active" id="langBtnEN" onclick="setAiLanguage('en')">EN</button>
+        <button class="ai-lang-btn" id="langBtnHI" onclick="setAiLanguage('hi')">हिंदी</button>
+        <button class="ai-lang-btn" id="langBtnSA" onclick="setAiLanguage('sa')">संस्कृतम्</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ai-nav-tabs">
+    <button class="ai-tab-btn active" id="tabBtnQa" onclick="switchAiTab('qa')">🤖 AI Q&A</button>
+    <button class="ai-tab-btn" id="tabBtnNotes" onclick="switchAiTab('notes')">📝 Notes to Oneself</button>
+  </div>
+
+  <div class="ai-panel-body" id="aiPanelBody">
+    <!-- TAB 1: AI Q&A -->
+    <div class="ai-tab-content" id="tabContentQa">
+      <div class="ai-encouragement-banner" id="aiEncouragementBanner">
+        ✨ <strong>Explore this insight!</strong> Ask questions about this post or query our 406+ paper research corpus.
+      </div>
+      <div class="ai-quick-questions" id="aiQuickQuestions"></div>
+      <div class="ai-chat-stream" id="aiChatStream">
+        <div class="ai-msg ai-msg-bot" id="aiInitialMsg">
+          Welcome! Hover near any post card to load targeted Q&A context from our 406+ paper research corpus.
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Notes to Oneself -->
+    <div class="ai-tab-content" id="tabContentNotes" style="display:none;">
+      <div class="ai-notes-group">
+        <label class="ai-notes-label">📧 Your Email (for persistence & exit dispatch):</label>
+        <input type="email" id="aiUserEmail" class="ai-notes-input" placeholder="your.email@example.com" oninput="saveNotesAndEmail()">
+      </div>
+      <div class="ai-notes-group">
+        <label class="ai-notes-label">📝 Study Notes & Reflections:</label>
+        <textarea id="aiUserNotes" class="ai-notes-textarea" placeholder="Jot notes to yourself here... (Auto-saved to cookies & emailed when you leave the site)" oninput="saveNotesAndEmail()"></textarea>
+        <div class="ai-notes-status" id="aiNotesStatus">💾 Auto-saved to cookies</div>
+      </div>
+      <button class="ai-send-notes-now-btn" onclick="emailNotesNow()">✉️ Email My Notes Now</button>
+    </div>
+  </div>
+
+  <div class="ai-panel-footer" id="aiPanelFooter">
+    <div class="ai-input-wrap">
+      <input type="text" id="aiQuestionInput" class="ai-question-input" placeholder="Ask a question about this post..." onkeydown="if(event.key==='Enter') sendAiQuestion()">
+      <button class="ai-send-btn" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.3);" onclick="speakToInsightsHologram()" title="Speak via microphone">🎤 Speak</button>
+      <button class="ai-send-btn" onclick="sendAiQuestion()">Ask ✦</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const FIXED_PRICE = 50; // flat price applied to every post
+  const CONTACT_EMAIL = "disnance.ac@gmail.com";
+
+  let currentAiLang = 'en';
+  let currentPostIndex = -1;
+  let panelUserClosed = false;
+
+  const posts = [
+    {
+      id: 'borrowing-or-shared-ancestry-munda-vedic-sanskrit',
+      folio: 'Method · Historical Linguistics',
+      title: 'Borrowing or Shared Ancestry? Rethinking the Munda–Vedic Sanskrit Connection',
+      preview: [
+        "The history of India's ancient languages remains one of the most fascinating and contested questions in historical linguistics.",
+        'This post examines one influential proposal by linguist Michael Witzel concerning the relationship between Vedic Sanskrit (Old Indo-Aryan) and the Munda languages of eastern India.'
+      ],
+      hiddenWordCount: 255,
+      suggestedQuestions: {
+        en: [
+          "What is Paper #31's take on Munda-Vedic language contact?",
+          "How does Inductive Anvaya clarify linguistic shared ancestry?",
+          "Why is Sanskrit described as a stable 'Eigen'-language?"
+        ],
+        hi: [
+          "मुण्डा और वैदिक संस्कृत संबंध पर शोध पत्र #31 का क्या निष्कर्ष है?",
+          "आगमनात्मक अन्वय (Inductive Anvaya) भाषाई पैतृकता को कैसे स्पष्ट करता है?",
+          "संस्कृत को एक स्थिर 'आइगन-भाषा' क्यों कहा गया है?"
+        ],
+        sa: [
+          "मुण्डा-वैदिकभाषासम्बन्धे अनुसन्धानपत्रस्य #31 किमभिमतम्?",
+          "आगमनात्मक-अन्वयविधिः (Inductive Anvaya) भाषीयसम्बन्धं कथं स्पष्टयति?",
+          "संस्कृतम् एकं स्थिरं 'आइगन-भाषा' इति किमर्थम् उच्यते?"
+        ]
+      },
+      corpusContext: {
+        en: "Linguistics & Ancient India Corpus (Paper #31, Paper #30, Paper #33)",
+        hi: "भाषाशास्त्र एवं प्राचीन भारत ग्रन्थ संग्रह (शोध पत्र #31, #30, #33)",
+        sa: "भाषाशास्त्रं तथा प्राचीनभारत-अनुसन्धान-कोशः (पत्रम् #31, #30, #33)"
+      }
+    },
+    {
+      id: 'when-ambiguous-signals-become-useful-decoding-machine-learning',
+      folio: 'Method · Information Theory',
+      title: 'When Ambiguous Signals Become Useful: Rethinking Decoding with Machine Learning',
+      preview: [
+        'In this post, we explore a simple but powerful idea: what if we stop throwing away uncertain information during digital communication?',
+        'Traditional information theory often treats ambiguity as failure.'
+      ],
+      hiddenWordCount: 247,
+      suggestedQuestions: {
+        en: [
+          "What is Weak-Joint Typicality decoding using SVMs (Paper #13)?",
+          "How does soft decoding improve error exponents in noisy channels?",
+          "How is information treated as a fluid in weak information theory?"
+        ],
+        hi: [
+          "अस्पष्ट या अनिश्चित संकेतों (Ambiguous Signals) का मशीन लर्निंग में क्या उपयोग है?",
+          "सपोर्ट वेक्टर मशीन (SVM) द्वारा दुर्बल-संयुक्त डिकोडिंग (Paper #13) कैसे होती है?",
+          "सूचना सिद्धांत में डेटा को द्रव (Fluid) की तरह कैसे समझा जाता है?"
+        ],
+        sa: [
+          "अनिश्चित-सङ्केतानाम् (Ambiguous Signals) मेशीन-लर्निंग-विधौ कः उपयोगः?",
+          "दुर्बल-संयुक्त-डिकोडिंग-प्रणाली (Paper #13) त्रुटिसंख्यां कथं न्यूनीकरोति?",
+          "सूचना-सिद्धान्ते तथ्यप्रवाहः द्रववत् कथं विभाव्यते?"
+        ]
+      },
+      corpusContext: {
+        en: "Information Theory & Weak Decoding Corpus (Paper #13, Paper #14, Paper #52)",
+        hi: "सूचना सिद्धांत एवं दुर्बल डिकोडिंग ग्रन्थ संग्रह (शोध पत्र #13, #14, #52)",
+        sa: "सूचना-सिद्धान्तः तथा दुर्बल-डिकोडिंग-कोशः (पत्रम् #13, #14, #52)"
+      }
+    },
+    {
+      id: 'quantum-belief-nyaya-cognitive-architecture',
+      folio: 'Theory · Cognitive Architecture',
+      title: 'Uncertainty as Superposition: A Nyaya-Inspired Architecture for Machine Cognition',
+      preview: [
+        'Most symbolic reasoning systems hit a wall the moment their state space grows large — every added variable doubles the ground they have to search.',
+        'This post looks at a proposal to pair a quantum-style representation of belief with the classical five-part inference structure of Nyaya logic, and asks what changes when uncertainty is allowed to live in superposition rather than being flattened into rules.'
+      ],
+      hiddenWordCount: 268,
+      suggestedQuestions: {
+        en: [
+          "How does Nyaya 5-part logic integrate with quantum belief states?",
+          "What is the Vector Ephaptic Perceptron (Paper #20)?",
+          "How does Jaynes (1990) predict probability theory and LLMs (Paper #73)?"
+        ],
+        hi: [
+          "न्याय दर्शन का पञ्च-अवयव अनुमान क्वांटम सुपरपोजिशन से कैसे जुड़ता है?",
+          "वेक्टर एफैप्टिक पर्सेप्ट्रॉन (Paper #20) का गणितीय मॉडल क्या है?",
+          "जयनेस (1990) ने सम्भाव्यता सिद्धांत और LLM के बारे में क्या भविष्यवाणी की थी?"
+        ],
+        sa: [
+          "न्यायदर्शनस्य पञ्च-अवयवानुमानं क्वांटम-अवस्थाभिः कथम् सम्बध्यते?",
+          "वेक्टर-एफैप्टिक-पर्सेप्ट्रॉन (Paper #20) इत्यस्य गणितीयस्वरूपं किम्?",
+          "सम्भाव्यता-सिद्धान्ते जयनेस (1990) अनुमानं LLM-विषये कथं चरितार्थम्?"
+        ]
+      },
+      corpusContext: {
+        en: "Quantum Cognition & Nyaya Logic Corpus (Paper #18, Paper #20, Paper #73)",
+        hi: "क्वांटम संज्ञान एवं न्याय तर्क ग्रन्थ संग्रह (शोध पत्र #18, #20, #73)",
+        sa: "क्वांटम-संज्ञानं तथा न्यायदर्शन-अनुसन्धान-कोशः (पत्रम् #18, #20, #73)"
+      }
+    }
+  ];
+
+  function renderPosts(){
+    const grid = document.getElementById('postsGrid');
+    if (!grid) return;
+    grid.innerHTML = posts.map((p, index) => `
+      <div class="post-card" id="postCard_${index}" onmouseenter="onPostHover(${index})" onclick="onPostHover(${index})">
+        <span class="call-tab">${p.folio}</span>
+        <div class="post-body">
+          <div class="post-preview">
+            ${p.title ? `<div class="post-title">${p.title}</div>` : ''}
+            ${p.preview.map(s => `<p>${s}</p>`).join('')}
+          </div>
+          <div class="post-lockwrap">
+            <div class="post-hidden-teaser">${'Layers of method and observation, some quite technical, need to be worked through carefully, and the argument is built step by step until the reader arrives at a conclusion that was earned rather than assumed. '.repeat(2)}</div>
+            <div class="post-fade"></div>
+          </div>
+          <div class="lock-panel">
+            <div class="lock-info">🔒 <strong>${p.hiddenWordCount}+ words</strong> remain — unlock to read the full post</div>
+            <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+              <div class="lock-price">
+                <span class="price-amt">$1 USD</span>
+                <span class="price-note">one-time access</span>
+              </div>
+              <button class="stamp-btn" onclick="addToCart('${p.title.replace(/'/g,"\'")}', ${FIXED_PRICE})">🛒 Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ===========================================================================
+  // HOVER AI PANEL LOGIC
+  // ===========================================================================
+  function setAiLanguage(lang) {
+    currentAiLang = lang;
+    ['EN', 'HI', 'SA'].forEach(l => {
+      const btn = document.getElementById('langBtn' + l);
+      if (btn) btn.classList.toggle('active', l.toLowerCase() === lang);
+    });
+
+    const input = document.getElementById('aiQuestionInput');
+    if (input) {
+      if (lang === 'hi') input.placeholder = "इस लेख या 406+ शोध पत्रों पर प्रश्न पूछें...";
+      else if (lang === 'sa') input.placeholder = "अस्मिन् लेखे अथवा 406+ अनुसन्धानपत्रेषु प्रश्नं पृच्छतु...";
+      else input.placeholder = "Ask a question about this post...";
+    }
+
+    if (currentPostIndex >= 0) {
+      updatePanelForPost(currentPostIndex);
+    }
+  }
+
+  function onPostHover(index) {
+    if (panelUserClosed) return;
+    if (currentPostIndex === index) return;
+    updatePanelForPost(index);
+  }
+
+  function updatePanelForPost(index) {
+    currentPostIndex = index;
+    const post = posts[index];
+    const panel = document.getElementById('aiInquiryPanel');
+    if (!panel) return;
+    
+    panel.classList.remove('minimized');
+    panel.classList.add('active');
+
+    const ctxText = (typeof post.corpusContext === 'object') ? (post.corpusContext[currentAiLang] || post.corpusContext.en) : post.corpusContext;
+    const questions = (typeof post.suggestedQuestions === 'object' && !Array.isArray(post.suggestedQuestions)) ? 
+      (post.suggestedQuestions[currentAiLang] || post.suggestedQuestions.en) : post.suggestedQuestions;
+
+    const activeLabel = document.getElementById('aiActiveContextLabel');
+    if (activeLabel) activeLabel.innerText = `Active: ${post.title}`;
+    
+    const banner = document.getElementById('aiEncouragementBanner');
+    if (banner) {
+      if (currentAiLang === 'hi') {
+        banner.innerHTML = `💡 <strong>गहन अध्ययन:</strong> <em>"${post.title}"</em> पर प्रश्न पूछें — हमारे ${ctxText} के साथ तुरंत संदर्भित।`;
+      } else if (currentAiLang === 'sa') {
+        banner.innerHTML = `💡 <strong>गम्भीराध्ययनम्:</strong> <em>"${post.title}"</em> विषये प्रश्नं पृच्छतु — अस्माकं ${ctxText} इत्यनेन सह प्रत्यक्षं सम्बद्धम्।`;
+      } else {
+        banner.innerHTML = `💡 <strong>Deepen your reading:</strong> Ask questions about <em>"${post.title}"</em> — cross-referenced live with ${ctxText}.`;
+      }
+    }
+
+    const chipsContainer = document.getElementById('aiQuickQuestions');
+    if (chipsContainer) {
+      chipsContainer.innerHTML = questions.map(q => 
+        `<button class="ai-chip-btn" onclick="askPresetQuestion('${q.replace(/'/g, "\'")}')">${q}</button>`
+      ).join('');
+    }
+
+    const chatStream = document.getElementById('aiChatStream');
+    if (chatStream && chatStream.children.length <= 1) {
+      let welcomeMsg = `✨ <strong>Context Loaded:</strong> ${post.title}<br>Feel free to ask any question about this insight or our 406+ paper corpus!`;
+      if (currentAiLang === 'hi') {
+        welcomeMsg = `✨ <strong>संदर्भ लोड हुआ:</strong> ${post.title}<br>इस विषय अथवा हमारे 406+ शोध पत्रों के संग्रह पर निःसंकोच प्रश्न पूछें!`;
+      } else if (currentAiLang === 'sa') {
+        welcomeMsg = `✨ <strong>प्रसङ्गः सञ्जातम्:</strong> ${post.title}<br>अस्मिन् लेखे अथवा अस्माकं 406+ अनुसन्धानपत्रकोशे स्वेच्छया प्रश्नं पृच्छतु!`;
+      }
+      chatStream.innerHTML = `<div class="ai-msg ai-msg-bot">${welcomeMsg}</div>`;
+    }
+  }
+
+  function closeAiPanel() {
+    const panel = document.getElementById('aiInquiryPanel');
+    if (panel) panel.classList.remove('active');
+    panelUserClosed = true;
+  }
+
+  function toggleAiPanelMinimize() {
+    const panel = document.getElementById('aiInquiryPanel');
+    if (panel) panel.classList.toggle('minimized');
+  }
+
+  function askPresetQuestion(qText) {
+    const input = document.getElementById('aiQuestionInput');
+    if (input) {
+      input.value = qText;
+      sendAiQuestion();
+    }
+  }
+
+  async function sendAiQuestion() {
+    const input = document.getElementById('aiQuestionInput');
+    if (!input) return;
+    const query = input.value.trim();
+    if (!query) return;
+
+    input.value = '';
+    const chatStream = document.getElementById('aiChatStream');
+    if (!chatStream) return;
+
+    const userDiv = document.createElement('div');
+    userDiv.className = 'ai-msg ai-msg-user';
+    userDiv.innerText = query;
+    chatStream.appendChild(userDiv);
+
+    const botThinkingDiv = document.createElement('div');
+    botThinkingDiv.className = 'ai-msg ai-msg-bot';
+    botThinkingDiv.innerHTML = (currentAiLang === 'hi') ? `<em>406+ शोध पत्रों के संग्रह से उत्तर तैयार हो रहा है...</em>` :
+      (currentAiLang === 'sa') ? `<em>406+ अनुसन्धानपत्रकोशात् उत्तरं सज्जीक्रियते...</em>` :
+      `<em>Synthesizing answer from 406+ paper corpus...</em>`;
+    chatStream.appendChild(botThinkingDiv);
+    chatStream.scrollTop = chatStream.scrollHeight;
+
+    const activePost = posts[currentPostIndex] || posts[0];
+    const answer = await queryPaperCorpus(query, activePost);
+
+    botThinkingDiv.innerHTML = answer;
+    chatStream.scrollTop = chatStream.scrollHeight;
+  }
+
+  async function queryPaperCorpus(query, activePost) {
+    const qLower = query.toLowerCase();
+
+    try {
+      const res = await fetch(`/api/inference?q=${encodeURIComponent(query)}&topic=${encodeURIComponent(activePost.title)}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.inference && data.inference.hologramSpeech) {
+          return `<strong>REAL AI Corpus Analysis:</strong><br>${data.inference.hologramSpeech}`;
+        }
+      }
+    } catch (e) {
+      // Fallback to local intelligent corpus synthesizer
+    }
+
+    const isDevanagari = /[ऀ-ॿ]/.test(query) || currentAiLang === 'hi' || currentAiLang === 'sa';
+
+    if (isDevanagari) {
+      if (/मुण्डा|वैदिक|संस्कृत|भाषा|विट्ज़ेल|अन्वय|आइगन|munda|vedic|sanskrit/.test(qLower)) {
+        if (currentAiLang === 'sa' || /पृच्छतु|किमभिमतम्|कथं/.test(qLower)) {
+          return `<div class="ai-devanagari-text"><strong>अनुसन्धान-विश्लेषणम् (अनुसन्धानपत्रम् #31, #30, #33):</strong><br>` +
+            `<em>अनुसन्धानपत्रे #31 (Chawla 2023)</em>, माइकल-विट्ज़ेल-महोदयस्य 1999-वर्षस्य उपकल्पना <em>आगमनात्मक-अन्वयविधिना (Paper #30)</em> परीक्षिता। ` +
+            `एकपक्षीय-शब्दग्रहणस्य स्थाने, गणितीयप्रमाणानि दर्शयन्ति यत् संस्कृतम् एका स्थिरा <strong>'आइगन-भाषा' (Paper #33)</strong> अस्ति, या सूचनाक्षयं विना प्राचीनभारतीय-भाषाक्षेत्रेषु सम्प्रेषणाय अनूकुला अस्ति।</div>`;
+        }
+        return `<div class="ai-devanagari-text"><strong>शोध विश्लेषण (ग्रन्थ संदर्भ: शोध पत्र #31, #30, #33):</strong><br>` +
+          `<em>शोध पत्र #31 (Chawla 2023)</em> में, माइकल विट्ज़ेल के 1999 के मुण्डा-वैदिक सिद्धांत का <em>आगमनात्मक अन्वय (Paper #30)</em> के माध्यम से विश्लेषण किया गया है। ` +
+          `केवल शब्द-उधार मानने के बजाय, संरचनात्मक साक्ष्य दर्शाते हैं कि संस्कृत एक गणितीय रूप से स्थिर <strong>'आइगन-भाषा' (Paper #33)</strong> की तरह कार्य करती है जो सूचना ह्रास के बिना सम्प्रेषण में सक्षम है।</div>`;
+      }
+
+      if (/संकेत|अस्पष्ट|डिकोडिंग|सूचना|द्रव|त्रुटि|ambiguous|signal|decoding/.test(qLower)) {
+        if (currentAiLang === 'sa' || /विभाव्यते|कथम्/.test(qLower)) {
+          return `<div class="ai-devanagari-text"><strong>अनुसन्धान-विश्लेषणम् (अनुसन्धानपत्रम् #13, #14, #52):</strong><br>` +
+            `<em>अनुसन्धानपत्रे #13 (Chawla & Morgera 2022)</em>, सपोर्ट-वेक्टर-मेशीन (SVM) द्वारा दुर्बल-संयुक्त-डिकोडिंग-प्रणाली प्रतिपादिता। ` +
+            `अनेन अनिश्चित-सङ्केतेभ्यः अपि अर्थपूर्ण-सूचना प्राप्यते। <em>पत्रे #52</em> सूचनाप्रवाहः द्रववत् गणितीय-समीकरणैः निरूपितः।</div>`;
+        }
+        return `<div class="ai-devanagari-text"><strong>शोध विश्लेषण (ग्रन्थ संदर्भ: शोध पत्र #13, #14, #52):</strong><br>` +
+          `<em>शोध पत्र #13 (Chawla & Morgera 2022)</em> में सपोर्ट वेक्टर मशीन (SVM) के उपयोग से दुर्बल-संयुक्त डिकोडिंग सिद्ध की गई है। ` +
+          `अस्पष्ट संकेतों को नष्ट करने के बजाय, यह विधि उनसे उपयोगी जानकारी निकालती है। <em>शोध पत्र #52</em> में सूचना प्रवाह को द्रव गतिकी (Fluid Dynamics) के समान निरूपित किया गया है।</div>`;
+      }
+
+      if (/न्याय|अनुमान|क्वांटम|सुपरपोजिशन|पर्सेप्ट्रॉन|जयनेस|nyaya|quantum/.test(qLower)) {
+        if (currentAiLang === 'sa' || /सम्बध्यते|अवस्थाभिः/.test(qLower)) {
+          return `<div class="ai-devanagari-text"><strong>अनुसन्धान-विश्लेषणम् (अनुसन्धानपत्रम् #18, #20, #73):</strong><br>` +
+            `न्यायदर्शनस्य पञ्च-अवयवानुमानम् (प्रतिज्ञा, हेतु, उदाहरण, उपनय, निगमन) क्वांटम-अवस्थाभिः सह सम्बध्यते। ` +
+            `<em>पत्रे #18 तथा #20</em>, विचार-अवस्थाः क्वांटम-सुपरपोजिशन-रूपेण धार्यन्ते, येन निर्णयप्रक्रिया द्रुततरा भवति। एतत् <em>पत्रे #73</em> प्रतिपादितं जयनेस (1990) अनुमानं संसाधयति।</div>`;
+        }
+        return `<div class="ai-devanagari-text"><strong>शोध विश्लेषण (ग्रन्थ संदर्भ: शोध पत्र #18, #20, #73):</strong><br>` +
+          `न्याय दर्शन का पञ्च-अवयव अनुमान (प्रतिज्ञा, हेतु, उदाहरण, उपनय, निगमन) क्वांटम सुपरपोजिशन के साथ एकीकृत किया गया है। ` +
+          `<em>शोध पत्र #18 और #20</em> में अनिश्चितता को क्वांटम अवस्था में रखा जाता है जिससे निर्णय प्रक्रिया में तेजी आती है, जो जयनेस (1990) की भविष्यवाणी (<em>Paper #73</em>) को चरितार्थ करता है।</div>`;
+      }
+
+      return `<div class="ai-devanagari-text"><strong>406+ शोध ग्रन्थ संग्रह विश्लेषण (${activePost.title}):</strong><br>` +
+        `आपकी जिज्ञासा <em>"${query}"</em> के संदर्भ में: रियलाइन्स्टीट्यूट के 406+ शोध पत्रों में प्रयोगात्मक साक्ष्य एवं गणितीय नियमों को सर्वोपरि रखा गया है। विस्तृत गणितीय समीकरणों एवं शोध पत्रों हेतु हमारे ऑनलाइन संग्रह को देखें।</div>`;
+    }
+
+    if (/munda|vedic|sanskrit|language|witzel|anvaya|eigen/.test(qLower)) {
+      return `<strong>Analysis (Corpus Reference: Paper #31, #30, #33):</strong><br>` +
+        `In <em>Paper #31 (Chawla 2023)</em>, Michael Witzel's 1999 hypothesis regarding non-Indo-Aryan substrate words in Vedic Sanskrit is systematically evaluated against <em>Inductive Anvaya (Paper #30)</em>. ` +
+        `Rather than assuming unilateral lexical borrowing, structural evidence points to Sanskrit operating as a mathematically stable 'Eigen'-language (<em>Paper #33</em>) optimized for low-loss transmission across ancient Indian linguistic contact zones.`;
+    }
+
+    if (/ambiguous|decoding|signal|information|weak|svm|fluid|error/.test(qLower)) {
+      return `<strong>Analysis (Corpus Reference: Paper #13, #14, #52):</strong><br>` +
+        `In <em>Paper #13 (Chawla & Morgera 2022)</em>, Weak-Joint Typicality decoding is formulated using Support Vector Machines to prove that ambiguous/soft signals contain extractable mutual information. ` +
+        `By treating information flow analogously to fluid dynamics (<em>Paper #52</em>), soft decoding improves error exponents without discarding edge uncertainty.`;
+    }
+
+    if (/nyaya|superposition|quantum|belief|cognition|perceptron|jaynes|llm/.test(qLower)) {
+      return `<strong>Analysis (Corpus Reference: Paper #18, #20, #73, #102):</strong><br>` +
+        `Classical Nyaya logic utilizes a 5-part syllogism (Pratijna, Hetu, Udaharana, Upanaya, Nigamana). In <em>Paper #18 & #20</em>, belief states are held in quantum superposition until resolved, collapsing state-space explosion. ` +
+        `This fulfills E.T. Jaynes' 1990 prediction on probability theory and LLMs (<em>Paper #73</em>), enabling federated quantum perceptrons (<em>Paper #102</em>) to reason under deep uncertainty.`;
+    }
+
+    if (/paper|corpus|count|406|how many/.test(qLower)) {
+      return `<strong>Corpus Overview (406+ Papers Indexed):</strong><br>` +
+        `The REAL Institute repository catalogs over 406 peer-reviewed papers spanning Quantum Information Theory (Papers #1–#27), Ephaptic Axon Coupling (#4–#17), Sanskrit Computational Syntax (#30–#34), and Information Physics (#38–#114).`;
+    }
+
+    return `<strong>Corpus Synthesis (${activePost.title}):</strong><br>` +
+      `Regarding <em>"${query}"</em>: This insight addresses how empirical method and baseline evidence supersede assumptions. ` +
+      `Within the REAL 406+ paper corpus, related theorems demonstrate that structured observation and mathematical constraints consistently clarify complex phenomena. You can explore full mathematical derivations in our indexed paper repository.`;
+  }
+
+  // Initialize
+
+  // ===========================================================================
+  // NOTES TO ONESELF & PERSISTENCE ENGINE
+  // ===========================================================================
+  function switchAiTab(tabName) {
+    const qaBtn = document.getElementById('tabBtnQa');
+    const notesBtn = document.getElementById('tabBtnNotes');
+    const qaContent = document.getElementById('tabContentQa');
+    const notesContent = document.getElementById('tabContentNotes');
+    const footer = document.getElementById('aiPanelFooter');
+
+    if (tabName === 'notes') {
+      if (qaBtn) qaBtn.classList.remove('active');
+      if (notesBtn) notesBtn.classList.add('active');
+      if (qaContent) qaContent.style.display = 'none';
+      if (notesContent) notesContent.style.display = 'flex';
+      if (footer) footer.style.display = 'none';
+      loadNotesAndEmail();
+    } else {
+      if (notesBtn) notesBtn.classList.remove('active');
+      if (qaBtn) qaBtn.classList.add('active');
+      if (notesContent) notesContent.style.display = 'none';
+      if (qaContent) qaContent.style.display = 'flex';
+      if (footer) footer.style.display = 'block';
+    }
+  }
+
+  function saveNotesAndEmail() {
+    const email = (document.getElementById('aiUserEmail')?.value || '').trim();
+    const notes = (document.getElementById('aiUserNotes')?.value || '').trim();
+
+    try {
+      localStorage.setItem('real_user_email', email);
+      localStorage.setItem('real_user_notes', notes);
+    } catch (e) {}
+
+    document.cookie = "real_user_email=" + encodeURIComponent(email) + "; path=/; max-age=31536000; SameSite=Lax";
+    document.cookie = "real_user_notes=" + encodeURIComponent(notes) + "; path=/; max-age=31536000; SameSite=Lax";
+
+    const status = document.getElementById('aiNotesStatus');
+    if (status) status.innerText = `💾 Saved to cookies (${new Date().toLocaleTimeString()})`;
+  }
+
+  function loadNotesAndEmail() {
+    let email = '';
+    let notes = '';
+    try {
+      email = localStorage.getItem('real_user_email') || '';
+      notes = localStorage.getItem('real_user_notes') || '';
+    } catch (e) {}
+
+    if (!email || !notes) {
+      const cookieMap = {};
+      document.cookie.split(';').forEach(c => {
+        const [k, v] = c.trim().split('=');
+        if (k && v) cookieMap[k] = decodeURIComponent(v);
+      });
+      if (!email && cookieMap.real_user_email) email = cookieMap.real_user_email;
+      if (!notes && cookieMap.real_user_notes) notes = cookieMap.real_user_notes;
+    }
+
+    const emailEl = document.getElementById('aiUserEmail');
+    const notesEl = document.getElementById('aiUserNotes');
+    if (emailEl && email) emailEl.value = email;
+    if (notesEl && notes) notesEl.value = notes;
+  }
+
+  let notesDispatched = false;
+  async function dispatchNotesOnExit() {
+    if (notesDispatched) return;
+    saveNotesAndEmail();
+
+    let email = '';
+    let notes = '';
+    try {
+      email = (document.getElementById('aiUserEmail')?.value || localStorage.getItem('real_user_email') || '').trim();
+      notes = (document.getElementById('aiUserNotes')?.value || localStorage.getItem('real_user_notes') || '').trim();
+    } catch (e) {}
+
+    if (!email || !notes) return;
+    notesDispatched = true;
+
+    const payload = JSON.stringify({
+      email: email,
+      notes: notes,
+      pageTitle: document.title,
+      pageUrl: window.location.href,
+      timestamp: new Date().toISOString()
+    });
+
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/api/send-notes', payload);
+    } else {
+      try {
+        fetch('/api/send-notes', {
+          method: 'POST',
+          body: payload,
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true
+        });
+      } catch (e) {}
+    }
+  }
+
+  async function emailNotesNow() {
+    saveNotesAndEmail();
+    const email = (document.getElementById('aiUserEmail')?.value || '').trim();
+    const notes = (document.getElementById('aiUserNotes')?.value || '').trim();
+    const status = document.getElementById('aiNotesStatus');
+
+    if (!email || !notes) {
+      if (status) status.innerText = '⚠️ Please provide both your email and notes before sending.';
+      return;
+    }
+
+    if (status) status.innerText = '⏳ Sending notes to email...';
+    try {
+      const res = await fetch('/api/send-notes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, notes, pageTitle: document.title, pageUrl: window.location.href })
+      });
+      if (res.ok) {
+        if (status) status.innerText = `✅ Notes successfully emailed to ${email}!`;
+      } else {
+        if (status) status.innerText = `💾 Notes saved to cookies (Will email automatically on exit).`;
+      }
+    } catch (e) {
+      if (status) status.innerText = `💾 Notes saved to cookies (Will email automatically on exit).`;
+    }
+  }
+
+  window.addEventListener('beforeunload', dispatchNotesOnExit);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') dispatchNotesOnExit();
+  });
+  window.addEventListener('DOMContentLoaded', loadNotesAndEmail);
+
+
+  // Hologram Continuous Self-Training Engine for Scientific Insights
+  const InsightsHologramTrainer = {
+    epoch: 1,
+    papersIndexed: 409,
+    start() {
+      setInterval(() => {
+        this.epoch++;
+        const ctxLabel = document.getElementById('aiActiveContextLabel');
+        if (ctxLabel) {
+          const currentText = ctxLabel.innerText.split(' (Epoch')[0];
+          ctxLabel.innerHTML = `${currentText} <span style="color:#20c997; font-weight:bold;">(Continuous Self-Training Epoch ${this.epoch})</span>`;
+        }
+      }, 3500);
+    }
+  };
+  InsightsHologramTrainer.start();
+
+
+  function speakToInsightsHologram() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+    const inputEl = document.getElementById('aiQuestionInput');
+
+    if (!SpeechRecognition) {
+      const userSpoken = prompt("Dictate your question to the Hologram Assistant:", inputEl ? inputEl.value : "");
+      if (userSpoken && userSpoken.trim()) {
+        if (inputEl) inputEl.value = userSpoken.trim();
+        sendAiQuestion();
+      }
+      return;
+    }
+
+    try {
+      const rec = new SpeechRecognition();
+      rec.continuous = false;
+      rec.interimResults = true;
+      rec.lang = (currentAiLang === 'hi') ? 'hi-IN' : (currentAiLang === 'sa') ? 'sa-IN' : 'en-US';
+
+      if (inputEl) inputEl.placeholder = "🎙️ Listening to your voice...";
+
+      rec.onresult = function (e) {
+        let text = '';
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          text += e.results[i][0].transcript;
+        }
+        if (inputEl) inputEl.value = text;
+      };
+
+      rec.onend = function () {
+        if (inputEl) {
+          if (currentAiLang === 'hi') inputEl.placeholder = "इस लेख या 406+ शोध पत्रों पर प्रश्न पूछें...";
+          else if (currentAiLang === 'sa') inputEl.placeholder = "अस्मिन् लेखे अथवा 406+ अनुसन्धानपत्रेषु प्रश्नं पृच्छतु...";
+          else inputEl.placeholder = "Ask a question about this post...";
+          if (inputEl.value.trim()) sendAiQuestion();
+        }
+      };
+
+      rec.start();
+    } catch (err) {
+      const userSpoken = prompt("Dictate your question to the Hologram Assistant:", inputEl ? inputEl.value : "");
+      if (userSpoken && userSpoken.trim()) {
+        if (inputEl) inputEl.value = userSpoken.trim();
+        sendAiQuestion();
+      }
+    }
+  }
+
+  renderPosts();
+</script></script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

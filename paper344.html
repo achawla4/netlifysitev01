@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ephaptic Dependence Detectors: Theory and Simulations - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Ephaptic Dependence Detectors: Theory and Simulations</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">—This paper documents a focused investigation into whether an ephaptic-perceptron-inspired framework can be used as a detector of statistical dependence between two input streams. The project began with an information-theoretic hypothesis grounded in entropy inequalities for mixed random variables and progressed through a sequence of simulation studies in MATLAB. We first examined whether disagreement between entropy-based channel preference and the current ephaptic per- ceptron implementation could serve as a dependence signal. That hypothesis was evaluated on synthetic data with known ground truth and on real wearable acceleration recordings. We then tested a direct theorem-driven criterion based on the inequality H(Z) ≥max{H(A), H(B)} for a mixed output Z formed from two binary streams. The direct criterion produced no violations on either independent or dependent synthetic data and no viola- tions on real data, demonstrating that it is a one-way consistency check rather than a practical detector. Finally, we generalized the mixing rule from a one-parameter convex form to a two- parameter form Z = λ1A + λ2B and evaluated features derived from the entropy gap surface. The minimum gap feature achieved modest but statistically significant above-chance detection on synthetic data, with balanced accuracy 0.584 and permutation p-value 0.0017, while mean and variance features remained at chance. Across all experiments, mutual information remained the strongest and most interpretable dependence indicator, while ephaptic gap features emerged as weak but potentially useful auxiliary cues. Index Terms—Ephaptic coupling, entropy, dependence detec- tion, mutual information, perceptron, simulation. I. INTRODUCTION The central objective of this investigation is practical and specific: to identify a defensible use for the current ephaptic perceptron implementation without rewriting its core logic. The starting point was a set of MATLAB scripts that estimate binary entropies, choose high-entropy channels, and update perceptron-like weights. Early experiments on real accelerom- eter data suggested that the model often favored the vertical axis z, while entropy ranking frequently favored acceleration magnitude. This mismatch raised a natural question. Could disagreement between entropy-based ranking and model pref- erence itself indicate non-independence among inputs? The motivating theoretical context is a short but influen- tial argument from ephaptic information selection: in certain coupling models, the output stream may preserve or amplify informational salience associated with high-entropy stimuli. If independence assumptions hold and the output is formed by non-degenerate mixing, entropy inequalities impose strong constraints. If those constraints are violated, assumptions are invalid. The practical challenge is that not every valid inequal- ity is discriminative for detection. A detector must separate independent from dependent cases in finite-sample conditions, not merely satisfy a theorem under idealized assumptions. Accordingly, this work proceeds in stages. First, we test whether the existing ephaptic perceptron disagreement signal is predictive of dependence. Second, we evaluate a direct theorem-based inequality test in synthetic and real settings. Third, we expand the mixing model from a single parameter to two parameters and test whether richer entropy-gap geometry yields better separation. The result is a grounded summary of what works, what fails, and what remains promising. II. THEORETICAL BACKGROUND Consider two discrete random variables A and B. Under ordinary arithmetic, define Z = λA + (1 −λ)B, 0 &lt; λ &lt; 1. (1) For independent A and B, a useful argument relies on condi- tional entropy and injective transforms. Since Z is an injective affine transform of A when conditioning on B = b with λ ̸= 0, one has H(Z | B = b) = H(A), H(Z | B) = H(A). (2) Then H(Z) ≥H(Z | B) = H(A). (3) By symmetry, H(Z) ≥H(B), yielding H(Z) ≥max{H(A), H(B)}. (4) This implication supports the contrapositive diagnostic state- ment: if H(Z) &lt; max{H(A), H(B)}, then the assumptions used above are broken. However, that statement is one-way. Absence of violation does not establish independence. In finite data, this distinction is crucial. Another important distinction concerns mixture distributions versus linear combinations of random variables. Entropy con- cavity guarantees H(λPA + (1 −λ)PB) ≥λH(PA) + (1 −λ)H(PB), (5) but this does not imply entropy exceeds the larger component entropy in all cases. Our experiments use explicit variable- level combinations, not only distribution mixtures, and there- fore rely on mapping structure and collision behavior in addition to concavity. Finally, when using real signals, structural coupling can invalidate independence assumptions by construction. For ex- ample, if magnitude is computed as p x2 + y2 + z2, it nec- essarily depends on z. Any detector claim must acknowledge such deterministic linkage before interpreting model behavior.</p> <p>2 III. DATA AND EXPERIMENTAL FRAMEWORK The project used two data sources. The first source was synthetic binary and continuous streams generated in MAT- LAB, where dependence structure could be controlled exactly. The second source was real acceleration recordings in CSV format from wearable-like experiments, including files such as TotalAccelerationfirstbig.csv and later additions for a total of ten recordings. Each CSV contained at least x, y, and z, and magnitude channels were derived as needed. Binary streams were created through median thresholding of each real-valued channel. Entropies were computed with a corrected binary entropy implementation that safely handles zero probabilities. Dependence baselines were estimated using absolute Pearson correlation and empirical binary mutual information. These baselines served as ground-truth-oriented comparators for all ephaptic-derived heuristics. The core scripts built in the investigation subfolder were run_investigation.m, run_theorem_test.m, run_lambda_sweep.m, and run_lambda12_sweep.m. Each script writes outputs to CSV and visualizes distributions to ensure that conclusions are tied to both numeric summaries and behavior across trials. IV. EXPERIMENT 1: MISMATCH AS A DEPENDENCE SIGNAL The first test asked whether disagreement between entropy winner and ephaptic-perceptron winner indicates dependence. Synthetic experiments used two groups with 200 trials each. Independent trials used unrelated generated streams. Depen- dent trials used linearly coupled streams with additive noise. The key summary was the mismatch rate P (ˆcentropy ̸= ˆcmodel) , (6) evaluated separately per group. Results were unambiguous. Independent mismatch rate was 0.455, while dependent mis- match rate was 0.390. If mismatch were a strong dependence signature, the dependent rate should be distinctly larger, which was not observed. Two heuristic detectors were evaluated. The first classified a sample as dependent when mismatch equals one. This gave true positive rate 0.390, true negative rate 0.545, and balanced accuracy 0.468, which is below chance. The second classified dependence when mismatch equals zero. This gave true posi- tive rate 0.610, true negative rate 0.455, and balanced accuracy 0.532, only marginally above chance. These outcomes indicate that mismatch carries weak signal at best and can invert depending on coding direction. Meanwhile, baseline dependence metrics behaved as ex- pected. Independent synthetic pairs yielded mean |corr| = 0.035 and mean mutual information 0.001 bits, while depen- dent pairs yielded mean |corr| = 0.688 and mean mutual information 0.377 bits. Therefore the synthetic construction was valid, and the weakness lies in the mismatch heuristic rather than in dataset quality. V. EXPERIMENT 2: DIRECT THEOREM TEST WITH ONE-PARAMETER MIXING The second test directly evaluated the inequality H(Z) ≥ max{H(A), H(B)} using Z = 0.5A + 0.5B (7) with discrete entropy estimation from empirical PMFs. For synthetic data, 400 trials were generated per group. Violation rates were exactly zero for both independent and dependent groups. On real data, ten files were evaluated for x_vs_y and z_vs_mag binary pairs. Violation rates were again zero in both cases. The real-data mean entropy gaps were positive and sub- stantial: approximately 0.3590 for x_vs_y and 0.5545 for z_vs_mag. Yet mutual information remained nonzero, with means 0.0784 and 0.0368 bits, respectively. Thus non- violation coexists with measurable dependence. This confirms the theoretical warning that the test is one-way. Violation can falsify assumptions, but non-violation does not prove independence. This result also clarifies why this criterion cannot directly serve as a detector in realistic data analysis. A detector requires differential response across classes, while a consistency in- equality may hold broadly across both classes due to mapping structure and finite alphabet behavior. VI. EXPERIMENT 3: ONE-PARAMETER LAMBDA SWEEP The third experiment swept λ over [0.05, 0.95] and exam- ined the gap curve g(λ) = H(λA + (1 −λ)B) −max{H(A), H(B)}. (8) Summary features included minimum, mean, and standard deviation of g(λ). Synthetic balanced accuracies were 0.500 for minimum and mean, and 0.518 for standard deviation. These are effectively chance-level outcomes. The real-data summary exhibited a revealing pattern: mean minimum gap equaled mean gap, and standard deviation was approximately zero across files for both pairs. This indicates the gap curve was essentially flat in this binary setup. The flatness is consistent with near-injective mappings for many λ values, where entropy of transformed symbols changes little except at collision points. The conclusion from this stage is direct. Varying one convex parameter does not create useful discrimination for dependence in these binary streams. VII. EXPERIMENT 4: TWO-PARAMETER LAMBDA SURFACE To increase flexibility, mixing was generalized to Z = λ1A + λ2B, λ1, λ2 ∈[0, 1], (9) excluding the degenerate point (0, 0). An 11 × 11 grid gener- ated a two-dimensional gap surface. Features from this surface were then used for classification. Synthetic results improved for one feature only. Minimum gap over the λ1–λ2 grid achieved balanced accuracy 0.584</p> <p>3 at threshold approximately −0.0012. Mean and standard de- viation of the gap surface remained at chance with balanced accuracy 0.500. Because 0.584 is modest, a permutation test was added with 3000 random label permutations. The observed balanced accuracy was 0.584, the empirical null 95% interval was [0.502, 0.560], and the permutation p-value was 0.0017. This establishes that the effect is statistically significant in synthetic conditions, even though practical effect size is limited. Real-data summaries for ten files showed mean minimum gaps near zero for both pairs, with positive mean gap and nontrivial surface standard deviation. Specifically, x_vs_y had mean minimum −0.0001, mean gap 0.7211, and mean standard deviation 0.3613; z_vs_mag had mean minimum −0.0000, mean gap 0.7686, and mean standard deviation 0.3632. Mutual information remained 0.0784 and 0.0368 bits, respectively. These values suggest that minimum-gap behavior may carry subtle information but is far weaker and less interpretable than direct dependence metrics. VIII. IMPLICATIONS FOR THE CURRENT EPHAPTIC PERCEPTRON The guiding practical question was not how to redesign the model from scratch, but how to use it as it currently stands. The evidence supports three conclusions. First, the current perceptron behavior is not a reliable depen- dence detector by itself. Disagreement with entropy ranking can occur for reasons unrelated to dependence, including model-output mechanics and finite-sample dynamics. Second, theorem-based entropy inequalities are informative as consistency checks but weak as detectors. They are suitable for falsification in presence of violation, not for confirmation in absence of violation. Third, ephaptic-style entropy-gap geometry provides a weak but real auxiliary signal when expanded to two-parameter mix- ing and summarized by minimum gap. This signal becomes statistically credible in synthetic data but remains modest in effect size and should not be used as a standalone decision rule. Therefore, the most defensible immediate use of the present ephaptic code is as an exploratory channel-prioritization and auxiliary scoring module. It can indicate where informative structure might lie, while dependence decisions are anchored by stronger measures such as mutual information and correla- tion. IX. LIMITATIONS This study has several limits that should be stated explicitly. The entropy estimates are empirical and finite-sample, so small numerical differences near zero can affect thresholded features such as minimum gap. Binary thresholding, while convenient and aligned with current scripts, discards amplitude detail and may obscure nonlinear dependencies present in raw continuous data. Real data were limited to ten files from a specific motion context, and conclusions may shift with broader tasks or sensors. The current perceptron implementations also mix modeling assumptions. Some outputs are vector-valued signs rather than single scalar decisions, and some update rules embed implicit biases that complicate interpretation as pure entropy selectors. These properties are acceptable for exploratory analysis but limit strict theoretical mapping. X. CONCLUSION This investigation mapped a clear trajectory from theoretical intuition to empirical testing. The original hope that entropy- perceptron mismatch could directly indicate dependence was not supported in strong form. Direct inequality checks con- firmed theoretical consistency but lacked discriminative power. Lambda sweeps in one parameter were effectively uninfor- mative in the binary setting. A two-parameter mixing surface introduced a meaningful improvement: minimum entropy gap produced modest but statistically significant above-chance sep- aration on synthetic data, with permutation evidence against random fluctuation. The net outcome is pragmatic. Ephaptic-inspired entropy constructs can contribute useful auxiliary structure, especially through extremal gap features on richer mixing families. However, robust dependence detection still relies on primary metrics such as mutual information and correlation, with ephaptic features serving as secondary signals. This framing provides a concrete and realistic use for the present ephaptic perceptron codebase: exploratory dependence-aware channel scoring rather than standalone dependence inference. ACKNOWLEDGMENT The simulations and scripts referenced in this paper were de- veloped in the 01March2026Investigations workflow and evaluated on both synthetic streams and real acceleration recordings in the local AGI dataset. REFERENCES [1] A. Chawla and S. D. Morgera, “Ephaptic synchronization as a mechanism for selective amplification of stimuli,” BMC Neuroscience, vol. 15, suppl. 1, P87, 2014. [2] T. M. Cover and J. A. Thomas, Elements of Information Theory, 2nd ed. Hoboken, NJ, USA: Wiley, 2006.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Towards_Emulating_AI.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

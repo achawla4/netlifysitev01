@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Theory of Coupled Languages - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Theory of Coupled Languages</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this note the authors use an LLM to develop the idea of synchro- nization of coupled languages. This is done under the picture that the languages' grammars are given by nite state Markov processes. Introduction: Consider a language A, evolved at tA, described by a nite state Markov process called grammar A which can generate all the sentences in this language and only these. Consider a language B, evolved at tB, described by grammar B. At time tC &gt; tA and tC &gt; tB, these two languages become coupled due to migration of group A to proximity with group B. Our task is to use the theory of synchronizing nite state markov chains to nd the time after coupling that the two grammars will synchronize. Call the new grammar C. To solve this problem using the theory of synchronizing nite-state Markov chains, we can think of grammars A and B as stochastic processes that describe how sentences are generated in languages A and B, respectively. When these two languages come into contact at time tC, due to migration, they begin to inuence each other, leading to a process where the two grammars gradually converge or synchronize into a new grammar C. Key Assumptions and Setup: 1. Markov Process Representation: - Language A at time tA is generated by a Markov chain with transition matrix PA, describing the probabilities of moving from one state (or sentence structure) to another. - Language B at time tB is similarly generated by a Markov chain with transition matrix PB. - After time tC, the two Markov chains become coupled and begin evolving together. 1</p> <p>2. Synchronizing Markov Chains: - Two Markov chains are said to synchronize if they converge to a common transition matrix, meaning they begin to behave like a single Markov chain after some time. - The transition matrix for the new grammar C, denoted by PC, will emerge as a result of the synchronization of PA and PB. Steps to Solve: 1. Coupling of Languages: After time tC, we assume that there is some interaction between the two groups, resulting in a coupling of the two Markov processes. This coupling can be modeled as a weighted combination of the two transition matrices: PC(t) = α(t)PA + (1 −α(t))PB where α(t) is a time-dependent parameter that describes the relative inuence of language A on the new grammar, and 1 −α(t) describes the inuence of language B. At the beginning of the coupling (just after tC), we could assume α(tC) is close to 1, meaning that PC(tC) ≈PA, and as time progresses, α(t) changes until synchronization occurs. 2. Markov Chain Synchronization: According to the theory of synchronizing Markov chains, the time to synchro- nization depends on the structure of the individual transition matrices and how the two chains inuence each other. Synchronization occurs when the two chains eectively reach a common steady-state distribution. For nite-state Markov chains, the synchronization time can be approxi- mated by analyzing the mixing time of the combined Markov chain PC(t), which is dened as the time required for the distribution of the states in the Markov chain to become close to the stationary distribution of the chain. If we de- note the stationary distributions of PA and PB by πA and πB, respectively, the stationary distribution of PC will be a weighted combination of these two. The mixing time τsync for PC can be found by analyzing the rate at which the distributions generated by the coupled grammar C converge to the stationary distribution. This is typically related to the second-largest eigenvalue of the transition matrix PC, often referred to as the spectral gap: τsync ∝ 1 −λ2 where λ2 is the second-largest eigenvalue of the combined transition matrix PC. The larger the spectral gap, the faster the synchronization. 2</p> <p>3. Time to Synchronization: The exact time to synchronization tsync depends on how quickly the two lan- guages inuence each other. This can be governed by the rate of interaction between the two groups, the similarity of the two grammars, and how fast the mixing happens. - If the transition matrices PA and PB are similar (i.e., the languages are structurally similar), synchronization will occur faster. - If they are quite dierent, the time to synchronization will be longer, as the mixing process will take more time. Final Expression: Given the assumptions and the theory of synchronizing Markov chains, the time to synchronization tsync after the coupling begins can be approximated as: tsync ≈τsync = 1 −λ2 where λ2 is the second-largest eigenvalue of the combined transition matrix PC(t), which evolves from PA and PB based on the coupling parameter α(t). In summary, the time after coupling that the two grammars will synchro- nize depends on the mixing time of the new Markov chain PC, which can be approximated by analyzing the spectral gap of the transition matrix. The time to synchronization will be inversely proportional to this spectral gap. Acknowledgments The authors acknowledge the paper by Noam Chomsky on three models for the description of language and the LLM ChatGPT.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Theory_of_Coupled_Languages.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

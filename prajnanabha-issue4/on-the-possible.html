@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On the Possible Influence of Metric Perturbations on Neural Tract Timing | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 4 · V1I4-A02</div>
+            <h1>On the Possible Influence of Metric Perturbations on Neural Tract Timing</h1>
+            <div class="hero-meta">Aman Chawla | 13 February, 2026</div>
+            <div class="hero-meta">Source PDF: rotatingBrainv1.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_4.html">Issue 4</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>This note explores, at a preliminary and computational level, whether weak gravitational metric perturbations could in principle induce measurable changes in neural tract timing. Using a previously developed geometric model of interacting axons, we examine how variation in radial distance from a pulsating gravitational source affects action potential initiation times. The results indicate small but systematic timing shifts as a function of distance. While the physical magnitudes involved are extremely small and no biological claim is made, the analysis suggests a conceptual possibility: that spacetime geometry, under certain modeled conditions, could act as a modulator of neural timing.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>Neural computation is highly sensitive to timing. Millisecond-scale variations in action potential initiation and propagation can significantly alter network-level behavior. Traditionally, such timing variability is attributed to synaptic, ionic, or structural factors intrinsic to the nervous system. In this work, we consider a more speculative external factor: weak metric perturbations arising from gravitational radiation.</p>
+<p>The present analysis does not claim biological relevance under terrestrial conditions. Instead, it investigates whether, within a computational model, distance-dependent metric perturbations could systematically influence axon tract timing.</p>
+<h2 id="model-background">Model Background</h2>
+<p>In earlier work <span class="citation" title="chawla2019; chawla2021">[1, 2]</span>, we developed a geometric framework for simulating interacting axons embedded in a field-influenced environment. The present study modifies that framework to incorporate distance-dependent perturbations derived from standard treatments of gravitational radiation <span class="citation" title="thorne1970">[3]</span>.</p>
+<p>Specifically, we examine a tract consisting of $N = 4$ axons and compute action potential initiation times as a function of radial distance $r$ from a modeled pulsating source. The gravitational wave frequency is fixed at $2 10^{-3}$ Hz for simulation purposes. The source mass parameter is scaled to maintain numerical stability.</p>
+<h2 id="results">Results</h2>
+<p>The simulations indicate that action potential initiation times vary systematically with radial distance from the source. Over a change in distance of approximately $2 10^{10}$ meters (20 million kilometers), one axon exhibited a timing difference on the order of $0.2$ milliseconds.</p>
+<p>This magnitude is small but nonzero within the computational framework. The variation appears as a smooth function of radial displacement rather than numerical noise.</p>
+<p>It is important to emphasize that these values arise under idealized and scaled parameters. The model does not attempt to represent a specific biological organism or astrophysical environment.</p>
+<h2 id="interpretive-considerations">Interpretive Considerations</h2>
+<p>For context, Earth&#x27;s orbital distance from the Sun varies by approximately $5 10^{9}$ meters between perihelion and aphelion. Under realistic solar gravitational wave emission, the predicted effects would be orders of magnitude smaller than those modeled here. Consequently, no claim is made that human neural systems are measurably influenced by such effects.</p>
+<p>However, as a conceptual exercise, the model raises a general question: if neural timing is sensitive to geometric perturbations, could extreme astrophysical configurations yield detectable modulation? For example, in environments with stronger gravitational radiation or larger orbital variations, would distance-dependent metric fluctuations become a non-negligible component of neural timing variability?</p>
+<p>These questions remain speculative. The present work merely demonstrates that within a geometric simulation, timing shifts can arise from distance-dependent metric perturbations.</p>
+<h2 id="limitations">Limitations</h2>
+<p>Several limitations must be noted:</p>
+<ul class="article-list"><li><p>The gravitational parameters are scaled for numerical tractability.</p></li><li><p>Biological noise sources are not modeled.</p></li><li><p>The tract model is simplified and does not represent full neural network complexity.</p></li><li><p>No empirical measurements are provided.</p></li></ul>
+<p>Therefore, the results should be interpreted as exploratory rather than predictive.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The computational results suggest that, in principle, weak metric perturbations can induce small but structured changes in neural tract timing within a geometric axon model. While the physical plausibility under known biological and astrophysical conditions is extremely limited, the analysis highlights a broader conceptual point: neural timing models embedded in curved spacetime may exhibit distance-dependent modulation.</p>
+<p>Future work would require more realistic astrophysical parameters, robust numerical treatment, and careful assessment of signal-to-noise constraints before any biological interpretation could be considered.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-chawla2019"><span class="ref-key">[1]</span> <p>A. Chawla, S. Morgera, and A. Snider, &quot;On axon interaction and its role in neurological networks,&quot; <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em>, 2019.</p></li><li id="ref-chawla2021"><span class="ref-key">[2]</span> <p>A. Chawla, S. D. Morgera, and A. D. Snider, &quot;Fields, geometry, and their impact on axon interaction,&quot; <em>Journal of Applied Mathematics and Physics</em>, 9(4):751–778, 2021.</p></li><li id="ref-thorne1970"><span class="ref-key">[3]</span> <p>W. L. Burke and K. S. Thorne, &quot;Gravitational radiation damping,&quot; in <em>Relativity: Proceedings of the Relativity Conference in the Midwest</em>, Springer, 1970.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

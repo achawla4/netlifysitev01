@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantifying the Quantum Intelligence of a Language | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 2 · V1I2-A07</div>
+            <h1>Quantifying the Quantum Intelligence of a Language</h1>
+            <div class="hero-meta">A. Chawla \\ REAL Institute and IIT Delhi</div>
+            <div class="hero-meta">Source PDF: chomskyExtendv3.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_2.html">Issue 2</a>
+        </div>
+        <div class="meta-grid">
+            
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p>In <span class="citation" title="chomsky1956three">[1]</span>, the author states,</p>
+<div class="callout-block"><p>We can interpret a [$, F$] grammar of the form (18) as a rather elementary finite-state process in the following way. Consider a system that has a finite number of states $S_0, , S_q$. When in state $S_0$, it can produce any of the strings of $$, thereby moving into a new state. Its state at any point is determined by the subset of elements of $$ contained as substrings in the last produced strings, and it moves to a new state by applying one of the rules to this string, thus producing a new string.</p></div>
+<p>We can view the grammar [$, F$] as analogous to a probability space [$, {F}, {P}$]. The generator $F$ is the combination of the set of possible strings and a map from this to the new string as per a rule. In other words $F$ is akin to a combination of a sigma-field and a probability function. Hence many of the concepts from probability spaces ought to be port-able to the case of a grammar.</p>
+<p>In the same spirit, when one has a stochastic process $X_t$ on a probability space, and it generates its output sequence of random variables, with each random variable on the same space [$_x, {F}_x, {P}_x$], the grammar that&#x27;s being utilized at any one instant is that of the corresponding random variable. Instead of producing a sample from the random variable with a certain probability, it produces a string from the set of possible strings as per the grammar&#x27;s rules. Instead of an endless sequence of samples, it produces terminable derivations of strings <span class="citation" title="chomsky1956three">[1]</span>.</p>
+<p>When we have a stochastic process and we subject it to some stochastic noise process, we can ask communication theoretic questions about the resulting system and its generated output process. In the same vein, suppose we have a grammar and we subject it to corruption, just as pure Sanskrit is subject to corruption to generate Hindi (apabhramsa). We can then ask a communication theoretic question about the language Hindi.</p>
+<p>In particular we can ask what is the probability of decoding error when interpreting the Sanskrit from the corresponding Hindi. Assume one has a &quot;channel&quot; which communicates a corpus of Sanskrit, getting corrupted along the way, and being received as Hindi. As the Hindi is received in longer and longer chunks, we can ask how fast the decoding error probability goes to zero. This error exponent of the Sanskrit-to-Hindi &quot;channel&quot; is indicative of how fast a speaker or interpreter of a language can determine the meaning of the source or transmitted language.</p>
+<p>We can thus define the &quot;intelligence&quot; of the receiving language as the following quantity:</p>
+<div class="math-block">$$
+\mathcal{I}_{Hindi} \equiv \min \max E(R)
+$$</div>
+<p>where $E(R)$ is the reliability-rate function of the language when a specific transmission-reception &quot;scheme&quot; is in use. The maximum is over all such schemes and the minimum is over all languages transmitting to Hindi. This definition can be extended to a &quot;quantum intelligence&quot; of the receiving language if we allow the transmission-reception &quot;schemes&quot; to be quantum mechanical in nature, that is, we use the laws of quantum probability in stead of Kolmogorov&#x27;s formulation <span class="citation" title="helstrom1976quantum">[2]</span>.</p>
+<p>This framework can be empirically tested by taking a simple grammar and carefully defining a &quot;probability map&quot; for the grammar as the second step in the generation process $F$, $F-2$. Next, we specify a noise grammar and its corresponding probability map. Subsequently, we define the binary operations of comparison for equality, addition, multiplication and subtraction on the space of strings. Thus we are able to determine the output strings. These strings are then decoded using simple initial rules. The rules are refined to decrease the &quot;probability&quot; of decoding error which is defined as the probability of the event that the decoding transformation output is different from the transmitted string. Note that by &quot;event&quot; we simply mean the set of relevant strings (the first step in $F$, $F-1$) and by &quot;probability of the event&quot; we mean the output of the probability map which was above specified as the second step in the generation process. To be more precise, the probability of decoding error is the set of strings that result when we apply $F-2$ to the zero strings which are obtained when comparing the received strings with the transmitted strings in a null comparison. The number and size of the elements is minimized by refining the decoding rule. We determine the number and size of elements in the so-optimized decoding rule for different transmitted string block-lengths of the input language. This yields (after taking logarithms) the function $E(R)$ (see also the penultimate chapter in <span class="citation" title="chawla2006reliability">[3]</span>). The set of grammars and rules constitutes the scheme. We maximize over schemes and then minimize over input languages. This yields the intelligence metric.</p>
+<p>The heuristics are different in the quantum domain, due to the special feature of non-commutativity of observables whose probabilities can be computed. This heuristic difference, when carried over according to the correspondence above, yields the quantum intelligence. Note that on one side of the correspondence above we have a probabilistic structure, but it is only a guide to interpret the second side, where we only have a Chomskian grammar.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-chomsky1956three"><span class="ref-key">[1]</span> <p>Noam Chomsky, <em>Three Models for the Description of Language</em>, IRE Transactions on Information Theory, vol. 2, no. 3, pp. 113–124, 1956. doi:10.1109/TIT.1956.1056813</p></li><li id="ref-helstrom1976quantum"><span class="ref-key">[2]</span> <p>Carl W. Helstrom, <em>Quantum Detection and Estimation Theory</em>, Academic Press, New York, 1976.</p></li><li id="ref-chawla2006reliability"><span class="ref-key">[3]</span> <p>Aman Chawla. <em>Reliability of a Gaussian channel in the presence of Gaussian feedback</em>. SM thesis, Massachusetts Institute of Technology, 2006.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

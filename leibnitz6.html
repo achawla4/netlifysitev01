@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leibnitz 6.0 — Signal Processing Platform & Structured Notepad v4</title>
+    <meta name="description" content="Official release of Leibnitz 6.0 signal processing platform, featuring Suganita Devanagari DSL, Sahai Anytime Coding protocol, Structured Notepad v4, and Universal GGUF AI Copilot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site_search.css">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: #0f172a;
+            --bg-card-hover: #1e293b;
+            --signal-green: #10b981;
+            --signal-blue: #3b82f6;
+            --signal-cyan: #06b6d4;
+            --amber: #f59e0b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --wcag-focus-ring: #6366f1;
+        }
+
+        /* WCAG 2.2 AA Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: #6366f1;
+            color: #ffffff;
+            padding: 12px 20px;
+            z-index: 1000;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: 3px solid #ffffff;
+        }
+
+        /* WCAG 2.2 AA Focus Appearance (2.4.13) & Focus Not Obscured (2.4.11/12) */
+        *:focus-visible {
+            outline: 3px solid var(--wcag-focus-ring) !important;
+            outline-offset: 3px !important;
+            border-radius: 4px;
+        }
+
+        /* WCAG 2.2 AA Target Size Minimum (2.5.8): 44x44px touch targets */
+        button, a.btn, input, select {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'IBM Plex Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        a { color: var(--signal-cyan); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        header.topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 32px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .leibnitz-brand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--signal-green), var(--signal-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links { display: flex; gap: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-transform: uppercase; }
+        .nav-links a { color: var(--text-muted); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-light); }
+
+        main { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+
+        .hero {
+            text-align: center;
+            padding: 64px 20px;
+            background: radial-gradient(circle at top, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 48px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--signal-green);
+            color: var(--signal-green);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.lede {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 840px;
+            margin: 0 auto 32px;
+        }
+
+        /* One-liner Installer Terminal Box */
+        .terminal-installer {
+            background: #020617;
+            border: 1px solid var(--signal-cyan);
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+        }
+
+        .terminal-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 16px; border-bottom: 1px solid #1e293b; padding-bottom: 12px;
+        }
+
+        .terminal-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; color: var(--amber); letter-spacing: 1px;
+        }
+
+        .terminal-code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            background: #090d16;
+            color: var(--signal-green);
+            padding: 14px 18px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            border: 1px solid #1e293b;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--signal-green);
+        }
+
+        .feature-card h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.3rem;
+            color: var(--signal-cyan);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .code-preview-box {
+            background: #020617;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="topbar" role="banner">
+        <a href="https://yogoreal.net" class="logo" aria-label="REAL Institute Home">REAL Institute</a>
+        <nav class="nav-links" role="navigation" aria-label="Main Navigation">
+        <a href="#installer">Remote Installer</a>
+        <a href="#suganita">Suganita DSL</a>
+        <a href="#notepad">Structured Notepad v4</a>
+        <a href="#sahai">Sahai Streaming</a>
+        <a href="#gguf">Universal GGUF</a>
+        <a href="https://yogoreal.net">REAL Home</a>
+        <button class="real-trigger-btn js-open-search" type="button" style="margin-left: 12px;" title="Open Command Palette (Ctrl+K)">
+            🔍 Search <kbd class="real-search-kbd" style="font-size: 10px;">Ctrl+K</kbd>
+        </button>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="status-badge">● LEIBNITZ 6.0 NETWORK SERVER PLATFORM RELEASED</div>
+        <h1>Distributed Signal Processing Server & Devanagari Suganita DSL</h1>
+        <p class="lede">
+            Leibnitz 6.0 operates as a high-throughput, distributed Network Server streaming spectral signals via Sahai anytime protocols, serving Suganita Devanagari DSL executions, and hosting Universal GGUF AI copilot endpoints for client applications like Structured Notepad v4.
+        </p>
+    </section>
+
+    <!-- ⚡ Interactive Spectral Signal & Suganita Visualizer Section -->
+    <section style="background: rgba(15, 23, 42, 0.9); border: 1px solid #334155; border-radius: 16px; padding: 32px 24px; margin-bottom: 48px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <h2 style="font-family: 'IBM Plex Mono', monospace; color: #f8fafc; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; margin: 0;">
+                <span style="color: #06b6d4;">⚡</span> Interactive Spectral Signal &amp; Suganita Visualizer
+            </h2>
+            <span style="font-size: 0.85rem; color: #10b981; background: rgba(16, 185, 129, 0.12); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.3); font-family: monospace;">60fps WebGL / Canvas Engine</span>
+        </div>
+        
+        <!-- Upload & Paste Data Bar -->
+        <div style="background: #090d16; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+            <div style="flex: 1; min-width: 260px;">
+                <label style="display: block; font-size: 0.85rem; color: #38bdf8; margin-bottom: 6px; font-weight: 600;">📂 Load Your Own Custom Signal File (.csv, .json, .txt):</label>
+                <input type="file" id="viz-file-upload" accept=".csv,.json,.txt,.dat" style="background: #1e293b; color: #94a3b8; border: 1px solid #334155; border-radius: 6px; padding: 6px 12px; width: 100%; font-size: 0.85rem;">
+            </div>
+            <div style="flex: 1; min-width: 260px;">
+                <label style="display: block; font-size: 0.85rem; color: #f59e0b; margin-bottom: 6px; font-weight: 600;">📝 Or Paste Sample Buffer Numbers:</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="viz-paste-data" placeholder="e.g. 0.1, 0.4, 0.8, 0.3, -0.2, -0.7" style="flex: 1; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 6px 12px; font-size: 0.85rem;">
+                    <button type="button" id="viz-load-paste-btn" style="background: #06b6d4; color: #fff; border: none; padding: 6px 16px; border-radius: 6px; font-weight: 600; cursor: pointer;">Process Data</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Row -->
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; background: #020617; border-radius: 12px; padding: 16px; border: 1px solid #1e293b;">
+            <div style="flex: 1; min-width: 180px;">
+                <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 4px;">Signal Waveform Preset:</label>
+                <select id="viz-type-select" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; width: 100%; font-size: 0.88rem;">
+                    <option value="sine">Sine Wave (एकल तरंग)</option>
+                    <option value="harmonic">Harmonic Multi-Tone (बहु स्वर)</option>
+                    <option value="chirp">Chirp Signal (त्वरण)</option>
+                    <option value="nyaya">Nyaya Filtered (न्याय शोधित)</option>
+                    <option value="custom">User Loaded Data (उपयोगकर्ता)</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 180px;">
+                <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 4px;">Frequency (Hz):</label>
+                <input type="range" id="viz-freq-slider" min="1" max="15" value="5" style="width: 100%;">
+            </div>
+            <div style="flex: 1; min-width: 180px;">
+                <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 4px;">Noise Amplitude:</label>
+                <input type="range" id="viz-noise-slider" min="0" max="0.8" step="0.05" value="0.1" style="width: 100%;">
+            </div>
+            <div style="flex: 1; min-width: 180px;">
+                <label style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 4px;">Sahai Anytime Layer:</label>
+                <select id="viz-layer-select" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; width: 100%; font-size: 0.88rem;">
+                    <option value="2">Layer 2 (Full Precision 100%)</option>
+                    <option value="1">Layer 1 (Medium Quantized 66%)</option>
+                    <option value="0">Layer 0 (Coarse Quantized 33%)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Dual Canvas Row -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 12px; padding: 16px;">
+                <div style="font-size: 0.85rem; color: #10b981; font-family: 'IBM Plex Mono', monospace; margin-bottom: 8px;">📈 Time Domain Waveform Synthesis</div>
+                <canvas id="viz-time-canvas" style="width: 100%; height: 200px; border-radius: 6px;"></canvas>
+            </div>
+            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 12px; padding: 16px;">
+                <div style="font-size: 0.85rem; color: #f59e0b; font-family: 'IBM Plex Mono', monospace; margin-bottom: 8px;">📊 FFT Frequency Spectrum Decomposition</div>
+                <canvas id="viz-freq-canvas" style="width: 100%; height: 200px; border-radius: 6px;"></canvas>
+            </div>
+        </div>
+
+        <!-- Live Suganita Code HUD -->
+        <div style="background: #020617; border: 1px solid #06b6d4; border-radius: 12px; padding: 16px;">
+            <div style="font-size: 0.85rem; color: #06b6d4; font-family: 'IBM Plex Mono', monospace; margin-bottom: 8px;">⚡ Live Suganita Devanagari Code HUD Execution</div>
+            <pre id="suganita-live-code" style="font-family: 'IBM Plex Mono', monospace; font-size: 0.88rem; color: #38bdf8; line-height: 1.5; margin: 0; white-space: pre-wrap;"></pre>
+        </div>
+    </section>
+
+    <!-- Remote Installer Section -->
+    <section id="installer" style="margin-bottom: 64px;">
+        <h2 style="font-family: 'IBM Plex Mono', monospace; text-align: center; margin-bottom: 24px; color: var(--text-light);">
+            ⚡ Immediate Deployment of Network Server & Client
+        </h2>
+        <div class="terminal-installer">
+            <div class="terminal-header">
+                <span class="terminal-title">NETWORK SERVER & CLIENT REMOTE ONE-LINER</span>
+                <span style="color: var(--text-muted); font-size: 12px;">Standard Python 3</span>
+            </div>
+            <div class="terminal-code">python -c "import urllib.request; exec(urllib.request.urlopen('https://yogoreal.net/install.py').read())"</div>
+            <p style="margin-top: 14px; color: var(--text-muted); font-size: 13px;">
+                Deploys and launches the <strong>Leibnitz 6 Network Server</strong> listening on port 5006, configures active <code>.gguf</code> model paths, and launches the connected <strong>Structured Notepad v4 Client</strong>. Includes automatic offline fallback.
+            </p>
+        </div>
+    </section>
+
+    <!-- Key Capabilities Grid -->
+    <section id="capabilities" class="features-grid">
+        <div class="feature-card" id="suganita">
+            <h3>🕉 Suganita Devanagari DSL</h3>
+            <p>
+                First-class signal processing syntax written entirely in Devanagari script. Execute spectral transforms, IIR/FIR filter chains, and signal visualization commands directly in native script syntax.
+            </p>
+            <div class="code-preview-box">
+<span style="color: #f59e0b;">रूपरेखा</span> सिग्नलबफर <span style="color: #10b981;">प्रवेश</span>
+    आवृत्ति = 1000
+    लिखो("संकेत विश्लेषण प्रारंभ...")
+<span style="color: #f59e0b;">निरोध</span>
+            </div>
+        </div>
+
+        <div class="feature-card" id="notepad">
+            <h3>📓 Structured Notepad v4</h3>
+            <p>
+                Interactive notebook environment offering Jupyter-style cell execution (<code>In [n]:</code> / <code>Out [n]:</code>), inline base64 plot rendering, cell deletion/re-ordering, and full keyboard control (<code>Shift+Enter</code> run, <code>Ctrl+Space</code> autocomplete).
+            </p>
+        </div>
+
+        <div class="feature-card" id="terminal">
+            <h3>🐚 Suganita Terminal REPL Mode</h3>
+            <p>
+                Full terminal-based interactive shell for users who prefer working directly in command-line environments. Supports interactive REPL execution, direct file transmission, inline Suganita logging, and Solar AI copilot assists (<code>copilot &lt;prompt&gt;</code>).
+            </p>
+        </div>
+
+        <div class="feature-card" id="sahai">
+            <h3>📡 Sahai Anytime Coding</h3>
+            <p>
+                Progressive transmission protocol ensuring instant data availability under latency constraints. Successive refinement levels deliver immediate coarse representation (Level 0) followed by midband (Level 1) and full-precision lossless reconstruction (Level 2).
+            </p>
+        </div>
+
+        <div class="feature-card" id="gguf">
+            <h3>🤖 Universal GGUF AI Copilot</h3>
+            <p>
+                Centralized Solar-10.7B GGUF model serving AI code completions over HTTP. Provides inline auto-completion directly in notebook cells and terminal REPL environments.
+            </p>
+        </div>
+
+        <div class="feature-card" id="sdk">
+            <h3>🤖 Machine &amp; Autonomous AI Agent SDK</h3>
+            <p>
+                Programmatic Python SDK (<code>leibnitz6_sdk.py</code>) and HTTP REST APIs for external AI agents, scripts, and third-party systems to execute Suganita DSL, stream Sahai anytime signal layers, and query Solar AI copilot programmatically.
+            </p>
+            <div class="code-preview-box">
+<span style="color: #3b82f6;">from</span> leibnitz6_sdk <span style="color: #3b82f6;">import</span> Leibnitz6Client
+client = Leibnitz6Client(client_id=<span style="color: #10b981;">"AI_Agent_01"</span>)
+res = client.execute(<span style="color: #f59e0b;">"लिखो('Agent Run')\nनिरोध"</span>)
+            </div>
+        </div>
+
+        <div class="feature-card" id="security">
+            <h3>🛡️ 2026 Security Stack Compliance</h3>
+            <p>
+                Hardened Cloud API backend implementing <strong>OWASP ASVS 5.0</strong>, <strong>NIST SP 800-218 (SSDF)</strong>, <strong>PCI DSS 4.0</strong>, and <strong>CISA Secure by Design</strong> principles. Features mandatory CSP/HSTS response headers, 60 req/min token-bucket rate limiting, 1MB payload caps, and CycloneDX <code>sbom.json</code> supply-chain tracking.
+            </p>
+        </div>
+
+        <div class="feature-card" id="privacy">
+            <h3>🔒 2026 Privacy-by-Design Engine</h3>
+            <p>
+                Strict technical privacy safeguards compliant with <strong>GDPR (Art. 32 &amp; 17)</strong>, <strong>CCPA/CPRA</strong>, and <strong>India's DPDP Act 2023</strong>. Features automated SHA-256 IP pseudonymization (zero PII storage), Global Privacy Control (<code>Sec-GPC: 1</code>) signal detection, and technical Right to Erasure endpoints (<code>/api/privacy/forget_me</code>).
+            </p>
+        </div>
+
+        <div class="feature-card" id="ai-protocols">
+            <h3>🤝 2026 AI-to-AI Interoperability Protocols</h3>
+            <p>
+                Integrated support for <strong>Anthropic Model Context Protocol (MCP v1.0)</strong> (<code>/api/mcp/v1/rpc</code>), <strong>Google Agent-to-Agent (A2A)</strong> multi-agent coordination (<code>/api/a2a/coordinate</code>), and <strong>IBM Agent Communication Protocol (ACP)</strong> REST endpoints for seamless LLM &amp; multi-agent integration.
+            </p>
+        </div>
+
+        <div class="feature-card" id="suganita-2026">
+            <h3>⚛️ Suganita 2026 Language Modernization</h3>
+            <p>
+                Next-generation Devanagari DSL standards featuring client-side <strong>WebAssembly (WASM)</strong> target compilation (<code>suganita_engine/wasm_adapter.py</code>), zero-trust memory safety, and <strong>NIST Post-Quantum Cryptography (ML-DSA / Dilithium-5)</strong> payload verification (<code>v2.0-PQC</code>).
+            </p>
+        </div>
+
+        <div class="feature-card" id="cloud-native-2026">
+            <h3>☁️ 2026 Cloud-Native &amp; FinOps Platform</h3>
+            <p>
+                Kubernetes-first orchestration (<code>k8s/deployment.yaml</code>), Horizontal Pod Autoscaling (HPA), <strong>FinOps Pay-Per-Use</strong> micro-cost tracking (<code>/api/finops/metrics</code>), <strong>OpenTelemetry / Prometheus</strong> metrics exporter (<code>/metrics</code>), Edge WebAssembly gateway (<code>/api/edge/wasm</code>), and GitOps CI/CD workflow automation (<code>.github/workflows/gitops.yml</code>).
+            </p>
+        </div>
+
+        <div class="feature-card" id="resilience-2026">
+            <h3>🌐 2026 Distributed Systems Resilience</h3>
+            <p>
+                High-scale multi-user resilience featuring <strong>Resilience4j-style Circuit Breakers</strong> (<code>leibnitz6_server/resilience.py</code>) to prevent cascading failures, <strong>Kafka / AWS EventBridge EventBus</strong> for asynchronous event streaming, <strong>Istio / Linkerd eBPF</strong> distributed tracing headers (<code>x-service-mesh</code>), and zero-downtime Kubernetes <code>RollingUpdate</code> deployment strategies.
+            </p>
+        </div>
+
+        <div class="feature-card" id="observability-2026">
+            <h3>📊 2026 Unified Observability &amp; OpenTelemetry</h3>
+            <p>
+                Complete observability stack conforming to <strong>OpenTelemetry v1.28</strong> W3C trace context, <strong>Prometheus + Grafana</strong> metrics (<code>/metrics</code>), <strong>Grafana Loki</strong> structured logs (<code>/api/observability/loki</code>), <strong>Tempo / Jaeger</strong> distributed trace spans (<code>/api/observability/traces</code>), <strong>Datadog APM</strong> compatibility (<code>/api/observability/datadog</code>), and Observability-as-Code manifests (<code>grafana/dashboard.json</code>, <code>otel-collector-config.yaml</code>).
+            </p>
+        </div>
+
+        <div class="feature-card" id="accessibility-2026">
+            <h3>♿ 2026 WCAG 2.2 AA &amp; EAA Accessibility Stack</h3>
+            <p>
+                Global accessibility compliance under the <strong>European Accessibility Act (EAA)</strong> and <strong>ADA Title III</strong>. Enforces <strong>WCAG 2.2 Level AA</strong> standards (Target Size Minimum 44px, Focus Appearance 2.4.13, Focus Not Obscured 2.4.11/12, Skip to Content links, ARIA 1.3 landmarks), AI-driven accessibility auditing (<code>/api/accessibility/audit</code>), and cognitive-accessible <strong>WebAuthn / Passkeys</strong> authentication (<code>/api/accessibility/passkeys/register</code>).
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 <a href="https://yogoreal.net">REAL Institute</a> — Leibnitz 6.0 Platform & Structured Notepad v4. All rights reserved.</p>
+</footer>
+
+<script src="assets/signal_visualizer.js"></script>
+<script src="assets/site_search.js"></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

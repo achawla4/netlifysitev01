@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Values-Based Education - REAL Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a3a;
+            --accent: #d4a574;
+            --accent-light: #e8c4a0;
+            --accent-dark: #8b6f47;
+            --text-dark: #1a1a1a;
+            --text-light: #4a4a4a;
+            --bg-light: #faf8f5;
+            --bg-warm: #f5ede4;
+            --border: #d4c4b9;
+            --highlight: #c4a988;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.75;
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--accent-dark);
+            transition: color 0.3s ease;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a5a 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '✦';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+
+        header::after {
+            content: '✦';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .header-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--accent-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* Philosophy Section */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+            align-items: center;
+        }
+
+        .philosophy-text {
+            order: 2;
+        }
+
+        .philosophy-visual {
+            order: 1;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--accent-light) 100%);
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 4rem;
+            line-height: 2;
+        }
+
+        /* Pillars Section */
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .pillar {
+            background: white;
+            padding: 2.5rem;
+            border-left: 5px solid var(--accent);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-dark);
+        }
+
+        .pillar h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Example Section */
+        .example-box {
+            background: var(--bg-warm);
+            border-left: 5px solid var(--accent-dark);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .example-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .example-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .example-without, .example-with {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .example-without h4, .example-with h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .example-without h4 {
+            color: #a05a5a;
+        }
+
+        .example-with h4 {
+            color: #4a7a5a;
+        }
+
+        .example-without ul, .example-with ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .example-without li, .example-with li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .example-without li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #a05a5a;
+            font-weight: bold;
+        }
+
+        .example-with li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4a7a5a;
+            font-weight: bold;
+        }
+
+        /* Courses Preview */
+        .courses-preview {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .course-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .course-item:last-child {
+            border-bottom: none;
+        }
+
+        .course-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-integration {
+            font-size: 0.9rem;
+            color: var(--accent-dark);
+            font-style: italic;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* Wisdom Traditions */
+        .traditions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tradition-card {
+            background: linear-gradient(135deg, white 0%, var(--bg-warm) 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .tradition-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 6px 16px rgba(212, 165, 116, 0.15);
+        }
+
+        .tradition-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tradition-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tradition-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a5a 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h3 {
+            color: var(--accent-light);
+            margin-top: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-text {
+                order: 1;
+            }
+
+            .philosophy-visual {
+                order: 2;
+            }
+
+            .example-content {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            header {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Ornamental elements */
+        .ornament {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: 2rem 0;
+            letter-spacing: 0.2em;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 3px solid var(--accent);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <nav>
+        <a href="https://realinstitute.netlify.app">← Back to REAL Institute</a>
+    </nav>
+
+    <header>
+        <h1>Values-Based Education</h1>
+        <p class="header-subtitle">Integrating Ancient Wisdom with Modern Learning</p>
+        <p class="header-description">
+            At REAL Institute, education transcends the mere transmission of information. Our courses weave timeless ethical principles and spiritual wisdom into rigorous academic curricula, creating learning experiences that develop both the intellect and the character of our students.
+        </p>
+    </header>
+
+    <div class="container" data-pagefind-body data-pagefind-filter="type:About">
+        <!-- Philosophy Section -->
+        <section id="philosophy">
+            <h2>Our Educational Philosophy</h2>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-visual">
+                    🌿<br>📚<br>💡
+                </div>
+                <div class="philosophy-text">
+                    <p>
+                        Education is not merely the accumulation of facts and techniques. True learning cultivates wisdom—the integration of knowledge with ethical discernment and spiritual awareness. The ancient traditions of India—the Panchatantra, Jataka Tales, Upanishads, and yogic sciences—contain profound insights into human nature, decision-making, and the proper conduct of life.
+                    </p>
+                    <p>
+                        REAL Institute's values-based education approach draws upon these timeless sources, weaving them into every discipline we teach. Whether studying probability theory, quantum physics, information science, or any other subject, students encounter not just the mechanics of the field, but the ethical frameworks and universal principles that govern its application.
+                    </p>
+                    <p>
+                        This approach is <strong>non-sectarian and universal</strong>—it honors the wisdom within all religious and philosophical traditions while extracting principles applicable to all humanity. A student of any faith background will find their own tradition's values reflected in and complemented by the integrated curriculum.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">✦ ✦ ✦</div>
+
+        <!-- Core Pillars -->
+        <section id="pillars">
+            <h2>Core Pillars of Our Approach</h2>
+            
+            <div class="pillars-container">
+                <div class="pillar">
+                    <div class="pillar-icon">⚖️</div>
+                    <h3>Ethical Integration</h3>
+                    <p>Every subject taught includes exploration of its ethical dimensions. We ask not just "how?" but "should we?" and "what are the consequences?"</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">🌏</div>
+                    <h3>Universal Inclusivity</h3>
+                    <p>Our teachings transcend sectarian boundaries. We draw from Panchatantra, Jataka, Christian parables, Sufi wisdom, and universal human values to create globally resonant curricula.</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">🔬</div>
+                    <h3>Science & Spirituality</h3>
+                    <p>Rather than treating these as opposed, we show how rigorous inquiry and contemplative insight are complementary paths to understanding reality.</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">🧠</div>
+                    <h3>Character Development</h3>
+                    <p>Beyond grades and credentials, our courses cultivate qualities like discernment, compassion, integrity, and the wisdom to apply knowledge responsibly.</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">🌱</div>
+                    <h3>Holistic Learning</h3>
+                    <p>We address the whole human—intellect, emotion, intuition, and spirit—recognizing that meaningful education transforms consciousness itself.</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>Practical Wisdom</h3>
+                    <p>Knowledge becomes wisdom through application. Our courses connect abstract concepts to real-world ethical dilemmas and life decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">◈</div>
+
+        <!-- Wisdom Traditions -->
+        <section id="traditions">
+            <h2>Drawing from Timeless Traditions</h2>
+            <p>Our curriculum draws from the world's great wisdom literatures:</p>
+            
+            <div class="traditions">
+                <div class="tradition-card">
+                    <div class="tradition-icon">📖</div>
+                    <div class="tradition-name">Panchatantra</div>
+                    <div class="tradition-description">Stories teaching statecraft, friendship, conflict resolution, and the consequences of choices through animal fables</div>
+                </div>
+
+                <div class="tradition-card">
+                    <div class="tradition-icon">🕯️</div>
+                    <div class="tradition-name">Jataka Tales</div>
+                    <div class="tradition-description">Birth stories of Buddha illustrating virtue, sacrifice, wisdom, and the nature of suffering and liberation</div>
+                </div>
+
+                <div class="tradition-card">
+                    <div class="tradition-icon">🎨</div>
+                    <div class="tradition-name">Upanishads</div>
+                    <div class="tradition-description">Philosophical inquiries into the nature of reality, consciousness, and the relationship between the individual and the universal</div>
+                </div>
+
+                <div class="tradition-card">
+                    <div class="tradition-icon">🧘</div>
+                    <div class="tradition-name">Yogic Sciences</div>
+                    <div class="tradition-description">Practical systems for training attention, understanding consciousness, and achieving liberation through disciplined practice</div>
+                </div>
+
+                <div class="tradition-card">
+                    <div class="tradition-icon">⚡</div>
+                    <div class="tradition-name">Bhagavad Gita</div>
+                    <div class="tradition-description">Dialogue on duty, action, knowledge, and devotion—applicable to modern dilemmas of work and ethics</div>
+                </div>
+
+                <div class="tradition-card">
+                    <div class="tradition-icon">🌍</div>
+                    <div class="tradition-name">Universal Principles</div>
+                    <div class="tradition-description">Extracting timeless values from all traditions—compassion, truth, justice, and self-knowledge</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">⚛</div>
+
+        <!-- Example Section -->
+        <section id="example">
+            <h2>How Values-Integration Works</h2>
+            <p>
+                Here's a concrete example of how REAL's values-based education reframes content. Imagine teaching <strong>Information Theory through Probability Axioms</strong>—a technical course that could be taught purely abstractly. Instead, REAL integrates wisdom lessons:
+            </p>
+
+            <div class="example-box">
+                <div class="example-label">Case Study: Information Theory & Decision-Making</div>
+                <div class="example-title">Learning Probability Through Ethical Scenarios</div>
+                
+                <div class="example-content">
+                    <div class="example-without">
+                        <h4>Traditional Approach</h4>
+                        <ul>
+                            <li>Teach probability axioms abstractly</li>
+                            <li>Example: "In a two-player game, calculate expected value with payoff matrix P"</li>
+                            <li>Subtly invokes "gambling" mentality</li>
+                            <li>Focus: maximize personal gain</li>
+                            <li>Student leaves: "I learned to win at any cost"</li>
+                        </ul>
+                    </div>
+                    <div class="example-with">
+                        <h4>REAL Values-Based Approach</h4>
+                        <ul>
+                            <li>Teach probability axioms with depth</li>
+                            <li>Example: "In chess (two-player sport), calculate decision trees under uncertainty"</li>
+                            <li>Frames game as strategy, sport, mutual challenge</li>
+                            <li>Introduces Panchatantra lesson: "The Tale of the Forfeited Profits"</li>
+                            <li>Student integrates: knowledge + ethical responsibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box" style="background: linear-gradient(135deg, var(--bg-warm) 0%, #f0e0d8 100%); border-left-color: var(--accent-dark);">
+                <div class="example-label">The Panchatantra Integration</div>
+                <div class="example-title">Tale of the Forfeited Profits</div>
+                <p style="font-style: italic; color: var(--text-light);">
+                    "A merchant, calculating the probability of gain in a risky venture, discovered a flaw in his reasoning: his desire for maximum profit had blinded him to the suffering his actions would cause others. He chose to forfeit the profits of that venture. In later dealings, his reputation for integrity brought greater gains than any calculation had predicted."
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    <strong>The Learning:</strong> Students solve the same probability problems, but now understand that maximizing expected value without considering ethical consequences is incomplete reasoning. True wisdom integrates mathematical sophistication with moral discernment. This is not "soft" ethics layered atop "hard" math—it is a complete understanding of what decision-making truly means.
+                </p>
+            </div>
+        </section>
+
+        <div class="ornament">∿</div>
+
+        <!-- Courses Preview -->
+        <section id="courses">
+            <h2>Sample Courses & Their Integration</h2>
+            <p>
+                As in the suggestive examples below, our online courses will cover diverse subjects, each woven with values-based dimensions:
+            </p>
+
+            <div class="courses-preview">
+                <div class="course-item">
+                    <div class="course-title">Information Theory & Compression</div>
+                    <div class="course-description">Understanding data, signals, and efficient communication</div>
+                    <div class="course-integration">
+                        Integrated with: The ethics of information sharing, the Upanishadic concept of "satya" (truth), and wisdom tales about honest communication
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-title">Quantum Mechanics & Reality</div>
+                    <div class="course-description">Foundational concepts of quantum physics and observation</div>
+                    <div class="course-integration">
+                        Integrated with: The observer effect and consciousness in yogic tradition, Vedantic non-duality, and the responsibility of the observer
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-title">Network Theory & Systems</div>
+                    <div class="course-description">How information flows through connected systems</div>
+                    <div class="course-integration">
+                        Integrated with: Interdependence teachings from Buddhism, the Jataka principle of mutual causality, and social responsibility in interconnected systems
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-title">Artificial Intelligence & Ethics</div>
+                    <div class="course-description">Machine learning, algorithms, and decision-making systems</div>
+                    <div class="course-integration">
+                        Integrated with: The Bhagavad Gita's exploration of action and intention, Panchatantra teachings on power and responsibility, and the ethics of creating systems that affect others
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-title">Meditation & Neuroscience</div>
+                    <div class="course-description">The biology and physics of consciousness and contemplative practice</div>
+                    <div class="course-integration">
+                        Integrated with: Direct yogic methodology, Kriya Yoga practices, and the integration of science and lived experience
+                    </div>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-title">Logic, Philosophy & Truth</div>
+                    <div class="course-description">Epistemology and systems of reasoning</div>
+                    <div class="course-integration">
+                        Integrated with: Indian philosophical schools (Nyaya, Advaita, Samkhya), logical debates in Buddhist texts, and the quest for truth across traditions
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament">◉</div>
+
+        <!-- Global Reach -->
+        <section id="global">
+            <h2>Global Reach, Universal Values</h2>
+            <p>
+                REAL Institute's online teaching reaches students worldwide. Our non-sectarian approach ensures that:
+            </p>
+            
+            <div class="pillars-container">
+                <div class="pillar" style="grid-column: span 1;">
+                    <h3 style="margin-top: 0; color: var(--accent-dark);">A Christian Student</h3>
+                    <p>Finds her faith's values—charity, truth, sacrifice, wisdom—reflected and deepened through the universal principles embedded in our curricula.</p>
+                </div>
+
+                <div class="pillar" style="grid-column: span 1;">
+                    <h3 style="margin-top: 0; color: var(--accent-dark);">A Muslim Scholar</h3>
+                    <p>Recognizes Quranic principles of justice, knowledge, and stewardship woven throughout our courses, alongside complementary wisdom from other traditions.</p>
+                </div>
+
+                <div class="pillar" style="grid-column: span 1;">
+                    <h3 style="margin-top: 0; color: var(--accent-dark);">A Secular Learner</h3>
+                    <p>Engages deeply with universal ethical principles and human wisdom without requiring sectarian belief—learning is grounded in reason and experience.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem;">
+                <strong>The result:</strong> Students from every background emerge not just technically competent, but ethically mature—able to apply their knowledge with wisdom, integrity, and awareness of their responsibility to the wider world.
+            </p>
+        </section>
+
+        <div class="ornament">⊕</div>
+
+        <!-- Commitment -->
+        <section id="commitment">
+            <h2>Our Commitment to Values-Based Learning</h2>
+            
+            <div style="background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+                <p>
+                    <strong>Teaching Excellence:</strong> Every course is developed with rigorous academic standards and deep subject expertise, enhanced—not diluted—by ethical and wisdom dimensions.
+                </p>
+                <p>
+                    <strong>Accessibility:</strong> Our online platform brings values-based education to students regardless of geography or economic background, democratizing access to integrated learning.
+                </p>
+                <p>
+                    <strong>Continuous Growth:</strong> We are building a library of courses across diverse disciplines, each thoughtfully designed to weave timeless wisdom with modern knowledge.
+                </p>
+                <p>
+                    <strong>Community:</strong> REAL foster a learning community where students not only acquire knowledge but develop together, supporting each other in becoming wiser, more compassionate, more discerning human beings.
+                </p>
+                <p style="margin-bottom: 0;">
+                    <strong>Integration:</strong> True education, as REAL envisions it, produces graduates who understand that knowledge and wisdom, science and spirituality, technical skill and ethical discernment, are not separate—they are facets of a unified human development.
+                </p>
+            </div>
+        </section>
+
+        <div class="ornament">✦</div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h3>Join Our Learning Community</h3>
+            <p>
+                Experience education that develops both mind and character. Explore our growing library of values-based courses, or join our meditation sessions to deepen your practice.
+            </p>
+            <a href="https://realinstitute.netlify.app/teaching_page" class="cta-button">Explore Our Courses</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>REAL Institute</strong> • Hariharananda Research Laboratory & Self-Realization Waypoint</p>
+        <p>Values-Based Education for Global Transformation</p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem;">
+            <a href="https://realinstitute.netlify.app">Return to Main Website</a>
+        </p>
+    </footer>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

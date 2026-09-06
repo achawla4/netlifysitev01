@@ -1,0 +1,324 @@
+﻿--- Missing Soft Copies ---
+==========================================
+
+Title: Early Modulation of Visual Cortex by Sound: an MEG Study
+URL: None
+Google Search: "Early Modulation of Visual Cortex by Sound: an MEG Study" filetype:pdf
+Citation: Shams, Ladan; Iwaki, Sunao; Chawla, Aman; Bhattacharya, Joydeep; (2005). Early Modulation of Visual Cortex by Sound: an MEG Study. Neuroscience letters 378(2). Elsevier
+Added/Found: nsl_2005.pdf
+Added/Found On: 15 August 2026
+==========================================
+Title: Significant Audio-visual Interaction for Spatially Congruent Stimuli
+URL: None
+Google Search: "Significant Audio-visual Interaction for Spatially Congruent Stimuli" filetype:pdf
+Citation: Neil, Patricia A; Chawla, Aman; Bhattacharya, Joydeep; Shimojo, Shinsuke; (2004). Significant Audio-visual Interaction for Spatially Congruent Stimuli. Journal of Vision 4(8). The Association for Research in Vision and Ophthalmology
+
+==========================================
+Title: Reliability of a Gaussian Channel in the Presence of Gaussian Feedback
+URL: None
+Google Search: "Reliability of a Gaussian Channel in the Presence of Gaussian Feedback" filetype:pdf
+Citation: Chawla, Aman; (2006). Reliability of a Gaussian Channel in the Presence of Gaussian Feedback. . Massachusetts Institute of Technology
+Added/Found: chawla_th.pdf
+Added/Found On: 15 August 2026
+
+==========================================
+Title: On Axon-axon Interaction via Currents and Fields
+URL: None
+Google Search: "On Axon-axon Interaction via Currents and Fields" filetype:pdf
+Citation: Chawla, Aman; (2017). On Axon-axon Interaction via Currents and Fields. . University of South Florida
+Added/Found: Chawla_diss.pdf
+Added/Found On: 15 August 2026
+
+==========================================
+Title: Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli
+URL: None
+Google Search: "Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore D; (2014). Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli. BMC Neuroscience 15(Suppl 1). BioMed Central
+Added/Found: ChawlaMorgeraBMC.pdf
+Added/Found On: 15 August 2026
+
+
+==========================================
+Title: On Axon Interaction and its Role in Neurological Networks
+URL: None
+Google Search: "On Axon Interaction and its Role in Neurological Networks" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore; Snider, Arthur; (2019). On Axon Interaction and its Role in Neurological Networks. IEEE/ACM Transactions on Computational Biology and Bioinformatics . IEEE
+Added/Found: TCBB2491689Completed.pdf
+Added/Found On: 15 August 2026
+
+==========================================
+Title: Fields, Geometry, and Their Impact on Axon Interaction
+URL: None
+Google Search: "Fields, Geometry, and Their Impact on Axon Interaction" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore D.; Snider, Arthur D.; (2021). Fields, Geometry, and Their Impact on Axon Interaction. Journal of Applied Mathematics and Physics 9(4). Scientific Research Publishing
+
+==========================================
+Title: On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback
+URL: None
+Google Search: "On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2021). On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback. 2020 IEEE Information Theory Workshop (ITW) . IEEE
+
+==========================================
+Title: Reliability of a Classical-quantum Communication System With Noisy Feedback
+URL: None
+Google Search: "Reliability of a Classical-quantum Communication System With Noisy Feedback" filetype:pdf
+Citation: Chawla, Aman; (2011). Reliability of a Classical-quantum Communication System With Noisy Feedback. Quantum Information Processing 2012 .
+
+==========================================
+Title: Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel
+URL: None
+Google Search: "Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel" filetype:pdf
+Citation: Chawla, A; (2008). Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel. First Annual School of Information Theory, 2008 .
+
+==========================================
+Title: On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties
+URL: None
+Google Search: "On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2022). On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties. Communications in Mathematical Biology and Neuroscience 2024(57). scik.org
+
+==========================================
+Title: Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study
+URL: 10.12751/nncn.bc2020.0068
+Google Search: "Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2020). Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study. Bernstein Conference . doi: 10.12751/nncn.bc2020.0068
+
+==========================================
+Title: On the Error Exponent of Axon-Coupled Channels: Computer Explorations.
+URL: None
+Google Search: "On the Error Exponent of Axon-Coupled Channels: Computer Explorations." filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2022). On the Error Exponent of Axon-Coupled Channels: Computer Explorations.. Bernstein Conference 2022 .
+
+==========================================
+Title: Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts
+URL: None
+Google Search: "Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2022). Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts. Physics Essays 36(2). Physics Essays Publications
+
+==========================================
+Title: Differential Ephaptic Networks
+URL: None
+Google Search: "Differential Ephaptic Networks" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2022). Differential Ephaptic Networks. Journal of Applied Mathematics and Physics 10(10). Scientific Research Publishing
+
+==========================================
+Title: A Gedanken Experiment on the Brain as a Quantum Computer
+URL: dx.doi.org/10.13140/RG.2.2.15135.02720
+Google Search: "A Gedanken Experiment on the Brain as a Quantum Computer" filetype:pdf
+Citation: Chawla, Aman; (2022). A Gedanken Experiment on the Brain as a Quantum Computer. dx.doi.org/10.13140/RG.2.2.15135.02720 .
+
+==========================================
+Title: On an Analogy Between Ephaptic Coupling in Large Tracts and Cross-Modal Integration During Illusory Percept
+URL: None
+Google Search: "On an Analogy Between Ephaptic Coupling in Large Tracts and Cross-Modal Integration During Illusory Percept" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2022). On an Analogy Between Ephaptic Coupling in Large Tracts and Cross-Modal Integration During Illusory Percept. bioRxiv . Cold Spring Harbor Laboratory
+
+==========================================
+Title: A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case
+URL: https://www.scirp.org/journal/paperinformation.aspx?paperid=128888
+Google Search: "A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2023). A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case. Journal of Applied Mathematics and Physics 11(11). https://www.scirp.org/journal/paperinformation.aspx?paperid=128888
+
+==========================================
+Title: Chapter 45. Optical and Quantum Communications Optical and Quantum Communications
+URL: None
+Google Search: "Chapter 45. Optical and Quantum Communications Optical and Quantum Communications" filetype:pdf
+Citation: Shapiro, J; Wong, D. N.; Erkmen, Baris I.; GarcÃ­a-PatrÃ³n, RaÃºl; Le GouÃ«t, Julien; Tengner, M.; Chawla, Aman; O., Kuzucu; Venkatraman, D.; (2005). Chapter 45. Optical and Quantum Communications Optical and Quantum Communications. .
+
+==========================================
+Title: Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper
+URL: https://www.researchgate.net/publication/369739145_Towards_Clarifying_Shared_Ancestry_Between_Munda_and_Old_Indo-Aryan_A_Selective_Overview_of_Michael_Witzel's_1999_Paper, 10.13140/RG.2.2.13229.15841
+Google Search: "Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper" filetype:pdf
+Citation: Chawla, Aman; (2023). Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper. https://www.researchgate.net/publication/369739145_Towards_Clarifying_Shared_Ancestry_Between_Munda_and_Old_Indo-Aryan_A_Selective_Overview_of_Michael_Witzel's_1999_Paper (10.13140/RG.2.2.13229.15841).
+
+==========================================
+Title: The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study
+URL: https://dx.doi.org/10.13140/RG.2.2.31315.45608
+Google Search: "The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study" filetype:pdf
+Citation: Chawla, Aman; (2023). The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study. https://dx.doi.org/10.13140/RG.2.2.31315.45608 .
+
+==========================================
+Title: A Note on Nonlinearities in Ephaptic Axon Tracts
+URL: https://dx.doi.org/10.13140/RG.2.2.15603.20009
+Google Search: "A Note on Nonlinearities in Ephaptic Axon Tracts" filetype:pdf
+Citation: Chawla, Aman; Manjunath, Suma; (2023). A Note on Nonlinearities in Ephaptic Axon Tracts. https://dx.doi.org/10.13140/RG.2.2.15603.20009 .
+
+==========================================
+Title: Axonal Conduction Velocity: a Computer Study
+URL: 10.4236/jamp.2024.121007
+Google Search: "Axonal Conduction Velocity: a Computer Study" filetype:pdf
+Citation: Snider, Arthur; Chawla, Aman; Morgera, Salvatore Domenic; (2024). Axonal Conduction Velocity: a Computer Study. Journal of Applied Mathematics and Physics 12(1). Scientific Research Publishing
+
+==========================================
+Title: Towards `Real' Learning: a Computer Study of Perceptrons
+URL: None
+Google Search: "Towards `Real' Learning: a Computer Study of Perceptrons" filetype:pdf
+Citation: Chawla, Aman; (2023). Towards `Real' Learning: a Computer Study of Perceptrons. .
+
+==========================================
+Title: Quantum Information Processing in a Neuron
+URL: None
+Google Search: "Quantum Information Processing in a Neuron" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2024). Quantum Information Processing in a Neuron. Physics Essays 37(3). Physics Essays Publications
+
+==========================================
+Title: Rate Distortion Characterization of Wavelet-Based Image Compression Schemes
+URL: None
+Google Search: "Rate Distortion Characterization of Wavelet-Based Image Compression Schemes" filetype:pdf
+Citation: Varshney, Lav; Richter, Brandon; Chawla, Aman; (2003). Rate Distortion Characterization of Wavelet-Based Image Compression Schemes. Cornell University Digital Signal Processing Final Project .
+
+==========================================
+Title: Mechanism of Universal Quantum Computation in the Brain
+URL: None
+Google Search: "Mechanism of Universal Quantum Computation in the Brain" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore Domenic; (2024). Mechanism of Universal Quantum Computation in the Brain. Journal of Applied Mathematics and Physics 12(2). Scientific Research Publishing
+
+==========================================
+Title: On an Agent-aided Noisy Feedback Scheme -II
+URL: http://dx.doi.org/10.13140/RG.2.2.24660.
+Google Search: "On an Agent-aided Noisy Feedback Scheme -II" filetype:pdf
+Citation: Chawla, Aman; (2024). On an Agent-aided Noisy Feedback Scheme -II. ResearchGate (http://dx.doi.org/10.13140/RG.2.2.24660.).
+
+==========================================
+Title: Ephaptic Coupling and Power Consumption
+URL: http://dx.doi.org/10.13140/RG.2.2.11238.
+Google Search: "Ephaptic Coupling and Power Consumption" filetype:pdf
+Citation: Chawla, Aman; (2024). Ephaptic Coupling and Power Consumption. ResearchGate (http://dx.doi.org/10.13140/RG.2.2.11238.).
+
+==========================================
+Title: Ephaptic Information Flow: Information Processing in Groups of Neurons
+URL: None
+Google Search: "Ephaptic Information Flow: Information Processing in Groups of Neurons" filetype:pdf
+Citation: Chawla, Aman; Morgera, Salvatore; (2025). Ephaptic Information Flow: Information Processing in Groups of Neurons. Physics Essays 38(1). PEP
+
+==========================================
+Title: Quantum Illumination for Nanofluidics: an LLM Study
+URL: 10.13140/RG.2.2.18607.55202
+Google Search: "Quantum Illumination for Nanofluidics: an LLM Study" filetype:pdf
+Citation: Chawla, Aman; (2024). Quantum Illumination for Nanofluidics: an LLM Study. ResearchGate (10.13140/RG.2.2.18607.55202).
+
+==========================================
+Title: Path of Information
+URL: None
+Google Search: "Path of Information" filetype:pdf
+Citation: Chawla, Aman; (2024). Path of Information. . ISBN-13: 979-8345832639
+
+==========================================
+Title: A Mathematical Theory of Consciousness
+URL: None
+Google Search: "A Mathematical Theory of Consciousness" filetype:pdf
+Citation: Chawla, Aman; (2025). A Mathematical Theory of Consciousness. Prajnanabha: Information and Physics 1(1). REAL Institute, Gurugram
+
+==========================================
+Title: Of Qualia and the Nature of the Universe
+URL: 10.13140/RG.2.2.16313.89447
+Google Search: "Of Qualia and the Nature of the Universe" filetype:pdf
+Citation: Chawla, Aman; (2025). Of Qualia and the Nature of the Universe. ResearchGate (10.13140/RG.2.2.16313.89447).
+
+==========================================
+Title: Theory of Nonlocal Unification: the Foundation and its Application
+URL: None
+Google Search: "Theory of Nonlocal Unification: the Foundation and its Application" filetype:pdf
+Citation: Chawla, Aman; (2025). Theory of Nonlocal Unification: the Foundation and its Application. Prajnanabha: Information and Physics 1(1). REAL Institute, Gurugram
+
+==========================================
+Title: A Mathematical Anscombian View of Nonlocal Unification
+URL: https://realinstitute.netlify.app/svarxiv/consc-studs
+Google Search: "A Mathematical Anscombian View of Nonlocal Unification" filetype:pdf
+Citation: Chawla, Aman; (2025). A Mathematical Anscombian View of Nonlocal Unification. https://realinstitute.netlify.app/svarxiv/consc-studs (svarxiv/consc-studs:2025.07.17_1209).
+
+==========================================NO
+Title: Consequences of Nonlocal Unification for Limit Observers
+URL: None
+Google Search: "Consequences of Nonlocal Unification for Limit Observers" filetype:pdf
+Citation: Chawla, Aman; (2025). Consequences of Nonlocal Unification for Limit Observers. Prajnanabha: Information and Physics 1(1). REAL Institute, Gurugram
+
+==========================================NO
+Title: Nonlinear Neural Correlates of Nonlocal Consciousness
+URL: None
+Google Search: "Nonlinear Neural Correlates of Nonlocal Consciousness" filetype:pdf
+Citation: Chawla, Aman; (2025). Nonlinear Neural Correlates of Nonlocal Consciousness. Prajnanabha: Information and Physics 1(1). REAL Institute, Gurugram
+
+==========================================YES
+Title: On the Capacity of Any Communication Network
+URL: http://dx.doi.org/10.13140/RG.2.2.24440
+Google Search: "On the Capacity of Any Communication Network" filetype:pdf
+Citation: Chawla, Aman; (2025). On the Capacity of Any Communication Network. Research Gate Preprint (http://dx.doi.org/10.13140/RG.2.2.24440).
+
+==========================================NO
+Title: Bi-stochastic Versions of Hairer Coupling
+URL: None
+Google Search: "Bi-stochastic Versions of Hairer Coupling" filetype:pdf
+Citation: Chawla, Aman; (2025). Bi-stochastic Versions of Hairer Coupling. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================YES
+Title: On the Energy Needs of Artificial Intelligence
+URL: http://dx.doi.org/10.13140/RG.2.2.19237.
+Google Search: "On the Energy Needs of Artificial Intelligence" filetype:pdf
+Citation: Chawla, Aman; (2025). On the Energy Needs of Artificial Intelligence. ResearchGate (http://dx.doi.org/10.13140/RG.2.2.19237.).
+Added/Found: aiLimitationv1.pdf
+Added/Found On: 15 August 2026
+==========================================NO
+Title: Quantifying the Quantum Intelligence of a Language
+URL: None
+Google Search: "Quantifying the Quantum Intelligence of a Language" filetype:pdf
+Citation: Chawla, Aman; (2025). Quantifying the Quantum Intelligence of a Language. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================NO
+Title: Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study
+URL: None
+Google Search: "Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study" filetype:pdf
+Citation: Chawla, Aman; (2025). Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================NO
+Title: On an Argument of Hume
+URL: None
+Google Search: "On an Argument of Hume" filetype:pdf
+Citation: Chawla, Aman; (2025). On an Argument of Hume. Available from author via email request. (humeanv5.pdf).
+
+==========================================NO
+Title: Minimal Systems for Computational Creativity: Evidence of Motif Stabilization
+URL: None
+Google Search: "Minimal Systems for Computational Creativity: Evidence of Motif Stabilization" filetype:pdf
+Citation: Chawla, Aman; (2025). Minimal Systems for Computational Creativity: Evidence of Motif Stabilization. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================NO
+Title: Concentration as Modulated Gathering
+URL: https://doi.org/10.13140/RG.2.2.20254.19
+Google Search: "Concentration as Modulated Gathering" filetype:pdf
+Citation: Chawla, Aman; (2025). Concentration as Modulated Gathering. Research Gate (https://doi.org/10.13140/RG.2.2.20254.19).
+
+==========================================NO
+Title: The Action Potential Field: Why Consciousness May be Irreducible
+URL: None
+Google Search: "The Action Potential Field: Why Consciousness May be Irreducible" filetype:pdf
+Citation: Chawla, Aman; (2025). The Action Potential Field: Why Consciousness May be Irreducible. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================NO
+Title: Necessary and Sufficient Substrate for Consciousness
+URL: None
+Google Search: "Necessary and Sufficient Substrate for Consciousness" filetype:pdf
+Citation: Chawla, Aman; (2025). Necessary and Sufficient Substrate for Consciousness. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================NO
+Title: White Matter Capacity
+URL: None
+Google Search: "White Matter Capacity" filetype:pdf
+Citation: Chawla, Aman; (2025). White Matter Capacity. Prajnanabha: Information and Physics 1(2). REAL Institute
+
+==========================================NO
+Title: Ephemeris Mundi
+URL: None
+Google Search: "Ephemeris Mundi" filetype:pdf
+Citation: Chawla, Aman; (2025). Ephemeris Mundi. . Prajnanabha Press, India
+
+==========================================YES
+Title: Capacity Boost: Data Transmission in the Unified Regime
+URL: None
+Google Search: "Capacity Boost: Data Transmission in the Unified Regime" filetype:pdf
+Citation: Chawla, Aman; (2025). Capacity Boost: Data Transmission in the Unified Regime. Prajnanabha: Information and Physics 1(3). REAL Institute, Gurugram, India
+
+==========================================NO
+Title: Mastishk mein saarvatrik kvantum samganana ki kriya vidhi
+URL: None
+Google Search: "Mastishk mein saarvatrik kvantum samganana ki kriya vidhi" filetype:pdf
+Citation: Chawla, Aman; (2026). Mastishk mein saarvatrik kvantum samganana ki kriya vidhi. Research Gate .

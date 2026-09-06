@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Function Theoretic Approach to Quantum Measurements - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">A Function Theoretic Approach to Quantum Measurements</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this brief note, the authors present a simple approach to computing the probability of interfering alternatives such that one gets always the corresponding classical or exclusive alternatives result. The purpose is to explore the distance of quantum mechanics from classical mechanics. Usually the distance is characterized using the constant of Max Planck in the discussion. A view using decoherence has also been formulated by Wojtek Zurek. The present note avoids those routes and in so doing opens up a host of possibilities to explore in the theory of measurement. The distance thus characterized, a derivation of quantum mechanics from more rudimentary principles may come within the realm of feasibility. For, suppose one could thus derive classical mechanics, then one could in some sense, inch towards quantum mechanics. This note is dedicated to Prof. Carl Caves, a great teacher and physicist. In what follows our goal is to nd a sequence of functions fn : R2 →R2 (each with 2 inputs and 2 outputs), such that their composition: Sn = fn ◦fn−1 ◦· · · ◦f1 approximates the function (x, y) 7→(x + y, x + y) as n →∞. We start with: * f1(x, y) = (√x, √y) * f2(x, y) = (x + y, x + y) Now we want to build subsequent functions fn, so that the composition: Sn(x, y) = fn(fn−1(· · · f1(x, y) · · · )) converges to (x + y, x + y) for all x, y ≥0. The challenge is as follows. With composition, the initial transformation f1(x, y) = (√x, √y) is now baked into the input. So all subsequent functions must correct this nonlinearity by acting on already-distorted inputs. Simply subtracting √x won't work. Our strategy is as follows. We dene the recursive composition more explicitly. Let: 1</p> <p>z1 = f1(x, y) = (√x, √y) z2 = f2(z1) = (√x + √y, √x + √y) z3 = f3(z2), etc. We need the total composition to eventually become (x + y, x + y), which is the case of exclusive alternatives. Our design approach will be as follows. We now want to invert the distortion caused by f1. Since: * f1(x, y) = (√x, √y) * The true target is (x + y, x + y) * Then: f −1 1 (x, y) = (x2, y2) So the idea is to build a sequence of functions that asymptotically undo the square roots from f1. We construct via converging correction. Let: * f1(x, y) = (√x, √y) * f2(x, y) = (x + y, x + y) * For n ≥3, dene: fn(x, y) =  x + x2 −x n2 , y + y2 −y n2  This works because: * If x = √a, then x2 = a, so x2 −x = a −√a * The correction term x2−x n2 →0, but their sum telescopes: ∞ Y n=3  1 + x2 −x xn2  →something nite * Each step pulls the value from √x toward x * Eventually the composition becomes approximately: (√x + adjustment →x, √y + adjustment →y) ⇒x + y Next, we evaluate a few steps: * f1(x, y) = (√x, √y) *f2(√x, √y) = (√x + √y, √x + √y) * f3 nudges each component toward its square: f3(x, y) =  x + x2 −x , y + y2 −y  * This continues rening the distortion introduced by the initial square root To formalize, dene the sequence: 2</p> <p>f1(x, y) = (√x, √y) f2(x, y) = (x + y, x + y) fn(x, y) =  x + x2 −x (n −1)2 , y + y2 −y (n −1)2  , n ≥3 Then the composition: Sn = fn ◦fn−1 ◦· · · ◦f1 satises: lim n→∞Sn(x, y) = (x + y, x + y) This sequence satises all constraints: * Each function has 2 inputs, 2 outputs * Begins with √·, then addition * Uses Composition * Converges to binary addition in both outputs Next, we step into the complex domain, and compute the distance between the last function in the sequence fn(x, y) and the function: g(x, y) = (|x|2, |y|2) for x, y ∈C, where |x|2 = xx, the squared modulus. We rst recall fn for n ≥3: fn(x, y) =  x + x2 −x (n −1)2 , y + y2 −y (n −1)2  We dene the distance between fn and g. Since both are functions C2 →C2, we can dene the distance in multiple ways. The most straightforward is a pointwise supremum distance over a bounded domain, such as: dn = sup |x|,|y|≤R ∥fn(x, y) −g(x, y)∥2 for some norm on C2, such as: ∥(a, b)∥2 = p |a|2 + |b|2 Next we compute: fn(x, y) −g(x, y) =  x + x2 −x (n −1)2 −|x|2, y + y2 −y (n −1)2 −|y|2  We dene: 3</p> <p>dn(x, y) =</p><p style="margin-bottom: 0.8rem; line-height: 1.75;"> x + x2 −x (n −1)2 −|x|2, y + y2 −y (n −1)2 −|y|2 </p><p style="margin-bottom: 0.8rem; line-height: 1.75;">We want to nd: dn = sup |x|,|y|≤R dn(x, y) Taking a look at just one component: δn(x) := x + x2 −x (n −1)2 −|x|2 = x  1 − (n −1)2  + x2 (n −1)2 −|x|2 So the dierence from |x|2 is: δn(x) = x  1 − (n −1)2  + x2 (n −1)2 −x¯x We let x = reiθ ∈C. Then: * x = reiθ * x2 = r2e2iθ * |x|2 = r2 Then: δn(x) = reiθ  1 − (n −1)2  + r2e2iθ (n −1)2 −r2 We compute the modulus: |δn(x)|2 = reiθ  1 − (n −1)2  + r2e2iθ (n −1)2 −r2</p><p style="margin-bottom: 0.8rem; line-height: 1.75;">We evaluate it at a specic point for concrete distance estimation. For example, we take (not necessarily realistic) x = y = 1 ∈C. Then: * x = y = 1 * x2 = y2 = 1 * |x|2 = |y|2 = 1 Then: fn(1, 1) =  1 + 1 −1 (n −1)2 , 1 + 1 −1 (n −1)2  = (1, 1) g(1, 1) = (1, 1) ⇒dn(1, 1) = 0 We next try x = i ⇒x2 = −1, |x|2 = 1: fn(i, i) =  i + (−1 −i) (n −1)2 , i + (−1 −i) (n −1)2  =  i − 1 + i (n −1)2 , i − 1 + i (n −1)2  4</p> <p>g(i, i) = (1, 1) ⇒fn(i) −g(i) =  i − 1 + i (n −1)2 −1, i − 1 + i (n −1)2 −1  On simplifying each: Real part: −1 − (n −1)2 , Imag part: 1 − (n −1)2 So the norm of one component is: −1 − (n −1)2 + i  1 − (n −1)2  =  1 + (n −1)2 2 +  1 − (n −1)2 2 We compute:  1 + (n −1)2 2 = 1+ (n −1)2 + (n −1)4  1 − (n −1)2 2 = 1− (n −1)2 + (n −1)4 The sum: ⇒|fn(i, i)−g(i, i)|2 = 2+2· (n −1)4 ⇒∥fn−g∥2 = s 2 + (n −1)4 ≈ √ (as n →∞) To conclude, for x, y ∈C, the distance between the last function in the sequence fn(x, y) and the function g(x, y) = (|x|2, |y|2) is approximately: ∥fn −g∥∞≈ sup |x|,|y|≤R s |x + x2 −x (n −1)2 −|x|2|2 + |y + y2 −y (n −1)2 −|y|2|2 For specic inputs like x = y = i, the distance is: ∥fn(i, i) −g(i, i)∥2 = s 2 + (n −1)4 ≈ √ Thus, fn does not converge to g as n →∞; their distance remains bounded away from zero, at least in the cases seen above. Thus, we have a way to formalize the distance between the two types of probability computations when alternatives are present - either exclusive ones or interfering ones.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/A_Function_Theoretic_Approach_to_Quantum_Measurements.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

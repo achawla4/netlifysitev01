@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computation in the Brain - Research Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: #daa520;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header .essence {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 15px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+        }
+        
+        .content-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+        
+        .content-card p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: #f0f4f8;
+            border-left: 4px solid #daa520;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .highlight-box strong {
+            color: #1a1a2e;
+        }
+        
+        .key-metric {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .key-metric .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .key-metric .label {
+            font-size: 1.1em;
+        }
+        
+        .diagram-container {
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .diagram-container h4 {
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .mechanism-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .mechanism-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .mechanism-list li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #daa520;
+            font-size: 1.2em;
+        }
+        
+        .authors-meta {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .publication-ref {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        .integration-note {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #daa520;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .integration-note h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .integration-note p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #daa520;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .timeline-item {
+            padding: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            border-left: 2px solid #daa520;
+            margin-left: 10px;
+        }
+        
+        .timeline-item:first-child {
+            margin-top: 0;
+        }
+        
+        .timeline-item .dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #daa520;
+            border-radius: 50%;
+            left: -7px;
+            top: 20px;
+        }
+        
+        .timeline-item strong {
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .content-card {
+                padding: 25px;
+            }
+            
+            .key-metric {
+                padding: 20px;
+            }
+            
+            .key-metric .number {
+                font-size: 2em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="breadcrumb">
+            <a href="#">Research</a> / Quantum Computation in the Brain
+        </div>
+        <div class="category-icon">⚛️</div>
+        <h1>Quantum Computation in the Brain</h1>
+        <p class="essence">Where gravity meets consciousness—the universe computing itself</p>
+        <p class="description">A groundbreaking mechanism exploring how metric perturbations enable universal quantum computation within axon tracts, revealing that the brain may harness gravitational waves for information processing far exceeding current quantum computers.</p>
+    </div>
+    
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Research">
+        <a href="https://realinstitute.netlify.app" class="back-link">← Back to Research</a>
+        
+        <!-- Publication Info Card -->
+        <div class="content-card">
+            <h3>Publication Details</h3>
+            <p class="authors-meta">
+                <strong>Authors:</strong> Aman Chawla (Indian Institute of Technology, Delhi) & Salvatore Domenic Morgera (University of South Florida)<br>
+                <strong>Journal:</strong> Journal of Applied Mathematics and Physics, Volume 12<br>
+                <strong>Published:</strong> February 22, 2024 | <strong>DOI:</strong> 10.4236/jamp.2024.122031
+            </p>
+            <p><strong>Abstract:</strong> The authors extend previous work and provide detailed mechanisms for how the brain may act like a quantum computer. By positing voltage differences on two axons as the environment for ions undergoing spatial superposition, they argue that evolution in the presence of metric perturbations differs from evolution in their absence. This differential state evolution encodes information processed by the tract through interaction of quantum states with controlling potentials. Upon decoherence, the final spatial state of ions is decided and reset by the next impulse initiation.</p>
+        </div>
+
+        <!-- Key Insight Section -->
+        <h2 class="section-title">The Central Mechanism</h2>
+        
+        <div class="content-card">
+            <h3>How Gravitational Waves Enable Brain Computation</h3>
+            <p>The paper proposes a radical mechanism linking quantum mechanics, neurophysiology, and general relativity. The key insight is that <strong>metric perturbations caused by gravitational waves alter the temporal spacing between action potentials on adjacent axons</strong>, creating a variable quantum environment for ions at the Nodes of Ranvier.</p>
+            
+            <div class="highlight-box">
+                <strong>The Core Idea:</strong> When a gravitational wave passes through neural tissue, it slightly compresses or stretches spacetime. This changes the "temporal gap" (voltage difference timing) between two axons. This gap becomes the quantum environment for ions that undergo spatial superposition, fundamentally changing their quantum evolution.
+            </div>
+
+            <h4 style="margin-top: 30px; margin-bottom: 15px; color: #1a1a2e;">The Quantum Cycle</h4>
+            <ol class="mechanism-list">
+                <li><strong>State Preparation:</strong> Action potential initiation prepares a quantum state of ions at the Node of Ranvier</li>
+                <li><strong>Quantum Evolution:</strong> Metric perturbations (gravitational waves) act as "quantum gates," evolving the quantum state differently than in their absence</li>
+                <li><strong>Coherent Processing:</strong> Multiple gravitational wave interactions accumulate quantum information over the coherence time</li>
+                <li><strong>Decoherence & Measurement:</strong> When coherence time elapses, the quantum state decoheres, reading out the computation result as classical action potential patterns</li>
+                <li><strong>Classical Reset:</strong> The next action potential impulse re-initializes the system for the next computational cycle</li>
+            </ol>
+        </div>
+
+        <!-- Key Metric -->
+        <div class="key-metric">
+            <div class="number">50 Million</div>
+            <div class="label">Quantum states prepared and evolved per second in the corpus callosum alone</div>
+        </div>
+
+        <!-- Diagrams Section -->
+        <h2 class="section-title">Visual Mechanisms</h2>
+        
+        <div class="content-card">
+            <div class="diagram-container">
+                <h4>Metric Perturbation on Coupled Axons</h4>
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; border-radius: 6px;">
+                    <!-- Title -->
+                    <text x="400" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a2e">Two Slightly Displaced Action Potentials</text>
+                    
+                    <!-- Left side: Without gravitational wave -->
+                    <text x="150" y="50" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">Without Gravitational Wave</text>
+                    <line x1="50" y1="80" x2="250" y2="80" stroke="#666" stroke-width="2"/>
+                    <path d="M 80 120 Q 100 100 120 110 Q 130 150 150 140 Q 160 120 180 130 Q 200 100 220 110 L 220 140" stroke="#0066cc" stroke-width="2" fill="none"/>
+                    <path d="M 80 170 Q 100 150 120 160 Q 130 200 150 190 Q 160 170 180 180 Q 200 150 220 160 L 220 190" stroke="#ff6600" stroke-width="2" fill="none"/>
+                    
+                    <text x="150" y="215" text-anchor="middle" font-size="11" fill="#555">Temporal gap = a₂</text>
+                    <line x1="140" y1="225" x2="140" y2="245" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+                    <line x1="160" y1="225" x2="160" y2="245" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="150" y="265" text-anchor="middle" font-size="10" fill="#999">Longer temporal gap</text>
+                    
+                    <!-- Right side: With gravitational wave -->
+                    <text x="650" y="50" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">With Gravitational Wave</text>
+                    <line x1="550" y1="80" x2="750" y2="80" stroke="#666" stroke-width="2"/>
+                    
+                    <!-- Wavy effect -->
+                    <path d="M 550 100 Q 570 85 590 100 Q 610 115 630 100 Q 650 85 670 100 Q 690 115 710 100 Q 730 85 750 100" 
+                          stroke="#daa520" stroke-width="2" fill="none" opacity="0.7" stroke-dasharray="5,5"/>
+                    <text x="650" y="95" font-size="10" fill="#daa520" font-weight="bold">Gravitational Wave →</text>
+                    
+                    <path d="M 580 130 Q 600 110 620 120 Q 630 160 650 150 Q 660 130 680 140 Q 700 110 720 120 L 720 150" stroke="#0066cc" stroke-width="2" fill="none"/>
+                    <path d="M 580 190 Q 600 170 620 180 Q 630 220 650 210 Q 660 190 680 200 Q 700 170 720 180 L 720 210" stroke="#ff6600" stroke-width="2" fill="none"/>
+                    
+                    <text x="650" y="245" text-anchor="middle" font-size="11" fill="#555">Temporal gap = a₁</text>
+                    <line x1="630" y1="255" x2="630" y2="275" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+                    <line x1="670" y1="255" x2="670" y2="275" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="650" y="290" text-anchor="middle" font-size="10" fill="#999">Compressed gap (metric change)</text>
+                    
+                    <!-- Legend -->
+                    <text x="50" y="290" font-size="10" fill="#0066cc">Axon 1 (V₁)</text>
+                    <line x1="40" y1="285" x2="45" y2="285" stroke="#0066cc" stroke-width="2"/>
+                    <text x="50" y="305" font-size="10" fill="#ff6600">Axon 2 (V₂)</text>
+                    <line x1="40" y1="300" x2="45" y2="300" stroke="#ff6600" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <div class="diagram-container">
+                <h4>The Quantum Computation Cycle in Neural Tracts</h4>
+                <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; border-radius: 6px;">
+                    <!-- Cycle boxes -->
+                    <rect x="100" y="50" width="140" height="80" fill="#e8f4f8" stroke="#0066cc" stroke-width="2" rx="8"/>
+                    <text x="170" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#0066cc">State Prep</text>
+                    <text x="170" y="95" text-anchor="middle" font-size="10" fill="#333">Action Potential</text>
+                    <text x="170" y="115" text-anchor="middle" font-size="10" fill="#333">Initiates Quantum State</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M 240 90 L 280 90" stroke="#daa520" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <polygon points="0 0, 10 5, 0 10" fill="#daa520"/>
+                        </marker>
+                    </defs>
+                    
+                    <rect x="280" y="50" width="140" height="80" fill="#fff8e8" stroke="#daa520" stroke-width="2" rx="8"/>
+                    <text x="350" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#daa520">Quantum Evolution</text>
+                    <text x="350" y="95" text-anchor="middle" font-size="10" fill="#333">Metric Perturbations</text>
+                    <text x="350" y="115" text-anchor="middle" font-size="10" fill="#333">Act as Quantum Gates</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M 420 90 L 460 90" stroke="#daa520" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <rect x="460" y="50" width="140" height="80" fill="#f0e8f8" stroke="#9966cc" stroke-width="2" rx="8"/>
+                    <text x="530" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#9966cc">Coherent Hold</text>
+                    <text x="530" y="95" text-anchor="middle" font-size="10" fill="#333">Multiple Wave</text>
+                    <text x="530" y="115" text-anchor="middle" font-size="10" fill="#333">Interactions (~700s)</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M 600 90 L 640 90" stroke="#daa520" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <rect x="640" y="50" width="140" height="80" fill="#f8e8e8" stroke="#cc3333" stroke-width="2" rx="8"/>
+                    <text x="710" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#cc3333">Decoherence</text>
+                    <text x="710" y="95" text-anchor="middle" font-size="10" fill="#333">Measurement Output</text>
+                    <text x="710" y="115" text-anchor="middle" font-size="10" fill="#333">Reads Computation</text>
+                    
+                    <!-- Return arrow -->
+                    <path d="M 710 130 Q 710 200 170 200 Q 170 130 170 130" stroke="#daa520" stroke-width="3" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+                    <text x="400" y="220" text-anchor="middle" font-size="11" font-style="italic" fill="#daa520">Reset → New Quantum State Prepared</text>
+                    
+                    <!-- Timeline on side -->
+                    <text x="50" y="280" font-size="11" font-weight="bold" fill="#1a1a2e">Timescale:</text>
+                    <text x="50" y="305" font-size="10" fill="#555">Coherence: 10⁻¹⁴ to 10⁻¹⁸ s (Tegmark)</text>
+                    <text x="50" y="325" font-size="10" fill="#555">Metric impact: 10⁻¹⁴ to 10⁻¹⁸ s</text>
+                    <text x="50" y="365" font-size="10" fill="#555">Action potential duration: ~2 ms</text>
+                    
+                    <!-- Key insight box -->
+                    <rect x="50" y="375" width="700" height="20" fill="#ffeaa7" stroke="#daa520" stroke-width="1" rx="4"/>
+                    <text x="400" y="390" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a1a2e">
+                        The quantum computation operates within the decoherence window, synchronized across multiple axon tracts
+                    </text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Key Findings Section -->
+        <h2 class="section-title">Key Findings & Implications</h2>
+        
+        <div class="content-card">
+            <h3>Processing Power Exceeding Classical Quantum Computers</h3>
+            <p>The authors' analysis based on corpus callosum axon counts alone reveals an extraordinary computational capacity:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <strong>50 Million Quantum States Per Second</strong>
+                    <p>In just one white matter tract (corpus callosum), ions prepare and evolve 50 million distinct quantum states every second—vastly exceeding the processing capability of any existing quantum computer.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <strong>Universal Quantum Computation</strong>
+                    <p>When multiple synchronized tracts undergo these processes in parallel, each influenced by different gravitational wave patterns, the complete architecture of a universal quantum computing circuit emerges.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <strong>Metric Perturbations as Control</strong>
+                    <p>Rather than requiring engineered control systems, the brain's quantum computation is "directed" by gravitational wave patterns impinging on neural tissue—making the entire universe a participant in neural information processing.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <strong>Escape from Decoherence</strong>
+                    <p>By operating within a coherence window, quantum information can survive long enough for meaningful computation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>Resolution of the Tegmark Limitation</h3>
+            <p>Tegmark (2000) famously argued that quantum effects would decohere too quickly in the brain (10⁻¹⁴ seconds). This paper addresses that critique:</p>
+            
+            <div class="highlight-box">
+                <strong>The Key Insight:</strong> If gravitational waves with strains h = 10⁻¹⁶ operate at timescales of 10⁻¹⁴ to 10⁻¹⁸ seconds (as per their reference [3]), then metric perturbations can imprint meaningful quantum operations on neural systems without requiring unrealistic decoherence properties.
+            </div>
+        </div>
+
+        <!-- Conceptual Framework -->
+        <h2 class="section-title">Conceptual Framework</h2>
+        
+        <div class="content-card">
+            <h3>Integration of Multiple Disciplines</h3>
+            <p>This work synthesizes insights from several domains:</p>
+            
+            <ul style="list-style: none; margin: 20px 0;">
+                <li style="margin-bottom: 15px;"><strong style="color: #daa520;">General Relativity:</strong> Gravitational waves as metric perturbations in spacetime</li>
+                <li style="margin-bottom: 15px;"><strong style="color: #daa520;">Quantum Mechanics:</strong> Schrödinger evolution, superposition, decoherence, measurement</li>
+                <li style="margin-bottom: 15px;"><strong style="color: #daa520;">Neuroscience:</strong> Action potentials, axon morphology, Nodes of Ranvier, ion channels</li>
+                <li style="margin-bottom: 15px;"><strong style="color: #daa520;">Information Theory:</strong> Time-coded information, signal encoding in neural tracts</li>
+                <li style="margin-bottom: 15px;"><strong style="color: #daa520;">Quantum Computing:</strong> Quantum gates, quantum circuits, decoherence and measurement</li>
+            </ul>
+        </div>
+
+        <!-- Philosophical Implications -->
+        <div class="content-card">
+            <h3>A Unified Universe</h3>
+            <p>The paper concludes with a profound philosophical perspective: <strong>"Without the need for positing any external entity, the universe is seen to be a guiding force in the life of each being."</strong></p>
+            
+            <p>Rather than the brain computing in isolation, this model suggests that:
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Gravitational waves carry information throughout the cosmos</li>
+                <li>Neural tissue acts as a detector and processor of universal signals</li>
+                <li>Consciousness and thought are expressions of the universe observing and computing on itself</li>
+                <li>The brain is integrated with cosmic processes at the fundamental level of spacetime itself</li>
+            </ul></p>
+        </div>
+
+        <!-- Future Research -->
+        <h2 class="section-title">Future Research Directions</h2>
+        
+        <div class="content-card">
+            <h3>Open Questions and Extensions</h3>
+            <p>The authors acknowledge several limitations and propose future work:</p>
+            
+            <div class="highlight-box">
+                <strong>Key Challenges:</strong>
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li>Demonstrating entanglement mechanisms between different tracts</li>
+                    <li>Investigating back-action effects when multiple brain-like entities interact</li>
+                    <li>Reconciling Wheeler's vision of the universe as a self-excited quantum circuit with this model</li>
+                    <li>Developing mathematical frameworks for full quantum computation in biological systems</li>
+                    <li>Classical-quantum machine learning algorithms based on the four-step computational cycle</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Integration Note -->
+        <div class="integration-note">
+            <h3>How This Research Integrates</h3>
+            <p>This work bridges centuries of intellectual inquiry—from Einstein and Wheeler's geometric view of physics, to Penrose and Hameroff's microtubule hypothesis, to modern decoherence theory. By proposing that <strong>gravitational waves serve as the universe's way of computing within the brain</strong>, it suggests that consciousness may not be produced by neurons alone, but emerges from the intersection of neural biology with fundamental cosmic forces. The brain becomes not a closed computational system, but an open interface through which the universe engages with itself.</p>
+        </div>
+
+        <!-- Citation -->
+        <div class="publication-ref">
+            <strong>Citation:</strong> Chawla, A. and Morgera, S.D. (2024) Mechanism of Universal Quantum Computation in the Brain. <em>Journal of Applied Mathematics and Physics</em>, 12, 468-474. https://doi.org/10.4236/jamp.2024.122031
+        </div>
+    </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

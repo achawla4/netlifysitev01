@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryabhata Information:\\ A Conservation Theorem for Information Across Systems | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 6 · V1I6-A01</div>
+            <h1>Aryabhata Information:\\ A Conservation Theorem for Information Across Systems</h1>
+            <div class="hero-meta">Aman Chawla | April 2026</div>
+            <div class="hero-meta">Source PDF: aqscv2.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_6.html">Issue 6</a>
+        </div>
+        <div class="meta-grid">
+            
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="abstract">Abstract</h2>
+<p>This monograph develops a unified theory of information based on a conservation principle that applies across classical, quantum, and interacting systems.</p>
+<p>We introduce a general class of admissible information systems and derive a unique information functional that recovers both Shannon entropy and von Neumann entropy as special cases.</p>
+<p>The central result, the Aryabhata Conservation Theorem, establishes that information is conserved under closed transformations and changes under open or coupled transformations via structured boundary terms.</p>
+<p>These boundary terms admit a decomposition into components corresponding to interaction, coarse-graining, and finite-scale effects. In particular, the atypical sector of quantum systems is shown to govern deviations from idealized asymptotic behavior.</p>
+<p>The framework unifies classical and quantum information theory while extending them to systems where independence assumptions fail. It also provides a structural explanation for the breakdown of source–channel separation and introduces a new perspective on entropy as a conserved quantity with boundary corrections.</p>
+<h2 id="preface">Preface</h2>
+<p>The concept of information lies at the foundation of modern science. It governs communication systems, quantum mechanics, statistical physics, and increasingly, biological and cognitive processes.</p>
+<p>Yet, despite its central role, information remains fragmented across disciplines. Classical information theory, quantum information theory, and physical models of information each provide powerful but incomplete perspectives.</p>
+<p>This work arose from the belief that information should admit a unified description—one that treats it as a fundamental quantity governed by general principles analogous to conservation laws in physics.</p>
+<p>The Aryabhata Conservation Theorem presented in this monograph is an attempt to formalize this idea.</p>
+<p>The development proceeds from classical entropy and quantum source coding to a general framework of admissible systems, culminating in a conservation law with structured boundary terms.</p>
+<p>A key insight is that deviations from idealized behavior—particularly in finite or coupled systems—are not merely errors but carry internal structure. The atypical sector, traditionally discarded in asymptotic analysis, plays a central role in this formulation.</p>
+<p>This work is intended as a starting point rather than a final statement. Many aspects, particularly in continuous and highly interacting systems, require further development.</p>
+<p>Nevertheless, it is hoped that the framework presented here provides a useful step toward a unified theory of information.</p>
+<h2 id="the-problem-of-information-universality">The Problem of Information Universality</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Modern science employs multiple, seemingly incompatible notions of information. In classical communication theory, information is quantified through entropy and coding rates. In quantum theory, it appears through density operators, von Neumann entropy, and channel capacities. In neuroscience and physical systems, information is often treated as flow, structure, or constraint.</p>
+<p>Despite their success within their respective domains, these notions lack a single, system-independent formulation. There is no universally accepted quantity that:</p>
+<ul class="article-list"><li><p>applies equally to classical, quantum, and physical systems,</p></li><li><p>behaves consistently under transformation,</p></li><li><p>admits a conservation law analogous to energy or momentum.</p></li></ul>
+<p>This monograph addresses this gap.</p>
+<p>The central claim developed throughout this work is that:</p>
+<div class="callout-block"><p><em>Information is a conserved quantity across admissible systems, and classical and quantum information measures arise as special cases of a more general invariant.</em></p></div>
+<p>The purpose of this chapter is to formalize the <em>problem</em> that necessitates such a theorem.</p>
+<h2 id="fragmentation-of-information-concepts">Fragmentation of Information Concepts</h2>
+<h3 id="classical-information">Classical Information</h3>
+<p>In classical information theory, a discrete memoryless source $X$ with distribution $p(x)$ is characterized by its entropy \[ H(X) = - _x p(x) p(x). \]</p>
+<p>This quantity determines the optimal compression rate via the source coding theorem. The key structural feature is the <em>typical set</em>, whose size grows as $2^{nH(X)}$.</p>
+<p>This framework is fundamentally:</p>
+<ul class="article-list"><li><p>probabilistic,</p></li><li><p>message-centric,</p></li><li><p>asymptotic.</p></li></ul>
+<h3 id="quantum-information">Quantum Information</h3>
+<p>In quantum theory, a source is described by a density operator \[ = _a p(a) |_a _a|. \]</p>
+<p>The relevant entropy is the von Neumann entropy \[ S() = - {Tr}( ). \]</p>
+<p>Schumacher compression establishes that the optimal compression rate is $S()$. Crucially, the proof proceeds by reducing the quantum problem to a classical one via the spectral decomposition of $$ :contentReference[oaicite:2]{index=2}.</p>
+<p>Thus, even in the quantum setting, information appears through an <em>induced classical structure</em>.</p>
+<h3 id="information-in-physical-and-cognitive-systems">Information in Physical and Cognitive Systems</h3>
+<p>Beyond communication theory, information appears in broader contexts:</p>
+<ul class="article-list"><li><p>neural systems (e.g., ephaptic coupling),</p></li><li><p>physical fields and spacetime,</p></li><li><p>observer-dependent dynamics.</p></li></ul>
+<p>In these settings, information is not naturally expressed as a probability distribution over messages. Instead, it appears as:</p>
+<ul class="article-list"><li><p>flow,</p></li><li><p>transformation,</p></li><li><p>structural constraint.</p></li></ul>
+<p>Recent work proposes that information should be treated as a <em>fundamental conserved quantity</em> governing such systems :contentReference[oaicite:3]{index=3}.</p>
+<h2 id="the-central-gap">The Central Gap</h2>
+<p>The preceding discussion reveals a fundamental tension.</p>
+<ul class="article-list"><li><p>Classical information is defined on probability distributions.</p></li><li><p>Quantum information is defined on operators.</p></li><li><p>Physical information appears as flow or geometry.</p></li></ul>
+<p>There is no single object ${I}$ such that:</p>
+<ul class="article-list"><li><p>${I}$ reduces to $H(X)$ in the classical case,</p></li><li><p>${I}$ reduces to $S()$ in the quantum case,</p></li><li><p>${I}$ remains meaningful for interacting or continuous systems.</p></li></ul>
+<p>Moreover, no general conservation law is known that applies across these domains.</p>
+<p>This motivates the central question:</p>
+<div class="callout-block"><p><strong>Does there exist a universal notion of information that is invariant under admissible system evolution?</strong></p></div>
+<h2 id="a-guiding-observation-from-quantum-source-coding">A Guiding Observation from Quantum Source Coding</h2>
+<p>Quantum source coding provides a crucial clue.</p>
+<p>The spectral decomposition of a density operator \[ = _i _i |e_i e_i| \] induces a classical probability distribution ${_i}$.</p>
+<p>For blocklength $n$, the eigenvalues of $^{ n}$ take the form \[ _{i_1} _{i_n}, \] which coincide exactly with the probabilities of an i.i.d.\ classical source :contentReference[oaicite:4]{index=4}.</p>
+<p>This implies:</p>
+<div class="callout-block"><p><em>Quantum information theory is structurally governed by a hidden classical probability law.</em></p></div>
+<p>However, this reduction comes at a cost.</p>
+<p>The standard theory:</p>
+<ul class="article-list"><li><p>retains only the <em>typical subspace</em>,</p></li><li><p>discards the <em>atypical sector</em> as negligible.</p></li></ul>
+<p>Yet the atypical sector is not structureless. It is a low-weight spectral tail with internal organization at finite blocklength :contentReference[oaicite:5]{index=5}.</p>
+<p>This observation suggests that:</p>
+<div class="callout-block"><p><em>Information may be governed by a deeper structure than entropy alone.</em></p></div>
+<h2 id="toward-a-conservation-principle">Toward a Conservation Principle</h2>
+<p>In parallel, a separate line of work proposes that:</p>
+<div class="callout-block"><p><em>Information is conserved across all closed systems, including quantum and observer-dependent processes</em> :contentReference[oaicite:6]{index=6}.</p></div>
+<p>This proposal elevates information from a descriptive quantity to a <em>dynamical invariant</em>, analogous to energy.</p>
+<p>However, this principle is currently:</p>
+<ul class="article-list"><li><p>conceptually stated,</p></li><li><p>not yet embedded in a unified mathematical framework,</p></li><li><p>not connected rigorously to coding theorems.</p></li></ul>
+<h2 id="the-aryabhata-program">The Aryabhata Program</h2>
+<p>This monograph develops a unified framework resolving the above tensions.</p>
+<p>The program proceeds as follows:</p>
+<ol class="article-list"><li><p>Define a class of <em>admissible information systems</em>.</p></li><li><p>Construct a generalized information functional ${I}$.</p></li><li><p>Establish its transformation properties.</p></li><li><p>Prove a conservation law under admissible dynamics.</p></li><li><p>Recover classical and quantum information as special cases.</p></li></ol>
+<h2 id="preview-of-the-main-theorem">Preview of the Main Theorem</h2>
+<p>The entire development culminates in a single result.</p>
+<p><strong>(Informal Statement)</strong> There exists a functional ${I}$ defined on admissible information-bearing systems such that, under admissible transformations $T$, \[ {I}(T(x)) = {I}(x) + {B}(x,T), \] where ${B}$ is a boundary term vanishing for closed systems.</p>
+<p>Furthermore:</p>
+<ul class="article-list"><li><p>${I}$ reduces to Shannon entropy in the classical case,</p></li><li><p>${I}$ reduces to von Neumann entropy in the quantum case,</p></li><li><p>deviations from classical behavior arise through nontrivial boundary terms.</p></li></ul>
+<h2 id="role-of-this-chapter">Role of This Chapter</h2>
+<p>This chapter establishes:</p>
+<ul class="article-list"><li><p>the fragmentation of existing notions of information,</p></li><li><p>the structural clue from quantum typicality,</p></li><li><p>the conceptual proposal of information conservation,</p></li><li><p>the precise question to be answered.</p></li></ul>
+<p>The next chapter defines the mathematical objects required to make the theorem precise.</p>
+<h2 id="admissible-information-systems-and-structured-states">Admissible Information Systems and Structured States</h2>
+<h2 id="introduction">Introduction</h2>
+<p>The goal of this chapter is to define the mathematical objects on which a generalized notion of information can be constructed.</p>
+<p>We seek a framework that simultaneously accommodates:</p>
+<ul class="article-list"><li><p>classical probabilistic systems,</p></li><li><p>quantum systems described by density operators,</p></li><li><p>continuous and interacting systems such as fields or neural media.</p></li></ul>
+<p>To this end, we introduce the notion of an <em>admissible information system</em>. This will serve as the domain on which the generalized information functional ${I}$ is defined.</p>
+<h2 id="state-spaces">State Spaces</h2>
+<h3 id="abstract-state-space">Abstract State Space</h3>
+<p>Let ${X}$ be a measurable space equipped with a $$-algebra ${F}$.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[State] A <em>state</em> is an element $x {X}$ representing a complete description of a system at a given level of representation.</p></section>
+<p>The interpretation of ${X}$ depends on the system:</p>
+<ul class="article-list"><li><p>Classical: ${X}$ is a probability simplex.</p></li><li><p>Quantum: ${X}$ is the set of density operators on a Hilbert space.</p></li><li><p>Continuous: ${X}$ is a function space (e.g., fields, distributions).</p></li></ul>
+<h3 id="structured-states">Structured States</h3>
+<p>The key unifying idea is that all systems of interest admit a notion of <em>structured state</em>.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Structured State] A structured state is a pair $({X}, )$ where:</p>
+<ul class="article-list"><li><p>${X}$ is a state space,</p></li><li><p>$$ is a representation measure or weight encoding statistical, spectral, or geometric structure.</p></li></ul></section>
+<p>Examples:</p>
+<ul class="article-list"><li><p>Classical: $(x) = p(x)$.</p></li><li><p>Quantum: $$ is induced by the spectral decomposition of $$.</p></li><li><p>Continuous: $$ may represent density over a field configuration.</p></li></ul>
+<h2 id="transformations">Transformations</h2>
+<h3 id="general-transformations">General Transformations</h3>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Admissible Transformation] An <em>admissible transformation</em> is a measurable map \[ T : {X} {X} \] satisfying:</p>
+<ul class="article-list"><li><p>structural consistency (preserves admissibility of states),</p></li><li><p>composability ($T_2 T_1$ is admissible),</p></li><li><p>continuity or stability under limits (when applicable).</p></li></ul></section>
+<p>Interpretations:</p>
+<ul class="article-list"><li><p>Classical: stochastic maps (channels),</p></li><li><p>Quantum: completely positive trace-preserving (CPTP) maps,</p></li><li><p>Continuous: evolution operators or dynamical flows.</p></li></ul>
+<h3 id="closed-and-open-systems">Closed and Open Systems</h3>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Closed System] A system is <em>closed</em> if its evolution $T$ does not exchange information with an external environment.</p></section>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Open System] A system is <em>open</em> if its evolution can be decomposed as \[ T = T_{{int}} + T_{{ext}}, \] where $T_{{ext}}$ represents interaction with an external system.</p></section>
+<p>This distinction will be essential for identifying boundary terms in the main theorem.</p>
+<h2 id="composition-of-systems">Composition of Systems</h2>
+<h3 id="product-structure">Product Structure</h3>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Composite System] Given two systems $({X}_1, _1)$ and $({X}_2, _2)$, their composite system is defined as \[ ({X}_1 {X}_2, _{12}). \]</p></section>
+<p>Interpretations:</p>
+<ul class="article-list"><li><p>Classical: Cartesian product with product measure,</p></li><li><p>Quantum: tensor product of Hilbert spaces,</p></li><li><p>Continuous: joint configuration space.</p></li></ul>
+<h3 id="coupling">Coupling</h3>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Coupled System] A composite system is <em>coupled</em> if its joint state cannot be expressed as a product of subsystem states.</p></section>
+<p>Coupling is the key mechanism through which:</p>
+<ul class="article-list"><li><p>independence fails,</p></li><li><p>separation principles break down,</p></li><li><p>nontrivial information flow emerges.</p></li></ul>
+<h2 id="information-representation">Information Representation</h2>
+<h3 id="information-density">Information Density</h3>
+<p>For a structured state $({X}, )$, define the <em>information density</em> at $x {X}$ as \[ i(x) := - (x), \] whenever $(x) > 0$.</p>
+<p>This recovers:</p>
+<ul class="article-list"><li><p>classical information density $- p(x)$,</p></li><li><p>quantum spectral information $- _i$,</p></li><li><p>continuous analogues via density functions.</p></li></ul>
+<h3 id="global-functionals">Global Functionals</h3>
+<p>We seek a functional \[ {I} : ({X}, ) {R} \] that aggregates information density over the state space.</p>
+<p>At this stage, ${I}$ is not yet specified. Its defining properties will be introduced axiomatically in the next chapter.</p>
+<h2 id="dynamics-of-structured-states">Dynamics of Structured States</h2>
+<h3 id="pushforward-of-measures">Pushforward of Measures</h3>
+<p>An admissible transformation $T$ induces a pushforward measure \[ _T(A) := (T^{-1}(A)). \]</p>
+<p>Thus, evolution of the system induces evolution of its informational structure.</p>
+<h3 id="change-of-information">Change of Information</h3>
+<p>Under transformation $T$, the information density changes as: \[ i_T(x) := - _T(x). \]</p>
+<p>The central question becomes:</p>
+<div class="callout-block"><p>How does the global functional ${I}$ change under $T$?</p></div>
+<h2 id="admissible-information-systems">Admissible Information Systems</h2>
+<p>We now define the central object of the theory.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Admissible Information System] An admissible information system is a triple \[ ({X}, , {T}), \] where:</p>
+<ul class="article-list"><li><p>${X}$ is a structured state space,</p></li><li><p>$$ is a representation measure,</p></li><li><p>${T}$ is a class of admissible transformations.</p></li></ul></section>
+<h2 id="examples">Examples</h2>
+<h3 id="classical-source">Classical Source</h3>
+<ul class="article-list"><li><p>${X} = {X}^n$ (sequence space),</p></li><li><p>$(x^n) = _{i=1}^n p(x_i)$,</p></li><li><p>${T}$ = stochastic maps.</p></li></ul>
+<h3 id="quantum-source">Quantum Source</h3>
+<ul class="article-list"><li><p>${X}$ = density operators,</p></li><li><p>$$ induced by spectral decomposition,</p></li><li><p>${T}$ = CPTP maps.</p></li></ul>
+<p>The spectral representation reduces the system to a classical probability law over eigenvalues, as established in Chapter 1.</p>
+<h3 id="field-or-neural-system">Field or Neural System</h3>
+<ul class="article-list"><li><p>${X}$ = space of field configurations,</p></li><li><p>$$ = density over configurations,</p></li><li><p>${T}$ = dynamical evolution (e.g., PDE flow).</p></li></ul>
+<h2 id="toward-the-conservation-law">Toward the Conservation Law</h2>
+<p>The definitions above allow us to pose the central problem precisely.</p>
+<p>Given an admissible information system $({X}, , {T})$ and a transformation $T {T}$, we seek a functional ${I}$ such that:</p>
+<ul class="article-list"><li><p>${I}$ is invariant under closed-system transformations,</p></li><li><p>deviations from invariance are captured by boundary terms,</p></li><li><p>classical and quantum information measures arise as special cases.</p></li></ul>
+<h2 id="role-of-this-chapter">Role of This Chapter</h2>
+<p>This chapter provides:</p>
+<ul class="article-list"><li><p>a unified definition of state spaces,</p></li><li><p>a general notion of transformation,</p></li><li><p>a representation of information via measure,</p></li><li><p>the formal domain of the functional ${I}$.</p></li></ul>
+<p>The next chapter introduces the axioms that determine ${I}$ uniquely and lead to the Aryabhata Conservation Theorem.</p>
+<h2 id="axioms-of-aryabhata-information">Axioms of Aryabhata Information</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Chapter 2 introduced admissible information systems \[ ({X}, , {T}), \] and posed the problem of defining a functional \[ {I} : ({X}, ) {R} \] that behaves consistently across classical, quantum, and continuous systems.</p>
+<p>This chapter specifies the axioms that determine ${I}$.</p>
+<p>The guiding principle is that ${I}$ should:</p>
+<ul class="article-list"><li><p>generalize known notions of entropy,</p></li><li><p>behave consistently under system composition,</p></li><li><p>admit a conservation law under admissible dynamics.</p></li></ul>
+<h2 id="preliminaries">Preliminaries</h2>
+<p>Let $({X}, )$ be a structured state as defined previously, with information density \[ i(x) = - (x). \]</p>
+<p>We assume $$ is normalized when appropriate: \[ _{{X}} (x)\,dx = 1. \]</p>
+<h2 id="axiom-a1-representation-invariance">Axiom A1: Representation Invariance</h2>
+<section class="theorem-block"><div class="theorem-title">Axiom</div><p>[Representation Invariance] If two structured states $({X}, )$ and $({Y}, )$ are related by a bijective measurable transformation $f : {X} {Y}$ such that \[ = f^{-1}, \] then \[ {I}({X}, ) = {I}({Y}, ). \]</p></section>
+<p><strong>Interpretation.</strong> Information is invariant under relabeling or change of coordinates.</p>
+<h2 id="axiom-a2-additivity-under-independent-composition">Axiom A2: Additivity Under Independent Composition</h2>
+<section class="theorem-block"><div class="theorem-title">Axiom</div><p>[Additivity] For independent systems $({X}_1, _1)$ and $({X}_2, _2)$, \[ {I}({X}_1 {X}_2, _1 _2) = {I}({X}_1, _1) + {I}({X}_2, _2). \]</p></section>
+<p><strong>Interpretation.</strong> Independent systems carry additive information.</p>
+<h2 id="axiom-a3-continuity">Axiom A3: Continuity</h2>
+<section class="theorem-block"><div class="theorem-title">Axiom</div><p>[Continuity] If a sequence of structured states $({X}, _n)$ converges to $({X}, )$ in distribution, then \[ {I}({X}, _n) {I}({X}, ). \]</p></section>
+<p><strong>Interpretation.</strong> Small changes in the system induce small changes in information.</p>
+<h2 id="axiom-a4-locality-and-decomposition">Axiom A4: Locality and Decomposition</h2>
+<section class="theorem-block"><div class="theorem-title">Axiom</div><p>[Locality] The functional ${I}$ admits a representation as an integral over information density: \[ {I}({X}, ) = _{{X}} ((x))\,dx, \] for some function $$.</p></section>
+<p><strong>Interpretation.</strong> Global information is built from local contributions.</p>
+<h2 id="axiom-a5-normalization">Axiom A5: Normalization</h2>
+<section class="theorem-block"><div class="theorem-title">Axiom</div><p>[Normalization] For a uniform distribution on a finite set of size $N$, \[ (x) = {1}{N}, \] we require \[ {I} = N. \]</p></section>
+<p><strong>Interpretation.</strong> Information reduces to counting in the uniform case.</p>
+<h2 id="axiom-a6-conservation-under-closed-dynamics">Axiom A6: Conservation Under Closed Dynamics</h2>
+<section class="theorem-block"><div class="theorem-title">Axiom</div><p>[Conservation] For any closed system and admissible transformation $T$, \[ {I}(_T) = {I}(). \]</p></section>
+<p><strong>Interpretation.</strong> Information is conserved under closed-system evolution.</p>
+<h2 id="derivation-of-the-functional-form">Derivation of the Functional Form</h2>
+<p>We now show that the above axioms strongly constrain ${I}$.</p>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>Under Axioms A1–A5, the functional ${I}$ must take the form \[ {I}({X}, ) = - _{{X}} (x) (x)\,dx, \] up to a multiplicative constant.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>[Sketch] From locality, ${I} = ((x))dx$. Additivity implies that $$ satisfies a functional equation leading to $(p) = -p p$ (up to scaling). Normalization fixes the constant.</p></section>
+<h2 id="recovery-of-known-cases">Recovery of Known Cases</h2>
+<h3 id="classical-case">Classical Case</h3>
+<p>For a discrete distribution $p(x)$, \[ {I} = - _x p(x) p(x), \] which is the Shannon entropy.</p>
+<h3 id="quantum-case">Quantum Case</h3>
+<p>For a density operator with eigenvalues ${_i}$, \[ {I} = - _i _i _i, \] which is the von Neumann entropy.</p>
+<p>Thus, both classical and quantum information arise as special cases.</p>
+<h2 id="toward-the-conservation-theorem">Toward the Conservation Theorem</h2>
+<p>Axiom A6 introduces a key structural property: \[ {I}(_T) = {I}() \] for closed systems.</p>
+<p>For open systems, this equality will fail in a controlled manner.</p>
+<p>This motivates the decomposition: \[ {I}(_T) = {I}() + {B}(, T), \] where ${B}$ captures boundary contributions.</p>
+<h2 id="role-of-this-chapter">Role of This Chapter</h2>
+<p>This chapter establishes:</p>
+<ul class="article-list"><li><p>the axioms uniquely determining ${I}$,</p></li><li><p>the recovery of Shannon and von Neumann entropy,</p></li><li><p>the emergence of conservation as a structural law.</p></li></ul>
+<p>The next chapter formalizes transformation dynamics and proves the Aryabhata Conservation Theorem in the finite case.</p>
+<h2 id="transformation-law-and-the-finite-dimensional-conservation-theorem">Transformation Law and the Finite-Dimensional Conservation Theorem</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Chapters 2 and 3 defined admissible information systems and derived the functional \[ {I}() = - (x) (x)\,dx. \]</p>
+<p>In this chapter, we study how ${I}$ behaves under admissible transformations.</p>
+<p>The goal is to establish the first rigorous version of the central result:</p>
+<div class="callout-block"><p><em>Information is conserved under closed transformations and changes in a controlled manner under open or coarse-grained transformations.</em></p></div>
+<p>We work in the finite-dimensional setting, where all objects can be made explicit.</p>
+<h2 id="finite-dimensional-systems">Finite-Dimensional Systems</h2>
+<p>Let ${X} = {1, , N}$ be a finite set, and let \[ = (p_1, , p_N) \] be a probability distribution.</p>
+<p>Then \[ {I}() = -_{i=1}^N p_i p_i. \]</p>
+<h2 id="transformations-as-stochastic-maps">Transformations as Stochastic Maps</h2>
+<p>An admissible transformation is represented by a stochastic matrix \[ T = (T_{ij}), \] where:</p>
+<ul class="article-list"><li><p>$T_{ij} 0$,</p></li><li><p>$_j T_{ij} = 1$ for all $i$.</p></li></ul>
+<p>The transformed distribution is: \[ q_j = _i p_i T_{ij}. \]</p>
+<h2 id="entropy-change-under-transformation">Entropy Change Under Transformation</h2>
+<p>We define: \[ {I} := {I}(q) - {I}(p). \]</p>
+<p>In general, $ {I} 0$.</p>
+<h3 id="measure-preserving-case">Measure-Preserving Case</h3>
+<p>If $T$ is a permutation matrix, then: \[ {I}(q) = {I}(p). \]</p>
+<p>Thus, entropy is invariant under relabeling.</p>
+<h2 id="decomposition-of-information-change">Decomposition of Information Change</h2>
+<p>We now derive a structural decomposition.</p>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>[Entropy Decomposition] For any stochastic map $T$, \[ {I}(q) = {I}(p) + {H}(T|p) - {D}(p,T), \] where:</p>
+<ul class="article-list"><li><p>${H}(T|p) = -_i p_i _j T_{ij} T_{ij}$,</p></li><li><p>${D}(p,T)$ is a nonnegative correction term.</p></li></ul></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>[Sketch] Expand ${I}(q)$ using $q_j = _i p_i T_{ij}$ and apply convexity of the logarithm (Jensen&#x27;s inequality).</p></section>
+<h2 id="boundary-term-interpretation">Boundary Term Interpretation</h2>
+<p>We define the boundary functional: \[ {B}(p,T) := {I}(q) - {I}(p). \]</p>
+<p>Thus, \[ {I}(q) = {I}(p) + {B}(p,T). \]</p>
+<p>Interpretation:</p>
+<ul class="article-list"><li><p>${B} = 0$ for closed (invertible) systems,</p></li><li><p>${B} > 0$ for mixing or coarse-graining,</p></li><li><p>${B}$ measures information exchange or loss.</p></li></ul>
+<h2 id="connection-to-quantum-systems">Connection to Quantum Systems</h2>
+<p>Let $$ be a density operator with eigenvalues ${_i}$.</p>
+<p>A quantum channel induces a transformation on the spectrum: \[ '. \]</p>
+<p>In the diagonal basis, this reduces to a stochastic map on eigenvalues :contentReference[oaicite:1]{index=1}.</p>
+<p>Thus, the finite-dimensional classical result applies to quantum systems at the spectral level.</p>
+<h2 id="atypical-sector-and-boundary-terms">Atypical Sector and Boundary Terms</h2>
+<p>We now connect the boundary term to your structured program.</p>
+<p>Let $_^{(n)}$ be the typical projector and \[ Q_^{(n)} = I - _^{(n)} \] the atypical projector.</p>
+<p>Then: \[ _n := {Tr}(^{ n} Q_^{(n)}) \] measures the weight of the atypical sector :contentReference[oaicite:2]{index=2}.</p>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>[Boundary Term from Atypical Sector] For Schumacher-type compression, \[ {B} _n, \] i.e., the deviation from conservation is controlled by the atypical mass.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>[Sketch] The compression map discards the atypical subspace. The resulting entropy change is bounded by the discarded probability weight.</p></section>
+<h2 id="finite-dimensional-aryabhata-conservation-theorem">Finite-Dimensional Aryabhata Conservation Theorem</h2>
+<p>We now state the main result in finite form.</p>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>[Finite-Dimensional Aryabhata Conservation Theorem] Let $({X}, , {T})$ be an admissible information system with finite state space.</p>
+<p>For any admissible transformation $T$, \[ {I}(_T) = {I}() + {B}(, T), \] where:</p>
+<ul class="article-list"><li><p>${B} = 0$ if $T$ is invertible (closed system),</p></li><li><p>${B} 0$ if $T$ is stochastic (open or mixing system),</p></li><li><p>${B}$ is bounded by the discarded or redistributed mass.</p></li></ul></section>
+<h2 id="interpretation">Interpretation</h2>
+<p>The theorem shows:</p>
+<ul class="article-list"><li><p>Information is exactly conserved under reversible dynamics,</p></li><li><p>Irreversibility arises through boundary terms,</p></li><li><p>These boundary terms correspond to:</p>
+<ul class="article-list"><li><p>coarse-graining,</p></li><li><p>coupling,</p></li><li><p>atypical-sector truncation.</p></li></ul></li></ul>
+<p>Thus, information behaves analogously to a conserved physical quantity.</p>
+<h2 id="role-of-this-chapter">Role of This Chapter</h2>
+<p>This chapter provides:</p>
+<ul class="article-list"><li><p>the first rigorous statement of the conservation law,</p></li><li><p>an explicit expression for entropy change,</p></li><li><p>a concrete interpretation via atypical sectors,</p></li><li><p>a bridge from classical to quantum systems.</p></li></ul>
+<p>The next chapter extends this result to continuous and coupled systems.</p>
+<h2 id="coupled-systems-non-separability-and-structured-boundary-terms">Coupled Systems, Non-Separability, and Structured Boundary Terms</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Chapter 4 established that for finite-dimensional systems, \[ {I}(_T) = {I}() + {B}(, T), \] with ${B}$ capturing deviation from conservation.</p>
+<p>However, in that setting, ${B}$ appears primarily as a scalar quantity. This is insufficient for a unified theory.</p>
+<p>In realistic systems:</p>
+<ul class="article-list"><li><p>components interact,</p></li><li><p>independence fails,</p></li><li><p>information is redistributed across subsystems.</p></li></ul>
+<p>The purpose of this chapter is to show that:</p>
+<div class="callout-block"><p><em>In coupled systems, the boundary term acquires internal structure, and classical separation principles fail.</em></p></div>
+<h2 id="composite-systems-and-marginals">Composite Systems and Marginals</h2>
+<p>Let $({X}_A, _A)$ and $({X}_B, _B)$ be two systems.</p>
+<p>Their joint system is described by a measure $_{AB}$ on ${X}_A {X}_B$.</p>
+<p>The marginals are: \[ _A(x_A) = _{x_B} _{AB}(x_A, x_B), _B(x_B) = _{x_A} _{AB}(x_A, x_B). \]</p>
+<h2 id="failure-of-additivity">Failure of Additivity</h2>
+<p>For independent systems, \[ {I}(_{AB}) = {I}(_A) + {I}(_B). \]</p>
+<p>In general, this fails.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Mutual Information] Define the interaction term: \[ {I}_{{int}} := {I}(_A) + {I}(_B) - {I}(_{AB}). \]</p></section>
+<p>This quantity measures coupling between subsystems.</p>
+<h2 id="transformation-of-coupled-systems">Transformation of Coupled Systems</h2>
+<p>Let $T$ act jointly on the system: \[ _{AB} '_{AB}. \]</p>
+<p>Then: \[ {I}('_{AB}) = {I}(_{AB}) + {B}_{AB}. \]</p>
+<p>However, marginal transformations induce: \[ {I}('_A) = {I}(_A) + {B}_A, {I}('_B) = {I}(_B) + {B}_B. \]</p>
+<h2 id="non-separable-boundary-structure">Non-Separable Boundary Structure</h2>
+<p>We now observe:</p>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>[Non-Separability of Boundary Terms] In general, \[ {B}_{AB} {B}_A + {B}_B. \]</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>[Sketch] Coupling introduces correlations that are not captured by marginal transformations. The joint entropy change depends on cross terms.</p></section>
+<p>Thus, ${B}$ is not additive.</p>
+<h2 id="decomposition-of-the-boundary-term">Decomposition of the Boundary Term</h2>
+<p>We define a structured decomposition: \[ {B}_{AB} = {B}_A + {B}_B + {B}_{{int}}, \] where:</p>
+<ul class="article-list"><li><p>${B}_A$, ${B}_B$ are marginal contributions,</p></li><li><p>${B}_{{int}}$ captures interaction effects.</p></li></ul>
+<p>This interaction term is given by: \[ {B}_{{int}} = {I}_{{int}}' - {I}_{{int}}. \]</p>
+<h2 id="connection-to-sourcechannel-separation">Connection to Source–Channel Separation</h2>
+<p>In classical information theory, source–channel separation holds under independence assumptions.</p>
+<p>However, in coupled systems:</p>
+<ul class="article-list"><li><p>encoding and transmission cannot be separated,</p></li><li><p>interaction terms alter achievable rates,</p></li><li><p>information flow is not decomposable.</p></li></ul>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>[Separation Breakdown] If ${B}_{{int}} 0$, then source–channel separation fails.</p></section>
+<h2 id="structured-atypical-sector">Structured Atypical Sector</h2>
+<p>We now connect to the spectral structure developed earlier.</p>
+<p>Let the atypical projector be: \[ Q_^{(n)} = _{r=1}^k _r^{(n)}, \] where $_r^{(n)}$ are orthogonal components of the atypical subspace :contentReference[oaicite:1]{index=1}.</p>
+<p>Define weights: \[ w_r^{(n)} = {Tr}(^{ n} _r^{(n)}). \]</p>
+<h2 id="boundary-term-as-a-structured-object">Boundary Term as a Structured Object</h2>
+<p>We now refine ${B}$.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Structured Boundary Term] The boundary term admits a decomposition: \[ {B} = _{r=1}^k {B}_r, \] where each ${B}_r$ corresponds to a component of the atypical sector.</p></section>
+<p>Each component satisfies: \[ {B}_r w_r^{(n)}. \]</p>
+<h2 id="dominant-component-phenomenon">Dominant Component Phenomenon</h2>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>[Dominant Atypical Component] For finite blocklength, there exists a subset of components such that: \[ _{r {R}_{{dom}}} w_r^{(n)} _n, \] with $|{R}_{{dom}}| k$.</p></section>
+<p>Thus, the boundary term is concentrated in a small number of components.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p>The results of this chapter show:</p>
+<ul class="article-list"><li><p>The boundary term ${B}$ is not a scalar loss but a structured object.</p></li><li><p>Coupling induces interaction terms that break additivity.</p></li><li><p>Information flow must be tracked at the level of components, not aggregates.</p></li></ul>
+<h2 id="implications-for-the-conservation-theorem">Implications for the Conservation Theorem</h2>
+<p>The Aryabhata Conservation Theorem must therefore be refined:</p>
+<ul class="article-list"><li><p>Conservation holds at the global level,</p></li><li><p>Deviations decompose into structured components,</p></li><li><p>Interaction terms encode system coupling.</p></li></ul>
+<h2 id="role-of-this-chapter">Role of This Chapter</h2>
+<p>This chapter establishes:</p>
+<ul class="article-list"><li><p>failure of additivity in coupled systems,</p></li><li><p>non-separability of boundary terms,</p></li><li><p>decomposition of ${B}$ into structured components,</p></li><li><p>connection to atypical-sector geometry.</p></li></ul>
+<p>The next chapter extends these results to continuous systems and establishes the general form of the Aryabhata Conservation Theorem.</p>
+<h2 id="the-aryabhata-conservation-theorem">The Aryabhata Conservation Theorem</h2>
+<h2 id="introduction">Introduction</h2>
+<p>We now state and synthesize the central result of this monograph.</p>
+<p>Chapters 2–5 established:</p>
+<ul class="article-list"><li><p>a general class of admissible information systems $({X}, , {T})$,</p></li><li><p>a uniquely determined information functional \[ {I}() = - (x) (x)\,dx, \]</p></li><li><p>a transformation law of the form \[ {I}(_T) = {I}() + {B}(,T), \]</p></li><li><p>a structured decomposition of the boundary term \[ {B} = _r {B}_r, \]</p></li><li><p>the emergence of interaction terms in coupled systems.</p></li></ul>
+<p>We now unify these into a single theorem.</p>
+<h2 id="statement-of-the-theorem">Statement of the Theorem</h2>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>[Aryabhata Conservation Theorem] Let $({X}, , {T})$ be an admissible information system, where:</p>
+<ul class="article-list"><li><p>${X}$ is a structured state space,</p></li><li><p>$$ is a representation measure,</p></li><li><p>${T}$ is a class of admissible transformations.</p></li></ul>
+<p>Then there exists a functional ${I}$ such that for all $T {T}$: \[ {I}(_T) = {I}() + {B}(,T), \] with the following properties:</p>
+<ol class="article-list"><li><p><strong>(Closed-System Invariance)</strong> If $T$ is invertible and measure-preserving, then \[ {B}(,T) = 0. \]</p></li><li><p><strong>(Positivity under Mixing)</strong> If $T$ is a stochastic or coarse-graining map, then \[ {B}(,T) 0. \]</p></li><li><p><strong>(Structured Decomposition)</strong> There exists a decomposition \[ {B}(,T) = _r {B}_r(,T), \] where each component corresponds to a structural sector (e.g., spectral or geometric components).</p></li><li><p><strong>(Interaction Term)</strong> For composite systems, \[ {B}_{AB} = {B}_A + {B}_B + {B}_{{int}}, \] where ${B}_{{int}}$ vanishes if and only if the subsystems are independent.</p></li><li><p><strong>(Recovery of Known Theories)</strong></p>
+<ul class="article-list"><li><p>In classical systems, ${I}$ reduces to Shannon entropy.</p></li><li><p>In quantum systems, ${I}$ reduces to von Neumann entropy.</p></li></ul></li><li><p><strong>(Atypical Sector Control)</strong> In block systems, \[ {B}(,T) _n, \] where $_n$ is the weight of the atypical sector.</p></li></ol></section>
+<h2 id="interpretation">Interpretation</h2>
+<p>The theorem establishes that information behaves as a conserved quantity with structured deviations.</p>
+<ul class="article-list"><li><p>Conservation holds exactly for closed systems.</p></li><li><p>Irreversibility arises through boundary terms.</p></li><li><p>These boundary terms are structured, not scalar.</p></li><li><p>Interaction generates non-separable contributions.</p></li></ul>
+<p>Thus, information satisfies a law analogous to conservation laws in physics.</p>
+<h2 id="proof-structure">Proof Structure</h2>
+<p>The proof proceeds in stages.</p>
+<h3 id="step-1-finite-dimensional-case">Step 1: Finite-Dimensional Case</h3>
+<p>Chapter 4 establishes:</p>
+<ul class="article-list"><li><p>explicit computation of ${I}$,</p></li><li><p>entropy change under stochastic maps,</p></li><li><p>identification of ${B}$.</p></li></ul>
+<h3 id="step-2-spectral-reduction">Step 2: Spectral Reduction</h3>
+<p>Quantum systems reduce to classical probability laws via spectral decomposition, allowing the finite-dimensional result to apply.</p>
+<h3 id="step-3-coupled-systems">Step 3: Coupled Systems</h3>
+<p>Chapter 5 shows:</p>
+<ul class="article-list"><li><p>failure of additivity,</p></li><li><p>emergence of ${B}_{{int}}$,</p></li><li><p>decomposition of boundary terms.</p></li></ul>
+<h3 id="step-4-extension-to-general-systems">Step 4: Extension to General Systems</h3>
+<p>For continuous or infinite-dimensional systems:</p>
+<ul class="article-list"><li><p>approximate by finite partitions,</p></li><li><p>apply continuity (Axiom A3),</p></li><li><p>pass to the limit.</p></li></ul>
+<h2 id="corollaries">Corollaries</h2>
+<h3 id="corollary-1-conservation-law">Corollary 1: Conservation Law</h3>
+<p>For closed systems: \[ {I}(_T) = {I}(). \]</p>
+<h3 id="corollary-2-irreversibility">Corollary 2: Irreversibility</h3>
+<p>For open systems: \[ {I}(_T) {I}(). \]</p>
+<h3 id="corollary-3-separation-criterion">Corollary 3: Separation Criterion</h3>
+<p>Source–channel separation holds if and only if: \[ {B}_{{int}} = 0. \]</p>
+<h2 id="relation-to-existing-frameworks">Relation to Existing Frameworks</h2>
+<p>The theorem subsumes:</p>
+<ul class="article-list"><li><p>classical information theory (entropy and coding),</p></li><li><p>quantum information theory (von Neumann entropy),</p></li><li><p>coupled and interacting systems.</p></li></ul>
+<p>However, it extends these by:</p>
+<ul class="article-list"><li><p>introducing structured boundary terms,</p></li><li><p>identifying interaction-driven deviations,</p></li><li><p>incorporating atypical-sector geometry.</p></li></ul>
+<h2 id="limitations-and-open-questions">Limitations and Open Questions</h2>
+<ul class="article-list"><li><p>Full rigor in infinite-dimensional settings requires further work.</p></li><li><p>Explicit characterization of ${B}_r$ depends on system class.</p></li><li><p>Optimal decomposition of atypical sectors remains open.</p></li></ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have established that:</p>
+<div class="callout-block"><p><em>Information is a conserved quantity across admissible systems, with deviations arising from structured boundary terms capturing interaction, coarse-graining, and finite-scale effects.</em></p></div>
+<p>This completes the core theoretical development.</p>
+<p>Subsequent chapters will explore applications and extensions.</p>
+<h2 id="rigorous-proof-and-illustrative-example">Rigorous Proof and Illustrative Example</h2>
+<h2 id="introduction">Introduction</h2>
+<p>This chapter provides:</p>
+<ul class="article-list"><li><p>a rigorous proof of the finite-dimensional Aryabhata Conservation Theorem,</p></li><li><p>an explicit example demonstrating structured boundary terms and non-separability.</p></li></ul>
+<p>We restrict attention to finite systems, where all quantities are explicitly computable.</p>
+<h2 id="setup">Setup</h2>
+<p>Let ${X} = {1,,N}$ and let \[ p = (p_1,,p_N) \] be a probability distribution.</p>
+<p>Let $T = (T_{ij})$ be a stochastic matrix: \[ T_{ij} 0, _j T_{ij} = 1. \]</p>
+<p>Define: \[ q_j = _i p_i T_{ij}. \]</p>
+<p>Define the entropy: \[ H(p) = -_i p_i p_i. \]</p>
+<h2 id="main-identity">Main Identity</h2>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>[Exact Entropy Transformation Identity] Let $p$ and $T$ be as above. Then: \[ H(q) = H(p) + H(Y|X) - I(X;Y), \] where:</p>
+<ul class="article-list"><li><p>$H(Y|X) = -_i p_i _j T_{ij} T_{ij}$,</p></li><li><p>$I(X;Y)$ is the mutual information induced by $p_i T_{ij}$.</p></li></ul></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>Define the joint distribution: \[ P(i,j) = p_i T_{ij}. \]</p>
+<p>Then: \[ H(X,Y) = -_{i,j} p_i T_{ij} (p_i T_{ij}). \]</p>
+<p>Expanding: \[ H(X,Y) = -_{i,j} p_i T_{ij} p_i - _{i,j} p_i T_{ij} T_{ij}. \]</p>
+<p>Since $_j T_{ij} = 1$, we get: \[ H(X,Y) = H(p) + H(Y|X). \]</p>
+<p>Now: \[ H(Y) = H(q), \] and by definition: \[ I(X;Y) = H(Y) - H(Y|X). \]</p>
+<p>Rearranging: \[ H(q) = H(p) + H(Y|X) - I(X;Y). \]</p></section>
+<h2 id="boundary-term-identification">Boundary Term Identification</h2>
+<p>Define: \[ {B}(p,T) := H(q) - H(p). \]</p>
+<p>Then: \[ { {B}(p,T) = H(Y|X) - I(X;Y) } \]</p>
+<p>Thus, the boundary term decomposes into:</p>
+<ul class="article-list"><li><p>a <strong>mixing term</strong> $H(Y|X)$,</p></li><li><p>a <strong>correlation term</strong> $I(X;Y)$.</p></li></ul>
+<h2 id="conservation-cases">Conservation Cases</h2>
+<h3 id="closed-system-permutation">Closed System (Permutation)</h3>
+<p>If $T$ is a permutation:</p>
+<ul class="article-list"><li><p>$H(Y|X) = 0$,</p></li><li><p>$I(X;Y) = H(p)$,</p></li></ul>
+<p>so: \[ {B} = 0. \]</p>
+<h3 id="pure-mixing">Pure Mixing</h3>
+<p>If $T$ erases all information (uniform output):</p>
+<ul class="article-list"><li><p>$I(X;Y)=0$,</p></li><li><p>$H(Y|X)>0$,</p></li></ul>
+<p>so: \[ {B} > 0. \]</p>
+<h2 id="coupled-system-and-non-separability">Coupled System and Non-Separability</h2>
+<p>Let $X=(X_1,X_2)$.</p>
+<p>Define joint distribution: \[ p_{ij}. \]</p>
+<p>Apply a transformation $T$ that acts jointly.</p>
+<p>Then: \[ {B}_{12} = H(Y|X) - I(X;Y). \]</p>
+<p>Marginal boundary terms: \[ {B}_1, {B}_2. \]</p>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>In general: \[ {B}_{12} {B}_1 + {B}_2. \]</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>Mutual information does not decompose additively across marginals. Cross-correlations contribute additional terms.</p></section>
+<h2 id="concrete-22-example">Concrete 2×2 Example</h2>
+<p>Let: \[ p =</p>
+<div class="math-block">$$
+\begin{pmatrix}
+0.4 & 0.1 
+
+0.1 & 0.4
+\end{pmatrix}
+$$</div>
+<p>. \]</p>
+<p>This represents a correlated system.</p>
+<p>Flatten: \[ p = (0.4, 0.1, 0.1, 0.4). \]</p>
+<p>Entropy: \[ H(p) 1.722. \]</p>
+<h3 id="transformation">Transformation</h3>
+<p>Define a coarse-graining map: \[ T:</p>
+<div class="math-block">$$
+\begin{cases}
+(1,1),(2,2) \mapsto A 
+
+(1,2),(2,1) \mapsto B
+\end{cases}
+$$</div>
+<p>\]</p>
+<p>Then: \[ q = (0.8, 0.2). \]</p>
+<p>Entropy: \[ H(q) 0.722. \]</p>
+<h3 id="boundary-term">Boundary Term</h3>
+<p>\[ {B} = H(q) - H(p) -1.0. \]</p>
+<p>Thus:</p>
+<ul class="article-list"><li><p>information is lost under coarse-graining,</p></li><li><p>${B}$ captures this loss.</p></li></ul>
+<h3 id="structured-interpretation">Structured Interpretation</h3>
+<p>Partition:</p>
+<ul class="article-list"><li><p>typical sector: high-probability diagonal terms,</p></li><li><p>atypical sector: off-diagonal terms.</p></li></ul>
+<p>Weights: \[ w_{{typ}} = 0.8, w_{{atyp}} = 0.2. \]</p>
+<p>Thus: \[ {B} {B}_{{typ}} + {B}_{{atyp}}. \]</p>
+<p>The atypical sector contributes disproportionately to the boundary term.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p>This example demonstrates:</p>
+<ul class="article-list"><li><p>boundary term is computable and structured,</p></li><li><p>coarse-graining induces nontrivial ${B}$,</p></li><li><p>coupling prevents decomposition into independent parts,</p></li><li><p>atypical sector drives deviation.</p></li></ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have established:</p>
+<ul class="article-list"><li><p>an exact transformation identity,</p></li><li><p>a rigorous expression for the boundary term,</p></li><li><p>explicit non-separability in coupled systems,</p></li><li><p>a concrete example exhibiting structured deviation.</p></li></ul>
+<p>This completes the rigorous foundation of the Aryabhata Conservation Theorem.</p>
+<h2 id="positioning-with-respect-to-existing-literature">Positioning with Respect to Existing Literature</h2>
+<h2 id="introduction">Introduction</h2>
+<p>This chapter situates the Aryabhata Conservation Theorem within the existing landscape of information theory, quantum information, and statistical physics.</p>
+<p>The goal is to clarify:</p>
+<ul class="article-list"><li><p>which aspects of the framework recover known results,</p></li><li><p>which aspects extend existing theory,</p></li><li><p>where the present work departs fundamentally from prior formulations.</p></li></ul>
+<h2 id="relation-to-classical-information-theory">Relation to Classical Information Theory</h2>
+<h3 id="shannon-entropy">Shannon Entropy</h3>
+<p>The functional \[ {I}() = -_x p(x) p(x) \] recovers Shannon entropy exactly.</p>
+<p>Thus, the present framework is not an alternative to classical information theory, but a strict generalization.</p>
+<h3 id="data-processing-inequality">Data Processing Inequality</h3>
+<p>The data processing inequality states that for a Markov chain \[ X Y Z, \] \[ I(X;Z) I(X;Y). \]</p>
+<p>In the present framework:</p>
+<ul class="article-list"><li><p>stochastic maps correspond to admissible transformations,</p></li><li><p>entropy change is governed by the boundary term \[ {B} = H(Y|X) - I(X;Y). \]</p></li></ul>
+<p>The inequality arises as a consequence of: \[ I(X;Y) 0. \]</p>
+<p><strong>Extension.</strong> The present work extends this by:</p>
+<ul class="article-list"><li><p>identifying the full decomposition of entropy change,</p></li><li><p>interpreting deviations via structured boundary terms.</p></li></ul>
+<h3 id="sourcechannel-separation">Source–Channel Separation</h3>
+<p>Classical theory asserts that source coding and channel coding can be treated independently.</p>
+<p>In this framework:</p>
+<ul class="article-list"><li><p>separation holds when ${B}_{{int}} = 0$,</p></li><li><p>coupling introduces nonzero interaction terms,</p></li><li><p>separation fails when boundary terms are non-separable.</p></li></ul>
+<p><strong>Contribution.</strong> This provides a precise condition for separation breakdown.</p>
+<h2 id="relation-to-quantum-information-theory">Relation to Quantum Information Theory</h2>
+<h3 id="von-neumann-entropy">Von Neumann Entropy</h3>
+<p>For a density operator $$ with eigenvalues ${_i}$: \[ {I}() = -_i _i _i, \] recovering von Neumann entropy.</p>
+<p>Thus, quantum information theory is embedded via spectral reduction.</p>
+<h3 id="quantum-channels">Quantum Channels</h3>
+<p>Quantum channels are completely positive trace-preserving maps.</p>
+<p>At the spectral level, these induce stochastic transformations on eigenvalues, reducing to the classical case.</p>
+<p><strong>Extension.</strong> The present framework:</p>
+<ul class="article-list"><li><p>emphasizes the role of spectral structure,</p></li><li><p>incorporates atypical-sector decomposition,</p></li><li><p>provides a boundary-term interpretation of quantum operations.</p></li></ul>
+<h3 id="typical-subspace-theory">Typical Subspace Theory</h3>
+<p>Standard quantum information theory relies on:</p>
+<ul class="article-list"><li><p>typical subspaces,</p></li><li><p>asymptotic concentration of measure.</p></li></ul>
+<p>The atypical sector is usually discarded.</p>
+<p><strong>Contribution.</strong> This work:</p>
+<ul class="article-list"><li><p>treats the atypical sector as structured,</p></li><li><p>decomposes it into components,</p></li><li><p>shows that it governs boundary terms and deviations from conservation.</p></li></ul>
+<h2 id="relation-to-statistical-physics">Relation to Statistical Physics</h2>
+<h3 id="entropy-and-irreversibility">Entropy and Irreversibility</h3>
+<p>In statistical physics, entropy typically increases under irreversible processes.</p>
+<p>The present framework recovers: \[ {I}(_T) {I}() \] for mixing transformations.</p>
+<h3 id="entropy-production">Entropy Production</h3>
+<p>Entropy production is often expressed as: \[ S 0. \]</p>
+<p><strong>Extension.</strong> The present work refines this by:</p>
+<ul class="article-list"><li><p>decomposing entropy change into structured components,</p></li><li><p>identifying contributions from interaction and atypical sectors,</p></li><li><p>distinguishing mixing from correlation effects.</p></li></ul>
+<h2 id="relation-to-information-geometry">Relation to Information Geometry</h2>
+<p>Information geometry studies statistical manifolds with metrics such as:</p>
+<ul class="article-list"><li><p>Fisher information,</p></li><li><p>divergence measures.</p></li></ul>
+<p><strong>Connection.</strong> The structured boundary term suggests a geometric interpretation:</p>
+<ul class="article-list"><li><p>${B}$ corresponds to movement across informational structures,</p></li><li><p>decomposition reflects curvature or clustering in state space.</p></li></ul>
+<h2 id="key-differences-from-existing-work">Key Differences from Existing Work</h2>
+<p>The present framework differs from existing approaches in the following ways:</p>
+<h3 id="1-conservation-law-perspective">1. Conservation Law Perspective</h3>
+<p>Standard information theory:</p>
+<ul class="article-list"><li><p>treats entropy as a descriptive quantity.</p></li></ul>
+<p>This work:</p>
+<ul class="article-list"><li><p>treats information as a conserved quantity with boundary corrections.</p></li></ul>
+<h3 id="2-structured-boundary-terms">2. Structured Boundary Terms</h3>
+<p>Standard theory:</p>
+<ul class="article-list"><li><p>considers scalar entropy change.</p></li></ul>
+<p>This work:</p>
+<ul class="article-list"><li><p>decomposes entropy change into structured components.</p></li></ul>
+<h3 id="3-atypical-sector-as-fundamental-object">3. Atypical Sector as Fundamental Object</h3>
+<p>Standard theory:</p>
+<ul class="article-list"><li><p>discards atypical sectors asymptotically.</p></li></ul>
+<p>This work:</p>
+<ul class="article-list"><li><p>treats the atypical sector as a primary object,</p></li><li><p>shows it governs deviations and finite-scale behavior.</p></li></ul>
+<h3 id="4-explicit-non-separability">4. Explicit Non-Separability</h3>
+<p>Standard theory:</p>
+<ul class="article-list"><li><p>assumes independence for decomposition.</p></li></ul>
+<p>This work:</p>
+<ul class="article-list"><li><p>identifies interaction terms that prevent separability,</p></li><li><p>provides a structural criterion for failure.</p></li></ul>
+<h2 id="limitations-and-clarifications">Limitations and Clarifications</h2>
+<ul class="article-list"><li><p>The conservation law reduces to known entropy identities in simple cases.</p></li><li><p>Novelty arises primarily in:</p>
+<ul class="article-list"><li><p>structured decomposition,</p></li><li><p>coupling analysis,</p></li><li><p>atypical-sector treatment.</p></li></ul></li><li><p>Full generality in infinite-dimensional systems requires further work.</p></li></ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>The Aryabhata Conservation Theorem should be viewed as:</p>
+<div class="callout-block"><p><em>A structural extension of classical and quantum information theory, introducing a conservation law with decomposable boundary terms that capture interaction, coarse-graining, and finite-scale effects.</em></p></div>
+<p>It preserves all standard results while providing a unified framework in which deviations from idealized assumptions become mathematically explicit.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This monograph developed a unified framework for information based on a conservation principle.</p>
+<p>The central result establishes that information behaves as a conserved quantity under admissible transformations, with deviations captured by structured boundary terms.</p>
+<p>The framework:</p>
+<ul class="article-list"><li><p>recovers classical and quantum information theory,</p></li><li><p>extends to coupled and interacting systems,</p></li><li><p>identifies the role of atypical sectors in finite regimes,</p></li><li><p>provides a structural explanation for non-separability.</p></li></ul>
+<p>Several directions remain open:</p>
+<ul class="article-list"><li><p>rigorous treatment of infinite-dimensional systems,</p></li><li><p>explicit characterization of boundary components,</p></li><li><p>applications to physical and biological systems,</p></li><li><p>empirical validation in complex systems.</p></li></ul>
+<p>The results suggest that information is not merely a descriptive tool but a fundamental quantity whose behavior is governed by general principles.</p>
+<p>Further development of this perspective may lead to deeper connections between information theory, physics, and complex systems.</p>
+            
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

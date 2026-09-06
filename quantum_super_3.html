@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head><link href="favicon.png" rel="icon"/>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>क्वांटम सुपरकंप्यूटिंग - REAL संस्थान</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: #daa520;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header .essence {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 15px;
+        }
+        
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .publication-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .authors {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .publication-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #888;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .abstract {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1a1a2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+        }
+        
+        .pub-link.zenodo {
+            background: #1e5a96;
+        }
+        
+        .pub-link.zenodo:hover {
+            background: #2872b8;
+        }
+        
+        .pub-link.journal {
+            background: #6a4c93;
+        }
+        
+        .pub-link.journal:hover {
+            background: #8b5fb0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 24px;
+            background: #f0f0ed;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #e0e0dd;
+        }
+        
+        .integration-note {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .integration-note h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .integration-note p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .publication-card {
+                padding: 25px;
+            }
+            
+            .publication-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+<style>
+body { font-family: 'Noto Serif Devanagari', 'Nirmala UI', 'Mangal', 'Kokila', Georgia, 'Times New Roman', serif; }
+</style>    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div class="header">
+<div class="breadcrumb">
+<a href="index.html">मुख्य पृष्ठ</a> / <a href="quantum_super_3.html">अनुसंधान प्रयोगशाला</a> / Quantum Supercomputing
+        </div>
+<div class="category-icon">⧈</div>
+<h1>क्वांटम सुपरकंप्यूटिंग</h1>
+<p class="essence">रूपांतरण के लिए सुपरपोज़िशन का उपयोग</p>
+<p class="description">Investigating computational states that exist in multiple configurations simultaneously—mirroring the quantum nature of consciousness itself.</p>
+</div>
+<div class="container" data-pagefind-body data-pagefind-filter="type:Research">
+<a class="back-link" href="index.html#research-divisions">← अनुसंधान प्रयोगशाला पर वापस जाएं</a>
+<h2 class="section-title">प्रकाशन और प्रीप्रिंट</h2>
+<div class="publications-list">
+<!-- Publication 1 -->
+<div class="publication-card">
+<h3>Architecture of a Brain-Inspired Quantum Supercomputer and its Separation From Consciousness</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this note, the authors propose a quantum supercomputer. We propose to base our architecture on the  multi-computer supercomputer architecture,  Kitaev's quantum computation model and  [&#2409;, &#2410;].  For the basic electronics we propose a quantum version of operational amplifier axons.  Finally,  we propose to  measure its quantum-phi quantity so as to measure its distance from genuine consciousness.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/14909052" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/14909052/files/brainsuperv4forZenodo.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 2 -->
+<div class="publication-card">
+<h3>On the Role of Algorithms in Quantum Computing</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this note, the author proffers a view on the definition of algorithms, in the quantum context.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/15795099" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/15795099/files/qAlgosv2forZenodo.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+</div>
+<div class="integration-note">
+<h3>यह अनुसंधान कैसे समेकित होता है</h3>
+<p>Quantum supercomputers leverage superposition—existing in many states at once—to solve problems intractable for classical machines. Similarly, meditative consciousness can hold multiple perspectives simultaneously without collapsing into dualistic thinking. Both quantum and contemplative states transcend binary logic, accessing a dimension where "both/and" replaces "either/or."</p>
+</div>
+</div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Information Theory and Direction Selectivity - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Information Theory and Direction Selectivity</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this preliminary AI note, we present a unified perspective on structured source cod- ing (SSC) and structured channel coding (SCC), forming a cohesive framework that extends classical Shannon theory. The central thesis is that atypical and error events possess internal geometric structure that can be exploited via clustering. This leads to a tunable refinement of rate–distortion and reliability tradeoffs. Classical Shannon theory emerges as a limiting case corresponding to vanishing structural resolution. Introduction Classical information theory, as developed by Shannon, is built upon a binary abstraction: events are either typical or atypical, decoding either succeeds or fails. This abstraction has proven re- markably powerful, yielding fundamental limits such as entropy and channel capacity. However, it also imposes a coarse description of the underlying probabilistic geometry. In this note, we develop a refined perspective in which atypical and error sets are endowed with internal structure. Rather than treating these sets as monolithic objects, we decompose them into clusters, each carrying distinct probabilistic weight and geometric significance. This leads to a framework we term Post-Shannon Information Theory, where performance metrics are defined not merely in terms of total error probability but in terms of structured error profiles. Geometric Structure of Atypical Sets Let Xn be an i.i.d. source with entropy H(X). Classical theory defines the atypical set B(n) ϵ as the complement of the typical set, with total probability at most ϵ. This set is treated as a single entity. In the structured framework, we partition B(n) ϵ into k clusters: B(n) ϵ = k[ i=1 Ci. Each cluster Ci corresponds to a region of the probability simplex with similar statistical properties. We define the granularity parameter χ via the relation between k and n, capturing the resolution of clustering. The dominant cluster probability D = max i P(Ci) 1</p> <p>serves as the refined measure of atypicality. Under suitable constructions, one obtains bounds of the form D ≤min  ϵ, 22nϵ k  . This shows that increasing k reduces the effective worst-case mass within the atypical region. Structured Source Coding In SSC, the encoder is designed not merely to cover the typical set but to resolve the internal structure of the atypical set. This yields a refined rate expression: R = (1 + χ)(H(X) + ϵ). Here χ &gt; 0 quantifies the additional rate required to distinguish clusters within the atypical set. The key insight is that compression performance is governed not just by the total probability of atypical sequences, but by how this probability is distributed. By isolating dominant clusters, one can achieve improved robustness against rare but structured deviations. Structured Channel Coding A parallel construction applies in channel coding. Consider a coding scheme with a first phase producing a decoding-error set E(T1). Classical analysis treats this set as a whole. In SCC, we partition E(T1) into clusters corresponding to distinct decoding ambiguities. Feed- back is then used to resolve cluster-level uncertainty rather than arbitrary errors. The reliability function is redefined in terms of dominant-cluster error probability. This leads to an enhanced reliability exponent Estruc, which exceeds the classical exponent under the structured metric. The improvement arises from focusing resources on the most probable error modes. Beyond the Monolithic Paradigm The structured framework departs from classical theory in several key ways: • Atypical Sets: No longer treated as uniform; instead decomposed into clusters with hetero- geneous mass. • Error Metrics: Errors are ranked by cluster significance rather than treated uniformly. • Reliability: Defined with respect to dominant clusters, enabling finer guarantees. • Granularity: Controlled by χ, allowing a continuum between coarse and fine descriptions. This shift reveals a hidden layer of structure between asymptotic limits and finite-blocklength behavior. 2</p> <p>6 Large Deviations and Geometry The effectiveness of clustering is grounded in large deviations theory. Sanov’s theorem implies that empirical distributions concentrate near low-divergence regions, leading to non-uniform density within atypical sets. This geometric concentration suggests that atypical sets are not amorphous but exhibit ridges and clusters aligned with rate-function level sets. Clustering aligns coding strategies with this geometry. Empirical Scaling Laws Empirical studies for Bernoulli sources reveal scaling laws of the form D ≈ϵ1+χ, indicating that clustering exploits intrinsic non-uniformity. This scaling demonstrates that struc- tured coding can significantly reduce dominant error probabilities relative to total error probability. Consistency with Shannon Theory A crucial requirement of any extension is consistency with established results. In the limit χ →0, clustering vanishes, and the structured framework reduces to classical theory: • SSC recovers the Shannon rate H(X). • SCC recovers classical reliability functions. Thus, Shannon theory appears as a boundary case of a richer continuum indexed by χ. Interpretation as a Resolution Parameter The parameter χ can be interpreted as a resolution knob controlling how finely one probes the geometry of atypical sets. At χ = 0, one observes only aggregate behavior. As χ increases, finer structural features become accessible. This suggests an analogy with statistical physics, where macroscopic observables emerge from coarse-graining microscopic states. Here, Shannon theory corresponds to maximal coarse-graining, while structured theory introduces intermediate scales. Implications and Future Directions The Post-Shannon framework opens several avenues: • Finite Blocklength Analysis: Structured metrics may yield tighter bounds than classical approximations. • Feedback Systems: Cluster-aware feedback can improve reliability and latency. • Network Information Theory: Multi-user systems may benefit from structured interfer- ence resolution. • Neuroscience and Biology: Systems with analog mixing (e.g., ephaptic coupling) naturally exhibit structured ambiguity. 3</p> <p>11 Conclusion We have outlined a unified framework integrating structured source and channel coding into a broader theory that extends Shannon’s paradigm. By recognizing and exploiting the internal ge- ometry of atypical and error sets, one obtains refined tradeoffs and new operational insights. This perspective does not overturn classical information theory but situates it as a limiting case. The introduction of a structural parameter χ reveals a continuum of theories, bridging the gap between asymptotic limits and practical regimes.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Information_Theory_and_Direction_Selectivity.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

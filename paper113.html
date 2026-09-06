@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Geometric Application of Bell's Perturbative Theorems - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Geometric Application of Bell's Perturbative Theorems</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this paper, the authors enhance the theoretical basis for three di- mensional ephaptic synchronization. This is done as an application of the theorems of perturbative coupling, proven by Jonathan Bell, extended to the three-dimensional geometric setting. Jonathan Bell, in [1], has provided the conditions under which coupled ephaptic propagation takes place on two parallel bers. In this work we investigate his theorems and extract from them the conditions that would be needed to apply them to the case of three dimensional tracts. These three dimensional tracts were introduced in [2, 3]. The geometry is incorporated by a phenomenologically introduced (and later justied (in [4])) W-matrix and axonal inclinations. By making a table of correspondence between the variables in [2] and those in Bell's referred work, and changing appropriately to the traveling frame, we get the following observation. The axonal inclinations must be small and, if we assume the inclinations are smaller than say 30 degrees then MATLAB (see Algorithm 1) veries that the extracellular conductance must be larger than the axoplasmic conductances (for most choices of other parameters), and there must be a linear relation between axoplasmic conductance and capacitance. These mathematical observations based on Bell's work validate our simula- tions of the programs developed in 2019 and 2021 wherein, if axonal inclinations were made too large, the output fell out of the boundaries of synchronized or synchronizing propagation. In conclusion, the use of pre-established theory shows that the work on ephaptic coupling in geometric conditions is also well founded. References [1] Jonathan Bell. Modeling parallel, unmyelinated axons: pulse trapping and ephaptic transmission. SIAM Journal on Applied Mathematics, 41(1):168 180, 1981. 1</p> <p>Algorithm 1 Matlab code for verifying the relations between the conductances and capacitances for coupling to take place. c l o s e a l l ; c l e a r a l l ; c l c ; c l f ; G1ax = linspace ( 0 , 0 . 1 , 1 0 ) ; theta1 = linspace (0 ,90 ,10); theta2 = linspace (0 ,90 ,10); G2ax = linspace ( 0 , 0 . 1 , 1 0 ) ; Gext = linspace ( 0 , 0 . 1 , 1 0 ) ; C1 = 3.14 e =9; W11 = 1; K1 = G1ax .* cosd ( theta1 ) . / [ Gext+G1ax . * cosd ( theta1)+G2ax . * cosd ( theta2 ) ] y = C1 . / [ ( G1ax . * ( cosd ( theta1 )).^2).*(1 =W11.*K1 ) ] f i g u r e (1) G1ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; theta1 = 90* rand (1);% linspace (0 ,90 ,10); theta2 = 90* rand (1);% linspace (0 ,90 ,10); G2ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; Gext = linspace ( 0 , 0 . 1 , 1 0 ) ; C1 = 3.14 e =9; W11 = 1; K1 = G1ax .* cosd ( theta1 ) . / [ Gext+G1ax . * cosd ( theta1)+G2ax . * cosd ( theta2 ) ] y = C1 . / [ ( G1ax . * ( cosd ( theta1 )).^2).*(1 =W11.*K1 ) ] plot (Gext , y ) ; f i g u r e (2) G1ax = linspace ( 0 , 0 . 1 , 1 0 ) ; theta1 = 90* rand (1);% linspace (0 ,90 ,10); theta2 = 90* rand (1);% linspace (0 ,90 ,10); G2ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; Gext = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; C1 = 3.14 e =9; W11 = 1; K1 = G1ax .* cosd ( theta1 ) . / [ Gext+G1ax . * cosd ( theta1)+G2ax . * cosd ( theta2 ) ] y = C1 . / [ ( G1ax . * ( cosd ( theta1 )).^2).*(1 =W11.*K1 ) ] plot (G1ax , y) f i g u r e (3) G1ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; theta1 = 90* rand (1);% linspace (0 ,90 ,10); theta2 = 90* rand (1);% linspace (0 ,90 ,10); G2ax = linspace ( 0 , 0 . 1 , 1 0 ) ; Gext = 0.1* rand ( 1 ) ; C1 = 3.14 e =9; W11 = 1; K1 = G1ax .* cosd ( theta1 ) . / [ Gext+G1ax . * cosd ( theta1)+G2ax . * cosd ( theta2 ) ] y = C1 . / [ ( G1ax . * ( cosd ( theta1 )).^2).*(1 =W11.*K1 ) ] plot (G2ax , y ) ; 2</p> <p>Algorithm 2 Continuation of Algorithm 1. f i g u r e (4) G1ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; theta1 = linspace (0 ,90 ,10); theta2 = 90* rand (1);% linspace (0 ,90 ,10); G2ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; Gext = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; C1 = 3.14 e =9; W11 = 1; K1 = G1ax .* cosd ( theta1 ) . / [ Gext+G1ax . * cosd ( theta1)+G2ax . * cosd ( theta2 ) ] y = C1 . / [ ( G1ax . * ( cosd ( theta1 )).^2).*(1 =W11.*K1 ) ] plot ( theta1 , y ) ; f i g u r e (5) G1ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; theta1 = 90* rand (1);% linspace (0 ,90 ,10); theta2 = linspace (0 ,90 ,10); G2ax = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; Gext = 0.1* rand (1);% linspace ( 0 , 0 . 1 , 1 0 ) ; C1 = 3.14 e =9; W11 = 1; K1 = G1ax .* cosd ( theta1 ) . / [ Gext+G1ax . * cosd ( theta1)+G2ax . * cosd ( theta2 ) ] y = C1 . / [ ( G1ax . * ( cosd ( theta1 )).^2).*(1 =W11.*K1 ) ] plot ( theta2 , y ) ; %%%% f i g u r e (6) r a t i o = 0 . 5 ; r f = 1.27 e8 ; r0 = r a t i o * r f ; gm = 5.6 e =9; % per Ohm=cm ( both ) cnd = 3.14 e =9; % F/cm gnd = 0; theta1 = 5; theta2 = 6; G2ax = linspace (0 ,0.9 e =8 ,10); G1ax = G2ax ; Gext = 2*G1ax ; c2 = G2ax = (G2ax ) . ^ 2 . / [ Gext+G1ax+G2ax ] plot (G2ax , c2 ) 3</p> <p>[2] Aman Chawla, Salvatore Morgera, and Arthur Snider. On axon interaction and its role in neurological networks. IEEE/ACM Transactions on Compu- tational Biology and Bioinformatics, 2019. [3] Aman Chawla, Salvatore D. Morgera, and Arthur D. Snider. Fields, geom- etry, and their impact on axon interaction. Journal of Applied Mathematics and Physics, 9(4):751778, 2021. [4] Aman Chawla and Salvatore Domenic Morgera. On the geometry of inter- acting axon tracts in relation to their functional properties. bioRxiv, 2022.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Geometric_Application_of_Bell_s_Perturbative_Theorems.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

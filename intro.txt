@@ -1,0 +1,169 @@
+===============================================================================
+                        WELCOME TO LEIBNITZ 6.0
+            AN INTRODUCTORY GUIDE FOR NEW USERS & DEVELOPERS
+===============================================================================
+
+Welcome to Leibnitz 6.0! 
+
+If you are new to Leibnitz, follow the 4-step PRELIMINARY DEFAULT PATH below. 
+It works out-of-the-box on any new computer (Linux, Windows, or macOS) with 
+zero prior setup required!
+
+-------------------------------------------------------------------------------
+⚡ PRELIMINARY DEFAULT PATH (QUICK 60-SECOND STARTUP FOR NEW USERS)
+-------------------------------------------------------------------------------
+
+Step 1: Open your Terminal (or Command Prompt) and run the installer command:
+
+  For Linux / macOS:
+  python3 -c "import urllib.request; req=urllib.request.Request('https://leibnitz6.onrender.com/install.py', headers={'User-Agent': 'Mozilla/5.0'}); exec(urllib.request.urlopen(req).read())"
+
+  For Windows:
+  python -c "import urllib.request; req=urllib.request.Request('https://leibnitz6.onrender.com/install.py', headers={'User-Agent': 'Mozilla/5.0'}); exec(urllib.request.urlopen(req).read())"
+
+  [Notes for New Users]:
+  - Runs on Fresh Machines: The one-liner automatically downloads required Python packages and client modules (no manual git clone required).
+  - Alternative Web Endpoint: Also available at https://yogoreal.net/install.py
+  - Existing Repository Users: If you already have the repository files locally, run:
+      python3 install.py      (Linux / macOS)
+      python install.py       (Windows)
+
+Step 2: Launch the Client Interface:
+
+  Option A (Terminal REPL CLI - Pure Terminal Mode, Zero GUI Packages Needed):
+    - Linux / macOS:  ./Suganita_Terminal_REPL.sh
+                      (or direct command: PYTHONPATH="$(pwd)/leibnitz6-main:$(pwd):$PYTHONPATH" python3 -m leibnitz6_server.cli)
+    - Windows:        Double-click "Suganita_Terminal_REPL.bat"
+
+  Option B (GUI Notebook - Structured Notepad v4):
+    - Linux / macOS:  ./StructuredNotepad_v4.sh
+                      (Note for Linux GUI Users: If 'tkinter' is missing, run: sudo apt install python3-tk)
+    - Windows:        Double-click "StructuredNotepad_v4.bat"
+
+Step 3: In the notebook GUI or terminal REPL, enter your code:
+
+  लिखो "नमस्ते Leibnitz 6.0!"
+  निरोध
+
+Step 4: Execute:
+  - GUI Notebook: Press [Shift + Enter]
+  - Terminal REPL: Press [Enter]
+
+  (Your script connects automatically to the 24/7 central cloud server on Render.
+   No local server setup, model downloads, or backend configuration required!)
+
+-------------------------------------------------------------------------------
+1. WHAT IS LEIBNITZ 6.0?
+-------------------------------------------------------------------------------
+
+Leibnitz 6.0 is a state-of-the-art distributed signal processing platform created by 
+the REAL Institute. It brings together three core innovations:
+
+1. Suganita (सुगणिता):
+   The world's first Nyaya-logic compatible Devanagari Domain-Specific Language (DSL) 
+   designed for spectral signal analysis, Fast Fourier Transforms (FFT), and mathematical modeling.
+
+2. Sahai Anytime Coding Protocol:
+   A progressive streaming algorithm that provides instant approximate answers 
+   which automatically refine into high-precision calculations as time permits.
+
+3. Central Cloud AI Copilot (Solar-10.7B GGUF):
+   An integrated AI programming assistant that generates, explains, and debugs 
+   Suganita signal scripts directly inside your editor or terminal.
+
+-------------------------------------------------------------------------------
+2. THREE WORKED EXAMPLES & USE CASES
+-------------------------------------------------------------------------------
+
+USE CASE 1: Audio Frequency Spectral Analysis (Devanagari Suganita Script)
+--------------------------------------------------------------------------
+Scenario: You want to analyze an incoming audio wave signal and visualize its 
+spectral frequency peaks using Fast Fourier Transformation (FFT).
+
+Suganita Script (`audio_fft.su`):
+  प्रवेश "audio_sample.wav"
+  लिखो "Initiating Nyaya Spectral Analysis..."
+  रूपरेखा "Audio Frequency Spectrum (FFT)"
+  रुको 100
+  लिखो "Spectral Plot Rendered Successfully."
+  निरोध
+
+How to Run: Open Structured Notepad v4 or Terminal REPL and execute the script.
+
+
+USE CASE 2: Real-Time Sensor Telemetry Streaming (Sahai Anytime Protocol)
+-------------------------------------------------------------------------
+Scenario: An edge device or vehicle sensor needs instant approximate calculations 
+that continuously refine into exact values without blocking execution.
+
+Python Code using Leibnitz 6 SDK (`sensor_stream.py`):
+  from leibnitz6_sdk import Leibnitz6Client
+
+  client = Leibnitz6Client()
+  signal_data = [0.1, 0.4, 0.9, 1.2, 0.8, 0.3, -0.2]
+
+  # Stream progressive Sahai refinement layers
+  for layer in client.stream_sahai(signal_data, layers=3):
+      print(f"Layer {layer['layer']} Quality {layer['quality_percent']}%: {layer['coefficients']}")
+
+
+USE CASE 3: Autonomous AI Agent Task Automation (Anthropic MCP Protocol)
+------------------------------------------------------------------------
+Scenario: An external AI agent (like Claude or an MCP client) autonomously invokes 
+Leibnitz 6 to execute signal processing tools.
+
+MCP JSON-RPC Request (`/api/mcp/v1/rpc`):
+  {
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "name": "execute_suganita",
+      "arguments": { "code": "लिखो 'Agent Execution Complete'\nनिरोध" }
+    },
+    "id": 1
+  }
+
+-------------------------------------------------------------------------------
+3. FLEXIBLE USAGE MODELS
+-------------------------------------------------------------------------------
+
+Depending on your workflow, choose the model that fits your needs best:
+
+Model A: Suganita Terminal REPL (CLI Shell - Zero GUI Dependencies)
+  - Ideal for Linux terminal power users, SSH sessions, and headless servers.
+  - Linux / macOS: `./Suganita_Terminal_REPL.sh`
+  - Windows: `Suganita_Terminal_REPL.bat`
+
+Model B: Interactive GUI Notebook (Structured Notepad v4)
+  - Ideal for visual exploration, inline spectral plots, and interactive cell editing.
+  - Linux / macOS: `./StructuredNotepad_v4.sh` (Requires `python3-tk`)
+  - Windows: `StructuredNotepad_v4.bat`
+
+Model C: Machine-to-Machine SDK (`leibnitz6_sdk.py`)
+  - Ideal for autonomous AI agents, Python backend integrations, and scripts.
+
+-------------------------------------------------------------------------------
+4. SUGANITA LANGUAGE CHEAT SHEET (BASIC DEVANAGARI KEYWORDS)
+-------------------------------------------------------------------------------
+
+  Keyword           Meaning / Purpose
+  -------           -----------------
+  लिखो "text"       Print text or output message to display
+  प्रवेश "buffer"   Define input signal data buffer / array
+  रूपरेखा "title"   Calculate FFT spectrum and render visual plot
+  रुको <ms>         Pause execution for specified milliseconds
+  यदि ... अन्यथा    Nyaya conditional logic (if ... else)
+  गुणन / भागहार     Vedic multiplication and division
+  निरोध             Halt program execution (Sāṅkhya cease)
+
+-------------------------------------------------------------------------------
+5. NEED HELP OR DOCUMENTATION?
+-------------------------------------------------------------------------------
+
+- Full Technical Manual: Read `README.txt` in the Leibnitz6 directory.
+- Official Web Portal: Visit https://yogoreal.net/leibnitz6.html
+- Central Render Server: Visit https://leibnitz6.onrender.com/intro.txt
+- Server Health Check: Visit https://leibnitz6.onrender.com/health
+
+© 2026 REAL Institute — https://yogoreal.net
+===============================================================================

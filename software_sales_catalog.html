@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>SoftwareHub - Tools & Scripts Catalog (being built)</title>
+    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/config.js"></script>
+    <script src="assets/cart.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: var(--bg-white);
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+        
+        .filters {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--border-color);
+            background: transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .product-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .type-python {
+            background: rgba(59, 130, 246, 0.1);
+            color: #1e40af;
+        }
+        
+        .type-matlab {
+            background: rgba(249, 115, 22, 0.1);
+            color: #b45309;
+        }
+        
+        .type-bundle {
+            background: rgba(16, 185, 129, 0.1);
+            color: #065f46;
+        }
+        
+        .product-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .product-desc {
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.5;
+            min-height: 50px;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 18px;
+            font-size: 0.9em;
+        }
+        
+        .features li {
+            padding: 5px 0;
+            color: var(--text-light);
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .price-section {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 18px 0;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .currency {
+            font-size: 0.6em;
+            color: var(--text-light);
+        }
+        
+        .download-links {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            flex: 1;
+            min-width: 100px;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-light);
+            border-radius: 6px;
+            font-size: 0.85em;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .download-btn:hover {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .payment-section {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(245, 158, 11, 0.05));
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+        
+        .payment-label {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .payment-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .pay-btn {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .pay-upi {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        
+        .pay-upi:hover {
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .pay-paypal {
+            background: linear-gradient(135deg, #0070ba, #003087);
+            color: white;
+        }
+        
+        .pay-paypal:hover {
+            box-shadow: 0 4px 12px rgba(0, 112, 186, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-light);
+            background: var(--bg-white);
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background-color: var(--bg-white);
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+        
+        .close-btn {
+            color: var(--text-light);
+            float: right;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .close-btn:hover {
+            color: var(--text-dark);
+        }
+        
+        .upi-code-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .upi-code-container img {
+            max-width: 200px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .upi-id {
+            background: var(--bg-light);
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            padding: 8px 16px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .payment-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Unified styles loaded from assets/cart.css */
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Catalog">
+        <header>
+            <h1>🚀 SoftwareHub</h1>
+            <p class="subtitle">Professional Python, MATLAB, and Bundled Tools for Engineers & Scientists</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Python Scripts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">MATLAB Tools</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Bundles</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+            <button class="filter-btn" onclick="filterProducts('python')">Python Scripts</button>
+            <button class="filter-btn" onclick="filterProducts('matlab')">MATLAB Tools</button>
+            <button class="filter-btn" onclick="filterProducts('bundle')">Bundles</button>
+        </div>
+        
+        <div class="products" id="productsContainer">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+        
+        <footer>
+            <p><strong>SoftwareHub (being built)</strong> — Quality software tools for professional development</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                Contact: <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a> | 
+                <a href="#license">License Info</a> |
+                <a href="index.html">REAL Institute</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()">
+        🛒 View Cart <span id="cartBadge" class="cart-badge">0</span>
+    </button>
+    
+    <script>
+        const productsData = [
+            {
+                id: 0,
+                name: "Leibnitz 6.0 Platform & Structured Notepad v4 ⚡",
+                type: "python",
+                typeLabel: "Python Platform",
+                desc: "High-Performance Signal Processing Engine, Suganita Devanagari DSL, Sahai Anytime Coding, and Universal GGUF AI Copilot",
+                features: ["Suganita Devanagari DSL", "Structured Notepad v4", "Sahai Anytime Streaming", "Universal GGUF AI Copilot"],
+                price: 999,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 1,
+                name: "Signal Processing Suite -- Available",
+                type: "python",
+                typeLabel: "Python",
+                desc: "Advanced signal processing tools with FFT, filtering, and wavelet analysis",
+                features: ["FFT Implementation", "IIR/FIR Filters", "Wavelet Transform", "Real-time Processing"],
+                price: 499,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 2,
+                name: "Image Enhancement Toolkit",
+                type: "python",
+                typeLabel: "Python",
+                desc: "Complete image processing library for enhancement, restoration, and analysis",
+                features: ["Denoising", "Edge Detection", "Color Correction", "Histogram Equalization"],
+                price: 399,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 3,
+                name: "Control Systems Designer",
+                type: "matlab",
+                typeLabel: "MATLAB",
+                desc: "Comprehensive control system analysis and design toolkit",
+                features: ["PID Tuning", "State-Space Analysis", "Bode/Nyquist Plots", "Stability Analysis"],
+                price: 599,
+                files: { m: true, zip: true }
+            },
+            {
+                id: 4,
+                name: "Numerical Methods Library",
+                type: "matlab",
+                typeLabel: "MATLAB",
+                desc: "Implementation of classical numerical methods and algorithms",
+                features: ["Root Finding", "Interpolation", "Integration", "ODE Solvers"],
+                price: 449,
+                files: { m: true, zip: true }
+            },
+            {
+                id: 5,
+                name: "Financial Analytics Pro",
+                type: "python",
+                typeLabel: "Python",
+                desc: "Tools for financial modeling, portfolio analysis, and risk assessment",
+                features: ["Portfolio Optimization", "Black-Scholes Model", "VaR Calculation", "Time Series"],
+                price: 699,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 6,
+                name: "Data Visualization Master",
+                type: "python",
+                typeLabel: "Python",
+                desc: "Advanced plotting and visualization for scientific data",
+                features: ["3D Graphics", "Interactive Charts", "Statistical Plots", "Custom Themes"],
+                price: 349,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 7,
+                name: "Machine Learning Essentials",
+                type: "matlab",
+                typeLabel: "MATLAB",
+                desc: "ML algorithms for classification, regression, and clustering",
+                features: ["SVM Implementation", "Neural Networks", "K-Means Clustering", "Decision Trees"],
+                price: 749,
+                files: { m: true, zip: true }
+            },
+            {
+                id: 8,
+                name: "Optimization Solver",
+                type: "python",
+                typeLabel: "Python",
+                desc: "Advanced optimization algorithms for linear and nonlinear problems",
+                features: ["Linear Programming", "Genetic Algorithms", "Gradient Descent", "Constraint Handling"],
+                price: 549,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 9,
+                name: "Complete Engineering Bundle",
+                type: "bundle",
+                typeLabel: "Bundle",
+                desc: "All Python tools + Signal Processing + Data Visualization combined",
+                features: ["12 Python Scripts", "Full Source Code", "Documentation", "Lifetime Updates"],
+                price: 1999,
+                files: { py: true, zip: true }
+            },
+            {
+                id: 10,
+                name: "Signal & Control Pack",
+                type: "bundle",
+                typeLabel: "Bundle",
+                desc: "Signal Processing + Control Systems + Numerical Methods",
+                features: ["8 Complete Tools", "MATLAB & Python", "Sample Projects", "Email Support"],
+                price: 1499,
+                files: { m: true, py: true, zip: true }
+            },
+            {
+                id: 11,
+                name: "Statistics & Regression Toolbox",
+                type: "matlab",
+                typeLabel: "MATLAB",
+                desc: "Statistical analysis and advanced regression techniques",
+                features: ["Multiple Regression", "ANOVA", "Hypothesis Testing", "Confidence Intervals"],
+                price: 429,
+                files: { m: true, zip: true }
+            },
+            {
+                id: 12,
+                name: "Network Analysis Suite",
+                type: "python",
+                typeLabel: "Python",
+                desc: "Graph theory and network analysis with visualization",
+                features: ["Path Finding", "Centrality Measures", "Community Detection", "Network Metrics"],
+                price: 379,
+                files: { py: true, zip: true }
+            }
+        ];
+        
+        // Cart State
+        let cart = [];
+
+        function renderProducts(filter = 'all') {
+            const container = document.getElementById('productsContainer');
+            let filtered = filter === 'all' ? productsData : productsData.filter(p => p.type === filter);
+            
+            container.innerHTML = filtered.map(product => `
+                <div class="product-card" data-type="${product.type}">
+                    <span class="product-type type-${product.type}">${product.typeLabel}</span>
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-desc">${product.desc}</p>
+                    <ul class="features">
+                        ${product.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                    <div class="price-section">
+                        <div class="price">$${Math.round(product.price * 0.012)} USD<span class="currency"> / one-time</span></div>
+                    </div>
+                    <div class="download-links">
+                        ${product.files.py ? '<span class="download-btn">📄 .py</span>' : ''}
+                        ${product.files.m ? '<span class="download-btn">📄 .m</span>' : ''}
+                        <span class="download-btn">📦 .zip</span>
+                    </div>
+                    <div class="payment-section">
+                        <div class="payment-label">Purchase License</div>
+                        <div class="payment-buttons">
+                            <button class="pay-btn pay-upi" style="flex: 1;" onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price})">
+                                🛒 Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function filterProducts(type) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(type);
+        }
+
+        // Initial render
+        renderProducts();
+    </script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Necessary and Sufficient Substrate for Consciousness | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 2 · V1I2-A02</div>
+            <h1>Necessary and Sufficient Substrate for Consciousness</h1>
+            <div class="hero-meta">A. Chawla \\ REAL Institute and IIT Delhi</div>
+            <div class="hero-meta">Source PDF: coreTheoremv4.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_2.html">Issue 2</a>
+        </div>
+        <div class="meta-grid">
+            
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p>In this work, the authors present a mathematical condition on the substrate for consciousness. This has implications for neuroscience and artificial intelligence.</p>
+<p><strong>Theorem.</strong> <em>A necessary and sufficient minimal substrate for consciousness consists of a firing three-dimensional axon tract with ephaptic coupling, with at least one stage \(S 1\) such that, for \(S=1\), the tract length \(L\) satisfies \(L L_{}\), where \(L_{}\) depends on axonal diameters \(d_{axon}\), extracellular medium resistivity \(_{extracellular}\), ephaptic coupling strength \(g_{ephaptic}\), and conduction velocity \(v\). This ensures both completion of in-phase synchronization and sufficient propagation time for spacetime-mediated informational entropy to contribute to surprise amplification.</em></p>
+<p><strong>Definitions:</strong></p>
+<ol class="article-list"><li><p><em>Surprise.</em> The invariant of consciousness is quantified as Bayesian surprise: \[ {S}(t) = D_{{KL}}(P_{{posterior}}(t) \,\|\, P_{{prior}}(t)), \] or equivalently via Shannon information<span class="footnote-inline"><sup>†</sup>the Shannon entropy or self-information of a random variable can be applied to the inputs to the tract as well as to the outputs to measure the change</span>, encoding the divergence between expected and actual inputs across time.</p></li><li><p><em>Ephaptic coupling.</em> Non-synaptic, current-mediated interaction among adjacent axons, parameterized by coupling strength \(g_{ephaptic}\), enabling collective phase dynamics and amplification of entropy.</p></li><li><p><em>Stage number \(S\).</em> Represents sequential or parallel amplification units in the tract. Minimal sufficiency is achieved at \(S=1\) if \(L L_{}\); higher \(S\) can increase amplification but is not required.</p></li><li><p><em>Tract length \(L_{}\).</em> The minimum length necessary to allow:</p>
+<ol class="article-list"><li><p>Completion of in-phase synchronization of axonal firing, ensuring coherent collective dynamics.</p></li><li><p>Sufficient temporal window for propagation of spacetime-embedded informational bits contributing to entropy amplification.</p></li></ol></li><li><p><em>Spacetime contribution.</em> The causal structure of spacetime supplies additional probabilistic variability (entropy) that integrates with internal neural inputs via ephaptic coupling, increasing the total system surprise: \[ {S}_{total} = {S}_{internal} + (L) {S}_{spacetime}, \] where \((L)\) is a monotonically increasing function of tract length representing integration capacity for spacetime-mediated entropy.</p></li></ol>
+<p><strong>Corollaries and Implications:</strong></p>
+<ol class="article-list"><li><p><em>Minimal sufficiency.</em> The substrate described is sufficient for consciousness because it guarantees nonzero, amplified surprise arising from both internal and spacetime-coupled inputs.</p></li><li><p><em>Necessary condition.</em> Any system lacking:</p>
+<ol class="article-list"><li><p>Ephaptic coupling,</p></li><li><p>Sufficient tract length \(L < L_{}\), or</p></li><li><p>Ability to sustain in-phase synchronization across at least one stage</p></li></ol>
+<p>cannot achieve the amplification of surprise and therefore cannot manifest consciousness.</p></li><li><p><em>Exclusion of trivial systems.</em> Simple reflex arcs, feedforward networks, or isolated axonal bundles without sufficient length and coupling fail the criteria, eliminating nonconscious mechanisms.</p></li><li><p><em>Integration of geometry and biophysics.</em> \(L_{}\) is explicitly dependent on measurable physical parameters: \[ L_{} = f(d_{axon}, _{extracellular}, g_{ephaptic}, v), \] making the theorem empirically testable.</p></li><li><p><em>Spacetime as entropy source.</em> Longer tracts allow both greater non-spacetime synchronization and additional entropy accumulation from spacetime-mediated causal structure, providing a dual mechanism for surprise amplification.</p></li><li><p><em>Compression.</em> Consciousness, a high-level cognitive phenomenon, is thereby reduced to a precise, physically and information-theoretically defined mechanism, eliminating the need for extra explanatory entities beyond ephaptically coupled, spacetime-embedded axon dynamics.</p></li></ol>
+<p><strong>Conclusion.</strong> This theorem establishes a minimal, mechanistic, and measurable condition for consciousness, grounded in:</p>
+<ul class="article-list"><li><p>Axonal geometry and biophysics,</p></li><li><p>Ephaptic field interactions,</p></li><li><p>Temporal dynamics of synchronization, and</p></li><li><p>Integration of spacetime-mediated informational entropy.</p></li></ul>
+<p>It provides a concrete, testable, and theoretically compressed framework, analogous in conceptual structure to the reduction of gravity to spacetime curvature.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This work was produced with the assistance of language models.</p>
+            
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

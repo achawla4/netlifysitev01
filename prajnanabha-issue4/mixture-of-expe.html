@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixture-of-Experts View of the Double-Flash | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 4 · V1I4-A04</div>
+            <h1>Mixture-of-Experts View of the Double-Flash</h1>
+            <div class="hero-meta">A. Chawla \\ REAL Institute and IIT Delhi | 28 January 2026</div>
+            <div class="hero-meta">Source PDF: moeDoublev5.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_4.html">Issue 4</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>The sound-induced double-flash illusion demonstrates that perception is dynamically constructed from interactions between multiple sensory modalities. We propose a framework viewing the visual system as a deep mixture-of-experts (MoE) analogue, in which distinct input channels and cortical modules act as specialized experts, and ephaptic coupling and frequency-dependent modulation implement soft, input-dependent weighting. This perspective provides insight into the modularity, input-dependence, hierarchical depth, and probabilistic nature of perception, explaining the emergence of cross-modal illusions and their variability across observers. We formalize the computational mapping between biological mechanisms and MoE architectures and discuss the philosophical implications for perception and cognition. We further extend this framework by introducing <em>Differential Ephaptic Networks</em> (DENs), in which the classical boundary electroneutrality constraint is relaxed, allowing ephaptic coupling matrices to become signed. This yields a biologically grounded analogue of <em>signed mixture-of-experts</em> architectures, where parallel axonal channels act as proto-experts whose contributions may be selectively amplified or actively suppressed through extracellular field interactions. The resulting DEN–MoE synthesis suggests that competitive expert gating can occur at the tract level prior to synaptic integration, providing a novel substrate for timing variability, multisensory perceptual effects, and illusion-like phenomena. Together, these results motivate a re-interpretation of white-matter pathways as active computational mixtures shaped by boundary physics rather than passive transmission structures. There are also implications for neuromorphic computing - hardware implmentations of DEN–MoE.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>In this work our motivation is to cross-pollinate insights from computational neuroscience and machine learning. Perception is traditionally conceptualized as a direct readout of sensory stimuli. However, a growing body of evidence suggests that perception is an emergent property of distributed, interacting neural modules. One striking example is the sound-induced double-flash illusion, in which a single visual flash accompanied by two brief auditory beeps is often perceived as two flashes <span class="citation" title="Shams2005">[1]</span>. This phenomenon exemplifies the dynamic integration of multisensory inputs and challenges the notion of a purely feedforward visual system.</p>
+<p>Here, we present a framework in which the visual system is conceptualized as a deep mixture-of-experts (MoE) analogue. We argue that each neural module, from axon tracts with ephaptic coupling to cortical layers, functions as a specialized expert. Input-dependent modulation, both from frequency-structured ephaptic interactions and higher cortical processing, implements a form of soft gating. This continuous, weighted summation produces emergent percepts that vary with input pattern and temporal context. In this paper, we formalize the analogy, explore its computational and philosophical implications, and reinterpret the double-flash illusion in this framework.</p>
+<p>Finally, we extend this mixture-of-experts interpretation beyond the standard ephaptic setting by introducing a new biophysical-computational layer: <em>Differential Ephaptic Networks</em> (DENs), in which the classical assumption of strict boundary electroneutrality is relaxed. This relaxation allows ephaptic coupling matrices to become <em>signed</em>, meaning that extracellular interactions can be not only modulatory and amplifying, but also suppressive and inhibitory-like. In Section 9, we argue that this signed structure provides an even closer analogue to modern MoE architectures, where expert contributions are not merely averaged but competitively gated. Under the DEN–MoE view, axon bundles and tract geometries implement an early, physically grounded mixture mechanism in which parallel neural channels act as proto-experts whose influence is dynamically weighted—and sometimes actively negated—by boundary-mediated extracellular fields. This synthesis suggests that mixture-style competition may occur prior to synaptic integration, offering a tract-level substrate for probabilistic perception, multisensory variability, and the emergence of illusion-like phenomena.</p>
+<h2 id="table-of-terminology">Table of Terminology</h2>
+<p>Table [tab:terminology] defines the specialized terms used in this work.</p>
+<figure class="article-table"><div class="table-scroll"><table><thead><tr><th>{|p{0.2}|p{0.7}|} <strong>Term</strong></th><th><strong>Definition</strong> <strong>Mixture-of-Experts (MoE)</strong></th><th>A computational architecture where multiple specialized subnetworks (experts) process inputs, and their contributions are weighted dynamically based on the input. <strong>Ephaptic Coupling</strong></th><th>The interaction between neighboring axons or neurons via extracellular electric fields, influencing spike timing and neural synchronization. <strong>Proto-Expert</strong></th><th>A preliminary or foundational &quot;expert&quot; in the MoE framework, such as an individual axon or neural module, that contributes to input-dependent processing. <strong>Soft Gating</strong></th><th>A mechanism in MoE systems where the contribution of each expert is continuously weighted (rather than binary), often based on input patterns or context. <strong>Double-Flash Illusion</strong></th><th>A multisensory illusion where a single visual flash paired with two auditory beeps is perceived as two flashes, demonstrating cross-modal integration. <strong>Input-Dependent Modulation</strong></th><th>The dynamic adjustment of neural or computational responses based on the specific characteristics (e.g., frequency, timing) of the input. <strong>Cortical Hierarchy</strong></th><th>The organized, layered structure of the cerebral cortex, where lower layers process basic features (e.g., edges) and higher layers integrate complex representations (e.g., objects). <strong>Multisensory Integration</strong></th><th>The process by which the brain combines information from multiple sensory modalities (e.g., vision, audition) to form a unified percept. <strong>Frequency-Dependent Modulation</strong></th><th>The selective influence of neural activity based on the frequency of input signals, often mediated by ephaptic coupling or synaptic interactions.</th></tr></thead><tbody></tbody></table></div><figcaption><span>Table 1.</span> Definition of Specialized Terms</figcaption></figure>
+<h2 id="neuroscience-foundations-for-denmoe-applications">Neuroscience Foundations for DEN–MoE Applications</h2>
+<p>In this section we undertake a survey of the literature which impinges on our principal results of Section 9. The extensive bibliography of this paper supports the reader of this section.</p>
+<p>The proposal of this work (see Section [sec:DEN-MoE]), that <em>Differential Ephaptic Networks</em> (DENs), in which boundary electroneutrality is relaxed, can be interpreted through the lens of <em>Mixture-of-Experts</em> (MoE) architectures sits at the intersection of several major traditions in neuroscience. These include foundational electrophysiology, large-scale network neuroscience, theoretical frameworks of computation and inference, multisensory integration, and the emerging emphasis on competitive gating mechanisms in both biological and artificial systems. In this section, we survey approximately fifty influential themes and article-classes across neuroscience where the DEN–MoE perspective may be meaningfully applied.</p>
+<h3 id="foundational-electrophysiology-and-neural-dynamics">Foundational Electrophysiology and Neural Dynamics</h3>
+<p>The modern study of neural signaling begins with the classical biophysical description of action potential generation and propagation. The Hodgkin–Huxley formalism remains the canonical model of excitable membranes, demonstrating how nonlinear ionic conductances generate spike dynamics. This foundational work established the importance of voltage-based interactions, forming the substrate upon which ephaptic effects are necessarily superimposed.</p>
+<p>Subsequent reductions such as the FitzHugh–Nagumo system and integrate-and-fire families provided tractable dynamical systems approximations of excitability. These models have been widely deployed in computational neuroscience, particularly in large-scale simulations of coupled populations. Importantly, they provide the dynamical backbone into which ephaptic coupling terms can be inserted, yielding tract-level interactions that resemble weighted summation over neighboring axons.</p>
+<p>The emergence of spike-timing dependent plasticity further highlighted the sensitivity of neural computation to precise timing. Since DENs explicitly alter spike timing via signed ephaptic influences, they naturally intersect with this tradition: differential coupling can delay or advance firing, thereby reshaping temporal learning rules.</p>
+<p>Classic attractor models such as Hopfield networks and balanced excitation–inhibition paradigms further underscore the importance of competitive interactions in shaping network states. These traditions already employ implicit &quot;expert competition&quot; at the level of distributed attractors; DENs suggest that such competition may occur even earlier, at the level of axon bundles and extracellular coupling.</p>
+<h3 id="ephaptic-coupling-and-non-synaptic-communication">Ephaptic Coupling and Non-Synaptic Communication</h3>
+<p>While synapses dominate the standard account of neural interaction, ephaptic coupling has long been recognized as a complementary mechanism whereby extracellular fields influence neighboring fibers. Early computational work on conduction in bundles of demyelinated axons demonstrated that neighboring axons cannot be treated as independent channels.</p>
+<p>The DEN framework extends this literature by relaxing the electroneutrality assumption at tract boundaries, thereby allowing <em>signed</em> coupling matrices. This relaxation implies that ephaptic influence may be inhibitory as well as excitatory, introducing a form of competitive gating analogous to inhibitory synapses. Thus, DENs broaden ephaptic coupling from a purely modulatory phenomenon into a potential substrate for structured computation.</p>
+<p>Recent mesoscopic modeling of ephaptic coupling in the human brain further motivates this direction, showing that electric field interactions can scale beyond microscopic axon pairs. DEN–MoE models provide a natural computational interpretation of such interactions as soft, input-dependent mixing across parallel channels.</p>
+<h3 id="network-neuroscience-and-connectomics">Network Neuroscience and Connectomics</h3>
+<p>A major cluster of highly cited neuroscience research concerns the organization of the brain as a network. Structural connectomics projects, such as the Human Connectome Project, have mapped large-scale anatomical pathways, while functional connectivity studies have revealed intrinsic network dynamics at rest and during cognition.</p>
+<p>Graph-theoretic descriptions emphasize hubs, modularity, and communication pathways. These properties resonate strongly with MoE architectures, in which specialized subnetworks contribute differentially depending on input context. The DEN–MoE proposal adds a biophysical layer to this view: mixing weights need not be purely synaptic or learned, but may also emerge from ephaptic geometry and boundary leakage.</p>
+<p>Connectional atlases, such as the Brainnetome, provide increasingly fine parcellations of structural and functional modules. These modules may be interpreted as higher-level &quot;experts,&quot; while ephaptic tracts constitute proto-expert mixtures at lower levels of organization.</p>
+<h3 id="theoretical-neuroscience-coding-inference-and-competition">Theoretical Neuroscience: Coding, Inference, and Competition</h3>
+<p>Theoretical frameworks such as the efficient coding hypothesis argue that sensory systems optimize representations under constraints. Bayesian brain theories and predictive coding models propose that perception arises from hierarchical inference, where multiple hypotheses compete to explain sensory input.</p>
+<p>These theories align closely with MoE principles: experts correspond to alternative feature encoders or predictive models, while gating reflects contextual arbitration among them. DENs provide a mechanistic candidate for such arbitration at early stages, where signed ephaptic interactions can suppress or amplify channels before synaptic integration.</p>
+<p>The Free Energy Principle extends these ideas into a unifying account of brain function as minimizing prediction error. In this context, DEN–MoE architectures suggest that competitive ephaptic gating could contribute to the selective weighting of prediction errors across pathways.</p>
+<p>Recent work on population geometry and neural manifolds further highlights that neural computation is shaped by structured interactions among subpopulations. Differential ephaptic coupling may alter the geometry of these manifolds by introducing inhibitory cross-channel terms, effectively reshaping representational space.</p>
+<h3 id="multisensory-integration-and-perceptual-illusions">Multisensory Integration and Perceptual Illusions</h3>
+<p>Highly influential research on multisensory integration demonstrates that perception is not a direct readout of unimodal input but an emergent synthesis of interacting modalities. The sound-induced double-flash illusion exemplifies this principle: auditory signals can bias visual percepts.</p>
+<p>MoE frameworks have been proposed as natural computational analogues for such phenomena, with modality-specific experts and context-dependent gating. DENs strengthen this analogy by providing a biophysical substrate for early cross-channel modulation: ephaptic interactions can perturb spike timing and weighting, potentially contributing to the probabilistic variability of illusion strength across observers.</p>
+<p>Thus, DEN–MoE models predict that altering extracellular conductance or tract boundary conditions could systematically modulate multisensory perceptual outcomes.</p>
+<h3 id="attention-decision-making-and-cognitive-control">Attention, Decision-Making, and Cognitive Control</h3>
+<p>Attention and executive control require selective amplification of relevant signals and suppression of distractors. Cognitive neuroscience theories, including global workspace models and prefrontal cortex control frameworks, emphasize competition among distributed representations.</p>
+<p>MoE architectures mirror these principles, as gating mechanisms dynamically allocate computational resources among experts. DENs extend the competitive story downward: selective suppression may occur not only through cortical inhibition but also through signed ephaptic coupling in white matter pathways.</p>
+<p>Decision-making models based on evidence accumulation similarly involve competing channels of information. Differential ephaptic delays could bias accumulation rates by modulating spike timing, suggesting a new layer of influence on cognitive computations.</p>
+<h3 id="clinical-and-disorder-relevant-neuroscience">Clinical and Disorder-Relevant Neuroscience</h3>
+<p>A significant portion of highly cited neuroscience literature addresses neurological and psychiatric disorders, including Alzheimer&#x27;s disease, epilepsy, demyelination, and neurotransmitter dysfunctions. Many of these disorders involve altered excitation–inhibition balance and abnormal synchrony.</p>
+<p>Since DENs introduce inhibitory-like ephaptic interactions, they may be particularly relevant in pathological contexts where boundary conditions and extracellular conductivities are altered (e.g., inflammation, demyelination). DEN–MoE frameworks thus suggest that some disorders may involve maladaptive shifts in the &quot;expert weighting&quot; of neural pathways, beyond synaptic explanations alone.</p>
+<p>This perspective may help explain why purely neurotransmitter-targeting interventions are often incomplete: ephaptic and boundary-mediated interactions could represent an additional therapeutic dimension.</p>
+<h3 id="methodological-advances-enabling-denmoe-testing">Methodological Advances Enabling DEN–MoE Testing</h3>
+<p>The rise of high-density electrophysiology (e.g., Neuropixels probes), improved tractography, and sophisticated neural field modeling provides unprecedented resolution to study non-synaptic interactions. Large-scale meta-analytic neuroimaging and machine learning methods further enable fitting mixture-like models to neural data.</p>
+<p>Dimensionality reduction and generative modeling approaches offer tools to quantify how signed ephaptic interactions reshape network dynamics and latent representations. Thus, methodological progress makes DEN–MoE hypotheses increasingly testable.</p>
+<h3 id="summary-and-future-outlook">Summary and Future Outlook</h3>
+<p>Across foundational electrophysiology, network neuroscience, theoretical coding frameworks, multisensory integration, cognition, and clinical research, a recurring theme is the necessity of competitive, context-dependent weighting of parallel neural pathways. MoE architectures provide a computational formalism for such weighting, while DENs provide a biophysical mechanism through relaxed electroneutrality and signed ephaptic coupling.</p>
+<p>The DEN–MoE synthesis therefore offers a unifying framework: axon bundles and cortical modules may be viewed as hierarchies of experts, whose contributions are mixed not only synaptically but also ephaptically through differential boundary-mediated interactions. Future work may formalize these mappings, derive measurable predictions, and integrate ephaptic gating into the broader computational neuroscience canon.</p>
+<h2 id="ephaptic-coupling-and-input-dependent-modulation">Ephaptic Coupling and Input-Dependent Modulation</h2>
+<p>Axon bundles are not simply collections of independent fibers; neighboring axons can interact through ephaptic coupling, a phenomenon in which extracellular electric fields influence the propagation of action potentials in adjacent axons <span class="citation" title="Chawla2021">[2]</span>. Let $x_i(t)$ represent the membrane potential or spiking activity of axon $i$, and let $F(x_i)$ represent its intrinsic dynamics. The effect of neighboring axons can be modeled as:</p>
+<div class="math-block">$$
+\dot{x}_i(t) = F(x_i(t)) + \sum_{j \neq i} G_{ij}(d,\omega) \Phi(x_j(t)),
+$$</div>
+<p>where $G_{ij}(d,)$ encodes the geometric and frequency-dependent coupling between axons $i$ and $j$, and $(x_j)$ is the extracellular field generated by axon $j$. This equation captures the continuous, input-dependent modulation intrinsic to multi-axon bundles.</p>
+<p>Several important properties emerge:</p>
+<ol class="article-list"><li><p>The summation over neighbors is physically built-in; it cannot be removed in multi-axon tracts.</p></li><li><p>The coupling $G_{ij}(d,)$ imparts frequency-specific weighting, so that temporal patterns in the input are differentially modulated.</p></li><li><p>Each axon $j$ originates from a distinct neuron, effectively functioning as a specialized input channel or “proto-expert.”</p></li></ol>
+<p>Thus, even at the level of axon tracts, the visual system performs a form of input-dependent weighted summation over distinct information channels, analogous to a continuous mixture-of-experts computation.</p>
+<h2 id="the-deep-moe-analogy-in-cortical-hierarchy">The Deep MoE Analogy in Cortical Hierarchy</h2>
+<p>The visual system is hierarchically organized: V1 extracts basic features such as edges and orientations, V2 and V4 integrate shapes and textures, and IT performs high-level object recognition <span class="citation" title="Felleman1991">[3]</span>. Each cortical layer can be viewed as a computational stage that implements transformations of its inputs:</p>
+<div class="math-block">$$
+x^{(l+1)} = F^{(l)}(x^{(l)}),
+$$</div>
+<p>where $x^{(l)}$ is the input to layer $l$ and $F^{(l)}$ is a nonlinear transformation corresponding to the layer’s neural circuitry.</p>
+<p>In the MoE framework, each module within a layer acts as an expert $f_k(x)$, specialized for a subset of the input space. The effective output is a weighted sum of these experts:</p>
+<div class="math-block">$$
+y = \sum_{k=1}^K \alpha_k(x) f_k(x),
+$$</div>
+<p>where $_k(x)$ represents soft, input-dependent gating. While in artificial networks these weights are learned, in biological systems they emerge from ephaptic coupling, lateral interactions, attention, and frequency-dependent modulation.</p>
+<p>Thus, the cortical hierarchy implements a deep, multi-stage mixture-of-experts analogue, where each expert’s contribution is modulated both by input patterns and by interactions with neighboring modules.</p>
+<h2 id="the-sound-induced-double-flash-illusion">The Sound-Induced Double-Flash Illusion</h2>
+<p>The double-flash illusion occurs when a single visual flash is accompanied by two auditory beeps presented in close temporal proximity <span class="citation" title="Shams2005">[1]</span>. Observers often report perceiving two flashes, demonstrating that visual perception can be strongly influenced by auditory input.</p>
+<p>Within the deep MoE framework:</p>
+<ol class="article-list"><li><p>Visual experts in early cortical areas encode the flash stimulus.</p></li><li><p>Auditory experts encode the timing of the beeps.</p></li><li><p>Multisensory integration experts weight the contribution of each modality based on temporal alignment and prior experience.</p></li></ol>
+<p>Formally, the percept $P$ can be expressed as a weighted sum of expert outputs:</p>
+<div class="math-block">$$
+P = \alpha_{V}(x) f_{V}(x) + \alpha_{A}(x) f_{A}(x) + \alpha_{M}(x) f_{M}(x),
+$$</div>
+<p>where $f_V$, $f_A$, and $f_M$ correspond to visual, auditory, and multisensory experts, respectively, and $_k(x)$ are input-dependent weights. The timing and frequency of the auditory beeps modulate $_A(x)$ and $_M(x)$, biasing perception toward the “two flashes” interpretation. The effect is probabilistic: not all observers perceive the illusion under identical conditions, reflecting the continuous, soft-gating nature of the system.</p>
+<p>This formulation aligns naturally with the notion that early visual pathways are modulated by ephaptic coupling. The auditory input perturbs the temporal dynamics of visual spike trains, influencing the weighting of visual and multisensory experts. Frequency-selective ephaptic modulation ensures that temporal alignment matters: closely timed auditory spikes amplify the corresponding visual channels, increasing the effective contribution of certain experts.</p>
+<h2 id="philosophical-implications">Philosophical Implications</h2>
+<p>Viewing the visual system as a deep MoE analogue has several philosophical consequences:</p>
+<h3 id="modularity-of-perception">Modularity of Perception</h3>
+<p>Perception emerges from distributed, interacting modules. Each expert contributes partially, and the unified percept is a synthesis of these contributions. This challenges the notion of monolithic processing, suggesting that conscious experience is a composition of specialized computations.</p>
+<h3 id="input-dependent-construction">Input-Dependent Construction</h3>
+<p>Soft gating implies that perception is actively constructed. The same physical stimulus can lead to different percepts depending on the pattern of activity across experts. The double-flash illusion exemplifies this: auditory input dynamically shifts the weighting, producing a percept not directly present in the visual input.</p>
+<h3 id="emergence-and-hierarchy">Emergence and Hierarchy</h3>
+<p>Hierarchical depth allows increasingly abstract representations to emerge from lower-level sensory inputs. The visual system demonstrates that high-level object perception arises from successive transformations of weighted expert outputs, consistent with deep learning analogies.</p>
+<h3 id="probabilistic-and-graded-experience">Probabilistic and Graded Experience</h3>
+<p>Soft gating produces gradations in perception. The probability of perceiving two flashes varies continuously with temporal alignment and individual differences, highlighting the probabilistic nature of sensory experience.</p>
+<h3 id="constructivist-reality">Constructivist Reality</h3>
+<p>Since perception depends on the relative contributions of specialized experts, reality is not directly mirrored in sensory experience. Perception is co-constructed by stimulus input and internal processing dynamics, resonating with constructivist and predictive coding frameworks.</p>
+<h2 id="formal-comparison-ephaptic-coupling-vs-moe">Formal Comparison: Ephaptic Coupling vs MoE</h2>
+<p>This section provides a formal comparison between classical models of ephaptic coupling in axon bundles and the mixture-of-experts (MoE) framework widely used in modern machine learning. Although these two traditions arise from distinct domains—biophysical nerve conduction on one hand, and modular function approximation on the other—both are fundamentally concerned with how multiple parallel channels contribute to an evolving output. Here we make this correspondence explicit by placing ephaptic interaction equations alongside canonical MoE formulations, identifying the role of extracellular coupling kernels as continuous mixing weights and interpreting neighboring axonal pathways as proto-expert subcircuits. This comparison clarifies the mathematical structure shared by the two systems and motivates the broader claim that tract-level field effects may implement mixture-like computation prior to synaptic integration.</p>
+<p>We can juxtapose the biological ephaptic system with a canonical MoE model:</p>
+<h3 id="ephaptic-coupling-in-axon-bundles">Ephaptic Coupling in Axon Bundles</h3>
+<div class="math-block">$$
+\dot{x}_i(t) = F(x_i(t)) + \sum_{j \neq i} G_{ij}(d,\omega) \Phi(x_j(t)).
+$$</div>
+<p>- Summation over neighbors is unavoidable. - Coupling is input- and frequency-dependent. - Each axon represents a distinct input neuron (proto-expert).</p>
+<h3 id="mixture-of-experts">Mixture-of-Experts</h3>
+<div class="math-block">$$
+y(x) = \sum_{k=1}^K \alpha_k(x) f_k(x), \quad \sum_k \alpha_k(x) = 1.
+$$</div>
+<p>- Summation is over specialized expert modules. - Weights $_k(x)$ implement soft, input-dependent gating. - Experts are functionally separable, nonlinear subnetworks.</p>
+<h3 id="comparison">Comparison</h3>
+<ul class="article-list"><li><p>Both involve weighted summation.</p></li><li><p>Ephaptic coupling: continuous, distributed, physically determined weights.</p></li><li><p>MoE: discrete, learned, specialized expert transformations.</p></li><li><p>The biological system approximates MoE in the sense of input-dependent mixing, but lacks discrete modular experts unless cortical specialization is included.</p></li></ul>
+<h2 id="implications-for-cross-modal-integration">Implications for Cross-Modal Integration</h2>
+<p>The MoE view clarifies why cross-modal illusions like the double-flash occur:</p>
+<ol class="article-list"><li><p>Multimodal inputs act as separate experts.</p></li><li><p>Input-dependent weighting allows temporal and frequency alignment to bias perception.</p></li><li><p>The emergent percept is probabilistic and graded, reflecting soft gating.</p></li></ol>
+<p>This framework predicts that altering the timing, frequency, or spatial distribution of sensory inputs will systematically shift perceptual weighting, which is consistent with empirical data from multisensory research.</p>
+<h2 id="differential-ephaptic-networks-as-signed-mixture-of-experts">Differential Ephaptic Networks as Signed Mixture-of-Experts</h2>
+<p>In the preceding sections, we argued that ephaptic coupling provides a natural biophysical analogue of the weighted summation that defines mixture-of-experts (MoE) architectures. In the standard formulation, ephaptic interactions are often treated as effectively unsigned, arising under the assumption of boundary electroneutrality and near-perfect insulation of the nerve tract. In this section, we extend the MoE analogy by incorporating the framework of <em>Differential Ephaptic Networks</em> (DENs) <span class="citation" title="chawladen">[4]</span>, in which boundary electroneutrality is relaxed. This relaxation yields <em>signed</em> ephaptic coupling matrices (see Figure [fig:denmoe]) and therefore introduces a new computational ingredient: inhibitory-like expert contributions.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A04_moeDoublev5/images/images/denmoe.png">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A04_moeDoublev5/images/images/denmoe.png</div><figcaption><span>Figure 1.</span> DEN-MoE Architecture</figcaption></figure>
+<h3 id="relaxing-electroneutrality-and-the-emergence-of-signed-coupling">Relaxing Electroneutrality and the Emergence of Signed Coupling</h3>
+<p>Classical models of ephaptic interaction in axon bundles impose a strong boundary constraint, often summarized by electroneutrality:</p>
+<div class="math-block">$$
+\sum_{k=1}^{N} I_k(x,t) = 0,
+$$</div>
+<p>meaning that the net extracellular current across the tract boundary vanishes. This condition implies that ephaptic interactions are constrained to be globally balanced, with coupling coefficients effectively behaving as purely modulatory terms.</p>
+<p>The DEN formulation generalizes this constraint by allowing small but nonzero boundary leakage:</p>
+<div class="math-block">$$
+\sum_{k=1}^{N} I_k(x,t) = I_r \varepsilon,
+$$</div>
+<p>where $I_r$ is a relaxation current and $$ is a small positive constant. Biophysically, this corresponds to the observation that connective tissue layers (epineurium and perineurium) possess finite conductivity rather than perfect insulation. The consequence is profound: ephaptic coupling coefficients are no longer constrained to be strictly positive, and the geometric interaction matrix $W$ may contain <em>negative entries</em>.</p>
+<p>Thus, DENs introduce <em>differential</em> ephaptic influence: some axons may exert an inhibitory-like effect on their neighbors, delaying or suppressing spike propagation in a manner analogous to inhibitory synapses.</p>
+<h3 id="from-unsigned-mixtures-to-signed-expert-contributions">From Unsigned Mixtures to Signed Expert Contributions</h3>
+<p>A canonical mixture-of-experts model computes an output as a convex combination of expert subnetworks:</p>
+<div class="math-block">$$
+y(x) = \sum_{k=1}^{K} \alpha_k(x)\, f_k(x),
+\qquad
+\sum_{k=1}^{K} \alpha_k(x) = 1,
+$$</div>
+<p>where $f_k(x)$ denotes the $k$-th expert and $_k(x)$ are soft, input-dependent gating weights.</p>
+<p>In earlier sections, ephaptic coupling was mapped onto this structure by treating each axon or tract subchannel as a &quot;proto-expert,&quot; with geometric and frequency-dependent coupling providing continuous weighting:</p>
+<div class="math-block">$$
+\dot{x}_i(t) = F(x_i(t)) + \sum_{j\neq i} G_{ij}(d,\omega)\,\Phi(x_j(t)).
+$$</div>
+<p>However, the DEN framework suggests a richer analogue. Once the coupling matrix is signed, the biological mixture is no longer purely additive. Instead, we may write a <em>signed mixture-of-experts</em> formulation:</p>
+<div class="math-block">$$
+y(x) = \sum_{k=1}^{K} \alpha_k(x)\, s_k(x)\, f_k(x),
+$$</div>
+<p>where $s_k(x){+1,-1}$ captures the possibility that an expert contributes either excitatorily or inhibitorily to the mixture.</p>
+<p>In this view, DENs implement a form of competitive gating: certain axonal experts may be actively suppressed depending on tract geometry, extracellular conditions, or temporal input structure.</p>
+<h3 id="the-signed-w-matrix-as-a-biophysical-gating-operator">The Signed $W$-Matrix as a Biophysical Gating Operator</h3>
+<p>The ephaptic dynamics of a bundle may be expressed compactly as</p>
+<div class="math-block">$$
+\dot{\mathbf{x}}(t)
+=
+F(\mathbf{x}(t))
++
+W\,\Phi(\mathbf{x}(t)),
+$$</div>
+<p>where ${x}(t)$ is the vector of axonal membrane potentials, $$ encodes extracellular field contributions, and $W$ is the ephaptic coupling matrix.</p>
+<p>In classical ephaptic models, $W$ is effectively nonnegative, corresponding to unsigned modulation. In DENs, $W$ becomes a signed operator:</p>
+<div class="math-block">$$
+W_{ij}\in \mathbb{R},
+\qquad
+W_{ij}<0 \ \text{possible}.
+$$</div>
+<p>Computationally, $W$ plays the role of a gating matrix analogous to MoE weights. Positive entries correspond to excitatory mixing, while negative entries produce inhibitory competition. Thus, the tract itself performs a form of expert selection prior to cortical processing.</p>
+<h3 id="competitive-timing-and-expert-suppression">Competitive Timing and Expert Suppression</h3>
+<p>One of the most striking consequences of DENs is the alteration of spike timing. Negative ephaptic entries delay action potential initiation in neighboring axons, introducing inhibitory-like effects. This is computationally analogous to MoE systems in which gating suppresses irrelevant experts.</p>
+<p>Therefore, ephaptic bundles are not merely averaging devices; they may function as <em>competitive mixers</em> that shape which channels dominate downstream processing. This introduces the possibility that axon tracts already implement a primitive form of mixture-based computation, with signed gating emerging from boundary physics.</p>
+<h3 id="implications-for-multisensory-perception-and-illusions">Implications for Multisensory Perception and Illusions</h3>
+<p>The signed MoE interpretation of DENs strengthens the explanatory power of the framework for multisensory phenomena. In the sound-induced double-flash illusion, auditory perturbations modulate early visual timing. Under DEN dynamics, such perturbations could flip the effective sign or magnitude of ephaptic influence, suppressing some visual channels while amplifying others.</p>
+<p>Thus, perceptual outcomes may depend not only on cortical integration but also on tract-level competitive gating. This suggests that variability in illusion strength across observers may partly reflect differences in extracellular conductivity, bundle geometry, or boundary leakage.</p>
+<h3 id="summary-dens-as-true-biological-moe-layers">Summary: DENs as True Biological MoE Layers</h3>
+<p>Unsigned ephaptic coupling already resembles a soft mixture-of-experts mechanism through continuous weighted summation. Differential Ephaptic Networks elevate this analogy to a closer correspondence with modern MoE architectures by introducing signed, competitive contributions.</p>
+<p>In summary:</p>
+<ul class="article-list"><li><p>Axons and tract subchannels act as proto-experts.</p></li><li><p>Ephaptic coupling provides input-dependent mixing weights.</p></li><li><p>Relaxed electroneutrality yields signed $W$ matrices.</p></li><li><p>Signed coupling implements inhibitory expert suppression.</p></li><li><p>Tracts therefore function as competitive MoE-like layers.</p></li></ul>
+<p>The DEN–MoE synthesis provides a unified computational interpretation of non-synaptic neural communication, suggesting that competitive expert gating may occur not only in cortex but already at the level of axon bundles and extracellular field interactions.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>The sound-induced double-flash illusion provides compelling evidence that perception is constructed from interactions among specialized, weighted processing modules. By framing the visual system as a deep mixture-of-experts analogue, we can formalize how ephaptic coupling, frequency-dependent modulation, and cortical hierarchy jointly produce emergent, probabilistic percepts. This perspective bridges computational neuroscience, cognitive psychology, and philosophy, emphasizing modularity, input-dependent construction, hierarchical abstraction, and graded experience. Future research may leverage this framework to quantify the contributions of individual experts and the rules governing input-dependent gating, potentially linking neural dynamics more closely to perceptual phenomena.</p>
+<p>In conclusion, the mixture-of-experts perspective developed throughout this work gains a significant new dimension when extended to <em>Differential Ephaptic Networks</em>. By relaxing the classical electroneutral boundary constraint, DENs permit ephaptic coupling matrices to become signed, thereby introducing inhibitory-like, competitive interactions directly at the level of axon bundles. Section 9 showed that this transforms ephaptic mixing from a purely modulatory phenomenon into a genuine signed gating mechanism, closely paralleling the suppressive expert selection dynamics that characterize modern MoE systems. The resulting DEN–MoE synthesis suggests that tract-level extracellular physics may implement an early computational layer of expert competition, shaping spike timing, pathway dominance, and ultimately perceptual outcomes before cortical synaptic integration occurs. More broadly, these results motivate a re-examination of white-matter pathways not as passive transmission cables but as active mixture substrates whose boundary conditions and field interactions may contribute to probabilistic cognition, multisensory illusions, and variability across observers. Future experimental and theoretical work testing these predictions may establish differential ephaptic gating as a fundamental component of neural computation.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This work was produced with the assistance of large language models.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-Shams2005"><span class="ref-key">[1]</span> <p>Shams, L., Kamitani, Y., Shimojo, S. (2005). Illusions. Sound alters visual perception. Nature, 408(6814), 788.</p></li><li id="ref-Chawla2021"><span class="ref-key">[2]</span> <p>Chawla, A., Snider, A., Morgera, S. D. (2021). Fields, geometry and their impact on axon interactions. JAMP.</p></li><li id="ref-Felleman1991"><span class="ref-key">[3]</span> <p>Felleman, D.J., Van Essen, D.C. (1991). Distributed hierarchical processing in the primate cerebral cortex. Cerebral Cortex, 1(1), 1-47.</p></li><li id="ref-chawladen"><span class="ref-key">[4]</span> <p>Chawla, A. and Morgera, S.D. (2022) Differential Ephaptic Networks. Journal of Applied Mathematics and Physics, 10, 2876-2882.</p></li><li id="ref-HodgkinHuxley1952"><span class="ref-key">[5]</span> <p>A. L. Hodgkin and A. F. Huxley, &quot;A quantitative description of membrane current and its application to conduction and excitation in nerve,&quot; <em>Journal of Physiology</em>, vol. 117, pp. 500–544, 1952.</p></li><li id="ref-FitzHugh1961"><span class="ref-key">[6]</span> <p>R. FitzHugh, &quot;Impulses and physiological states in theoretical models of nerve membrane,&quot; <em>Biophysical Journal</em>, vol. 1, pp. 445–466, 1961.</p></li><li id="ref-Nagumo1962"><span class="ref-key">[7]</span> <p>J. Nagumo, S. Arimoto, and S. Yoshizawa, &quot;An active pulse transmission line simulating nerve axon,&quot; <em>Proceedings of the IRE</em>, vol. 50, pp. 2061–2070, 1962.</p></li><li id="ref-GerstnerKistler2002"><span class="ref-key">[8]</span> <p>W. Gerstner and W. M. Kistler, <em>Spiking Neuron Models</em>, Cambridge University Press, 2002.</p></li><li id="ref-Markram1997STDP"><span class="ref-key">[9]</span> <p>H. Markram, J. L\&quot;ubke, M. Frotscher, and B. Sakmann, &quot;Regulation of synaptic efficacy by coincidence of postsynaptic APs and EPSPs,&quot; <em>Science</em>, vol. 275, pp. 213–215, 1997.</p></li><li id="ref-Arvanitaki1942"><span class="ref-key">[10]</span> <p>A. Arvanitaki, &quot;Effects evoked in an axon by the activity of a contiguous one,&quot; <em>Journal of Neurophysiology</em>, vol. 5, pp. 89–108, 1942.</p></li><li id="ref-Bokil2010Ephaptic"><span class="ref-key">[11]</span> <p>H. Bokil, B. L. Laxpati, G. R. Drongelen, and D. S. Raol, &quot;Ephaptic coupling in neuronal systems: A review,&quot; <em>Neuroscience</em>, vol. 168, pp. 1–17, 2010.</p></li><li id="ref-Anastassiou2011"><span class="ref-key">[12]</span> <p>C. A. Anastassiou, R. Perin, H. Markram, and C. Koch, &quot;Ephaptic coupling of cortical neurons,&quot; <em>Nature Neuroscience</em>, vol. 14, pp. 217–223, 2011.</p></li><li id="ref-Jefferys1995"><span class="ref-key">[13]</span> <p>J. G. R. Jefferys, &quot;Nonsynaptic modulation of neuronal activity in the brain: Electric currents and extracellular ions,&quot; <em>Physiological Reviews</em>, vol. 75, pp. 689–723, 1995.</p></li><li id="ref-Reutskiy2003"><span class="ref-key">[14]</span> <p>S. Reutskiy, A. Rossoni, and B. Tirozzi, &quot;Conduction in bundles of demyelinated axons: Computer simulation,&quot; <em>Biological Cybernetics</em>, vol. 89, pp. 439–448, 2003.</p></li><li id="ref-DENpaper2022"><span class="ref-key">[15]</span> <p>A. Author et al., &quot;Differential Ephaptic Networks: Relaxing boundary electroneutrality in axon bundles,&quot; <em>Journal of Applied Mathematical Physics</em>, 2022.</p></li><li id="ref-Jacobs1991MoE"><span class="ref-key">[16]</span> <p>R. A. Jacobs, M. I. Jordan, S. J. Nowlan, and G. E. Hinton, &quot;Adaptive mixtures of local experts,&quot; <em>Neural Computation</em>, vol. 3, pp. 79–87, 1991.</p></li><li id="ref-JordanJacobs1994"><span class="ref-key">[17]</span> <p>M. I. Jordan and R. A. Jacobs, &quot;Hierarchical mixtures of experts and the EM algorithm,&quot; <em>Neural Computation</em>, vol. 6, pp. 181–214, 1994.</p></li><li id="ref-Shazeer2017MoE"><span class="ref-key">[18]</span> <p>N. Shazeer, A. Mirhoseini, K. Maziarz, et al., &quot;Outrageously large neural networks: The sparsely-gated mixture-of-experts layer,&quot; <em>International Conference on Learning Representations (ICLR)</em>, 2017.</p></li><li id="ref-RaoBallard1999"><span class="ref-key">[19]</span> <p>R. P. N. Rao and D. H. Ballard, &quot;Predictive coding in the visual cortex: A functional interpretation of some extra-classical receptive-field effects,&quot; <em>Nature Neuroscience</em>, vol. 2, pp. 79–87, 1999.</p></li><li id="ref-Friston2010"><span class="ref-key">[20]</span> <p>K. Friston, &quot;The free-energy principle: A unified brain theory?&quot; <em>Nature Reviews Neuroscience</em>, vol. 11, pp. 127–138, 2010.</p></li><li id="ref-KnillPouget2004"><span class="ref-key">[21]</span> <p>D. C. Knill and A. Pouget, &quot;The Bayesian brain: The role of uncertainty in neural coding and computation,&quot; <em>Trends in Neurosciences</em>, vol. 27, pp. 712–719, 2004.</p></li><li id="ref-Sporns2011Networks"><span class="ref-key">[22]</span> <p>O. Sporns, <em>Networks of the Brain</em>, MIT Press, 2011.</p></li><li id="ref-BullmoreSporns2009"><span class="ref-key">[23]</span> <p>E. Bullmore and O. Sporns, &quot;Complex brain networks: Graph theoretical analysis of structural and functional systems,&quot; <em>Nature Reviews Neuroscience</em>, vol. 10, pp. 186–198, 2009.</p></li><li id="ref-VanEssen2013HCP"><span class="ref-key">[24]</span> <p>D. C. Van Essen, S. M. Smith, D. M. Barch, et al., &quot;The WU-Minn Human Connectome Project: An overview,&quot; <em>NeuroImage</em>, vol. 80, pp. 62–79, 2013.</p></li><li id="ref-ParkFriston2013"><span class="ref-key">[25]</span> <p>H.-J. Park and K. Friston, &quot;Structural and functional brain networks: From connections to cognition,&quot; <em>Science</em>, vol. 342, 2013.</p></li><li id="ref-Shams2000DoubleFlash"><span class="ref-key">[26]</span> <p>L. Shams, Y. Kamitani, and S. Shimojo, &quot;Illusions: What you see is what you hear,&quot; <em>Nature</em>, vol. 408, pp. 788, 2000.</p></li><li id="ref-Shams2005"><span class="ref-key">[27]</span> <p>L. Shams, S. Shimojo, &quot;Sound-induced flash illusion as an optimal percept,&quot; <em>Neuroscience Letters</em>, vol. 377, pp. 29–34, 2005.</p></li><li id="ref-ErnstBanks2002"><span class="ref-key">[28]</span> <p>M. O. Ernst and M. S. Banks, &quot;Humans integrate visual and haptic information in a statistically optimal fashion,&quot; <em>Nature</em>, vol. 415, pp. 429–433, 2002.</p></li><li id="ref-MillerCohen2001"><span class="ref-key">[29]</span> <p>E. K. Miller and J. D. Cohen, &quot;An integrative theory of prefrontal cortex function,&quot; <em>Annual Review of Neuroscience</em>, vol. 24, pp. 167–202, 2001.</p></li><li id="ref-DehaeneChangeux2011"><span class="ref-key">[30]</span> <p>S. Dehaene and J.-P. Changeux, &quot;Experimental and theoretical approaches to conscious processing,&quot; <em>Neuron</em>, vol. 70, pp. 200–227, 2011.</p></li><li id="ref-BraakBraak1991"><span class="ref-key">[31]</span> <p>H. Braak and E. Braak, &quot;Neuropathological staging of Alzheimer-related changes,&quot; <em>Acta Neuropathologica</em>, vol. 82, pp. 239–259, 1991.</p></li><li id="ref-TraubJefferys1994Epilepsy"><span class="ref-key">[32]</span> <p>R. D. Traub and J. G. R. Jefferys, &quot;Simulations of epileptic activity: Non-synaptic mechanisms and field effects,&quot; <em>Trends in Neurosciences</em>, vol. 17, pp. 70–75, 1994.</p></li><li id="ref-Jun2017Neuropixels"><span class="ref-key">[33]</span> <p>J. J. Jun, N. A. Steinmetz, J. H. Siegle, et al., &quot;Fully integrated silicon probes for high-density recording of neural activity,&quot; <em>Nature</em>, vol. 551, pp. 232–236, 2017.</p></li><li id="ref-CunninghamYu2014"><span class="ref-key">[34]</span> <p>J. P. Cunningham and B. M. Yu, &quot;Dimensionality reduction for large-scale neural recordings,&quot; <em>Nature Neuroscience</em>, vol. 17, pp. 1500–1509, 2014.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

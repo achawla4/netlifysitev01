@@ -1,0 +1,2879 @@
+{
+  "1": {
+    "id": "p1",
+    "title": "Early Modulation of Visual Cortex by Sound: an MEG Study",
+    "authors": "Chawla, Aman",
+    "year": "2004",
+    "url": "https://yogoreal.net/paper1.html"
+  },
+  "2": {
+    "id": "p2",
+    "title": "Significant Audio-visual Interaction for Spatially Congruent Stimuli",
+    "authors": "Neil, Patricia A and Chawla, Aman and Bhattacharya, Joydeep and Shimojo, Shinsuke",
+    "year": "2004",
+    "url": "https://yogoreal.net/paper2.html"
+  },
+  "3": {
+    "id": "p3",
+    "title": "Reliability of a Gaussian Channel in the Presence of Gaussian Feedback",
+    "authors": "Chawla, Aman",
+    "year": "2006",
+    "url": "https://yogoreal.net/paper3.html"
+  },
+  "4": {
+    "id": "p4",
+    "title": "On Axon-axon Interaction via Currents and Fields",
+    "authors": "Chawla, Aman",
+    "year": "2017",
+    "url": "https://yogoreal.net/paper4.html"
+  },
+  "5": {
+    "id": "p5",
+    "title": "Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli",
+    "authors": "Chawla, Aman and Morgera, Salvatore D",
+    "year": "2014",
+    "url": "https://yogoreal.net/paper5.html"
+  },
+  "6": {
+    "id": "p6",
+    "title": "On Axon Interaction and its Role in Neurological Networks",
+    "authors": "Chawla, Aman and Morgera, Salvatore and Snider, Arthur",
+    "year": "2019",
+    "url": "https://yogoreal.net/paper6.html"
+  },
+  "7": {
+    "id": "p7",
+    "title": "Fields, Geometry, and Their Impact on Axon Interaction",
+    "authors": "Chawla, Aman and Morgera, Salvatore D. and Snider, Arthur D.",
+    "year": "2021",
+    "url": "https://yogoreal.net/paper7.html"
+  },
+  "8": {
+    "id": "p8",
+    "title": "On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2021",
+    "url": "https://yogoreal.net/paper8.html"
+  },
+  "9": {
+    "id": "p9",
+    "title": "Reliability of a Classical-quantum Communication System With Noisy Feedback",
+    "authors": "Chawla, Aman",
+    "year": "2011",
+    "url": "https://yogoreal.net/paper9.html"
+  },
+  "10": {
+    "id": "p10",
+    "title": "Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel",
+    "authors": "Chawla, A",
+    "year": "2008",
+    "url": "https://yogoreal.net/paper10.html"
+  },
+  "11": {
+    "id": "p11",
+    "title": "On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper11.html"
+  },
+  "12": {
+    "id": "p12",
+    "title": "Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2020",
+    "url": "https://yogoreal.net/paper12.html"
+  },
+  "13": {
+    "id": "p13",
+    "title": "Towards Weak Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper13.html"
+  },
+  "14": {
+    "id": "p14",
+    "title": "Towards Weak Source Coding",
+    "authors": "Chawla, Aman",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper14.html"
+  },
+  "15": {
+    "id": "p15",
+    "title": "On the Error Exponent of Axon-Coupled Channels: Computer Explorations.",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper15.html"
+  },
+  "16": {
+    "id": "p16",
+    "title": "Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper16.html"
+  },
+  "17": {
+    "id": "p17",
+    "title": "Differential Ephaptic Networks",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper17.html"
+  },
+  "18": {
+    "id": "p18",
+    "title": "A Gedanken Experiment on the Brain as a Quantum Computer",
+    "authors": "Chawla, Aman",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper18.html"
+  },
+  "19": {
+    "id": "p19",
+    "title": "On an Analogy Between Ephaptic Coupling in Large Tracts and Cross-Modal Integration During Illusory Percept",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper19.html"
+  },
+  "20": {
+    "id": "p20",
+    "title": "A Mathematical Model for the Vector Ephaptic Perceptron.",
+    "authors": "Chawla, Aman",
+    "year": "2022",
+    "url": "https://yogoreal.net/paper20.html"
+  },
+  "21": {
+    "id": "p21",
+    "title": "The Axon Tract as a Transducer: Simulation of Gravitational Waves Coupling With an Ion at the Node of Ranvier",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper21.html"
+  },
+  "22": {
+    "id": "p22",
+    "title": "A Study of Compound Action Potentials in Current-Coupled Tracts of Identical Axons",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper22.html"
+  },
+  "23": {
+    "id": "p23",
+    "title": "Towards a Network Coding View of Ephaptic Synchronization",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper23.html"
+  },
+  "24": {
+    "id": "p24",
+    "title": "On a Unification Problem in Mathematical Neuroscience",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper24.html"
+  },
+  "25": {
+    "id": "p25",
+    "title": "A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper25.html"
+  },
+  "26": {
+    "id": "p26",
+    "title": "Quantum Anytime Information Theory: A Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper26.html"
+  },
+  "27": {
+    "id": "p27",
+    "title": "Chapter 45. Optical and Quantum Communications Optical and Quantum Communications",
+    "authors": "Shapiro, J and Wong, D. N. and Erkmen, Baris I. and Garc{\\'\\i",
+    "year": "2005",
+    "url": "https://yogoreal.net/paper27.html"
+  },
+  "28": {
+    "id": "p28",
+    "title": "Towards an in-Silico Study of Sternarchus",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper28.html"
+  },
+  "29": {
+    "id": "p29",
+    "title": "Signal Detection and Integration Theory: a Gedanken Experiment",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper29.html"
+  },
+  "30": {
+    "id": "p30",
+    "title": "An Application of Inductive Anvaya",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper30.html"
+  },
+  "31": {
+    "id": "p31",
+    "title": "Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper31.html"
+  },
+  "32": {
+    "id": "p32",
+    "title": "The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper32.html"
+  },
+  "33": {
+    "id": "p33",
+    "title": "Sanskrit as a Stable `Eigen'-Language Well-Suited for Storage and Transmission",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper33.html"
+  },
+  "34": {
+    "id": "p34",
+    "title": "A Note on a Chomskian Analogy Between Sanskrit and Huffman Coding",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper34.html"
+  },
+  "35": {
+    "id": "p35",
+    "title": "How Biology can Control Information Flow in the Nervous System",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper35.html"
+  },
+  "36": {
+    "id": "p36",
+    "title": "A Note on Nonlinearities in Ephaptic Axon Tracts",
+    "authors": "Chawla, Aman and Manjunath, Suma",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper36.html"
+  },
+  "37": {
+    "id": "p37",
+    "title": "A Note on an Error of Representation in Parpola (1994)",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper37.html"
+  },
+  "38": {
+    "id": "p38",
+    "title": "On Metric Perturbations and Channel Capacity: Information Acquisition in Spacetime",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper38.html"
+  },
+  "39": {
+    "id": "p39",
+    "title": "On the Representation of Time in the Brain",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper39.html"
+  },
+  "40": {
+    "id": "p40",
+    "title": "Towards a Dynamical Systems Approach to Feedback Communication",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper40.html"
+  },
+  "41": {
+    "id": "p41",
+    "title": "Axonal Conduction Velocity: a Computer Study",
+    "authors": "Snider, Arthur and Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper41.html"
+  },
+  "42": {
+    "id": "p42",
+    "title": "A Note on the Origin and Fate of Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper42.html"
+  },
+  "43": {
+    "id": "p43",
+    "title": "Towards `Real' Learning: a Computer Study of Perceptrons",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper43.html"
+  },
+  "44": {
+    "id": "p44",
+    "title": "Impact of the Expansion of the Universe on Tract Information Processing",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper44.html"
+  },
+  "45": {
+    "id": "p45",
+    "title": "Infant Numerical Cognition and Ephaptic Synchronization",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper45.html"
+  },
+  "46": {
+    "id": "p46",
+    "title": "Can AI Detect G-Waves in Neural Data?",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper46.html"
+  },
+  "47": {
+    "id": "p47",
+    "title": "On General Nonlinearities in Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper47.html"
+  },
+  "48": {
+    "id": "p48",
+    "title": "Enlightened AI: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper48.html"
+  },
+  "49": {
+    "id": "p49",
+    "title": "Towards a Unified Picture of Everything",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper49.html"
+  },
+  "50": {
+    "id": "p50",
+    "title": "On the Structure of Nimble or Resilient Organizations: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper50.html"
+  },
+  "51": {
+    "id": "p51",
+    "title": "Networked Universal Awareness: a Note",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper51.html"
+  },
+  "52": {
+    "id": "p52",
+    "title": "Re-Viewing Information as a Fluid: an Error Exponent Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper52.html"
+  },
+  "53": {
+    "id": "p53",
+    "title": "Discrete Time, Continuous Time and the Self-image: A Gedanken Experiment",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper53.html"
+  },
+  "54": {
+    "id": "p54",
+    "title": "A Remark on Ampliation in Probability and Philosophy",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper54.html"
+  },
+  "55": {
+    "id": "p55",
+    "title": "Quantum Information Processing in a Neuron",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper55.html"
+  },
+  "56": {
+    "id": "p56",
+    "title": "Deformations in axons, and their threshold",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper56.html"
+  },
+  "57": {
+    "id": "p57",
+    "title": "Application of the Conservation of Information",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper57.html"
+  },
+  "58": {
+    "id": "p58",
+    "title": "Of Codes and Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper58.html"
+  },
+  "59": {
+    "id": "p59",
+    "title": "Network Random Refresh",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper59.html"
+  },
+  "60": {
+    "id": "p60",
+    "title": "Of Omniscience and Probability",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper60.html"
+  },
+  "61": {
+    "id": "p61",
+    "title": "Geometric Relativity of Action Potentials: a Mathematical Approach",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper61.html"
+  },
+  "62": {
+    "id": "p62",
+    "title": "Does Baseline Spiking Activity of a Neuron Enhance its Data Transmission Rates?",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper62.html"
+  },
+  "63": {
+    "id": "p63",
+    "title": "Capacity of a Neural PDE",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper63.html"
+  },
+  "64": {
+    "id": "p64",
+    "title": "Wigner Function Approach to Brain Decoherence Processes: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper64.html"
+  },
+  "65": {
+    "id": "p65",
+    "title": "Basic Electrodermal Recording: a Report",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper65.html"
+  },
+  "66": {
+    "id": "p66",
+    "title": "The Measurement of Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper66.html"
+  },
+  "67": {
+    "id": "p67",
+    "title": "Cell-to-Cell Coupling: a Unifying Approach",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper67.html"
+  },
+  "68": {
+    "id": "p68",
+    "title": "A Mathematical Model for the Node of Ranvier",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper68.html"
+  },
+  "69": {
+    "id": "p69",
+    "title": "Quantifying the MacKay Hypothesis",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper69.html"
+  },
+  "70": {
+    "id": "p70",
+    "title": "Distributed Control of Axonal Conduction: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper70.html"
+  },
+  "71": {
+    "id": "p71",
+    "title": "On the Capacity of an Axon Tract With Random Demyelination",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper71.html"
+  },
+  "72": {
+    "id": "p72",
+    "title": "Some Thoughts on Cosmic-Conscious Devices",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper72.html"
+  },
+  "73": {
+    "id": "p73",
+    "title": "Probability Theory, Logic and LLMs: A Prediction of Jaynes (1990)",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper73.html"
+  },
+  "74": {
+    "id": "p74",
+    "title": "On the Dating of the Jyotisa Vedanga",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper74.html"
+  },
+  "75": {
+    "id": "p75",
+    "title": "Rate Distortion Characterization of Wavelet-Based Image Compression Schemes",
+    "authors": "Varshney, Lav and Richter, Brandon and Chawla, Aman",
+    "year": "2003",
+    "url": "https://yogoreal.net/paper75.html"
+  },
+  "76": {
+    "id": "p76",
+    "title": "The Perfect Feedback Exponent is Not Achieved Everywhere by Every Asymptoting Two Phase Noisy Feedback Scheme",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper76.html"
+  },
+  "77": {
+    "id": "p77",
+    "title": "Neuro-inspired Quantum Nets: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper77.html"
+  },
+  "78": {
+    "id": "p78",
+    "title": "Vedic Approach to a Short Internode",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper78.html"
+  },
+  "79": {
+    "id": "p79",
+    "title": "Model Problems in Ephaptic Interaction",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper79.html"
+  },
+  "80": {
+    "id": "p80",
+    "title": "Mechanism of Universal Quantum Computation in the Brain",
+    "authors": "Chawla, Aman and Morgera, Salvatore Domenic",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper80.html"
+  },
+  "81": {
+    "id": "p81",
+    "title": "Interaction of Metric Perturbations With an Axon Tract: Demonstration of the Strong Wave Curves",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper81.html"
+  },
+  "82": {
+    "id": "p82",
+    "title": "Enquiry on the Dating of the Jyotisa Vedanga",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper82.html"
+  },
+  "83": {
+    "id": "p83",
+    "title": "On an Agent-aided Noisy Feedback Scheme",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper83.html"
+  },
+  "84": {
+    "id": "p84",
+    "title": "Rigorous Approach to Demyelination Capacity",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper84.html"
+  },
+  "85": {
+    "id": "p85",
+    "title": "Behavior Near Capacity: A Study of Error Exponents",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper85.html"
+  },
+  "86": {
+    "id": "p86",
+    "title": "Towards the Exact Quantum Computation Sequence in Axon Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper86.html"
+  },
+  "87": {
+    "id": "p87",
+    "title": "Thoughts on Some Connections Between General Relativity and the Knowledge of Observers",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper87.html"
+  },
+  "88": {
+    "id": "p88",
+    "title": "On an Agent-aided Noisy Feedback Scheme -II",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper88.html"
+  },
+  "89": {
+    "id": "p89",
+    "title": "Ephaptic Coupling and Power Consumption",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper89.html"
+  },
+  "90": {
+    "id": "p90",
+    "title": "Information Theory and Direction Selectivity",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper90.html"
+  },
+  "91": {
+    "id": "p91",
+    "title": "Consciousness of Objects Alters Only Their Perception Over Time",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper91.html"
+  },
+  "92": {
+    "id": "p92",
+    "title": "Quantum Perceptrons and Evolution",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper92.html"
+  },
+  "93": {
+    "id": "p93",
+    "title": "Compactness and Observers: Consideration of Implications",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper93.html"
+  },
+  "94": {
+    "id": "p94",
+    "title": "On Dendro-dendritic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper94.html"
+  },
+  "95": {
+    "id": "p95",
+    "title": "Generalizing the Information-theoretic Characterization of Channels That Compute",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper95.html"
+  },
+  "96": {
+    "id": "p96",
+    "title": "Inverse Perceptrons and Regression",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper96.html"
+  },
+  "97": {
+    "id": "p97",
+    "title": "Weak Quantum Decoding for Axon Tracts in the Tatikonda-Mitter Framework: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper97.html"
+  },
+  "98": {
+    "id": "p98",
+    "title": "Percolating Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper98.html"
+  },
+  "99": {
+    "id": "p99",
+    "title": "A Two-Tract Gedanken Experiment",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper99.html"
+  },
+  "100": {
+    "id": "p100",
+    "title": "On the Irrelevance of Angular Geometry for Very Large Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper100.html"
+  },
+  "101": {
+    "id": "p101",
+    "title": "A Framework for Quantum Character Recognition",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper101.html"
+  },
+  "102": {
+    "id": "p102",
+    "title": "Quantum Recognition Using the Quantum Perceptron",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper102.html"
+  },
+  "103": {
+    "id": "p103",
+    "title": "Bi-directional Classical Transmission Using One-way Entanglement-assisted Quantum Transmission",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper103.html"
+  },
+  "104": {
+    "id": "p104",
+    "title": "Federated Quantum Perceptrons",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper104.html"
+  },
+  "105": {
+    "id": "p105",
+    "title": "A Joint View of Computation and Learning",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper105.html"
+  },
+  "106": {
+    "id": "p106",
+    "title": "Extending the Quperceptron to Spin Systems: a Note",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper106.html"
+  },
+  "107": {
+    "id": "p107",
+    "title": "On Gambling and Learning",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper107.html"
+  },
+  "108": {
+    "id": "p108",
+    "title": "Anytime Coding for Gaussian Rate-Limited Noisy Feedback: Low Average Rates of Data Transmission",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper108.html"
+  },
+  "109": {
+    "id": "p109",
+    "title": "Anytime Coding for Non-Stationary Channels: an Exploration",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper109.html"
+  },
+  "110": {
+    "id": "p110",
+    "title": "Configured Structures and Their Representation",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper110.html"
+  },
+  "111": {
+    "id": "p111",
+    "title": "Knots and Information",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper111.html"
+  },
+  "112": {
+    "id": "p112",
+    "title": "Sphere-packing in Spherical Spaces",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper112.html"
+  },
+  "113": {
+    "id": "p113",
+    "title": "Geometric Application of Bell's Perturbative Theorems",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper113.html"
+  },
+  "114": {
+    "id": "p114",
+    "title": "Shannon Approach to Bosons",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper114.html"
+  },
+  "115": {
+    "id": "p115",
+    "title": "Memory and Entropy",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper115.html"
+  },
+  "116": {
+    "id": "p116",
+    "title": "Quantum Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper116.html"
+  },
+  "117": {
+    "id": "p117",
+    "title": "Ideas on Ultracold Coherent Systems and Communication",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper117.html"
+  },
+  "118": {
+    "id": "p118",
+    "title": "Security Aspects of Viterbi Decoding",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper118.html"
+  },
+  "119": {
+    "id": "p119",
+    "title": "On History",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper119.html"
+  },
+  "120": {
+    "id": "p120",
+    "title": "Optimal Placement of Extracellular Recording Electrodes Near Axon Tracts: a Note",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper120.html"
+  },
+  "121": {
+    "id": "p121",
+    "title": "On an Agent-aided Noisy Feedback Scheme -III",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper121.html"
+  },
+  "122": {
+    "id": "p122",
+    "title": "On the Attitude Adopted by Thinking Towards Itself",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper122.html"
+  },
+  "123": {
+    "id": "p123",
+    "title": "On the Sinusoidal Perceptron in a Different Form",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper123.html"
+  },
+  "124": {
+    "id": "p124",
+    "title": "Metric Perturbations May Address Instruction Memory in the Brain",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper124.html"
+  },
+  "125": {
+    "id": "p125",
+    "title": "Using Mutual Information to Characterize Neural PDEs",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper125.html"
+  },
+  "126": {
+    "id": "p126",
+    "title": "Variation of Mutual Information With Tract Temperature",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper126.html"
+  },
+  "127": {
+    "id": "p127",
+    "title": "Characterization of Cascaded LTI Instances Using Mutual Information: a Computer Study",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper127.html"
+  },
+  "128": {
+    "id": "p128",
+    "title": "Reflections on Model System Sequestration in the Laboratory",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper128.html"
+  },
+  "129": {
+    "id": "p129",
+    "title": "Consequence of Distance From the Metric Perturbation Source on Tract Timing",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper129.html"
+  },
+  "130": {
+    "id": "p130",
+    "title": "Ephaptic Information Flow: Information Processing in Groups of Neurons",
+    "authors": "Chawla, Aman and Morgera, Salvatore",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper130.html"
+  },
+  "131": {
+    "id": "p131",
+    "title": "Towards a General Theory of Medium-Sensitive Current-Mediated Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper131.html"
+  },
+  "132": {
+    "id": "p132",
+    "title": "Towards Simplex-Coded Noisy Feedback Communication on the Gaussian Channel",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper132.html"
+  },
+  "133": {
+    "id": "p133",
+    "title": "QUBO Formulation of Entropy Maximization",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper133.html"
+  },
+  "134": {
+    "id": "p134",
+    "title": "Study of Cross-Information",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper134.html"
+  },
+  "135": {
+    "id": "p135",
+    "title": "Information Theory in India",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper135.html"
+  },
+  "136": {
+    "id": "p136",
+    "title": "Assumptions and Axioms in the Construction of Theories",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper136.html"
+  },
+  "137": {
+    "id": "p137",
+    "title": "Towards a Mathematical Theory of DS Computation in SAC Dendrites",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper137.html"
+  },
+  "138": {
+    "id": "p138",
+    "title": "Neurobiophysical Communication",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper138.html"
+  },
+  "139": {
+    "id": "p139",
+    "title": "A Quantum Algorithm for MAXSAT",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper139.html"
+  },
+  "140": {
+    "id": "p140",
+    "title": "On Finding the Parity of an Unknown Quantum State",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper140.html"
+  },
+  "141": {
+    "id": "p141",
+    "title": "Does Quantum Randomness Govern Universal Evolution?",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper141.html"
+  },
+  "142": {
+    "id": "p142",
+    "title": "A Gedanken Experiment on the Flow of Time",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper142.html"
+  },
+  "143": {
+    "id": "p143",
+    "title": "A Quantum Extension of Action Potential Coupling in 3D Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper143.html"
+  },
+  "144": {
+    "id": "p144",
+    "title": "Revisiting the 3D Tract Equation for Generic Axonal Geometry",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper144.html"
+  },
+  "145": {
+    "id": "p145",
+    "title": "Simulating Nanofluidics: an LLM Study",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper145.html"
+  },
+  "146": {
+    "id": "p146",
+    "title": "Quantum Illumination for Nanofluidics: an LLM Study",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper146.html"
+  },
+  "147": {
+    "id": "p147",
+    "title": "Quantum Solar Energy",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper147.html"
+  },
+  "148": {
+    "id": "p148",
+    "title": "Applying the Method of Types to Channels With Continuous Alphabets",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper148.html"
+  },
+  "149": {
+    "id": "p149",
+    "title": "Theory of Coupled Languages",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper149.html"
+  },
+  "150": {
+    "id": "p150",
+    "title": "Li-Vitanyi Approach to Noisy Channel Coding",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper150.html"
+  },
+  "151": {
+    "id": "p151",
+    "title": "Quantum Refractors",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper151.html"
+  },
+  "152": {
+    "id": "p152",
+    "title": "A Note on Entangled Processing in Tracts of Axons",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper152.html"
+  },
+  "153": {
+    "id": "p153",
+    "title": "How Internodal Spacing Modulates Saltatory Information Flow",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper153.html"
+  },
+  "154": {
+    "id": "p154",
+    "title": "How Internodal Spacing Modulates Saltatory Ephaptic Information Flow",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper154.html"
+  },
+  "155": {
+    "id": "p155",
+    "title": "Quantum Stroboscope: A Note on Quantum Illumination of Moving Targets",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper155.html"
+  },
+  "156": {
+    "id": "p156",
+    "title": "On the Anytime Delay and the Streaming Gaussian Reliability Function",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper156.html"
+  },
+  "157": {
+    "id": "p157",
+    "title": "Volterra Functional Approach to the Poisson Channel with Noisy Feedback: a Note",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper157.html"
+  },
+  "158": {
+    "id": "p158",
+    "title": "Towards a Vedic Algorithm for the Singular Value Decomposition: Part I - On Matrix Eigenvalues",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper158.html"
+  },
+  "159": {
+    "id": "p159",
+    "title": "The Perception of Randomness",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper159.html"
+  },
+  "160": {
+    "id": "p160",
+    "title": "t'Hooft Meets a String: A Proposal on Shockwave Production by Massive Particles",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper160.html"
+  },
+  "161": {
+    "id": "p161",
+    "title": "Mass as a State",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper161.html"
+  },
+  "162": {
+    "id": "p162",
+    "title": "Mass as a State: Impact on the Heisenberg Equations of Motion",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper162.html"
+  },
+  "163": {
+    "id": "p163",
+    "title": "Path of Information",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper163.html"
+  },
+  "164": {
+    "id": "p164",
+    "title": "A Note on the Mass-Position Uncertainty Principle",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper164.html"
+  },
+  "165": {
+    "id": "p165",
+    "title": "Towards a General Theory of Scientific Communication",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper165.html"
+  },
+  "166": {
+    "id": "p166",
+    "title": "Operational Amplifier Axons",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper166.html"
+  },
+  "167": {
+    "id": "p167",
+    "title": "Large Language Model-guided Quantum MaxSAT Algorithm Design",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper167.html"
+  },
+  "168": {
+    "id": "p168",
+    "title": "Frequency-resolved Gravitational Wave Spectrometer: A Thought Experiment",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper168.html"
+  },
+  "169": {
+    "id": "p169",
+    "title": "Of Scales and Displacement: the Need for a New Quantum Law",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper169.html"
+  },
+  "170": {
+    "id": "p170",
+    "title": "Diseased Learning Machines",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper170.html"
+  },
+  "171": {
+    "id": "p171",
+    "title": "Two Paths to Nietzsche's Ubermensch",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper171.html"
+  },
+  "172": {
+    "id": "p172",
+    "title": "fMRI Tests for Neural Gravity: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2024",
+    "url": "https://yogoreal.net/paper172.html"
+  },
+  "173": {
+    "id": "p173",
+    "title": "The Law of Ephaptic Information-dynamics",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper173.html"
+  },
+  "174": {
+    "id": "p174",
+    "title": "fMRI Tests for Neural Gravity: Analysis",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper174.html"
+  },
+  "175": {
+    "id": "p175",
+    "title": "Sarvaprakataviveka",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper175.html"
+  },
+  "176": {
+    "id": "p176",
+    "title": "Mahasiddhartha",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper176.html"
+  },
+  "177": {
+    "id": "p177",
+    "title": "Mahasiddhartha",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper177.html"
+  },
+  "178": {
+    "id": "p178",
+    "title": "Vedic Religion and Vedic Law: Universal in Bharata",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper178.html"
+  },
+  "179": {
+    "id": "p179",
+    "title": "Coherent Quantum Feedback Control of a BEC Under Communication Constraints: Proposed Simulation and Analytical Study",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper179.html"
+  },
+  "180": {
+    "id": "p180",
+    "title": "Effect of Temperature on Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper180.html"
+  },
+  "181": {
+    "id": "p181",
+    "title": "Modulation of Neurotransmitter Activity by Metric Perturbations: a Gedanken Study",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper181.html"
+  },
+  "182": {
+    "id": "p182",
+    "title": "The Everyday Origin of Life",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper182.html"
+  },
+  "183": {
+    "id": "p183",
+    "title": "Architecture of a Brain-Inspired Quantum Supercomputer and its Separation From Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper183.html"
+  },
+  "184": {
+    "id": "p184",
+    "title": "On Cosmic Religion: A Call to Action",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper184.html"
+  },
+  "185": {
+    "id": "p185",
+    "title": "Coupled Cable Equations in the Witten-Rozansky Framework: an LLM Study",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper185.html"
+  },
+  "186": {
+    "id": "p186",
+    "title": "Studying Healthcare in Rural India",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper186.html"
+  },
+  "187": {
+    "id": "p187",
+    "title": "On Distance and Time in Prajna and Physics",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper187.html"
+  },
+  "188": {
+    "id": "p188",
+    "title": "A Mathematical Theory of Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper188.html"
+  },
+  "189": {
+    "id": "p189",
+    "title": "AI Yoga Darshanam",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper189.html"
+  },
+  "190": {
+    "id": "p190",
+    "title": "Some Progress on Axonal Quantum Computation in the Markin Approximation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper190.html"
+  },
+  "191": {
+    "id": "p191",
+    "title": "Impact of f(R) Gravity on Gravitational Wave-Induced Action Potential Timing Differentials in Ephaptic Axon Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper191.html"
+  },
+  "192": {
+    "id": "p192",
+    "title": "Theoretical Basis From String Theory Which Precludes Brain Quantum Computation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper192.html"
+  },
+  "193": {
+    "id": "p193",
+    "title": "The Cosmic Quantum Orchestra: A Brief History of the Brain",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper193.html"
+  },
+  "194": {
+    "id": "p194",
+    "title": "Wrinkles in Computation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper194.html"
+  },
+  "195": {
+    "id": "p195",
+    "title": "Of Lenses and Wrinkles",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper195.html"
+  },
+  "196": {
+    "id": "p196",
+    "title": "AI-Critical Review of \"Of Codes and Consciousness\"",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper196.html"
+  },
+  "197": {
+    "id": "p197",
+    "title": "Quantifying the Impact of Lift-off on the Optic Nerve Tract of Space Crew",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper197.html"
+  },
+  "198": {
+    "id": "p198",
+    "title": "Low Frequency Experimental Characterization of an FSO Channel: an Invitation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper198.html"
+  },
+  "199": {
+    "id": "p199",
+    "title": "Towards a Computer Study of Pulsing Fields: a Report",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper199.html"
+  },
+  "200": {
+    "id": "p200",
+    "title": "Towards a MIMO Analysis of Ephaptic Communications",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper200.html"
+  },
+  "201": {
+    "id": "p201",
+    "title": "Tortuosity and the Flatness of Local Spacetime",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper201.html"
+  },
+  "202": {
+    "id": "p202",
+    "title": "Crystals and Quantum Computation: a Note",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper202.html"
+  },
+  "203": {
+    "id": "p203",
+    "title": "Photon Mean Free Path in Turbulence: First Investigation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper203.html"
+  },
+  "204": {
+    "id": "p204",
+    "title": "AI-Based Healthcare: Website and App Feedback Form for Entrepreneurs",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper204.html"
+  },
+  "205": {
+    "id": "p205",
+    "title": "Communication-on-the-fly With High Quality Bits - Part I: Motivation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper205.html"
+  },
+  "206": {
+    "id": "p206",
+    "title": "Implementing Network Random Refresh: an Algorithmic Approach",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper206.html"
+  },
+  "207": {
+    "id": "p207",
+    "title": "The Quantum Perceptron: A First Approach",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper207.html"
+  },
+  "208": {
+    "id": "p208",
+    "title": "Unification of Encryption and Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper208.html"
+  },
+  "209": {
+    "id": "p209",
+    "title": "Behavioral Gravity",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper209.html"
+  },
+  "210": {
+    "id": "p210",
+    "title": "MacDonald-Thorne Black-hole Electrodynamics for Nerves. Part I: Motivation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper210.html"
+  },
+  "211": {
+    "id": "p211",
+    "title": "Addressing Einstein's Question",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper211.html"
+  },
+  "212": {
+    "id": "p212",
+    "title": "Braid Information Theory",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper212.html"
+  },
+  "213": {
+    "id": "p213",
+    "title": "Integrating Mach and Vedanta: a Note",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper213.html"
+  },
+  "214": {
+    "id": "p214",
+    "title": "His Legacy: A Poetic Call to Higher Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper214.html"
+  },
+  "215": {
+    "id": "p215",
+    "title": "Quantum Version of Plonsey (1967): a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper215.html"
+  },
+  "216": {
+    "id": "p216",
+    "title": "Magnetic Stimulation Alters Conduction Profiles in Ephaptic Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper216.html"
+  },
+  "217": {
+    "id": "p217",
+    "title": "Polygonal Reliability: the Problem",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper217.html"
+  },
+  "218": {
+    "id": "p218",
+    "title": "Near-field Reliability: the Problem",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper218.html"
+  },
+  "219": {
+    "id": "p219",
+    "title": "Zero, the Unifier: Reflections on a Gift of India to the World",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper219.html"
+  },
+  "220": {
+    "id": "p220",
+    "title": "Systematic Non-Tree Codes: Rudiments",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper220.html"
+  },
+  "221": {
+    "id": "p221",
+    "title": "Extroversion and Expansion: a Distinction",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper221.html"
+  },
+  "222": {
+    "id": "p222",
+    "title": "Study in Pink and Green",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper222.html"
+  },
+  "223": {
+    "id": "p223",
+    "title": "Interferometric Quantum Stroboscope",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper223.html"
+  },
+  "224": {
+    "id": "p224",
+    "title": "On the Hodgkin-Huxley Equation on a Curve",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper224.html"
+  },
+  "225": {
+    "id": "p225",
+    "title": "Simultaneous Transmission via Sound and Light: Squeezing and Uncertainty",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper225.html"
+  },
+  "226": {
+    "id": "p226",
+    "title": "Hacia una Picture Unificada de Todo",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper226.html"
+  },
+  "227": {
+    "id": "p227",
+    "title": "View from the Crowne",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper227.html"
+  },
+  "228": {
+    "id": "p228",
+    "title": "On Brownian Motion During Neurodevelopment",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper228.html"
+  },
+  "229": {
+    "id": "p229",
+    "title": "Ephaptic Coupling Study Based on the Conditional PNP Equation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper229.html"
+  },
+  "230": {
+    "id": "p230",
+    "title": "Of Qualia and the Nature of the Universe",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper230.html"
+  },
+  "231": {
+    "id": "p231",
+    "title": "Pulsation of a Universe in the Tattvabodha",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper231.html"
+  },
+  "232": {
+    "id": "p232",
+    "title": "The Inner Search",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper232.html"
+  },
+  "233": {
+    "id": "p233",
+    "title": "Quantum-Enabled Signal Processing: a Method for Quantum Filter Design",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper233.html"
+  },
+  "234": {
+    "id": "p234",
+    "title": "Quantum Approach to Yao's Minimax Principle: a Proposal",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper234.html"
+  },
+  "235": {
+    "id": "p235",
+    "title": "Mapping the Synaptic Electric Field",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper235.html"
+  },
+  "236": {
+    "id": "p236",
+    "title": "Rigorous Computational Jyotisa",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper236.html"
+  },
+  "237": {
+    "id": "p237",
+    "title": "On a Work by Prof. Sergio Servetto",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper237.html"
+  },
+  "238": {
+    "id": "p238",
+    "title": "An Information-Regulated Spacetime Framework for Smooth Solutions of the 3D Navier--Stokes Equations",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper238.html"
+  },
+  "239": {
+    "id": "p239",
+    "title": "Quantum Evolution and Clustering Probabilities in a Vortex Fluid: Analogy with a BEC",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper239.html"
+  },
+  "240": {
+    "id": "p240",
+    "title": "The Immortal Contribution of Vedavyasa",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper240.html"
+  },
+  "241": {
+    "id": "p241",
+    "title": "Apprehension of Monism: the Means",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper241.html"
+  },
+  "242": {
+    "id": "p242",
+    "title": "A Function Theoretic Approach to Quantum Measurements",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper242.html"
+  },
+  "243": {
+    "id": "p243",
+    "title": "Comprensi{\u00f3}n del Monismo: los Medios",
+    "authors": "Unknown",
+    "year": "N/A",
+    "url": "https://yogoreal.net/paper243.html"
+  },
+  "244": {
+    "id": "p244",
+    "title": "Axon Interaction for the Novice",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper244.html"
+  },
+  "245": {
+    "id": "p245",
+    "title": "Ocean of Divine Bliss Verse 1: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper245.html"
+  },
+  "246": {
+    "id": "p246",
+    "title": "On the Role of Algorithms in Quantum Computing",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper246.html"
+  },
+  "247": {
+    "id": "p247",
+    "title": "Ocean of Divine Bliss Verse 2: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper247.html"
+  },
+  "248": {
+    "id": "p248",
+    "title": "Ocean of Divine Bliss Verse 3: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper248.html"
+  },
+  "249": {
+    "id": "p249",
+    "title": "Ocean of Divine Bliss Verse 4: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper249.html"
+  },
+  "250": {
+    "id": "p250",
+    "title": "The Essence of Worship",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper250.html"
+  },
+  "251": {
+    "id": "p251",
+    "title": "Construction of a Mathematical Variant on Bosonic Noise",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper251.html"
+  },
+  "252": {
+    "id": "p252",
+    "title": "A Personal Finance PDE Whose Aggregation Yields the Black--Scholes Equation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper252.html"
+  },
+  "253": {
+    "id": "p253",
+    "title": "Theory of Nonlocal Unification: the Foundation and its Application",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper253.html"
+  },
+  "254": {
+    "id": "p254",
+    "title": "Fundamental Finitary Limits to Maximal Mutual Information",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper254.html"
+  },
+  "255": {
+    "id": "p255",
+    "title": "Ocean of Divine Bliss Verse 6: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper255.html"
+  },
+  "256": {
+    "id": "p256",
+    "title": "Anscombe's Realism and Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper256.html"
+  },
+  "257": {
+    "id": "p257",
+    "title": "A Mathematical Anscombian View of Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper257.html"
+  },
+  "258": {
+    "id": "p258",
+    "title": "Euclid, the Sulbasutras, and the Geometry of the Mind: A Mathematical Continuum from Antiquity to Brain-Machine Interfaces",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper258.html"
+  },
+  "259": {
+    "id": "p259",
+    "title": "Consequences of Nonlocal Unification for Limit Observers",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper259.html"
+  },
+  "260": {
+    "id": "p260",
+    "title": "On the Quantum Biophysics of Deep Learning",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper260.html"
+  },
+  "261": {
+    "id": "p261",
+    "title": "Interlocked Impact of Geometry and Coupling Strength on Maximal Mutual Information in a Nerve Tract",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper261.html"
+  },
+  "262": {
+    "id": "p262",
+    "title": "Speculative Medical Applications of Light-Gated Ion Channel Control",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper262.html"
+  },
+  "263": {
+    "id": "p263",
+    "title": "NU Provides an Energy-Injection Mechanism",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper263.html"
+  },
+  "264": {
+    "id": "p264",
+    "title": "Claude Meets Chawla: Banter About Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper264.html"
+  },
+  "265": {
+    "id": "p265",
+    "title": "Data Flow in the Sun",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper265.html"
+  },
+  "266": {
+    "id": "p266",
+    "title": "Igor Pro Procedure for SAC Irresolution Analysis",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper266.html"
+  },
+  "267": {
+    "id": "p267",
+    "title": "Modulator Design in String Information Theory",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper267.html"
+  },
+  "268": {
+    "id": "p268",
+    "title": "Nonlinear Neural Correlates of Nonlocal Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper268.html"
+  },
+  "269": {
+    "id": "p269",
+    "title": "Gaia's Capacity: Information Flow in the Climate",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper269.html"
+  },
+  "270": {
+    "id": "p270",
+    "title": "On the Capacity of Any Communication Network",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper270.html"
+  },
+  "271": {
+    "id": "p271",
+    "title": "Ephaptic Neuro-Modulation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper271.html"
+  },
+  "272": {
+    "id": "p272",
+    "title": "DENs of Purkinje Cells",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper272.html"
+  },
+  "273": {
+    "id": "p273",
+    "title": "Glimpses of Conformal Information",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper273.html"
+  },
+  "274": {
+    "id": "p274",
+    "title": "Ongoing Studies of Network Capacity: Large User Number Case",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper274.html"
+  },
+  "275": {
+    "id": "p275",
+    "title": "Vaidyutik-dvi-stariyon ke vidyut-yukt-anu pravah path - 1",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper275.html"
+  },
+  "276": {
+    "id": "p276",
+    "title": "Graduate Seminar in Electricity and Magnetism, Lecture 1",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper276.html"
+  },
+  "277": {
+    "id": "p277",
+    "title": "Rejuvenation From Ingrained Negativity: an AI Approach",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper277.html"
+  },
+  "278": {
+    "id": "p278",
+    "title": "Self-realization, Science and the Constitution of India: a Computational Perspective",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper278.html"
+  },
+  "279": {
+    "id": "p279",
+    "title": "Bi-stochastic Versions of Hairer Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper279.html"
+  },
+  "280": {
+    "id": "p280",
+    "title": "On the Energy Needs of Artificial Intelligence",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper280.html"
+  },
+  "281": {
+    "id": "p281",
+    "title": "Ocean of Divine Bliss Verse 7: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper281.html"
+  },
+  "282": {
+    "id": "p282",
+    "title": "Nodal Misalignment Affects Spike Propagation in 3D Ephaptic Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper282.html"
+  },
+  "283": {
+    "id": "p283",
+    "title": "Quantifying the Quantum Intelligence of a Language",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper283.html"
+  },
+  "284": {
+    "id": "p284",
+    "title": "Integration with respect to SIC-POVMs: a Generalized View",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper284.html"
+  },
+  "285": {
+    "id": "p285",
+    "title": "Ocean of Divine Bliss Verse 8: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper285.html"
+  },
+  "286": {
+    "id": "p286",
+    "title": "An Application of Mitter-Young Theory to Hurwitz Detection",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper286.html"
+  },
+  "287": {
+    "id": "p287",
+    "title": "Bodhsanchar 1: Agent-Aided Maritime Communication System for Green Port Operations",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper287.html"
+  },
+  "288": {
+    "id": "p288",
+    "title": "Ocean of Divine Bliss Verse 9: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper288.html"
+  },
+  "289": {
+    "id": "p289",
+    "title": "Ocean of Divine Bliss Verse 10: a Commentary",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper289.html"
+  },
+  "290": {
+    "id": "p290",
+    "title": "Design of More Capable Nervous Systems",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper290.html"
+  },
+  "291": {
+    "id": "p291",
+    "title": "A Note on Message Passing Decoding Over Non-Gaussian Channels",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper291.html"
+  },
+  "292": {
+    "id": "p292",
+    "title": "Nonlocal Unification Field Theory and Its Quantum Optics Limit: Observer-Function Formulation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper292.html"
+  },
+  "293": {
+    "id": "p293",
+    "title": "Dramatic Velocity Changes Under Temperature Differentials in Ephaptic Tracts",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper293.html"
+  },
+  "294": {
+    "id": "p294",
+    "title": "Tracking the Neuronal Paths of Ephaptic Information",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper294.html"
+  },
+  "295": {
+    "id": "p295",
+    "title": "Covariant Reformulation and Simulation of Action Potential Diffusion",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper295.html"
+  },
+  "296": {
+    "id": "p296",
+    "title": "Performance of the Vector Perceptron With Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper296.html"
+  },
+  "297": {
+    "id": "p297",
+    "title": "On the Black Hole Information Loss Paradox Under a Novel Phenomenological Model of Quantum Measurements",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper297.html"
+  },
+  "298": {
+    "id": "p298",
+    "title": "The Depolarizing Channel can be Worse Than the Dephasing Channel When Replacing the Identity map in a Problem of Quantum Control",
+    "authors": "Chawla, Aman",
+    "year": "2011",
+    "url": "https://yogoreal.net/paper298.html"
+  },
+  "299": {
+    "id": "p299",
+    "title": "A Note on Invoking Indo-Scandinavian Cultural Affinity for Increased Cooperation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper299.html"
+  },
+  "300": {
+    "id": "p300",
+    "title": "Unification of Intelligence and Information: Beyond Blahut-Arimoto Using Machine Learning",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper300.html"
+  },
+  "301": {
+    "id": "p301",
+    "title": "Self-recovery and Security: Novel Aspects of Network Random Refresh",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper301.html"
+  },
+  "302": {
+    "id": "p302",
+    "title": "First Observation: A Dialogue on Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper302.html"
+  },
+  "303": {
+    "id": "p303",
+    "title": "Modest Security Gains With Modulus Diversity in Elliptic Curve Cryptography",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper303.html"
+  },
+  "304": {
+    "id": "p304",
+    "title": "Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper304.html"
+  },
+  "305": {
+    "id": "p305",
+    "title": "An Approach to Genuine Intelligence Using Electrophysiology",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper305.html"
+  },
+  "306": {
+    "id": "p306",
+    "title": "FSO Channel Design With Halo-Inclusive Source",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper306.html"
+  },
+  "307": {
+    "id": "p307",
+    "title": "Vedantic Pa{\\~n}cikarana and the Emergence of Collective Neural Dynamics via Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper307.html"
+  },
+  "308": {
+    "id": "p308",
+    "title": "Programming Hilbert Space",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper308.html"
+  },
+  "309": {
+    "id": "p309",
+    "title": "A Unified Grammar of Science",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper309.html"
+  },
+  "310": {
+    "id": "p310",
+    "title": "Shared Human Models on Ethics",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper310.html"
+  },
+  "311": {
+    "id": "p311",
+    "title": "Suganita",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper311.html"
+  },
+  "312": {
+    "id": "p312",
+    "title": "A Multi-Ethics of Mechanism",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper312.html"
+  },
+  "313": {
+    "id": "p313",
+    "title": "On an Argument of Hume",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper313.html"
+  },
+  "314": {
+    "id": "p314",
+    "title": "Wave-Spin Interaction in an Angular Momentum Lens",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper314.html"
+  },
+  "315": {
+    "id": "p315",
+    "title": "Living Fire",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper315.html"
+  },
+  "316": {
+    "id": "p316",
+    "title": "Nonlinear Emergence of Creation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper316.html"
+  },
+  "317": {
+    "id": "p317",
+    "title": "Augmenting Human Research Insight Using Large Language Models",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper317.html"
+  },
+  "318": {
+    "id": "p318",
+    "title": "On Tinkering With Text: How to Refashion Prose",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper318.html"
+  },
+  "319": {
+    "id": "p319",
+    "title": "Minimal Systems for Computational Creativity: Evidence of Motif Stabilization",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper319.html"
+  },
+  "320": {
+    "id": "p320",
+    "title": "Networks of Transformers",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper320.html"
+  },
+  "321": {
+    "id": "p321",
+    "title": "My Immortal India",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper321.html"
+  },
+  "322": {
+    "id": "p322",
+    "title": "Concentration as Modulated Gathering",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper322.html"
+  },
+  "323": {
+    "id": "p323",
+    "title": "The Action Potential Field: Why Consciousness May be Irreducible",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper323.html"
+  },
+  "324": {
+    "id": "p324",
+    "title": "Necessary and Sufficient Substrate for Consciousness",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper324.html"
+  },
+  "325": {
+    "id": "p325",
+    "title": "White Matter Capacity",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper325.html"
+  },
+  "326": {
+    "id": "p326",
+    "title": "Quantum Made in Bharat",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper326.html"
+  },
+  "327": {
+    "id": "p327",
+    "title": "Ab Initio Control of a SPAD Sensor Using an AVR-Controlled External Datapath: A Replicable Table-Top Architecture for Long-Horizon Quantum Computation",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper327.html"
+  },
+  "328": {
+    "id": "p328",
+    "title": "Ephemeris Mundi",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper328.html"
+  },
+  "329": {
+    "id": "p329",
+    "title": "Capacity Boost: Data Transmission in the Unified Regime",
+    "authors": "Chawla, Aman",
+    "year": "2025",
+    "url": "https://yogoreal.net/paper329.html"
+  },
+  "330": {
+    "id": "p330",
+    "title": "Weak Source Coding: Entropy-Tightened Bounds via Clustering of Atypical Sequences",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper330.html"
+  },
+  "331": {
+    "id": "p331",
+    "title": "Ephaptic Quantum Energy Teleportation and Quantum Ephaptic Coupling: A Unified Mechanism for Energy--Charge Recombination Across Lipid Barriers",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper331.html"
+  },
+  "332": {
+    "id": "p332",
+    "title": "Extending Baar's Theatre: a Substrate for World Peace",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper332.html"
+  },
+  "333": {
+    "id": "p333",
+    "title": "Dharma Advisory Councils: Role and Recruitment",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper333.html"
+  },
+  "334": {
+    "id": "p334",
+    "title": "Non-monotonic schemes for data transmission: an assessment",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper334.html"
+  },
+  "335": {
+    "id": "p335",
+    "title": "Vibe Coding With Nyaya",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper335.html"
+  },
+  "336": {
+    "id": "p336",
+    "title": "Mastishk mein saarvatrik kvantum samganana ki kriya vidhi",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper336.html"
+  },
+  "337": {
+    "id": "p337",
+    "title": "Realization, Information and Knowledge",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper337.html"
+  },
+  "338": {
+    "id": "p338",
+    "title": "Mixture-of-Experts View of the Double-Flash",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper338.html"
+  },
+  "339": {
+    "id": "p339",
+    "title": "Early modulation of visual cortex by sound: an MEG study",
+    "authors": "Chawla, Aman",
+    "year": "2023",
+    "url": "https://yogoreal.net/paper339.html"
+  },
+  "340": {
+    "id": "p340",
+    "title": "Contributions of Prime Minister Nehru",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper340.html"
+  },
+  "341": {
+    "id": "p341",
+    "title": "A Critical Examination of MANAV Vision",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper341.html"
+  },
+  "342": {
+    "id": "p342",
+    "title": "GNS Shadows Behind PBR",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper342.html"
+  },
+  "343": {
+    "id": "p343",
+    "title": "On the Possible Influence of Metric Perturbations on Neural Tract Timing",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper343.html"
+  },
+  "344": {
+    "id": "p344",
+    "title": "Ephaptic Dependence Detectors: Theory and Simulations",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper344.html"
+  },
+  "345": {
+    "id": "p345",
+    "title": "Towards Emulating AI",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper345.html"
+  },
+  "346": {
+    "id": "p346",
+    "title": "Experimental Characterization of Thermal Fluctuations in a Tethered Micron-Scale Structure: Initial Steps Toward Diffusion-Based Signaling",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper346.html"
+  },
+  "347": {
+    "id": "p347",
+    "title": "Gravity Waves Enhance Entropy Amplification due to Ephaptic Coupling",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper347.html"
+  },
+  "348": {
+    "id": "p348",
+    "title": "A MIMO Model for an Axon Under Chemical-- Mechanical Coupling - a Note",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper348.html"
+  },
+  "349": {
+    "id": "p349",
+    "title": "Quantum Nyaya Cognition: an Architecture",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper349.html"
+  },
+  "350": {
+    "id": "p350",
+    "title": "The Born Perceptron: Mimicking Quantum Mechanics and Distributed Measurements in Time",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper350.html"
+  },
+  "351": {
+    "id": "p351",
+    "title": "A Mathematical Theory of Genetic Modulation of Information Flow",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper351.html"
+  },
+  "352": {
+    "id": "p352",
+    "title": "On the Quantum Completeness Problem: Solution via Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper352.html"
+  },
+  "353": {
+    "id": "p353",
+    "title": "Nonlocal Unification as the Completion of Mermin\u2019s QBism",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper353.html"
+  },
+  "354": {
+    "id": "p354",
+    "title": "Kakeya Upper Bounds for Neural Arbors",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper354.html"
+  },
+  "355": {
+    "id": "p355",
+    "title": "Shannon Source Coding as a Limiting Case of Structured Source Coding",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper355.html"
+  },
+  "356": {
+    "id": "p356",
+    "title": "Post-Shannon Information Theory",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper356.html"
+  },
+  "357": {
+    "id": "p357",
+    "title": "Classical--Quantum Correspondence, Schumacher Compression, and the Atypical Sector",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper357.html"
+  },
+  "358": {
+    "id": "p358",
+    "title": "Structured Decomposition of the Quantum Atypical Sector",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper358.html"
+  },
+  "359": {
+    "id": "p359",
+    "title": "Quantum Distortion Geometry and Nearest-Representative Classification of the Atypical Sector",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper359.html"
+  },
+  "360": {
+    "id": "p360",
+    "title": "Landing a Probe on Comet Halley: A Multi-Stage Mission Architecture for Sub-Surface Exploration",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper360.html"
+  },
+  "361": {
+    "id": "p361",
+    "title": "Superconsciousness: a Poetic Meditation",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper361.html"
+  },
+  "362": {
+    "id": "p362",
+    "title": "Structured Encoder and the Finite-Blocklength Rate--Fidelity Advantage",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper362.html"
+  },
+  "363": {
+    "id": "p363",
+    "title": "Dominant Cluster Probability and Bounding Structural Overhead",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper363.html"
+  },
+  "364": {
+    "id": "p364",
+    "title": "Envisioning a Fusion Pathway to Mars",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper364.html"
+  },
+  "365": {
+    "id": "p365",
+    "title": "Learning-Based Structural Decoding",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper365.html"
+  },
+  "366": {
+    "id": "p366",
+    "title": "Fidelity Tradeoff for Quantum Structured Source Coding: Lowering Landauer's Lower Bound",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper366.html"
+  },
+  "367": {
+    "id": "p367",
+    "title": "Finite-Blocklength Advantage for Quantum Structured Source Coding",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper367.html"
+  },
+  "368": {
+    "id": "p368",
+    "title": "Aryabhata Quantum Source Coding",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper368.html"
+  },
+  "369": {
+    "id": "p369",
+    "title": "Towards Aryabhata Quantum Lempel-Ziv",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper369.html"
+  },
+  "370": {
+    "id": "p370",
+    "title": "A Note on Source-Channel Separation for the Quantum Atypical Sector",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper370.html"
+  },
+  "371": {
+    "id": "p371",
+    "title": "Information in the Aryabhata Sense: Value of Zero-Mass Boundaries",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper371.html"
+  },
+  "372": {
+    "id": "p372",
+    "title": "Stochastic Approximation of LLM Prompts",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper372.html"
+  },
+  "373": {
+    "id": "p373",
+    "title": "Decoupling Forward Aggregation and Backward Propagation for Robust Neural Computation: a Python Study",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper373.html"
+  },
+  "374": {
+    "id": "p374",
+    "title": "Necessity and Sufficiency of Frechet Observers for an Open Universe",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper374.html"
+  },
+  "375": {
+    "id": "p375",
+    "title": "Quantum Statistical Analysis of a Pointing-Dependent Refractor Array",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper375.html"
+  },
+  "376": {
+    "id": "p376",
+    "title": "Entanglement-Based Windows on the Universe: Error Exponents, Distributed Fusion, and Sphere-Packing Limits",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper376.html"
+  },
+  "377": {
+    "id": "p377",
+    "title": "On Third-Order Evidence-Class Gain in Quantum Illumination",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper377.html"
+  },
+  "378": {
+    "id": "p378",
+    "title": "The LLM Amoeba: an Analogy for Modern Interactive AI Systems",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper378.html"
+  },
+  "379": {
+    "id": "p379",
+    "title": "Using Machine Learning to Distinguish Nonlocal Unification and Entropic Gravity: Qualitative Results",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper379.html"
+  },
+  "380": {
+    "id": "p380",
+    "title": "Nonlocal-Unification-Informed Bayes Rule With Implications for Background Independence",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper380.html"
+  },
+  "381": {
+    "id": "p381",
+    "title": "Consciousness as Constrained Communication: Computer Study",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper381.html"
+  },
+  "382": {
+    "id": "p382",
+    "title": "Investment in STEM: the Vaccine for Tariffs",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper382.html"
+  },
+  "383": {
+    "id": "p383",
+    "title": "On Sampling and Being Sampled by the Universe",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper383.html"
+  },
+  "384": {
+    "id": "p384",
+    "title": "Staying Synchronized Under Noisy Feedback: AI-assisted Proof",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper384.html"
+  },
+  "385": {
+    "id": "p385",
+    "title": "Geometric Detectors for Spectrum Sensing",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper385.html"
+  },
+  "386": {
+    "id": "p386",
+    "title": "Gaussian Feedback With Atypical Structure: Steering Flows in Path Space",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper386.html"
+  },
+  "387": {
+    "id": "p387",
+    "title": "Entropic Ecstasy: On the Commodification of Entropy",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper387.html"
+  },
+  "388": {
+    "id": "p388",
+    "title": "Structured Atypical Sets and Information Economics",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper388.html"
+  },
+  "389": {
+    "id": "p389",
+    "title": "Rudimentary Web Design Using AI Prompts",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper389.html"
+  },
+  "390": {
+    "id": "p390",
+    "title": "Mulajnanakarika: a Mulakarika of Information",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper390.html"
+  },
+  "391": {
+    "id": "p391",
+    "title": "Evaluation of a Theoretical Proposal for Rim-Field Electrodynamics at Nodes of Ranvier",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper391.html"
+  },
+  "392": {
+    "id": "p392",
+    "title": "A Utility-theoretic Asymptotic Equipartition Property and the Geometric Coding Theory of Risk",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper392.html"
+  },
+  "393": {
+    "id": "p393",
+    "title": "Vajpayee on the Self: an Interpretation",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper393.html"
+  },
+  "394": {
+    "id": "p394",
+    "title": "Convergence of Filter-path Pair to 2D Gaussian Process",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper394.html"
+  },
+  "395": {
+    "id": "p395",
+    "title": "Vedic Meditation",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper395.html"
+  },
+  "396": {
+    "id": "p396",
+    "title": "Exotic General Relativistic Probes Using Quantum Telescopes",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper396.html"
+  },
+  "397": {
+    "id": "p397",
+    "title": "Characterization of the MAC With Feedback: a Drift-superposition Theorem",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper397.html"
+  },
+  "398": {
+    "id": "p398",
+    "title": "An Inductive Non-Euclidean Extension of Stroock's Lemma",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper398.html"
+  },
+  "399": {
+    "id": "p399",
+    "title": "Infinite Dimensions and Square Roots: a Quantum Detection Theorem",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper399.html"
+  },
+  "400": {
+    "id": "p400",
+    "title": "Exploring the Reliability of Bosonic Thermal Noise Channels",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper400.html"
+  },
+  "401": {
+    "id": "p401",
+    "title": "Decoherence as Broadcast: the Nodal Setting",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper401.html"
+  },
+  "402": {
+    "id": "p402",
+    "title": "Cross-Information as a Defect on the Informational Manifold of Coupled Channels",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper402.html"
+  },
+  "403": {
+    "id": "p403",
+    "title": "Wavepacket Propagation in Brownian Media",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper403.html"
+  },
+  "404": {
+    "id": "p404",
+    "title": "Stroboscope-Guided Quantum Scattering",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper404.html"
+  },
+  "405": {
+    "id": "p405",
+    "title": "The Informational Hawking Spectrum in Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper405.html"
+  },
+  "406": {
+    "id": "p406",
+    "title": "Time Lapse and Consciousness Instruments",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper406.html"
+  },
+  "407": {
+    "id": "p407",
+    "title": "Theory of Nonlocal Unification: The Foundation",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper407.html"
+  },
+  "408": {
+    "id": "p408",
+    "title": "Capacity of the Universe on the Basis of Observer-Function Analysis in Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper408.html"
+  },
+  "409": {
+    "id": "p409",
+    "title": "From Brownian Motion to Informational Einstein Equations: A Subordinator Perspective",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper409.html"
+  },
+  "410": {
+    "id": "p410",
+    "title": "Precision Clock Tests of the Theory of Nonlocal Unification",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper410.html"
+  },
+  "411": {
+    "id": "p411",
+    "title": "From Tridiagonal Elimination to Symplectic Phase-Space Sweeps: An Adaptive FrFT--Thomas Framework for Axonal Bundles Under High-Frequency Electrical Fields",
+    "authors": "Chawla, Aman",
+    "year": "2026",
+    "url": "https://yogoreal.net/paper411.html"
+  }
+}

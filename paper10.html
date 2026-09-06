@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src=\"assets/config.js\"></script>
+    <link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            line-height: 1.3;
+        }
+        .meta {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .meta p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+        .meta strong {
+            color: #2c3e50;
+        }
+        .section {
+            margin: 25px 0;
+        }
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        .abstract {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #9b59b6;
+            color: #555;
+        }
+        .no-abstract {
+            color: #999;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .nav-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+
+/* RELATED PAPERS + PREMIUM STYLE START */
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .related-list li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .related-list li:hover {
+            background-color: #f0f8ff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.15);
+        }
+        .related-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .related-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Premium Service Box */
+        .premium-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .premium-box h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .premium-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        .stamp-btn {
+            font-family: inherit; font-size: 0.9em; letter-spacing: 0.05em;
+            text-transform: uppercase; text-decoration: none;
+            border: 2px solid #3498db; color: #3498db;
+            padding: 10px 20px; text-align: center; cursor: pointer;
+            background: transparent; transition: .18s;
+            display: inline-block; font-weight: bold;
+            border-radius: 4px;
+        }
+        .stamp-btn:hover { background: #3498db; color: #fff; }
+
+        /* Modal (PhonePe / UPI) */
+        .modal {
+            display: none; position: fixed; inset: 0; z-index: 1000;
+            background: rgba(27,42,61,0.62);
+        }
+        .modal-content {
+            background: #faf5e8; max-width: 440px; width: 90%;
+            margin: 60px auto; padding: 32px; border: 1px solid #cdbd94;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+            max-height: 85vh; overflow-y: auto;
+            border-radius: 8px;
+            color: #1b2a3d;
+            font-family: inherit;
+        }
+        .modal-content h2 { font-size: 1.4rem; margin-bottom: 6px; color: #2c3e50; }
+        .modal-sub { font-size: 0.88rem; color: #3c4c60; margin-bottom: 18px; }
+        .close-btn { float: right; font-size: 1.5rem; cursor: pointer; color: #3c4c60; line-height: 1; }
+        .close-btn:hover { color: #a13d2e; }
+        .amount-field {
+            display: flex; align-items: center; gap: 8px;
+            background: #f3ead7; border: 1px solid #cdbd94;
+            padding: 10px 12px; margin-bottom: 16px;
+            border-radius: 4px;
+        }
+        .amount-field label { font-size: 0.78rem; color: #3c4c60; font-family: monospace; }
+        .amount-field span {
+            flex: 1; text-align: right; font-family: monospace;
+            font-size: 1.05rem; color: #1b2a3d; font-weight: bold;
+        }
+        .phonepe-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: #5f259f; color: #fff; text-decoration: none;
+            font-family: monospace; font-weight: 600; font-size: 0.9rem;
+            padding: 13px; margin-bottom: 16px; letter-spacing: 0.02em;
+            border-radius: 4px;
+        }
+        .phonepe-btn:hover { background: #4b1d80; color: #fff; }
+        .qr-box { text-align: center; margin-bottom: 16px; }
+        .qr-box img { max-width: 170px; border: 1px solid #cdbd94; border-radius: 4px; }
+        .upi-id-row {
+            background: #f3ead7; border: 1px solid #cdbd94;
+            font-family: monospace; font-size: 0.9rem;
+            padding: 12px; text-align: center; margin-bottom: 12px; word-break: break-all;
+            border-radius: 4px;
+        }
+        .copy-btn {
+            width: 100%; padding: 10px; background: #a9793c; color: #fff; border: none;
+            font-family: monospace; font-size: 0.8rem; letter-spacing: 0.04em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .copy-btn:hover { background: #7e5a29; }
+        .modal-fine { font-size: 0.8rem; color: #3c4c60; text-align: center; margin-top: 14px; line-height: 1.5; }
+
+        /* Order Form inside Modal */
+        .order-form { margin-top: 18px; padding-top: 18px; border-top: 1px dashed #cdbd94; }
+        .order-form h3 { font-size: 1.05rem; margin-bottom: 4px; color: #2c3e50; }
+        .order-form .form-grid { display: grid; gap: 10px; }
+        .order-form label { display: block; font-size: 0.78rem; color: #3c4c60; margin-bottom: 4px; }
+        .order-form input { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #cdbd94; border-radius: 3px; background: #faf5e8; color: #1b2a3d; font: inherit; }
+        .order-form input:focus { outline: 2px solid #a9793c; outline-offset: 1px; }
+        .order-form button { margin-top: 10px; width: 100%; border: none; cursor: pointer; }
+        .order-status { display: none; margin-top: 12px; padding: 11px 12px; border-radius: 3px; background: #eef6ee; color: #315c3b; font-size: 0.85rem; font-weight: 600; }
+        .order-status.error { background: #fff0ed; color: #8a3b2f; }
+/* RELATED PAPERS + PREMIUM STYLE END */
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <!-- PDF.js dependency for dynamic metadata extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script defer src="assets/pdf_metadata_extractor.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+    <!-- MathJax v3 TeX/LaTeX Support -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Paper">
+        <h1>Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel</h1>
+        
+        <div class="meta">
+            <p><strong>Year:</strong> 2008</p>
+            <p><strong>Authors:</strong> Chawla, A</p>
+            <p><strong>Type:</strong> ARTICLE</p>
+        
+            <p><strong>ARK:</strong> <a href="/ark:/37285/p10">ark:/37285/p10</a></p>
+        </div>
+        
+        <div class="section">
+            <h2>Publication Details</h2>
+            <p>ARTICLE | Journal: First Annual School of Information Theory, 2008</p>
+        </div>
+        <div class="section">
+            <h2>Abstract</h2>
+            <div class="no-abstract">
+                No abstract available for this publication.
+            </div>
+        </div>
+
+
+<!-- FULL ARTICLE CONTENT START -->
+        <div class="section">
+            <h2>Full Monograph Content</h2>
+            <p style="text-align:justify; margin-bottom:16px;">Volterra Functional Approach to the Poisson
+Channel with Noisy Feedback: a Note
+Aman Chawla
+October 23, 2024
+Abstract
+In this note the authors propose to apply Volterra's approach to the
+Poisson channel aided by noisy Poisson feedback.
+From Wyner [1] we have the denition of the Poisson channel,
+The channel input is a waveform λ(t), 0 ≤t < ∞, which satises
+0 ≤λ(t) ≤A, where the parameter A is the peak power. The wave-
+form λ(·) denes a Poisson counting process v(t) with intensity or
+rate equal to λ(t) + λ0, where λ0 ≥0 is a background noise level
+(sometimes called dark current). Thus the process v(t), 0 ≤t < ∞,
+is the independent-increments process such that v(0) = 0, and, for
+0 ≤τ, t < ∞,
+Prv(t + τ) −v(t) = j = e−ΛΛj
+j!
+, j = 0, 1, 2, . . .
+(1)
+where
+Λ =
+t+τ
+ˆ
+t
+(λ(t') + λ0)dt'
+(2)
+Physically, we think of the jumps in v(·) as corresponding to photon
+arrivals at the receiver. We assume that the receiver has knowledge
+of v(t), which it would obtain using a photon-detector.
+Wyner writes out the decoder considered, in Section IV.A - it is the maximum
+likelihood decoder. We consider a four phase communication scheme [2, 3] of
+which the rst phase is, as usual, the transmission of the message over the
+Poisson channel. We focus on the rst phase and note where dierences may
+come in when considering the Wiener/Volterra kernel approach [4] as opposed
+to Wyner's more mainstream approach.
+In [5] the authors provide the rst three Wiener/Volterra kernels of a Pois-
+son input-output relation. Thus the output of their Poisson black box can be
+1</p>
+            <p style="text-align:justify; margin-bottom:16px;">expressed in terms of these. Suppose one of M messages is transmitted over
+the black box. We compute the outputs for each of the M possibilities. Then
+we compute the a posteriori probability (APP) of the output given each of the
+M possibilities and pick the one with the maximum APP. This computation is
+carried out on the basis of the rst three Wiener/Volterra kernels. By increasing
+the number of Volterra kernels considered one can perhaps get better accuracy.
+Thus, the problem that we are suggesting in this note is to rederive Wyner's
+result when dierent numbers of kernels are considered in the decoding process.
+Once this is done for the rst phase, other phases can be similarly modied,
+to get a dierent approach to the feedback reliability function of the Poisson
+channel [6]. This approach might be more relevant in the neuroscience context.
+It would also be interesting to verify if the two approaches coincide.
+References
+[1] A.D. Wyner. Capacity and error exponent for the direct detection photon
+channel. i.
+IEEE Transactions on Information Theory, 34(6):14491461,
+1988.
+[2] Aman Chawla. Reliability of a gaussian channel in the presence of gaussian
+feedback. S.M. Thesis, 2006.
+[3] Anant Sahai and Tunç im³ek. On the variable-delay reliability function of
+discrete memoryless channels with access to noisy feedback. In Information
+Theory Workshop, 2004. IEEE, pages 336341. IEEE, 2004.
+[4] Fred Rieke. Spikes: exploring the neural code. MIT press, 1999.
+[5] Martin Pienkowski, Greg Shaw, and Jos J Eggermont. Wiener-volterra char-
+acterization of neurons in primary auditory cortex using poisson-distributed
+impulse train inputs. Journal of neurophysiology, 101(6):30313041, 2009.
+[6] Amos Lapidoth. On the reliability function of the ideal poisson channel with
+noiseless feedback. IEEE transactions on information theory, 39(2):491503,
+1993.
+2</p>
+
+        </div>
+<!-- FULL ARTICLE CONTENT END -->
+<!-- RELATED PAPERS SECTION START -->
+        <div class="section">
+            <h2>Related Papers You May Like</h2>
+            <ul class="related-list">
+            <li><a href="paper9.html">Reliability of a Classical-quantum Communication System With Noisy Feedback</a></li>
+            <li><a href="paper3.html">Reliability of a Gaussian Channel in the Presence of Gaussian Feedback</a></li>
+            <li><a href="paper157.html">Volterra Functional Approach to the Poisson Channel with Noisy Feedback: a Note</a></li>
+            <li><a href="paper132.html">Towards Simplex-Coded Noisy Feedback Communication on the Gaussian Channel</a></li>
+            <li><a href="paper381.html">Consciousness as Constrained Communication: Computer Study</a></li>
+            </ul>
+        </div>
+<!-- RELATED PAPERS SECTION END -->
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section">
+            <div class="premium-box">
+                <h2>Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + document.querySelector('h1').textContent.trim(), 250)">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="mailto:aman.chawla@gmail.com?subject=Request%20PDF%20for%20Paper%2010:%20Noisy%20Feedback%20Reliability%20of%20a%20Peak%20Power%20Constrained%20AWGN%20Channel" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #27ae60; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">✉️ Request Author for PDF</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div>
+        
+        <div class="footer">
+            <p>This publication is listed on the <a href="https://realinstitute.netlify.app" target="_blank">REAL Institute</a></p>
+        </div>
+    </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()">
+  🛒 View Cart <span id="cartBadge" class="cart-badge">0</span>
+</button>
+    <!-- Hologram Abstract Reader Integration -->
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

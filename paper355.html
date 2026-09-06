@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shannon Source Coding as a Limiting Case of Structured Source Coding - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Shannon Source Coding as a Limiting Case of Structured Source Coding</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">Classical source coding theory treats atypical sequences as a monolithic error event and establishes that reliable compression is achievable at rates approaching the entropy of the source. In this note, we develop a structured extension of this framework in which the atypical set is partitioned into clusters, enabling a finer analysis of error events. We show that this structure induces a rate–error tradeoff governed by a parameter controlling the granularity of clustering. Within this framework, classical Shannon source coding emerges as a limiting case corresponding to vanishing clustering complexity. Furthermore, we identify regimes in which increasing rate leads to improved decay of dominant error events, while remaining consistent with classical asymptotic limits. This establishes a broader perspective in which traditional results appear as boundary phenomena of a richer, structure-aware coding paradigm. Introduction Shannon’s source coding theorem establishes that for a discrete memoryless source with entropy H(X), reliable compression is achievable at any rate exceeding H(X), with probability of error bounded above by an arbitrarily small constant ϵ. The standard proof relies on the notion of the typical set, which captures the high-probability portion of the source space. In this framework, sequences outside the typical set are treated uniformly as errors. While this abstraction is powerful and sufficient for establishing asymptotic optimality, it suppresses potential structure within the atypical set. In particular, it does not distinguish between different types or classes of atypical sequences. This note explores the consequences of introducing structure into the atypical set via clustering. By partitioning atypical sequences into multiple classes, we obtain a refined view of error events and uncover a rate–error tradeoff not visible in classical treatments. We show that Shannon’s result arises as a limiting case of this structured framework when the clustering complexity vanishes. Classical Source Coding Framework Let Xn = (X1, . . . , Xn) be an i.i.d. source sequence drawn from a distribution PX with entropy H(X). For ϵ &gt; 0, define the typical set: A(n) ϵ =  xn : −1 n log P(xn) −H(X) ≤ϵ  . The complement B(n) ϵ = (A(n) ϵ )c is the atypical set. 1</p> <p>The classical result states that for sufficiently large n: Pr(Xn ∈B(n) ϵ ) ≤ϵ. Encoding proceeds by assigning unique indices to sequences in A(n) ϵ , while sequences in B(n) ϵ are mapped to an error symbol. The total code length is approximately n(H(X) + ϵ) bits. Structured Source Coding We now introduce structure into the atypical set. Let B(n) ϵ be partitioned into k disjoint clusters: B(n) ϵ = kG i=1 Ci. Each cluster groups sequences that are close under a suitable metric (e.g., Hamming distance). The encoder now outputs: • an indicator bit for typical vs atypical, • an index for typical sequences, or • a cluster label for atypical sequences. The total encoding length becomes: 1 + n(H(X) + ϵ) + log k. Define: χ = log k n(H(X) + ϵ). Then the effective rate is: R = (1 + χ)(H(X) + ϵ). Dominant Cluster Probability Let Cmax denote the cluster with the largest probability mass: D = Pr(Xn ∈Cmax). A key observation is that clustering induces a refinement of the error bound: D ≤ϵ1+χ. This inequality captures the idea that distributing the atypical set into multiple clusters reduces the probability mass of the largest component. 2</p> <p>5 Rate–Error Tradeoff From the bound on D, we obtain: D ≈ϵR/(H(X)+ϵ). Taking logarithms: −log D ≈ R H(X) + ϵ(−log ϵ). This defines a rate–error tradeoff curve: R(D) = (H(X) + ϵ)log D log ϵ . Unlike classical typicality, which provides only a fixed upper bound on error, this formulation reveals how error decreases as a function of rate when structure is exploited. Total Error and Cluster Dominance The total error probability is: Pe = k X i=1 Pr(Xn ∈Ci). We always have: D ≤Pe ≤kD. If the largest cluster dominates, i.e., X i̸=max Pr(Xn ∈Ci) = o(D), then: Pe ∼D. In this regime, the rate–error tradeoff extends directly to total error. Exponent Behavior Define: α = −log ϵ H(X) + ϵ. Then: −1 n log D = αR n . For total error: −1 n log Pe ≥(α −1)R + (H(X) + ϵ) n . When α &gt; 1, i.e., −log ϵ &gt; H(X) + ϵ, the exponent exhibits positive dependence on rate. 3</p> <p>8 Shannon Theory as a Limiting Case Consider the limit: χ →0 ⇐⇒ log k n →0. Then: R →H(X) + ϵ, D →ϵ, Pe →ϵ. Thus, the structured framework reduces to classical typicality-based coding. Interpretation Shannon’s source coding theorem corresponds to the boundary point: χ = 0. For χ &gt; 0, we move into a regime where additional structure is exploited, yielding refined error behavior. Discussion The structured source coding framework reveals that the atypical set possesses internal geometry that can be leveraged to improve performance in certain regimes. Classical theory, while optimal in an asymptotic sense, does not capture this structure. The key insight is that error events are not homogeneous. By partitioning them and analyzing their distribution, one can obtain refined bounds that depend on rate. Importantly, this does not contradict classical results. Instead, it extends them by introducing an additional parameter controlling structure. The classical theory is recovered when this parameter vanishes. Conclusion We have shown that Shannon source coding arises as a limiting case of a more general structured coding framework. By clustering atypical sequences, one obtains a rate–error tradeoff that reveals new regimes of behavior, particularly in finite blocklength settings. This perspective suggests that incorporating structure into coding schemes may yield improved performance in practical scenarios, while remaining consistent with fundamental limits.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Post_Shannon_Information_Theory.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

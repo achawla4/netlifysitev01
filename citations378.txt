@@ -1,0 +1,3058 @@
+﻿@article{shams2005early,
+  title={Early Modulation of Visual Cortex by Sound: an MEG Study},
+  author={Shams, Ladan and Iwaki, Sunao and Chawla, Aman and Bhattacharya, Joydeep},
+  journal={Neuroscience letters},
+  volume={378},
+  number={2},
+  pages={76--81},
+  year={2005},
+  publisher={Elsevier}
+}
+
+@article{neil2004significant,
+  title={Significant Audio-visual Interaction for Spatially Congruent Stimuli},
+  author={Neil, Patricia A and Chawla, Aman and Bhattacharya, Joydeep and Shimojo, Shinsuke},
+  journal={Journal of Vision},
+  volume={4},
+  number={8},
+  pages={702--702},
+  year={2004},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@phdthesis{chawla2006reliability,
+  title={Reliability of a Gaussian Channel in the Presence of Gaussian Feedback},
+  author={Chawla, Aman},
+  year={2006},
+  school={Massachusetts Institute of Technology}
+}
+
+@phdthesis{chawla2017axon,
+  title={On Axon-axon Interaction via Currents and Fields},
+  author={Chawla, Aman},
+  year={2017},
+  school={University of South Florida}
+}
+
+@article{chawla2014ephaptic,
+  title={Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli},
+  author={Chawla, Aman and Morgera, Salvatore D},
+  journal={BMC Neuroscience},
+  volume={15},
+  number={Suppl 1},
+  pages={P87},
+  year={2014},
+  publisher={BioMed Central}
+}
+
+@article{chawla2019axon,
+  title={On Axon Interaction and its Role in Neurological Networks},
+  author={Chawla, Aman and Morgera, Salvatore and Snider, Arthur},
+  journal={IEEE/ACM Transactions on Computational Biology and Bioinformatics},
+  year={2019},
+  publisher={IEEE}
+}
+
+@article{chawla2021fields,
+  title={Fields, Geometry, and Their Impact on Axon Interaction},
+  author={Chawla, Aman and Morgera, Salvatore D. and Snider, Arthur D.},
+  journal={Journal of Applied Mathematics and Physics},
+  volume={9},
+  number={4},
+  pages={751--778},
+  year={2021},
+  publisher={Scientific Research Publishing}
+}
+
+@inproceedings{chawla2021continuous,
+  title={On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  booktitle={2020 IEEE Information Theory Workshop (ITW)},
+  pages={1--5},
+  year={2021},
+  organization={IEEE}
+}
+
+@inproceedings{chawla2011reliability,
+  title={Reliability of a Classical-quantum Communication System With Noisy Feedback},
+  author={Chawla, Aman},
+  booktitle={Quantum Information Processing 2012},
+  year={2011}
+}
+
+@article{chawla2008noisy,
+  title={Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel},
+  author={Chawla, A},
+  journal={First Annual School of Information Theory, 2008},
+  year={2008}
+}
+
+@article{chawla2022geometry,
+  title={On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Communications in Mathematical Biology and Neuroscience},
+  volume={2024},
+  number={57},
+  year={2022},
+  publisher={scik.org}
+}
+
+@inproceedings{chawla2020ephaptic,
+  title={Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  booktitle={Bernstein Conference},
+  year={2020},
+  organization={doi: 10.12751/nncn.bc2020.0068}
+}
+
+@misc{chawla2022towards,
+  title={Towards Weak Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={https://arxiv.org/abs/2208.04263},
+  number={TR-166-2022},
+  year={2022}
+}
+
+@misc{chawla2022towards,
+  title={Towards Weak Source Coding},
+  author={Chawla, Aman},
+  journal={https://arxiv.org/abs/2209.04765},
+  year={2022}
+}
+
+@inproceedings{chawla2022error,
+  title={On the Error Exponent of Axon-Coupled Channels: Computer Explorations.},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  booktitle={Bernstein Conference 2022},
+  pages={PIII--19},
+  year={2022}
+}
+
+@article{chawla2022computer,
+  title={Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Physics Essays},
+  volume={36},
+  number={2},
+  year={2022},
+  publisher={Physics Essays Publications}
+}
+
+@article{chawla2022differential,
+  title={Differential Ephaptic Networks},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Journal of Applied Mathematics and Physics},
+  volume={10},
+  number={10},
+  pages={2876--2882},
+  year={2022},
+  publisher={Scientific Research Publishing}
+}
+
+@misc{chawla2022gedanken,
+  title={A Gedanken Experiment on the Brain as a Quantum Computer},
+  author={Chawla, Aman},
+  journal={dx.doi.org/10.13140/RG.2.2.15135.02720},
+  year={2022}
+}
+
+@article{chawla2022analogy,
+  title={On an Analogy Between Ephaptic Coupling in Large Tracts and Cross-Modal Integration During Illusory Percept},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={bioRxiv},
+  pages={2022--10},
+  year={2022},
+  publisher={Cold Spring Harbor Laboratory}
+}
+
+@misc{chawla2022mathematical,
+  title={A Mathematical Model for the Vector Ephaptic Perceptron.},
+  author={Chawla, Aman},
+  journal={Zenodo [English \& Spanish]},
+  number={dx.doi.org/10.5281/zenodo.7421770},
+  year={2022}
+}
+
+@misc{chawla2023axon,
+  title={The Axon Tract as a Transducer: Simulation of Gravitational Waves Coupling With an Ion at the Node of Ranvier},
+  author={Chawla, Aman},
+  journal={dx.doi.org/10.5281/zenodo.7535755},
+  year={2023}
+}
+
+@misc{chawla2023study,
+  title={A Study of Compound Action Potentials in Current-Coupled Tracts of Identical Axons},
+  author={Chawla, Aman},
+  journal={https://doi.org/10.5281/zenodo.7582199},
+  year={2023}
+}
+
+@misc{chawla2023towards,
+  title={Towards a Network Coding View of Ephaptic Synchronization},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={https://zenodo.org/record/7608640/files/butterflynervev13forYHKim.pdf?download=1},
+  year={2023}
+}
+
+@misc{chawla2023unification,
+  title={On a Unification Problem in Mathematical Neuroscience},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.7623570},
+  year={2023}
+}
+
+@article{chawla2023study,
+  title={A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Journal of Applied Mathematics and Physics},
+  volume={11},
+  number={11},
+  year={2023},
+  publisher={https://www.scirp.org/journal/paperinformation.aspx?paperid=128888}
+}
+
+@misc{chawla2023quantum,
+  title={Quantum Anytime Information Theory: A Proposal},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.7642516},
+  year={2023}
+}
+
+@incollection{shapiro2005chapter,
+  title={Chapter 45. Optical and Quantum Communications Optical and Quantum Communications},
+  author={Shapiro, J and Wong, D. N. and Erkmen, Baris I. and Garc{\'\i}a-Patr{\'o}n, Ra{\'u}l and Le Gou{\"e}t, Julien and Tengner, M. and Chawla, Aman and O., Kuzucu and Venkatraman, D.},
+  year={2005}
+}
+
+@misc{chawla2023towards,
+  title={Towards an in-Silico Study of Sternarchus},
+  author={Chawla, Aman},
+  journal={https://zenodo.org/record/7724880},
+  year={2023}
+}
+
+@misc{chawla2023signal,
+  title={Signal Detection and Integration Theory: a Gedanken Experiment},
+  author={Chawla, Aman},
+  journal={https://zenodo.org/record/7774610},
+  year={2023}
+}
+
+@misc{chawla2023application,
+  title={An Application of Inductive Anvaya},
+  author={Chawla, Aman},
+  journal={https://zenodo.org/record/7793065},
+  year={2023}
+}
+
+@misc{chawla2023towards,
+  title={Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper},
+  author={Chawla, Aman},
+  journal={https://www.researchgate.net/publication/369739145\_Towards\_Clarifying\_Shared\_Ancestry\_Between\_Munda\_and\_Old\_Indo-Aryan\_A\_Selective\_Overview\_of\_Michael\_Witzel's\_1999\_Paper},
+  number={10.13140/RG.2.2.13229.15841},
+  year={2023}
+}
+
+@misc{chawla2023relation,
+  title={The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.13140/RG.2.2.31315.45608},
+  year={2023}
+}
+
+@misc{chawla2023sanskrit,
+  title={Sanskrit as a Stable `Eigen'-Language Well-Suited for Storage and Transmission},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.7826623},
+  year={2023}
+}
+
+@misc{chawla2023note,
+  title={A Note on a Chomskian Analogy Between Sanskrit and Huffman Coding},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.7832928},
+  year={2023}
+}
+
+@misc{chawla2023biology,
+  title={How Biology can Control Information Flow in the Nervous System},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.7882553},
+  year={2023}
+}
+
+@misc{chawla2023note,
+  title={A Note on Nonlinearities in Ephaptic Axon Tracts},
+  author={Chawla, Aman and Manjunath, Suma},
+  journal={https://dx.doi.org/10.13140/RG.2.2.15603.20009},
+  year={2023}
+}
+
+@misc{chawla2023note,
+  title={A Note on an Error of Representation in Parpola (1994)},
+  author={Chawla, Aman},
+  journal={https://zenodo.org/record/7954176\#.ZGnBhKVBxD8},
+  year={2023}
+}
+
+@misc{chawla2023metric,
+  title={On Metric Perturbations and Channel Capacity: Information Acquisition in Spacetime},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.8054759},
+  year={2023}
+}
+
+@misc{chawla2023representation,
+  title={On the Representation of Time in the Brain},
+  author={Chawla, Aman},
+  journal={https://dx.doi.org/10.5281/zenodo.8143251},
+  year={2023}
+}
+
+@misc{chawla2023towards,
+  title={Towards a Dynamical Systems Approach to Feedback Communication},
+  author={Chawla, Aman},
+  journal={dx.doi.org/10.5281/zenodo.10033938},
+  year={2023}
+}
+
+@article{snider2024axonal,
+  title={Axonal Conduction Velocity: a Computer Study},
+  author={Snider, Arthur and Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Journal of Applied Mathematics and Physics},
+  volume={12},
+  number={1},
+  pages={10--4236},
+  year={2024},
+  publisher={Scientific Research Publishing}
+}
+
+@misc{chawla2023note,
+  title={A Note on the Origin and Fate of Consciousness},
+  author={Chawla, Aman},
+  journal={10.5281/zenodo.10076267},
+  year={2023}
+}
+
+@misc{chawla2023towards,
+  title={Towards `Real' Learning: a Computer Study of Perceptrons},
+  author={Chawla, Aman},
+  year={2023}
+}
+
+@misc{chawla2023impact,
+  title={Impact of the Expansion of the Universe on Tract Information Processing},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={dx.doi.org/10.5281/zenodo.10150833},
+  year={2023}
+}
+
+@misc{chawla2023infant,
+  title={Infant Numerical Cognition and Ephaptic Synchronization},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={dx.doi.org/10.5281/zenodo.10198775},
+  year={2023}
+}
+
+@misc{chawla2023can,
+  title={Can AI Detect G-Waves in Neural Data?},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10205559},
+  year={2023}
+}
+
+@misc{chawla2023general,
+  title={On General Nonlinearities in Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10205250},
+  year={2023}
+}
+
+@misc{chawla2023enlightened,
+  title={Enlightened AI: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10246167},
+  year={2023}
+}
+
+@misc{chawla2023towards,
+  title={Towards a Unified Picture of Everything},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10248815},
+  year={2023}
+}
+
+@misc{chawla2023structure,
+  title={On the Structure of Nimble or Resilient Organizations: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10250201},
+  year={2023}
+}
+
+@misc{chawla2023networked,
+  title={Networked Universal Awareness: a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://zenodo.org/records/14995645},
+  year={2023}
+}
+
+@misc{chawla2023re,
+  title={Re-Viewing Information as a Fluid: an Error Exponent Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10378740},
+  year={2023}
+}
+
+@misc{chawla2023discrete,
+  title={Discrete Time, Continuous Time and the Self-image: A Gedanken Experiment},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10379411},
+  year={2023}
+}
+
+@misc{chawla2023remark,
+  title={A Remark on Ampliation in Probability and Philosophy},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10393467},
+  year={2023}
+}
+
+@article{chawla2024quantum,
+  title={Quantum Information Processing in a Neuron},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Physics Essays},
+  volume={37},
+  number={3},
+  pages={212--214},
+  year={2024},
+  publisher={Physics Essays Publications}
+}
+
+@misc{chawla2023deformations,
+  title={Deformations in axons, and their threshold},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10396961},
+  year={2023}
+}
+
+@misc{chawla2023application,
+  title={Application of the Conservation of Information},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10424046},
+  year={2023}
+}
+
+@misc{chawla2023codes,
+  title={Of Codes and Consciousness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10425949},
+  year={2023}
+}
+
+@misc{chawla2023network,
+  title={Network Random Refresh},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10427792},
+  year={2023}
+}
+
+@misc{chawla2023omniscience,
+  title={Of Omniscience and Probability},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10429806},
+  year={2023}
+}
+
+@misc{chawla2024geometric,
+  title={Geometric Relativity of Action Potentials: a Mathematical Approach},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10910056},
+  year={2024}
+}
+
+@misc{chawla2024does,
+  title={Does Baseline Spiking Activity of a Neuron Enhance its Data Transmission Rates?},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10469506},
+  year={2024}
+}
+
+@misc{chawla2024capacity,
+  title={Capacity of a Neural PDE},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10468771},
+  year={2024}
+}
+
+@misc{chawla2024wigner,
+  title={Wigner Function Approach to Brain Decoherence Processes: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10525269},
+  year={2024}
+}
+
+@misc{chawla2024basic,
+  title={Basic Electrodermal Recording: a Report},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10530140},
+  year={2024}
+}
+
+@misc{chawla2024measurement,
+  title={The Measurement of Consciousness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10544030},
+  year={2024}
+}
+
+@misc{chawla2024cell,
+  title={Cell-to-Cell Coupling: a Unifying Approach},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10547325},
+  year={2024}
+}
+
+@misc{chawla2024mathematical,
+  title={A Mathematical Model for the Node of Ranvier},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10548946},
+  year={2024}
+}
+
+@misc{chawla2024quantifying,
+  title={Quantifying the MacKay Hypothesis},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10570736},
+  year={2024}
+}
+
+@misc{chawla2024distributed,
+  title={Distributed Control of Axonal Conduction: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10578632},
+  year={2024}
+}
+
+@misc{chawla2024capacity,
+  title={On the Capacity of an Axon Tract With Random Demyelination},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10599932},
+  year={2024}
+}
+
+@misc{chawla2024some,
+  title={Some Thoughts on Cosmic-Conscious Devices},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10606490},
+  year={2024}
+}
+
+@misc{chawla2024probability,
+  title={Probability Theory, Logic and LLMs: A Prediction of Jaynes (1990)},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10609908},
+  year={2024}
+}
+
+@misc{chawla2024dating,
+  title={On the Dating of the Jyotisa Vedanga},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10633165},
+  year={2024}
+}
+
+@misc{varshney2003rate,
+  title={Rate Distortion Characterization of Wavelet-Based Image Compression Schemes},
+  author={Varshney, Lav and Richter, Brandon and Chawla, Aman},
+  journal={Cornell University Digital Signal Processing Final Project},
+  year={2003}
+}
+
+@misc{chawla2024perfect,
+  title={The Perfect Feedback Exponent is Not Achieved Everywhere by Every Asymptoting Two Phase Noisy Feedback Scheme},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10654922},
+  year={2024}
+}
+
+@misc{chawla2024neuro,
+  title={Neuro-inspired Quantum Nets: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10655613},
+  year={2024}
+}
+
+@misc{chawla2024vedic,
+  title={Vedic Approach to a Short Internode},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10686001},
+  year={2024}
+}
+
+@misc{chawla2024model,
+  title={Model Problems in Ephaptic Interaction},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10686462},
+  year={2024}
+}
+
+@article{chawla2024mechanism,
+  title={Mechanism of Universal Quantum Computation in the Brain},
+  author={Chawla, Aman and Morgera, Salvatore Domenic},
+  journal={Journal of Applied Mathematics and Physics},
+  volume={12},
+  number={2},
+  year={2024},
+  publisher={Scientific Research Publishing}
+}
+
+@misc{chawla2024interaction,
+  title={Interaction of Metric Perturbations With an Axon Tract: Demonstration of the Strong Wave Curves},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10700047},
+  year={2024}
+}
+
+@misc{chawla2024enquiry,
+  title={Enquiry on the Dating of the Jyotisa Vedanga},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10700519},
+  year={2024}
+}
+
+@misc{chawla2024agent,
+  title={On an Agent-aided Noisy Feedback Scheme},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10701655},
+  year={2024}
+}
+
+@misc{chawla2024rigorous,
+  title={Rigorous Approach to Demyelination Capacity},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10751645},
+  year={2024}
+}
+
+@misc{chawla2024behavior,
+  title={Behavior Near Capacity: A Study of Error Exponents},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10786444},
+  year={2024}
+}
+
+@misc{chawla2024towards,
+  title={Towards the Exact Quantum Computation Sequence in Axon Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10799497},
+  year={2024}
+}
+
+@misc{chawla2024thoughts,
+  title={Thoughts on Some Connections Between General Relativity and the Knowledge of Observers},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10804710},
+  year={2024}
+}
+
+@misc{chawla2024agent,
+  title={On an Agent-aided Noisy Feedback Scheme -II},
+  author={Chawla, Aman},
+  journal={ResearchGate},
+  number={http://dx.doi.org/10.13140/RG.2.2.24660.},
+  year={2024}
+}
+
+@misc{chawla2024ephaptic,
+  title={Ephaptic Coupling and Power Consumption},
+  author={Chawla, Aman},
+  journal={ResearchGate},
+  number={http://dx.doi.org/10.13140/RG.2.2.11238.},
+  year={2024}
+}
+
+@misc{chawla2024information,
+  title={Information Theory and Direction Selectivity},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10827250},
+  year={2024}
+}
+
+@misc{chawla2024consciousness,
+  title={Consciousness of Objects Alters Only Their Perception Over Time},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10829206},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Perceptrons and Evolution},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10829621},
+  year={2024}
+}
+
+@misc{chawla2024compactness,
+  title={Compactness and Observers: Consideration of Implications},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10841270},
+  year={2024}
+}
+
+@misc{chawla2024dendro,
+  title={On Dendro-dendritic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10854042},
+  year={2024}
+}
+
+@misc{chawla2024generalizing,
+  title={Generalizing the Information-theoretic Characterization of Channels That Compute},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10854231},
+  year={2024}
+}
+
+@misc{chawla2024inverse,
+  title={Inverse Perceptrons and Regression},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10854605},
+  year={2024}
+}
+
+@misc{chawla2024weak,
+  title={Weak Quantum Decoding for Axon Tracts in the Tatikonda-Mitter Framework: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10866146},
+  year={2024}
+}
+
+@misc{chawla2024percolating,
+  title={Percolating Consciousness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10866312},
+  year={2024}
+}
+
+@misc{chawla2024two,
+  title={A Two-Tract Gedanken Experiment},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10878457},
+  year={2024}
+}
+
+@misc{chawla2024irrelevance,
+  title={On the Irrelevance of Angular Geometry for Very Large Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10886347},
+  year={2024}
+}
+
+@misc{chawla2024framework,
+  title={A Framework for Quantum Character Recognition},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10900090},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Recognition Using the Quantum Perceptron},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10901051},
+  year={2024}
+}
+
+@misc{chawla2024bi,
+  title={Bi-directional Classical Transmission Using One-way Entanglement-assisted Quantum Transmission},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10908373},
+  year={2024}
+}
+
+@misc{chawla2024federated,
+  title={Federated Quantum Perceptrons},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10908984},
+  year={2024}
+}
+
+@misc{chawla2024joint,
+  title={A Joint View of Computation and Learning},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10948498},
+  year={2024}
+}
+
+@misc{chawla2024extending,
+  title={Extending the Quperceptron to Spin Systems: a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10952875},
+  year={2024}
+}
+
+@misc{chawla2024gambling,
+  title={On Gambling and Learning},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10953575},
+  year={2024}
+}
+
+@misc{chawla2024anytime,
+  title={Anytime Coding for Gaussian Rate-Limited Noisy Feedback: Low Average Rates of Data Transmission},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10969023},
+  year={2024}
+}
+
+@misc{chawla2024anytime,
+  title={Anytime Coding for Non-Stationary Channels: an Exploration},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.10978130},
+  year={2024}
+}
+
+@misc{chawla2024configured,
+  title={Configured Structures and Their Representation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11046953},
+  year={2024}
+}
+
+@misc{chawla2024knots,
+  title={Knots and Information},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11063124},
+  year={2024}
+}
+
+@misc{chawla2024sphere,
+  title={Sphere-packing in Spherical Spaces},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11090212},
+  year={2024}
+}
+
+@misc{chawla2024geometric,
+  title={Geometric Application of Bell's Perturbative Theorems},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11162231},
+  year={2024}
+}
+
+@misc{chawla2024shannon,
+  title={Shannon Approach to Bosons},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11309894},
+  year={2024}
+}
+
+@misc{chawla2024memory,
+  title={Memory and Entropy},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11392531},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11398370},
+  year={2024}
+}
+
+@misc{chawla2024ideas,
+  title={Ideas on Ultracold Coherent Systems and Communication},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11524599},
+  year={2024}
+}
+
+@misc{chawla2024security,
+  title={Security Aspects of Viterbi Decoding},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11530069},
+  year={2024}
+}
+
+@misc{chawla2024history,
+  title={On History},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.11648676},
+  year={2024}
+}
+
+@misc{chawla2024optimal,
+  title={Optimal Placement of Extracellular Recording Electrodes Near Axon Tracts: a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12058755},
+  year={2024}
+}
+
+@misc{chawla2024agent,
+  title={On an Agent-aided Noisy Feedback Scheme -III},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12516758},
+  year={2024}
+}
+
+@misc{chawla2024attitude,
+  title={On the Attitude Adopted by Thinking Towards Itself},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12566003},
+  year={2024}
+}
+
+@misc{chawla2024sinusoidal,
+  title={On the Sinusoidal Perceptron in a Different Form},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12568811},
+  year={2024}
+}
+
+@misc{chawla2024metric,
+  title={Metric Perturbations May Address Instruction Memory in the Brain},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12599388},
+  year={2024}
+}
+
+@misc{chawla2024using,
+  title={Using Mutual Information to Characterize Neural PDEs},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12765241},
+  year={2024}
+}
+
+@misc{chawla2024variation,
+  title={Variation of Mutual Information With Tract Temperature},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12794810},
+  year={2024}
+}
+
+@misc{chawla2024characterization,
+  title={Characterization of Cascaded LTI Instances Using Mutual Information: a Computer Study},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12805377},
+  year={2024}
+}
+
+@misc{chawla2024reflections,
+  title={Reflections on Model System Sequestration in the Laboratory},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.12807426},
+  year={2024}
+}
+
+@misc{chawla2024consequence,
+  title={Consequence of Distance From the Metric Perturbation Source on Tract Timing},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13252941},
+  year={2024}
+}
+
+@article{chawla2025ephaptic,
+  title={Ephaptic Information Flow: Information Processing in Groups of Neurons},
+  author={Chawla, Aman and Morgera, Salvatore},
+  journal={Physics Essays},
+  volume={38},
+  number={1},
+  pages={57},
+  year={2025},
+  publisher={PEP}
+}
+
+@misc{chawla2024towards,
+  title={Towards a General Theory of Medium-Sensitive Current-Mediated Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13313122},
+  year={2024}
+}
+
+@misc{chawla2024towards,
+  title={Towards Simplex-Coded Noisy Feedback Communication on the Gaussian Channel},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13318345},
+  year={2024}
+}
+
+@misc{chawla2024qubo,
+  title={QUBO Formulation of Entropy Maximization},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13323639},
+  year={2024}
+}
+
+@misc{chawla2024study,
+  title={Study of Cross-Information},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13334725},
+  year={2024}
+}
+
+@misc{chawla2024information,
+  title={Information Theory in India},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13337597},
+  year={2024}
+}
+
+@misc{chawla2024assumptions,
+  title={Assumptions and Axioms in the Construction of Theories},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13357689},
+  year={2024}
+}
+
+@misc{chawla2024towards,
+  title={Towards a Mathematical Theory of DS Computation in SAC Dendrites},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13624879},
+  year={2024}
+}
+
+@misc{chawla2024neurobiophysical,
+  title={Neurobiophysical Communication},
+  author={Chawla, Aman},
+  year={2024},
+  publisher={10.5281/zenodo.13624957}
+}
+
+@misc{chawla2024quantum,
+  title={A Quantum Algorithm for MAXSAT},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13625017},
+  year={2024}
+}
+
+@misc{chawla2024finding,
+  title={On Finding the Parity of an Unknown Quantum State},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13637707},
+  year={2024}
+}
+
+@misc{chawla2024does,
+  title={Does Quantum Randomness Govern Universal Evolution?},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13638767},
+  year={2024}
+}
+
+@misc{chawla2024gedanken,
+  title={A Gedanken Experiment on the Flow of Time},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13645370},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={A Quantum Extension of Action Potential Coupling in 3D Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13725468},
+  year={2024}
+}
+
+@misc{chawla2024revisiting,
+  title={Revisiting the 3D Tract Equation for Generic Axonal Geometry},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13763057},
+  year={2024}
+}
+
+@misc{chawla2024simulating,
+  title={Simulating Nanofluidics: an LLM Study},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13769327},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Illumination for Nanofluidics: an LLM Study},
+  author={Chawla, Aman},
+  journal={ResearchGate},
+  number={10.13140/RG.2.2.18607.55202},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Solar Energy},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13788594},
+  year={2024}
+}
+
+@misc{chawla2024applying,
+  title={Applying the Method of Types to Channels With Continuous Alphabets},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13822713},
+  year={2024}
+}
+
+@misc{chawla2024theory,
+  title={Theory of Coupled Languages},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13829538},
+  year={2024}
+}
+
+@misc{chawla2024li,
+  title={Li-Vitanyi Approach to Noisy Channel Coding},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13835492},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Refractors},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13845920},
+  year={2024}
+}
+
+@misc{chawla2024note,
+  title={A Note on Entangled Processing in Tracts of Axons},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13881195},
+  year={2024}
+}
+
+@misc{chawla2024internodal,
+  title={How Internodal Spacing Modulates Saltatory Information Flow},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13893561},
+  year={2024}
+}
+
+@misc{chawla2024internodal,
+  title={How Internodal Spacing Modulates Saltatory Ephaptic Information Flow},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13895234},
+  year={2024}
+}
+
+@misc{chawla2024quantum,
+  title={Quantum Stroboscope: A Note on Quantum Illumination of Moving Targets},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13933124},
+  year={2024}
+}
+
+@misc{chawla2024anytime,
+  title={On the Anytime Delay and the Streaming Gaussian Reliability Function},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13936896},
+  year={2024}
+}
+
+@misc{chawla2024volterra,
+  title={Volterra Functional Approach to the Poisson Channel with Noisy Feedback: a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13975320},
+  year={2024}
+}
+
+@misc{chawla2024towards,
+  title={Towards a Vedic Algorithm for the Singular Value Decomposition: Part I - On Matrix Eigenvalues},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13981929},
+  year={2024}
+}
+
+@misc{chawla2024perception,
+  title={The Perception of Randomness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13987582},
+  year={2024}
+}
+
+@misc{chawla2024t,
+  title={t'Hooft Meets a String: A Proposal on Shockwave Production by Massive Particles},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.13995462},
+  year={2024}
+}
+
+@misc{chawla2024mass,
+  title={Mass as a State},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14030296},
+  year={2024}
+}
+
+@misc{chawla2024mass,
+  title={Mass as a State: Impact on the Heisenberg Equations of Motion},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14045335},
+  year={2024}
+}
+
+@misc{chawla2024path,
+  title={Path of Information},
+  author={Chawla, Aman},
+  year={2024},
+  publisher={ISBN-13: 979-8345832639}
+}
+
+@misc{chawla2024note,
+  title={A Note on the Mass-Position Uncertainty Principle},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14096718},
+  year={2024}
+}
+
+@misc{chawla2024towards,
+  title={Towards a General Theory of Scientific Communication},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14173420},
+  year={2024}
+}
+
+@misc{chawla2024operational,
+  title={Operational Amplifier Axons},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14173586},
+  year={2024}
+}
+
+@inproceedings{chawla2025large,
+  title={Large Language Model-guided Quantum MaxSAT Algorithm Design},
+  author={Chawla, Aman},
+  booktitle={Quantum Computing Theory in Practice QCTiP 2025 (accepted)},
+  number={10.5281/zenodo.14876383},
+  year={2025}
+}
+
+@misc{chawla2024frequency,
+  title={Frequency-resolved Gravitational Wave Spectrometer: A Thought Experiment},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14249083},
+  year={2024}
+}
+
+@misc{chawla2024scales,
+  title={Of Scales and Displacement: the Need for a New Quantum Law},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14288885},
+  year={2024}
+}
+
+@misc{chawla2024diseased,
+  title={Diseased Learning Machines},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14429023},
+  year={2024}
+}
+
+@misc{chawla2024two,
+  title={Two Paths to Nietzsche's Ubermensch},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14475007},
+  year={2024}
+}
+
+@misc{chawla2024fmri,
+  title={fMRI Tests for Neural Gravity: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14569078},
+  year={2024}
+}
+
+@misc{chawla2025law,
+  title={The Law of Ephaptic Information-dynamics},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14590585},
+  year={2025}
+}
+
+@misc{chawla2025fmri,
+  title={fMRI Tests for Neural Gravity: Analysis},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14691009},
+  year={2025}
+}
+
+@misc{chawla2025sarvaprakataviveka,
+  title={Sarvaprakataviveka},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14702533},
+  year={2025}
+}
+
+@misc{chawla2024mahasiddhartha,
+  title={Mahasiddhartha},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14714492},
+  year={2024}
+}
+
+@misc{chawla2025mahasiddhartha,
+  title={Mahasiddhartha},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14714492},
+  year={2025}
+}
+
+@misc{chawla2025vedic,
+  title={Vedic Religion and Vedic Law: Universal in Bharata},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14722481},
+  year={2025}
+}
+
+@misc{chawla2025coherent,
+  title={Coherent Quantum Feedback Control of a BEC Under Communication Constraints: Proposed Simulation and Analytical Study},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14731296},
+  year={2025}
+}
+
+@misc{chawla2025effect,
+  title={Effect of Temperature on Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14771688},
+  year={2025}
+}
+
+@misc{chawla2025modulation,
+  title={Modulation of Neurotransmitter Activity by Metric Perturbations: a Gedanken Study},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14786421},
+  year={2025}
+}
+
+@misc{chawla2025everyday,
+  title={The Everyday Origin of Life},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14850100},
+  year={2025}
+}
+
+@misc{chawla2025architecture,
+  title={Architecture of a Brain-Inspired Quantum Supercomputer and its Separation From Consciousness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14867811},
+  year={2025}
+}
+
+@misc{chawla2025cosmic,
+  title={On Cosmic Religion: A Call to Action},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14876891},
+  year={2025}
+}
+
+@misc{chawla2025coupled,
+  title={Coupled Cable Equations in the Witten-Rozansky Framework: an LLM Study},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14913213},
+  year={2025}
+}
+
+@misc{chawla2025studying,
+  title={Studying Healthcare in Rural India},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14916399},
+  year={2025}
+}
+
+@misc{chawla2025distance,
+  title={On Distance and Time in Prajna and Physics},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.14949955},
+  year={2025}
+}
+
+@article{chawla2025mathematical,
+  title={A Mathematical Theory of Consciousness},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={1},
+  year={2025},
+  publisher={REAL Institute, Gurugram}
+}
+
+@misc{chawla2025ai,
+  title={AI Yoga Darshanam},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15030702},
+  year={2025}
+}
+
+@misc{chawla2025some,
+  title={Some Progress on Axonal Quantum Computation in the Markin Approximation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15031264},
+  year={2025}
+}
+
+@misc{chawla2025impact,
+  title={Impact of f(R) Gravity on Gravitational Wave-Induced Action Potential Timing Differentials in Ephaptic Axon Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15070186},
+  year={2025}
+}
+
+@misc{chawla2025theoretical,
+  title={Theoretical Basis From String Theory Which Precludes Brain Quantum Computation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15070375},
+  year={2025}
+}
+
+@misc{chawla2025cosmic,
+  title={The Cosmic Quantum Orchestra: A Brief History of the Brain},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15087069},
+  year={2025}
+}
+
+@misc{chawla2025wrinkles,
+  title={Wrinkles in Computation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15093377},
+  year={2025}
+}
+
+@misc{chawla2025lenses,
+  title={Of Lenses and Wrinkles},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15094894},
+  year={2025}
+}
+
+@misc{chawla2025ai,
+  title={AI-Critical Review of "Of Codes and Consciousness"},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15106184},
+  year={2025}
+}
+
+@misc{chawla2025quantifying,
+  title={Quantifying the Impact of Lift-off on the Optic Nerve Tract of Space Crew},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15194779},
+  year={2025}
+}
+
+@misc{chawla2025low,
+  title={Low Frequency Experimental Characterization of an FSO Channel: an Invitation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15262410},
+  year={2025}
+}
+
+@misc{chawla2025towards,
+  title={Towards a Computer Study of Pulsing Fields: a Report},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15341864},
+  year={2025}
+}
+
+@misc{chawla2025towards,
+  title={Towards a MIMO Analysis of Ephaptic Communications},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15342027},
+  year={2025}
+}
+
+@misc{chawla2025tortuosity,
+  title={Tortuosity and the Flatness of Local Spacetime},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15342736},
+  year={2025}
+}
+
+@misc{chawla2025crystals,
+  title={Crystals and Quantum Computation: a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15353492},
+  year={2025}
+}
+
+@misc{chawla2025photon,
+  title={Photon Mean Free Path in Turbulence: First Investigation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15354548},
+  year={2025}
+}
+
+@misc{chawla2025ai,
+  title={AI-Based Healthcare: Website and App Feedback Form for Entrepreneurs},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15354969},
+  year={2025}
+}
+
+@misc{chawla2025communication,
+  title={Communication-on-the-fly With High Quality Bits - Part I: Motivation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15361019},
+  year={2025}
+}
+
+@misc{chawla2025implementing,
+  title={Implementing Network Random Refresh: an Algorithmic Approach},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15365406},
+  year={2025}
+}
+
+@misc{chawla2025quantum,
+  title={The Quantum Perceptron: A First Approach},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15365469},
+  year={2025}
+}
+
+@misc{chawla2025unification,
+  title={Unification of Encryption and Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15365551},
+  year={2025}
+}
+
+@misc{chawla2025behavioral,
+  title={Behavioral Gravity},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15379957},
+  year={2025}
+}
+
+@misc{chawla2025macdonald,
+  title={MacDonald-Thorne Black-hole Electrodynamics for Nerves. Part I: Motivation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15384640},
+  year={2025}
+}
+
+@misc{chawla2025addressing,
+  title={Addressing Einstein's Question},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15392068},
+  year={2025}
+}
+
+@misc{chawla2025braid,
+  title={Braid Information Theory},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15399884},
+  year={2025}
+}
+
+@misc{chawla2025integrating,
+  title={Integrating Mach and Vedanta: a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15400057},
+  year={2025}
+}
+
+@misc{chawla2025his,
+  title={His Legacy: A Poetic Call to Higher Consciousness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15400266},
+  year={2025}
+}
+
+@misc{chawla2025quantum,
+  title={Quantum Version of Plonsey (1967): a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15420918},
+  year={2025}
+}
+
+@misc{chawla2025magnetic,
+  title={Magnetic Stimulation Alters Conduction Profiles in Ephaptic Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15448101},
+  year={2025}
+}
+
+@misc{chawla2025polygonal,
+  title={Polygonal Reliability: the Problem},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15449640},
+  year={2025}
+}
+
+@misc{chawla2025near,
+  title={Near-field Reliability: the Problem},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15453394},
+  year={2025}
+}
+
+@misc{chawla2025zero,
+  title={Zero, the Unifier: Reflections on a Gift of India to the World},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15454102},
+  year={2025}
+}
+
+@misc{chawla2025systematic,
+  title={Systematic Non-Tree Codes: Rudiments},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15464217},
+  year={2025}
+}
+
+@misc{chawla2025extroversion,
+  title={Extroversion and Expansion: a Distinction},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15469106},
+  year={2025}
+}
+
+@misc{chawla2025study,
+  title={Study in Pink and Green},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15477282},
+  year={2025}
+}
+
+@misc{chawla2025interferometric,
+  title={Interferometric Quantum Stroboscope},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15501428},
+  year={2025}
+}
+
+@misc{chawla2025hodgkin,
+  title={On the Hodgkin-Huxley Equation on a Curve},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15502387},
+  year={2025}
+}
+
+@misc{chawla2025simultaneous,
+  title={Simultaneous Transmission via Sound and Light: Squeezing and Uncertainty},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15505406},
+  year={2025}
+}
+
+@misc{chawla2025hacia,
+  title={Hacia una Picture Unificada de Todo},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15551083},
+  year={2025}
+}
+
+@misc{chawla2025view,
+  title={View from the Crowne},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15561359},
+  year={2025}
+}
+
+@misc{chawla2025brownian,
+  title={On Brownian Motion During Neurodevelopment},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15580830},
+  year={2025}
+}
+
+@misc{chawla2025ephaptic,
+  title={Ephaptic Coupling Study Based on the Conditional PNP Equation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15606204},
+  year={2025}
+}
+
+@misc{chawla2025qualia,
+  title={Of Qualia and the Nature of the Universe},
+  author={Chawla, Aman},
+  journal={ResearchGate},
+  number={10.13140/RG.2.2.16313.89447},
+  year={2025}
+}
+
+@misc{chawla2025pulsation,
+  title={Pulsation of a Universe in the Tattvabodha},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15617466},
+  year={2025}
+}
+
+@misc{chawla2025inner,
+  title={The Inner Search},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15617858},
+  year={2025}
+}
+
+@misc{chawla2025quantum,
+  title={Quantum-Enabled Signal Processing: a Method for Quantum Filter Design},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15620854},
+  year={2025}
+}
+
+@misc{chawla2025quantum,
+  title={Quantum Approach to Yao's Minimax Principle: a Proposal},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15621202},
+  year={2025}
+}
+
+@misc{chawla2025mapping,
+  title={Mapping the Synaptic Electric Field},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15645154},
+  year={2025}
+}
+
+@misc{chawla2025rigorous,
+  title={Rigorous Computational Jyotisa},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15665465},
+  year={2025}
+}
+
+@misc{chawla2025work,
+  title={On a Work by Prof. Sergio Servetto},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15668687},
+  year={2025}
+}
+
+@misc{chawla2025information,
+  title={An Information-Regulated Spacetime Framework for Smooth Solutions of the 3D Navier--Stokes Equations},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15673477},
+  year={2025}
+}
+
+@misc{chawla2025quantum,
+  title={Quantum Evolution and Clustering Probabilities in a Vortex Fluid: Analogy with a BEC},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15703827},
+  year={2025}
+}
+
+@misc{chawla2025immortal,
+  title={The Immortal Contribution of Vedavyasa},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15713733},
+  year={2025}
+}
+
+@misc{chawla2025apprehension,
+  title={Apprehension of Monism: the Means},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15715531},
+  year={2025}
+}
+
+@misc{chawla2025function,
+  title={A Function Theoretic Approach to Quantum Measurements},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15741249},
+  year={2025}
+}
+
+@misc{chawla2025comprension,
+  title={Comprensi{\'o}n del Monismo: los Medios},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15770743},
+  year={2025}
+}
+
+@misc{chawla2025axon,
+  title={Axon Interaction for the Novice},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15775562},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 1: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15795038},
+  year={2025}
+}
+
+@misc{chawla2025role,
+  title={On the Role of Algorithms in Quantum Computing},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15795099},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 2: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15795604},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 3: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15798063},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 4: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15802712},
+  year={2025}
+}
+
+@misc{chawla2025essence,
+  title={The Essence of Worship},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15815460},
+  year={2025}
+}
+
+@misc{chawla2025construction,
+  title={Construction of a Mathematical Variant on Bosonic Noise},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15817130},
+  year={2025}
+}
+
+@misc{chawla2025personal,
+  title={A Personal Finance PDE Whose Aggregation Yields the Black--Scholes Equation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15834173},
+  year={2025}
+}
+
+@article{chawla2025theory,
+  title={Theory of Nonlocal Unification: the Foundation and its Application},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={1},
+  year={2025},
+  publisher={REAL Institute, Gurugram}
+}
+
+@misc{chawla2025fundamental,
+  title={Fundamental Finitary Limits to Maximal Mutual Information},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15870412},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 6: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.15872035},
+  year={2025}
+}
+
+@misc{chawla2025anscombe,
+  title={Anscombe's Realism and Nonlocal Unification},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16002379},
+  year={2025}
+}
+
+@misc{chawla2025mathematical,
+  title={A Mathematical Anscombian View of Nonlocal Unification},
+  author={Chawla, Aman},
+  journal={https://realinstitute.netlify.app/svarxiv/consc-studs},
+  number={svarxiv/consc-studs:2025.07.17\_1209},
+  year={2025}
+}
+
+@misc{chawla2025euclid,
+  title={Euclid, the Sulbasutras, and the Geometry of the Mind: A Mathematical Continuum from Antiquity to Brain-Machine Interfaces},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16295304},
+  year={2025}
+}
+
+@article{chawla2025consequences,
+  title={Consequences of Nonlocal Unification for Limit Observers},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={1},
+  year={2025},
+  publisher={REAL Institute, Gurugram}
+}
+
+@misc{chawla2025quantum,
+  title={On the Quantum Biophysics of Deep Learning},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16417379},
+  year={2025}
+}
+
+@misc{chawla2025interlocked,
+  title={Interlocked Impact of Geometry and Coupling Strength on Maximal Mutual Information in a Nerve Tract},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16445043},
+  year={2025}
+}
+
+@misc{chawla2025speculative,
+  title={Speculative Medical Applications of Light-Gated Ion Channel Control},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16525357},
+  year={2025}
+}
+
+@misc{chawla2025nu,
+  title={NU Provides an Energy-Injection Mechanism},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16679453},
+  year={2025}
+}
+
+@misc{chawla2025claude,
+  title={Claude Meets Chawla: Banter About Consciousness},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16710586},
+  year={2025}
+}
+
+@misc{chawla2025data,
+  title={Data Flow in the Sun},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16737443},
+  year={2025}
+}
+
+@misc{chawla2025igor,
+  title={Igor Pro Procedure for SAC Irresolution Analysis},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16752220},
+  year={2025}
+}
+
+@misc{chawla2025modulator,
+  title={Modulator Design in String Information Theory},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16760052},
+  year={2025}
+}
+
+@article{chawla2025nonlinear,
+  title={Nonlinear Neural Correlates of Nonlocal Consciousness},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={1},
+  year={2025},
+  publisher={REAL Institute, Gurugram}
+}
+
+@misc{chawla2025gaia,
+  title={Gaia's Capacity: Information Flow in the Climate},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={10.5281/zenodo.16791640},
+  year={2025}
+}
+
+@misc{chawla2025capacity,
+  title={On the Capacity of Any Communication Network},
+  author={Chawla, Aman},
+  journal={Research Gate Preprint},
+  number={http://dx.doi.org/10.13140/RG.2.2.24440},
+  year={2025}
+}
+
+@misc{chawla2025ephaptic,
+  title={Ephaptic Neuro-Modulation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16878995},
+  year={2025}
+}
+
+@misc{chawla2025dens,
+  title={DENs of Purkinje Cells},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16881423},
+  year={2025}
+}
+
+@misc{chawla2025glimpses,
+  title={Glimpses of Conformal Information},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16890079},
+  year={2025}
+}
+
+@misc{chawla2025ongoing,
+  title={Ongoing Studies of Network Capacity: Large User Number Case},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16892208},
+  year={2025}
+}
+
+@incollection{chawla2025vaidyutik,
+  title={Vaidyutik-dvi-stariyon ke vidyut-yukt-anu pravah path - 1},
+  author={Chawla, Aman},
+  booktitle={Vaidyutik-dvi-stariyon ke vidyut-yukt-anu pravah path},
+  year={2025},
+  publisher={https://doi.org/10.5281/zenodo.16903543}
+}
+
+@misc{chawla2025graduate,
+  title={Graduate Seminar in Electricity and Magnetism, Lecture 1},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16919647},
+  year={2025}
+}
+
+@misc{chawla2025rejuvenation,
+  title={Rejuvenation From Ingrained Negativity: an AI Approach},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16919972},
+  year={2025}
+}
+
+@misc{chawla2025self,
+  title={Self-realization, Science and the Constitution of India: a Computational Perspective},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.16993986},
+  year={2025}
+}
+
+@article{chawla2025bi,
+  title={Bi-stochastic Versions of Hairer Coupling},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--1},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@misc{chawla2025energy,
+  title={On the Energy Needs of Artificial Intelligence},
+  author={Chawla, Aman},
+  journal={ResearchGate},
+  number={http://dx.doi.org/10.13140/RG.2.2.19237.},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 7: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17066363},
+  year={2025}
+}
+
+@misc{chawla2025nodal,
+  title={Nodal Misalignment Affects Spike Propagation in 3D Ephaptic Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17068277},
+  year={2025}
+}
+
+@article{chawla2025quantifying,
+  title={Quantifying the Quantum Intelligence of a Language},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--7},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@misc{chawla2025integration,
+  title={Integration with respect to SIC-POVMs: a Generalized View},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17107723},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 8: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17112506},
+  year={2025}
+}
+
+@misc{chawla2025application,
+  title={An Application of Mitter-Young Theory to Hurwitz Detection},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17138843},
+  year={2025}
+}
+
+@misc{chawla2025bodhsanchar,
+  title={Bodhsanchar 1: Agent-Aided Maritime Communication System for Green Port Operations},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17140577},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 9: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17194673},
+  year={2025}
+}
+
+@misc{chawla2025ocean,
+  title={Ocean of Divine Bliss Verse 10: a Commentary},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17207336},
+  year={2025}
+}
+
+@misc{chawla2025design,
+  title={Design of More Capable Nervous Systems},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17276503},
+  year={2025}
+}
+
+@misc{chawla2025note,
+  title={A Note on Message Passing Decoding Over Non-Gaussian Channels},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17279023},
+  year={2025}
+}
+
+@misc{chawla2025nonlocal,
+  title={Nonlocal Unification Field Theory and Its Quantum Optics Limit: Observer-Function Formulation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17317312},
+  year={2025}
+}
+
+@misc{chawla2025dramatic,
+  title={Dramatic Velocity Changes Under Temperature Differentials in Ephaptic Tracts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17383707},
+  year={2025}
+}
+
+@misc{chawla2025tracking,
+  title={Tracking the Neuronal Paths of Ephaptic Information},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17389001},
+  year={2025}
+}
+
+@misc{chawla2025covariant,
+  title={Covariant Reformulation and Simulation of Action Potential Diffusion},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17448202},
+  year={2025}
+}
+
+@misc{chawla2025performance,
+  title={Performance of the Vector Perceptron With Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17465231},
+  year={2025}
+}
+
+@article{chawla2026black,
+  title={On the Black Hole Information Loss Paradox Under a Novel Phenomenological Model of Quantum Measurements},
+  author={Chawla, Aman},
+  journal={Journal of Applied Mathematics and Physics},
+  volume={14},
+  number={doi: 10.4236/jamp.2026.144062},
+  pages={1334--1344},
+  year={2026},
+  publisher={SCIRP}
+}
+
+@misc{chawla2011depolarizing,
+  title={The Depolarizing Channel can be Worse Than the Dephasing Channel When Replacing the Identity map in a Problem of Quantum Control},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17561795},
+  year={2011}
+}
+
+@misc{chawla2025note,
+  title={A Note on Invoking Indo-Scandinavian Cultural Affinity for Increased Cooperation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17571699},
+  year={2025}
+}
+
+@misc{chawla2025unification,
+  title={Unification of Intelligence and Information: Beyond Blahut-Arimoto Using Machine Learning},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17577660},
+  year={2025}
+}
+
+@misc{chawla2025self,
+  title={Self-recovery and Security: Novel Aspects of Network Random Refresh},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17600892},
+  year={2025}
+}
+
+@misc{chawla2025first,
+  title={First Observation: A Dialogue on Nonlocal Unification},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17614206},
+  year={2025}
+}
+
+@misc{chawla2025modest,
+  title={Modest Security Gains With Modulus Diversity in Elliptic Curve Cryptography},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17617693},
+  year={2025}
+}
+
+@article{chawla2025synaptic,
+  title={Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--3},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@misc{chawla2025approach,
+  title={An Approach to Genuine Intelligence Using Electrophysiology},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17636666},
+  year={2025}
+}
+
+@misc{chawla2025fso,
+  title={FSO Channel Design With Halo-Inclusive Source},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17649553},
+  year={2025}
+}
+
+@misc{chawla2025vedantic,
+  title={Vedantic Pa{\~n}cikarana and the Emergence of Collective Neural Dynamics via Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17651324},
+  year={2025}
+}
+
+@inproceedings{chawla2025programming,
+  title={Programming Hilbert Space},
+  author={Chawla, Aman},
+  booktitle={Submitted on 2025/12/08},
+  number={https://doi.org/10.5281/zenodo.17667003},
+  year={2025}
+}
+
+@misc{chawla2025unified,
+  title={A Unified Grammar of Science},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17681138},
+  year={2025}
+}
+
+@misc{chawla2025shared,
+  title={Shared Human Models on Ethics},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17765726},
+  year={2025}
+}
+
+@misc{chawla2025suganita,
+  title={Suganita},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17796194},
+  year={2025}
+}
+
+@misc{chawla2025multi,
+  title={A Multi-Ethics of Mechanism},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17851105},
+  year={2025}
+}
+
+@misc{chawla2025argument,
+  title={On an Argument of Hume},
+  author={Chawla, Aman},
+  journal={Available from author via email request.},
+  number={humeanv5.pdf},
+  year={2025}
+}
+
+@misc{chawla2025wave,
+  title={Wave-Spin Interaction in an Angular Momentum Lens},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17900451},
+  year={2025}
+}
+
+@misc{chawla2025living,
+  title={Living Fire},
+  author={Chawla, Aman},
+  year={2025},
+  publisher={Prajnanabha Press: https://doi.org/10.5281/zenodo.18257779}
+}
+
+@misc{chawla2025nonlinear,
+  title={Nonlinear Emergence of Creation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17973775},
+  year={2025}
+}
+
+@misc{chawla2025augmenting,
+  title={Augmenting Human Research Insight Using Large Language Models},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17993712},
+  year={2025}
+}
+
+@misc{chawla2025tinkering,
+  title={On Tinkering With Text: How to Refashion Prose},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.17999610},
+  year={2025}
+}
+
+@article{chawla2025minimal,
+  title={Minimal Systems for Computational Creativity: Evidence of Motif Stabilization},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--6},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@misc{chawla2025networks,
+  title={Networks of Transformers},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18007581},
+  year={2025}
+}
+
+@misc{chawla2025my,
+  title={My Immortal India},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18050692},
+  year={2025}
+}
+
+@misc{chawla2025concentration,
+  title={Concentration as Modulated Gathering},
+  author={Chawla, Aman},
+  journal={Research Gate},
+  number={https://doi.org/10.13140/RG.2.2.20254.19},
+  year={2025}
+}
+
+@article{chawla2025action,
+  title={The Action Potential Field: Why Consciousness May be Irreducible},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--5},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@article{chawla2025necessary,
+  title={Necessary and Sufficient Substrate for Consciousness},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--2},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@article{chawla2025white,
+  title={White Matter Capacity},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={2},
+  pages={Article--4},
+  year={2025},
+  publisher={REAL Institute}
+}
+
+@inproceedings{chawla2025quantum,
+  title={Quantum Made in Bharat},
+  author={Chawla, Aman},
+  booktitle={---},
+  volume={1},
+  number={---},
+  pages={https--zenodo},
+  year={2025}
+}
+
+@misc{chawla2025ab,
+  title={Ab Initio Control of a SPAD Sensor Using an AVR-Controlled External Datapath: A Replicable Table-Top Architecture for Long-Horizon Quantum Computation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18091198},
+  year={2025}
+}
+
+@misc{chawla2025ephemeris,
+  title={Ephemeris Mundi},
+  author={Chawla, Aman},
+  year={2025},
+  publisher={Prajnanabha Press, India}
+}
+
+@article{chawla2025capacity,
+  title={Capacity Boost: Data Transmission in the Unified Regime},
+  author={Chawla, Aman},
+  journal={Prajnanabha: Information and Physics},
+  volume={1},
+  number={3},
+  pages={6},
+  year={2025},
+  publisher={REAL Institute, Gurugram, India}
+}
+
+@misc{chawla2026weak,
+  title={Weak Source Coding: Entropy-Tightened Bounds via Clustering of Atypical Sequences},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18148555},
+  year={2026}
+}
+
+@misc{chawla2026ephaptic,
+  title={Ephaptic Quantum Energy Teleportation and Quantum Ephaptic Coupling: A Unified Mechanism for Energy--Charge Recombination Across Lipid Barriers},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18207631},
+  year={2026}
+}
+
+@misc{chawla2026extending,
+  title={Extending Baar's Theatre: a Substrate for World Peace},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18211218},
+  year={2026}
+}
+
+@misc{chawla2026dharma,
+  title={Dharma Advisory Councils: Role and Recruitment},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18218211},
+  year={2026}
+}
+
+@misc{chawla2026non,
+  title={Non-monotonic schemes for data transmission: an assessment},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18298981},
+  year={2026}
+}
+
+@misc{chawla2026vibe,
+  title={Vibe Coding With Nyaya},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18397970},
+  year={2026}
+}
+
+@misc{chawla2026mastishk,
+  title={Mastishk mein saarvatrik kvantum samganana ki kriya vidhi},
+  author={Chawla, Aman},
+  journal={Research Gate},
+  year={2026}
+}
+
+@misc{chawla2026realization,
+  title={Realization, Information and Knowledge},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18437857},
+  year={2026}
+}
+
+@misc{chawla2026mixture,
+  title={Mixture-of-Experts View of the Double-Flash},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18437874},
+  year={2026}
+}
+
+@article{chawla2023early,
+  title={Early modulation of visual cortex by sound: an MEG study},
+  author={Chawla, Aman},
+  journal={Neuroscience Letters},
+  year={2023}
+}
+
+@misc{chawla2026contributions,
+  title={Contributions of Prime Minister Nehru},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18700998},
+  year={2026}
+}
+
+@misc{chawla2026critical,
+  title={A Critical Examination of MANAV Vision},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18701483},
+  year={2026}
+}
+
+@misc{chawla2026gns,
+  title={GNS Shadows Behind PBR},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18754150},
+  year={2026}
+}
+
+@misc{chawla2026possible,
+  title={On the Possible Influence of Metric Perturbations on Neural Tract Timing},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18754287},
+  year={2026}
+}
+
+@misc{chawla2026ephaptic,
+  title={Ephaptic Dependence Detectors: Theory and Simulations},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18825010},
+  year={2026}
+}
+
+@misc{chawla2026towards,
+  title={Towards Emulating AI},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18836657},
+  year={2026}
+}
+
+@misc{chawla2026experimental,
+  title={Experimental Characterization of Thermal Fluctuations in a Tethered Micron-Scale Structure: Initial Steps Toward Diffusion-Based Signaling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18843084},
+  year={2026}
+}
+
+@misc{chawla2026gravity,
+  title={Gravity Waves Enhance Entropy Amplification due to Ephaptic Coupling},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18851358},
+  year={2026}
+}
+
+@misc{chawla2026mimo,
+  title={A MIMO Model for an Axon Under Chemical-- Mechanical Coupling - a Note},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.18908977},
+  year={2026}
+}
+
+@misc{chawla2026quantum,
+  title={Quantum Nyaya Cognition: an Architecture},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19031713},
+  year={2026}
+}
+
+@misc{chawla2026born,
+  title={The Born Perceptron: Mimicking Quantum Mechanics and Distributed Measurements in Time},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19032102},
+  year={2026}
+}
+
+@misc{chawla2026mathematical,
+  title={A Mathematical Theory of Genetic Modulation of Information Flow},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19199764},
+  year={2026}
+}
+
+@misc{chawla2026quantum,
+  title={On the Quantum Completeness Problem: Solution via Nonlocal Unification},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19206952},
+  year={2026}
+}
+
+@misc{chawla2026nonlocal,
+  title={Nonlocal Unification as the Completion of Merminâ€™s QBism},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19243263},
+  year={2026}
+}
+
+@misc{chawla2026kakeya,
+  title={Kakeya Upper Bounds for Neural Arbors},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19261949},
+  year={2026}
+}
+
+@misc{chawla2026shannon,
+  title={Shannon Source Coding as a Limiting Case of Structured Source Coding},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19271385},
+  year={2026}
+}
+
+@misc{chawla2026post,
+  title={Post-Shannon Information Theory},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19353871},
+  year={2026}
+}
+
+@misc{chawla2026classical,
+  title={Classical--Quantum Correspondence, Schumacher Compression, and the Atypical Sector},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19396705},
+  year={2026}
+}
+
+@misc{chawla2026structured,
+  title={Structured Decomposition of the Quantum Atypical Sector},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19396778},
+  year={2026}
+}
+
+@misc{chawla2026quantum,
+  title={Quantum Distortion Geometry and Nearest-Representative Classification of the Atypical Sector},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19412031},
+  year={2026}
+}
+
+@misc{chawla2026landing,
+  title={Landing a Probe on Comet Halley: A Multi-Stage Mission Architecture for Sub-Surface Exploration},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19421816},
+  year={2026}
+}
+
+@misc{chawla2026superconsciousness,
+  title={Superconsciousness: a Poetic Meditation},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19438305},
+  year={2026}
+}
+
+@misc{chawla2026structured,
+  title={Structured Encoder and the Finite-Blocklength Rate--Fidelity Advantage},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19470226},
+  year={2026}
+}
+
+@misc{chawla2026dominant,
+  title={Dominant Cluster Probability and Bounding Structural Overhead},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19478226},
+  year={2026}
+}
+
+@misc{chawla2026envisioning,
+  title={Envisioning a Fusion Pathway to Mars},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19480057},
+  year={2026}
+}
+
+@misc{chawla2026learning,
+  title={Learning-Based Structural Decoding},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19490648},
+  year={2026}
+}
+
+@misc{chawla2026fidelity,
+  title={Fidelity Tradeoff for Quantum Structured Source Coding: Lowering Landauer's Lower Bound},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19498090},
+  year={2026}
+}
+
+@misc{chawla2026finite,
+  title={Finite-Blocklength Advantage for Quantum Structured Source Coding},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19505994},
+  year={2026}
+}
+
+@misc{chawla2026aryabhata,
+  title={Aryabhata Quantum Source Coding},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19519950},
+  year={2026}
+}
+
+@misc{chawla2026towards,
+  title={Towards Aryabhata Quantum Lempel-Ziv},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19546561},
+  year={2026}
+}
+
+@misc{chawla2026note,
+  title={A Note on Source-Channel Separation for the Quantum Atypical Sector},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19552154},
+  year={2026}
+}
+
+@misc{chawla2026information,
+  title={Information in the Aryabhata Sense: Value of Zero-Mass Boundaries},
+  author={Chawla, Aman},
+  year={2026},
+  publisher={https://doi.org/10.5281/zenodo.19587581}
+}
+
+@misc{chawla2026stochastic,
+  title={Stochastic Approximation of LLM Prompts},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19622292},
+  year={2026}
+}
+
+@misc{chawla2026decoupling,
+  title={Decoupling Forward Aggregation and Backward Propagation for Robust Neural Computation: a Python Study},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19645106},
+  year={2026}
+}
+
+@misc{chawla2026necessity,
+  title={Necessity and Sufficiency of Frechet Observers for an Open Universe},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19870917},
+  year={2026}
+}
+
+@misc{chawla2026quantum,
+  title={Quantum Statistical Analysis of a Pointing-Dependent Refractor Array},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19921530},
+  year={2026}
+}
+
+@misc{chawla2026entanglement,
+  title={Entanglement-Based Windows on the Universe: Error Exponents, Distributed Fusion, and Sphere-Packing Limits},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19933564},
+  year={2026}
+}
+
+@misc{chawla2026third,
+  title={On Third-Order Evidence-Class Gain in Quantum Illumination},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19937039},
+  year={2026}
+}
+
+@misc{chawla2026llm,
+  title={The LLM Amoeba: an Analogy for Modern Interactive AI Systems},
+  author={Chawla, Aman},
+  journal={Zenodo},
+  number={https://doi.org/10.5281/zenodo.19965357},
+  year={2026}
+}

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yogonabhayin Spiritual Insights — A Division of the REAL Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cart.css">
+<script src="assets/config.js"></script>
+<script src="assets/cart.js" defer></script>
+<style>
+  :root{
+    --ink:#1b2a3d;
+    --ink-soft:#3c4c60;
+    --parchment:#f3ead7;
+    --parchment-dark:#e5d6ae;
+    --card:#faf5e8;
+    --brass:#a9793c;
+    --brass-dark:#7e5a29;
+    --stamp:#a13d2e;
+    --sage:#556b53;
+    --rule:#cdbd94;
+    --shadow: 0 10px 26px rgba(27,42,61,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -5%, #fbf4e2 0%, transparent 60%),
+      var(--parchment);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+
+  /* ===== Ledger header bar ===== */
+  .ledger-bar{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .ledger-bar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; opacity:0.85; max-width:1180px;}
+
+  /* ===== Hero ===== */
+  header.hero{padding:64px 0 40px;}
+  .title-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    padding:52px 48px 44px;
+    position:relative;
+    text-align:center;
+  }
+  .title-card::before, .title-card::after{
+    content:"";
+    position:absolute; top:14px; bottom:14px; width:1px;
+    background:var(--rule);
+  }
+  .title-card::before{left:14px;}
+  .title-card::after{right:14px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--brass-dark); margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.2rem, 5vw, 3.2rem);
+    line-height:1.08;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .title-italic{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .lede{
+    max-width:560px; margin:0 auto 26px;
+    font-size:1.08rem; color:var(--ink-soft);
+  }
+  .tagline-stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem; letter-spacing:0.05em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:8px 18px;
+    transform:rotate(-2deg);
+    border-radius:2px;
+  }
+  .om-mark{
+    font-family:'Fraunces', serif; font-size:1.6rem; color:var(--brass);
+    margin:0 auto 10px; display:block;
+  }
+
+  section{padding:44px 0 56px;}
+  .section-head{margin-bottom:30px; max-width:640px;}
+  .section-tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff;
+    padding:5px 12px; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.5rem,3vw,2rem);
+    color:var(--ink);
+  }
+  .section-sub{color:var(--ink-soft); margin-top:10px; font-size:1rem;}
+  .catalog-note{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sage);
+    letter-spacing:0.02em; margin-bottom:26px; border-left:3px solid var(--sage);
+    padding-left:12px;
+  }
+
+  /* ===== Post cards ===== */
+  .posts-grid{display:flex; flex-direction:column; gap:26px;}
+  .post-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    position:relative; padding-top:34px;
+  }
+  .call-tab{
+    position:absolute; top:0; left:18px;
+    background:var(--brass); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.04em;
+    padding:5px 10px; transform:translateY(-50%);
+  }
+  .post-body{padding:8px 30px 30px;}
+  .post-folio{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em;
+    color:var(--sage); text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .post-title{font-family:'Fraunces', serif; font-size:1.5rem; font-weight:600; margin-bottom:16px; line-height:1.3;}
+
+  .post-preview{font-size:1.04rem; color:var(--ink);}
+  .post-preview p{margin-bottom:12px;}
+
+  .post-lockwrap{position:relative; margin-top:2px;}
+  .post-hidden-teaser{
+    font-size:1.04rem; color:var(--ink); filter:blur(4.5px); opacity:0.55; user-select:none;
+    max-height:110px; overflow:hidden; pointer-events:none;
+  }
+  .post-fade{
+    position:absolute; left:0; right:0; bottom:0; height:110px;
+    background:linear-gradient(to bottom, rgba(250,245,232,0) 0%, var(--card) 82%);
+    pointer-events:none;
+  }
+
+  .lock-panel{
+    margin-top:18px; border-top:1px dashed var(--rule); padding-top:18px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .lock-info{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-soft);}
+  .lock-info strong{color:var(--brass-dark);}
+  .lock-price{
+    display:flex; align-items:baseline; gap:6px;
+  }
+  .price-amt{font-family:'Fraunces', serif; font-weight:600; font-size:1.4rem; color:var(--ink);}
+  .price-note{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--ink-soft);}
+
+  .stamp-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    border:2px solid var(--stamp); color:var(--stamp);
+    padding:12px 22px; text-align:center; cursor:pointer;
+    background:transparent; transition:.18s;
+    display:inline-block; white-space:nowrap;
+  }
+  .stamp-btn:hover{background:var(--stamp); color:#fff; transform:rotate(-0.6deg);}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:var(--parchment-dark);
+    padding:48px 0 30px; margin-top:20px;
+  }
+  footer .wrap{text-align:center; max-width:1180px;}
+  footer h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; color:#fff; margin-bottom:12px;}
+  footer p{max-width:560px; margin:0 auto 10px; font-size:0.94rem;}
+  footer a{color:#e5c993; text-decoration:none; font-weight:600;}
+  footer a:hover{text-decoration:underline;}
+  .devanagari{margin-top:18px; font-size:0.85rem; color:var(--rule);}
+
+/* Shared cart styles loaded from assets/cart.css */
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<main data-pagefind-body data-pagefind-filter="type:Yoga">
+
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>Yogonabhayin SPIRITUAL INSIGHTS · A DIVISION OF THE REAL INSTITUTE</span>
+    <span>SADHANA · REFLECTION · TRANSMISSION</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="title-card">
+      <span class="om-mark">ॐ</span>
+      <div class="eyebrow">Notes from the Path</div>
+      <h1 class="title">Yogonabhayin Spiritual<br>Insights</h1>
+      <p class="lede">Short reflections on sadhana, breath, and the direct experience the scriptures point toward — written for the practitioner, not the theorist.</p>
+      <span class="tagline-stamp">DIRECT EXPERIENCE OVER DOGMA</span>
+    </div>
+  </div>
+</header>
+
+<section id="posts">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Reading Room</span>
+      <h2>Lessons</h2>
+      <p class="section-sub">Every post opens with its first lines free to read. The rest is sent to your inbox once your offering is confirmed.</p>
+    </div>
+    <div class="catalog-note">Each full post is $1 USD. Submit your transaction reference in the unlock form after payment — the complete post is sent to your inbox.</div>
+
+    <div class="posts-grid" id="postsGrid"></div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <h3>Yogonabhayin Spiritual Insights</h3>
+    <p>A reflective offering of the <a href="https://realinstitute.netlify.app">REAL Institute</a> — reading, breath, and the quiet work of direct experience.</p>
+    <p><strong>Contact:</strong> <a href="mailto:disnance.ac@gmail.com">disnance.ac@gmail.com</a></p>
+    <p class="devanagari">सत्यमेव जयते नानृतम् — Truth alone triumphs, never falsehood</p>
+  </div>
+</footer>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()">
+  🛒 View Cart <span id="cartBadge" class="cart-badge">0</span>
+</button>
+
+<script>
+  const FIXED_PRICE = 50; // flat price applied to every post
+  const CONTACT_EMAIL = "disnance.ac@gmail.com";
+
+  // ===========================================================================
+  // POSTS DATA
+  // Modular, card-driven — just as the Book Conservatory renders every book from
+  // one `catalog` array, every post here renders from this `posts` array.
+  // To add a new post: drop in a new {id, folio, title, preview, hiddenWordCount}
+  // entry below — the grid, teaser blur, word count, and unlock modal all rebuild
+  // themselves automatically.
+  //   id                 - unique slug, used as the payment "note" and title match
+  //   folio              - small mono label above the title (category / series tag)
+  //   title              - post title, shown on the card and sent with payment
+  //   preview            - array of the first sentences shown in full, free to read
+  //   hiddenWordCount    - word count of everything after the preview (for the teaser line)
+  // ===========================================================================
+                  const posts = [
+    {
+      id: 'awakening-by-dissolution-using-breath-control',
+      folio: 'Sadhana · Pranayama',
+      title: 'Awakening by Dissolution Using Breath Control',
+      preview: [
+        'Spiritually speaking, the empirical method is of great relevance to the die hard religionist.',
+        'Said believer must approach the whole problem of right understanding by the method of jnana or raja yoga, leading to direct experience upon fulfilling the conditions prerequisite for said experience.'
+      ],
+      hiddenWordCount: 213
+    },
+    {
+      id: 'boundless-understanding',
+      folio: 'Sadhana · Yoga & Realization',
+      title: 'Boundless Understanding',
+      preview: [
+        'Considering the truth and validity of a given scriptural or realized-person\'s statement is no simple, ordinary matter.',
+        'One has to profess first a comfort in the state of consciousness from which that particular class of statements emerges.'
+      ],
+      hiddenWordCount: 119
+    },
+    {
+      id: 'the-relevance-of-yoga',
+      folio: 'Sadhana · Metaphysics',
+      title: 'The Relevance of Yoga',
+      preview: [
+        'If the reality aimed at by the yogin is really within him or herself, then there is no need to take recourse to the verifiability of said reality; however, if it is outside the yogin, then verifiability becomes important.',
+        'We are thus presented with a conundrum - if the reality is entirely within then how is the physical universe contained within it, and if it is outside the yogin then of what use is any systematic practise of meditation.'
+      ],
+      hiddenWordCount: 97
+    },
+    {
+      id: 'the-formless-origin-of-humans',
+      folio: 'Sadhana · Metaphysics',
+      title: 'The Formless Origin of Humans',
+      preview: [
+        'Wherever there appears, in the yogin\'s subjectivity, a form - whether it be an image or an auditory form - the very appearance guides the yogin towards an evaluation of it, as in the neti-neti method.',
+        'But, we may ask, where does the form have its source? If the source could be traced, we might be able at once to extinguish it for good. We might also enhance our self-knowledge.'
+      ],
+      hiddenWordCount: 111
+    },
+    {
+      id: 'a-tool-for-ascertaining-ones-degree-of-jnana',
+      folio: 'Sadhana · Discernment',
+      title: 'A Tool for Ascertaining One\'s Degree of Jnana',
+      preview: [
+        'If I view a thing, an object, by the light of the senses, it acquires some of the characteristics of the senses. This is natural, for the acquisition instrument influences the data flow.',
+        'However, suppose, bypassing the senses, I did acquire certain knowledge about an object then such knowledge would be devoid of sensorial coloring.'
+      ],
+      hiddenWordCount: 112
+    },
+    {
+      id: 'the-state-of-the-jnanin-when-absolutely-no-one-is-evaluating',
+      folio: 'Sadhana · Discernment',
+      title: 'The State of the Jnanin When Absolutely No One is Evaluating',
+      preview: [
+        'Newly understood statements made by a jnanin and their fate amidst the ruckus of ordinary statements gives no basis for a hope of transcendence whilst amidst the folk of the world.',
+        'It is for this reason the jnanin does well to seek out seclusion as a mode of life.'
+      ],
+      hiddenWordCount: 128
+    },
+    {
+      id: 'a-thesis-regarding-karma-and-experience',
+      folio: 'Sadhana · Karma & Consciousness',
+      title: 'A Thesis Regarding Karma and Experience',
+      preview: [
+        'Regarding the law of karma as a bonafide law is feasible only if we consider it as a law of consciousness.',
+        'In its many individual, distinct forms consciousness interacts with the individual observer, the subject of experience. Might it be that the law of karma simply captures the relations of the objects with the observer, and in so doing determines their inter-relationships in space and time, from the subject\'s perspective?'
+      ],
+      hiddenWordCount: 187
+    },
+    {
+      id: 'some-notes-on-spirituality',
+      folio: 'Sadhana · Spirituality',
+      title: 'Some Notes on Spirituality',
+      preview: [
+        'In this chapter we present certain digressions into the spiritual domain - insights that often-times are gleaned in parallel with the scientific insights presented in this book.',
+        'These insights have been aided by a close reading of [1] and [2].'
+      ],
+      hiddenWordCount: 978
+    },
+    {
+      id: 'the-song-of-that',
+      folio: 'Sadhana · Consciousness',
+      title: 'The Song of That',
+      preview: [
+        'That is seen.',
+        'That is light of consciousness.'
+      ],
+      hiddenWordCount: 85
+    },
+    {
+      id: 'attainment-of-the-absolute',
+      folio: 'Sadhana · Realization',
+      title: 'Attainment of the Absolute',
+      preview: [
+        'When just a few degrees of climate change and temperature modification takes place, glaciers begin to melt at the top of the mountain peaks, at high altitudes.',
+        'These phase changes lead to downstream flooding — inundation of the dry land.'
+      ],
+      hiddenWordCount: 222
+    },
+    {
+      id: 'the-edge-of-the-infinite',
+      folio: 'Sadhana · Metaphysics',
+      title: 'The Edge of the Infinite',
+      preview: [
+        'It has been seen, in raja yoga, that, especially during open-eye meditation (shambhavi mudra), after a while (say a few minutes of physical time1 ), the yogi approaches a locus of transcendence (see also Chapter 5) into a different plane of consciousness.',
+        'The remarkable feature of such a sequence of events is that in the so-called `higher\' plane, the yogi is immersed in a unitive experience.'
+      ],
+      hiddenWordCount: 270
+    },
+    {
+      id: 'the-locus-of-transcendence-the-mark-in-yoga',
+      folio: 'Sadhana · Raja Yoga',
+      title: 'The Locus of Transcendence - the Mark in Yoga',
+      preview: [
+        'Unlike the jnana yogi, the means adopted by the raja yogi are supralinguistic but is there a projection of that space onto linguistic space?',
+        'We mean to ask, in other words, whether, approaching from the linguistic plane, is there a measure of proximity to the transcendental that is attainable?'
+      ],
+      hiddenWordCount: 214
+    },
+    {
+      id: 'the-quantum-play-in-the-jnana-yogis-mind',
+      folio: 'Sadhana · Jnana Yoga',
+      title: 'The Quantum Play in the Jnana Yogi\'s Mind',
+      preview: [
+        'In quantum mechanics we have the famous measurement problem; science in general deals with measurement.',
+        'Measurement involves gathering the facts of a situation and this is what makes science so successful: one gets the feeling or impression that one is dealing with something real, actual.'
+      ],
+      hiddenWordCount: 172
+    },
+    {
+      id: 'way-to-self-discovery',
+      folio: 'Sadhana · Self Inquiry',
+      title: 'Way To Self Discovery',
+      preview: [
+        'When some thought arises and you are observing very closely, please try the following.',
+        'Ask in the presence of the thought - is what this thought refers to eternal or temporary?'
+      ],
+      hiddenWordCount: 139
+    },
+    {
+      id: 'the-way-to-a-new-dawn',
+      folio: 'Sadhana · Reflection',
+      title: 'The Way to a New Dawn',
+      preview: [
+        'Two things can always free one from dogmatism — the presence of the first prevents the second from being over-assertive, while the second can also prevent the first from a monopoly over our time.',
+        'While most successphilosophers would advise doing a single thing in one\'s life, following a single vision, mapping out a single path, a singular journey in life, there is no guarantee of success.'
+      ],
+      hiddenWordCount: 269
+    },
+    {
+      id: 'the-need-for-grace-the-excitement-of-the-chase-in-yoga',
+      folio: 'Sadhana · Yoga & Grace',
+      title: 'The Need for Grace, the Excitement of the Chase, in Yoga',
+      preview: [
+        'Notwithstanding the humungous quantities of rational enquiry performed by the tyro in truth-seeking, the long hours poring over historical documents of interest, the visitations to saints and sages, all the while persisting in certain steadfast and regular inner exercises, the truth may yet elude the grasp of such a yogi.',
+        'He or she may miss the mark entirely.'
+      ],
+      hiddenWordCount: 175
+    },
+    {
+      id: 'ode-to-betelgeuse',
+      folio: 'Sadhana · Cosmology',
+      title: 'Ode to Betelgeuse',
+      preview: [
+        'Listen listen O little star<br>How I am in awe of what you are<br>You were born, shone, and died<br>All for the sake of illuminating<br>You brightly lit up your stellar neighborhood<br>For the larger good<br>Of creatures, big and small<br>Nay, for all, for all!'
+      ],
+      hiddenWordCount: 88
+    },
+    {
+      id: 'dancing-with-the-stars',
+      folio: 'Sadhana · Cosmic Dance',
+      title: 'Dancing With The Stars',
+      preview: [
+        'They say you are six foot and no more<br>A pygmy in this giant universe<br>Where the stars and where thou my friend<br>But I say something more you are<br>Within you is your mind<br>Does it not stretch to the farthest borders of the universe?<br>What does this show?<br>If in your fancy you can circle the cosmos,<br>How much more so in reality?'
+      ],
+      hiddenWordCount: 99
+    },
+    {
+      id: 'way-of-the-worship-of-the-infinite',
+      folio: 'Sadhana · Infinite Worship',
+      title: 'Way of the Worship of the Infinite',
+      preview: [
+        'The Goal Beyond the Cosmos - Envisioned When two ideas are created in opposition to one another, neither has the whole domain.',
+        'Each one "measures out" the other one, delineating the other one.'
+      ],
+      hiddenWordCount: 1522
+    },
+    {
+      id: 'the-system-of-consciousness',
+      folio: 'Sadhana · Consciousness System',
+      title: 'The System of Consciousness',
+      preview: [
+        'The starting points for the (jnana) yogi and the avatara are different.',
+        'The former, like the scientist, begins with the human assumption and proceeds onwards and upwards to the divine realms.'
+      ],
+      hiddenWordCount: 229
+    },
+    {
+      id: 'caution-to-the-exit-seeker',
+      folio: 'Sadhana · Discernment',
+      title: 'Caution to the Exit-Seeker',
+      preview: [
+        'The unobservable aspect of the so-called external Universe also has an inner counterpart — this is the hypothesis we propose to take up here.',
+        'Might there be certain regions of the mind which are beyond any means of knowledge — inner knowledge at that — that have been found by man, so far, on Earth?'
+      ],
+      hiddenWordCount: 164
+    },
+    {
+      id: 'certainty-as-an-illusion-and-the-illusion-of-eternity',
+      folio: 'Sadhana · Epistemology',
+      title: 'Certainty as an Illusion and the Illusion of Eternity',
+      preview: [
+        'There is never a certainty of any kind when either of the two types of yogis is trying to acquire the supramental knowledge.',
+        'Recall that we posited this as an `explanatory gap\' which we later attempted to fill by means of a stochastic process.'
+      ],
+      hiddenWordCount: 194
+    },
+    {
+      id: 'does-knowledge-exist',
+      folio: 'Sadhana · Knowledge',
+      title: 'Does Knowledge Exist?',
+      preview: [
+        'Seeking an escape from the verbiage of daily life, the jnana yogi practices the neti neti technique.',
+        'However, far beyond the cessation of world-mind lies the unconditioned, the untouched, the pristine, the pure infinitude of gargantuan proportions.'
+      ],
+      hiddenWordCount: 152
+    },
+    {
+      id: 'beyond-buddhism-the-secret-of-vedanta',
+      folio: 'Sadhana · Vedanta',
+      title: 'Beyond Buddhism: The Secret of Vedanta',
+      preview: [
+        'Mind and Time are often claimed to be integrated with one another in these (Anabhayin and prior) books.',
+        'If we observe the patterns in our day-to-day life, patterns which play out in time, we will note that much of our time is spent in a cyclic pattern or scheme.'
+      ],
+      hiddenWordCount: 175
+    },
+    {
+      id: 'doorway-to-consciousness',
+      folio: 'Sadhana · Doorway to Consciousness',
+      title: 'Doorway to Consciousness',
+      preview: [
+        'Om namo bhagavate vasudevaya When one is born, one inhales and when one leaves the manifest realm for good, one exhales.',
+        'An inhalation is akin to birth and an exhalation is akin to death, therefore.'
+      ],
+      hiddenWordCount: 377
+    },
+    {
+      id: 'reaching-inner-harmony',
+      folio: 'Sadhana · Inner Harmony',
+      title: 'Reaching Inner Harmony',
+      preview: [
+        'The true self of any being in relation to the true self of another being — this is a topic which is only unimportant if one wishes to reside apart from society.',
+        'For most of us, including the yogis, there is a given dependence upon the society or world-at-large for physical and mental subsistence.'
+      ],
+      hiddenWordCount: 190
+    },
+    {
+      id: 'demarcations-within',
+      folio: 'Sadhana · Unity',
+      title: 'Demarcations Within?',
+      preview: [
+        'Can there be a strict demarcation between the levels of consciousness?',
+        'Certainly, the cosmic level is supposed to be all-embracing and so there can be no time in it and hence no mind and therefore no demarcating or dividing barriers.'
+      ],
+      hiddenWordCount: 172
+    },
+    {
+      id: 'being-a-jewel-thief',
+      folio: 'Sadhana · Metaphors',
+      title: 'Being a Jewel Thief',
+      preview: [
+        'Beautiful things abound in creation.',
+        'From the rolling waves atop the wide blue ocean to the tumbling of cloudscapes in the vast azure expanse, from the gushing geysers sprouting and frothing with a bubbling life, to the humble black crawling beetle with its face down towards the wide Earth, from easily sieved-in-a-palm grains of soft and warm sand to the triumphant Himalayan triangles of snow covered rocky peaks, from the gushing poetry of the effusive Kalidasa to the terse sutra of Patanjali — things of beauty, aural, visual, heart-felt and touchy-feely or smelt, wherever they may exist, seem to shed a divine elevating aura upon a grateful being.'
+      ],
+      hiddenWordCount: 99
+    },
+    {
+      id: 'jnana-yoga-and-the-eternal-life',
+      folio: 'Sadhana · Jnana & Eternity',
+      title: 'Jnana Yoga and the Eternal Life',
+      preview: [
+        'Taking cognisance of an all-perceiving reality behind the jnana yogi\'s mental instrument, the yogi comes to abide in it and beholds its action in the world at large.',
+        'Said reality, the fruit of neti-neti, but also its cause, is ever nourishing, ever protecting each yogi.'
+      ],
+      hiddenWordCount: 135
+    },
+    {
+      id: 'calming-the-ocean-the-place-for-optimism',
+      folio: 'Sadhana · Peace & Optimism',
+      title: 'Calming the Ocean - the Place for Optimism',
+      preview: [
+        'Can there be a place for optimism1 on the path of jnana or raja yoga?',
+        'For example, if it so happens that the analysis of the jnana yogi is dropped whilst still unripe, can he or she then pick it up at a later point?'
+      ],
+      hiddenWordCount: 249
+    },
+    {
+      id: 'play-of-consciousness-today',
+      folio: 'Sadhana · Modern Consciousness',
+      title: 'Play of Consciousness Today',
+      preview: [
+        'So many things are going on, so many sounds, vibrations in the environment, but you are unaware of them, because you are engrossed in the reading of Maharajshri [1].',
+        'What does it show? - it shows that awareness can have two levels - subliminal: below the threshold of conscious mind and liminal: at the level of conscious mind.'
+      ],
+      hiddenWordCount: 89
+    },
+    {
+      id: 'thoughts-on-reaching-the-infinitely-distant',
+      folio: 'Sadhana · Transcendence',
+      title: 'Thoughts on Reaching the Infinitely Distant',
+      preview: [
+        'If one levels with one\'s own inner core, then one finds a transaction, a mutual exchange of vision. `Seeing\' takes place within which, in all directions, light is interchanged between and amongst all `points\' of Cosmic Being.',
+        'This light does not exist locally — it subsists on the nonlocal being — like little diadems worn by a queen or female ruler.'
+      ],
+      hiddenWordCount: 268
+    },
+    {
+      id: 'beyond-science-and-spirituality-the-meaning-of-vedanta',
+      folio: 'Sadhana · Vedanta & Science',
+      title: 'Beyond Science and Spirituality: The Meaning of Vedanta',
+      preview: [
+        'It is well over two thousand years ago that Lord Buddha graced this plane.',
+        'The teachings he has left, have evolved over time into wonderful formulae and systems for understanding the world we find ourselves in upon birth.'
+      ],
+      hiddenWordCount: 735
+    },
+    {
+      id: 'theory-of-realization-and-its-physical-impact',
+      folio: 'Timeless · Realization & Physics',
+      date: '2016',
+      title: 'Theory of Realization and Its Physical Impact',
+      preview: [
+        'Suppose there are three minds, m1, m2 and m3, all in the spatial vicinity of each other.',
+        'Let there be the following mental processes in each of them: m1: ..., X_{-2}, X_{-1}, X_{0}, X_{1}, X_{2}, ... m2: ..., Y_{-2}, Y_{-1}, Y_{0}, Y_{1}, Y_{2}, ... m3: ..., Z_{-2}, Z_{-1}, Z_{0}, Z_{1}, Z_{2}, ...'
+      ],
+      hiddenWordCount: 311
+    },
+    {
+      id: 'eleven-principal-values',
+      folio: 'Timeless · Principal Values',
+      date: '2016',
+      title: 'Eleven Principal Values',
+      preview: [
+        '1. Brahmacharya — Similar to: Patanjali. Yoga Sutras of Patanjali',
+        '2. Love for all the Universe — Similar to: Paramahamsa, Prajnanananda. Path of Love'
+      ],
+      hiddenWordCount: 109
+    },
+    {
+      id: 'towards-a-perception-based-philosophy',
+      folio: 'Timeless · Perception Philosophy',
+      date: '2016',
+      title: 'Towards a Perception-Based Philosophy',
+      preview: [
+        'Life is present in all creatures from an ant to an elephant to a human.',
+        'In these creatures the life moves in various ways.'
+      ],
+      hiddenWordCount: 469
+    },
+    {
+      id: 'towards-superconsciousness',
+      folio: 'Timeless · Superconsciousness',
+      date: '2016',
+      title: 'Towards Superconsciousness',
+      preview: [
+        'The consciousness of man moves in various ways within the bodily kingdom.',
+        'The end and purpose of this movement is to find a way out into the great beyond.'
+      ],
+      hiddenWordCount: 579
+    },
+    {
+      id: 'beyond-cosmic-consciousness',
+      folio: 'Timeless · Cosmic Consciousness',
+      date: '2016',
+      title: 'Beyond Cosmic Consciousness',
+      preview: [
+        'As stated previously, the consciousness of man moves in various ways within the bodily kingdom.',
+        'The end and purpose of this movement is to leave the bodily kingdom and go out into the great beyond.'
+      ],
+      hiddenWordCount: 224
+    },
+    {
+      id: 'science-and-religion',
+      folio: 'Timeless · Science & Religion',
+      date: '2016',
+      title: 'Science and Religion',
+      preview: [
+        'Religion means unity with the Divine.',
+        'The basis of religion is the assumption that there is something within us which can be unified with the Divine consciousness.'
+      ],
+      hiddenWordCount: 884
+    },
+    {
+      id: 'science-and-religion-second-investigation',
+      folio: 'Timeless · Science & Religion',
+      date: '2016',
+      title: 'Science and Religion: Second Investigation',
+      preview: [
+        'Science is a probe, a tool in the hands of man, to study the physical features of nature.',
+        'It objectifies nature and studies it dispassionately.'
+      ],
+      hiddenWordCount: 915
+    },
+    {
+      id: 'the-special-theory-of-consciousness',
+      folio: 'Timeless · Consciousness Theory',
+      date: '2016',
+      title: 'The Special Theory of Consciousness',
+      preview: [
+        'In this paper, we present the postulates of a new theory of consciousness.',
+        'This is followed by a discussion of the postulates and their consequences.'
+      ],
+      hiddenWordCount: 1050
+    },
+    {
+      id: 'the-general-theory-of-consciousness',
+      folio: 'Timeless · Nonlocality Theory',
+      date: '2016',
+      title: 'The General Theory of Consciousness',
+      preview: [
+        'In this paper we present the postulates of a theory which integrates presently known science with spirituality as it is understood by the various existing spiritual traditions.',
+        'We do so via the medium of consciousness.'
+      ],
+      hiddenWordCount: 1870
+    },
+    {
+      id: 'omniscience-inference-and-behaviour',
+      folio: 'Effort · Omniscience & Inference',
+      date: '2022',
+      title: 'Omniscience, Inference and Behaviour',
+      preview: [
+        'In complex tasks, suboptimal inference (of say the state of the environment based on sensory inputs) is common because the optimal inference would take too much time.',
+        'And this suboptimal inference leads to behavioural variability.'
+      ],
+      hiddenWordCount: 382
+    },
+    {
+      id: 'the-blessedness-of-brahman',
+      folio: 'Effort · Blessedness of Brahman',
+      date: '2022',
+      title: 'The Blessedness of Brahman',
+      preview: [
+        'Sri Gurubhyo Namaha.',
+        'There are two ways to view anything — either we view it as an object, or we view it as a part of us.'
+      ],
+      hiddenWordCount: 111
+    },
+    {
+      id: 'quantum-chromodynamical-entropy-rates',
+      folio: 'Effort · QCD Entropy Rates',
+      date: '2022',
+      title: 'Quantum Chromodynamical Entropy Rates',
+      preview: [
+        'Consider an assertion such as, "Information is Everywhere." The question we investigate is whether this assertion can be falsified.',
+        'If it cannot — well, it is not scientific.'
+      ],
+      hiddenWordCount: 124
+    },
+    {
+      id: 'close-study-of-gilded-water-faucet',
+      folio: 'Effort · Faucet Observation',
+      date: '2022',
+      title: 'Close Study of Gilded Water Faucet',
+      preview: [
+        'The fingerprint ridges on the finger are evenly thrust perpendicularly away from the surface of the faucet.',
+        'This is because of the extreme smoothness of the surface.'
+      ],
+      hiddenWordCount: 90
+    },
+    {
+      id: 'feedback-capacity-of-multiscale-processes',
+      folio: 'Effort · Feedback Capacity',
+      date: '2022',
+      title: 'Feedback Capacity of Multiscale Processes',
+      preview: [
+        'For the case of multiscale processes as introduced in [4], we here propose to derive the feedback capacity, along the lines presented in [5].',
+        'Further, we propose to take a look at the capacity of a new channel — the random anytime noise channel.'
+      ],
+      hiddenWordCount: 43
+    },
+    {
+      id: 'generalized-channels',
+      folio: 'Effort · Generalized Channels',
+      date: '2022',
+      title: 'Generalized Channels',
+      preview: [
+        '7.1 Introduction In this paper we generalize the notion of a channel introduced by Shannon.',
+        'We want to see how far this notion can be applied to different fields and that is possible by developing a very general theorem.'
+      ],
+      hiddenWordCount: 234
+    },
+    {
+      id: 'ampliation-in-probability-and-philosophy',
+      folio: 'Effort · Probability Ampliation',
+      date: '2022',
+      title: 'Ampliation in Probability and Philosophy',
+      preview: [
+        'Consider the definition of an adapted process in the quantum stochastic calculus: Let $S \subset \mathcal{H}$ be an admissible subspace and $\mathcal{D}$ a linear manifold in $\mathcal{H}$.',
+        'Let $F = (F(t) : t \ge 0)$ be a family of operators in $\mathcal{H}$ such that for arbitrary $t > 0$, $F(t)$ is the ampliation to $\mathcal{D} \otimes \Gamma_t \otimes \mathcal{H}^t$ of an operator in $\mathcal{H}_t$ with domain $\mathcal{D} \otimes \Gamma_t$.'
+      ],
+      hiddenWordCount: 274
+    },
+    {
+      id: 'the-importance-of-perseverance',
+      folio: 'Effort · Perseverance',
+      date: '2022',
+      title: 'The Importance of Perseverance',
+      preview: [
+        'Whereupon he or she (the yogin) must not stop with his alertness, vigilance, and effort.',
+        'Just as water waves strike the beach rocks repeatedly and eventually grind them down to sand, one fine day the jnanin will be the master of a pristinely clear mind and deep soul-vision.'
+      ],
+      hiddenWordCount: 89
+    },
+    {
+      id: 'the-basis-for-the-fundamental-nature-of-information',
+      folio: 'Synchronization · Information Nature',
+      date: '2021',
+      title: 'The Basis for the Fundamental Nature of Information',
+      preview: [
+        'Different stratagems towards conquest of emotion in particular and mind in general, have to be adopted by the practitioner who is primarily concerned with an ongoing transcendence.',
+        'In this context, we may ask the question whether contact with the eternal has to be maintained or, once established, it abides?'
+      ],
+      hiddenWordCount: 162
+    },
+    {
+      id: 'advaitic-anatmism-via-direct-experience',
+      folio: 'Synchronization · Advaitic Anatmism',
+      date: '2021',
+      title: 'Advaitic Anatmism via Direct Experience',
+      preview: [
+        'A subtle demarcation may yet exist in the heart of the aspirant who has dedicated him or herself fully to the quest of emulating the Buddha - between Self and World.',
+        'The essence of this demarcation certainly lies fully in the ego of the aspirant - that formidable divisive entity which gains sustenance from a projected false and falsely justified belief in the reality of both Self and World.'
+      ],
+      hiddenWordCount: 69
+    },
+    {
+      id: 'su-asti-the-all-good',
+      folio: 'Synchronization · The All-Good',
+      date: '2021',
+      title: 'Su-asti: The All-Good',
+      preview: [
+        'Mystic revelations sometimes overwhelm a mind by the very gravity of their being, creating a dual division - between form and formless as well as between the seer and the seen.',
+        'This seems to be a preliminary stage from which the seer must merge into the seen and the form into the formless so that only a colorless unity remains.'
+      ],
+      hiddenWordCount: 94
+    },
+    {
+      id: 'cosmic-mind-the-all-time-set-thought',
+      folio: 'Synchronization · Cosmic Mind',
+      date: '2021',
+      title: 'Cosmic Mind: The All-Time Set-thought',
+      preview: [
+        'Just as, when dealing with objects, it is possible to consider a collection of them as another object, in a similar way we can consider the collection of thoughts as a single thought, though different from its constituents.',
+        'We call this the `set-thought.\' Set-thoughts may play for much longer durations than individual constituent thoughts.'
+      ],
+      hiddenWordCount: 123
+    },
+    {
+      id: 'towards-an-exciting-discovery',
+      folio: 'Synchronization · Exciting Discovery',
+      date: '2021',
+      title: 'Towards an Exciting Discovery',
+      preview: [
+        'Towards the end of a length of string one gradually approaches a sudden transition from mass to its absence.',
+        'A perceiving entity will regard this `demarcation\' as an edge where there is a delta-change in the amount of mass.'
+      ],
+      hiddenWordCount: 117
+    },
+    {
+      id: 'dispensing-with-the-need-for-guarantees',
+      folio: 'Synchronization · No Guarantees',
+      date: '2021',
+      title: 'Dispensing with the Need for Guarantees',
+      preview: [
+        'If we need an assurance, a cent percent guarantee that can yield a doubt-less conviction in the presence and benevolence of the impersonal Goal of jnana and bhakti, such a guarantee would simply add a burden to our hearts.',
+        'Think of a later stage, perched from where one looks upon and surveys one\'s entire existence.'
+      ],
+      hiddenWordCount: 96
+    },
+    {
+      id: 'seeking-to-assist-cosmic-reality',
+      folio: 'Synchronization · Cosmic Reality',
+      date: '2021',
+      title: 'Seeking to Assist Cosmic Reality',
+      preview: [
+        'There are two essentially well-demarcated concepts of existence and its nature.',
+        'The first seeks to outline the positive aspect and the other one looks at the opposite.'
+      ],
+      hiddenWordCount: 126
+    },
+    {
+      id: 'metaphysics-and-omniscience',
+      folio: 'Synchronization · Metaphysics',
+      date: '2021',
+      title: 'Metaphysics and Omniscience',
+      preview: [
+        'Metaphysically speaking, the cosmic reality forms a definite layer above and super-suming the physical universe.',
+        'Since metaphysical study is a branch of human endeavor, the jnana yogin who engages with this topic is bound to find ways and means therein that lead beyond matter, into the sacred realms of spirit.'
+      ],
+      hiddenWordCount: 83
+    },
+    {
+      id: 'whither-cosmic-intelligence',
+      folio: 'Synchronization · Cosmic Intelligence',
+      date: '2021',
+      title: 'Whither Cosmic Intelligence?',
+      preview: [
+        'Regardless of the number of times a yogin acquires glimpses of the supraphysical reality, for a long time continual effort towards these glimpses is but the nature of the forces which guide his or her temporal manifestation in this universe.',
+        'That is to say, there seems to be a constant underlying impulse towards ripening of awareness into constant cosmic awareness.'
+      ],
+      hiddenWordCount: 169
+    },
+    {
+      id: 'the-self-as-an-experiential-invariant',
+      folio: 'Synchronization · Experiential Invariant',
+      date: '2021',
+      title: 'The Self as an Experiential Invariant',
+      preview: [
+        'When a jnana yogi or a raja yogi enters within the illumined psyche, he or she is apparently shut off from the world of experience.',
+        'Nevertheless, in some sense an experience still does exist for him or her.'
+      ],
+      hiddenWordCount: 83
+    }
+  ];
+
+  function renderPosts(){
+    const grid = document.getElementById('postsGrid');
+    grid.innerHTML = posts.map(p => `
+      <div class="post-card">
+        <span class="call-tab">${p.folio}${p.date ? ` · ${p.date}` : ''}</span>
+        <div class="post-body">
+          <div class="post-preview">
+            ${p.title ? `<div class="post-title">${p.title}</div>` : ''}
+            ${p.preview.map(s => `<p>${s}</p>`).join('')}
+          </div>
+          <div class="post-lockwrap">
+            <div class="post-hidden-teaser">${'Layers of mind-stuff, some really deep, need to be parcelled out in big chunks or at once, and the vessel is prepared by prolonged and patient practice until the seeker rests in what was always present. '.repeat(2)}</div>
+            <div class="post-fade"></div>
+          </div>
+          <div class="lock-panel">
+            <div class="lock-info">🔒 <strong>${p.hiddenWordCount}+ words</strong> remain — unlock to read the full post</div>
+            <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+              <div class="lock-price">
+                <span class="price-amt">$1 USD</span>
+                <span class="price-note">one-time access</span>
+              </div>
+              <button class="stamp-btn" onclick="addToCart('${p.title.replace(/'/g,"\\'")}', ${FIXED_PRICE})">🛒 Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // (Centralized cart script logic from assets/cart.js handles payments)
+
+  renderPosts();
+</script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kāṭhaka Saṃhitā — A Forgotten Voice of the Yajurveda | REAL</title>
+<meta name="description" content="An accessible introduction to the Kāṭhaka Saṃhitā, a rare recension of the Kṛṣṇa Yajurveda, with selected mantras, context, themes and references.">
+<style>
+:root{
+  --ink:#211b17; --muted:#6e6258; --paper:#fbf7ef; --cream:#f2e8d6;
+  --saffron:#9b4f22; --gold:#c9963e; --deep:#3d2b20; --line:#dfd1bd;
+  --white:#fffdf9; --shadow:0 18px 55px rgba(54,36,20,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Times New Roman",serif;line-height:1.72}
+a{color:var(--saffron)}
+.nav{position:sticky;top:0;z-index:20;background:rgba(251,247,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1120px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:Arial,sans-serif;font-size:.82rem}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:.8rem}
+.navlinks a{text-decoration:none;color:var(--deep)}
+.hero{background:
+ radial-gradient(circle at 78% 22%,rgba(201,150,62,.28),transparent 24%),
+ linear-gradient(135deg,#3d2b20 0%,#5d3520 48%,#8d4b26 100%);
+color:#fff;padding:105px 22px 92px;position:relative;overflow:hidden}
+.hero:after{content:"ॐ";position:absolute;right:7%;bottom:-50px;font-size:260px;opacity:.08}
+.hero-inner{max-width:1120px;margin:auto;position:relative;z-index:1}
+.kicker{font-family:Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:.76rem;color:#f4d99e}
+h1{font-size:clamp(2.7rem,7vw,5.5rem);line-height:1.02;margin:16px 0 20px;font-weight:500}
+.subtitle{font-size:clamp(1.1rem,2.2vw,1.5rem);max-width:780px;color:#f9ead0}
+.hero-note{margin-top:34px;display:inline-block;border:1px solid rgba(255,255,255,.28);padding:10px 16px;border-radius:999px;font-family:Arial,sans-serif;font-size:.82rem}
+main{max-width:1120px;margin:auto;padding:70px 22px}
+.intro{font-size:1.28rem;max-width:850px}
+.section{padding:55px 0;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:var(--shadow)}
+.card h3{margin-top:0;color:var(--saffron);font-size:1.25rem}
+.eyebrow{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:var(--muted)}
+h2{font-size:2.2rem;line-height:1.2;margin:10px 0 20px;color:var(--deep)}
+.quote-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.quote{background:var(--cream);border-left:5px solid var(--gold);padding:27px;border-radius:0 16px 16px 0}
+.quote .sanskrit{font-size:1.22rem;line-height:1.9;color:var(--deep)}
+.quote .translation{font-size:1.08rem;margin-top:16px}
+.ref{font-family:Arial,sans-serif;font-size:.72rem;color:var(--muted);margin-top:14px}
+.pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
+.pill{border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:#fffaf2;font-family:Arial,sans-serif;font-size:.78rem}
+.timeline{display:grid;gap:13px}
+.timeline div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.timeline strong{color:var(--saffron)}
+.callout{padding:30px;background:linear-gradient(135deg,#f3e2bf,#fbf7ef);border:1px solid var(--line);border-radius:20px}
+.warning{font-size:.9rem;color:var(--muted);background:#f6f0e6;padding:20px;border-radius:14px}
+.refs{font-family:Arial,sans-serif;font-size:.9rem}
+.refs li{margin:10px 0}
+footer{background:var(--deep);color:#f2e6d5;padding:45px 22px}
+.footer-inner{max-width:1120px;margin:auto}
+footer a{color:#f4c977}
+@media(max-width:760px){
+ .grid,.quote-grid{grid-template-columns:1fr}
+ .navlinks{display:none}
+ .hero{padding-top:75px}
+ .timeline div{grid-template-columns:1fr;gap:3px}
+ h2{font-size:1.8rem}
+}
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">REAL · Voice of India's Heritage</div>
+    <div class="navlinks">
+      <a href="#what">What is it?</a>
+      <a href="#voice">Its voice</a>
+      <a href="#themes">Themes</a>
+      <a href="#legacy">Legacy</a>
+      <a href="#references">References</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Kṛṣṇa Yajurveda · Kaṭha Śākhā</div>
+    <h1>The Kāṭhaka Saṃhitā</h1>
+    <p class="subtitle">A forgotten Vedic voice: ritual, fire, speech, protection, renewal — and a surprisingly intimate concern with the human mind.</p>
+    <div class="hero-note">For the curious reader · no Sanskrit background required</div>
+  </div>
+</header>
+
+<main>
+<section id="what">
+  <div class="eyebrow">Begin here</div>
+  <h2>What is the Kāṭhaka Saṃhitā?</h2>
+  <p class="intro">
+    The Kāṭhaka Saṃhitā is one of the surviving recensions of the <em>Kṛṣṇa Yajurveda</em>, the
+    “Black” or “Dark” Yajurveda. Unlike the better-known Taittirīya tradition, the Kāṭhaka
+    preserves its mantras together with explanatory prose in the characteristic manner of the
+    Kṛṣṇa Yajurveda. It is a ritual text, but it is much more than a catalogue of ceremonies:
+    its mantras repeatedly speak about intention, intelligence, speech, food, vitality,
+    protection, community and renewal.
+  </p>
+  <p>
+    The Government of India's <em>Vedic Heritage Portal</em> lists the Kāṭhaka Saṃhitā among
+    the four surviving Saṃhitās of the Kṛṣṇa Yajurveda. The tradition is exceptionally rare
+    today; much of the wider literature of the Kaṭhas has disappeared, making the surviving
+    Saṃhitā an unusually valuable window into an ancient Vedic school.
+  </p>
+
+  <div class="grid" style="margin-top:30px">
+    <article class="card">
+      <div class="eyebrow">Its family</div>
+      <h3>Black Yajurveda</h3>
+      <p>The Kṛṣṇa Yajurveda combines mantra and explanatory Brāhmaṇa-style prose rather than keeping them in completely separate books.</p>
+    </article>
+    <article class="card">
+      <div class="eyebrow">Its shape</div>
+      <h3>A large ritual corpus</h3>
+      <p>Traditional descriptions count 40 sthānaka sections and 843 anuvāka units, with about 3,091 mantras in the surviving corpus.</p>
+    </article>
+    <article class="card">
+      <div class="eyebrow">Its fate</div>
+      <h3>A rare survivor</h3>
+      <p>The Kaṭha school once had a much wider textual heritage. Much of that heritage is now lost, while the Saṃhitā survives principally as a textual tradition.</p>
+    </article>
+  </div>
+</section>
+
+<section id="voice">
+  <div class="eyebrow">Listen to the text</div>
+  <h2>Five moments that reward a modern reader</h2>
+  <p>
+    These selections are not presented as isolated “Vedic wisdom quotes.” Each belongs to a
+    ritual setting. Their interest lies in the way an ancient ritual vocabulary turns toward
+    recognizably human concerns.
+  </p>
+
+  <div class="quote-grid">
+    <article class="quote">
+      <div class="sanskrit">
+        ākūtyai prayuje agnaye svāhā<br>
+        medhāyai manase agnaye svāhā<br>
+        dīkṣāyai tapase agnaye svāhā
+      </div>
+      <div class="translation">
+        “To intention and purpose — to Agni, svāhā.<br>
+        To intelligence and mind — to Agni, svāhā.<br>
+        To consecration and disciplined effort — to Agni, svāhā.”
+      </div>
+      <div class="ref">Kāṭhaka Saṃhitā 1.2 · translation for this page</div>
+    </article>
+
+    <article class="quote">
+      <div class="sanskrit">
+        śarma me yaccha<br>
+        namas te astu<br>
+        mā mā hiṃsīḥ
+      </div>
+      <div class="translation">
+        “Grant me shelter and well-being.<br>
+        Reverence to you.<br>
+        Do not harm me.”
+      </div>
+      <div class="ref">Kāṭhaka Saṃhitā 1.3 · translation for this page</div>
+    </article>
+
+    <article class="quote">
+      <div class="sanskrit">
+        imaṃ dhiyaṃ śikṣamāṇasya deva kratuṃ dakṣaṃ varuṇa saṃśiśādhi<br>
+        mano me hārdi yaccha
+      </div>
+      <div class="translation">
+        “O divine Varuṇa, strengthen the understanding and discernment of one who is learning;<br>
+        grant me mind within the heart.”
+      </div>
+      <div class="ref">Kāṭhaka Saṃhitā 1.3 · translation for this page</div>
+    </article>
+
+    <article class="quote">
+      <div class="sanskrit">
+        sumitrā ṇa āpo oṣadhayo bhavantu<br>
+        durmitrās tasmai santu yo 'smān dveṣṭi yaṃ ca vayaṃ dviṣmaḥ
+      </div>
+      <div class="translation">
+        “May the waters and plants be friendly toward us;<br>
+        may they be unfriendly toward the one who hates us and whom we hate.”
+      </div>
+      <div class="ref">Kāṭhaka Saṃhitā · Varuṇa passage in the early corpus</div>
+    </article>
+
+    <article class="quote">
+      <div class="sanskrit">
+        yat vai vācā vadati tad bhavati<br>
+        tat tad sṛjate
+      </div>
+      <div class="translation">
+        “Whatever one speaks — that comes to be;<br>
+        that, that one creates.”
+      </div>
+      <div class="ref">Kāṭhaka Saṃhitā · prose passage on speech</div>
+    </article>
+
+    <article class="quote">
+      <div class="sanskrit">
+        punas tvā mitrāvaruṇau punar indraḥ punar bhagaḥ<br>
+        punas tvā viśve devā brāhmaṇā udadīdipan
+      </div>
+      <div class="translation">
+        “May Mitra and Varuṇa renew you; may Indra renew you, and Bhaga;<br>
+        may all the gods and the Brāhmaṇas kindle you anew.”
+      </div>
+      <div class="ref">Kāṭhaka Saṃhitā 7–9 sequence · renewal of the sacred fire</div>
+    </article>
+  </div>
+
+  <div class="warning" style="margin-top:28px">
+    <strong>Translation note.</strong> Vedic Sanskrit is highly contextual and often deliberately
+    elliptical. The English renderings above are readable translations prepared for this page,
+    not claims to be the only possible translations. The Sanskrit is supplied so that readers
+    can check the wording against a critical text.
+  </div>
+</section>
+
+<section id="themes">
+  <div class="eyebrow">Reading the Saṃhitā as a whole</div>
+  <h2>What keeps appearing?</h2>
+
+  <div class="pillrow">
+    <span class="pill">Agni · fire</span>
+    <span class="pill">Vāc · speech</span>
+    <span class="pill">Manas · mind</span>
+    <span class="pill">Medhā · intelligence</span>
+    <span class="pill">Tapas · disciplined effort</span>
+    <span class="pill">Āyuṣ · life</span>
+    <span class="pill">Āpas · waters</span>
+    <span class="pill">Oṣadhi · plants</span>
+    <span class="pill">Mitra · friendship</span>
+    <span class="pill">Varuṇa · order</span>
+    <span class="pill">Pūṣan · protection</span>
+    <span class="pill">Punar · again / renewal</span>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <h3>1 · Ritual as transformation</h3>
+      <p>Fire is not merely an object of worship. It is a medium of change: offerings enter the fire, and the ritual seeks to transform the condition of the sacrificer.</p>
+    </article>
+    <article class="card">
+      <h3>2 · The trained mind</h3>
+      <p>Prayers for <em>medhā</em>, <em>manas</em>, <em>dhiya</em> and <em>kratu</em> make learning and discernment part of the ritual imagination.</p>
+    </article>
+    <article class="card">
+      <h3>3 · The power of speech</h3>
+      <p>Speech is treated as consequential action. The text connects what is spoken with what is brought into being — a striking ancient reflection on language and agency.</p>
+    </article>
+    <article class="card">
+      <h3>4 · Protection and relationship</h3>
+      <p>The text asks for protection of people, homes, food, cattle and offspring, while also invoking friendship, social order and the management of hostility.</p>
+    </article>
+    <article class="card">
+      <h3>5 · Nature is inside the ritual world</h3>
+      <p>Waters, plants, earth, sky, sun, animals and seasons are not scenery. They participate in the ritual vocabulary and in the desired flourishing of life.</p>
+    </article>
+    <article class="card">
+      <h3>6 · Renewal</h3>
+      <p>The recurring language of <em>punar</em> — again, anew — gives the text a powerful rhythm: restore the fire, restore vitality, return to right relationship.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">A useful distinction</div>
+  <h2>Don't confuse the Saṃhitā with the Kaṭha Upaniṣad</h2>
+  <div class="callout">
+    <p>
+      The names are related, but the texts should not be collapsed into one another. The
+      <strong>Kāṭhaka Saṃhitā</strong> is a large ritual Saṃhitā of the Kṛṣṇa Yajurveda. The
+      famous <strong>Kaṭha Upaniṣad</strong> belongs to the same broader Kaṭha textual world and
+      is traditionally associated with the Kṛṣṇa Yajurveda, but it is a distinct philosophical
+      work. The Upaniṣad's dialogue between Naciketas and Yama is therefore not a chapter of
+      the Kāṭhaka Saṃhitā.
+    </p>
+  </div>
+</section>
+
+<section id="legacy">
+  <div class="eyebrow">Why preserve a difficult text?</div>
+  <h2>A doorway into a lost intellectual world</h2>
+  <p>
+    The Kāṭhaka Saṃhitā matters partly because it is <em>not</em> the most famous Vedic text.
+    Its rarity allows us to see the Yajurvedic world without assuming that one surviving school
+    represents the whole tradition. Its parallels with the Taittirīya and Maitrāyaṇī Saṃhitās
+    also allow scholars to compare how different Vedic schools transmitted, rearranged and
+    interpreted related ritual materials.
+  </p>
+  <p>
+    Modern editions are themselves part of this story. Leopold von Schroeder's edition,
+    published in Leipzig between 1900 and 1912, remains a foundational reference for the text.
+    Digital projects such as TITUS now make substantial portions of the Sanskrit accessible to
+    anyone willing to explore them.
+  </p>
+
+  <div class="timeline">
+    <div><strong>Vedic period</strong><span>The Kaṭha school belongs to the ancient Kṛṣṇa Yajurveda tradition.</span></div>
+    <div><strong>Classical India</strong><span>The Kaṭhas are remembered as a significant Vedic school, with a much larger literary heritage than what survives today.</span></div>
+    <div><strong>19th century</strong><span>Manuscript and lexical evidence begins to receive sustained European scholarly attention.</span></div>
+    <div><strong>1900–1912</strong><span>Leopold von Schroeder publishes the major edition of the Kāṭhaka Saṃhitā in three books, with a fourth volume containing an index.</span></div>
+    <div><strong>Today</strong><span>The text survives primarily as a scholarly and heritage resource rather than as a widely practiced living śākhā.</span></div>
+  </div>
+</section>
+
+<section id="references">
+  <div class="eyebrow">Go deeper</div>
+  <h2>Audio recension, primary texts & further reading</h2>
+  <ol class="refs">
+    <li>
+      <strong>Kāṭhaka-Saṃhitā Page 1.</strong>
+      <a href="./assets/kathaka/KathakaSamhitaPage1.m4a">download</a>.
+    </li>
+    <li>
+      <strong>Kāṭhaka-Saṃhitā Page 2.</strong>
+      <a href="./assets/kathaka/KathakaSamhitaPage2.m4a">download</a>.
+    </li>
+
+
+    <li>
+      <strong>TITUS — Black Yajur-Veda: Kāṭhaka-Saṃhitā.</strong>
+      A searchable digital presentation of the Sanskrit text:
+      <a href="https://titus.uni-frankfurt.de/texte/etcs/ind/aind/ved/yvs/ks/kst.htm" target="_blank" rel="noopener">TITUS text</a>.
+    </li>
+    <li>
+      <strong>Vedic Heritage Portal, Government of India.</strong>
+      Background on the Yajurveda and its surviving Kṛṣṇa-Yajurveda Saṃhitās:
+      <a href="https://vedicheritage.gov.in/en/samhitas/yajurveda/" target="_blank" rel="noopener">Vedic Heritage Portal</a>.
+    </li>
+    <li>
+      <strong>Leopold von Schroeder, <em>Kāṭhaka: die Saṃhitā der Kaṭha-Śākhā</em>.</strong>
+      The foundational critical edition, originally published 1900–1912; later reprinted by Franz Steiner.
+    </li>
+    <li>
+      <strong>P. D. Navathe.</strong>
+      Modern scholarly studies of individual Kaṭha-Sākhā rituals, including editions with Sanskrit,
+      introduction, mantra index and English translation.
+    </li>
+    <li>
+      <strong>A. B. Keith.</strong>
+      <em>The Veda of the Black Yajus School Entitled Taittirīya Saṃhitā</em> is useful for comparison
+      with a better-preserved Kṛṣṇa-Yajurveda recension, though it is not a translation of the Kāṭhaka text.
+    </li>
+  </ol>
+
+  <div class="callout" style="margin-top:28px">
+    <strong>A suggestion for the seeker:</strong>
+    Read one mantra slowly in Sanskrit, then read its English sense, then ask what changes when
+    the mantra is understood not as an abstract “quote” but as an action performed with fire,
+    offering, breath, voice and intention. That movement — from text to practice — is central
+    to understanding Vedic literature.
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="eyebrow" style="color:#d7b778">REAL · Voice of India's Heritage</div>
+    <p>
+      This page is an educational introduction. It does not substitute for a critical edition,
+      traditional commentary, or a trained Vedic teacher. Sanskrit readings and section
+      references should be checked against the relevant edition before use in scholarship or ritual.
+    </p>
+    <p><a href="https://yogoreal.net">Return to REAL</a></p>
+  </div>
+</footer>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QIHub | Applications of Quantum Illumination — yogoreal.net</title>
+
+  <!-- MathJax Configuration & Loader -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #131b2e;
+      --panel-bg: #1a243b;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border: #233354;
+      --tag-internal: #10b981;
+      --tag-external: #f59e0b;
+      --tag-issue: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .sub-nav {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr 300px;
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .panel-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Systems / Accounts */
+    .system-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .system-card:hover, .system-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .system-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--accent);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .system-meta h3 {
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .system-meta span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .biodata-snippet {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
+
+    /* Feed & Message Posting */
+    .post-composer textarea {
+      width: 100%;
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px;
+      resize: vertical;
+      min-height: 80px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .composer-controls {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    select, button, input {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    button {
+      background: var(--accent);
+      color: #0b0f19;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    /* Process Thread Cards */
+    .feed-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .feed-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-internal { background: rgba(16, 185, 129, 0.15); color: var(--tag-internal); }
+    .badge-external { background: rgba(245, 158, 11, 0.15); color: var(--tag-external); }
+    .badge-issue { background: rgba(239, 68, 68, 0.15); color: var(--tag-issue); }
+
+    .dataset-preview {
+      background: #090d16;
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+      padding: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      color: #38bdf8;
+      margin: 10px 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .feed-footer {
+      display: flex;
+      gap: 12px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+
+    /* Issues Panel */
+    .issue-item {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .issue-item:last-child {
+      border-bottom: none;
+    }
+
+    .issue-title {
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .issue-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div>
+      <span class="sub-nav">yogoreal.net / Research / Quantum Optics</span>
+      <h1>QIHub: Quantum Illumination Collaborative Platform</h1>
+      <p>Decentralized messaging & dataset representation across physical quantum systems.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Left Column: Physical Systems / Entities (Biodata Accounts) -->
+    <aside class="column">
+      <div class="panel">
+        <div class="panel-title">
+          <span>Registered Systems (Photos)</span>
+          <button style="padding: 2px 8px; font-size: 0.75rem;" onclick="registerSystem()">+ Register</button>
+        </div>
+
+        <div id="systems-list">
+          <div class="system-card active" onclick="filterBySystem('SPDC Source')">
+            <div class="system-header">
+              <div class="avatar">⚡</div>
+              <div class="system-meta">
+                <h3>SPDC Entangled Source</h3>
+                <span>Node: OptLab-01 (Real)</span>
+              </div>
+            </div>
+            <div class="biodata-snippet">
+              $\beta\text{-BBO}$ | $\lambda_p = 405\text{ nm}$ | Fidelity $\mathcal{F} = 0.94$ | Mode: TMSV $|\psi\rangle_{SI}$
+            </div>
+          </div>
+
+          <div class="system-card" onclick="filterBySystem('Thermal Noise Field')">
+            <div class="system-header">
+              <div class="avatar">🌫️</div>
+              <div class="system-meta">
+                <h3>Thermal Noise Field</h3>
+                <span>Node: Sim-Target (Artificial)</span>
+              </div>
+            </div>
+            <div class="biodata-snippet">
+              Mean Photons $N_B = 10.5 \gg 1$ | Bath: Microwave $\rho_B = \sum \frac{N_B^n}{(N_B+1)^{n+1}}|n\rangle\langle n|$
+            </div>
+          </div>
+
+          <div class="system-card" onclick="filterBySystem('OPAR Receiver')">
+            <div class="system-header">
+              <div class="avatar">📡</div>
+              <div class="system-meta">
+                <h3>Optical Parametric Rx</h3>
+                <span>Node: Rx-Lab-03 (Real)</span>
+              </div>
+            </div>
+            <div class="biodata-snippet">
+              Joint Homodyne | Gain $G \approx 1 + \kappa$ | Target Reflectivity $\eta \ll 1$
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Center Column: Process Streams & Dataset Messages -->
+    <main class="column">
+      <!-- Composer -->
+      <div class="panel post-composer">
+        <div class="panel-title">Dispatch System Process (Dataset Stream)</div>
+        <textarea id="postContent" placeholder="Describe the process (LaTeX supported, e.g. Quantum advantage over classical limit $P_{err}^{class} \sim e^{-M \eta N_S / 4 N_B}$)"></textarea>
+        <textarea id="postDataset" style="min-height: 50px; font-family: monospace;" placeholder="Attach Dataset [JSON/CSV matrix] (e.g. {'SNR_gain': '5.8dB', 'error_exponent_factor': 4})"></textarea>
+        
+        <div class="composer-controls">
+          <select id="originSystem">
+            <option value="SPDC Entangled Source">Origin: SPDC Entangled Source</option>
+            <option value="Thermal Noise Field">Origin: Thermal Noise Field</option>
+            <option value="Optical Parametric Rx">Origin: Optical Parametric Rx</option>
+          </select>
+          <select id="processScope">
+            <option value="Internal">Internal Process</option>
+            <option value="External">Inter-System Process</option>
+            <option value="Issue">Flag as Open Issue</option>
+          </select>
+          <button onclick="publishProcess()">Emit Process</button>
+        </div>
+      </div>
+
+      <!-- Feed Container -->
+      <div id="feed-container">
+        <!-- Post 1 -->
+        <article class="feed-card">
+          <div class="feed-header">
+            <div class="author-info">
+              <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">📡</div>
+              <strong>Optical Parametric Rx</strong>
+            </div>
+            <span class="badge badge-external">Inter-System Process</span>
+          </div>
+          <p>
+            Joint state measurement completed against return signal under thermal noise bath ($N_B = 12.4$). 
+            Quantum Chernoff Bound verifies an error probability scaling of:
+            $$\mathcal{E}_{QI} = -\lim_{M \to \infty} \frac{1}{M} \ln P_e^{(M)} = \frac{\eta N_S}{N_B}$$
+            preserving a $6\text{ dB}$ advantage over optimal coherent states ($\mathcal{E}_{CS} = \eta N_S / 4 N_B$).
+          </p>
+          <div class="dataset-preview">DATASET: {"tau_coherence": "1.2ns", "P_err_classical": 0.042, "P_err_quantum": 0.006, "reflectivity_eta": 0.01, "M_modes": 1.0e6}</div>
+          <div class="feed-footer">
+            <span>Target: SPDC Entangled Source</span>
+            <span>Dataset ID: #DS-8841</span>
+            <span>Logged: 12 mins ago</span>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="feed-card">
+          <div class="feed-header">
+            <div class="author-info">
+              <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">⚡</div>
+              <strong>SPDC Entangled Source</strong>
+            </div>
+            <span class="badge badge-internal">Internal Process</span>
+          </div>
+          <p>
+            Two-Mode Squeezed Vacuum (TMSV) state generation parameter drift observed during high-temperature bench test:
+            $$|\psi\rangle_{SI} = \sqrt{1 - \lambda^2} \sum_{n=0}^\infty \lambda^n |n\rangle_S |n\rangle_I \quad \text{where } \lambda = \tanh(r)$$
+            Mean signal photon number evaluated to $N_S = \sinh^2(r) \approx 0.014$.
+          </p>
+          <div class="dataset-preview">DATASET: {"pump_fluctuation": "±1.8%", "idler_retention": 0.89, "temp_celsius": 24.6, "squeezing_param_r": 0.118}</div>
+          <div class="feed-footer">
+            <span>Scope: Self-Diagnostic</span>
+            <span>Dataset ID: #DS-8839</span>
+            <span>Logged: 1 hour ago</span>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Right Column: Emerging Issues & Conversation Analytics -->
+    <aside class="column">
+      <div class="panel">
+        <div class="panel-title">Active Quantum Issues</div>
+        
+        <div class="issue-item">
+          <div class="issue-title">Non-Gaussian State Dephasing via Channel Loss $\kappa = 1 - \eta$</div>
+          <div class="issue-status">Raised by: Thermal Noise Field &bull; 3 replies</div>
+        </div>
+
+        <div class="issue-item">
+          <div class="issue-title">Optimum Receiver Threshold for $\eta \ll 1$ & $N_B \gg 1$</div>
+          <div class="issue-status">Raised by: Optical Parametric Rx &bull; 8 replies</div>
+        </div>
+
+        <div class="issue-item">
+          <div class="issue-title">Phase-Matching Jitter $\Delta \phi(t)$ in Telecomm Band</div>
+          <div class="issue-status">Raised by: SPDC Entangled Source &bull; 1 reply</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Hub Representation Metric</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <p style="margin-bottom: 6px;"><strong>Photo Nodes (Entities):</strong> 3</p>
+          <p style="margin-bottom: 6px;"><strong>Dataset Feeds (Signals):</strong> 142</p>
+          <p style="margin-bottom: 6px;"><strong>Advantage Metric:</strong> $6\text{ dB } (\text{SNR}_{QI} / \text{SNR}_{CS})$</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function publishProcess() {
+      const content = document.getElementById('postContent').value;
+      const dataset = document.getElementById('postDataset').value;
+      const origin = document.getElementById('originSystem').value;
+      const scope = document.getElementById('processScope').value;
+
+      if (!content.trim()) {
+        alert('Please provide process description or details.');
+        return;
+      }
+
+      let badgeClass = 'badge-internal';
+      if (scope === 'External') badgeClass = 'badge-external';
+      if (scope === 'Issue') badgeClass = 'badge-issue';
+
+      const feed = document.getElementById('feed-container');
+      const article = document.createElement('article');
+      article.className = 'feed-card';
+      
+      article.innerHTML = `
+        <div class="feed-header">
+          <div class="author-info">
+            <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">🔬</div>
+            <strong>${escapeHtml(origin)}</strong>
+          </div>
+          <span class="badge ${badgeClass}">${scope} ${scope === 'Issue' ? 'Thread' : 'Process'}</span>
+        </div>
+        <p>${content}</p>
+        ${dataset ? `<div class="dataset-preview">DATASET: ${escapeHtml(dataset)}</div>` : ''}
+        <div class="feed-footer">
+          <span>Scope: ${scope}</span>
+          <span>Dataset ID: #DS-${Math.floor(1000 + Math.random() * 9000)}</span>
+          <span>Logged: Just now</span>
+        </div>
+      `;
+
+      feed.prepend(article);
+      
+      // Trigger dynamic MathJax typeset for the newly added card
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([article]).catch((err) => console.error(err));
+      }
+
+      document.getElementById('postContent').value = '';
+      document.getElementById('postDataset').value = '';
+    }
+
+    function registerSystem() {
+      const name = prompt("Enter Physical System Name (e.g. 'Rydberg Atom Array Receiver'):");
+      if (name) {
+        alert(`Registered entity "${name}". Ready to upload optical biodata.`);
+      }
+    }
+
+    function filterBySystem(systemName) {
+      console.log(`Filtering conversation stream for: ${systemName}`);
+    }
+  </script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

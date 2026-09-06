@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAL Global Footprint — Collaboration Network &amp; Reach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2a3d;
+    --ink-soft:#3c4c60;
+    --parchment:#f3ead7;
+    --parchment-dark:#e5d6ae;
+    --card:#faf5e8;
+    --brass:#a9793c;
+    --brass-dark:#7e5a29;
+    --stamp:#a13d2e;
+    --sage:#556b53;
+    --rule:#cdbd94;
+    --shadow: 0 10px 26px rgba(27,42,61,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -5%, #fbf4e2 0%, transparent 60%),
+      var(--parchment);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  .ledger-bar{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .ledger-bar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; opacity:0.85;}
+
+  header.hero{padding:64px 0 40px;}
+  .title-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    padding:52px 48px 44px;
+    position:relative;
+    text-align:center;
+  }
+  .title-card::before, .title-card::after{
+    content:"";
+    position:absolute; top:14px; bottom:14px; width:1px;
+    background:var(--rule);
+  }
+  .title-card::before{left:14px;}
+  .title-card::after{right:14px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--brass-dark); margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.05;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .title-italic{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .lede{
+    max-width:660px; margin:0 auto 26px;
+    font-size:1.12rem; color:var(--ink-soft);
+  }
+  .tagline-stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem; letter-spacing:0.05em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:8px 18px;
+    transform:rotate(-2deg);
+    border-radius:2px;
+  }
+  .accession{
+    margin-top:30px; padding-top:24px; border-top:1px dashed var(--rule);
+    display:flex; justify-content:center; gap:56px; flex-wrap:wrap;
+  }
+  .accession-item{text-align:center;}
+  .accession-num{font-family:'Fraunces',serif; font-weight:600; font-size:1.9rem; color:var(--brass-dark);}
+  .accession-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;}
+
+  section{padding:56px 0;}
+  .section-head{margin-bottom:34px; max-width:760px;}
+  .section-tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff;
+    padding:5px 12px; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    color:var(--ink);
+  }
+  .section-sub{color:var(--ink-soft); margin-top:10px; font-size:1.02rem;}
+
+  .methodology-note{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sage);
+    letter-spacing:0.02em; margin-bottom:28px; border-left:3px solid var(--sage);
+    padding-left:12px; max-width:760px;
+  }
+
+  /* ===== Vision plate (Vedic maxim) ===== */
+  .plate{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:38px 42px; position:relative;
+  }
+  .plate-label{
+    position:absolute; top:-11px; left:30px; background:var(--parchment);
+    padding:0 10px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-dark);
+  }
+  .plate p{font-size:1.05rem; color:var(--ink); margin-top:14px;}
+  .plate p:first-of-type{margin-top:0;}
+  .plate p.quote{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:1.5rem; line-height:1.55; color:var(--ink); text-align:center;
+    margin-bottom:6px;
+  }
+  .plate p.quote .translit{
+    display:block; font-family:'IBM Plex Mono', monospace; font-style:normal;
+    font-size:0.58em; letter-spacing:0.03em; color:var(--ink-soft); margin-top:8px;
+  }
+  .plate p.quote .gloss{
+    display:block; font-family:'Source Serif 4', serif; font-style:normal;
+    font-size:0.66em; color:var(--brass-dark); margin-top:6px; letter-spacing:0.01em;
+  }
+  .nest-figures{
+    display:flex; gap:44px; flex-wrap:wrap; justify-content:center;
+    margin-top:26px; padding-top:22px; border-top:1px dashed var(--rule);
+  }
+  .nest-figure{text-align:center;}
+  .nest-figure-num{font-family:'Fraunces', serif; font-weight:600; font-size:1.7rem; color:var(--brass-dark);}
+  .nest-figure-label{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px; max-width:150px;}
+
+  /* ===== Nation cards ===== */
+  .nation-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(320px,1fr));
+    gap:24px;
+  }
+  .nation-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:0; position:relative; display:flex; flex-direction:column;
+  }
+  .nation-head{
+    display:flex; align-items:center; gap:12px;
+    padding:20px 24px 16px; border-bottom:1px dashed var(--rule);
+  }
+  .nation-flag{font-size:2rem; line-height:1;}
+  .nation-name{font-family:'Fraunces', serif; font-weight:600; font-size:1.32rem; color:var(--ink);}
+  .nation-count{
+    margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--brass-dark);
+    border:1px solid var(--brass); padding:4px 9px; white-space:nowrap;
+  }
+  .collab-list{padding:14px 24px 22px; flex:1;}
+  .collab-item{padding:12px 0; border-bottom:1px dashed var(--rule);}
+  .collab-item:last-child{border-bottom:none;}
+  .collab-initials{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.98rem;
+    color:var(--ink); letter-spacing:0.02em;
+  }
+  .collab-inst{font-size:0.86rem; font-style:italic; color:var(--ink-soft); margin-top:2px;}
+  .collab-role{font-size:0.88rem; color:var(--ink); margin-top:6px;}
+  .collab-papers{margin-top:6px; display:flex; gap:6px; flex-wrap:wrap;}
+  .collab-papers a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-decoration:none;
+    color:var(--brass-dark); border:1px solid var(--brass); padding:2px 7px;
+  }
+  .collab-papers a:hover{background:var(--brass); color:#fff;}
+
+  /* ===== Reach panel (visitor stats) ===== */
+  .reach-panel{
+    display:grid; grid-template-columns:1fr 1.15fr; gap:0;
+    background:var(--ink); color:var(--parchment);
+    box-shadow:var(--shadow); overflow:hidden;
+  }
+  .reach-side{padding:36px 34px; border-right:1px solid rgba(243,234,215,0.14);}
+  .reach-side .reach-eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.16em;
+    text-transform:uppercase; color:#d8b978; margin-bottom:14px;
+  }
+  .reach-side h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem; margin-bottom:14px; color:#fff;}
+  .reach-side p{color:#c9d2dc; font-size:0.96rem; margin-bottom:12px;}
+  .reach-total{
+    margin-top:20px; padding-top:18px; border-top:1px dashed rgba(243,234,215,0.25);
+    display:flex; gap:36px; flex-wrap:wrap;
+  }
+  .reach-total-item{text-align:left;}
+  .reach-total-num{font-family:'Fraunces', serif; font-weight:600; font-size:2rem; color:#e5c993;}
+  .reach-total-label{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color:#9fb0c2; margin-top:2px;}
+
+  .reach-table{padding:30px 30px 26px;}
+  .reach-row{
+    display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px;
+    padding:13px 0; border-bottom:1px solid rgba(243,234,215,0.1);
+  }
+  .reach-row:last-child{border-bottom:none;}
+  .reach-flag{font-size:1.3rem;}
+  .reach-country{font-family:'Source Serif 4', serif; font-size:1.02rem; color:#f3ead7;}
+  .reach-bar-track{
+    grid-column:1 / -1; height:6px; background:rgba(243,234,215,0.12); margin-top:-4px; margin-bottom:2px;
+    position:relative;
+  }
+  .reach-bar-fill{height:100%; background:linear-gradient(90deg, var(--brass), #e5c993);}
+  .reach-views{font-family:'IBM Plex Mono', monospace; font-size:0.95rem; color:#e5c993; text-align:right; min-width:44px;}
+  .reach-header-row{
+    display:grid; grid-template-columns:auto 1fr auto; gap:14px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:#9fb0c2; padding-bottom:10px; border-bottom:1px solid rgba(243,234,215,0.2);
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:var(--parchment-dark);
+    padding:48px 0 30px; margin-top:20px;
+  }
+  footer .wrap{text-align:center;}
+  footer h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; color:#fff; margin-bottom:12px;}
+  footer p{max-width:560px; margin:0 auto 10px; font-size:0.94rem;}
+  footer a{color:#e5c993; text-decoration:none; font-weight:600;}
+  footer a:hover{text-decoration:underline;}
+  .devanagari{margin-top:18px; font-size:0.85rem; color:var(--rule);}
+
+  @media (max-width:820px){
+    .title-card{padding:38px 22px;}
+    .reach-panel{grid-template-columns:1fr;}
+    .reach-side{border-right:none; border-bottom:1px solid rgba(243,234,215,0.14);}
+  }
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<main data-pagefind-body data-pagefind-filter="type:Research">
+
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>REAL GLOBAL FOOTPRINT · COMPILED FROM THE SCHOLARLY CORPUS (TOC)</span>
+    <span>COLLABORATION · REACH</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="title-card">
+      <div class="eyebrow">A Division of the REAL Institute</div>
+      <h1 class="title">REAL Global<br><span class="title-italic">Footprint</span></h1>
+      <p class="lede">Where the Institute's scholarship has found co-authors, and where the Institute's website has found readers — two very different maps of the same reach.</p>
+      <span class="tagline-stamp">Compiled 22 July 2026</span>
+      <div class="accession" id="accessionStats"><!-- injected --></div>
+    </div>
+  </div>
+</header>
+
+<section id="onenest">
+  <div class="wrap">
+    <div class="plate">
+      <span class="plate-label">Vedic Maxim</span>
+      <p class="quote">यत्र विश्वं भवत्येकनीडम्
+        <span class="translit">yatra viśvaṃ bhavatyeka-nīḍam</span>
+        <span class="gloss">"Where the whole world is one nest"</span>
+      </p>
+      <p>This is an aspiration, not a census result: that the roughly 8.3 billion human beings alive today, scattered across 195 recognized nations (193 UN member states plus two observer states — often rounded, in speech, to "200") might yet be held as one nest. REAL's own cosmology reaches further still, toward the inhabitants of the cosmos beyond Earth.</p>
+      <p>The two sections below are small, honest fragments of that aspiration, not proof of it: a handful of named research collaborators tied to three real nations, and a week of website visitors from four. Neither is the whole nest. Both are real threads of it.</p>
+      <div class="nest-figures">
+        <div class="nest-figure"><div class="nest-figure-num">~8.3B</div><div class="nest-figure-label">Human Beings on Earth</div></div>
+        <div class="nest-figure"><div class="nest-figure-num">195</div><div class="nest-figure-label">Recognized Nations (193 UN Members + 2 Observers)</div></div>
+        <div class="nest-figure"><div class="nest-figure-num">∞</div><div class="nest-figure-label">Cosmic Inhabitants, Beyond Earth</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="collaboration">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Scholarly Corpus · toc.html</span>
+      <h2>Global Collaboration Network</h2>
+      <p class="section-sub">Every co-authored publication in the REAL Institute's 400-paper table of contents, traced to the nation where each collaborator was based or trained. The overwhelming majority of the corpus is single-authored by Aman Chawla; the cards below reflect the small, real set of papers with named co-authors. Collaborators are identified by initials only.</p>
+    </div>
+    <div class="methodology-note">Method: each of the 400 entries in toc.html was checked for its listed "Authors" field. Co-authored papers were traced to each collaborator's known institutional home at the time of the work. Solo-authored papers (the large majority of the corpus) are not represented here, since they involve no external collaboration.</div>
+    <div class="nation-grid" id="nationGrid"><!-- injected --></div>
+  </div>
+</section>
+
+<section id="reach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Website Analytics</span>
+      <h2>Spiritual Reach</h2>
+      <p class="section-sub">A separate measure entirely: not who has co-authored a paper, but who has visited realinstitute.netlify.app — the Institute's front door for research, Kriya teaching, and seva.</p>
+    </div>
+    <div class="reach-panel">
+      <div class="reach-side">
+        <div class="reach-eyebrow">Jul 20 – Jul 27 · Site Visitors</div>
+        <h3>Five Countries, One Doorway</h3>
+        <p>Pageviews on the REAL Institute's site over the past week, drawn from five countries — a small but real footprint for a research laboratory and self-realization waypoint run largely by one person.</p>
+        <p>India and the United States account for the great majority of traffic, consistent with the Institute's dual home base (Bharata and the Kriya lineage's diaspora); Bahrain, Germany, and Sweden represent smaller, more distant visits — five countries of 195, each a small stitch toward one nest.</p>
+        <div class="reach-total" id="reachTotals"><!-- injected --></div>
+      </div>
+      <div class="reach-table">
+        <div class="reach-header-row"><span></span><span>Location</span><span>Pageviews</span></div>
+        <div id="reachRows"><!-- injected --></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <h3>REAL Global Footprint</h3>
+    <p>A companion page mapping the Institute's real collaborations and real readers, without embellishment.</p>
+    <p><strong>Contact:</strong> <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a> <strong>Home:</strong> <a href="https://realinstitute.netlify.app">REAL Institute</a></p>
+    <p class="devanagari">सत्यमेव जयते नानृतम् — Truth alone triumphs, never falsehood</p>
+  </div>
+</footer>
+
+<script>
+/***************************************************************************
+ * DATA — nations of collaboration
+ *
+ * Derived from toc.html (400 entries at realinstitute.netlify.app/toc).
+ * Each co-authored entry's "Authors" field was checked; collaborators are
+ * listed by initials only, with their institutional home at time of work.
+ * Solo-authored papers (the large majority of the corpus) are not
+ * collaborations and are excluded.
+ ***************************************************************************/
+  const nations = [
+    {
+      country: 'United States',
+      flag: '🇺🇸',
+      collaborators: [
+        {
+          initials: 'S.D.M.',
+          inst: 'University of South Florida, Dept. of Electrical Engineering',
+          role: 'Ephaptic axon-tract coupling theory — recurring co-author, 2014–2022',
+          papers: [5, 6, 7, 8, 11]
+        },
+        {
+          initials: 'A.D.S.',
+          inst: 'University of South Florida, Dept. of Electrical Engineering',
+          role: '"Fields, Geometry, and Their Impact on Axon Interaction" and related axon-tract papers',
+          papers: [6, 7]
+        },
+        {
+          initials: 'P.A.N.',
+          inst: 'California Institute of Technology',
+          role: '"Significant Audio-visual Interaction for Spatially Congruent Stimuli," Journal of Vision, 2004',
+          papers: [2]
+        },
+        {
+          initials: 'L.V.',
+          inst: 'Cornell University',
+          role: '"Rate Distortion Characterization of Wavelet-Based Image Compression Schemes," DSP final project, 2003',
+          papers: [75]
+        },
+        {
+          initials: 'B.R.',
+          inst: 'Cornell University',
+          role: '"Rate Distortion Characterization of Wavelet-Based Image Compression Schemes," DSP final project, 2003',
+          papers: [75]
+        }
+      ]
+    },
+    {
+      country: 'Japan',
+      flag: '🇯🇵',
+      collaborators: [
+        {
+          initials: 'S.S.',
+          inst: 'California Institute of Technology (B.A./M.A., University of Tokyo)',
+          role: '"Significant Audio-visual Interaction for Spatially Congruent Stimuli," Journal of Vision, 2004',
+          papers: [2]
+        }
+      ]
+    },
+    {
+      country: 'India',
+      flag: '🇮🇳',
+      collaborators: [
+        {
+          initials: 'J.B.',
+          inst: 'Cognitive neuroscientist, trained at IIT Kharagpur; later Goldsmiths, University of London',
+          role: '"Significant Audio-visual Interaction for Spatially Congruent Stimuli," Journal of Vision, 2004',
+          papers: [2]
+        }
+      ]
+    }
+  ];
+
+  const reach = [
+    { country: 'India', flag: '🇮🇳', views: 224 },
+    { country: 'United States', flag: '🇺🇸', views: 124 },
+    { country: 'Bahrain', flag: '🇧🇭', views: 3 },
+    { country: 'Germany', flag: '🇩🇪', views: 2 },
+    { country: 'Sweden', flag: '🇸🇪', views: 2 }
+  ];
+
+  function paperLink(n){
+    return `<a href="https://realinstitute.netlify.app/paper${n}" target="_blank" rel="noopener">Paper ${n}</a>`;
+  }
+
+  function renderNations(){
+    const grid = document.getElementById('nationGrid');
+    grid.innerHTML = nations.map(n => {
+      const count = n.collaborators.length;
+      return `
+      <div class="nation-card">
+        <div class="nation-head">
+          <span class="nation-flag">${n.flag}</span>
+          <span class="nation-name">${n.country}</span>
+          <span class="nation-count">${count} collaborator${count === 1 ? '' : 's'}</span>
+        </div>
+        <div class="collab-list">
+          ${n.collaborators.map(c => `
+            <div class="collab-item">
+              <div class="collab-initials">${c.initials}</div>
+              <div class="collab-inst">${c.inst}</div>
+              <div class="collab-role">${c.role}</div>
+              <div class="collab-papers">${c.papers.map(paperLink).join('')}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderAccession(){
+    const totalNations = nations.length;
+    const totalCollabs = nations.reduce((sum, n) => sum + n.collaborators.length, 0);
+    const totalPapers = new Set(nations.flatMap(n => n.collaborators.flatMap(c => c.papers))).size;
+    document.getElementById('accessionStats').innerHTML = `
+      <div class="accession-item"><div class="accession-num">${totalNations}</div><div class="accession-label">Nations of Collaboration</div></div>
+      <div class="accession-item"><div class="accession-num">${totalCollabs}</div><div class="accession-label">Named Collaborators</div></div>
+      <div class="accession-item"><div class="accession-num">${totalPapers}</div><div class="accession-label">Co-authored Papers</div></div>
+      <div class="accession-item"><div class="accession-num">400</div><div class="accession-label">Total Papers in Corpus</div></div>
+    `;
+  }
+
+  function renderReach(){
+    const max = Math.max(...reach.map(r => r.views));
+    document.getElementById('reachRows').innerHTML = reach.map(r => `
+      <div class="reach-row">
+        <span class="reach-flag">${r.flag}</span>
+        <span class="reach-country">${r.country}</span>
+        <span class="reach-views">${r.views}</span>
+        <div class="reach-bar-track"><div class="reach-bar-fill" style="width:${(r.views / max * 100).toFixed(1)}%"></div></div>
+      </div>
+    `).join('');
+
+    const totalViews = reach.reduce((sum, r) => sum + r.views, 0);
+    document.getElementById('reachTotals').innerHTML = `
+      <div class="reach-total-item"><div class="reach-total-num">${totalViews}</div><div class="reach-total-label">Total Pageviews</div></div>
+      <div class="reach-total-item"><div class="reach-total-num">${reach.length}</div><div class="reach-total-label">Countries, Past Week</div></div>
+    `;
+  }
+
+  renderNations();
+  renderAccession();
+  renderReach();
+</script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

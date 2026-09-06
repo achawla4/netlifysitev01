@@ -1,0 +1,15 @@
+# Local Edge & Build artifacts
+.netlify/
+node_modules/
+
+# Local Dev Scratch & Data Processing
+scratch/
+argos-data/
+processed/
+uploads/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp

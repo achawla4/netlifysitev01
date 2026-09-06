@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head><link href="favicon.png" rel="icon"/>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>नेटवर्क सूचना सिद्धांत - REAL संस्थान</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: #daa520;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header .essence {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 15px;
+        }
+        
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .publication-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .authors {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .publication-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #888;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .abstract {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1a1a2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+        }
+        
+        .pub-link.zenodo {
+            background: #1e5a96;
+        }
+        
+        .pub-link.zenodo:hover {
+            background: #2872b8;
+        }
+        
+        .pub-link.journal {
+            background: #6a4c93;
+        }
+        
+        .pub-link.journal:hover {
+            background: #8b5fb0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 24px;
+            background: #f0f0ed;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #e0e0dd;
+        }
+        
+        .integration-note {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .integration-note h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .integration-note p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .publication-card {
+                padding: 25px;
+            }
+            
+            .publication-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+<style>
+body { font-family: 'Noto Serif Devanagari', 'Nirmala UI', 'Mangal', 'Kokila', Georgia, 'Times New Roman', serif; }
+</style>    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div class="header">
+<div class="breadcrumb">
+<a href="index.html">मुख्य पृष्ठ</a> / <a href="network_infoHIv.html">अनुसंधान प्रयोगशाला</a> / Network Information Theory
+        </div>
+<div class="category-icon">◉</div>
+<h1>नेटवर्क सूचना सिद्धांत</h1>
+<p class="essence">जुड़ी हुई प्रणालियों में सूचना कैसे प्रवाहित होती है</p>
+<p class="description">अंतर्संबंध के गणित का मानचित्रण - न्यूरल नेटवर्क से लेकर ब्रह्मांडीय चेतना तक, यह अन्वेषण कि सूचना वास्तविकता को कैसे बांधती है।</p>
+</div>
+<div class="container" data-pagefind-body data-pagefind-filter="type:Research">
+<a class="back-link" href="index.html#research-divisions">← अनुसंधान प्रयोगशाला पर वापस जाएं</a>
+<h2 class="section-title">प्रकाशन और प्रीप्रिंट</h2>
+<div class="publications-list">
+<!-- Publication 1 -->
+<div class="publication-card">
+<h3>Gaia's Capacity: Information Flow in the Climate</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> Understanding and quantifying the persistence and evolution of cloud patterns is critical for improving climate modeling and prediction. In this work, we present a novel interdisciplinary framework that integrates empirical measurements from a distributed Arduino-based sensor network with theoretical modeling of cloud dynamics through information theory. By conceptualizing spatial cloud density patterns as information “codebooks” stored within the atmosphere’s fluid medium, we derive a capacity-like metric representing the atmosphere’s ability to preserve cloud information over time despite stochastic perturbations. We propose a cloud evolution model driven by solar forcing captured by sunlight intensity and angle measurements, coupled with stochastic noise modeling atmospheric turbulence and weather variability. Our framework extends to extreme weather phenomena such as hurricanes, where information loss and pattern disruption are pronounced.
+The proposed methodology enables empirical validation via real-time Arduino sensor data and offers new avenues to connect physical climate dynamics with information-theoretic measures. [Acknowledgment: Produced using an LLM.]
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/16791640" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/16791640/files/climateCapacityv1.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 2 -->
+<div class="publication-card">
+<h3>On a Work by Prof. Sergio Servetto</h3>
+<p class="authors"><strong>लेखक:</strong> [लेखकों के नाम]</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this note, the authors re-interpret Theorem &#2407; of Servetto using Theorem &#2409; of Shannon and relate it to Sahai’s anytime repeated pulse position modulation tree code and anytime information theory in general. Under numerous assumptions, they find that zero-error network information flow with correlated sources on tree graphs seems like a simultaneous and similar approach to the problem of reliable transmission of data, as does anytime information theory.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/15668687" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/15668687/files/servettoSahaiv2forZenodo.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 3 -->
+<div class="publication-card">
+<h3>Ongoing Studies of Network Capacity: Large User Number Case</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> This study explores state persistence capacity in large-scale networks, revealing saturation effects that diverge from classical multiple access channel theory. Numerical analysis of &#2412;&#2406;-user systems shows capacity C(T) stabilizing around &#2415; bits across time horizons T = &#2410; to &#2413;, defying expected non-flat behavior. The decreasing intensive capacity suggests an information mixing time beyond which added temporal resources yield diminishing returns. These findings highlight emergent properties in high-user networks and may challenge traditional transmission-based capacity models.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/16892208" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/16892208/files/networkPersistencev2.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 4 -->
+<div class="publication-card">
+<h3>Implementing Network Random Refresh: An Algorithmic Approach</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this document, the authors present algorithms to implement the network random refresh strategy and suggest directions for future work. 
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/15365406" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/15365406/files/ImplementingNRRv7forZenodo.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 5 -->
+<div class="publication-card">
+<h3>Network Random Refresh</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2410;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this brief paper, the authors outline an attack against a &#2411;G network in which one or more of the internal nodes of the network go rogue. The attack is highly deleterious since a rogue node can cause much disruption and launch further attacks. The authors propose a network reconstruction to mitigate the possibility of such attacks, if not prevent them altogether. The paper is a preliminary presentation of a novel strategy to defend against these so-called auto-immune attacks. The sequel to this paper will present extensive simulation results implementing this strategy. 
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/13819918" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/13819918/files/autoimmuneAttackv46forZenodo.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 6 -->
+<div class="publication-card">
+<h3>On the Capacity of Any Communication Network</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> The capacity of large-scale, heterogeneous, dynamic networks such as the global Internet remains an open problem in network information theory. Traditional transmission-based formulations require enumerating routes, coding strategies, and link-level constraints, leading to conceptual and combinatorial intractability in the general case. In this work, we present a storage-view framework that reframes the problem as the persistence of a high-dimensional codeword representing the complete network state. This formulation is formally equivalent to the transmission view via the storage–communication duality, yet is often far more tractable to model and analyze. We propose a definition of state persistence capacity for arbitrary networks, demonstrate its mathematical equivalence to network capacity, and outline how it can be estimated for the global Internet using empirical measurements and dynamical modeling. This approach opens a pathway toward progress in a domain long considered resistant to general capacity theory. [Dedicated to Prof. Sanjoy K. Mitter.] 
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/16792756" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/16792756/files/networkCapacityv2.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+</div>
+<div class="integration-note">
+<h3>यह अनुसंधान कैसे समेकित होता है</h3>
+<p>Network information theory quantifies how information propagates through connected nodes—whether neurons, particles, or minds. This mathematical framework may describe what spiritual traditions call the web of Indra: each point reflecting all others. Both describe reality not as separate objects but as relationships, where information (or consciousness) is the fundamental connector.</p>
+</div>
+</div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

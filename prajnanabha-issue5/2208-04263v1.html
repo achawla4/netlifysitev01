@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2208.04263v1 | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    
+/* RELATED PAPERS + PREMIUM STYLE START */
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .related-list li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .related-list li:hover {
+            background-color: #f0f8ff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.15);
+        }
+        .related-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .related-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Premium Service Box */
+        .premium-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .premium-box h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .premium-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        .paypal-button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* Navigation Links */
+        .nav-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+/* RELATED PAPERS + PREMIUM STYLE END */
+</style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 5 · V1I5-A06</div>
+            <h1>2208.04263v1</h1>
+            <div class="hero-meta">2208.04263v1.pdf</div>
+            <div class="hero-meta">Source PDF: 2208.04263v1.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_5.html">Issue 5</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>In this paper, the authors report a way to use concepts from statistical learning to gain an advantage in terms of error exponents while communicating over a discrete memoryless channel. The study utilizes the simulation capability of the scientific computing package MATLAB to show that the proposed decoding method performs better than the traditional method of joint typicality decoding. The advantage is secured by modifying the traditional specification of what constitutes a decoding error. This is justified by the paradigm, also used in the program of `utilizing&#x27; noisy feedback, that one ought not to declare a condition as an error if some further processing can extract useful information from it.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p>{Towards &quot;Weak&quot; Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents{This project was commenced in early 2020. It has been partly presented in initial form in the first author&#x27;s <em>Anabhayin</em> series of self-published books.}} {Aman Chawla Department of Computer Science and Engineering Dayananda Sagar University and Salvatore Domenic Morgera Department of Electrical Engineering University of South Florida}</p>
+<p>t{Theoretical Foundations}</p>
+<p>Noisy feedback has been found useful in recent information theory literature<span class="footnote-inline"><sup>†</sup>See, for example, the papers of Prof. Anant Sahai (UC Berkeley) and Prof. Sekhar Tatikonda (Yale).</span>. In the same spirit, we investigate the potential use of discarded &quot;erroneous&quot; conditions in this paper. In this part we provide some theoretical underpinnings of our computer investigations. The investigations relate to the concept of error exponents. These functions capture the performance of a communication system in a subtle and important way. Along with channel capacity, the error exponent is an important metric of communication system performance.</p>
+<h2 id="brief-outline">Brief Outline</h2>
+<p>Consider Theorem 7.7.1 of Cover and Thomas, page 200 <span class="citation" title="Cover2005">[1]</span>. In the proof of this theorem, the authors lay out a few points. The sixth point details how <em>joint typicality decoding</em> is to be used in the proof. Motivated by `weak values&#x27; in quantum measurement theory and `strong learning&#x27; and `weak learning&#x27; in the book on machine learning by Kearns and Vazirani <span class="citation" title="kearns1994introduction">[2]</span>, we propose to `weaken&#x27; this decoding step. Specifically, in weak-joint typicality decoding, the receiver declares that the index ${W}$ was sent if the following conditions are satisfied:</p>
+<ol class="article-list"><li><p>$(X^{n}({W}),Y^{n})$ are jointly typical</p></li><li><p>There may or may not be other indices $W'={W}$ such that $(X^{n}(W'),Y^{n})$ belongs to the jointly typical set</p></li></ol>
+<p>This is a sort of fuzzy decoding set and gives us the idea that neural networks could `learn&#x27; in this setting. If no such ${W}$ exists, satisfying condition 1. above, then an error is declared and the receiver outputs a dummy index such as zero in this case.</p>
+<p>Suppose we decode to ${W}$ since $(X^{n}({W}),Y^{n})$ is a jointly typical pair. We also find that ${W}_{k}$, $k=1,2,...,L$ are such that $(X^{n}({W}_{k}),Y^{n})$ are jointly typical. So we have $L+1$ decodings, potentially. We can look for clusters in this data via unsupervised learning, and possibly decode to a point chosen at random from the largest cluster<span class="footnote-inline"><sup>†</sup>See k-means clustering from Haykin&#x27;s book, <span class="citation" title="haykin2010neural">[3]</span>, page 242, section 5.5 <span class="citation" title="haykin2010neural">[3]</span>.</span>. Following this set up, we can finally evaluate the probability of error so obtained.</p>
+<p>In the next section we will provide the details of the transmission scheme which will be computerized in the next part.</p>
+<h2 id="details-of-the-transmission-scheme">Details of the Transmission Scheme</h2>
+<p>Consider a communication system, the transmission scheme over which consists of $M$ messages, belonging to the set ${W_{1},W_{2},W_{3},...,W_{M}}$. The encoder maps these $M$ messages into input sequences for the channel. These input sequences, or codewords, belong to the set ${X^{n}(W_{i})}_{i=1}^{M}$. Each member of this latter set is of length $n$ and there are $M$ members. One of these codewords is transmitted per cycle. Due to channel noise, it is received at the receiver in the form $Y^{n}$.</p>
+<p>Now suppose that the transmitted sequence is unknown, and we only have access to $Y^{n}$. The question is how do we decode the message hidden in $Y^{n}$. In particular, suppose that under joint typicality decoding, two distinct transmitted sequences $X^{n}(W_{1})$ and $X^{n}(W_{6})$ are jointly typical with $Y^{n}$. This raises a quandry for the decoder. Suppose there is a `difference function&#x27; on sequence space, $d(,)$ which yields a new sequence which is the difference between the two input sequences. For example, it might be based on binary Hamming distance. Let $Z_{i}^{n}=d(X^{n}(W_{i}),Y^{n})$ for $i=1,6$. Whereas the codeword is deterministic<span class="footnote-inline"><sup>†</sup>However, if the codebook is also chosen randomly as in the proof of Theorem 7.7.1 <span class="citation" title="Cover2005">[1]</span>, then the codeword is no longer deterministic. Furthermore, we may draw the message also at random using a uniform distribution over the message set.</span>, the received sequence is random due to the noise and so the formed $Z$-sequences are also random. We can then use unsupervised learning to form $k$ clusters out of these $Z$-sequences. We then search for and find the largest among the $k$ clusters. Next we find its mean and denote it by $m$. Finally, we decode to that $Z$-sequence which is closest to $m$.</p>
+<p>In the next part, we will perform MATLAB simulations of communication over a discrete channel and perform decoding as outlined above, as well as the more standard joint typicality decoding.</p>
+<p>t{Computer Experimentation}</p>
+<p>In this part, just as laid out earlier in this paper, we relax the error-event definition in joint typicality decoding over a noisy channel and invoke Support Vector Machines (SVMs) to help us decode in the presence of several &#x27; matches&#x27;{} between the received word and codewords from the codebook<span class="footnote-inline"><sup>†</sup>Thanks are due to Prof. Rajesh, CSE, DSU for suggesting the use of SVMs instead of k-means clustering due to the vector nature of the codewords.</span>. We can also extend this to source coding and rate distortion theory in future work.</p>
+<h2 id="study-of-error-exponents">Study of Error Exponents</h2>
+<p>In Figure [fig:Joint-Typicality-Decoding], we plot the formula</p>
+<div class="math-block">$$
+-\frac{ln(Pe)}{blocklength},
+$$</div>
+<p>for various blocklengths, for the discrete memoryless binary symmetric channel BSC(0.05). This is done for the case of joint typicality decoding. The x-axis is the block length simulated and the y-axis is the error exponent.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A06_2208.04263v1/tex/weakerrorexp2.eps">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A06_2208.04263v1/tex/weakerrorexp2.eps</div><figcaption><span>Figure 1.</span> Joint typicality decoding error exponent versus block length.</figcaption></figure>
+<p>Next, in Figure [fig:Weak-Decoding-Error], we plot the same formula {[}[eq:errorexponentdefinition]{]}, but for weak-joint typicality decoding, and for the same channel. We can see that the exponent is higher for certain rates<span class="footnote-inline"><sup>†</sup>Recall that the rate is nothing but the number of bits carried by a codeword divided by the length of the codeword.</span>. The x-axis is the block length simulated and the y-axis is the error exponent.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A06_2208.04263v1/tex/weakerrorexp3.eps">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A06_2208.04263v1/tex/weakerrorexp3.eps</div><figcaption><span>Figure 2.</span> Weak-joint typicality decoding error exponent versus block length. The y-axis peak value is nearly double that of the y-axis peak value in Figure [fig:Joint-Typicality-Decoding].</figcaption></figure>
+<h2 id="results">Results</h2>
+<p>In this section we present a figure that summarizes the performance of the new decoding method. As Figure [fig:The-advantage-of] shows, there is a definite advantage in using weak-joint typicality decoding over regular joint typicality decoding. The x-axis is the probability of a `1&#x27; symbol in the codebook and the y-axis is the difference between the (maximum, simulation-obtained, value of the) two types of decoding-exponents, with a block length of upto 600 symbols considered for codeword length. The graph always remains below zero, demonstrating the greater magnitude of the (maximum) weak-joint typicality decoding exponent. The discrete channel used was the BSC(0.4).</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A06_2208.04263v1/tex/weakinforesult1.eps">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A06_2208.04263v1/tex/weakinforesult1.eps</div><figcaption><span>Figure 3.</span> The advantage of weak-joint typicality decoding is in terms of error exponents.</figcaption></figure>
+<h2 id="discussion">Discussion</h2>
+<p>While the differences are not glaring with and without weak-joint typicality decoding, we have obtained a modification of Shannon&#x27; s strategy that performs better in terms of error exponents, under certain conditions. It remains to do an analytical study. Additionally, it was suggested recently that our strategy might be related to list decoding <span class="citation" title="forney1968exponential">[4]</span>. However, a preliminary reading of <span class="citation" title="gallager1968information">[5]</span> indicates that there might be some differences between these two types of decoding.</p>
+<p>To summarize, in this paper we have discussed a potentially new way of using machine learning to enhance communication system performance as captured by error exponents. There are limitations to our work, both in theory and simulation. Theory can be improved by considering other machine learning algorithms and the simulations can be more exhaustive. However, this is a <em>preliminary study</em> of new frontiers in information theory and statistical learning. It has several practical implications for those implementing data communication systems in the twenty-first century.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>The first author would like to thank Prof. Baris Nakiboglu of METU, Turkey for his critical comments and pointing out the relation with list decoding.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-Cover2005"><span class="ref-key">[1]</span> Reference entry not found for key Cover2005.</li><li id="ref-kearns1994introduction"><span class="ref-key">[2]</span> Reference entry not found for key kearns1994introduction.</li><li id="ref-haykin2010neural"><span class="ref-key">[3]</span> Reference entry not found for key haykin2010neural.</li><li id="ref-forney1968exponential"><span class="ref-key">[4]</span> Reference entry not found for key forney1968exponential.</li><li id="ref-gallager1968information"><span class="ref-key">[5]</span> Reference entry not found for key gallager1968information.</li></ol></section>
+        </article>
+
+<!-- RELATED PAPERS SECTION START -->
+        <div class="section">
+            <h2>Related Papers You May Like</h2>
+            <ul class="related-list">
+            <li><a href="../paper1.html">Early Modulation of Visual Cortex by Sound: an MEG Study</a></li>
+            <li><a href="../paper2.html">Significant Audio-visual Interaction for Spatially Congruent Stimuli</a></li>
+            <li><a href="../paper3.html">Reliability of a Gaussian Channel in the Presence of Gaussian Feedback</a></li>
+            <li><a href="../paper4.html">On Axon-axon Interaction via Currents and Fields</a></li>
+            <li><a href="../paper5.html">Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli</a></li>
+            </ul>
+        </div>
+<!-- RELATED PAPERS SECTION END -->
+
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section">
+            <div class="premium-box">
+                <h2>Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price">$5 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-button">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="amanalliance@gmail.com">
+                    <input type="hidden" name="item_name" value="Premium Support - 2208.04263v1 | Prajnanabha">
+                    <input type="hidden" name="amount" value="5.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="https://yourwebsite.com/thankyou">
+                    <input type="hidden" name="cancel_return" value="https://yourwebsite.com">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+                           border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                </form>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+
+
+<!-- NAVIGATION LINKS START -->
+        <div class="nav-links">
+            <a href="../assets/Soft_Copies/2208.04263v1.pdf" target="_blank">📄 View Full Paper (PDF)</a>
+            <a href="../prajnanabha-i_5.html">← Back to Issue 5</a>
+        </div>
+<!-- NAVIGATION LINKS END -->
+
+
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

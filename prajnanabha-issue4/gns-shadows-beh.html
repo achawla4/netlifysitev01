@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNS Shadows Behind PBR | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 4 · V1I4-A06</div>
+            <h1>GNS Shadows Behind PBR</h1>
+            <div class="hero-meta">A. Chawla \\ IIT Delhi and REAL Institute | 21 February 2026</div>
+            <div class="hero-meta">Source PDF: gnsShadowsv1.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_4.html">Issue 4</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>We develop the convex geometry of C*-algebraic state spaces and prove that the state space of a noncommutative C*-algebra is not a simplex. This structural obstruction prevents any affine identification of quantum state spaces with classical probability simplices. All foundational definitions and intermediate results are given explicitly.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="c-algebras-and-states">C*-Algebras and States</h2>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>A C*-algebra $A$ is a complex Banach algebra with involution $a a^*$ satisfying \[ \|a^* a\| = \|a\|^2. \]</p></section>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>A linear functional $ : A {C}$ is positive if \[ (a^*a) 0 a A. \]</p></section>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>A state on a unital C*-algebra $A$ is a positive linear functional $$ satisfying \[ (1) = 1. \] The set of states is denoted $S(A)$.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>$S(A)$ is convex.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>If $_1,_2 S(A)$ and $t$, define \[ = t_1 + (1-t)_2. \] Linearity is immediate. Positivity: \[ (a^*a)=t_1(a^*a)+(1-t)_2(a^*a)0. \] Normalization: \[ (1)=t+(1-t)=1. \]</p></section>
+<h2 id="pure-states-and-extremality">Pure States and Extremality</h2>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>A state $$ is pure if it is an extreme point of $S(A)$.</p></section>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>A state is pure if and only if it cannot be written as a nontrivial convex combination of distinct states.</p></section>
+<h2 id="classical-probability-simplices">Classical Probability Simplices</h2>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>Let $$ be a compact Hausdorff space. The set of Borel probability measures ${Prob}()$ is called a probability simplex.</p></section>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>${Prob}()$ is a simplex: every element admits a unique decomposition into extreme points (Dirac measures).</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>By the Choquet theorem and the fact that extreme points are Dirac measures $_$, each probability measure decomposes uniquely into these.</p></section>
+<h2 id="finite-dimensional-quantum-example">Finite-Dimensional Quantum Example</h2>
+<p>Let $A=M_2({C})$.</p>
+<p>States correspond to density matrices: \[ = {1}{2}(I + r ), | r| 1. \]</p>
+<p>The state space is the Bloch ball.</p>
+<p>Pure states correspond to $| r|=1$.</p>
+<section class="theorem-block"><div class="theorem-title">Proposition</div><p>The maximally mixed state $_*=12 I$ has infinitely many distinct convex decompositions into pure states.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>For any orthonormal basis ${_1,_2}$: \[ _*=12|_1_1|+12|_2_2|. \] Different bases yield different decompositions.</p></section>
+<h2 id="failure-of-simplex-structure">Failure of Simplex Structure</h2>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>If $A$ is noncommutative, then $S(A)$ is not a simplex.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>If $S(A)$ were a simplex, each state would admit unique pure decomposition. The Bloch ball counterexample shows non-uniqueness. Therefore $S(A)$ is not a simplex.</p></section>
+<section class="theorem-block"><div class="theorem-title">Corollary</div><p>There is no affine isomorphism between $S(A)$ and ${Prob}()$ for any measurable space $$.</p></section>
+<h2 id="interpretation">Interpretation</h2>
+<p>The failure of simplex structure is purely algebraic, arising from noncommutativity. This convex-geometric rigidity will underlie the structural obstruction developed in Part II.</p>
+<h2 id="tensor-products-of-c-algebras">Tensor Products of C*-Algebras</h2>
+<p>Let $A,B$ be C*-algebras.</p>
+<p>Their minimal tensor product $A B$ encodes independent systems.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>A product state is \[ (_1_2)(a b)=_1(a)_2(b). \]</p></section>
+<h2 id="preparation-independence">Preparation Independence</h2>
+<p>Assume existence of an ontic space $$.</p>
+<p>Each pure quantum state $$ corresponds to a probability distribution $_$ on $$.</p>
+<p>Preparation independence: \[ _{}=_ _. \]</p>
+<h2 id="structural-conflict">Structural Conflict</h2>
+<p>Suppose distinct pure states $_1,_2$ correspond to overlapping measures.</p>
+<p>Then $_{_1}_{_2}$ has positive measure.</p>
+<p>By preparation independence, \[ _{_i_j} \] overlap for all $i,j$.</p>
+<h2 id="quantum-distinguishing-measurement">Quantum Distinguishing Measurement</h2>
+<p>In $A A$, there exist projectors distinguishing \[ _1_1,\, _1_2,\, _2_1,\, _2_2. \]</p>
+<p>This contradicts overlapping classical supports.</p>
+<h2 id="structural-theorem">Structural Theorem</h2>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>Let $A$ be noncommutative. Then $S(A)$ cannot be affinely embedded into ${Prob}()$ in a manner preserving tensor product structure and preparation independence.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>Non-simplex structure (Part I) forbids classical convex embedding. Tensor-product distinguishability produces contradiction with overlapping supports.</p></section>
+<h2 id="conclusion">Conclusion</h2>
+<p>The obstruction exploited in the PBR theorem is rooted in:</p>
+<ul class="article-list"><li><p>Noncommutativity</p></li><li><p>Non-simplex convex geometry</p></li><li><p>Tensor product structure</p></li></ul>
+<p>GNS does not assume hidden variables, but its convex-geometric framework contains the rigidity that makes $$-epistemic models structurally unstable.</p>
+<h2 id="bibliography">Bibliography</h2>
+<ol class="article-list"><li><p>I. M. Gelfand and M. A. Naimark, <em>On the embedding of normed rings into the ring of operators in Hilbert space</em>, Mat. Sbornik, 1943.</p></li><li><p>R. V. Kadison and J. R. Ringrose, <em>Fundamentals of the Theory of Operator Algebras</em>, AMS.</p></li><li><p>G. Murphy, <em>C*-Algebras and Operator Theory</em>, Academic Press.</p></li><li><p>M. Pusey, J. Barrett, T. Rudolph, <em>On the reality of the quantum state</em>, Nature Physics, 2012.</p></li><li><p>E. Schr\&quot;odinger, <em>Discussion of probability relations between separated systems</em>, Proc. Cambridge Phil. Soc., 1935.</p></li><li><p>J. Bell, <em>On the Einstein-Podolsky-Rosen paradox</em>, Physics, 1964.</p></li></ol>
+            
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

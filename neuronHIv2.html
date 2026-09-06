@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head><link href="favicon.png" rel="icon"/>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>न्यूरॉन - REAL संस्थान</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: #daa520;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header .essence {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 15px;
+        }
+        
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .publication-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .authors {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .publication-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #888;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .abstract {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1a1a2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+        }
+        
+        .pub-link.zenodo {
+            background: #1e5a96;
+        }
+        
+        .pub-link.zenodo:hover {
+            background: #2872b8;
+        }
+        
+        .pub-link.journal {
+            background: #6a4c93;
+        }
+        
+        .pub-link.journal:hover {
+            background: #8b5fb0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 24px;
+            background: #f0f0ed;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #e0e0dd;
+        }
+        
+        .integration-note {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .integration-note h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .integration-note p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .publication-card {
+                padding: 25px;
+            }
+            
+            .publication-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+<style>
+body { font-family: 'Noto Serif Devanagari', 'Nirmala UI', 'Mangal', 'Kokila', Georgia, 'Times New Roman', serif; }
+</style>    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div class="header">
+<div class="breadcrumb">
+<a href="index.html">मुख्य पृष्ठ</a> / <a href="neuronHIv2.html">अनुसंधान प्रयोगशाला</a> / Neuron
+        </div>
+<div class="category-icon">⚡</div>
+<h1>न्यूरॉन</h1>
+<p class="essence">जागरूकता का जैविक आधार</p>
+<p class="description">चेतना को उसके कोशिकीय स्तर पर समझना - व्यक्तिगत न्यूरॉन कैसे व्यक्तिपरक अनुभव की विशाल संगति को जन्म देते हैं।</p>
+</div>
+<div class="container" data-pagefind-body data-pagefind-filter="type:Research">
+<a class="back-link" href="index.html#research-divisions">← अनुसंधान प्रयोगशाला पर वापस जाएं</a>
+<h2 class="section-title">प्रकाशन और प्रीप्रिंट</h2>
+<div class="publications-list">
+<!-- Publication 1 -->
+<div class="publication-card">
+<h3>Covariant Reformulation and Simulation of Action Potential Diffusion</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this note, we take steps towards using the machinery of differential geometry fully in modeling &#2409;D axon tracts. We show via simulations that background spacetime curvature affects action potential diffusion governed by a Hodgkin-Huxley-like equation.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/17448202" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/17448202/files/genuineAxondiffv3.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 2 -->
+<div class="publication-card">
+<h3>Tracking the Neuronal Paths of Ephaptic Information</h3>
+<p class="authors"><strong>लेखक:</strong> A. Chawla</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this note, the authors propose a Maxwell-like system of equations but for the “transverse information field” propagating bi-directionally in a system of synchronizing axons with longitudinal current flows.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/17389001" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/17389001/files/ephMaxwellv1.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+<!-- Publication 3 -->
+<div class="publication-card">
+<h3>Dramatic Velocity Changes Under Temperature Differentials in Ephaptic Tracts</h3>
+<p class="authors"><strong>लेखक:</strong> [लेखकों के नाम]</p>
+<div class="publication-meta">
+<span class="meta-item">📅 &#2408;&#2406;&#2408;&#2411;</span>
+<span class="meta-item">📄 प्रीप्रिंट</span>
+<span class="meta-item">🏷️ स्थिति: Zenodo प्रीप्रिंट</span>
+</div>
+<p class="abstract">
+<strong>सार:</strong> In this note, the authors present the output of in-silico investigations that demonstrate the dependence of ephaptic conduction profiles on the presence of slight temperature variations amongst the axons in a tract. The results show that spurious spikes and altered conduction velocities are created when a temperature gradient is applied. This has implications for our understanding of nerve conduction in non-homeostatic conditions of altered body temperature.
+                </p>
+<div class="publication-links">
+<a class="pub-link zenodo" href="https://zenodo.org/records/17383707" target="_blank">Zenodo पर देखें →</a>
+<a class="pub-link" href="https://zenodo.org/records/17383707/files/tempDifferentialsv1.pdf?download=1" target="_blank">PDF डाउनलोड करें →</a>
+</div>
+</div>
+</div>
+<h2 class="section-title">Products</h2>
+<div class="publications-list">
+<div class="publication-card">
+<h3>Igor Procedure for Direction Selectivity Analysis of SAC Tuning Curves</h3>
+<p class="abstract">
+            A reusable <strong>Igor Pro procedure</strong> for analyzing direction selectivity in
+            Starburst Amacrine Cell (SAC) tuning curves. Designed for clarity, reproducibility,
+            and ease of integration into existing retinal data analysis pipelines.
+        </p>
+<p class="authors">
+            Product Number: &#2407;&#2406;&#2406;&#2407;; <strong>Price:</strong> Rs. &#2408;&#2415;&#2415;/- via PayPal to
+            <em>amanalliance[at]gmail[dot]com</em>
+</p>
+<div class="publication-links">
+<a class="pub-link" href="https://drive.google.com/file/d/1kwos8sCIhfG_Ay7VdJg9cEQ8ERKjZZRB/view?usp=sharing" target="_blank">
+                Access / Download Screenshot →
+            </a>
+<a class="pub-link journal" href="https://drive.google.com/file/d/1BR3bYE5sm9ZA1usWIA8L_DLzQk6H5rlQ/view" target="_blank">
+                Further Reading →
+            </a>
+</div>
+</div>
+</div>
+<div class="integration-note">
+<h3>यह अनुसंधान कैसे समेकित होता है</h3>
+<p>Neurons are the physical substrate of mind, yet how electrochemical signals become the felt quality of experience remains mysterious. Our research explores whether neuronal activity exhibits quantum properties, and how networks of neurons create the unified field we call consciousness. This bridges neuroscience with the yogic understanding of the subtle body's energy channels (nadis).</p>
+</div>
+</div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

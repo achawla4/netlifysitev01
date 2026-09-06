@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Machine Learning - REAL Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: #daa520;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header .essence {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 15px;
+        }
+        
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .publication-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .authors {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .publication-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #888;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .abstract {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1a1a2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+        }
+        
+        .pub-link.zenodo {
+            background: #1e5a96;
+        }
+        
+        .pub-link.zenodo:hover {
+            background: #2872b8;
+        }
+        
+        .pub-link.journal {
+            background: #6a4c93;
+        }
+        
+        .pub-link.journal:hover {
+            background: #8b5fb0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 24px;
+            background: #f0f0ed;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #e0e0dd;
+        }
+        
+        .integration-note {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .integration-note h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .integration-note p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .publication-card {
+                padding: 25px;
+            }
+            
+            .publication-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html">Research Laboratory</a> / Quantum Machine Learning
+        </div>
+        <div class="category-icon">⚛</div>
+        <h1>Quantum Machine Learning</h1>
+        <p class="essence">Intelligence emerging from uncertainty</p>
+        <p class="description">Where artificial intelligence meets quantum mechanics—exploring how learning and consciousness might arise from fundamental quantum processes.</p>
+    </div>
+    
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Research">
+        <a href="index.html" class="back-link">← Back to Research Laboratory</a>
+        
+        <h2 class="section-title">Publications & Preprints</h2>
+        
+        <div class="publications-list">
+            <!-- Publication 1 -->
+            <div class="publication-card">
+                <h3>A Framework for Quantum Character Recognition</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2024</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> In this note the authors propose the use of the quantum perceptron algorithm. It is proposed to train the quantum perceptron to detect a classical signal, namely that generated by various characters of the Sanskrit alphabet. 
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/10900103" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/10900103/files/quantumSanskritv1forZenodov2.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+            
+            <!-- Publication 2 -->
+            <div class="publication-card">
+                <h3>Quantum Recognition Using the Quantum Perceptron</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2024</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> In this note, the authors describe a method by which the quantum perceptron can be trained to recognize whether specific genuinely quantum interactions have taken place with its N ions. This could have implications for quantum fault diagnosis and quantum cloning by learning.
+                </p>
+                <div class="publication-links">
+                    <a href="[ZENODO_URL]" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="[JOURNAL_URL]" class="pub-link journal" target="_blank">Journal Link →</a>
+                    <a href="[PDF_URL]" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+            
+            <!-- Publication 3 -->
+            <div class="publication-card">
+                <h3>The Quantum Perceptron: A First Approach</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2025</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> In this document, the authors provide an integrated presentation of two earlier works that touch upon quantum perceptrons and the relationship between consciousness and objects of consciousness.
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/15365469" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/15365469/files/firstApproachv1.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+	    <!-- Publication 4 -->
+            <div class="publication-card">
+                <h3>On the Quantum Biophysics of Deep Learning</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2025</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> We propose an extension of the quantum perceptron framework into a multi-layered structure, creating a formalism for quantum deep learning. Each layer consists of entangled motional states processed via environment-induced voltage steps that execute projection, summation, and activation. The recursive imprinting of environmental patterns across such layers potentially underlies robust, field-driven cognition in nature. Applications range from fault-detection and memory abstraction to linguistic character recognition.
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/16417379" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/16417379/files/quantumDeepv12forServer.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+
+	    <!-- Publication 5 -->
+            <div class="publication-card">
+                <h3>A Quantum Extension of Action Potential Coupling in 3D Tracts</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2024</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> In this note the authors consider ions in nodes on different axons in a 3D axon bundle. The ions are proposed to be studied quantum mechanically, with their evolution under gravitational waves and a bath, being coupled via their field to distant ions in nodes on other axons within the same tract. The setup is closely linked with the quantum perceptron proposed earlier by the authors. The expected novel result is a 3D formulation of the 1D Schrodinger Equation in the coupled setting.
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/13725468" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/13725468/files/quantumExtensionv1forZenodo2.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+
+
+
+        </div>
+        
+        <div class="integration-note">
+            <h3>How This Research Integrates</h3>
+            <p>Quantum machine learning explores whether quantum phenomena underlie learning and intelligence itself. If consciousness emerges from quantum processes in biological systems, then quantum algorithms may reveal fundamental principles of awareness. This bridges neuroscience, AI, and contemplative traditions that view mind as a quantum-like field of potential.</p>
+        </div>
+    </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

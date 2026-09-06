@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome & Orientation Guide - REAL Institute</title>
+    <meta name="description" content="Welcome guide and orientation waypoint for researchers, contemplatives, and signal engineers visiting the Hariharananda REAL Institute website.">
+    <link rel="icon" href="favicon.png">
+    <link rel="canonical" href="https://realinstitute.netlify.app/welcome.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cart.css">
+    <style>
+        :root {
+            --bg-page: #faf8f5;
+            --bg-card: #ffffff;
+            --ink-dark: #1b2a3d;
+            --ink-soft: #3c4c60;
+            --brass-gold: #daa520;
+            --brass-dark: #7e5a29;
+            --rule-line: #e2d7c0;
+            --parchment-accent: #f4ede0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background-color: var(--bg-page);
+            color: var(--ink-dark);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Site Header Navigation */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--rule-line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--ink-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--brass-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--brass-dark);
+        }
+
+        .start-badge {
+            background: var(--brass-gold);
+            color: #ffffff !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem !important;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1b2a3d 0%, #111a26 100%);
+            color: #ffffff;
+            padding: 70px 24px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--brass-gold);
+        }
+
+        .hero-banner h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f5eaae;
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-banner p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            color: #d6e2f0;
+            line-height: 1.6;
+        }
+
+        .intent-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .pill-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(218, 165, 32, 0.5);
+            color: #f5e8cf;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pill-btn:hover {
+            background: var(--brass-gold);
+            color: #1b2a3d;
+            border-color: var(--brass-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.3rem;
+            color: var(--ink-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--ink-soft);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Division Pathways Grid */
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 580px) {
+            .pathways-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pathway-card {
+            background: var(--bg-card);
+            border: 1px solid var(--rule-line);
+            border-radius: 12px;
+            padding: 36px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pathway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brass-gold) 0%, var(--brass-dark) 100%);
+        }
+
+        .pathway-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .pathway-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .pathway-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--ink-dark);
+            margin-bottom: 12px;
+        }
+
+        .pathway-card p {
+            color: var(--ink-soft);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .pathway-highlights {
+            list-style: none;
+            margin-bottom: 24px;
+            padding: 0;
+        }
+
+        .pathway-highlights li {
+            padding: 6px 0;
+            color: #4a5d73;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pathway-highlights li::before {
+            content: "✦";
+            color: var(--brass-gold);
+            font-size: 0.8rem;
+        }
+
+        .pathway-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--ink-dark);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .pathway-action:hover {
+            background: var(--brass-dark);
+        }
+
+        /* Quick Stillness Audio Spotlight */
+        .audio-spotlight {
+            background: linear-gradient(135deg, #f4ede0 0%, #eae0cd 100%);
+            border: 1px solid #dcd0b6;
+            border-radius: 12px;
+            padding: 36px;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        @media (max-width: 768px) {
+            .audio-spotlight {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .spotlight-icon {
+            font-size: 3.5rem;
+            color: var(--brass-dark);
+        }
+
+        .spotlight-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--ink-dark);
+            margin-bottom: 8px;
+        }
+
+        .spotlight-text p {
+            color: var(--ink-soft);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .spotlight-player {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 30px;
+        }
+
+        /* International Checkout Notice */
+        .checkout-info-box {
+            background: var(--bg-card);
+            border: 1px solid var(--rule-line);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .checkout-info-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--ink-dark);
+            margin-bottom: 10px;
+        }
+
+        .checkout-info-box p {
+            color: var(--ink-soft);
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 0.98rem;
+        }
+
+        .checkout-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brass-gold);
+            color: #1b2a3d;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .checkout-btn:hover {
+            background: var(--brass-dark);
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink-dark);
+            color: #a8b8cc;
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--brass-gold);
+        }
+
+        footer a {
+            color: var(--brass-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                REAL <span>Institute</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="welcome.html" class="active start-badge">Start Here</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="all_papers.html">Research Papers</a></li>
+                <li><a href="kriyacorpus.html">Kriya Corpus</a></li>
+                <li><a href="software_sales_catalog.html">Software</a></li>
+                <li><a href="bookconservatory.html">Book Conservatory</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <h1>Welcome to REAL</h1>
+        <p>A research laboratory and self-realization waypoint bridging information theory, quantum physics, consciousness studies, Kriya Yoga, and contemplative inquiry.</p>
+        
+        <div class="intent-pills">
+            <a href="#pathway-research" class="pill-btn">🔬 Scientific Research</a>
+            <a href="#pathway-kriya" class="pill-btn">🧘 Contemplative Kriya</a>
+            <a href="#pathway-software" class="pill-btn">💻 Leibnitz Signal Suites</a>
+            <a href="#pathway-conservatory" class="pill-btn">📚 Curated Conservatory</a>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2>Four Waypoints of Inquiry</h2>
+            <p>Select your path of interest below to explore our publications, silent sitting practices, and computational algorithms.</p>
+        </div>
+
+        <!-- Division Pathways Grid -->
+        <div class="pathways-grid">
+            
+            <!-- Pathway 1: Scientific Research -->
+            <div class="pathway-card" id="pathway-research">
+                <div>
+                    <span class="pathway-icon">🔬</span>
+                    <h3>Information, Physics & Consciousness</h3>
+                    <p>Over 400 research papers investigating quantum mechanics, information theory, brain computation models, and fundamental physics.</p>
+                    <ul class="pathway-highlights">
+                        <li>Peer-reviewed <em>Prajnanabha</em> journal volumes</li>
+                        <li>Guided by <a href="forbears.html" style="color: #b8860b; font-weight: bold; text-decoration: underline;">Scientific Forebears</a> (MIT & USF professors)</li>
+                        <li>Open theoretical physics archive ($1 - $3 USD)</li>
+                    </ul>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="all_papers.html" class="pathway-action">Explore 400+ Papers &rarr;</a>
+                    <a href="forbears.html" class="pathway-action" style="background: #a9793c;">Meet Scientific Forebears &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Pathway 2: Contemplative Kriya -->
+            <div class="pathway-card" id="pathway-kriya">
+                <div>
+                    <span class="pathway-icon">🧘</span>
+                    <h3>Kriya Yoga & Contemplative Path</h3>
+                    <p>Silent meditation audio recordings, practice hall guidelines, and self-realization waypoints for seekers of inner stillness.</p>
+                    <ul class="pathway-highlights">
+                        <li>10-second silent sitting meditation previews</li>
+                        <li>Kriya Corpus recordings & discourse archives</li>
+                        <li>Practice Hall schedules & teaching sessions</li>
+                    </ul>
+                </div>
+                <a href="kriyacorpus.html" class="pathway-action">Experience Kriya Corpus &rarr;</a>
+            </div>
+
+            <!-- Pathway 3: Leibnitz Signal Software -->
+            <div class="pathway-card" id="pathway-software">
+                <div>
+                    <span class="pathway-icon">💻</span>
+                    <h3>Leibnitz Computational Signal Suites</h3>
+                    <p>Semiclassical Fourier Transform (SFT) signal processing software, 2-body multi-particle Schrödinger solvers, and entropy engines.</p>
+                    <ul class="pathway-highlights">
+                        <li>Leibnitz 4.0 & 5.0 signal analysis suites</li>
+                        <li>Quantum state entropy & cryptographic hash generators</li>
+                        <li>Software licensing & developer suites ($7 - $24 USD)</li>
+                    </ul>
+                </div>
+                <a href="software_sales_catalog.html" class="pathway-action">View Software Catalog &rarr;</a>
+            </div>
+
+            <!-- Pathway 4: Book Conservatory -->
+            <div class="pathway-card" id="pathway-conservatory">
+                <div>
+                    <span class="pathway-icon">📚</span>
+                    <h3>Prajnanabha Press & Conservatory</h3>
+                    <p>A curated conservatory of classical spiritual texts, philosophical commentary, and scientific monographs published by REAL.</p>
+                    <ul class="pathway-highlights">
+                        <li>Rare spiritual & philosophical volume monographs</li>
+                        <li>Curated book sales catalog & digital previews</li>
+                        <li>Author support & publication distributions</li>
+                    </ul>
+                </div>
+                <a href="bookconservatory.html" class="pathway-action">Browse Book Conservatory &rarr;</a>
+            </div>
+
+        </div>
+
+        <!-- Quick Stillness Audio Spotlight -->
+        <div class="audio-spotlight">
+            <div class="spotlight-icon">🪔</div>
+            <div class="spotlight-text">
+                <h3>Pause for a Moment of Stillness</h3>
+                <p>Listen to a 10-second preview of silent meditation from our August 2026 Kriya sitting session before continuing your inquiry.</p>
+                <audio controls class="spotlight-player">
+                    <source src="kriya_previews/REALSilentSittingAugust26_2026_preview10s.mp4" type="audio/mp4">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <!-- Centralized International Checkout Notice -->
+        <div class="checkout-info-box">
+            <h3>Centralized Checkout & International Access</h3>
+            <p>All products, papers, software licenses, and book orders are quoted standard in <strong>USD ($)</strong> with dynamic currency support. Selecting any item adds it to your unified cart, bringing you to our central portal supporting <strong>PayPal / Credit Card</strong> internationally and <strong>Domestic UPI / PhonePe</strong>.</p>
+            <a href="checkout.html" class="checkout-btn">🛒 Access Centralized Checkout</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Hariharananda REAL Institute. All rights reserved. | <a href="index.html">Home</a> | <a href="consumer.html">Consumer & Refund SLA Policy</a></p>
+    </footer>
+
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

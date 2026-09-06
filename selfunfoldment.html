@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAL Self Upliftment Seminar — First Annual Edition, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2a3d;
+    --ink-soft:#3c4c60;
+    --parchment:#f3ead7;
+    --parchment-dark:#e5d6ae;
+    --card:#faf5e8;
+    --brass:#a9793c;
+    --brass-dark:#7e5a29;
+    --stamp:#a13d2e;
+    --sage:#556b53;
+    --rule:#cdbd94;
+    --shadow: 0 10px 26px rgba(27,42,61,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -5%, #fbf4e2 0%, transparent 60%),
+      var(--parchment);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  /* ===== Ledger header bar ===== */
+  .ledger-bar{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .ledger-bar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; opacity:0.85;}
+
+  /* ===== Hero ===== */
+  header.hero{padding:64px 0 40px;}
+  .title-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    padding:52px 48px 44px;
+    position:relative;
+    text-align:center;
+  }
+  .title-card::before, .title-card::after{
+    content:"";
+    position:absolute; top:14px; bottom:14px; width:1px;
+    background:var(--rule);
+  }
+  .title-card::before{left:14px;}
+  .title-card::after{right:14px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--brass-dark); margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.05;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .title-italic{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .lede{
+    max-width:660px; margin:0 auto 26px;
+    font-size:1.12rem; color:var(--ink-soft);
+  }
+  .tagline-stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem; letter-spacing:0.05em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:8px 18px;
+    transform:rotate(-2deg);
+    border-radius:2px;
+  }
+  .accession{
+    margin-top:30px; padding-top:24px; border-top:1px dashed var(--rule);
+    display:flex; justify-content:center; gap:56px; flex-wrap:wrap;
+  }
+  .accession-item{text-align:center;}
+  .accession-num{font-family:'Fraunces',serif; font-weight:600; font-size:1.6rem; color:var(--brass-dark);}
+  .accession-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;}
+
+  /* ===== Section shell ===== */
+  section{padding:56px 0;}
+  .section-head{margin-bottom:34px; max-width:760px;}
+  .section-tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff;
+    padding:5px 12px; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    color:var(--ink);
+  }
+  .section-sub{color:var(--ink-soft); margin-top:10px; font-size:1.02rem;}
+
+  /* ===== Vision / Mission / plates ===== */
+  .plate{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:34px 38px; position:relative;
+  }
+  .plate + .plate{margin-top:22px;}
+  .plate-label{
+    position:absolute; top:-11px; left:30px; background:var(--parchment);
+    padding:0 10px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-dark);
+  }
+  .plate p{font-size:1.08rem; color:var(--ink);}
+  .plate p.quote{font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:1.28rem; line-height:1.5; color:var(--ink);}
+  .plate p + p{margin-top:12px;}
+  .verse{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.92rem; color:var(--sage); line-height:1.9;
+    border-left:3px solid var(--sage); padding-left:16px; margin:16px 0;
+  }
+
+  /* ===== Activities: index-card grid ===== */
+  .activity-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(255px,1fr));
+    gap:20px;
+  }
+  .activity-card{
+    background:var(--card); border:1px solid var(--rule);
+    padding:22px 22px 20px; position:relative; box-shadow:var(--shadow);
+  }
+  .activity-card .tab{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; letter-spacing:0.1em;
+    color:var(--brass-dark); text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .activity-card h3{font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; margin-bottom:10px;}
+  .activity-card ul{list-style:none; font-size:0.92rem; color:var(--ink-soft);}
+  .activity-card ul li{padding:3px 0 3px 16px; position:relative;}
+  .activity-card ul li::before{content:"—"; position:absolute; left:0; color:var(--brass);}
+
+  /* ===== Eligibility checklist ===== */
+  .criteria-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+    gap:18px;
+  }
+  .criteria-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:20px 22px; display:flex; gap:14px; align-items:flex-start;
+  }
+  .criteria-mark{
+    flex:0 0 auto; width:30px; height:30px; border-radius:50%;
+    border:2px solid var(--sage); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.9rem; font-weight:600;
+  }
+  .criteria-card p{font-size:0.94rem; color:var(--ink);}
+  .criteria-card .criteria-head{font-family:'Fraunces', serif; font-weight:600; font-size:1.02rem; margin-bottom:4px; color:var(--ink);}
+
+  /* ===== Collections chips ===== */
+  .collections{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
+    border:1px solid var(--brass); color:var(--brass-dark);
+    padding:8px 14px; background:var(--card);
+  }
+
+  /* ===== Submit / CTA banner ===== */
+  .rescue-banner{
+    background:var(--ink); color:var(--parchment);
+    padding:40px 38px; display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  .rescue-banner h3{font-family:'Fraunces', serif; font-size:1.5rem; font-weight:600; margin-bottom:8px;}
+  .rescue-banner p{color:#cdd6e0; max-width:560px;}
+  .rescue-sources{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em;
+    color:var(--parchment-dark); margin-top:10px;
+  }
+  .stamp-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    border:2px solid var(--stamp); color:var(--stamp);
+    padding:11px 18px; text-align:center; cursor:pointer;
+    background:transparent; transition:.18s;
+    display:inline-block;
+  }
+  .stamp-btn:hover{background:var(--stamp); color:#fff; transform:rotate(-0.6deg);}
+  .stamp-btn.on-dark{border-color:var(--parchment-dark); color:var(--parchment-dark);}
+  .stamp-btn.disabled{opacity:0.55; pointer-events:none;}
+
+  /* ===== Schedule / details table-ish ===== */
+  .detail-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+    gap:18px;
+  }
+  .detail-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:20px 20px 18px;
+  }
+  .detail-card .tab{
+    font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.1em;
+    color:var(--brass-dark); text-transform:uppercase; margin-bottom:8px; display:block;
+  }
+  .detail-card .val{font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; color:var(--ink); margin-bottom:4px;}
+  .detail-card .note{font-size:0.86rem; color:var(--ink-soft);}
+
+  /* ===== Notice / provenance-style panel ===== */
+  .provenance{
+    background:var(--card); border:2px solid var(--sage);
+    box-shadow:var(--shadow);
+    padding:28px 32px; position:relative;
+    display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap;
+  }
+  .provenance .seal{
+    flex:0 0 auto;
+    width:84px; height:84px; border-radius:50%;
+    border:2.5px solid var(--sage); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'IBM Plex Mono', monospace;
+    font-size:0.6rem; letter-spacing:0.05em; text-transform:uppercase;
+    line-height:1.25; padding:6px; transform:rotate(-4deg);
+  }
+  .provenance-body{flex:1; min-width:240px;}
+  .provenance-head{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--sage); margin-bottom:8px; font-weight:600;
+  }
+  .provenance p{font-size:0.98rem; color:var(--ink); margin-bottom:10px;}
+  .provenance ol{margin:10px 0 4px 20px; font-size:0.94rem; color:var(--ink-soft);}
+  .provenance ol li{margin-bottom:6px;}
+  .provenance ol li strong{color:var(--ink);}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:var(--parchment-dark);
+    padding:48px 0 30px; margin-top:20px;
+  }
+  footer .wrap{text-align:center;}
+  footer h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; color:#fff; margin-bottom:12px;}
+  footer p{max-width:600px; margin:0 auto 10px; font-size:0.94rem;}
+  footer a{color:#e5c993; text-decoration:none; font-weight:600;}
+  footer a:hover{text-decoration:underline;}
+  .devanagari{margin-top:18px; font-size:0.85rem; color:var(--rule);}
+
+  @media (max-width:720px){
+    .title-card{padding:38px 22px;}
+    .rescue-banner{flex-direction:column; align-items:flex-start;}
+    .provenance{padding:22px;}
+  }
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<main data-pagefind-body data-pagefind-filter="type:Yoga">
+
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>REAL SELF UPLIFTMENT SEMINAR · FIRST ANNUAL EDITION · 2026</span>
+    <span>ANNOUNCED GURU PURNIMA · 29 JULY 2026</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="title-card">
+      <div class="eyebrow">Hariharananda REAL Institute, Gurugram</div>
+      <h1 class="title">First Annual<br><span class="title-italic">Self Upliftment Seminar</span></h1>
+      <p class="lede">A free, entirely online seminar in spirituality, self-discipline, and common-discipline, offered in the lineage of Gurudev Paramahamsa Hariharananda Giri — for young men ready to begin the work of uplifting themselves, by themselves.</p>
+      <span class="tagline-stamp">UDDHARET ATMANA ATMANAM · LIFT YOURSELF, BY YOURSELF</span>
+      <div class="accession">
+        <div class="accession-item"><div class="accession-num">Dec 1–6</div><div class="accession-label">2026 · Fully Online</div></div>
+        <div class="accession-item"><div class="accession-num">Free</div><div class="accession-label">Materials Couriered Home</div></div>
+        <div class="accession-item"><div class="accession-num">18–45</div><div class="accession-label">Single Males</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="notice" style="padding-top:0;">
+  <div class="wrap">
+    <div class="provenance">
+      <div class="seal">Apply<br>&amp;<br>Be Screened</div>
+      <div class="provenance-body">
+        <div class="provenance-head">Applications &amp; Screening Notice</div>
+        <p>This first iteration of the seminar is offered, free of cost, to a limited number of participants selected through a <strong>strict screening and application process</strong>. Seats are few; sincerity and readiness matter more than qualifications.</p>
+        <ol>
+          <li><strong>Apply</strong> — the application, via <a href="https://forms.gle/EjpwsBApHr3VdSNUA">Google Forms</a>, is openend on <strong>Guru Purnima day, 29 July 2026</strong>, and stays open until seats are filled.</li>
+          <li><strong>Screen</strong> — every application is reviewed for eligibility, sincerity, and readiness for spiritual and common-discipline; some applicants may be contacted for a short conversation.</li>
+          <li><strong>Selected</strong> — selected participants are informed directly and their postal address confirmed for courier delivery of materials.</li>
+          <li><strong>Materials Arrive</strong> — all study materials are couriered to each selected participant's home, one week ahead of the seminar, i.e. by <strong>24 November 2026</strong>.</li>
+        </ol>
+        <p style="margin-bottom:0;">The Google Forms link is above, on this page and also will be shared through the Institute's channels from Guru Purnima day onward. Applying does not guarantee selection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vision">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Charter</span>
+      <h2>Vision &amp; Mission</h2>
+    </div>
+    <div class="plate">
+      <span class="plate-label">Vision</span>
+      <p class="quote">To carry forward, in the lineage of Gurudev Paramahamsa Hariharananda Giri, a discipline of self-upliftment in which each young man learns to be his own truest friend — steady, sincere, and unafraid of the inner work.</p>
+    </div>
+    <div class="plate">
+      <span class="plate-label">Mission</span>
+      <p>The key message of this seminar is self-discipline — of the self, by the self, for the self — in keeping with the teaching Sri Krishna gave on the battlefield of Kurukshetra, in what is today Haryana, the very state where this first iteration of the seminar is conducted online:</p>
+      <div class="verse">
+        uddharet ātmanā ātmānaṁ nātmānam avasādayet<br>
+        ātmaiva hyātmano bandhur ātmaiva ripur ātmanaḥ
+      </div>
+      <p>In plain words: <em>uplift yourself by your own self; do not let yourself sink. The self alone is the friend of the self, and the self alone is its enemy.</em> This seminar exists to help each participant discover that friend within, through spirituality, self-discipline, and the common-discipline that binds a life of practice together.</p>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">What's Inside</span>
+      <h2>What the Seminar Covers</h2>
+      <p class="section-sub">Six days, entirely online, built around three threads that reinforce one another — spirituality, self-discipline, and common-discipline.</p>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-card">
+        <span class="tab">01 · Spirituality</span>
+        <h3>Learning &amp; Practising</h3>
+        <ul>
+          <li>Foundations of spiritual life in the Kriya Yoga lineage</li>
+          <li>Guided sessions of sitting, silence, and reflection</li>
+          <li>Space for genuine questions, not performance</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">02 · Self-Discipline</span>
+        <h3>The Inner Practice</h3>
+        <ul>
+          <li>Daily habits that steady body, breath, and mind</li>
+          <li>Working directly with the Gita's teaching on the self</li>
+          <li>Practical structure to carry beyond the six days</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">03 · Common-Discipline</span>
+        <h3>Living Alongside Others</h3>
+        <ul>
+          <li>Shared norms of conduct, punctuality, and courtesy</li>
+          <li>Discipline as something practised together, not alone</li>
+          <li>Preparing participants to hold a shared standard</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">04 · Delivery</span>
+        <h3>Fully Online</h3>
+        <ul>
+          <li>Live sessions, 1–6 December 2026</li>
+          <li>Medium of instruction: English</li>
+          <li>Hindi translation available throughout</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">05 · Materials</span>
+        <h3>Couriered, Not Downloaded</h3>
+        <ul>
+          <li>Printed study materials mailed to selected participants</li>
+          <li>Delivered to their home address one week in advance</li>
+          <li>No cost to the participant at any stage</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">06 · Cost</span>
+        <h3>Entirely Free</h3>
+        <ul>
+          <li>No fee for the seminar or the materials</li>
+          <li>No fee for courier delivery</li>
+          <li>Offered as seva, in the spirit of the lineage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eligibility">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Who May Apply</span>
+      <h2>Eligibility Criteria</h2>
+      <p class="section-sub">This first iteration is deliberately narrow in scope, so the Institute can screen closely and support each participant well. All of the following must be true.</p>
+    </div>
+    <div class="criteria-grid">
+      <div class="criteria-card">
+        <div class="criteria-mark">1</div>
+        <div>
+          <div class="criteria-head">Single Male</div>
+          <p>Applicant must be an unmarried male.</p>
+        </div>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-mark">2</div>
+        <div>
+          <div class="criteria-head">Aged 18–45</div>
+          <p>Between 18 and 45 years of age at the time of application.</p>
+        </div>
+      </div>
+      
+      <div class="criteria-card">
+        <div class="criteria-mark">3</div>
+        <div>
+          <div class="criteria-head">Sincere Aspirant</div>
+          <p>Genuinely desirous of learning and practising spirituality, self-discipline, and common-discipline.</p>
+        </div>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-mark">4</div>
+        <div>
+          <div class="criteria-head">Sound Health</div>
+          <p>Of sound physical and mental health, able to participate fully in a six-day online seminar.</p>
+        </div>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-mark">5</div>
+        <div>
+          <div class="criteria-head">Available for Screening</div>
+          <p>Willing and available to go through the Institute's application and screening process in full.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">The Essentials</span>
+      <h2>Dates, Format &amp; Practical Details</h2>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <span class="tab">Seminar Dates</span>
+        <div class="val">1–6 Dec 2026</div>
+        <div class="note">Six consecutive days, fully online</div>
+      </div>
+      <div class="detail-card">
+        <span class="tab">Applications Open</span>
+        <div class="val">29 Jul 2026</div>
+        <div class="note">Guru Purnima day, via Google Forms</div>
+      </div>
+      <div class="detail-card">
+        <span class="tab">Materials Dispatched</span>
+        <div class="val">By 24 Nov 2026</div>
+        <div class="note">Couriered to selected participants' homes</div>
+      </div>
+      <div class="detail-card">
+        <span class="tab">Medium</span>
+        <div class="val">English</div>
+        <div class="note">Hindi translation available</div>
+      </div>
+      <div class="detail-card">
+        <span class="tab">Cost</span>
+        <div class="val">₹0</div>
+        <div class="note">Free of cost, including materials &amp; courier</div>
+      </div>
+      <div class="detail-card">
+        <span class="tab">Selection</span>
+        <div class="val">By Screening</div>
+        <div class="note">Limited seats; strict application process</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">In Short</span>
+      <h2>Who This Is For</h2>
+    </div>
+    <div class="collections">
+      <span class="chip">Single men, 18–45</span>
+      <span class="chip">Sound physical &amp; mental health</span>
+      <span class="chip">Ready for self-discipline</span>
+      <span class="chip">Ready for common-discipline</span>
+      <span class="chip">Sincere spiritual aspirants</span>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="rescue-banner">
+      <div>
+        <h3>Applications are Opened on Guru Purnima Day</h3>
+        <p>The Google Forms application is published above, and also through the Institute's channels from 29 July 2026 onward. Selected participants will be contacted directly and asked to confirm a postal address for their study materials.</p>
+        <div class="rescue-sources">SINGLE MALES · 18–45 · SOUND HEALTH · SINCERE ASPIRANTS</div>
+      </div>
+      <span class="stamp-btn on-dark disabled">Application Opened 29 Jul 2026</span>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <h3>REAL Self Upliftment Seminar</h3>
+    <p>A free offering of the Hariharananda REAL Institute, Gurugram, in the lineage of Gurudev Paramahamsa Hariharananda Giri. First Annual Edition, 1–6 December 2026, entirely online.</p>
+    <p><strong>Home:</strong> <a href="index.html">REAL Institute</a> &nbsp;·&nbsp; <strong>Contact:</strong> <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a></p>
+    <p class="devanagari">सत्यमेव जयते नानृतम् — Truth alone triumphs, never falsehood</p>
+  </div>
+</footer>
+
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

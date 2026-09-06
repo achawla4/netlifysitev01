@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — REAL Institute</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/config.js"></script>
+    <script src="assets/cart.js" defer></script>
+    <style>
+      :root {
+        --ink: #1b2a3d;
+        --ink-soft: #3c4c60;
+        --parchment: #f3ead7;
+        --parchment-dark: #e5d6ae;
+        --card: #faf5e8;
+        --brass: #a9793c;
+        --brass-dark: #7e5a29;
+        --stamp: #a13d2e;
+        --sage: #556b53;
+        --rule: #cdbd94;
+        --shadow: 0 10px 26px rgba(27,42,61,0.14);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Source Serif 4', Georgia, serif;
+        background: radial-gradient(1200px 600px at 10% -5%, #fbf4e2 0%, transparent 60%), #faf5e8;
+        color: var(--ink);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .ledger-bar {
+        background: var(--ink);
+        color: var(--parchment-dark);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 10px 0;
+        border-bottom: 2px solid var(--brass);
+      }
+      .ledger-bar .wrap {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header.checkout-header {
+        padding: 30px 0;
+        border-bottom: 1px solid var(--rule);
+        background: rgba(250, 245, 232, 0.8);
+        backdrop-filter: blur(10px);
+      }
+      .header-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-link {
+        font-family: 'Fraunces', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .back-link {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.85rem;
+        color: var(--brass-dark);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .back-link:hover {
+        color: var(--stamp);
+        text-decoration: underline;
+      }
+      
+      main.checkout-main {
+        flex: 1;
+        max-width: 1200px;
+        width: 100%;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      
+      .checkout-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      
+      @media (max-width: 850px) {
+        .checkout-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+      
+      .checkout-panel {
+        background: var(--card);
+        border: 1px solid var(--rule);
+        padding: 32px;
+        box-shadow: var(--shadow);
+      }
+      
+      .checkout-panel h2 {
+        font-family: 'Fraunces', serif;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 12px;
+      }
+      
+      /* Checkout Items style override */
+      .checkout-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 0;
+        border-bottom: 1px dashed var(--rule);
+      }
+      .checkout-item:last-child {
+        border-bottom: none;
+      }
+      .checkout-item-title {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .checkout-item-price {
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: 600;
+        color: var(--brass-dark);
+      }
+      .checkout-item-remove {
+        background: transparent;
+        color: var(--ink-soft);
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        margin-left: 14px;
+        transition: color 0.15s;
+      }
+      .checkout-item-remove:hover {
+        color: var(--stamp);
+      }
+      
+      .checkout-total-row {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Fraunces', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 2px solid var(--ink);
+      }
+      
+      .checkout-total-row span:last-child {
+        font-family: 'IBM Plex Mono', monospace;
+        color: var(--stamp);
+      }
+      
+      /* Payment Section Styles */
+      .amount-field {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--parchment);
+        border: 1px solid var(--rule);
+        padding: 12px;
+        margin-bottom: 20px;
+      }
+      .amount-field label {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+      }
+      .amount-field span {
+        flex: 1;
+        text-align: right;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      
+      .phonepe-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: #5f259f;
+        color: #fff;
+        text-decoration: none;
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 14px;
+        margin-bottom: 20px;
+        letter-spacing: 0.02em;
+        transition: background 0.2s;
+      }
+      .phonepe-btn:hover {
+        background: #4b1d80;
+      }
+      
+      .qr-box {
+        text-align: center;
+        margin-bottom: 20px;
+        background: #fff;
+        padding: 16px;
+        border: 1px solid var(--rule);
+        max-width: 210px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .qr-box img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .upi-id-row {
+        background: var(--parchment);
+        border: 1px solid var(--rule);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.9rem;
+        padding: 12px;
+        text-align: center;
+        margin-bottom: 12px;
+        word-break: break-all;
+      }
+      
+      .copy-btn {
+        width: 100%;
+        padding: 12px;
+        background: var(--brass);
+        color: #fff;
+        border: none;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-bottom: 20px;
+      }
+      .copy-btn:hover {
+        background: var(--brass-dark);
+      }
+      
+      .order-form {
+        border-top: 1px dashed var(--rule);
+        padding-top: 24px;
+        margin-top: 24px;
+      }
+      .order-form h3 {
+        font-family: 'Fraunces', serif;
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+      }
+      .order-form-sub {
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+        margin-bottom: 16px;
+      }
+      
+      .order-status {
+        margin-top: 16px;
+        padding: 14px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      
+      footer {
+        background: var(--ink);
+        color: var(--parchment-dark);
+        padding: 40px 0 30px;
+        border-top: 2px solid var(--brass);
+        margin-top: 60px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      footer p {
+        margin-bottom: 8px;
+      }
+      footer a {
+        color: #e5c993;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      
+      .empty-cart-state {
+        text-align: center;
+        padding: 40px 0;
+      }
+      .empty-cart-state p {
+        font-size: 1.1rem;
+        color: var(--ink-soft);
+        margin-bottom: 20px;
+      }
+      .shop-btn {
+        display: inline-block;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border: 2px solid var(--stamp);
+        color: var(--stamp);
+        padding: 12px 24px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .shop-btn:hover {
+        background: var(--stamp);
+        color: #fff;
+      }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>REAL INSTITUTE SECURE CHECKOUT</span>
+    <span>SADHANA · REFLECTION · TRANSMISSION</span>
+  </div>
+</div>
+
+<header class="checkout-header">
+  <div class="header-wrap">
+    <a href="index.html" class="logo-link">REAL Institute</a>
+    <a href="javascript:history.back()" class="back-link">← Continue Shopping</a>
+  </div>
+</header>
+
+<main class="checkout-main" id="checkoutPageContainer">
+  <div class="checkout-layout">
+    
+    <!-- Left Column: Cart Summary -->
+    <div class="checkout-panel">
+      <h2>Your Order Summary</h2>
+      <div id="checkoutCartItemsContainer">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="checkout-total-row">
+        <span>Total Amount:</span>
+        <span id="checkoutTotalDisplay">₹0</span>
+      </div>
+    </div>
+    
+    <!-- Right Column: Payment Form -->
+    <div id="checkoutPaymentPanel" class="checkout-panel">
+      <h2>Complete Your Payment</h2>
+      
+      <!-- Payment Method Selection Tabs -->
+      <div class="payment-tabs" style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid var(--rule);">
+        <button id="tabBtnUpi" type="button" class="pay-tab-btn active" onclick="switchPaymentTab('upi')" style="flex: 1; padding: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; font-weight: 600; border: 1px solid var(--brass); background: var(--card); color: var(--brass-dark); cursor: pointer; border-bottom: none; border-radius: 4px 4px 0 0; transition: 0.2s;">
+          🇮🇳 UPI / PhonePe (INR ₹)
+        </button>
+        <button id="tabBtnPaypal" type="button" class="pay-tab-btn" onclick="switchPaymentTab('paypal')" style="flex: 1; padding: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; font-weight: 600; border: 1px solid var(--rule); background: transparent; color: var(--ink-soft); cursor: pointer; border-bottom: none; border-radius: 4px 4px 0 0; transition: 0.2s;">
+          🌐 PayPal &amp; Cards (USD $)
+        </button>
+      </div>
+
+      <div class="amount-field">
+        <label id="paymentAmountLabel">Amount to Pay (₹)</label>
+        <span id="checkoutPayAmountDisplay">0</span>
+      </div>
+
+      <!-- Tab Content 1: Domestic UPI -->
+      <div id="paymentContentUpi" class="pay-tab-content">
+        <a id="phonepeLink" class="phonepe-btn" href="#" target="_blank" rel="noopener">Pay with PhonePe / UPI</a>
+
+        <div class="qr-box">
+          <img id="qrImg" src="" alt="UPI QR Code">
+          <p style="font-size:0.75rem; color:var(--ink-soft); margin-top:6px;">Scan with PhonePe, GPay, Paytm, or any UPI app</p>
+        </div>
+
+        <div class="upi-id-row" id="upiIdText">9953039224@ybl</div>
+        <button type="button" class="copy-btn" onclick="copyUpiId()">Copy UPI ID</button>
+      </div>
+
+      <!-- Tab Content 2: International PayPal / Cards -->
+      <div id="paymentContentPaypal" class="pay-tab-content" style="display: none;">
+        <div style="background: var(--parchment); border: 1px solid var(--rule); padding: 20px; margin-bottom: 20px; text-align: center; border-radius: 4px;">
+          <p style="font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 12px; line-height: 1.5;">Pay securely internationally using PayPal account, Debit, or Credit Card.</p>
+          <a id="paypalPayBtn" class="phonepe-btn" href="https://paypal.me/amanalliance" target="_blank" rel="noopener" style="background: linear-gradient(135deg, #0070ba, #003087); color: #fff; margin-bottom: 14px; text-decoration: none;">
+            💳 Pay via PayPal ($ USD)
+          </a>
+          <div style="font-size: 0.8rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em;">Merchant PayPal Email:</div>
+          <div class="upi-id-row" style="font-size: 0.9rem; margin-top: 6px; margin-bottom: 10px;">amanalliance@gmail.com</div>
+          <button type="button" class="copy-btn" onclick="copyPaypalEmail()" style="margin-bottom: 0;">Copy PayPal Email</button>
+        </div>
+      </div>
+
+      <form id="orderForm" class="order-form" action="https://formsubmit.co/ajax/aman.chawla@gmail.com" method="POST" onsubmit="handleOrderSubmit(event, true)">
+        <h3>Confirm Your Payment</h3>
+        <p class="order-form-sub" id="orderFormSub">Enter your details and transaction reference below. After payment verification, your items will be delivered/unlocked.</p>
+        
+        <div class="order-book-note">Items: <strong id="orderBookTitle">—</strong></div>
+        
+        <div class="form-grid">
+          <div><label for="buyerName">Name *</label><input id="buyerName" name="buyer_name" required autocomplete="name"></div>
+          <div><label for="buyerEmail">Email (delivery inbox) *</label><input id="buyerEmail" name="email" type="email" required autocomplete="email"></div>
+          
+          <!-- Conditional Fields (shown for physical items) -->
+          <div id="phoneField" style="display: none;">
+            <label for="buyerPhone">WhatsApp / Phone *</label>
+            <input id="buyerPhone" name="phone" autocomplete="tel">
+          </div>
+          <div id="addressField" style="display: none;">
+            <label for="shippingAddress">Shipping Address &amp; Country / Pincode *</label>
+            <textarea id="shippingAddress" name="shipping_address" autocomplete="street-address" placeholder="Enter complete shipping address with Country and Pincode" style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--rule); background: var(--bg-light, #f8f7f4); font-family: inherit; font-size: 0.95em; border-radius: 4px;"></textarea>
+          </div>
+
+          <div>
+            <label for="utr" id="utrLabel">UTR / UPI Transaction Reference ID (12-digit) *</label>
+            <input id="utr" name="utr" required placeholder="e.g. 629845701923">
+          </div>
+          
+          <input type="hidden" id="orderBookInput" name="ordered_books">
+          <input type="hidden" id="orderLocationInput" name="shelf_locations">
+          <input type="hidden" id="orderAmountInput" name="amount">
+          <input type="hidden" id="orderPaymentMethodInput" name="payment_method" value="UPI / PhonePe">
+          <input type="hidden" name="_subject" value="REAL Institute Checkout — Order Confirmation">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+          
+          <button class="phonepe-btn" id="submitOrderBtn" type="submit" style="margin-top: 10px; width: 100%; border: none; cursor: pointer;">Submit Order & Verification Request</button>
+        </div>
+        <div id="orderStatus" class="order-status" role="status"></div>
+      </form>
+    </div>
+    
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>A reflective offering of the <a href="index.html">REAL Institute</a></p>
+    <p>Contact Support: <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a></p>
+  </div>
+</footer>
+
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

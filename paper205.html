@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Communication-on-the-fly With High Quality Bits - Part I: Motivation - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Communication-on-the-fly With High Quality Bits - Part I: Motivation</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this paper (part I), the authors sketch a high-level overview of the motivation for anytime information theory. Preliminaries 1.1 Information Theory The reader unfamiliar with information theory can read Prof. Thomas Cover's book [1] for the various types of channels including the erasure channel, prop- erties of channel capacity, and the noisy channel coding theorem of Claude Shannon. 1.2 Control Theory We follow the development in [2]. Let a Finite Dimensional Linear Time Invari- ant (FDLTI) dynamical system be described by the following linear constant- coecient dierential equations: ˙x = Ax + Bu (1) where x(t0) = x0 (2) and y = Cx + Du (3) where x(t) in Rn is called the system state, x(t0) is called the initial condition of the system, u(t) in Rm is called the system input, and y(t) in Rp is the system output. The A; B; C; and D are appropriately dimensioned real constant matrices. A dynamical system with single input (m = 1) and single output (p = 1) is called a SISO (single input and single output) system, otherwise it is called MIMO system. 1</p> <p>Figure 1: Blocks in a communication system. Credits: [3]. The following denitions will be useful in subsequent sections and parts. Denition 1. The dynamical system described by Equation (1) or the pair (A; B) is said to be controllable if, for any initial state x(0) = x0, t1 &gt; 0 and nal state x1, there exists a (piecewise continuous) input u(·) such that the solution of Equation (1) satises x(t1) = x1. Otherwise, the system or the pair (A; B) is said to be uncontrollable. Denition 2. An unforced dynamical system ˙x = Ax is said to be stable if all the eigenvalues of A are in the open left half plane, i.e., Re(A) &lt; 0. A matrix A with such a property is said to be stable or Hurwitz. Denition 3. The dynamical system (Equation (1)), or the pair (A; B), is said to be stabilizable if there exists a state feedback u = Fx such that the system is stable, i.e., A + BF is stable. Denition 4. The dynamical system described by Equations (1) through (3) or by the pair (C; A) is said to be observable if, for any t1 &gt; 0, the initial state x(0) = x0 can be determined from the temporal history of the input u(t) and the output y(t) in the interval of [0; t1]. Otherwise, the system, or (C; A), is said to be unobservable. Shannon's Formulation of Communication Shannon presents a block diagram (Figure 1) summarizing a communication system [3]. The system consists of the message source, the encoder, a channel, the decoder and the destination. This is a point-to-point channel. In this formulation, how much delay is incurred in going from source to destination is immaterial; large end-to-end delay is permitted. For example, if the channel is specied as y(t) = x(t) + n(t), (4) representing the operation occurring at the addition node, the overall delay in traveling to the addition node and then coming out of it is not mentioned/relevant. 2</p> <p>Figure 2: Distributed control setting. Credits: [4, 5]. A Scalar Distributed Control Problem Consider a distributed control problem: Xt+1 = λXt + Ut + Wt (5) Such a problem arises when there are multiple controllers. So Sahai's diagram above might not depict a distributed system. Mere observer and controller separation might not make it a distributed control problem1. However, it is a scalar problem since no vectors are involved. In a separate paper [5] the same authors consider the vector version. Their goal is η-stability where the η-th power of the absolute value of the state must be bounded (nite)[4]. With reference to Equation (5), suppose if λ is greater than 1, the state would grow unboundedly, making it an unstable system. The stability requirement is that the η-th moment of the state be bounded from above for all time. 1Credits: a language model. 3</p> <p>4 Is Shannon Capacity all we Need? Consider a system with λ = 2 for the dynamics. λ = 2 means that the system state is doubling at every time step. What is a real erasure channel? Real refers to the fact that it carries real-valued numbers. Erasure refers to the fact that with some probability a transmission can be entirely dropped or erased, and replaced by some symbol `E' called an erasure symbol. Thus, Zt = Yt with probability ½, Zt = 0 with probability ½. Zt is the output of the channel and Yt is the input of the channel. Here the erasure symbol is `0.' There are no other constraints. The design is obvious: Yt = Xt, Ut = −λZt. We feed the state Xt into the channel input Yt and feed the channel output Yt, properly scaled, as the control signal Ut. The resulting closed-loop dynamics: Xt+1 = Wt with probability ½, and Xt+1 = 2Xt+Wt with probability 1/2. The closed loop dynamics are derived simply by appropriate substitutions. Is the Closed-loop System Stable? Xt+1 = Wt with probability ½, and Xt+1 = 2Xt + Wt with probability ½. i.i.d. erasures mean arbitrarily long stretches of erasures are possible, though unlikely. Since the erasures are i.i.d. with some probability, there can be a continuous string of erasures with some probability. Thus the lower option comes into play and the system is not guaranteed to stay inside any box. Under stochastic disturbances, the variance of the state is asymptotically innite. That is, system state can grow unboundedly and so the variance of the state is asymptotically innite. Here we have employed the formula V ar(aX) = a2V ar(X). For worst case disturbances Wt = 1, the tail probability is dying o as Pr(|X| &gt; x) ≡K/x where we have used Markov's inequality Pr(|X| &gt; x) ≤ E[X]/x. If we assume there is an equality instead of inequality, we get the bound on the tail as E[X]/x. As one goes farther towards ±∞, the probability of being in the tail goes to 0. Thus the probability of large values is small. Nevertheless, the system is unboundedly and therefore uncontrollably growing, whereas the Shannon ca- pacity C = ∞! The Shannon capacity is innite, which means one can send any number of bits per second with 0 probability of error; thus Shannon capacity is inadequate as a notion useful when controlling a system by sending bits. References [1] Thomas M. Cover and Joy A. Thomas. Elements of Information Theory. 2005. 4</p> <p>[2] IS Khalil, JC Doyle, and K Glover. Robust and optimal control, volume 2. Prentice hall New York, 1996. [3] Claude E Shannon. A mathematical theory of communication. The Bell System Technical Journal, 27:379423, 1948. [4] Anant Sahai and Sanjoy Mitter. The necessity and suciency of anytime capacity for stabilization of a linear system over a noisy communication link - Part I: Scalar systems. IEEE Transactions on Information Theory, 52(8):33693395, 2006. [5] Anant Sahai and Sanjoy Mitter. The necessity and suciency of anytime capacity for stabilization of a linear system over a noisy communication link. part ii: vector systems,. IEEE Trans. Inform. Theory, 2005.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Communication_on_the_fly_With_High_Quality_Bits_Part_I_Motivation.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quantum Stroboscope: A Note on Quantum Illumination of Moving Targets - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Quantum Stroboscope: A Note on Quantum Illumination of Moving Targets</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">Quantum illumination (QI) has traditionally been used to detect low-reflectivity objects in noisy environments using entangled photon pairs. In this note, we explore a hybrid setup that combines the phase sensitivity of classical interference with the robustness of quantum il- lumination. We analyze how the interference at the point of object reflection can be integrated with QI to detect displacements and mo- tion, particularly periodic motion, with enhanced sensitivity. This leads naturally to the concept of a quantum stroboscope, enabling high-frequency motion detection via quantum protocols. Introduction Quantum illumination, pioneered by Seth Lloyd [1], exploits entanglement to improve target detection in lossy and noisy environments. Typically, QI does not require the retention of entanglement through the channel. Instead, it uses joint measurements on the signal and idler photons to statistically distinguish between target presence and absence. Here, we consider a setup in which the signal photon undergoes classical interference at a reflective object, while the idler is stored locally. This differs from conventional QI by combining phase-sensitive interference at the target with quantum-enhanced detection at the receiver. We further extend the idea to moving targets, using the quantum stroboscope paradigm introduced in [2]. Classical Setup and Interference Consider a classical electromagnetic wave y(x, t) = A(x, t) sin(ωt + x) (1) *Prepared in collaboration with an LLM. 1</p> <p>sent towards a double-slit at x = −10 meters. An interference pattern forms at x = −30 meters. Placing a reflecting object in the central bright fringe and detecting the reflected light at a detector D, located off-axis, allows for classical interference-based displacement sensing. The intensity at the screen is I(y) = I0 cos2 kyd 2L  , (2) where k is the wave number, d is slit separation, and L is the distance to the screen. Quantum Illumination Framework A typical QI protocol uses signal-idler photon pairs in the entangled state |ψ⟩SI = X n cn|n⟩S|n⟩I. (3) The signal is sent to probe the target region, and the idler is retained. Despite entanglement being broken by noise and loss, joint measurements allow superior detection capabilities compared to classical light. Hybrid Scheme: Interference at Object + Quan- tum Detection In our hybrid approach:  The signal photon undergoes path interference at a double-slit and reflects off an object placed at the interference maximum.  The interference pattern modulates the signal photon probability am- plitude.  The idler photon is stored and jointly measured with the returned signal. Let the fields from the two slits interfere at the object location, leading to a total field E(obj) S (t, y) = √ 2 [ψ1(t, y) + ψ2(t, y)] . (4) The object reflects this coherent sum, and the detector D performs a coin- cidence measurement with the idler photon. 2</p> <p>5 Application: Displacement and Motion Detec- tion A small displacement δ of the object from the interference maximum changes the phase difference between the two paths, modifying the interference am- plitude. This results in a phase-sensitive signal return: Eref(δ) ∝cos kδd 2L  , (5) and the joint detection probability is modulated accordingly. This allows quantum-enhanced sensitivity to nanometer-scale displacements. Quantum Stroboscope Extension Building on [2], suppose the object is periodically moving. Let the orbital period be T, and the time t required for detection (i.e., the time to collect sufficient signal-idler coincidences) be known. If t ≪T, we can capture stroboscopic ”snapshots” of the object at consistent positions in its orbit. Since t is smaller with entanglement [1], the system supports detection at higher motion frequencies, enabling quantum stroboscopy: f(QI) max &gt; f(classical) max . (6) Conclusion By integrating interference at the object with quantum illumination pro- tocols, we can achieve enhanced sensitivity in detecting displacements and motion. This hybrid strategy leverages classical coherence and quantum cor- relations to enable novel sensing capabilities, including quantum stroboscopy for tracking high frequency periodic motion. References [1] Seth Lloyd, ”Enhanced sensitivity of photodetection via quantum illu- mination,” Science, vol. 321, no. 5895, pp. 1463–1465, 2008. 1, 6 [2] Aman Chawla, ”Quantum Stroboscope: A Note on Quantum Illumina- tion of Moving Targets,” 2024. Unpublished manuscript. 1, 6</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Quantum_Stroboscope_A_Note_on_Quantum_Illumination_of_Moving_Targets.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

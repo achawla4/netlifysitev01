@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Channel Coding | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    
+/* RELATED PAPERS + PREMIUM STYLE START */
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .related-list li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .related-list li:hover {
+            background-color: #f0f8ff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.15);
+        }
+        .related-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .related-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Premium Service Box */
+        .premium-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .premium-box h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .premium-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        .paypal-button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* Navigation Links */
+        .nav-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+/* RELATED PAPERS + PREMIUM STYLE END */
+</style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 5 &middot; V1I5-A03</div>
+            <h1>Structured Channel Coding</h1>
+            <div class="hero-meta">Aman Chawla\\ REAL Institute, Gurugram, India\\ IIT Delhi\\ Email: aman.chawla@gmail.com | March 31, 2026</div>
+            <div class="hero-meta">Source PDF: sccodingv4.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_5.html">Issue 5</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>In this preliminary AI note, we introduce <em>Structured Channel Coding</em>, merging the vanishing-clustering framework of structured source coding with the two-phase variable-delay Gaussian-feedback reliability scheme for infinite-bandwidth peak-power-constrained AWGN channels. The monolithic decoding-error set \({E}^{(T_1)}\) of Phase 1 orthogonal signaling is partitioned into \(k 2\) Hamming-metric clusters controlled by the granularity parameter \( = {_2 k}{n(H_{ eff} + )}\). The dominant-cluster error probability satisfies \(D (P_e^{(2)},\, 2^{2n}/k)\), where \(n = T_1 W\) is the effective discrete dimension after orthogonal-signal discretization. A rigorous derivation of the extra exponent \(()\) is provided, justifying the continuous-to-discrete mapping via the standard orthogonal-signaling equivalence of the infinite-bandwidth AWGN channel. The structured reliability function is \[ E_{ struc}({R},) > ({1}{C_2} + {1}{4C_1(1+())})^{-1}(1 - {{R}}{C_1}). \] While this lower bound increases with \(()>0\), the unstructured bound of Chawla (2006) is tight for the monolithic error metric. The structured paradigm uses a refined error criterion (dominant-cluster mishandling), so the two are incomparable except in the limit \( 0\). A matching converse upper bound is established using a Sanov-type lower bound on \(D\) that holds for <em>any</em> clustering and <em>any</em> Phase-2 anytime code. <strong>Keywords:</strong> Gaussian feedback, reliability function, structured coding, vanishing clustering, error exponent, Sanov&#x27;s theorem, converse bounds.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>Classical information theory treats decoding errors as a monolithic event. Chawla <span class="citation" title="chawla2006">[1]</span> obtained the tight lower bound \[ E_{ GaussPeak}({R}) > ({1}{C_2} + {1}{4C_1})^{-1}(1 - {{R}}{C_1}) \] via a two-phase scheme (orthogonal signaling + antipodal confirm/deny + sequential anytime state feedback).</p>
+<p>Structured source coding <span class="citation" title="chawla2026">[2]</span> partitions the atypical set \(B_^{(n)}\) into \(k\) clusters, yielding dominant-cluster probability \(D (,\, 2^{2n}/k)\).</p>
+<p>Structured Channel Coding fuses the two frameworks. The resulting reliability \(E_{ struc}({R},)\) is strictly larger than the unstructured bound for \( > 0\) under the refined dominant-cluster metric, but the paradigms coincide exactly as \( 0\).</p>
+<p>Section [sec:prelim] recalls preliminaries. Section [sec:def] defines the framework. Section [sec:derive] derives \(()\) rigorously, discusses the fundamental difference from the unstructured setting, and provides a matching converse. Section [sec:phases] re-engineers the protocol. Conclusions follow in Section [sec:conc].</p>
+<h2 id="preliminaries">Preliminaries</h2>
+<h3 id="gaussian-feedback-reliability-chawla-2006">Gaussian Feedback Reliability (Chawla 2006)</h3>
+<p>Forward and feedback channels are independent infinite-bandwidth continuous-time peak-power-constrained AWGN links (\(C_1 = P_1/N_1\), \(C_2 = P_2/N_2\)). The two-phase scheme achieves the quoted (tight) lower bound on reliability (error exponent per unit time).</p>
+<h3 id="structured-source-coding">Structured Source Coding</h3>
+<p>The atypical set \(B_^{(n)}\) is partitioned into \(k\) Hamming clusters. The dominant-cluster probability obeys \(D (,\, 2^{2n}/k)\), with matching worst-case lower bound \(D (1-o(1)) 2^{2n}/k\).</p>
+<h2 id="definition-of-structured-channel-coding">Definition of Structured Channel Coding</h2>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>[Structured Atypical Error Set] After Phase 1 orthogonal signaling, let \({E}^{(T_1)}\) be the set of incorrectly decoded \(K\)-packet vectors. Partition \({E}^{(T_1)} = _{j=1}^k C_j\) by Hamming-distance \(k\)-means. The dominant-cluster error probability is \[ D ({m} C_{} {m} m) P_e^{(2)}. \]</p></section>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>[Structured Dominant-Cluster Bound] \[ D (P_e^{(2)},\, 2^{2n}/k), \] with \(n = T_1 W\) (effective discrete dimension). Strict improvement \(D < P_e^{(2)}\) holds when error mass concentrates near decision boundaries (Sanov&#x27;s theorem).</p></section>
+<h2 id="derivation-sketch-of-the-structured-reliability-function">Derivation Sketch of the Structured Reliability Function</h2>
+<h3 id="discretization-and-derivation-of">Discretization and Derivation of \(()\)</h3>
+<p>The infinite-bandwidth AWGN channel with orthogonal signaling admits an exact equivalence to a discrete-time channel. Each orthogonal packet of duration \(T_1/K\) corresponds to one independent Gaussian observation (standard result: the continuous-time model reduces to \(n = T_1 W\) effective dimensions when signals are time-orthogonal and bandwidth is unlimited; see Gallager <span class="citation" title="gallager1968">[3]</span> or the orthogonal-signal analysis in Chawla <span class="citation" title="chawla2006">[1]</span>, Chapter 2). The classical Phase-1 error exponent \(E_{ orth}(R)\) is already normalized per unit time, so the combinatorial bound \(2^{2n}/k\) from source coding transplants directly: the extra decay factor is \[ () = {2n - _2 k}{T_1}. \] Substituting \( = _2 k / [n(H_{ eff} + )]\) with \(H_{ eff} = {R}/C_1\) and \(n = T_1 W\) yields the normalized extra exponent \[ () = (0,\, 2 - (H_{ eff} + )) {W}{T_1} > 0 \] in the finite-blocklength regime \(n < (1/(2))_2(k/)\). Thus \[ E_{ orth}^{ struc}(R,) = E_{ orth}(R) + (). \]</p>
+<h3 id="propagation-to-phase-2-and-structured-reliability-lower-bound">Propagation to Phase-2 and Structured Reliability Lower Bound</h3>
+<p>The reduced input error probability \(D\) shortens the Phase-2 waiting time \(_{ wait}\) by \(()T_1 / \), where \( = 4C_1 C_2/(C_2 + 4C_1)\). Normalizing by expected total time gives</p>
+<div class="math-block">$$
+E_{\rm struc}(\bar{R},\chi) > \left(\frac{1}{C_2} + \frac{1}{4C_1(1+\delta(\chi))}\right)^{-1}\left(1 - \frac{\bar{R}}{C_1}\right).
+$$</div>
+<h3 id="fundamental-difference-from-the-unstructured-setting">Fundamental Difference from the Unstructured Setting</h3>
+<p>The original unstructured bound is tight for the monolithic any-error probability. The structured bound [eq:Estruc] is larger because \(()>0\). However, the two cannot be compared directly except in the limit \( 0\): the structured reliability quantifies decay of the probability that the <em>dominant error cluster</em> is mishandled, not the probability of <em>any</em> error. This refined error criterion changes the performance metric itself. The \(()\) improvement is therefore genuine for the new metric and does not contradict the tightness of the unstructured bound.</p>
+<h3 id="converse-upper-bound">Converse Upper Bound</h3>
+<p>We suggest that <em>no</em> scheme (arbitrary clustering + arbitrary Phase-2 code) can exceed [eq:Estruc].</p>
+<section class="theorem-block"><div class="theorem-title">Lemma</div><p>[Sanov Lower Bound on \(D\) &ndash; Independent of Clustering] For any partition of \({E}^{(T_1)}\) into \(k\) clusters and any noise realization, Sanov&#x27;s theorem on the convex rate function of the orthogonal channel implies that atypical error mass concentrates on a set of types whose size satisfies \[ D (1-o(1)) {2^{2n}}{k} \] in the worst case (uniform mass over error types near decision boundaries).</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>The conditional probability of each error vector is bounded by the large-deviation rate function. When mass is (nearly) uniform over the support of \({E}^{(T_1)}\) (possible under Sanov for convex rate functions), the largest cluster satisfies \(|C_{}| |{E}^{(T_1)}|/k\). Multiplying by the per-vector probability bound yields the stated lower bound on \(D\). This lower bound depends only on the channel law and \(k\), not on the specific clustering algorithm or Phase-2 code.</p></section>
+<p>Because any Phase-2 anytime code must operate on an input error probability at least as large as this combinatorial lower bound on \(D\), the waiting-time reduction cannot exceed the value derived in achievability. Consequently the structured reliability satisfies the matching upper bound</p>
+<div class="math-block">$$
+E_{\rm struc}(\bar{R},\chi) \le \left(\frac{1}{C_2} + \frac{1}{4C_1(1+\delta(\chi))}\right)^{-1}\left(1 - \frac{\bar{R}}{C_1}\right).
+$$</div>
+<p>Together with the lower bound [eq:Estruc], the structured reliability may be tight for the refined dominant-cluster metric. As \( 0\), both bounds recover the classical (tight) unstructured result.</p>
+<section class="theorem-block"><div class="theorem-title">Corollary</div><p>[Consistency with Shannon Capacity] \(_{ 0} E_{ struc}({R},) = E_{ GaussPeak}({R})\) and effective capacity remains \(C_1\).</p></section>
+<h2 id="re-engineered-four-phase-protocol">Re-engineered Four-Phase Protocol</h2>
+<p>Phase 1 uses structured orthogonal signaling with cluster assignment at the decoder. Phase 2 employs a structured ID code for the cluster label only (\(_2 k + 1\) bits). Phase 3 is hierarchical antipodal confirm/deny of the cluster index. Phase 4 uses a cluster-index-aware semi-orthogonal anytime code. The \(\)-overhead remains vanishing.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Structured Channel Coding provides a possibly tight reliability function for the refined dominant-cluster metric. The derivation of \(()\) and the Sanov-based converse resolve the technical issues of direct transplantation and tightness. Future work includes non-i.i.d.\ noise and adaptive clustering.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-chawla2006"><span class="ref-key">[1]</span> <p>A. Chawla, &quot;Reliability of a Gaussian Channel in the Presence of Gaussian Feedback,&quot; Master&#x27;s thesis, Massachusetts Institute of Technology, 2006.</p></li><li id="ref-chawla2026"><span class="ref-key">[2]</span> <p>A. Chawla, &quot;Structured Source Coding: Shannon Theory as the Vanishing-Clustering Limit,&quot; preprint, REAL Institute, 2026.</p></li><li id="ref-gallager1968"><span class="ref-key">[3]</span> <p>R. G. Gallager, <em>Information Theory and Reliable Communication</em>. Wiley, 1968.</p></li></ol></section>
+        </article>
+
+<!-- RELATED PAPERS SECTION START -->
+        <div class="section">
+            <h2>Related Papers You May Like</h2>
+            <ul class="related-list">
+            <li><a href="../paper354.html">Shannon Source Coding as a Limiting Case of Structured Source Coding</a></li>
+            <li><a href="../paper366.html">Finite-Blocklength Advantage for Quantum Structured Source Coding</a></li>
+            <li><a href="../paper150.html">Li-Vitanyi Approach to Noisy Channel Coding</a></li>
+            <li><a href="../paper357.html">Structured Decomposition of the Quantum Atypical Sector</a></li>
+            <li><a href="../paper365.html">Fidelity Tradeoff for Quantum Structured Source Coding: Lowering Landauer's Lower Bound</a></li>
+            </ul>
+        </div>
+<!-- RELATED PAPERS SECTION END -->
+
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section">
+            <div class="premium-box">
+                <h2>Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price">$5 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-button">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="amanalliance@gmail.com">
+                    <input type="hidden" name="item_name" value="Premium Support - Structured Channel Coding | Prajnanabha">
+                    <input type="hidden" name="amount" value="5.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="https://yourwebsite.com/thankyou">
+                    <input type="hidden" name="cancel_return" value="https://yourwebsite.com">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+                           border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                </form>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+
+
+<!-- NAVIGATION LINKS START -->
+        <div class="nav-links">
+            <a href="../assets/Soft_Copies/sccodingv4.pdf" target="_blank">📄 View Full Paper (PDF)</a>
+            <a href="../prajnanabha-i_5.html">← Back to Issue 5</a>
+        </div>
+<!-- NAVIGATION LINKS END -->
+
+
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

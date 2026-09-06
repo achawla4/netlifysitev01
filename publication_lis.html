@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Hariharananda REAL Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+		    font-weight: 400;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            letter-spacing: -0.01em;
+            color: #2c3e50;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            background: #fafaf8;
+        }
+        
+
+		h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+            color: #1a252f;
+        }
+
+        h2 {
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        em {
+            font-style: italic;
+            letter-spacing: 0.01em;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(218,165,32,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            margin-top: 0;
+            color: #daa520;
+        }
+        
+		.hero a:link {
+		  color: #daa520;
+		}
+
+		.hero a:visited {
+		  color: #b8860b;
+		}
+
+		.hero a:hover {
+		  color: #ffd700;
+		  text-decoration: underline;
+		}
+
+		.hero a:active {
+		  color: #ff6347;
+		}
+
+        .hero p {
+            font-size: 1.15em;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .profile-section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .profile-info h2 {
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        
+        .profile-info .affiliation {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #daa520;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .search-filter {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1em;
+            font-family: 'Cormorant Garamond', serif;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #daa520;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background: #daa520;
+            color: white;
+            border-color: #daa520;
+        }
+        
+        .filter-btn.active {
+            background: #daa520;
+            color: white;
+            border-color: #daa520;
+        }
+        
+        .publications-list {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .year-group {
+            margin-bottom: 35px;
+        }
+        
+        .year-header {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #daa520;
+            display: inline-block;
+        }
+        
+        .publication-item {
+            padding: 18px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-item:hover {
+            background-color: #fafaf8;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .pub-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .pub-title a {
+            color: #1a1a2e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .pub-title a:hover {
+            color: #daa520;
+            text-decoration: underline;
+        }
+        
+        .pub-authors {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .pub-venue {
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .pub-meta {
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 14px;
+            background: #f5f5f5;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+            color: white;
+            border-color: #daa520;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 1.1em;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: white;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            border: 2px solid #daa520;
+        }
+        
+        .back-link:hover {
+            background: #daa520;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="hero">
+        <h1>Publications</h1>
+        <p>Research at the intersection of consciousness, information theory, and quantum mechanics</p>
+        <p style="font-size: 0.95em;"><a href="index.html">← Back to Home</a></p>
+    </div>
+    
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Bibliography">
+        <div class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">AC</div>
+                <div class="profile-info">
+                    <h2>Aman Chawla</h2>
+                    <div class="affiliation">Hariharananda REAL Institute</div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-pubs">337</span>
+                            <span class="stat-label">Publications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">21</span>
+                            <span class="stat-label">Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-filter">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search publications by title, author, or venue...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterYear('all')">All Years</button>
+                <button class="filter-btn" onclick="filterYear('2025')">2025-2026</button>
+                <button class="filter-btn" onclick="filterYear('2020')">2020-2024</button>
+                <button class="filter-btn" onclick="filterYear('2010')">2010-2019</button>
+                <button class="filter-btn" onclick="filterYear('2000')">2000-2009</button>
+            </div>
+        </div>
+        
+        <div class="publications-list" id="publicationsList">
+            <!-- 2025-2026 -->
+            <div class="year-group" data-year="2026">
+                <div class="year-header">2026</div>
+                
+                <div class="publication-item">
+                    <div class="pub-title">Weak Source Coding: Entropy-Tightened Bounds via Clustering of Atypical Sequences</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2026</div>
+                    <a href="https://doi.org/10.5281/zenodo.18148555" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ephaptic Quantum Energy Teleportation and Quantum Ephaptic Coupling: A Unified Mechanism for Energy–Charge Recombination Across Lipid Barriers</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2026</div>
+                    <a href="https://doi.org/10.5281/zenodo.18207631" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Extending Baar's Theatre: a Substrate for World Peace</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2026</div>
+                    <a href="https://doi.org/10.5281/zenodo.18211218" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Dharma Advisory Councils: Role and Recruitment</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2026</div>
+                    <a href="https://doi.org/10.5281/zenodo.18218211" class="pub-link" target="_blank">View Publication</a>
+                </div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="year-group" data-year="2025">
+                <div class="year-header">2025</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Capacity Boost: Data Transmission in the Unified Regime</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Prajnanabha: Information and Physics, Vol. 1, No. 3, p. 6</div>
+                    <div class="pub-meta">REAL Institute, Gurugram, India · 2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ab Initio Control of a SPAD Sensor Using an AVR-Controlled External Datapath: A Replicable Table-Top Architecture for Long-Horizon Quantum Computation</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.18091198" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Quantum Made in Bharat</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Vol. 1</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://zenodo.org/records/18079172" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Necessary and Sufficient Substrate for Consciousness</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Prajnanabha: Information and Physics, Vol. 1, No. 2, Article 2</div>
+                    <div class="pub-meta">REAL Institute · 2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">The Action Potential Field: Why Consciousness May be Irreducible</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Prajnanabha: Information and Physics, Vol. 1, No. 2, Article 5</div>
+                    <div class="pub-meta">REAL Institute · 2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">White Matter Capacity</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Prajnanabha: Information and Physics, Vol. 1, No. 2, Article 4</div>
+                    <div class="pub-meta">REAL Institute · 2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Minimal Systems for Computational Creativity: Evidence of Motif Stabilization</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Prajnanabha: Information and Physics, Vol. 1, No. 2, Article 6</div>
+                    <div class="pub-meta">REAL Institute · 2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Networks of Transformers</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.18007581" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On Tinkering With Text: How to Refashion Prose</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17999610" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Augmenting Human Research Insight Using Large Language Models</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17993712" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Nonlinear Emergence of Creation</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17973775" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Living Fire</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Available from author upon email request</div>
+                    <div class="pub-meta">2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Wave-Spin Interaction in an Angular Momentum Lens</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17900451" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On an Argument of Hume</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Available from author via email request (humeanv5.pdf)</div>
+                    <div class="pub-meta">2025</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Multi-Ethics of Mechanism</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17851105" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Suganita</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17796194" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Shared Human Models on Ethics</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17765726" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Unified Grammar of Science</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17681138" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Programming Hilbert Space</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Submitted on 2025/12/08</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17667003" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Vedantic Pañcikarana and the Emergence of Collective Neural Dynamics via Ephaptic Coupling</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17651324" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">FSO Channel Design With Halo-Inclusive Source</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17649553" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">An Approach to Genuine Intelligence Using Electrophysiology</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17636666" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17621219" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Modest Security Gains With Modulus Diversity in Elliptic Curve Cryptography</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17617693" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">First Observation: A Dialogue on Nonlocal Unification</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17614206" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Self-recovery and Security: Novel Aspects of Network Random Refresh</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17600892" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Unification of Intelligence and Information: Beyond Blahut-Arimoto Using Machine Learning</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17577660" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Note on Invoking Indo-Scandinavian Cultural Affinity for Increased Cooperation</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17571699" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Black Hole Information Loss Paradox Under a Novel Phenomenological Model of Quantum Measurements</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17507769" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Performance of the Vector Perceptron With Ephaptic Coupling</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17465231" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Covariant Reformulation and Simulation of Action Potential Diffusion</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17448202" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Tracking the Neuronal Paths of Ephaptic Information</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17389001" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Dramatic Velocity Changes Under Temperature Differentials in Ephaptic Tracts</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17383707" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Nonlocal Unification Field Theory and Its Quantum Optics Limit: Observer-Function Formulation</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17317312" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Note on Message Passing Decoding Over Non-Gaussian Channels</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17279023" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Design of More Capable Nervous Systems</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17276503" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ocean of Divine Bliss Verse 10: a Commentary</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17207336" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ocean of Divine Bliss Verse 9: a Commentary</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17194673" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Bodhsanchar 1: Agent-Aided Maritime Communication System for Green Port Operations</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17140577" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">An Application of Mitter-Young Theory to Hurwitz Detection</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17138843" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ocean of Divine Bliss Verse 8: a Commentary</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17112506" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Integration with respect to SIC-POVMs: a Generalized View</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17107723" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Quantifying the Quantum Intelligence of a Language</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17099672" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Nodal Misalignment Affects Spike Propagation in 3D Ephaptic Tracts</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17068277" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ocean of Divine Bliss Verse 7: a Commentary</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17066363" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Energy Needs of Artificial Intelligence</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">ResearchGate</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="http://dx.doi.org/10.13140/RG.2.2.19237." class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Bi-stochastic Versions of Hairer Coupling</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.17018320" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Self-realization, Science and the Constitution of India: a Computational Perspective</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.16993986" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">My Immortal India</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.5281/zenodo.18050692" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Concentration as Modulated Gathering</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Research Gate</div>
+                    <div class="pub-meta">2025</div>
+                    <a href="https://doi.org/10.13140/RG.2.2.20254.19" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ephemeris Mundi</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Prajnanabha Press, India</div>
+                    <div class="pub-meta">2025</div>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="year-group" data-year="2024">
+                <div class="year-header">2024</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Axonal Conduction Velocity: a Computer Study</div>
+                    <div class="pub-authors">Arthur Snider, Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Journal of Applied Mathematics and Physics, Vol. 12, No. 1</div>
+                    <div class="pub-meta">Scientific Research Publishing · 2024</div>
+                    <a href="https://doi.org/10.4236/jamp.2024.121007" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Quantum Information Processing in a Neuron</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Physics Essays, Vol. 37, No. 3, pp. 212-214</div>
+                    <div class="pub-meta">Physics Essays Publications · 2024</div>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="year-group" data-year="2023">
+                <div class="year-header">2023</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Journal of Applied Mathematics and Physics, Vol. 11, No. 11</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://www.scirp.org/journal/paperinformation.aspx?paperid=128888" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Note on the Origin and Fate of Consciousness</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10076267" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards `Real' Learning: a Computer Study of Perceptrons</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Impact of the Expansion of the Universe on Tract Information Processing</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10150833" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Infant Numerical Cognition and Ephaptic Synchronization</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10198775" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Can AI Detect G-Waves in Neural Data?</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10205559" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On General Nonlinearities in Ephaptic Coupling</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10205250" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Enlightened AI: a Proposal</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10246167" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards a Unified Picture of Everything</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10248815" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Structure of Nimble or Resilient Organizations: a Proposal</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10250201" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Networked Universal Awareness: a Note</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://zenodo.org/records/14995645" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Re-Viewing Information as a Fluid: an Error Exponent Proposal</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10378740" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Discrete Time, Continuous Time and the Self-image: A Gedanken Experiment</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10379411" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Remark on Ampliation in Probability and Philosophy</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10393467" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards a Dynamical Systems Approach to Feedback Communication</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.10033938" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Representation of Time in the Brain</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.8143251" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On Metric Perturbations and Channel Capacity: Information Acquisition in Spacetime</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.8054759" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Note on an Error of Representation in Parpola (1994)</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://zenodo.org/record/7954176#.ZGnBhKVBxD8" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Note on Nonlinearities in Ephaptic Axon Tracts</div>
+                    <div class="pub-authors">Aman Chawla, Suma Manjunath</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.13140/RG.2.2.15603.20009" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">How Biology can Control Information Flow in the Nervous System</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7882553" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Note on a Chomskian Analogy Between Sanskrit and Huffman Coding</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7832928" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Sanskrit as a Stable `Eigen'-Language Well-Suited for Storage and Transmission</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7826623" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.13140/RG.2.2.31315.45608" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">ResearchGate</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://www.researchgate.net/publication/369739145" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">An Application of Inductive Anvaya</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://zenodo.org/record/7793065" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Signal Detection and Integration Theory: a Gedanken Experiment</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://zenodo.org/record/7774610" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards an in-Silico Study of Sternarchus</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://zenodo.org/record/7724880" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Quantum Anytime Information Theory: A Proposal</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7642516" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Study of Compound Action Potentials in Current-Coupled Tracts of Identical Axons</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7582199" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards a Network Coding View of Ephaptic Synchronization</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://zenodo.org/record/7608640/files/butterflynervev13forYHKim.pdf?download=1" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On a Unification Problem in Mathematical Neuroscience</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7623570" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">The Axon Tract as a Transducer: Simulation of Gravitational Waves Coupling With an Ion at the Node of Ranvier</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2023</div>
+                    <a href="https://doi.org/10.5281/zenodo.7535755" class="pub-link" target="_blank">View Publication</a>
+                </div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="year-group" data-year="2022">
+                <div class="year-header">2022</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Differential Ephaptic Networks</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Journal of Applied Mathematics and Physics, Vol. 10, No. 10, pp. 2876-2882</div>
+                    <div class="pub-meta">Scientific Research Publishing · 2022</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Physics Essays, Vol. 36, No. 2</div>
+                    <div class="pub-meta">Physics Essays Publications · 2022</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Error Exponent of Axon-Coupled Channels: Computer Explorations</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Bernstein Conference 2022, PIII.19</div>
+                    <div class="pub-meta">2022</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards Weak Source Coding</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">arXiv</div>
+                    <div class="pub-meta">2022</div>
+                    <a href="https://arxiv.org/abs/2209.04765" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Towards Weak Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">arXiv, TR-166-2022</div>
+                    <div class="pub-meta">2022</div>
+                    <a href="https://arxiv.org/abs/2208.04263" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Communications in Mathematical Biology and Neuroscience, 2024, 57</div>
+                    <div class="pub-meta">scik.org · 2022</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Gedanken Experiment on the Brain as a Quantum Computer</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-meta">2022</div>
+                    <a href="http://dx.doi.org/10.13140/RG.2.2.15135.02720" class="pub-link" target="_blank">View Publication</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On an analogy between ephaptic coupling in large tracts and cross-modal integration during illusory percept</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">bioRxiv, 2022.10.27.509121</div>
+                    <div class="pub-meta">Cold Spring Harbor Laboratory · 2022</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">A Mathematical Model for the Vector Ephaptic Perceptron</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo [English & Spanish]</div>
+                    <div class="pub-meta">2022</div>
+                    <a href="https://doi.org/10.5281/zenodo.7421770" class="pub-link" target="_blank">View Publication</a>
+                </div>
+            </div>
+
+            <!-- 2020-2021 -->
+            <div class="year-group" data-year="2021">
+                <div class="year-header">2021</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Fields, Geometry, and Their Impact on Axon Interaction</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore D. Morgera, Arthur D. Snider</div>
+                    <div class="pub-venue">Journal of Applied Mathematics and Physics, Vol. 9, No. 4, pp. 751-778</div>
+                    <div class="pub-meta">Scientific Research Publishing · 2021</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">2020 IEEE Information Theory Workshop (ITW)</div>
+                    <div class="pub-meta">IEEE · 2021</div>
+                </div>
+            </div>
+
+            <div class="year-group" data-year="2020">
+                <div class="year-header">2020</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Domenic Morgera</div>
+                    <div class="pub-venue">Bernstein Conference</div>
+                    <div class="pub-meta">2020 · doi: 10.12751/nncn.bc2020.0068</div>
+                </div>
+            </div>
+
+            <!-- 2019 -->
+            <div class="year-group" data-year="2019">
+                <div class="year-header">2019</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On Axon Interaction and its Role in Neurological Networks</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore Morgera, Arthur Snider</div>
+                    <div class="pub-venue">IEEE/ACM Transactions on Computational Biology and Bioinformatics</div>
+                    <div class="pub-meta">IEEE · 2019</div>
+                </div>
+            </div>
+
+            <!-- 2017 -->
+            <div class="year-group" data-year="2017">
+                <div class="year-header">2017</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">On Axon-axon Interaction via Currents and Fields</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Ph.D. Thesis, University of South Florida</div>
+                    <div class="pub-meta">2017</div>
+                </div>
+            </div>
+
+            <!-- 2014 -->
+            <div class="year-group" data-year="2014">
+                <div class="year-header">2014</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli</div>
+                    <div class="pub-authors">Aman Chawla, Salvatore D. Morgera</div>
+                    <div class="pub-venue">BMC Neuroscience, Vol. 15, Suppl 1, P87</div>
+                    <div class="pub-meta">BioMed Central · 2014</div>
+                </div>
+            </div>
+
+            <!-- 2011 -->
+            <div class="year-group" data-year="2011">
+                <div class="year-header">2011</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Reliability of a Classical-quantum Communication System With Noisy Feedback</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Quantum Information Processing 2012</div>
+                    <div class="pub-meta">2011</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">The Depolarizing Channel can be Worse Than the Dephasing Channel When Replacing the Identity map in a Problem of Quantum Control</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Zenodo</div>
+                    <div class="pub-meta">2011</div>
+                    <a href="https://doi.org/10.5281/zenodo.17561795" class="pub-link" target="_blank">View Publication</a>
+                </div>
+            </div>
+
+            <!-- 2008 -->
+            <div class="year-group" data-year="2008">
+                <div class="year-header">2008</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel</div>
+                    <div class="pub-authors">A. Chawla</div>
+                    <div class="pub-venue">First Annual School of Information Theory, 2008</div>
+                    <div class="pub-meta">2008</div>
+                </div>
+            </div>
+
+            <!-- 2006 -->
+            <div class="year-group" data-year="2006">
+                <div class="year-header">2006</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Reliability of a Gaussian Channel in the Presence of Gaussian Feedback</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                    <div class="pub-venue">Master's Thesis, Massachusetts Institute of Technology</div>
+                    <div class="pub-meta">2006</div>
+                </div>
+            </div>
+
+            <!-- 2005 -->
+            <div class="year-group" data-year="2005">
+                <div class="year-header">2005</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Early Modulation of Visual Cortex by Sound: an MEG Study</div>
+                    <div class="pub-authors">Ladan Shams, Sunao Iwaki, Aman Chawla, Joydeep Bhattacharya</div>
+                    <div class="pub-venue">Neuroscience letters, Vol. 378, No. 2, pp. 76-81</div>
+                    <div class="pub-meta">Elsevier · 2005</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Chapter 45. Optical and Quantum Communications</div>
+                    <div class="pub-authors">J. Shapiro, D. N. Wong, Baris I. Erkmen, Raúl García-Patrón, Julien Le Gouët, M. Tengner, Aman Chawla, O. Kuzucu, D. Venkatraman</div>
+                    <div class="pub-meta">2005</div>
+                </div>
+            </div>
+
+            <!-- 2004 -->
+            <div class="year-group" data-year="2004">
+                <div class="year-header">2004</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">Significant Audio-visual Interaction for Spatially Congruent Stimuli</div>
+                    <div class="pub-authors">Patricia A. Neil, Aman Chawla, Joydeep Bhattacharya, Shinsuke Shimojo</div>
+                    <div class="pub-venue">Journal of Vision, Vol. 4, No. 8, pp. 702-702</div>
+                    <div class="pub-meta">The Association for Research in Vision and Ophthalmology · 2004</div>
+                </div>
+            </div>
+
+            <!-- Undated Publications -->
+            <div class="year-group" data-year="undated">
+                <div class="year-header">Other Publications</div>
+
+                <div class="publication-item">
+                    <div class="pub-title">High Reliability Communication System Using Statistical Learning</div>
+                    <div class="pub-authors">Aman Chawla</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        const publicationItems = document.querySelectorAll('.publication-item');
+        
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            publicationItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Hide year headers if all items in that year are hidden
+            document.querySelectorAll('.year-group').forEach(group => {
+                const visibleItems = Array.from(group.querySelectorAll('.publication-item'))
+                    .filter(item => item.style.display !== 'none');
+                group.style.display = visibleItems.length > 0 ? 'block' : 'none';
+            });
+        });
+        
+        // Year filter functionality
+        function filterYear(range) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Reset search
+            searchBox.value = '';
+            
+            const yearGroups = document.querySelectorAll('.year-group');
+            
+            yearGroups.forEach(group => {
+                const year = parseInt(group.getAttribute('data-year'));
+                
+                if (range === 'all' || group.getAttribute('data-year') === 'undated') {
+                    group.style.display = 'block';
+                    group.querySelectorAll('.publication-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else if (range === '2025' && year >= 2025) {
+                    group.style.display = 'block';
+                    group.querySelectorAll('.publication-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else if (range === '2020' && year >= 2020 && year <= 2024) {
+                    group.style.display = 'block';
+                    group.querySelectorAll('.publication-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else if (range === '2010' && year >= 2010 && year < 2020) {
+                    group.style.display = 'block';
+                    group.querySelectorAll('.publication-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else if (range === '2000' && year >= 2000 && year < 2010) {
+                    group.style.display = 'block';
+                    group.querySelectorAll('.publication-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

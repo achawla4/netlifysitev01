@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extending Baar&#x27;s Theatre: a Substrate for World Peace | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 4 · V1I4-A07</div>
+            <h1>Extending Baar&#x27;s Theatre: a Substrate for World Peace</h1>
+            <div class="hero-meta">A. Chawla \\ REAL Institute and IIT Delhi | 11 January 2026</div>
+            <div class="hero-meta">Source PDF: baarsWorldPeacev4 (1).pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_4.html">Issue 4</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>Bernard Baars’ Global Workspace Theory has been one of the most influential functional accounts of consciousness, describing conscious experience as the result of information entering a limited-capacity global broadcasting system—the “theatre.” While powerful at the cognitive and computational levels, the theory remains agnostic about the ultimate physical origin of the candidate contents that compete for access to this workspace. Recent developments in models of quantum processes in neural tissue suggest that brain computation may not be fully closed, but instead weakly coupled to universal physical degrees of freedom. This paper proposes an extension of Baar&#x27;s Theatre by introducing a pre-theatrical substrate: a quantum layer of neural information processing modulated by cosmic-scale gravitational perturbations, here termed gravity-bits. We argue that this shared physical substrate establishes a common informational ground across all brains. From this, a novel, non-ideological foundation for dialogue and peace emerges—one grounded not in belief, culture, or ethics alone, but in shared participation in the same cosmic informational environment.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p><strong>Keywords:</strong>Global Workspace Theory (GWT), Baar’s Theatre, Quantum neural processes, Gravity-bits, Cosmic gravitational modulation, Pre-theatrical substrate, Decoherence and selection, Shared informational ground, Dialogue as calibration, Peace as structural coherence</p>
+<div class="callout-block"><p>The cost of one modern heavy bomber is this: a modern brick school in more than 30 cities. – <em>Dwight D. Eisenhower, 1963</em></p></div>
+<h2 id="introduction">Introduction</h2>
+<p>Human conflict is often analyzed through the lenses of psychology, sociology, economics, or political theory. Less commonly is it examined through the foundations of cognition itself. At the deepest level, conflict presupposes separation: distinct minds, distinct intentions, and fundamentally private experiences. Dialogue, when it succeeds, does so by bridging these separations through language, empathy, or shared norms. Yet all of these operate at a high, emergent level of cognition.</p>
+<p>This paper explores a more fundamental possibility: that beneath linguistic, cultural, and psychological differences, human cognition shares a common physical substrate. If such a substrate exists, then dialogue and peace may be grounded not merely in moral aspiration, but in the actual structure of how minds process information.</p>
+<p>Bernard Baars’ Global Workspace Theory (GWT) provides a natural starting point. The theory offers a compelling account of how conscious experience arises from the global broadcasting of selected information. However, GWT deliberately avoids claims about the ultimate physical origin of the information that enters the workspace. The present work extends Baar&#x27;s Theatre by proposing a deeper substrate—quantum neural processes weakly modulated by cosmic gravitational inputs. This extension preserves the functional strengths of GWT while embedding it in a broader physical context.</p>
+<h2 id="baar-x27-s-global-workspace-the-theatre-metaphor">Baar&#x27;s Global Workspace: The Theatre Metaphor</h2>
+<p>In Global Workspace Theory, the brain is likened to a theatre. Numerous specialized, unconscious processes operate in parallel, forming the audience. At any given moment, a small subset of information gains access to the brightly lit stage—the global workspace—where it becomes conscious. Once on stage, this information is broadcast to the rest of the system, enabling coordination, decision-making, and reportability.</p>
+<p>Several features of Baar&#x27;s Theatre are essential:</p>
+<ul class="article-list"><li><p>Consciousness is limited in capacity.</p></li><li><p>Competition among unconscious processes determines what becomes conscious.</p></li><li><p>Consciousness serves a functional role: global availability.</p></li></ul>
+<p>Importantly, Baars does not claim that the theatre itself performs computation. Instead, it is a bottleneck and broadcast mechanism. The theory is deliberately neutral regarding whether the unconscious processes are classical, quantum, or otherwise. This neutrality is both a strength and a limitation.</p>
+<h2 id="the-missing-physical-substrate">The Missing Physical Substrate</h2>
+<p>While Baar&#x27;s Theatre explains <em>how</em> information becomes conscious, it does not explain <em>where</em> candidate contents ultimately originate at the deepest physical level. Standard interpretations assume classical neural computation, with randomness treated as noise. However, this assumption is not mandated by GWT itself.</p>
+<p>Recent theoretical models suggest that quantum processes may occur transiently within neural structures, particularly at scales involving ions, membrane potentials, and synchronized axon tracts. These quantum processes are short-lived and subject to rapid decoherence, but during their coherence windows they may influence classical neural outcomes.</p>
+<p>Crucially, these quantum processes are not isolated. As open quantum systems, they are sensitive to environmental factors—including weak but universal spacetime perturbations. This opens the possibility that brain computation is subtly conditioned by cosmic-scale physical inputs.</p>
+<h2 id="gravity-bits-cosmic-modulation-without-messaging">Gravity-Bits: Cosmic Modulation Without Messaging</h2>
+<p>To describe this influence precisely, we introduce the concept of <em>gravity-bits</em>. A gravity-bit is not a bit in the digital or symbolic sense. It does not encode messages or intentions. Rather, it is defined as:</p>
+<div class="callout-block"><p>A minimal, distinguishable modulation of quantum evolution in neural matter induced by spacetime perturbations.</p></div>
+<p>Gravity-bits do not transmit information in the communicative sense. Instead, they bias the probability distributions governing quantum evolution in neural substrates. Their role is analogous to boundary conditions or control parameters rather than data.</p>
+<p>Because gravitational perturbations are universal, all brains are exposed to the same background field of gravity-bits, albeit with local variations. This universality is the key to the present argument.</p>
+<h2 id="extending-the-theatre-a-pre-theatrical-layer">Extending the Theatre: A Pre-Theatrical Layer</h2>
+<p>With gravity-bits in place, Baar&#x27;s Theatre can be extended downward rather than outward. The extended model consists of three layers:</p>
+<ol class="article-list"><li><p>A quantum pre-theatrical layer, where neural quantum states evolve under both local biological conditions and cosmic gravitational modulation.</p></li><li><p>A decoherence and selection layer, where quantum outcomes collapse into classical neural states.</p></li><li><p>The global workspace (the theatre), where selected classical contents are broadcast.</p></li></ol>
+<p>In this framework, gravity-bits do not appear on the stage. They influence which actors are even eligible to audition. The theatre remains classical, sparse, and functional, but the casting process is no longer purely internal.</p>
+<h2 id="shared-substrate-and-cognitive-common-ground">Shared Substrate and Cognitive Common Ground</h2>
+<p>The implications of this extension are profound. If all brains draw from a quantum substrate modulated by the same cosmic environment, then there exists a shared informational ground beneath individual cognition. Differences in belief, culture, and personality arise at higher, classical levels, while unity exists at a deeper physical level.</p>
+<p>This does not imply uniformity of thought or experience. Decoherence ensures divergence, individuality, and contingency. What it implies is that no cognition is entirely private in its physical conditioning. All minds participate, however weakly, in the same universal informational field.</p>
+<h2 id="dialogue-reconsidered">Dialogue Reconsidered</h2>
+<p>Dialogue is traditionally understood as an exchange between separate minds. In the extended theatre model, dialogue becomes alignment between classical narratives emerging from a shared substrate. Misunderstanding is not a failure of connection, but a divergence of readouts.</p>
+<p>This reframing encourages epistemic humility. If one’s conscious conclusions are the result of probabilistic processes conditioned by shared but uncontrollable factors, then certainty gives way to openness. Dialogue becomes a process of mutual calibration rather than persuasion or domination.</p>
+<h2 id="peace-as-structural-coherence">Peace as Structural Coherence</h2>
+<p>Peace is often framed as a moral or political achievement. The present framework suggests an additional interpretation: peace as structural coherence with the nature of cognition itself.</p>
+<p>Conflict assumes radical separation. The extended theatre model undermines this assumption by showing that separation is emergent, not fundamental. At the deepest level, harming another is an operation performed within the same cosmic informational system that enables one’s own cognition.</p>
+<p>This does not eliminate conflict, but it changes its meaning. Violence becomes not only ethically problematic, but physically incoherent.</p>
+<h2 id="avoiding-determinism-and-mysticism">Avoiding Determinism and Mysticism</h2>
+<p>A key strength of this framework is that it avoids two common pitfalls. It does not entail determinism, because gravity-bits bias probabilities without fixing outcomes. Nor does it invoke mysticism, because all mechanisms remain within established physical principles.</p>
+<p>Human agency, responsibility, and creativity remain intact. The cosmos participates without dictating.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>By extending Baar&#x27;s Theatre with a quantum, cosmically modulated pre-theatrical layer, we obtain a model of consciousness that is both physically grounded and ethically suggestive. The shared influence of gravity-bits establishes a common informational substrate across all brains, providing a non-ideological basis for dialogue and peace.</p>
+<p>In this view, peace is not merely a social aspiration but a recognition of shared participation in a single, open, cosmic computation. Conscious theatres are many, but the conditions that shape their deepest processes may be one.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-Baars1988"><span class="ref-key">[1]</span> <p>Baars, B. J. (1988). <em>A Cognitive Theory of Consciousness</em>. Cambridge University Press.</p></li><li id="ref-Baars1997"><span class="ref-key">[2]</span> <p>Baars, B. J. (1997). In the Theater of Consciousness: Global Workspace Theory, A Rigorous Scientific Theory of Consciousness. <em>Journal of Consciousness Studies</em>, 4(4), 292–309.</p></li><li id="ref-HameroffPenrose2014"><span class="ref-key">[3]</span> <p>Hameroff, S., &amp; Penrose, R. (2014). Consciousness in the Universe: A Review of the &#x27;Orch OR&#x27; Theory. <em>Physics of Life Reviews</em>, 11(1), 39–78.</p></li><li id="ref-Tegmark2000"><span class="ref-key">[4]</span> <p>Tegmark, M. (2000). Importance of Quantum Decoherence in Brain Processes. <em>Physical Review E</em>, 61(4), 4194–4206.</p></li><li id="ref-Galtung1996"><span class="ref-key">[5]</span> <p>Galtung, J. (1996). <em>Peace by Peaceful Means: Peace and Conflict, Development and Civilization</em>. SAGE Publications.</p></li><li id="ref-ChawlaMorgera2024"><span class="ref-key">[6]</span> <p>A. Chawla and S. D. Morgera, &quot;Mechanism of Universal Quantum Computation in the Brain,&quot; <em>Journal of Applied Mathematics and Physics</em>, vol. 12, pp. 468–474, 2024. doi:10.4236/jamp.2024.122031.</p></li><li id="ref-ChawlaMorgera2023"><span class="ref-key">[7]</span> <p>A. Chawla and S. D. Morgera, &quot;Computer study of metric perturbations impinging on coupled axon tracts,&quot; <em>Physics Essays</em>, vol. 36, no. 2, pp. 160–167, 2023.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

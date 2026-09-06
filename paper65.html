@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Basic Electrodermal Recording: a Report - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Basic Electrodermal Recording: a Report</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this report, the author describes a rudimentary setup for EDA recording. The recordings are carried out using Arduino, and processed in MATLAB. The report gives details of the equipment used and setup procedure along with initial results. Introduction Electrodermal activity is the bioelectrical activity that can be recorded from the skin surface. Such recordings can be used for scientic as well as medical- investigative purposes [1]. At the same time, it is a way for a hobbyist to get real biological data, to be used for exploration. Further, it can be an enriching way to use one's time. Recording electroder- mal activity can lead to many interesting and well-spent hours where one is only constrained by one's imagination in designing applications of the recorded data. For example, one may want to experiment with controlling a robot based on this recording. On the other hand, a medical physician may want to record in detail from several locations at once, perhaps for several hours at a stretch [2], to investigate diurnal variations in the electrodermal signal and further elaborate on his or her hypotheses relating EDA and the sleep/wake cycle, say. Regardless of the use one might want to make of this activity [3], the activity of recording is educational in itself. It is not a simplistic process of placing the instrument on the biological source and turning on the `meter.' There is no limit to the innovation one can use in designing every small step of his or her project, from goal-setting, to observational analysis [4]. In this brief report, we document how we setup equipment to record from the skin surface. This report is structured as follows: in Section 2 we describe the equipment used; in Section 3 we mention how the equipment in question was setup and connected; in Section 4 we present the results and related obser- vations, before concluding in Section 5 with plans for future work. 1</p> <p>2 Equipment Used There is a vast range of hardware and software available both to the novice as well as to the professional in the marketplace. While the selection of brand depends on the quality desired and one's budget or desired price range, we do not go into those details in this chapter, written for the absolute neophyte. We simply provide one set of possibilities in terms of equipment that can be used to obtain the recordings shown in the gures herein. 2.1 Software Utilized 1. Processing software: Processing 4, the 2021-22 release of the Processing software, which came out of the Massachusetts Institute of Technology, is what we will use in order to get the data captured using the Arduino IDE into text format. Processing 4 is free software which can be downloaded from processing.org. 2. Arduino IDE software: The Arduino Integrated Development Environ- ment, uses a type of C programming language in order to interface with and provide commands to the Arduino hardware. Whereas that hardware hasn't been introduced yet (please see the next subsection) in this doc- ument, we recommend the use of the latest version of this software for capturing, using the Serial Data Monitor tool, the data read at the serial port of the computer. This is data which the hardware provides. The Arduino IDE can be downloaded free of cost from arduino.cc. 2.2 Hardware Utilized 1. Arduino UNO - this is a low-cost microprocessor-equipped PCB with mul- tiple functions. 2. Arduino UNO to USB cable 3. Jumper cable with croc-clip 4. Medico Skin-surface Electrode for ECG - a standard electrode for record- ing from skin surface, though a dierent brand may be used. 5. MATLAB - a popular program in which one can write code to perform computations, simulations, graphical representation, and much more. 6. Laptop PC Equipment Setup and Interconnection The electrode is connected to the jumper cable which is connected to analogue- input pin A0 on the UNO which is connected via the UNO-USB cable to serial port COM5 on the laptop. The Arudino IDE is used to program the UNO. 2</p> <p>Figure 1: Source-less frequency response. Some low frequency content is visible. The x-axis is frequency and the y-axis is the response magnitude. Once the board is programmed, it begins capturing the A0 signal. This is conrmed on the IDE. Then code on Processing software is run which captures the COM5 data in a text format. This is saved in the MATLAB directory. From the Command Prompt of MATLAB, the data is loaded into the workspace and periodogram is used to obtain the frequency domain version of the data which is then plotted in a MATLAB gure. Results and Observations In the rst experiment, we wish to examine what happens in the absence of any biological source connected to the croc-clip. We get the frequency response shown in Figure 1. In the second experiment, we connect a very rudimentary electrode to the skin, and also without any connective gel. Thus, when a poorly connected biological source is present, we obtain the frequency response shown in Figure 2. The response amplitude in Figure 2 is clearly higher than in the previous gure. To obtain Figure 3, we used a better electrode to record the signal from the palm of the left hand (base of the thumb). 3</p> <p>Figure 2: Towards optimal bio-signal recording. More low-frequency content is visible than in Figure 1. The x-axis is frequency and the y-axis is the response magnitude. Figure 3: Sub-optimal connection to a biological source. The x-axis is frequency and the y-axis is the response magnitude. In each of the three recordings shown in Figures 1, 2 and 3, we did not use any contact gel between the skin surface and the electrode contact point. To obtain the response shown in Figure 4 however, we used medical grade ultrasound gel, 4</p> <p>Figure 4: Closer to optimal recording. The x-axis is frequency and the y-axis is the response magnitude. applied as a thin layer to the skin surface. Next, we record from the forearm under-surface. While recording we oscillate the arm back and forth at 1 Hz (Data le: &lt;<eda7.txt>&gt;). The result is shown in Figure 5. Next, we repeat for the same location, but capture more data for processing by directly going to the &lt;<serial_data.txt>&gt; le saved in the Processing folder under the relevant Sketch folder. This when plotted shows as Figure 6. This is just the sinc-squared function in the frequency domain. When we plot the time domain signal we get Figure 7. A at signal, it can be seen as a sort of shifted triangle. The Fourier trans- form of a triangle is a squared sinc function, as seen in the previous gure, Figure 6. This makes us suspicious because we recall having picked up rich data. So, we carefully repeat the data import steps and nd, in the time domain, the response shown in Figure 8. In the frequency domain this gives us Figure 9. Due to this encouraging `richness' it behooves us to do multiple such record- ings (n = 5), each of temporal duration 2 mins (checked using a timer) and look at the spectral averages. All are from the same location as the previous gure, Figure 9. The average spectrum is shown in Figure 10. We next come across the fact that skin conductance response cannot be measured without supplying some current from another proximal electrode. So, we decide to use the 3.3V pin of the Uno, suitably connected to a skin surface electrode, to hold a steady supply of 150 mA of current. The old A0 pin con- tinues to record the analogue voltage at a proximal location. We call this last 5</serial_data.txt></eda7.txt></p> <p>Figure 5: Recording in the presence of source oscillations.The x-axis is frequency and the y-axis is the response magnitude. voltage V 2. Using Ohm's law, R = V I = (V 2 −3.3) 0.15 . (1) Thus, we can obtain the skin resistance. Inverting it gives the conductance in Siemens. The rst two biological recordings show six peaky lobes below 0.2 on the x- axis, whereas the non- biological recording shows only three. The third biological recording shows greater amplitude in the x-axis region between 0 and 0.05 as compared with the rst two biological recordings. Conclusion and Future Work In this report, we presented preliminary electrodermal activity recordings. In future work, we will conduct more recordings and ne tune the measurement of skin conductance, identifying the tonic and oscillatory components which are mentioned in the literature. Another direction of endeavour would be to apply classication algorithms from machine learning to understand the types of sources that can be present in the electrodermal record. Finally, we would like to create a mathematical model for these sources, simulate it, and compare the output with the real electrodermal record. 6</p> <p>Figure 6: Processing errors corrected. The x-axis is frequency and the y-axis is the response magnitude. References [1] Mathias Benedek and Christian Kaernbach. A continuous measure of phasic electrodermal activity. Journal of neuroscience methods, 190(1):8091, 2010. [2] Cornelia Kappeler-Setz, Franz Gravenhorst, Johannes Schumm, Bert Arn- rich, and Gerhard Tröster. Towards long term monitoring of electrodermal activity in daily life. Personal and ubiquitous computing, 17:261271, 2013. [3] William Prokasy. Electrodermal activity in psychological research. Elsevier, 2012. [4] Hugo F Posada-Quintero and Ki H Chon. Innovations in electrodermal activity data collection and signal processing: A systematic review. Sensors, 20(2):479, 2020. 7</p> <p>Figure 7: Figure 6, but in the temporal domain. The x-axis is time and the y-axis is amplitude. Appendix: Code Herein we provide representative MATLAB command history used to analyse and plot the EDA recordings. 8</p> <p>Algorithm 1 MATLAB script to plot the gures in the main text. f i g u r e (1) plot ( eda14v3 . txt ) plot ( eda14v3 ) load =ASCII eda14v3 . txt plot ( eda14v3 ) Fs = 50 e3 1/Fs T = 1/Fs xvar = T. * [ 1 : length ( eda14v3 ) ] ; plot ( xvar , eda14v3 ) xlabel ( ' Time ( seconds ) ') ylabel ( ' Signal Amplitude ' ) ; 1/20e=6 1/39e=6 Fs = 1/39e=6 T = 1/Fs xvar = T. * [ 1 : length ( eda14v3 ) ] ; f i g u r e (new) f i g u r e (3) plot ( xvar , eda14v3 ) Fs = 115200/5 T = 1/Fs xvar = T. * [ 1 : length ( eda14v3 ) ] ; f i g u r e (4) plot ( xvar , eda14v3 ) xlabel ( ' Time ( tens of seconds ) ') ylabel ( ' Signal Amplitude ' ) ; load =ASCII scr1v2 . txt load =ASCII scr1v3 . txt f i g u r e (5) f i g u r e (5) plot ( scr1v5 ) plot ( scr1v3 ) help highpass highpass ( scr1v3 ) [ pxxscr1 , wscr1 ] = periodogram ( scr1v3 ) ; f i g u r e (6) plot ( wscr1 , pxxscr1 ) y = highpass ( scr1v3 ,4 e=3) help highpass f i g u r e (7) plot (y) yy = lowpass ( scr1v3 ,1 e=3) f i g u r e (8) plot ( scr1v3 ) 9</p> <p>Algorithm 2 Continuation of MATLAB script used to plot the gures in the main text. y = highpass ( scr1v3 ,1 e=3) f i g u r e (9) plot (y) [ pxxy ,wy] = periodogram (y ) ; f i g u r e (10) plot (wy, pxxy ) f i g u r e (11) plot (y( find (y&gt;=100))) kk = y( find (y&gt;=100)); [ pxxkk , wkk ] = periodogram ( kk ) f i g u r e (12) plot (wkk , pxxkk ) kk kk2 = (kk =3.3)/0.15; f i g u r e (13) plot ( kk2 ) kk2 = ( kk *10 =3.3)/0.15; f i g u r e (14) plot ( kk2 ) f i g u r e (15) [ pxxkk2 , wkk2 ] = periodogram ( kk2 ) plot (wkk2 , pxxkk2 ) 10</p> <p>Figure 8: More careful signal acquisition. The x-axis is time and the y-axis is amplitude. Figure 9: Frequency domain version of Figure 8. The x-axis is frequency and the y-axis is amplitude. 11</p> <p>Figure 10: Average signal obtained using ve recordings. The x-axis is frequency and the y-axis is amplitude.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Basic_Electrodermal_Recording_a_Report.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

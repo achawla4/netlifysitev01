@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NU Provides an Energy-Injection Mechanism - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">NU Provides an Energy-Injection Mechanism</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this note the authors investigate vorticity in liquid helium under the traditional Landau-Tisza model as well as a modied model. It is shown that the information approach allows injection of energy into the vortex which leads to a rising kinetic energy and oscillating momentum. Key Insight: The note includes detailed MATLAB code (Algorithms 1-4) that simulates vortex dynamics in liquid helium with adaptive parameters, nonlocal terms, and informational density evolution. The work blends es- tablished uid dynamics with speculative theoretical physics, proposing that information elds could serve as a bridge between consciousness and physical reality in cosmological contexts. In fundamental physics, the universe begins from vacuum wherein there arises a spontaneous uctuation (with some probability). Modern theory is not equipped to probe beyond this instance (cf. the recent interview of Prof. Henry Tye [URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC8363324/]). However, nonlocal unication (NU hereafter) provides a mechanism whereby an infor- mation eld can aect spacetime. In this note we show that in the case of liquid helium. The script simulates a vortex in liquid helium under the standard Landau theory. At the same time, we modify the script to allow the injection of energy Figure 1: Vortex dynamics modied via informational density evolution. 1</p> <p>Algorithm 1 Energy Injection via Informational Density Evolution - I % landauTisza_nu_navstokes.m % Extended simulation of Liquid Helium dynamics with NU-informed Navier- Stokes framework clear; clc; close all; % === Simulation Parameters === Nx = 256; Ny = 256; % Grid size (power of 2 for FFT) dx = 0.1; dy = 0.1; % Spatial step dt_base = 0.002; % Base time step steps = 1500; % Number of steps rho_total = 1.0; % Total density nu_0 = 0.01; % Base viscosity kappa = 1.0; % Circulation quantum alpha = 0.1; % Nonlocal kernel strength sigma = 0.5; % Nonlocal kernel width gamma = 0.01; % Informational density diusion alpha_nu = 0.1; % Viscosity modulation strength (Appendix P) % === Spatial Grid === x = ((-Nx/2):(Nx/2-1)) * dx; y = ((-Ny/2):(Ny/2-1)) * dy; [X, Y] = meshgrid(x, y); k = 2*pi*tshift((-Nx/2:Nx/2-1)/(Nx*dx)); % Fourier wavenumbers [Kx, Ky] = meshgrid(k, k); K2 = Kx.^2 + Ky.^2; K2(1,1) = 1; % Avoid division by zero % === Nonlocal Kernel === r2 = X.^2 + Y.^2; G = alpha * exp(-r2/(2*sigma^2)) / (2*pi*sigma^2); % Gaussian kernel G = G / sum(G(:)); % Normalize G_hat = t2(G); % FFT of kernel % === Initial Conditions === % Informational density I(x, y) I = 1.0 + 0.03 * exp(-r2/2); I_max = max(I(:)); % Densities rho_s_nu = rho_total * 0.9 .* (I / I_max); rho_s_pure = rho_total * 0.9 * ones(size(I)); rho_n = rho_total - rho_s_nu; % Initial vortex ring vx_init = -Y .* exp(-r2 / 0.5); vy_init = X .* exp(-r2 / 0.5); % Initialize velocity elds vx_s_nu = vx_init; vy_s_nu = vy_init; vx_n_nu = zeros(size(X)); vy_n_nu = zeros(size(X)); vx_s_pure = vx_init; vy_s_pure = vy_init; vx_n_pure = zeros(size(X)); vy_n_pure = zeros(size(X)); % === Analysis Storage === E_kin_nu = zeros(steps, 1); E_kin_pure = zeros(steps, 1); % Kinetic energy Omega_nu = zeros(steps, 1); Omega_pure = zeros(steps, 1); % Enstrophy L_nu = zeros(steps, 1); L_pure = zeros(steps, 1); % Angular momentum % === Plotting Setup === gure('Color', 'w', 'Position', [100, 100, 1200, 500]); % Increased height for 3 subplots subplot(2,2,1); h1 = imagesc(x, y, zeros(Nx, Ny)); colorbar; axis equal tight; title('NULT Vorticity'); xlabel('x'); ylabel('y'); 2</p> <p>Algorithm 2 Energy Injection via Informational Density Evolution - II subplot(2,2,2); h2 = imagesc(x, y, zeros(Nx, Ny)); colorbar; axis equal tight; title('Pure LT Vorticity'); xlabel('x'); ylabel('y'); subplot(2,2,3); h3 = imagesc(x, y, I); colorbar; axis equal tight; title('Informational Density I'); xlabel('x'); ylabel('y'); subplot(2,2,4); h4 = plot(0, 0, 'b'); hold on; % Initialize angular momentum plot axis tight; title('Angular Momentum'); xlabel('Time'); ylabel('L'); legend('NULT', 'Pure LT'); drawnow; % === Helper Functions === % FFT-based Laplacian laplacian = @(Z) real(it2(-K2 .* t2(Z))); % FFT-based Poisson solver for projection poisson_solve = @(f) real(it2(-t2(f) ./ K2)); % Project velocity to divergence-free eld project = @(vx, vy) deal(... vx - real(it2(1i*Kx .* t2(poisson_solve(real(it2(1i*Kx.*t2(vx) + 1i*Ky.*t2(vy))))))), ... vy - real(it2(1i*Ky .* t2(poisson_solve(real(it2(1i*Kx.*t2(vx) + 1i*Ky.*t2(vy)))))))); % Compute vorticity vorticity = @(vx, vy) real(it2(1i*Ky.*t2(vx) - 1i*Kx.*t2(vy))); % Nonlocal convolution nonlocal_term = @(f) real(it2(G_hat .* t2(f))); % Adaptive viscosity based on vorticity gradient (Appendix P) compute_nu_e = @(omega) nu_0 * (1 + alpha_nu * abs(gradient(omega, dx, dy))); % Adaptive time step based on informational density (Appendix P) f_delta_I = @(delta_I) 1 ./ (delta_I.^3 + 0.1); % Nonlinear time modulation compute_dt = @(I) dt_base * f_delta_I(abs(gradient(I, dx, dy))); % Absorbing boundary layer damp = ones(Nx, Ny); edge = 20; for i = 1:Nx for j = 1:Ny if abs(x(i)) &gt; max(abs(x))-edge*dx || abs(y(j)) &gt; max(abs(y))-edge*dy damp(i,j) = exp(-((max(abs(x(i))-max(abs(x))+edge*dx,0)/(edge*dx))^2)); end end end % === Main Loop === for step = 1:steps % Compute adaptive time step dt = min(compute_dt(I), [], 'all'); % Use minimum dt for stability % === NULT Update === % Update informational density I I = I + dt * (gamma * laplacian(I) + 0.5 * (vx_s_nu.^2 + vy_s_nu.^2)); I = max(I, 0.1); % Prevent negative I rho_s_nu = rho_total * 0.9 .* (I / max(I(:))); rho_n = rho_total - rho_s_nu; 3</p> <p>Algorithm 3 Energy Injection via Informational Density Evolution - III % Compute vorticity for adaptive viscosity omega_nu = vorticity(vx_s_nu, vy_s_nu); nu_e = compute_nu_e(omega_nu); % Nonlocal terms nl_x = nonlocal_term(vx_s_nu ./ (rho_s_nu + 1e-5)); nl_y = nonlocal_term(vy_s_nu ./ (rho_s_nu + 1e-5)); % Superuid velocity update [grad_Iy, grad_Ix] = gradient(I, dy, dx); vx_s_nu = vx_s_nu + dt * (kappa * grad_Iy ./ (rho_s_nu + 1e-5) + nl_x); vy_s_nu = vy_s_nu - dt * (kappa * grad_Ix ./ (rho_s_nu + 1e-5) - nl_y); % Normal uid velocity update with adaptive viscosity vx_n_nu = vx_n_nu + dt * nu_e .* laplacian(vx_n_nu); vy_n_nu = vy_n_nu + dt * nu_e .* laplacian(vy_n_nu); % Project to divergence-free [vx_s_nu, vy_s_nu] = project(vx_s_nu, vy_s_nu); [vx_n_nu, vy_n_nu] = project(vx_n_nu, vy_n_nu); % Apply damping vx_s_nu = vx_s_nu .* damp; vy_s_nu = vy_s_nu .* damp; vx_n_nu = vx_n_nu .* damp; vy_n_nu = vy_n_nu .* damp; % === Pure LT Update === omega_pure = vorticity(vx_s_pure, vy_s_pure); nu_e_pure = compute_nu_e(omega_pure); % Apply adaptive viscosity here too vx_n_pure = vx_n_pure + dt * nu_e_pure .* laplacian(vx_n_pure); vy_n_pure = vy_n_pure + dt * nu_e_pure .* laplacian(vy_n_pure); [vx_s_pure, vy_s_pure] = project(vx_s_pure, vy_s_pure); vx_s_pure = vx_s_pure .* damp; vy_s_pure = vy_s_pure .* damp; % === Analysis === E_kin_nu(step) = 0.5 * sum(sum(rho_s_nu .* (vx_s_nu.^2 + vy_s_nu.^2) + ... rho_n .* (vx_n_nu.^2 + vy_n_nu.^2))) * dx * dy; E_kin_pure(step) = 0.5 * sum(sum(rho_s_pure .* (vx_s_pure.^2 + vy_s_pure.^2) + ... (rho_total-rho_s_pure) .* (vx_n_pure.^2 + vy_n_pure.^2))) * dx * dy; Omega_nu(step) = 0.5 * sum(sum(omega_nu.^2)) * dx * dy; Omega_pure(step) = 0.5 * sum(sum(omega_pure.^2)) * dx * dy; % Compute angular momentum for vortex ring (centered at origin) mass = rho_s_nu * dx * dy; % Mass per cell (using superuid density) L_nu(step) = sum(sum(mass .* (X .* vy_s_nu - Y .* vx_s_nu))); % z- component of angular momentum L_pure(step) = sum(sum(mass .* (X .* vy_s_pure - Y .* vx_s_pure))); % For pure LT % === Update Plots === if mod(step, 50) == 0 set(h1, 'CData', omega_nu); caxis([-0.5, 0.5]); set(h2, 'CData', omega_pure); caxis([-0.5, 0.5]); set(h3, 'CData', I); caxis([min(I(:)), max(I(:))]); set(h4, 'XData', dt_base*(1:step), 'YData', L_nu(1:step)); % Update NULT angular momentum hold on; plot(dt_base*(1:step), L_pure(1:step), 'r'); % Update Pure LT angular mo- mentum 4</p> <p>Algorithm 4 Energy Injection via Informational Density Evolution - IV hold o; axis tight; drawnow; fprintf('Step %d / %d: E_kin_nu = %.4f, E_kin_pure = %.4f, dt = %.4f\n', ... step, steps, E_kin_nu(step), E_kin_pure(step), dt); end end % === Final Analysis Plot === gure('Color', 'w'); subplot(2,2,1); plot(dt_base*(1:steps), E_kin_nu, 'b', dt_base*(1:steps), E_kin_pure, 'r'); legend('NULT', 'Pure LT'); title('Kinetic Energy'); xlabel('Time'); yla- bel('E_{kin}'); subplot(2,2,2); plot(dt_base*(1:steps), Omega_nu, 'b', dt_base*(1:steps), Omega_pure, 'r'); legend('NULT', 'Pure LT'); title('Enstrophy'); xlabel('Time'); ylabel('Ω'); subplot(2,2,3); plot(dt_base*(1:steps), L_nu, 'b', dt_base*(1:steps), L_pure, 'r'); legend('NULT', 'Pure LT'); title('Angular Momentum'); xlabel('Time'); yla- bel('L'); Figure 2: Visualization of vortex dynamics modied via informational density evolution. 5</p> <p>via informational density evolution. This results in modulation of the vortex an- gular momentum and unbounded rise in its kinetic energy whereas the classical model shows energy conservation. It was argued previously that consciousness does not interact with the phys- ical universe. This normal scenario is possibly violated in the creation ex-nihilo setting. There information regulated injections of energy could have initiated the physical cosmos. The present work illuminates how this might have come about.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/NU_Provides_an_Energy_Injection_Mechanism.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Theory - REAL Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: #daa520;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header .essence {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #daa520;
+            margin-bottom: 20px;
+        }
+        
+        .header .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 15px;
+        }
+        
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .publication-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .authors {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .publication-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #888;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .abstract {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1a1a2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+        }
+        
+        .pub-link.zenodo {
+            background: #1e5a96;
+        }
+        
+        .pub-link.zenodo:hover {
+            background: #2872b8;
+        }
+        
+        .pub-link.journal {
+            background: #6a4c93;
+        }
+        
+        .pub-link.journal:hover {
+            background: #8b5fb0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 24px;
+            background: #f0f0ed;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #e0e0dd;
+        }
+        
+        .integration-note {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .integration-note h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .integration-note p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .publication-card {
+                padding: 25px;
+            }
+            
+            .publication-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html">Research Laboratory</a> / String Theory
+        </div>
+        <div class="category-icon">∿</div>
+        <h1>String Theory</h1>
+        <p class="essence">The vibrating fabric of existence</p>
+        <p class="description">Reality as resonance—studying how the universe's fundamental strings echo the ancient concept of Nada Brahma (sound as ultimate reality).</p>
+    </div>
+    
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Research">
+        <a href="index.html" class="back-link">← Back to Research Laboratory</a>
+        
+        <h2 class="section-title">Publications & Preprints</h2>
+        
+        <div class="publications-list">
+            <!-- Publication 1 -->
+            <div class="publication-card">
+                <h3>t'Hooft Meets a String: A Proposal on Shockwave Production by Massive Particles</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2025</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> In this note, the authors propose to extend shockwave production by photons to the string theory domain and more massive particles.
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/17511996" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/17511996/files/thooftstringv3.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+            
+            <!-- Publication 2 -->
+            <div class="publication-card">
+                <h3>Modulator Design in String Information Theory</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2025</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> We explore a novel way for information and charge transport in string theory, involving stochastic open-closed transitions of strings interacting with D-branes. Field strings undergoing such transitions act as directional filters, enabling the transport of charged mass strings in a preferred direction. By using a dual filter system and a diffusion mechanism, we demonstrate the emergence of sustained oscillations and charge separation. The resulting dipole field exhibits amplitude modulation, suggesting a string-theoretic realization of radiative signaling via emergent electrodynamic-like behavior. We construct the relevant mathematical model with detailed derivations.
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/16760052" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/16760052/files/string_information_transportv2p2.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+            
+            <!-- Publication 3 -->
+            <div class="publication-card">
+                <h3>Does Quantum Randomness Govern Universal Evolution?</h3>
+                <p class="authors"><strong>Authors:</strong> A. Chawla</p>
+                <div class="publication-meta">
+                    <span class="meta-item">📅 2024</span>
+                    <span class="meta-item">📄 Preprint</span>
+                    <span class="meta-item">🏷️ Status: Zenodo Preprint</span>
+                </div>
+                <p class="abstract">
+                    <strong>Abstract:</strong> Inspired by the anthropic principle and the string “landscape”, in this note the author proposes a quantum random walk as the governing mechanism for generating the structure in the universe starting from its initial quantum state. The discussion employs an LLM.
+                </p>
+                <div class="publication-links">
+                    <a href="https://zenodo.org/records/13638767" class="pub-link zenodo" target="_blank">View on Zenodo →</a>
+                    <a href="https://zenodo.org/records/13638767/files/birthOfUniversev1forZenodo.pdf?download=1" class="pub-link" target="_blank">Download PDF →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="integration-note">
+            <h3>How This Research Integrates</h3>
+            <p>String theory proposes that all particles are vibrating strings—reality as music. This scientific framework mirrors the Vedic teaching of Nada Brahma: the universe as primordial sound. Both describe existence not as static matter, but as dynamic resonance. The mathematics of string theory may be describing what yogis experience as the unstruck sound (anahata nada) in deep meditation.</p>
+        </div>
+    </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

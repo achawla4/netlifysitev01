@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajnanabha: Information and Physics - REAL Institute</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const PrajnanabhaJournal = () => {
+          const [user, setUser] = useState(null);
+          const [loginMode, setLoginMode] = useState('login');
+          const [formData, setFormData] = useState({ username: '', password: '', email: '', role: 'author' });
+          const [submissions, setSubmissions] = useState([]);
+          const [selectedSubmission, setSelectedSubmission] = useState(null);
+          const [newSubmission, setNewSubmission] = useState({
+            title: '',
+            abstract: '',
+            keywords: '',
+            authors: '',
+            category: '',
+            file: null
+          });
+          const [uploadedFile, setUploadedFile] = useState(null);
+          const [reviewComment, setReviewComment] = useState('');
+
+          useEffect(() => {
+            lucide.createIcons();
+          }, [user, selectedSubmission, submissions]);
+
+          // Simple hash function for password storage
+          const hashPassword = async (password) => {
+            const msgBuffer = new TextEncoder().encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+          };
+
+          // Load data on mount
+          useEffect(() => {
+            const storedSubmissions = localStorage.getItem('journalSubmissions');
+            
+            if (storedSubmissions) {
+              setSubmissions(JSON.parse(storedSubmissions));
+            } else {
+              // Demo data
+              const demoSubmissions = [
+                { 
+                  id: 1, 
+                  title: 'Quantum Entanglement and Non-Dual Consciousness', 
+                  authors: 'Dr. Radha Krishnan',
+                  abstract: 'Exploring correlations between quantum entanglement phenomena and the experience of non-dual awareness in meditation.',
+                  keywords: 'quantum mechanics, consciousness, non-duality, entanglement',
+                  category: 'Integration',
+                  status: 'under_review', 
+                  submittedBy: 'radha_author',
+                  submittedDate: '2025-11-15',
+                  reviewers: ['reviewer_1'],
+                  file: 'quantum_nondual.pdf'
+                },
+                { 
+                  id: 2, 
+                  title: 'Information Theory of Yogic Practices', 
+                  authors: 'Prof. Ananda Sharma, Dr. Krishna Das',
+                  abstract: 'Applying Shannon information theory to understand the mechanisms of pranayama and meditation.',
+                  keywords: 'information theory, yoga, pranayama, entropy',
+                  category: 'Network Information Theory',
+                  status: 'revision_requested', 
+                  submittedBy: 'ananda_author',
+                  submittedDate: '2025-10-22',
+                  reviewers: ['reviewer_1', 'reviewer_2'],
+                  file: 'info_yoga.pdf',
+                  reviewComments: 'Excellent framework. Please expand section 3 with more empirical data.'
+                },
+                { 
+                  id: 3, 
+                  title: 'String Vibrations and Primordial Sound', 
+                  authors: 'Dr. Dharma Patel',
+                  abstract: 'Mathematical exploration of string theory harmonics and their relationship to Nada Brahma.',
+                  keywords: 'string theory, sound, vibration, Vedic cosmology',
+                  category: 'String Theory',
+                  status: 'accepted', 
+                  submittedBy: 'dharma_author',
+                  submittedDate: '2025-09-10',
+                  acceptedDate: '2025-11-20',
+                  file: 'string_nada.pdf'
+                },
+              ];
+              setSubmissions(demoSubmissions);
+              localStorage.setItem('journalSubmissions', JSON.stringify(demoSubmissions));
+            }
+          }, []);
+
+          // Save submissions whenever they change
+          useEffect(() => {
+            if (submissions.length > 0) {
+              localStorage.setItem('journalSubmissions', JSON.stringify(submissions));
+            }
+          }, [submissions]);
+
+          const handleLogin = async () => {
+            if (formData.username && formData.password) {
+              // EDITOR PASSWORD HASH
+              const EDITOR_PASSWORD_HASH = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'; // hash of 'admin'
+              
+              const isEditor = formData.username === 'editor';
+              
+              if (isEditor) {
+                const passwordHash = await hashPassword(formData.password);
+                if (passwordHash !== EDITOR_PASSWORD_HASH) {
+                  alert('Invalid editor credentials');
+                  return;
+                }
+                setUser({ username: formData.username, role: 'editor' });
+                setFormData({ username: '', password: '', email: '', role: 'author' });
+              } else {
+                // For authors/reviewers
+                const storedUsers = JSON.parse(localStorage.getItem('journalUsers') || '{}');
+                const storedUser = storedUsers[formData.username];
+                
+                if (!storedUser) {
+                  alert('User not found. Please register first.');
+                  return;
+                }
+                
+                const passwordHash = await hashPassword(formData.password);
+                if (passwordHash !== storedUser.passwordHash) {
+                  alert('Invalid password');
+                  return;
+                }
+                
+                setUser({ username: formData.username, role: storedUser.role });
+                setFormData({ username: '', password: '', email: '', role: 'author' });
+              }
+            }
+          };
+
+          const validatePassword = (password) => {
+            const minLength = 8;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            
+            if (password.length < minLength) return 'Password must be at least 8 characters long';
+            if (!hasUpperCase) return 'Password must contain at least one uppercase letter';
+            if (!hasLowerCase) return 'Password must contain at least one lowercase letter';
+            if (!hasNumbers) return 'Password must contain at least one number';
+            if (!hasSpecialChar) return 'Password must contain at least one special character';
+            return null;
+          };
+
+          const handleRegister = async () => {
+            if (formData.username && formData.password && formData.email) {
+              if (formData.username === 'editor') {
+                alert('Username "editor" is reserved');
+                return;
+              }
+              
+              if (formData.username.length < 3) {
+                alert('Username must be at least 3 characters long');
+                return;
+              }
+              
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(formData.email)) {
+                alert('Please enter a valid email address');
+                return;
+              }
+              
+              const passwordError = validatePassword(formData.password);
+              if (passwordError) {
+                alert(passwordError);
+                return;
+              }
+              
+              const storedUsers = JSON.parse(localStorage.getItem('journalUsers') || '{}');
+              if (storedUsers[formData.username]) {
+                alert('Username already exists');
+                return;
+              }
+              
+              const passwordHash = await hashPassword(formData.password);
+              storedUsers[formData.username] = {
+                passwordHash,
+                email: formData.email,
+                role: formData.role
+              };
+              localStorage.setItem('journalUsers', JSON.stringify(storedUsers));
+              
+              setUser({ username: formData.username, role: formData.role });
+              setFormData({ username: '', password: '', email: '', role: 'author' });
+              alert('Registration successful! Welcome to Prajnanabha 🙏');
+            }
+          };
+
+          const handleSubmitPaper = () => {
+            if (newSubmission.title && newSubmission.abstract && newSubmission.authors && uploadedFile) {
+              const submission = {
+                id: submissions.length + 1,
+                title: newSubmission.title,
+                abstract: newSubmission.abstract,
+                keywords: newSubmission.keywords,
+                authors: newSubmission.authors,
+                category: newSubmission.category || 'Integration',
+                status: 'submitted',
+                submittedBy: user.username,
+                submittedDate: new Date().toISOString().split('T')[0],
+                reviewers: [],
+                file: uploadedFile.name
+              };
+              setSubmissions([...submissions, submission]);
+              setNewSubmission({ title: '', abstract: '', keywords: '', authors: '', category: '', file: null });
+              setUploadedFile(null);
+              alert('Paper submitted successfully! 🙏');
+            } else {
+              alert('Please fill all required fields and upload your manuscript.');
+            }
+          };
+
+          const handleEditorAction = (submissionId, action) => {
+            const submission = submissions.find(s => s.id === submissionId);
+            
+            if (action === 'accept') {
+              setSubmissions(submissions.map(s => 
+                s.id === submissionId 
+                  ? { ...s, status: 'accepted', acceptedDate: new Date().toISOString().split('T')[0] } 
+                  : s
+              ));
+              alert(`Paper "${submission.title}" accepted for publication!`);
+            } else if (action === 'reject') {
+              setSubmissions(submissions.map(s => 
+                s.id === submissionId ? { ...s, status: 'rejected' } : s
+              ));
+              alert('Paper rejected.');
+            } else if (action === 'request_revision') {
+              setSubmissions(submissions.map(s => 
+                s.id === submissionId 
+                  ? { ...s, status: 'revision_requested', reviewComments: reviewComment } 
+                  : s
+              ));
+              setReviewComment('');
+              alert('Revision requested. Author has been notified.');
+            } else if (action === 'send_to_review') {
+              setSubmissions(submissions.map(s => 
+                s.id === submissionId ? { ...s, status: 'under_review' } : s
+              ));
+              alert('Paper sent to reviewers.');
+            }
+            setSelectedSubmission(null);
+          };
+
+          const handleResubmit = (submissionId) => {
+            if (uploadedFile) {
+              setSubmissions(submissions.map(s => 
+                s.id === submissionId 
+                  ? { ...s, status: 'under_review', file: uploadedFile.name, reviewComments: null } 
+                  : s
+              ));
+              setUploadedFile(null);
+              alert('Revised manuscript submitted! 🙏');
+              setSelectedSubmission(null);
+            } else {
+              alert('Please upload your revised manuscript.');
+            }
+          };
+
+          if (!user) {
+            return (
+              <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 flex items-center justify-center p-4">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+                  <div className="text-center mb-8">
+                    <h1 className="text-4xl font-bold text-orange-800 mb-2">Prajnanabha</h1>
+                    <p className="text-orange-600">Information and Physics</p>
+                    <p className="text-sm text-gray-600 mt-2">Open Access Journal</p>
+                  </div>
+
+                  <div className="flex gap-2 mb-6">
+                    <button
+                      onClick={() => setLoginMode('login')}
+                      className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                        loginMode === 'login' 
+                          ? 'bg-orange-600 text-white' 
+                          : 'bg-orange-100 text-orange-600'
+                      }`}
+                    >
+                      Login
+                    </button>
+                    <button
+                      onClick={() => setLoginMode('register')}
+                      className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                        loginMode === 'register' 
+                          ? 'bg-orange-600 text-white' 
+                          : 'bg-orange-100 text-orange-600'
+                      }`}
+                    >
+                      Register
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      value={formData.username}
+                      onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                      onKeyPress={(e) => e.key === 'Enter' && (loginMode === 'login' ? handleLogin() : handleRegister())}
+                      className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    />
+                    {loginMode === 'register' && (
+                      <>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        />
+                        <select
+                          value={formData.role}
+                          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                          className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        >
+                          <option value="author">Author</option>
+                          <option value="reviewer">Reviewer</option>
+                        </select>
+                      </>
+                    )}
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={formData.password}
+                      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                      onKeyPress={(e) => e.key === 'Enter' && (loginMode === 'login' ? handleLogin() : handleRegister())}
+                      className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    />
+                  </div>
+                  <button
+                    onClick={loginMode === 'login' ? handleLogin : handleRegister}
+                    className="w-full mt-6 bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition"
+                  >
+                    {loginMode === 'login' ? 'Enter Portal' : 'Register Account'}
+                  </button>
+
+                  {loginMode === 'register' && (
+                    <p className="text-sm text-orange-600 text-center mt-4">
+                      Password must contain: 8+ characters, uppercase, lowercase, number, and special character
+                    </p>
+                  )}
+                  
+                  <div className="text-center mt-4">
+                    <a href="index.html" className="text-sm text-orange-600 hover:text-orange-800 underline">
+                      ← Back to Journal Homepage
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          const mySubmissions = submissions.filter(s => s.submittedBy === user.username);
+          const pendingReview = submissions.filter(s => s.status === 'submitted' || s.status === 'under_review');
+          const acceptedPapers = submissions.filter(s => s.status === 'accepted');
+          const needsRevision = mySubmissions.filter(s => s.status === 'revision_requested');
+
+          return (
+            <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+              <nav className="bg-white shadow-md">
+                <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                  <div>
+                    <h1 className="text-2xl font-bold text-orange-800">Prajnanabha Journal</h1>
+                    <p className="text-sm text-orange-600">
+                      Welcome, {user.username} ({user.role})
+                    </p>
+                  </div>
+                  <div className="flex gap-3">
+                    <a href="index.html" className="flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 transition">
+                      Journal Home
+                    </a>
+                    <button
+                      onClick={() => setUser(null)}
+                      className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition"
+                    >
+                      <i data-lucide="log-out" className="w-4 h-4"></i>
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </nav>
+
+              <div className="max-w-7xl mx-auto p-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                  {user.role === 'author' && (
+                    <div className="bg-white rounded-xl shadow-lg p-6">
+                      <div className="flex items-center gap-3 mb-2">
+                        <i data-lucide="file-text" className="w-6 h-6 text-orange-500"></i>
+                        <h2 className="text-xl font-bold text-orange-800">My Submissions</h2>
+                      </div>
+                      <p className="text-4xl font-bold text-orange-600">{mySubmissions.length}</p>
+                      <p className="text-sm text-gray-600">{needsRevision.length} need revision</p>
+                    </div>
+                  )}
+
+                  <div className="bg-white rounded-xl shadow-lg p-6">
+                    <div className="flex items-center gap-3 mb-2">
+                      <i data-lucide="clock" className="w-6 h-6 text-blue-500"></i>
+                      <h2 className="text-xl font-bold text-orange-800">Under Review</h2>
+                    </div>
+                    <p className="text-4xl font-bold text-blue-600">{pendingReview.length}</p>
+                    <p className="text-sm text-gray-600">Papers in review process</p>
+                  </div>
+
+                  <div className="bg-white rounded-xl shadow-lg p-6">
+                    <div className="flex items-center gap-3 mb-2">
+                      <i data-lucide="check-circle" className="w-6 h-6 text-green-500"></i>
+                      <h2 className="text-xl font-bold text-orange-800">Accepted</h2>
+                    </div>
+                    <p className="text-4xl font-bold text-green-600">{acceptedPapers.length}</p>
+                    <p className="text-sm text-gray-600">Ready for publication</p>
+                  </div>
+                </div>
+
+                {user.role === 'author' && (
+                  <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-orange-800 mb-4">Submit New Paper</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        placeholder="Paper Title *"
+                        value={newSubmission.title}
+                        onChange={(e) => setNewSubmission({ ...newSubmission, title: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Authors (e.g., John Doe, Jane Smith) *"
+                        value={newSubmission.authors}
+                        onChange={(e) => setNewSubmission({ ...newSubmission, authors: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                      <select
+                        value={newSubmission.category}
+                        onChange={(e) => setNewSubmission({ ...newSubmission, category: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      >
+                        <option value="">Select Category</option>
+                        <option value="Quantum Illumination">Quantum Illumination</option>
+                        <option value="Quantum Supercomputing">Quantum Supercomputing</option>
+                        <option value="Quantum Machine Learning">Quantum Machine Learning</option>
+                        <option value="String Theory">String Theory</option>
+                        <option value="Network Information Theory">Network Information Theory</option>
+                        <option value="Neuron">Neuron</option>
+                        <option value="Unification">Unification</option>
+                        <option value="Integration">Integration</option>
+                      </select>
+                      <input
+                        type="text"
+                        placeholder="Keywords (comma-separated)"
+                        value={newSubmission.keywords}
+                        onChange={(e) => setNewSubmission({ ...newSubmission, keywords: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                      <textarea
+                        placeholder="Abstract *"
+                        value={newSubmission.abstract}
+                        onChange={(e) => setNewSubmission({ ...newSubmission, abstract: e.target.value })}
+                        className="md:col-span-2 px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 h-32"
+                      />
+                      <div className="md:col-span-2">
+                        <input
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          onChange={(e) => setUploadedFile(e.target.files[0])}
+                          className="w-full px-4 py-2 border border-orange-200 rounded-lg"
+                        />
+                        {uploadedFile && (
+                          <p className="text-sm text-green-600 mt-2">✓ {uploadedFile.name}</p>
+                        )}
+                      </div>
+                      <button
+                        onClick={handleSubmitPaper}
+                        className="md:col-span-2 flex items-center justify-center gap-2 bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition font-semibold"
+                      >
+                        <i data-lucide="send" className="w-4 h-4"></i>
+                        Submit Paper
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    {user.role === 'author' ? (
+                      <>
+                        <h2 className="text-2xl font-bold text-orange-800 mb-4">My Submissions</h2>
+                        <div className="space-y-4">
+                          {mySubmissions.map(sub => (
+                            <div 
+                              key={sub.id} 
+                              className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition cursor-pointer"
+                              onClick={() => setSelectedSubmission(sub)}
+                            >
+                              <div className="flex justify-between items-start mb-2">
+                                <h3 className="font-bold text-orange-800 flex-1">{sub.title}</h3>
+                                <span className={`px-2 py-1 rounded text-xs font-semibold ml-2 ${
+                                  sub.status === 'accepted' ? 'bg-green-100 text-green-800' :
+                                  sub.status === 'under_review' ? 'bg-blue-100 text-blue-800' :
+                                  sub.status === 'revision_requested' ? 'bg-yellow-100 text-yellow-800' :
+                                  sub.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                                  'bg-gray-100 text-gray-800'
+                                }`}>
+                                  {sub.status.replace('_', ' ')}
+                                </span>
+                              </div>
+                              <p className="text-sm text-gray-600 mb-2">{sub.authors}</p>
+                              <div className="flex items-center gap-2 text-sm text-gray-500">
+                                <i data-lucide="calendar" className="w-3 h-3"></i>
+                                <span>Submitted: {sub.submittedDate}</span>
+                              </div>
+                            </div>
+                          ))}
+                          {mySubmissions.length === 0 && (
+                            <div className="bg-white rounded-xl shadow-lg p-8 text-center text-gray-500">
+                              <i data-lucide="file-text" className="w-12 h-12 mx-auto mb-3 opacity-30"></i>
+                              <p>No submissions yet. Submit your first paper above!</p>
+                            </div>
+                          )}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <h2 className="text-2xl font-bold text-orange-800 mb-4">
+                          {user.role === 'editor' ? 'All Submissions' : 'Papers to Review'}
+                        </h2>
+                        <div className="space-y-4">
+                          {(user.role === 'editor' ? submissions : pendingReview).map(sub => (
+                            <div 
+                              key={sub.id} 
+                              className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition cursor-pointer"
+                              onClick={() => setSelectedSubmission(sub)}
+                            >
+                              <div className="flex justify-between items-start mb-2">
+                                <h3 className="font-bold text-orange-800 flex-1">{sub.title}</h3>
+                                <span className={`px-2 py-1 rounded text-xs font-semibold ml-2 ${
+                                  sub.status === 'accepted' ? 'bg-green-100 text-green-800' :
+                                  sub.status === 'under_review' ? 'bg-blue-100 text-blue-800' :
+                                  sub.status === 'revision_requested' ? 'bg-yellow-100 text-yellow-800' :
+                                  sub.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                                  'bg-purple-100 text-purple-800'
+                                }`}>
+                                  {sub.status.replace('_', ' ')}
+                                </span>
+                              </div>
+                              <p className="text-sm text-gray-600 mb-2">{sub.authors}</p>
+                              <p className="text-xs text-gray-500 mb-2">Category: {sub.category}</p>
+                              <div className="flex items-center gap-2 text-sm text-gray-500">
+                                <i data-lucide="calendar" className="w-3 h-3"></i>
+                                <span>{sub.submittedDate}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {selectedSubmission && (
+                    <div className="bg-white rounded-xl shadow-lg p-6 h-fit sticky top-4">
+                      <h2 className="text-2xl font-bold text-orange-800 mb-4">{selectedSubmission.title}</h2>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm font-semibold text-gray-700">Authors:</p>
+                          <p className="text-sm text-gray-600">{selectedSubmission.authors}</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm font-semibold text-gray-700">Category:</p>
+                          <span className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded text-sm">
+                            {selectedSubmission.category}
+                          </span>
+                        </div>
+
+                        {selectedSubmission.keywords && (
+                          <div>
+                            <p className="text-sm font-semibold text-gray-700 mb-1">Keywords:</p>
+                            <p className="text-sm text-gray-600">{selectedSubmission.keywords}</p>
+                          </div>
+                        )}
+
+                        <div>
+                          <p className="text-sm font-semibold text-gray-700 mb-1">Abstract:</p>
+                          <p className="text-sm text-gray-600 leading-relaxed">{selectedSubmission.abstract}</p>
+                        </div>
+
+                        <div className="border-t pt-4">
+                          <h3 className="font-semibold text-orange-800 mb-2">Manuscript</h3>
+                          <button className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition w-full justify-center">
+                            <i data-lucide="download" className="w-4 h-4"></i>
+                            Download {selectedSubmission.file}
+                          </button>
+                        </div>
+
+                        {selectedSubmission.reviewComments && (
+                          <div className="border-t pt-4 bg-yellow-50 p-3 rounded-lg">
+                            <p className="text-sm font-semibold text-yellow-800 mb-1">Review Comments:</p>
+                            <p className="text-sm text-yellow-700">{selectedSubmission.reviewComments}</p>
+                          </div>
+                        )}
+
+                        {user.role === 'author' && selectedSubmission.status === 'revision_requested' && (
+                          <div className="border-t pt-4">
+                            <h3 className="font-semibold text-orange-800 mb-2">Upload Revised Manuscript</h3>
+                            <input
+                              type="file"
+                              accept=".pdf,.doc,.docx"
+                              onChange={(e) => setUploadedFile(e.target.files[0])}
+                              className="w-full px-4 py-2 border border-orange-200 rounded-lg mb-2"
+                            />
+                            {uploadedFile && (
+                              <p className="text-sm text-green-600 mb-2">✓ {uploadedFile.name}</p>
+                            )}
+                            <button
+                              onClick={() => handleResubmit(selectedSubmission.id)}
+                              disabled={!uploadedFile}
+                              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              <i data-lucide="upload" className="w-4 h-4"></i>
+                              Resubmit Revised Paper
+                            </button>
+                          </div>
+                        )}
+
+                        {user.role === 'editor' && (
+                          <div className="border-t pt-4 space-y-2">
+                            <h3 className="font-semibold text-orange-800 mb-2">Editor Actions</h3>
+                            
+                            {selectedSubmission.status === 'submitted' && (
+                              <button
+                                onClick={() => handleEditorAction(selectedSubmission.id, 'send_to_review')}
+                                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full justify-center"
+                              >
+                                <i data-lucide="send" className="w-4 h-4"></i>
+                                Send to Review
+                              </button>
+                            )}
+                            
+                            {(selectedSubmission.status === 'under_review' || selectedSubmission.status === 'submitted') && (
+                              <>
+                                <button
+                                  onClick={() => handleEditorAction(selectedSubmission.id, 'accept')}
+                                  className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition w-full justify-center"
+                                >
+                                  <i data-lucide="check-circle" className="w-4 h-4"></i>
+                                  Accept Paper
+                                </button>
+                                
+                                <div>
+                                  <textarea
+                                    placeholder="Enter revision comments..."
+                                    value={reviewComment}
+                                    onChange={(e) => setReviewComment(e.target.value)}
+                                    className="w-full px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-2"
+                                    rows="3"
+                                  />
+                                  <button
+                                    onClick={() => handleEditorAction(selectedSubmission.id, 'request_revision')}
+                                    disabled={!reviewComment}
+                                    className="flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                                  >
+                                    <i data-lucide="edit" className="w-4 h-4"></i>
+                                    Request Revision
+                                  </button>
+                                </div>
+                                
+                                <button
+                                  onClick={() => handleEditorAction(selectedSubmission.id, 'reject')}
+                                  className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition w-full justify-center"
+                                >
+                                  <i data-lucide="x-circle" className="w-4 h-4"></i>
+                                  Reject Paper
+                                </button>
+                              </>
+                            )}
+                          </div>
+                        )}
+
+                        {user.role === 'reviewer' && selectedSubmission.status === 'under_review' && (
+                          <div className="border-t pt-4">
+                            <h3 className="font-semibold text-orange-800 mb-2">Submit Review</h3>
+                            <textarea
+                              placeholder="Enter your review comments..."
+                              value={reviewComment}
+                              onChange={(e) => setReviewComment(e.target.value)}
+                              className="w-full px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-2"
+                              rows="4"
+                            />
+                            <button
+                              onClick={() => {
+                                if (reviewComment) {
+                                  alert('Review submitted successfully!');
+                                  setReviewComment('');
+                                  setSelectedSubmission(null);
+                                } else {
+                                  alert('Please enter your review comments.');
+                                }
+                              }}
+                              disabled={!reviewComment}
+                              className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              <i data-lucide="send" className="w-4 h-4"></i>
+                              Submit Review
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        };
+
+        ReactDOM.render(<PrajnanabhaJournal />, document.getElementById('root'));
+    </script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Mathematical Model for the Vector Ephaptic Perceptron. - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">A Mathematical Model for the Vector Ephaptic Perceptron.</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">Rosenblatt's perceptron was a breakthrough in the mathematical un- derstanding of learning and related higher cognitive functions. In the present paper, the authors extend Rosenblatt's model to the vector set- ting which enables the modeling of coupling between perceptrons. The form of the coupling suggests a geometric formulation as well which con- nects the present work to prior work on metric perturbations in axon tracts. Introduction There are several questions that one would like to answer with regards to views of the brain. First of all, in (Chawla et al., 2019), the authors classied the analysis of the brain into two layers - the data layer and the physical layer. At the physical layer level they proposed in that paper that there is a geometric impact on ephaptic interaction between neurons. In (Chawla et al., 2021) the authors continued their physical layer analysis by extending it to electric elds, and additionally proposed a computation of the information-carrying capacity of the physical layer, thereby initiating the data layer analysis. In this paper, the authors further the investigation of the brain on the ba- sis of the presence of these two layers. Specically, they modify the physical layer model of a neural Rosenblatt's perceptron (Rosenblatt, 1958) collection by introducing ephaptic coupling between the members of the set. The authors' investigation raises several questions: 1. The purpose of dierential ephaptic coupling seems to be to enable synapse- like features even in the axons. This raises the question if there are other structures in the brain which can be so considered. 2. Synapses allow memory storage. A related question is therefore that if such synapse-like structures are widespread, then memory may be more distributed throughout the organism's nervous system than previously thought, and the next question is one of verication or validation. 1</p> <p>3. In terms of spiking activity, coupling leads to synchronization between neural axons within a coupled-tract. A completely unaddressed question therefore is: what is the role of synchronization in the machine learning models that are used to-day? The above questions are not explicitly addressed in this paper, but they can guide our thinking. The paper is organized as follows. In Section 2, we re- view the mechanism of ephaptic synchronization. In Section 3 we specify the modeling innovation and in Section 4 we conclude with a discussion. Notation Table 1 details the notation used in this paper. Table 1: Symbols and Their Meanings Serial Number Symbol Meaning v{1,2,i} post-summation voltage of perceptrons 1, 2, i ˜v{1,2,i} post-summation ephaptic voltage of perceptrons 1, 2, i λ{1,2}, λki coupling parameters w{1i,2i} synaptic weights on perceptrons 1, 2 x{1i,2i} input data sent to perceptrons 1, 2; components of the corresponding vectors b{1,2} bias term in perceptrons 1, 2 Review of Ephaptic Synchronization Two visual exhibits, A and B, will clarify the synchronization dynamics in cou- pled axons. Exhibit A is Figure 1, which shows three axons coupled via cur- rents. The axons' action potentials are gradually beginning to synchronize in their trains. For example, the initial temporal gap between spikes (considering the rising phase) on axon 2 and axon 1 is 0.00116 seconds whereas the nal gap is shorter, at 0.000764 seconds. Exhibit B is Figure 2, from (Chawla et al., 2019), which shows, in much detail, how perfect phase synchronization gradually sets in, in two coupled axons of diering diameters. 2</p> <p>Figure 1: Exhibit A: Three axons in an ephaptically current-coupled tract un- dergoing gradual phase synchronization. Figure 2: Exhibit B: Perfect phase synchronization between two axons whose diameters dier by 10 percent. The gure is sourced from (Chawla et al., 2019) . 3</p> <p>3 The Proposed Model The regular perceptron consists of incoming data which is nodally-multiplied by so-called synaptic weights (Haykin, 2010). This weighted data is then collected centrally via a summation operation. The summation output is then hard- limited to generate the nal output of the neuron. There is also a bias term which is often included as one of the nodes on the input side. The notation used in the following analysis is succinctly explained in Table 1. Consider the post-summation variables v1 and v2 belonging to two percep- trons. These can be expanded in terms of the biases, synaptic weights and incoming data at each perceptron summation symbol. We get, v1 = m1 X i=1 w1ix1i + b1 (1) and v2 = m2 X i=1 w2ix2i + b2. (2) These are ordinary perceptrons; we are just considering two of them here. Next, consider them to be ephaptically coupled via coupling parameters λ1,2. We generate two new variables representing the perceptrons, ˜v1 and ˜v2. In terms of the original variables v1 and v2, these can be written: ˜v1 = v1 + λ2v2 (3) and ˜v2 = v2 + λ1v1. (4) Now if λ1,2 &gt; 0, we are in the case of normal ephaptic coupling. However, if these parameters can also be non-positive, then we are in the case of dierential ephaptic coupling (Chawla &amp; Morgera, 2022b). The negativity is allowed by the relaxation of electroneutrality of the bounding tract. These considerations extend in a straightforward way to k &gt; 2 coupled perceptrons. However, in that case, the second additive term in Equations (3) and (4) will be as follows: veph = λkivi (5) where the Einstein notation is used and both i and k run over the indices 1, ..., N. This gives the individual perceptron as ˜vk = vk + X i λkivi. (6) 4</p> <p>4 Conclusion In this paper we proposed a new type of perceptron, inspired by ephaptic cou- pling in the mammalian nervous system. The vector ephaptic perceptron is constructed from two or more component perceptrons, whose variables are cou- pled to one another. The construction is based on the ephaptic current term of Reutskiy et. al. (Reutskiy et al., 2003). By allowing for negative coupling between perceptrons, we extended the insight of (Chawla &amp; Morgera, 2022b) to the machine learning setting. The form of Equation (6) suggests that the model also allows for geometric considerations. Specically, we might be able to model neural networks in a three dimensional setting. An advantage of such a formulation would be to mimic the gravitational wave considerations of (Chawla &amp; Morgera, 2022a) in the perceptron context. One of the limitations of the present work is a sound justication for the coupling. While coupled systems are found widely in nature and in the brain as well, and coupling is known to enable observed phenomena such as synchroniza- tion, whether such coupling would exist between neural cell bodies themselves, remains an open question. It is to be noted here that this paper diers from axon-axon coupling models in this regard. In future work we hope to conduct simulations of the proposed model which will also illuminate whether there is a performance gain in using coupled per- ceptron networks instead of single perceptrons. For example, in the eld of classication using neural networks, a model in Python can be generated and its convergence rate can be compared in the two cases - presence and absence of coupling. Geometric features can be investigated in a similar manner. Over- all, the present paper expands our repository of neural network model systems that may perform better, even though the biological basis remains somewhat unclear. References Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022a. Computer study of metric perturbations impinging on coupled axon tracts. biorxiv. Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022b. Dierential ephaptic networks. Journal of applied mathematics and physics, 10(10), 28762882. Chawla, Aman, Morgera, Salvatore D, &amp; Snider, Arthur D. 2019. On axon interaction and its role in neurological networks. Ieee/acm transactions on computational biology and bioinformatics, 18(2), 790796. Chawla, Aman, Morgera, Salvatore Domenic, &amp; Snider, Arthur D. 2021. Fields, geometry and their impact on axon interaction. Journal of applied mathe- matics and physics, 9(04), 751. 5</p> <p>Haykin, Simon. 2010. Neural networks and learning machines, 3/e. Pearson Education India. Reutskiy, Sergiy, Rossoni, Enrico, &amp; Tirozzi, Brunello. 2003. Conduction in bundles of demyelinated nerve bers: computer simulation. Biological cyber- netics, 89(6), 439448. Rosenblatt, Frank. 1958. The perceptron: a probabilistic model for information storage and organization in the brain. Psychological review, 65(6), 386.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/A_Mathematical_Model_for_the_Vector_Ephaptic_Perceptron.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

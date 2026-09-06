@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारतगणित · Bharataganit</title>
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Devanagari:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+  window.BHARATAGANIT_CONFIG = {
+    SHEET_CSV_URL: "" // <-- paste your published Google Sheet CSV URL here
+  };
+</script>
+<style>
+  :root{
+    --bg: #15121c;
+    --bg-panel: #1c1726;
+    --bg-card: #241d31;
+    --bg-card-hi: #2b2339;
+    --line: #3c3450;
+    --line-soft: #2c253a;
+    --gold: #c9a227;
+    --gold-soft: #a98a2f;
+    --copper: #bd6a34;
+    --jade: #4c9a8b;
+    --parchment: #ece1c6;
+    --parchment-dim: #cfc3a2;
+    --muted: #948aa8;
+    --danger: #c1594a;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 1200px 700px at 15% -10%, #241a34 0%, transparent 60%),
+      radial-gradient(ellipse 900px 600px at 100% 0%, #1f2a34 0%, transparent 55%),
+      var(--bg);
+    color: var(--parchment);
+    font-family: 'Spectral', serif;
+    line-height: 1.55;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  .stars{
+    position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.5;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(236,225,198,0.5), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(236,225,198,0.4), transparent),
+      radial-gradient(1px 1px at 60% 70%, rgba(236,225,198,0.3), transparent),
+      radial-gradient(1.5px 1.5px at 30% 80%, rgba(201,162,39,0.4), transparent),
+      radial-gradient(1px 1px at 92% 55%, rgba(236,225,198,0.4), transparent),
+      radial-gradient(1px 1px at 45% 35%, rgba(236,225,198,0.3), transparent);
+    background-repeat: no-repeat;
+  }
+  .wrap{ position:relative; z-index:1; max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Hero ---------- */
+  header.hero{ padding: 64px 0 40px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.18em;
+    text-transform:uppercase; color: var(--gold); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background: var(--gold); display:inline-block;}
+  .deva{ font-family:'Noto Serif Devanagari', serif; }
+  h1.title{
+    font-family:'Cormorant SC', serif; font-weight:600; font-size: clamp(40px, 7vw, 68px);
+    margin: 10px 0 6px; letter-spacing: .01em; color: var(--parchment);
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+  }
+  h1.title .en{ font-size: 0.42em; font-family:'Cormorant Garamond', serif; font-style:italic; color: var(--parchment-dim); font-weight:500;}
+  p.tagline{ max-width: 620px; color: var(--parchment-dim); font-size: 17px; margin: 6px 0 26px; }
+  .statrow{ display:flex; gap:0; flex-wrap:wrap; border-top:1px solid var(--line-soft); }
+  .stat{ flex:1; min-width:130px; padding: 16px 18px 4px 0; border-right: 1px solid var(--line-soft); }
+  .stat:last-child{ border-right:none; }
+  .stat .n{ font-family:'Cormorant SC', serif; font-size: 30px; color: var(--gold); line-height:1;}
+  .stat .l{ font-family:'JetBrains Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color: var(--muted); margin-top:6px;}
+
+  /* ---------- Tabs ---------- */
+  .tabs{ display:flex; gap:8px; margin: 34px 0 26px; }
+  .tab{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.05em; text-transform:uppercase;
+    background:transparent; border:1px solid var(--line); color: var(--parchment-dim);
+    padding: 11px 20px; cursor:pointer; border-radius:3px; transition:.15s;
+  }
+  .tab:hover{ border-color: var(--gold-soft); color: var(--parchment); }
+  .tab.active{ background: var(--gold); border-color: var(--gold); color: #1c1508; font-weight:600; }
+
+  section{ display:none; }
+  section.active{ display:block; animation: fade .35s ease; }
+  @keyframes fade{ from{ opacity:0; transform: translateY(6px);} to{opacity:1; transform:none;} }
+
+  /* ---------- Explore controls ---------- */
+  .controls{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 26px; }
+  .controls input[type=text], .controls select{
+    background: var(--bg-panel); border:1px solid var(--line); color: var(--parchment);
+    font-family:'Spectral', serif; font-size:14px; padding: 10px 12px; border-radius:3px;
+  }
+  .controls input[type=text]{ flex: 1 1 240px; }
+  .controls select{ font-family:'JetBrains Mono', monospace; font-size:12px; }
+  .controls input:focus, .controls select:focus{ outline: 1px solid var(--gold); border-color: var(--gold); }
+
+  /* ---------- Plate card (signature element) ---------- */
+  .plate{
+    position:relative; background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-card-hi) 100%);
+    border:1px solid var(--line); border-radius: 4px; padding: 22px 24px 20px 40px;
+    margin-bottom: 16px; box-shadow: var(--shadow); cursor:pointer; transition: border-color .15s, transform .15s;
+  }
+  .plate:hover{ border-color: var(--gold-soft); transform: translateY(-1px); }
+  .plate::before{ /* the punched ring motif of a copper-plate grant */
+    content:''; position:absolute; left:14px; top:22px; width:12px; height:12px; border-radius:50%;
+    border:2px solid var(--gold-soft); background: var(--bg);
+  }
+  .plate::after{
+    content:''; position:absolute; left:19px; top:34px; bottom:22px; width:1px;
+    background: repeating-linear-gradient(var(--line) 0 4px, transparent 4px 8px);
+  }
+  .plate .row1{ display:flex; justify-content:space-between; align-items:flex-start; gap:14px; flex-wrap:wrap;}
+  .plate .name{ font-family:'Cormorant SC', serif; font-size: 25px; color: var(--parchment); font-weight:600; }
+  .plate .name .san{ font-family:'Noto Serif Devanagari', serif; font-size:16px; color: var(--muted); margin-left:10px; font-weight:500;}
+  .plate .dates{ font-family:'JetBrains Mono', monospace; font-size:12px; color: var(--gold); white-space:nowrap; padding-top:6px;}
+  .plate .meta{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .badge{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 9px; border-radius:20px; border:1px solid var(--line);
+  }
+  .badge.bio{ color: var(--copper); border-color: var(--copper); }
+  .badge.intel{ color: var(--jade); border-color: var(--jade); }
+  .badge.both{ background: linear-gradient(90deg, rgba(189,106,52,.15), rgba(76,154,139,.15)); color:var(--parchment); border-color: var(--muted); }
+  .badge.verified{ color: var(--gold); border-color: var(--gold); }
+  .plate .occ{ color: var(--parchment-dim); font-size:14px; margin-top:10px; font-style:italic; }
+  .plate .rel{ color: var(--muted); font-size:13px; margin-top:4px; }
+  .plate .rel b{ color: var(--parchment-dim); font-weight:600; font-style:normal; }
+
+  .detail{ display:none; margin-top:16px; padding-top:16px; border-top: 1px dashed var(--line); }
+  .detail.open{ display:block; }
+  .detail .teach{
+    background: rgba(201,162,39,0.06); border-left: 2px solid var(--gold);
+    padding: 12px 16px; font-style: italic; color: var(--parchment); font-size:15px; margin-bottom:12px;
+  }
+  .detail .src{ font-family:'JetBrains Mono', monospace; font-size:11.5px; color: var(--muted); }
+  .detail .contributor{ font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--muted); margin-top:8px;}
+
+  .empty{ text-align:center; padding: 60px 20px; color: var(--muted); font-style: italic; }
+
+  /* ---------- Form ---------- */
+  .form-card{ background: var(--bg-panel); border:1px solid var(--line); border-radius:6px; padding: 30px; box-shadow: var(--shadow); }
+  .form-card h2{ font-family:'Cormorant SC', serif; font-size:26px; margin:0 0 4px; color: var(--parchment); font-weight:600; }
+  .form-card p.hint{ color: var(--muted); font-size:13.5px; margin: 0 0 22px; }
+  .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  @media (max-width: 640px){ .grid2{ grid-template-columns: 1fr; } }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-family:'JetBrains Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color: var(--gold); margin-bottom:6px; }
+  .field .opt{ color: var(--muted); text-transform:none; letter-spacing:0; font-family:'Spectral',serif; font-style:italic; font-size:12px; }
+  .field input, .field select, .field textarea{
+    width:100%; background: var(--bg); border:1px solid var(--line); color: var(--parchment);
+    font-family:'Spectral', serif; font-size:14.5px; padding:10px 12px; border-radius:3px;
+  }
+  .field textarea{ min-height: 76px; resize: vertical; font-family:'Spectral', serif; }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color: var(--gold); }
+  fieldset{ border:1px solid var(--line); border-radius:3px; padding: 10px 14px; margin: 0 0 16px; }
+  legend{ font-family:'JetBrains Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color: var(--gold); padding:0 6px; }
+  .radiorow{ display:flex; gap:18px; flex-wrap:wrap; padding: 4px 0; }
+  .radiorow label{ display:flex; align-items:center; gap:7px; font-family:'Spectral',serif; font-size:14px; color: var(--parchment-dim); text-transform:none; letter-spacing:0; }
+  .radiorow input{ width:auto; accent-color: var(--gold); }
+
+  button.primary{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.05em; text-transform:uppercase;
+    background: var(--gold); color:#1c1508; border:none; padding:13px 26px; border-radius:3px; cursor:pointer;
+    font-weight:600; transition:.15s;
+  }
+  button.primary:hover{ background: #ddb52f; }
+  button.primary:disabled{ opacity:.5; cursor:not-allowed; }
+  button.ghost{
+    font-family:'JetBrains Mono', monospace; font-size:12px; background:transparent; border:1px solid var(--line);
+    color: var(--parchment-dim); padding:9px 16px; border-radius:3px; cursor:pointer; text-transform:uppercase; letter-spacing:.05em;
+  }
+  button.ghost:hover{ border-color: var(--gold-soft); color: var(--parchment); }
+
+  .notice{ font-size:13px; padding:12px 14px; border-radius:3px; margin-top:14px; font-family:'Spectral', serif; }
+  .notice.ok{ background: rgba(76,154,139,0.1); border:1px solid var(--jade); color:#bfe8df; }
+  .notice.err{ background: rgba(193,89,74,0.1); border:1px solid var(--danger); color:#f3c4bc; }
+  .notice a{ color: var(--gold); }
+
+  .privacy{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color: var(--muted); background: var(--bg);
+    border:1px dashed var(--line); border-radius:3px; padding: 10px 14px; margin-bottom:20px; line-height:1.6;
+  }
+
+  footer{ margin-top: 60px; padding-top: 20px; border-top:1px solid var(--line-soft); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;}
+  footer .fnote{ font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--muted); }
+
+  .syncnote{ font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--muted); margin: -14px 0 18px; }
+  .syncnote.warn{ color: var(--copper); }
+  .badge.pending{ color: var(--copper); border-color: var(--copper); border-style: dashed; }
+
+  .loading{ text-align:center; padding:50px; color: var(--muted); font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.05em;}
+  .loading::after{ content:'···'; animation: dots 1.2s steps(4) infinite; }
+  @keyframes dots{ 0%{content:'';} 25%{content:'·';} 50%{content:'··';} 75%{content:'···';} 100%{content:'';} }
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div class="stars"></div>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">A living genealogical record</div>
+    <h1 class="title"><span class="deva">भारतगणित</span><span class="en">Bharataganit</span></h1>
+    <p class="tagline">A <a href="https://yogoreal.net">REAL</a> repository tracing the biological and intellectual lineages of Indian mathematicians and astronomers — father to son, teacher to student, commentary to commentary — each entry grounded in a cited source, from stone inscription to modern scholarship.</p>
+    <div class="statrow" id="statrow"></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="explore">Explore the record</button>
+    <button class="tab" data-tab="contribute">Add a lineage</button>
+  </div>
+
+  <section id="explore" class="active">
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search by name, place, gotra, or teaching…">
+      <select id="filterType">
+        <option value="all">All lineage types</option>
+        <option value="biological">Biological only</option>
+        <option value="intellectual">Intellectual only</option>
+        <option value="both">Biological + Intellectual</option>
+      </select>
+      <select id="sortOrder">
+        <option value="asc">Earliest first</option>
+        <option value="desc">Latest first</option>
+      </select>
+      <button class="ghost" id="resetData" title="Clear records you added this session">Clear my session additions</button>
+    </div>
+    <div id="syncNote" class="syncnote"></div>
+    <div id="recordList"><div class="loading">Unrolling the palm-leaf archive</div></div>
+  </section>
+
+  <section id="contribute">
+    <div class="form-card">
+      <h2>Add a record to the lineage</h2>
+      <p class="hint">Every field should be something you can point to a source for. Uncertain dates are fine — write "c. 1350" or "floruit 15th c." rather than guessing precision you don't have.</p>
+
+      <div class="privacy">⚠ This repository is shared: records you add here are stored in a shared Google Sheet and will become visible to everyone who opens this page — usually within a few minutes, not instantly.</div>
+
+      <form id="recordForm" name="bharataganit-record" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="bharataganit-record">
+        <p class="hidden-field" style="position:absolute; left:-9999px;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+        <div class="grid2">
+          <div class="field">
+            <label>Name (transliterated) *</label>
+            <input type="text" id="f_name" name="Name" required placeholder="e.g. Nīlakaṇṭha Somayāji">
+          </div>
+          <div class="field">
+            <label>Name in Devanagari <span class="opt">optional</span></label>
+            <input type="text" id="f_san" name="Devanagari" placeholder="e.g. नीलकण्ठ सोमयाजी">
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label>Born / floruit *</label>
+            <input type="text" id="f_born" name="Born" required placeholder="e.g. 1444 or c. 1350">
+          </div>
+          <div class="field">
+            <label>Died <span class="opt">optional</span></label>
+            <input type="text" id="f_died" name="Died" placeholder="e.g. 1544">
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label>Region / place</label>
+            <input type="text" id="f_region" name="Region" placeholder="e.g. Kerala, near Tirur">
+          </div>
+          <div class="field">
+            <label>Occupation</label>
+            <input type="text" id="f_occ" name="Occupation" placeholder="e.g. Astronomer, court astrologer">
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Lineage type *</legend>
+          <div class="radiorow">
+            <label><input type="radio" name="LineageType" value="biological" checked> Biological (family)</label>
+            <label><input type="radio" name="LineageType" value="intellectual"> Intellectual (teacher–student / commentary)</label>
+            <label><input type="radio" name="LineageType" value="both"> Both</label>
+          </div>
+        </fieldset>
+
+        <div class="grid2">
+          <div class="field">
+            <label>Relation <span class="opt">e.g. "son of", "student of", "commentator on"</span></label>
+            <input type="text" id="f_relation" name="Relation" placeholder="e.g. grandson of">
+          </div>
+          <div class="field">
+            <label>Related to <span class="opt">name already in the record, or leave blank if a root</span></label>
+            <input type="text" id="f_relatedTo" name="RelatedTo" placeholder="e.g. Bhāskara II">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Teachings / works preserved</label>
+          <textarea id="f_teachings" name="Teachings" placeholder="What of their work or teaching survives, and in what form — a treatise, a commentary, an oral tradition, an institution founded to study it…"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Source / citation *</label>
+          <textarea id="f_source" name="Source" required placeholder="e.g. Pingree, D. Census of the Exact Sciences in Sanskrit; or an inscription reference, page number, etc."></textarea>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label>Your name <span class="opt">shown as contributor</span></label>
+            <input type="text" id="f_cname" name="ContributorName" placeholder="e.g. your name">
+          </div>
+          <div class="field">
+            <label>Your email <span class="opt">to receive a copy of this record</span></label>
+            <input type="email" id="f_cemail" name="ContributorEmail" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <button type="submit" class="primary" id="submitBtn">Add to the repository</button>
+        <div id="formNotice"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fnote">Records persist in a shared Google Sheet and sync back to this page for every visitor, usually within a few minutes. Seed entries marked <span style="color:var(--gold)">✓ verified</span> are drawn from cited historical scholarship; contributed entries carry only the sourcing their contributor provided.</div>
+    <div class="fnote">॥ शुभम् भवतु ॥</div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+  // ---------------- Seed data (verified, cited in conversation) ----------------
+  const SEED = [
+    {
+      id: 'seed-aryabhata', name: 'Āryabhaṭa I', san: 'आर्यभट', born: 'c. 476 CE', died: 'c. 550 CE',
+      region: 'Kusumapura / Pāṭaliputra (present-day Patna, Bihar)', occ: 'Mathematician, astronomer',
+      lineageType: 'intellectual', relation: 'root of tradition', relatedTo: '',
+      teachings: 'The Āryabhaṭīya survives complete and remains the foundational text of the Āryapakṣa school of Indian astronomy. No record of his biological family or descendants survives — his own birthplace and family are unknown to historians.',
+      source: 'Wikipedia, "Āryabhaṭa"; multiple biographical summaries confirm his ancestry and descendants are undocumented.',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 0, verified: true
+    },
+    {
+      id: 'seed-bhaskara2', name: 'Bhāskara II (Bhāskarācārya)', san: 'भास्कराचार्य', born: '1114 CE', died: 'c. 1185 CE',
+      region: 'Vijjaḍaviḍa, near Patana, Khandesh (present-day Maharashtra)', occ: 'Mathematician, astronomer, head of the Ujjain observatory',
+      lineageType: 'both', relation: 'grandson of Manoratha; son of Maheśvara', relatedTo: 'Maheśvara (father, also an astronomer)',
+      teachings: 'Siddhānta Śiromaṇī, Līlāvatī, and Bījagaṇita all survive complete. His family lineage is unusually well documented for a medieval Indian scholar: a stone inscription at Patan, commissioned by his own grandson, records five generations of ancestors plus two generations of descendants.',
+      source: 'Inscription discovered by Bhau Daji, 1865, Patan, Khandesh; corroborated by a second inscription at Behal. Discussed in Springer Encyclopaedia of the History of Science, and multiple secondary sources.',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 1, verified: true
+    },
+    {
+      id: 'seed-mahesvara', name: 'Maheśvara', san: 'महेश्वर', born: 'c. 1080s CE (est.)', died: '',
+      region: 'Vijjaḍaviḍa, Sāṇḍilya gotra', occ: 'Astronomer; guru to his own son',
+      lineageType: 'both', relation: 'father and teacher of Bhāskara II', relatedTo: 'Bhāskara II (Bhāskarācārya)',
+      teachings: 'No independent treatise of his is known to survive; his role is preserved only through Bhāskara II\'s own account, in the Golādhyāya, naming his father as his teacher.',
+      source: 'Referenced in Bhāskara II\'s Golādhyāya (part of Siddhānta Śiromaṇī); Patan inscription.',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 2, verified: true
+    },
+    {
+      id: 'seed-lakshmidhara', name: 'Lakṣmīdhara', san: 'लक्ष्मीधर', born: 'c. 1140s CE (est.)', died: '',
+      region: 'Patana, later the court of king Jaitrapāla', occ: 'Court paṇḍit',
+      lineageType: 'biological', relation: 'son of', relatedTo: 'Bhāskara II (Bhāskarācārya)',
+      teachings: 'No treatise of his own is known to survive; he is remembered as having been called to serve as chief paṇḍit at the court of king Jaitrapāla.',
+      source: 'Patan inscription (1865, Bhau Daji); cited in Indpaedia, "Mathematics in Ancient India."',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 3, verified: true
+    },
+    {
+      id: 'seed-changadeva', name: 'Caṅgadeva (Changadeva)', san: 'चङ्गदेव', born: 'c. 1170s CE (est.)', died: '',
+      region: 'Court of the Yādava king Siṅghaṇa, Devagiri', occ: 'Chief royal astronomer',
+      lineageType: 'both', relation: 'grandson of', relatedTo: 'Bhāskara II (Bhāskarācārya)',
+      teachings: 'Commissioned the 1206 CE Patan inscription itself, and endowed a college near Chalisgaon specifically to keep Bhāskara II\'s works in continuous study — a direct, documented act of preserving the teaching within the family.',
+      source: 'Patan inscription, Śaka 1128 / 1206 CE; discussed in Indpaedia and multiple histories of Indian astronomy.',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 4, verified: true
+    },
+    {
+      id: 'seed-ranganatha', name: 'Ranganātha', san: 'रङ्गनाथ', born: 'c. late 16th c. CE (est.)', died: '',
+      region: 'India (family of astronomers)', occ: 'Astronomer, commentator',
+      lineageType: 'both', relation: 'father of', relatedTo: 'Munīśvara Viśvarūpa',
+      teachings: 'Author of the Gūḍhārthaprakāśikā, a commentary on the Sūrya Siddhānta, which survives.',
+      source: 'Wikipedia, "Munishvara."',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 5, verified: true
+    },
+    {
+      id: 'seed-munisvara', name: 'Munīśvara Viśvarūpa', san: 'मुनीश्वर विश्वरूप', born: '1608 CE', died: 'unknown',
+      region: 'India', occ: 'Mathematician, astronomer',
+      lineageType: 'both', relation: 'son of Ranganātha, grandson of Ballāla', relatedTo: 'Ranganātha',
+      teachings: 'Siddhānta Sarvabhauma (1646) and Līlāvatīvivṛti both survive, continuing a family tradition of astronomical commentary across at least three documented generations.',
+      source: 'Wikipedia, "Munishvara."',
+      contributorName: 'Bharataganit seed record', contributorEmail: '', addedAt: 6, verified: true
+    }
+  ];
+
+  const CSV_URL = (window.BHARATAGANIT_CONFIG && window.BHARATAGANIT_CONFIG.SHEET_CSV_URL) || '';
+  let records = [];          // seed + synced-from-sheet records
+  let sessionPending = [];   // this browser's own just-submitted records, not yet synced back
+  let expandedId = null;
+
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+  // ---------------- Field mapping (forgiving of header naming/order) ----------------
+  const HEADER_ALIASES = {
+    name: ['name'],
+    san: ['devanagari', 'sanskrit', 'sanskritname'],
+    born: ['born', 'born / floruit', 'floruit'],
+    died: ['died'],
+    region: ['region', 'place'],
+    occ: ['occupation', 'occ'],
+    lineageType: ['lineagetype', 'lineage type', 'lineage'],
+    relation: ['relation'],
+    relatedTo: ['relatedto', 'related to'],
+    teachings: ['teachings', 'teachings / works preserved'],
+    source: ['source', 'citation'],
+    contributorName: ['contributorname', 'contributor name'],
+    contributorEmail: ['contributoremail', 'contributor email'],
+  };
+
+  function normalizeHeader(h){ return String(h||'').trim().toLowerCase(); }
+
+  function rowToRecord(row, idx){
+    const norm = {};
+    Object.keys(row).forEach(k => { norm[normalizeHeader(k)] = row[k]; });
+    function pick(field){
+      for(const alias of HEADER_ALIASES[field]){
+        if(norm[alias] !== undefined && norm[alias] !== '') return norm[alias];
+      }
+      return '';
+    }
+    const name = pick('name');
+    if(!name) return null; // skip blank/malformed rows
+    const lt = (pick('lineageType') || 'biological').toLowerCase();
+    return {
+      id: 'sheet-' + idx + '-' + name.replace(/\s+/g,''),
+      name, san: pick('san'), born: pick('born') || '?', died: pick('died'),
+      region: pick('region'), occ: pick('occ'),
+      lineageType: ['biological','intellectual','both'].includes(lt) ? lt : 'biological',
+      relation: pick('relation'), relatedTo: pick('relatedTo'),
+      teachings: pick('teachings'), source: pick('source') || 'No source provided',
+      contributorName: pick('contributorName'), contributorEmail: '',
+      addedAt: idx, verified: false, pending: false
+    };
+  }
+
+  // ---------------- Load (seed + synced sheet data) ----------------
+  async function loadRecords(){
+    if(!CSV_URL){
+      records = [...SEED];
+      $('#syncNote').innerHTML = 'Live shared records aren\'t configured yet — showing seed data only. (Site owner: see the setup comment near the top of the HTML file.)';
+      $('#syncNote').classList.add('warn');
+      renderAll();
+      return;
+    }
+    try{
+      const res = await fetch(CSV_URL, { cache: 'no-store' });
+      if(!res.ok) throw new Error('CSV fetch failed: ' + res.status);
+      const csvText = await res.text();
+      const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+      const fromSheet = parsed.data.map(rowToRecord).filter(Boolean);
+      records = [...SEED, ...fromSheet];
+      $('#syncNote').textContent = `Synced ${fromSheet.length} contributed record${fromSheet.length===1?'':'s'} from the shared archive · last synced ${new Date().toLocaleTimeString()}`;
+      $('#syncNote').classList.remove('warn');
+    }catch(e){
+      records = [...SEED];
+      $('#syncNote').textContent = 'Could not reach the shared archive right now — showing seed data only. It will retry next time you reload.';
+      $('#syncNote').classList.add('warn');
+    }
+    renderAll();
+  }
+
+  function addLocalId(id){ /* kept for symmetry with the reset button below */ }
+
+  // ---------------- Rendering ----------------
+  function parseYear(str){
+    if(!str) return 9999;
+    const m = String(str).match(/-?\d{3,4}/);
+    if(!m) return 9999;
+    let y = parseInt(m[0], 10);
+    if(/bce|bc/i.test(str)) y = -y;
+    return y;
+  }
+
+  function renderStats(){
+    const total = records.length;
+    const bio = records.filter(r => r.lineageType === 'biological' || r.lineageType === 'both').length;
+    const intel = records.filter(r => r.lineageType === 'intellectual' || r.lineageType === 'both').length;
+    const earliest = records.reduce((min, r) => Math.min(min, parseYear(r.born)), 9999);
+    const earliestLabel = earliest === 9999 ? '—' : (earliest < 0 ? `${-earliest} BCE` : `${earliest} CE`);
+    $('#statrow').innerHTML = `
+      <div class="stat"><div class="n">${total}</div><div class="l">Records</div></div>
+      <div class="stat"><div class="n">${bio}</div><div class="l">Biological links</div></div>
+      <div class="stat"><div class="n">${intel}</div><div class="l">Intellectual links</div></div>
+      <div class="stat"><div class="n">${earliestLabel}</div><div class="l">Earliest entry</div></div>
+    `;
+  }
+
+  function badgeFor(r){
+    if(r.lineageType === 'biological') return '<span class="badge bio">Biological</span>';
+    if(r.lineageType === 'intellectual') return '<span class="badge intel">Intellectual</span>';
+    return '<span class="badge both">Biological + Intellectual</span>';
+  }
+
+  function escapeHtml(s){
+    return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderList(){
+    const q = ($('#search').value || '').toLowerCase().trim();
+    const typeFilter = $('#filterType').value;
+    const order = $('#sortOrder').value;
+
+    const all = [...sessionPending, ...records];
+    let filtered = all.filter(r => {
+      if(typeFilter !== 'all' && r.lineageType !== typeFilter) return false;
+      if(!q) return true;
+      const hay = [r.name, r.san, r.region, r.occ, r.teachings, r.relation, r.relatedTo].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+
+    filtered.sort((a,b) => {
+      const ya = parseYear(a.born), yb = parseYear(b.born);
+      return order === 'asc' ? ya - yb : yb - ya;
+    });
+
+    const list = $('#recordList');
+    if(filtered.length === 0){
+      list.innerHTML = `<div class="empty">No records match. Perhaps it's waiting to be added — see the "Add a lineage" tab.</div>`;
+      return;
+    }
+
+    list.innerHTML = filtered.map(r => {
+      const dates = `${escapeHtml(r.born)}${r.died ? ' – ' + escapeHtml(r.died) : ''}`;
+      const relLine = r.relatedTo
+        ? `${escapeHtml(r.relation || 'linked to')} <b>${escapeHtml(r.relatedTo)}</b>`
+        : (r.relation ? escapeHtml(r.relation) : '');
+      const isOpen = expandedId === r.id;
+      return `
+        <div class="plate" data-id="${r.id}">
+          <div class="row1">
+            <div class="name">${escapeHtml(r.name)}${r.san ? `<span class="san">${escapeHtml(r.san)}</span>` : ''}</div>
+            <div class="dates">${dates}</div>
+          </div>
+          <div class="meta">
+            ${badgeFor(r)}
+            ${r.verified ? '<span class="badge verified">✓ verified</span>' : ''}
+            ${r.pending ? '<span class="badge pending">⧗ syncing to shared archive</span>' : ''}
+          </div>
+          ${r.occ ? `<div class="occ">${escapeHtml(r.occ)}${r.region ? ' — ' + escapeHtml(r.region) : ''}</div>` : (r.region ? `<div class="occ">${escapeHtml(r.region)}</div>` : '')}
+          ${relLine ? `<div class="rel">${relLine}</div>` : ''}
+          <div class="detail ${isOpen ? 'open' : ''}">
+            ${r.teachings ? `<div class="teach">${escapeHtml(r.teachings)}</div>` : ''}
+            ${r.source ? `<div class="src">Source: ${escapeHtml(r.source)}</div>` : ''}
+            ${(!r.verified && r.contributorName) ? `<div class="contributor">Contributed by ${escapeHtml(r.contributorName)}</div>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    $$('.plate', list).forEach(el => {
+      el.addEventListener('click', () => {
+        const id = el.getAttribute('data-id');
+        expandedId = expandedId === id ? null : id;
+        renderList();
+      });
+    });
+  }
+
+  function renderAll(){
+    renderStats();
+    renderList();
+  }
+
+  // ---------------- Tabs ----------------
+  $$('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      $$('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      $$('section').forEach(s => s.classList.remove('active'));
+      $('#' + tab.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+
+  $('#search').addEventListener('input', renderList);
+  $('#filterType').addEventListener('change', renderList);
+  $('#sortOrder').addEventListener('change', renderList);
+
+  $('#resetData').addEventListener('click', () => {
+    if(sessionPending.length === 0){
+      alert('Nothing to clear — you haven\'t added a record this session. (This button only hides your own not-yet-synced submissions from your view; it can\'t delete anything already in the shared sheet.)');
+      return;
+    }
+    if(!confirm('Hide the record(s) you just added from your own view? This does not delete them from the shared archive — contact the site owner for that.')) return;
+    sessionPending = [];
+    renderAll();
+  });
+
+  // ---------------- Form submit ----------------
+  $('#recordForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = $('#submitBtn');
+    const notice = $('#formNotice');
+    notice.innerHTML = '';
+
+    const name = $('#f_name').value.trim();
+    const born = $('#f_born').value.trim();
+    const source = $('#f_source').value.trim();
+    const lineageType = $$('input[name=LineageType]').find(r => r.checked).value;
+
+    if(!name || !born || !source){
+      notice.innerHTML = `<div class="notice err">Name, born/floruit, and source are required — a genealogy without a source is just a story.</div>`;
+      return;
+    }
+
+    const newRecord = {
+      id: 'pending-' + Date.now() + '-' + Math.random().toString(36).slice(2,8),
+      name, san: $('#f_san').value.trim(),
+      born, died: $('#f_died').value.trim(),
+      region: $('#f_region').value.trim(), occ: $('#f_occ').value.trim(),
+      lineageType,
+      relation: $('#f_relation').value.trim(),
+      relatedTo: $('#f_relatedTo').value.trim(),
+      teachings: $('#f_teachings').value.trim(),
+      source,
+      contributorName: $('#f_cname').value.trim(),
+      contributorEmail: $('#f_cemail').value.trim(),
+      addedAt: Date.now(),
+      verified: false,
+      pending: true
+    };
+
+    btn.disabled = true; btn.textContent = 'Submitting…';
+    try{
+      const form = e.target;
+      const body = new URLSearchParams(new FormData(form)).toString();
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      });
+      if(!res.ok) throw new Error('Netlify Forms submission failed: ' + res.status);
+
+      sessionPending.unshift(newRecord);
+      renderAll();
+
+      let mailNote = '';
+      const email = newRecord.contributorEmail;
+      if(email){
+        const subject = encodeURIComponent(`Bharataganit record: ${newRecord.name}`);
+        const bodyLines = [
+          `A record you added to Bharataganit:`, '',
+          `Name: ${newRecord.name}${newRecord.san ? ' (' + newRecord.san + ')' : ''}`,
+          `Born/floruit: ${newRecord.born}${newRecord.died ? '  Died: ' + newRecord.died : ''}`,
+          newRecord.region ? `Region: ${newRecord.region}` : '',
+          newRecord.occ ? `Occupation: ${newRecord.occ}` : '',
+          `Lineage type: ${newRecord.lineageType}`,
+          (newRecord.relation || newRecord.relatedTo) ? `Relation: ${newRecord.relation} ${newRecord.relatedTo}` : '',
+          newRecord.teachings ? `\nTeachings/works preserved:\n${newRecord.teachings}` : '',
+          `\nSource: ${newRecord.source}`,
+          '', '— sent from Bharataganit'
+        ].filter(Boolean).join('\n');
+        const mailto = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${encodeURIComponent(bodyLines)}`;
+        mailNote = ` <a href="${mailto}" target="_blank">Click here to open your email app with a copy of this record ready to send to yourself</a> — this page can't send email directly, so it drafts it for you instead.`;
+      } else {
+        mailNote = ` Add your email above next time if you'd like a copy drafted automatically.`;
+      }
+
+      notice.innerHTML = `<div class="notice ok">Submitted. It's showing in your view now, and will sync into the shared archive for everyone else within a few minutes.${mailNote}</div>`;
+      e.target.reset();
+    }catch(err){
+      notice.innerHTML = `<div class="notice err">Something went wrong submitting this record (the form couldn't reach Netlify — this is expected while you're only previewing the file locally, and should work once it's deployed). Please try again once it's live.</div>`;
+    }finally{
+      btn.disabled = false; btn.textContent = 'Add to the repository';
+    }
+  });
+
+  loadRecords();
+})();
+</script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sanskrit as a Stable `Eigen'-Language Well-Suited for Storage and Transmission - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Sanskrit as a Stable `Eigen'-Language Well-Suited for Storage and Transmission</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this paper, the authors examine the possibility that Sanskrit is an eigen-language of the transformation which takes in sentences in a given language, and generates other sentences by permuting the components of the input sentence. Under this setting, if we are given one more, or can construct one more, eigen-language of this transformation, then we should be able to generate an entire eigenspace of languages like Sanskrit. Further, given the central role of eigen-analysis in linear algebra and the theorems related to it, it is likely that this paper suggests the way for a deep mathematical study of Sanskrit and related language groups. Introduction Old Indo-Aryan has been preserved for many centuries in India. It is thought that the key text in the language, the Vedas, were preserved orally over many generations by oral transmission within families. This leads us to several key questions about Sanskrit:  Is there something inherent in the language that protects it from trans- mission errors?  Were its speakers aware of its special character?  Did they use its special character in the design of its texts? While we do not approach an answer to all of these questions, we take some initial steps in this paper. Specically, we are able to suggest a view of San- skrit as `stable' in some specic mathematical sense. If developed further, this hypothesis could have ramications for the study of Old Indo-Aryan, and also boost the claims that Sanskrit might be useful in modern computing. This paper is structured as follows. In Section 2 we present the mathematical framework for our analysis of Sanskrit. In Section 3 we apply this framework to Sanskrit. In Section 4 we conclude. 1</p> <p>2 Mathematical Framework 2.1 Review of Permutation Matrices A permutation matrix is a square matrix that represents a permutation of the rows or columns of an identity matrix. In other words, a permutation matrix is a matrix that results from swapping the rows or columns of an identity matrix. An identity matrix is a square matrix where all the diagonal elements are equal to 1 and all the o-diagonal elements are equal to 0. A permutation matrix has the same properties as an identity matrix, but with its rows or columns permuted. The rows or columns of a permutation matrix represent the new order of the rows or columns of the original matrix. For example, if we have a 3x3 permutation matrix P, and we multiply it by a 3x3 matrix A, the result is a new matrix B whose rows are the rows of A reordered according to the permutation matrix P. Permutation matrices are used in linear algebra, particularly in matrix mul- tiplication, matrix inversion, and matrix factorization. They also have applica- tions in combinatorics, graph theory, and cryptography. Example 1. A Permutation Matrix P Suppose we have a 3x3 matrix A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] (1) and we have a 3x3 permutation matrix P that swaps the rst and third rows of the identity matrix: P = [[0, 0, 1], [0, 1, 0], [1, 0, 0]] (2) . To apply the permutation matrix to matrix A, we simply multiply A by P to get B = PA. The resulting matrix B will have its rows permuted according to the permutation matrix P. In this case, we get B = [[7, 8, 9], [4, 5, 6], [1, 2, 3]] (3) . We can see that the rst and third rows of A have been swapped in B, as specied by the permutation matrix P. Note that the columns of A have not been aected, since P is a permutation of the rows of the identity matrix. Permutation matrices can also be used to permute the columns of a matrix. To do this, we simply multiply the matrix by a permutation matrix on the right, instead of on the left. 2</p> <p>2.2 Sentences as Vectors Suppose we take a vector, and for its entries, use the words in a sentence S that is given. To do this, we rst need to tokenize the sentence, that is, split it into individual words. For example, suppose the sentence S is "The quick brown fox jumps over the lazy dog". To represent this sentence as a vector, we can rst tokenize it as follows: ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"] This representation of a sentence as a vector can be used in various natural language processing tasks, such as document classication, information retrieval, and text summarization. 2.3 Sentence-Vectors as Inputs to Permutation Matrices After tokenization, instead of counting frequencies, we can use the tokenized vector as such as our 'input' vector into a 'permutation' matrix. We are essen- tially permuting the order of the words in the sentence. A permutation matrix is a square matrix that represents a permutation of a set of elements, in this case the words in the sentence. To apply a permutation matrix to the tokenized vector, we can treat the vector as a row vector and multiply it on the left by the permutation matrix. This will result in a new vector whose entries are the words of the sentence arranged in a dierent order. For example, suppose the tokenized vector for the sentence S is: ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"] and suppose we have a permutation matrix P that corresponds to the per- mutation (2 4 6 1 3 5 8 7 9), which swaps the second word with the fourth, the sixth word with the rst, and so on. To apply the permutation matrix to the tokenized vector, we can treat the vector as a row vector and multiply it on the left by the permutation matrix P: [[”The”, ”quick”, ”brown”, ”fox”, ”jumps”, ”over”, ”the”, ”lazy”, ”dog”]]P = (4) [[”quick”, ”fox”, ”over”, ”The”, ”brown”, ”jumps”, ”lazy”, ”the”, ”dog”]] (5) The resulting vector has the words of the sentence rearranged according to the permutation specied by the permutation matrix. Note that the permutation matrix must be a square matrix with the same number of rows and columns as the length of the tokenized vector. Additionally, to ensure that the permutation matrix represents a valid permutation, each row and each column of the matrix must have exactly one entry that is equal to 1, and all other entries must be 0. 3</p> <p>2.4 Visual Representation of Vectors If we take the tokenized vector, [["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]], and draw a visual graphic representing the image suggested by the vector, it could take many forms depending on how you choose to represent the vector. That is, we could represent the sentence by a painting based on the visual image it suggests. So, for [["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]], we would paint a brown colored fox-like shape over a grey colored (say) dog-like shape resting on a surface. This idea of painting a brown colored fox-like shape over a grey colored dog- like shape resting on a surface is one way to visually represent the sentence, and it is open to interpretation based on the artist's creativity and imagination. This approach to representing language through visual art is often used in various forms of literature, such as poetry and visual storytelling. In order to create such a painting, we would need to rst decide on the specic style, color palette, and composition that we want to use to convey the visual image of the sentence. We could use various artistic techniques such as painting, drawing, or mixed media to create the image, and we may also want to experiment with dierent textures, shapes, and perspectives to add depth and interest to the painting. Ultimately, the nal painting would be a unique representation of the sen- tence that captures the artist's personal interpretation and style, and it would be open to interpretation and discussion by the viewer. 2.5 Standardization However, herein we ask if this process could be 'standardized' so that, for exam- ple, a particular sentence always produces the same painting. It would require dening a set of rules and parameters for creating the painting that are consis- tent and reproducible. One approach to standardizing this process could be to create a specic set of visual elements, such as colors, shapes, and textures, that are assigned to each word in the sentence. For example, "fox" could always be represented by a red-orange color, a triangular shape, and a furry texture, while "dog" could always be represented by a gray-brown color, a round shape, and a smooth texture. Using these predened visual elements, we could create a standardized set of rules for arranging and combining the elements to create a painting that represents the sentence. For example, we could always place the "fox" element above the "dog" element, or we could use a specic background color or texture to represent the environment in which the animals are situated. However, even with a standardized set of rules and visual elements, there would still be room for interpretation and creativity in how the elements are arranged and combined to create the painting. Dierent artists may choose to emphasize certain elements or use dierent techniques to convey the visual 4</p> <p>image of the sentence, resulting in variations in the nal painting. 2.6 Advantage of Standardization The benet of standardization is that two dierent sentences will produce two dierent paintings, always. Standardization can help ensure that each sentence produces a unique and distinguishable painting, which can be useful for ap- plications such as visualizing text data or creating a visual representation of language. By dening a standardized set of visual elements and rules for combining them, we can create a consistent and reproducible method for translating sen- tences into paintings. This can also help facilitate comparison and analysis of dierent sentences based on their visual representation. However, it's important to note that standardization doesn't necessarily mean that the paintings will be identical or lack artistic expression. Even within a standardized framework, there is still room for creativity and variation in how the visual elements are arranged and combined to create the nal painting. Each artist may interpret and represent the sentence in their own unique way, resulting in subtle dierences between paintings. Example 2. Painting With P So, next, we will permute [["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]] as in Equation (4). Ideally, we should have two dierent paintings, one for the input sentence and one for the output sentence. Permuting the tokenized vector and using the resulting permutation matrix as the input for creating a painting can produce a dierent painting than the original sentence. This is because the permutation matrix changes the order of the tokens in the vector, which can alter the visual image that the sentence suggests. For another example, if we apply a permutation matrix to the original tok- enized vector [["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]], we might get a new vector such as [["jumps", "brown", "quick", "dog", "over", "fox", "lazy", "The", "the"]]. This new vector has a dierent order of tokens than the original vector, which can suggest a dierent visual image and thus result in a dierent painting. Creating a painting for both the original sentence and the permuted sentence can help us visualize and compare the dierences between them. The Case of Sanskrit 3.1 Introduction In most languages, if we permute a sentence, it conveys a dierent meaning (take the English example we have just discussed). But is it the same in Sanskrit? In Sanskrit, as in any language, permuting the order of words in a sentence can change the meaning or emphasis of the sentence. However, the degree to which the meaning changes may vary depending on the specic sentence and context. 5</p> <p>Sanskrit is a highly inected language, which means that word order is rela- tively exible compared to languages like English. In Sanskrit, the grammatical relationships between words are often indicated by case endings and other inec- tions, rather than by their position in the sentence. This means that changing the order of words may not always result in a signicant change in meaning, as long as the grammatical relationships between the words remain intact. In general, the degree to which meaning changes when permuting a sentence will depend on the specic sentence, context, and the language in question. Example 3. Rama and Ravana This example is about how we would write Rama killed Ravana, in Sanskrit. In Sanskrit, "Rama killed Ravana" can be written as (r	amah. r	avan.am. hatv	a). Here, (r	amah.) means "Rama," (r	avan.am. ) means "Ravana," and (hatv	a) means "killed." The word order in Sanskrit is relatively exible, so this sentence could also be written as (r	amah. hatv	a r	avan.am. ) without signicantly changing the meaning. Consequently, if we passed r	amah. r	avan.am. hatv	a through our permutation 'engine' P, the painting produced would be the same (within minor artistic changes) as if we didn't pass it through the engine. The resulting tokenized vector would be the same as the original sentence, and the painting produced by the engine would be the same as the painting produced for the original sentence (again, within minor artistic changes). This is because in this particular sentence, the order of the words does not signicantly aect the meaning, and the grammatical relationships between the words are clear even if the word order is changed. 3.2 Sanskrit-Eigenvectors In the context of our permutation engine, the tokenized vector representation of a Sanskrit sentence can be considered as an input vector, and the resulting painting can be considered as the output vector. In this sense, each sentence can be seen as mapping to a unique output vector (or painting), just like each eigenvector maps to a scaled version of itself under a linear transformation. It's worth noting, though, that the relationship between the input and output vectors for a given sentence is not necessarily linear, as the permutation matrix is not a linear transformation. Additionally, the output paintings may not be exact replicas of each other, even for the same sentence, since there may be some variability introduced by the artistic interpretation of the output. 3.3 Non-Linearity of Permutation Matrices One way to see that the permutation matrix is not a linear transformation is to consider its eect on two input vectors, say u and v, and compare it to the eect of a linear transformation T on the same two vectors. Let P be the permutation matrix, and let u and v be two vectors. Then, we have: 6</p> <p>P(u + v) = P(u) + P(v) (6) However, this property does not hold for all matrices P since addition of two tokenized sentences is not well-dened so far. In general, for a linear transfor- mation T, we have: T(u + v) = T(u) + T(v) (7) So, the permutation matrix does not satisfy the additivity property that is required for a matrix to be a linear transformation. Instead, it satises the properties of a permutation, which is a bijective mapping that preserves the cardinality of sets. Furthermore, the permutation matrix is not scalar-multiplicative, which is another property that is required for a matrix to be a linear transformation. That is, for any scalar c and vector u, we have: P(cu) = cP(u) (8) However, this property does not hold for the permutation matrix, as multi- plying a vector by a scalar does not aect the relative positions of its entries. Therefore, we can conclude that the permutation matrix is not a linear trans- formation. 3.4 Approximate Linear Transformation Furthermore, it is not possible to approximate the permutation matrix by a linear transformation in the sense that a linear transformation cannot replicate the unique behavior of a permutation matrix. A permutation matrix is a matrix that permutes the rows or columns of another matrix. It is a very specic type of matrix that is dened by the permutation it represents. On the other hand, a linear transformation is a more general concept that can be represented by any matrix. Because a permutation matrix is a very specic type of matrix, it has unique properties that cannot be replicated by a linear transformation. For example, a permutation matrix is always invertible, and its inverse is simply its transpose. This property does not hold for all matrices, and it is not a property of linear transformations in general. In general, it is not possible to approximate the unique behavior of a permu- tation matrix by a linear transformation, since a linear transformation cannot replicate its specic properties. However, it is possible to use linear algebra techniques to analyze the behavior of a permutation matrix, such as nding its eigenvalues and eigenvectors, or computing its determinant and rank. 3.5 Linear Algebra on Permutation Matrices Finding the eigenvalues and eigenvectors of a permutation matrix can be done using several linear algebra methods. A common method would be matrix 7</p> <p>decomposition wherein a permutation matrix can be viewed as a special case of a matrix with only 0s and 1s. Therefore, one can use matrix decomposition techniques, such as LU decomposition, to nd the eigenvalues and eigenvectors of a permutation matrix. In this case, the eigenvalues can be found as the roots of the characteristic polynomial, and the eigenvectors can be found by solving a system of linear equations. 3.6 Higher-Dimensional Spaces If we represent tokenized Sanskrit sentences as standardized visual paintings, then we can treat them as vectors in a high-dimensional space. In this context, we can view the permutation engine as a linear transformation that takes one painting (or vector) and maps it to another. However, since the permutation matrix is not a linear transformation, the concept of eigenvectors and eigenvalues does not directly apply to it. One alternate way to potentially relate the concept of eigenvectors to the permutation engine is to consider the idea of stability under the permutation transformation. Specically, if a painting is stable under the permutation trans- formation, meaning that the output of the transformation is the same as the input, then we can view it as an "eigenvector" of sorts. That is, the painting is unchanged by the permutation transformation, much like an eigenvector is unchanged by a linear transformation. This highlights the idea that certain paintings may be more stable under the permutation transformation than others, and this stability can be seen as a desirable property that is analogous to the concept of eigenvectors in linear algebra. Concluding Discussion: Sanskrit- Versus French- Based Paintings Given the suggested stability analysis of Subsection 3.6, Sanskrit based paintings would be more stable, than say French based paintings. However, it's dicult to make a denitive statement about the stability of paintings based on the language of the original sentence, as it would depend on the specic permutation engine being used and how it maps inputs to outputs. Nevertheless, in general, the more structure and regularity there is in the input painting, the more likely it is to be stable under the permutation transformation. In the case of Sanskrit, which has a highly structured grammar and syntax, the paintings based on its sentences may have more regularity and structure than those based on a language with a less structured grammar. This could make them more stable under the permutation transformation and potentially more akin to "eigenvectors" in the sense described earlier. However, this is only a hypothesis, and it would depend on the specic details of the permutation engine and the types of transformations being applied. 8</p> <p>Once we have shown Sanskrit as an eigenlanguage in this sense, it can also be considered to be more robust to certain types of transmission errors when sent over communication channels. In fact, this may be a contributing factor in the preservation of the Vedas as the oldest living scripture by human-to-human oral transmission over many generations. This conclusion has implications for our understanding of Old Indo-Aryan and its speakers. Acknowledgments The author thanks OpenAI for access to the language model ChatGPT.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Sanskrit_as_a_Stable_Eigen_Language_Well_Suited_for_Storage_and_Transmission.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

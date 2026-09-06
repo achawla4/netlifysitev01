@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation of a Theoretical Proposal for Rim-Field Electrodynamics at Nodes of Ranvier - Prajnanabha Monograph Vol. 1 Issue 9</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 LaTeX Engine -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --muted: #5e574d;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+            --shadow: 0 15px 45px rgba(21, 34, 56, 0.07);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(21, 34, 56, 0.97), rgba(19, 53, 52, 0.94)),
+                        radial-gradient(circle at top right, rgba(218, 165, 32, 0.15), transparent 25rem);
+            color: #f9f5ed;
+            padding: 60px 20px 50px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            color: #dfba88;
+            font-size: 0.85rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.15;
+            margin: 0 0 16px;
+            font-weight: 700;
+        }
+
+        .author-line {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
+            color: rgba(249, 245, 237, 0.88);
+        }
+
+        .main-container {
+            max-width: 920px;
+            margin: -30px auto 70px;
+            padding: 0 20px;
+        }
+
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px 55px;
+            box-shadow: var(--shadow);
+        }
+
+        .breadcrumbs {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumbs a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .abstract-box {
+            background: #f1e9dc;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 30px 0 40px;
+        }
+
+        .abstract-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .abstract-box p {
+            margin: 0;
+            font-style: italic;
+            color: #332d26;
+            font-size: 1.04rem;
+        }
+
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.55rem;
+            margin-top: 45px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        p {
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #152238 0%, #1c2e4a 100%);
+            color: #fff !important;
+            padding: 12px 26px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(21, 34, 56, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .paper-card { padding: 30px 24px; }
+            body { font-size: 1.02rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero-banner">
+        <div class="hero-inner">
+            <div class="kicker">Biophysics & Theoretical Electrodynamics | Pages 40–52</div>
+            <h1>Evaluation of a Theoretical Proposal for Rim-Field Electrodynamics at Nodes of Ranvier</h1>
+            <div class="author-line">Biophysics & Neuro-Electrodynamics Division — Prajnanabha Volume 1 Issue 9 Research Group</div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <article class="paper-card">
+            <nav class="breadcrumbs">
+                <a href="../prajnanabha_upd.html">Prajnanabha Archive</a> / 
+                <a href="../prajnanabha-i_9.html">Volume 1 Issue 9</a> / 
+                V1I9-A04
+            </nav>
+
+            <div class="paper-body">
+                <p>Evaluation of a Theoretical Proposal for Rim-Field Electrodynamics at Nodes of Ranvier</p>
+<div class="math-display" style="background:#f9f6f0; border-left:4px solid #8b5a2b; padding:18px 22px; margin:25px 0; border-radius:8px; text-align:center;">
+$$\mathbf{E}(\mathbf{r}) = \omega^2 \mu_0 \int_{V'} \overline{\mathbf{G}}_e(\mathbf{r}, \mathbf{r}') \cdot \mathbf{J}(\mathbf{r}') \, dV'$$
+</div>
+<p>A. Chawla REAL Institute and IIT Delhi, India</p>
+<p>19 May 2026</p>
+
+            <div class="abstract-box">
+                <div class="abstract-title">ABSTRACT</div>
+                <p></p>
+            </div>
+            
+<p>We develop a space-frequency-domain formulation of the electromagnetic rim field generated by ion channels at nodes of Ranvier. The electromagnetic field is represented through the evanescent sector of the electromagnetic Green propagator rather than through a purely quasistatic dipole approximation. The resulting rim-zone field is derived explicitly in mixed Fourier representation and compared against the ordinary quasistatic dipole limit. Quantization of the evanescent sector is then carried out and compared structurally with Keller’s near-field quantum electrodynamics. The formulation does not assume biologically protected coherence. Instead, quantization is introduced as a mathematically natural extension of the evanescent electromagnetic sector. Explicit order-of-magnitude estimates are developed for field strengths, interaction energies, induced membrane voltages, and decoherence scales.</p>
+<h2 class="section-heading">1
+Introduction</h2>
+<p>Nodes of Ranvier contain dense concentrations of sodium and potassium ion channels responsible for saltatory conduction. During action potential propagation, ionic transport across the membrane generates localized electromagnetic fields capable of influencing neighboring axons. Conventional treatments model these interactions using:</p>
+<p>1. quasistatic extracellular potentials,</p>
+<p>2. cable-theoretic ephaptic coupling,</p>
+<p>3. volume-conductor theory,</p>
+<p>4. finite-element field simulations.</p>
+<p>The present work does not replace these approaches. Instead, it reformulates the microscopic electromagnetic structure of nodal interaction using near-field electrodynamics in the spacefrequency domain. The central claim is not that biological tissue supports freely propagating electromagnetic radiation at neural frequencies. Rather, the relevant electromagnetic sector is overwhelmingly evanescent and matter-attached. The remainder of this paper is organized as follows: Section 2 introduces the space-frequencydomain formulation of Maxwell’s equations, while Section 3 derives the scalar rim propagator and Section 4 extends this to the dyadic Green propagator. Section 5 addresses finite-size ion channel clusters, and Section 6 compares the near-zone electric field components with the quasistatic limit. Biophysical estimates are provided in Section 7, followed by the quantization of the rim field in Section 8. Section 9 draws structural parallels with Keller’s near-field QED, and Section 10 discusses the theoretical and experimental implications, including falsifiability and future directions. Appendices A–F provide supplementary derivations, estimates, and comparisons.</p>
+<p>Principal Symbols</p>
+<p>Symbol Meaning</p>
+<p>$r = (ρ, z)$ Spatial coordinate ρ = (x, y) Transverse coordinate q Transverse wavevector $q = |q|$ Magnitude of transverse wavevector ω Angular frequency $k = ω/c$ Free-space wavenumber kz Longitudinal spectral component κ = p</p>
+<p>q2 −k2 Evanescent decay constant E Electric field B Magnetic field J Current density p Dipole moment ˜g Scalar Green function ˜G Dyadic Green propagator ˆaqω Annihilation operator ˆa† qω Creation operator ϵ0 Vacuum permittivity µ0 Vacuum permeability</p>
+<h2 class="section-heading">2
+Maxwell Equations in the Space-Frequency Domain</h2>
+<p>Assume harmonic temporal dependence:</p>
+<p>e−iωt. (1)</p>
+<p>The Maxwell equations become:</p>
+<p>∇× $E = iωB,$ (2)</p>
+<p>∇× $B = µ0J −iωµ0ϵ0E$. (3)</p>
+<p>Taking the curl of Faraday’s law:</p>
+<p>∇× ∇× E −$k2E = iωµ0J,$ (4)</p>
+<p>where: $k = ω$</p>
+<p>c . (5)</p>
+<p>Coordinates are decomposed as:</p>
+<p>$r = (ρ, z),$ ρ = (x, y). (6)</p>
+<p>The electric field expansion in mixed representation is:</p>
+<p>E(ρ, z, ω) = Z d2q (2π)2 ˜E(q, z, ω)eiq·ρ. (7)</p>
+<p>Similarly:</p>
+<p>J(ρ, z, ω) = Z d2q (2π)2 ˜J(q, z, ω)eiq·ρ. (8)</p>
+<h2 class="section-heading">3
+Scalar Rim Propagator</h2>
+<p>The scalar Green function satisfies:</p>
+<p>(∂2 z + k2 z)˜$g = δ(z),$ (9)</p>
+<p>with: k2 $z = k2 −q2$. (10)</p>
+<p>For: q > k, (11)</p>
+<p>define: $kz = iκ,$ κ = p</p>
+<p>q2 −k2. (12)</p>
+<p>The Green function becomes: ˜$grim = 1$</p>
+<p>2κe−κ|z|. (13)</p>
+<p>This is the evanescent rim propagator.</p>
+<h2 class="section-heading">4
+Dyadic Rim Propagator</h2>
+<p>The dyadic Green propagator is:</p>
+<p>˜$G = $ I + 1</p>
+<p>k2 ∇∇  ˜g. (14)</p>
+<p>In mixed representation: ∇→(iqx, iqy, ∂z). (15)</p>
+<p>Hence:</p>
+<p>∇∇=</p>
+<p></p>
+<p> −q2 x −qxqy iqx∂z −qxqy −q2 y iqy∂z iqx∂z iqy∂z ∂2 z</p>
+<p></p>
+<p>. (16)</p>
+<p>Thus:</p>
+<p>˜Grim =</p>
+<p></p>
+<p>I + 1</p>
+<p>k2</p>
+<p></p>
+<p> −q2 x −qxqy iqx∂z −qxqy −q2 y iqy∂z iqx∂z iqy∂z ∂2 z</p>
+<p></p>
+<p></p>
+<p></p>
+<p>˜grim. (17)</p>
+<p>We now compute the derivatives explicitly. Since: ˜$grim = 1$</p>
+<p>2κe−κ|z|, (18)</p>
+<p>we obtain: ∂z˜$grim = −1$</p>
+<p>2sgn(z)e−κ|z|, (19)</p>
+<p>and: ∂2 z ˜$grim = κ$</p>
+<p>2e−κ|z|. (20)</p>
+<p>Hence the dominant longitudinal component becomes:</p>
+<p>˜$Gzz = $ 1 + κ</p>
+<p>2k2</p>
+<p> e−κ|z|. (21)</p>
+<p>The mixed transverse-longitudinal terms are:</p>
+<p>˜$Gxz = −iqx$</p>
+<p>2k2 sgn(z)e−κ|z|, (22)</p>
+<p>˜$Gyz = −iqy$</p>
+<p>2k2 sgn(z)e−κ|z|. (23)</p>
+<p>These explicitly exhibit the longitudinally dominated nature of the rim field.</p>
+<h2 class="section-heading">5
+Finite-Size Ion Channel Cluster</h2>
+<p>A single delta-function dipole is an idealization. Real nodes contain distributed channel clusters. Let: f(ρ) (24)</p>
+<p>represent the transverse spatial density of active ion channels. Then: J(r, ω) = −iωp(ω)f(ρ)δ(z). (25)</p>
+<p>The Fourier transform becomes:</p>
+<p>˜J(q, z, ω) = −iωp(ω) ˜f(q)δ(z). (26)</p>
+<p>Thus: ˜$Erim = iωµ0 ˜Grim˜J$. (27)</p>
+<p>The factor: ˜f(q) (28)</p>
+<p>naturally suppresses arbitrarily large spatial frequencies and regularizes the point-dipole approximation.</p>
+<h2 class="section-heading">6
+Near-Zone Electric Field Components</h2>
+<p>Consider a dipole oriented along z: $p = pˆz$. (29)</p>
+<p>The ordinary quasistatic near field is:</p>
+<p>$Enear = 1$ 4πϵ0</p>
+<p>3ˆr(ˆr · p) −p</p>
+<p>r3 . (30)</p>
+<p>In spherical coordinates:</p>
+<p>$Er = 2p cos θ$</p>
+<p>4πϵ0r3 , (31)</p>
+<p>Eθ = p sin θ</p>
+<p>4πϵ0r3 , (32)</p>
+<p>Eϕ = 0. (33)</p>
+<p>The field is therefore strongly anisotropic and longitudinally structured near the source.</p>
+<h2 class="section-heading">7
+Validation Against the Quasistatic Limit</h2>
+<p>The evanescent propagator must reproduce the quasistatic limit. At biological frequencies: ω ∼104 s−1, (34)</p>
+<p>thus: $k = ω$</p>
+<p>c ∼10−5 m−1. (35)</p>
+<p>For microscopic scales: r ∼10−6 m, (36)</p>
+<p>one obtains: kr ∼10−11 ≪1. (37)</p>
+<p>Hence: q ≫k (38)</p>
+<p>throughout the biologically relevant spectral sector. The field therefore becomes overwhelmingly evanescent and:</p>
+<p>˜grim →1</p>
+<p>2qe−q|z|. (39)</p>
+<p>Inverse transformation then reproduces:</p>
+<p>Enear ∝1</p>
+<p>r3 . (40)</p>
+<p>Thus the ordinary quasistatic dipole field is recovered as the low-frequency coordinate-space manifestation of the rim propagator.</p>
+<h2 class="section-heading">8
+Biophysical Estimates</h2>
+<p>Suppose: N ∼103 (41)</p>
+<p>ions traverse the membrane. Then: q ∼103e ∼1.6 × 10−16 C. (42)</p>
+<p>For membrane thickness: d ∼5 × 10−9 m, (43)</p>
+<p>the dipole moment becomes: $p = qd ∼8 × 10−25 C m$. (44)</p>
+<p>At: r ∼1 µm, (45)</p>
+<p>the field magnitude is: Enear ∼103 −104 V/m. (46)</p>
+<p>The induced membrane voltage is:</p>
+<p>∆V ∼Eneardm. (47)</p>
+<p>For: dm ∼5 × 10−9 m, (48)</p>
+<p>one obtains: ∆V ∼10 −100 µV. (49)</p>
+<h2 class="section-heading">9
+Quantization of the Rim Field</h2>
+<p>The evanescent eigenmodes are: uqω = eqeiq·ρe−κ|z|. (50)</p>
+<p>Promoting amplitudes to operators:</p>
+<p>ˆaqω, ˆa† qω, (51)</p>
+<p>the quantized rim field becomes:</p>
+<p>ˆ$Erim = Z$</p>
+<p>q>k</p>
+<p>d2q (2π)2</p>
+<p>Z dω Eqωuqωˆaqωe−iωt + h.c. (52)</p>
+<p>This quantization identifies the relevant evanescent electromagnetic sector but does not imply biologically protected coherence.</p>
+<p>10 Relation to Keller’s Near-Field QED</p>
+<p>The present formulation shares several structural features with Keller’s near-field quantum electrodynamics:</p>
+<p>Present Work Keller Near-Field QED</p>
+<p>Evanescent modes Near-field photons Localized rim fields Rim-zone localization Longitudinal dominance Scalar/longitudinal sector Source-attached fields Photon embryos Non-radiative behavior Matter-attached excitations</p>
+<p>The comparison is therefore structural and propagator-theoretic rather than speculative.</p>
+<p>11 Discussion and Experimental Outlook</p>
+<p>The present work should be interpreted primarily as a theoretical proposal concerning the microscopic electromagnetic structure of nodal interaction rather than as a completed predictive theory of neural communication. The central result is the identification of the biologically relevant electromagnetic sector as overwhelmingly evanescent and matter-attached. In the low-frequency biological regime:</p>
+<p>kr ≪1, (53)</p>
+<p>the ordinary quasistatic dipole field emerges naturally from the underlying rim propagator. Consequently, the present framework remains compatible with established quasistatic ephaptic and volume-conductor models while refining their spectral and propagator-theoretic interpretation. Importantly, the present work does not claim:</p>
+<p>1. long-range coherent quantum communication in neural tissue,</p>
+<p>2. biologically protected quantum states,</p>
+<p>3. macroscopic quantum computation in the brain,</p>
+<p>4. experimentally established photon-embryo dynamics.</p>
+<p>Instead, the quantized treatment is introduced as a mathematically natural extension of the evanescent electromagnetic sector. At physiological temperature: T ∼300 K, (54)</p>
+<p>environmental decoherence is expected to be rapid due to:</p>
+<p>1. ionic collisions,</p>
+<p>2. solvent interactions,</p>
+<p>3. dielectric losses,</p>
+<p>4. membrane fluctuations.</p>
+<p>Thus the quantized rim modes should primarily be interpreted as localized field-theoretic excitations associated with near-field electrodynamics rather than as long-lived coherent biological states. Nevertheless, the formalism suggests several potentially testable biophysical consequences.</p>
+<p>11.1 Predicted Scaling Behavior</p>
+<p>The dominant near-zone interaction obeys:</p>
+<p>Enear ∝1</p>
+<p>r3 . (55)</p>
+<p>Consequently:</p>
+<p>1. tightly packed axons should exhibit stronger microscopic coupling,</p>
+<p>2. demyelinated geometries should enhance interaction strength,</p>
+<p>3. nodal synchronization effects should depend strongly on inter-axonal spacing.</p>
+<p>Because: q ≫k (56)</p>
+<p>throughout the biologically relevant regime, propagating electromagnetic radiation is expected to remain negligible compared with localized evanescent coupling.</p>
+<p>11.2 Possible Experimental Signatures</p>
+<p>The framework suggests several experimentally accessible signatures:</p>
+<p>1. enhanced ephaptic synchronization in densely packed fiber tracts,</p>
+<p>2. geometry-dependent conduction-velocity perturbations,</p>
+<p>3. localized extracellular near-field gradients near nodes of Ranvier,</p>
+<p>4. increased interaction strength under partial demyelination,</p>
+<p>5. separation-dependent modulation of induced membrane voltages.</p>
+<p>Potential experimental approaches include:</p>
+<p>1. nanoelectrode measurements near individual nodes,</p>
+<p>2. high-resolution extracellular field mapping,</p>
+<p>3. controlled axon-separation experiments,</p>
+<p>4. finite-element simulations combined with spectral decomposition,</p>
+<p>5. correlation of tract geometry with synchronization behavior.</p>
+<p>11.3 Relation to Conventional Models</p>
+<p>The present formulation does not invalidate conventional quasistatic or volume-conductor theory. Instead, it provides a more explicit characterization of the dominant spectral sector underlying those models. In conventional coordinate-space treatments, the near field appears as:</p>
+<p>Enear ∝1</p>
+<p>r3 . (57)</p>
+<p>In the present formulation, this behavior emerges from the evanescent spectral propagator:</p>
+<p>˜$grim = 1$</p>
+<p>2κe−κ|z|. (58)</p>
+<p>Thus the quasistatic near field may be interpreted as the coordinate-space manifestation of an underlying evanescent electrodynamic sector.</p>
+<p>11.4 Falsifiability</p>
+<p>The present proposal would lose motivation if:</p>
+<p>1. all microscopic nodal interactions are fully reproduced by purely resistive quasistatic models without requiring evanescent spectral localization,</p>
+<p>2. measured extracellular near-node fields fail to exhibit the predicted near-zone scaling behavior,</p>
+<p>3. geometry-dependent coupling effects remain absent even in tightly packed or demyelinated configurations.</p>
+<p>Accordingly, the proposal is experimentally falsifiable in principle.</p>
+<p>11.5 Outlook</p>
+<p>The present work suggests several directions for future investigation:</p>
+<p>1. finite-element implementation of the rim propagator,</p>
+<p>2. incorporation of dielectric dispersion and anisotropic tissue conductivity,</p>
+<p>3. coupling between multiple neighboring nodes,</p>
+<p>4. stochastic channel-noise effects,</p>
+<p>5. comparison with experimentally measured extracellular field distributions,</p>
+<p>6. covariant near-field formulations in biological media.</p>
+<p>More broadly, the work suggests that microscopic neural electrodynamics may profitably be viewed through the framework of near-field electrodynamics rather than solely through macroscopic circuit analogies.</p>
+<p>12 Conclusion</p>
+<p>We developed a detailed space-frequency-domain formulation of the electromagnetic rim field generated by ion channels at nodes of Ranvier. Explicit expressions for the dyadic rim propagator and dominant near-zone field components were derived. The formulation reproduces the conventional quasistatic dipole limit while simultaneously identifying the underlying spectral sector as overwhelmingly evanescent. The resulting framework refines the microscopic electrodynamic interpretation of ephaptic and extracellular interaction by explicitly characterizing the dominant biological electromagnetic sector as localized, longitudinally structured, and matter-attached.</p>
+<p>A Appendix A: Interaction Energy and Thermal Scale Estimates</p>
+<p>To assess possible biological relevance of the near-field interaction, consider two neighboring ion-channel dipoles: p1, p2. (59)</p>
+<p>The dipole-dipole interaction energy is:</p>
+<p>$U12 = −p2 · E1$. (60)</p>
+<p>Using the quasistatic near field:</p>
+<p>$E1 = 1$ 4πϵ0</p>
+<p>3ˆr(ˆr · p1) −p1</p>
+<p>r3 , (61)</p>
+<p>one obtains:</p>
+<p>$U12 = −$ 1 4πϵ0</p>
+<p>3(p1 · ˆr)(p2 · ˆr) −p1 · p2</p>
+<p>r3 . (62)</p>
+<p>For: p1 ∼p2 ∼10−24 C m, (63)</p>
+<p>and: r ∼10−6 m, (64)</p>
+<p>the interaction energy becomes:</p>
+<p>U12 ∼10−20 −10−19 J. (65)</p>
+<p>At physiological temperature:</p>
+<p>kBT ∼4 × 10−21 J. (66)</p>
+<p>Thus: U12 kBT ∼1 −10 (67)</p>
+<p>may occur in tightly packed geometries or during simultaneous multi-channel activation. This estimate does not imply coherent quantum behavior. Rather, it suggests that microscopic near-field interactions may be energetically non-negligible relative to thermal fluctuations.</p>
+<p>B Appendix B: Decoherence and Classicality</p>
+<p>The present formulation does not require long-lived biological quantum coherence. At: T ∼300 K, (68)</p>
+<p>environmental decoherence is expected to occur rapidly through:</p>
+<p>1. ionic collisions,</p>
+<p>2. solvent interactions,</p>
+<p>3. membrane fluctuations,</p>
+<p>4. dielectric losses.</p>
+<p>The characteristic ion-channel activation timescale is:</p>
+<p>τchannel ∼10−4 −10−3 s. (69)</p>
+<p>Electromagnetic decoherence times are expected to be substantially shorter. Consequently, the quantized rim field should primarily be interpreted as:</p>
+<p>1. a mathematically consistent quantization of the evanescent sector,</p>
+<p>2. a propagator-theoretic refinement of near-field electrodynamics,</p>
+<p>3. a microscopic interpretation of localized field-matter coupling.</p>
+<p>The formalism therefore remains compatible with effectively classical biological behavior.</p>
+<p>C Appendix C: Comparison with Conventional Ephaptic and Volume-Conductor Theory</p>
+<p>Classical ephaptic models generally employ quasistatic extracellular potentials satisfying:</p>
+<p>∇· (σ∇ϕ) = 0, (70)</p>
+<p>with: $E = −∇ϕ$. (71)</p>
+<p>Finite-element and cable-theoretic approaches successfully reproduce:</p>
+<p>1. extracellular voltage profiles,</p>
+<p>2. local field coupling,</p>
+<p>3. synchronization effects,</p>
+<p>4. conduction perturbations.</p>
+<p>The present rim-field formulation agrees with these models in the low-frequency limit. Indeed: ω ∼104 s−1 (72)</p>
+<p>implies: $k = ω$</p>
+<p>c ∼10−5 m−1. (73)</p>
+<p>At micron scales: r ∼10−6 m, (74)</p>
+<p>we obtain: kr ∼10−11 ≪1. (75)</p>
+<p>Hence the quasistatic approximation remains valid. The novelty of the rim formulation is not the rejection of quasistatics but the identification of the dominant spectral sector as: q ≫k, (76)</p>
+<p>corresponding to evanescent rather than propagating modes. Thus the ordinary coordinate-space near field:</p>
+<p>Enear ∝1</p>
+<p>r3 (77)</p>
+<p>is interpreted as the coordinate-space manifestation of an underlying evanescent spectral propagator.</p>
+<p>D Appendix D: Relation to Nanoantenna Interpretations</p>
+<p>Some previous studies have interpreted nodes of Ranvier or neural microstructures as nanoscale electromagnetic emitters or nanoantennas. The present framework partially overlaps with such interpretations but differs fundamentally in one important respect. At biological frequencies:</p>
+<p>λ = 2πc</p>
+<p>ω ∼105 m, (78)</p>
+<p>whereas biological dimensions satisfy:</p>
+<p>r ∼10−6 m. (79)</p>
+<p>Thus: r ≪λ. (80)</p>
+<p>Consequently: q ≫k (81)</p>
+<p>throughout the biologically relevant spectral regime. The node therefore behaves primarily as a localized near-field source rather than as an efficient radiative antenna.</p>
+<p>E Appendix E: Possible Experimental Signatures</p>
+<p>The rim-field framework suggests several experimentally testable consequences:</p>
+<h2 class="section-heading">1. Enhanced ephaptic coupling in densely packed tracts,</h2>
+<h2 class="section-heading">2. Separation-dependent synchronization delays,</h2>
+<h2 class="section-heading">3. Geometry-dependent modulation of conduction velocity,</h2>
+<h2 class="section-heading">4. Strongly localized extracellular near-field gradients near nodes,</h2>
+<h2 class="section-heading">5. Increased coupling in partially demyelinated tissue.</h2>
+<p>Possible experimental approaches include:</p>
+<p>1. nanoelectrode mapping near nodes of Ranvier,</p>
+<p>2. controlled axon-separation experiments,</p>
+<p>3. finite-element comparison with spectral evanescent decomposition,</p>
+<p>4. high-resolution extracellular field imaging,</p>
+<p>5. tract-geometry correlation studies.</p>
+<p>F Appendix F: Structural Comparison with Keller’s Near-Field QED</p>
+<p>The quantized rim-field formulation shares several structural similarities with Keller’s near-field quantum electrodynamics.</p>
+<p>Present Rim-Field Formulation Keller Near-Field QED</p>
+<p>Evanescent spectral modes Near-field photons Localized rim-zone fields Rim-zone localization Longitudinal dominance Scalar/longitudinal sector Source-attached excitations Photon embryos Non-radiative localization Matter-attached fields</p>
+<p>The comparison is therefore:</p>
+<p>1. structural,</p>
+<p>2. propagator-theoretic,</p>
+<p>3. spectral,</p>
+<p>4. non-speculative.</p>
+<p>The present work does not claim experimentally established photon-embryo dynamics in neural tissue. Rather, it identifies a mathematical correspondence between localized evanescent electrodynamic excitations and Keller’s near-field QED structures.</p>
+            </div>
+
+            <div class="action-bar">
+                <a href="../prajnanabha-i_9.html" style="font-family:'Inter',sans-serif; color:var(--accent); text-decoration:none; font-weight:600;">
+                    ← Back to Issue 9 Index
+                </a>
+                <a href="../assets/vol1issue9v1.pdf" class="download-btn" target="_blank">
+                    Download Issue PDF (vol1issue9v1.pdf) ➔
+                </a>
+            </div>
+        </article>
+    </main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>

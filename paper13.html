@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Towards Weak Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Towards Weak Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman and Morgera, Salvatore Domenic</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this paper, the authors report a way to use concepts from statistical learning to gain an advantage in terms of error exponents while communicating over a discrete memoryless channel. The study utilizes the simulation capability of the scientiﬁc computing package MATLAB to show that the proposed decoding method performs better than the traditional method of joint typicality decoding. The advantage is secured by modifying the traditional speciﬁcation of what constitutes a decoding error. This is justiﬁed by the paradigm, also used in the program of ‘utilizing’ noisy feedback, that one ought not to declare a condition as an error if some further processing can extract useful information from it. Part I Theoretical Foundations Noisy feedback has been found useful in recent information theory literature1. In the same spirit, we investigate the potential use of discarded “erroneous” conditions in this paper. In this part we provide some theoretical underpinnings of our computer investigations. The investigations relate to the concept of error exponents. These functions capture the performance of a communication system in a subtle and important way. Along with channel capacity, the error exponent is an important metric of communication system performance. ∗This project was commenced in early 2020. It has been partly presented in initial form in the ﬁrst author’s Anabhayin series of self-published books. 1See, for example, the papers of Prof. Anant Sahai (UC Berkeley) and Prof. Sekhar Tatikonda (Yale). 1</p> <p>1 Brief Outline Consider Theorem 7.7.1 of Cover and Thomas, page 200 [1]. In the proof of this theorem, the authors lay out a few points. The sixth point details how joint typicality decoding is to be used in the proof. Motivated by ‘weak values’ in quantum measurement theory and ‘strong learning’ and ‘weak learning’ in the book on machine learning by Kearns and Vazirani [2], we propose to ‘weaken’ this decoding step. Speciﬁcally, in weak-joint typicality decoding, the receiver declares that the index ˆW was sent if the following conditions are satisﬁed: 1. (Xn( ˆ W ), Y n) are jointly typical 2. There may or may not be other indices W ′ ∼= ˆ W such that (Xn(W ′), Y n) belongs to the jointly typical set This is a sort of fuzzy decoding set and gives us the idea that neural networks could ‘learn’ in this setting. If no such ˆW exists, satisfying condition 1. above, then an error is declared and the receiver outputs a dummy index such as zero in this case. Suppose we decode to ˆW since (Xn( ˆW), Y n) is a jointly typical pair. We also ﬁnd that ˆWk, k = 1, 2, ..., L are such that (Xn( ˆ Wk), Y n) are jointly typical. So we have L + 1 decodings, potentially. We can look for clusters in this data via unsupervised learning, and possibly decode to a point chosen at random from the largest cluster2. Following this set up, we can ﬁnally evaluate the probability of error so obtained. In the next section we will provide the details of the transmission scheme which will be com- puterized in the next part. Details of the Transmission Scheme Consider a communication system, the transmission scheme over which consists of M messages, belonging to the set {W1, W2, W3, ..., WM}. The encoder maps these M messages into input se- quences for the channel. These input sequences, or codewords, belong to the set {Xn(Wi)}M i=1. Each member of this latter set is of length n and there are M members. One of these codewords is transmitted per cycle. Due to channel noise, it is received at the receiver in the form Y n. Now suppose that the transmitted sequence is unknown, and we only have access to Y n. The question is how do we decode the message hidden in Y n. In particular, suppose that under joint typicality decoding, two distinct transmitted sequences Xn(W1) and Xn(W6) are jointly typical with Y n. This raises a quandry for the decoder. Suppose there is a ‘diﬀerence function’ on sequence space, d(·, ·) which yields a new sequence which is the diﬀerence between the two input sequences. For example, it might be based on binary Hamming distance. Let Zn i = d(Xn(Wi), Y n) for i = 1, 6. Whereas the codeword is deterministic3, the received sequence is random due to the noise and so the formed Z-sequences are also random. We can then use unsupervised learning to form k clusters out of these Z-sequences. We then search for and ﬁnd the largest among the k clusters. Next we ﬁnd its mean and denote it by m. Finally, we decode to that Z-sequence which is closest to m. 2See k-means clustering from Haykin’s book, Neural Networks and Learning Machines, page 242, section 5.5 [3]. 3However, if the codebook is also chosen randomly as in the proof of Theorem 7.7.1 [1], then the codeword is no longer deterministic. Furthermore, we may draw the message also at random using a uniform distribution over the message set. 2</p> <p>In the next part, we will perform MATLAB simulations of communication over a discrete channel and perform decoding as outlined above, as well as the more standard joint typicality decoding. Part II Computer Experimentation In this part, just as laid out earlier in this paper, we relax the error-event deﬁnition in joint typicality decoding over a noisy channel and invoke Support Vector Machines (SVMs) to help us decode in the presence of several ‘matches’ between the received word and codewords from the codebook4. We can also extend this to source coding and rate distortion theory in future work. Study of Error Exponents In Figure 1, we plot the formula − ln(Pe) blocklength, (1) for various blocklengths, for the discrete memoryless binary symmetric channel BSC(0.05). This is done for the case of joint typicality decoding. The x-axis is the block length simulated and the y-axis is the error exponent. Figure 1: Joint typicality decoding error exponent versus block length. 4Thanks are due to Prof. Rajesh, CSE, DSU for suggesting the use of SVMs instead of k-means clustering due to the vector nature of the codewords. 3</p> <p>Next, in Figure 2, we plot the same formula [1], but for weak-joint typicality decoding, and for the same channel. We can see that the exponent is higher for certain rates5. The x-axis is the block length simulated and the y-axis is the error exponent. Figure 2: Weak-joint typicality decoding error exponent versus block length. The y-axis peak value is nearly double that of the y-axis peak value in Figure 1. Results In this section we present a ﬁgure that summarizes the performance of the new decoding method. As Figure 3 shows, there is a deﬁnite advantage in using weak-joint typicality decoding over regular joint typicality decoding. The x-axis is the probability of a ‘1’ symbol in the codebook and the y-axis is the diﬀerence between the (maximum, simulation-obtained, value of the) two types of decoding- exponents, with a block length of upto 600 symbols considered for codeword length. The graph always remains below zero, demonstrating the greater magnitude of the (maximum) weak-joint typicality decoding exponent. The discrete channel used was the BSC(0.4). 5Recall that the rate is nothing but the number of bits carried by a codeword divided by the length of the codeword. 4</p> <p>Figure 3: The advantage of weak-joint typicality decoding is in terms of error exponents. Discussion While the diﬀerences are not glaring with and without weak-joint typicality decoding, we have obtained a modiﬁcation of Shannon’s strategy that performs better in terms of error exponents, under certain conditions. It remains to do an analytical study. Additionally, it was suggested recently that our strategy might be related to list decoding [4]. However, a preliminary reading of [5] indicates that there might be some diﬀerences between these two types of decoding. To summarize, in this paper we have discussed a potentially new way of using machine learning to enhance communication system performance as captured by error exponents. There are limita- tions to our work, both in theory and simulation. Theory can be improved by considering other machine learning algorithms and the simulations can be more exhaustive. However, this is a prelim- inary study of new frontiers in information theory and statistical learning. It has several practical implications for those implementing data communication systems in the twenty-ﬁrst century. Acknowledgments The ﬁrst author would like to thank Prof. Baris Nakiboglu of METU, Turkey for his critical comments and pointing out the relation with list decoding. 5</p> <p>References [1] Thomas M. Cover and Joy A. Thomas. Elements of Information Theory. 2005. ISBN 9780471241959. doi: 10.1002/047174882X. [2] Michael J Kearns and Umesh Vazirani. An introduction to computational learning theory. MIT Press, 1994. [3] Simon Haykin. Neural Networks and Learning Machines, 3/E. Pearson Education India, 2010. [4] G Forney. Exponential error bounds for erasure, list, and decision feedback schemes. IEEE Transactions on Information Theory, 14(2):206–220, 1968. [5] Robert G Gallager. Information theory and reliable communication, volume 588. New York: Wiley, 1968.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Towards_Weak_Information_Theory_Weak_Joint_Typicality_Decoding_Using_Support_Vector_Machines_May_Lead_to_Improved_Error_Exponents.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

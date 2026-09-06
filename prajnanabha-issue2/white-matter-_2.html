@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Matter Capacity | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 2 · V1I2-A04</div>
+            <h1>White Matter Capacity</h1>
+            <div class="hero-meta">Aman Chawla \\ REAL Institute, Gurugram</div>
+            <div class="hero-meta">Source PDF: tractCapacityv5.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_2.html">Issue 2</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>This paper develops an explicit capacity analysis of the axon tract modeled as a vector Gaussian communication channel with perfect feedback. Building on the generalized ephaptic equation and its modifications, we show how the tract can be reduced to an effective linear Gaussian channel with feedback eliminated. We then derive finite-block capacity expressions, discuss waterfilling and eigenmode allocation, and extend to the stationary infinite-horizon case. Illustrative examples highlight the role of ephaptic coupling in modifying channel capacity. The work bridges neuroscience and information theory, offering a rigorous framework for quantifying the fundamental limits of communication in axon tracts.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>The<span class="footnote-inline"><sup>†</sup>Received on December 18, 2025; Accepted in Prajnanabha: Information and Physics on December 18, 2025; Revised and Published Online in January 2026.</span> axon tract, a bundle of parallel axons, is traditionally studied in neurobiology as a medium for signal propagation. Recent theoretical work has revealed that such tracts can be viewed through the lens of information theory as communication channels. In particular, ephaptic coupling—the interaction between axons mediated by extracellular fields—introduces cross-talk that resembles multiple-input multiple-output (MIMO) systems.</p>
+<p>Chapter 5 of the dissertation <span class="citation" title="ChawlaUSF">[1]</span> introduced two modifications to the generalized ephaptic equation: (i) a position-dependent $W_{ip}(z)$ matrix capturing tomographic geometry, and (ii) an additive Gaussian noise term modeling ionic thermal fluctuations. Together, these modifications yield a tract model that behaves like a vector Gaussian channel with perfect feedback. The present paper develops the explicit capacity analysis of this channel.</p>
+<p>Table 1: Table of Notation summarizes the principal symbols and meanings as used in this work.</p>
+<figure class="article-table"><div class="table-scroll"><table><thead><tr><th>{ll} <strong>Symbol</strong></th><th><strong>Meaning</strong> $V_i(z,t)$</th><th>Transmembrane voltage of axon $i$ at position $z$, time $t$ $W_{{ip}}(z)$</th><th>Position-dependent ephaptic coupling matrix along tract axis $n_{{ip}}(z,t)$</th><th>Additive Gaussian noise term (ionic thermal fluctuations) $A, B$</th><th>Coefficient matrices from Crank–Nicolson discretization $V$</th><th>Voltage vector (state variable) $j_{{ion}}, J_{{stim}}$</th><th>Ionic current, stimulation current $K = A^{-1}B$</th><th>Feedback matrix after inversion $Y_k$</th><th>Output state vector at epoch $k$ $X_k$</th><th>Input stimulus vector at epoch $k$ $N_k$</th><th>Gaussian noise vector at epoch $k$ $D()$</th><th>Deterministic feedback operator $H_{{eff}}$</th><th>Effective channel matrix after feedback elimination $Z_{{eff}}$</th><th>Effective Gaussian noise covariance after feedback elimination $K_x$</th><th>Input covariance matrix $P$</th><th>Power (stimulation energy) constraint $C_n(P)$</th><th>Finite-block capacity with blocklength $n$ and power $P$ $R$</th><th>Eigenmode matrix for waterfilling allocation $d_i$</th><th>Eigenvalues of $R$ (channel gains) $p_i$</th><th>Power allocated to eigenmode $i$ $C(P)$</th><th>Stationary infinite-horizon capacity under power constraint $P$ $S_z()$</th><th>Noise spectral density $S_{yx}()$</th><th>Channel frequency response $S_x()$</th><th>Input spectrum $c(x) = x^T Q x$</th><th>Quadratic cost function for input $x$ $Q$</th><th>Positive-definite cost matrix (energetic/metabolic weighting) $C_{{uc}}$</th><th>Verdú capacity per unit cost $D(P_{Y|X=x}\|P_{Y|X=0})$</th><th>KL divergence between output distributions $_{}()$</th><th>Maximum generalized eigenvalue $K_Y$</th><th>Output covariance matrix $K_{XY}$</th><th>Joint input-output covariance matrix $I(X;Y)$</th><th>Classical mutual information between input $X$ and output $Y$ $I_{{MMI}}()$</th><th>Multivariate mutual information (total correlation) $I_{{cc}}(Y)$</th><th>Chung–Chan network multivariate mutual information of tract output $P$ (partition)</th><th>Partition of network nodes for MMI evaluation</th></tr></thead><tbody></tbody></table></div><figcaption><span>Table 1.</span> Table of Notation</figcaption></figure>
+<h2 id="background-ephaptic-equation-and-modifications">Background: Ephaptic Equation and Modifications</h2>
+<p>The generalized ephaptic equation governs the dynamics of transmembrane voltages $V_i(z,t)$ along axons. Two key modifications were introduced:</p>
+<h3 id="modification-a-position-dependent-w-ip-z">Modification A: Position-dependent $W_{ip}(z)$</h3>
+<p>Tomographic data reveals complex geometrical arrangements of axons. To incorporate this, the interaxonal coupling matrix $W_{ip}$ is made position-dependent: \[ W_{ip} \;\; W_{ip}(z), \] yielding a differentiable matrix function along the tract axis. This allows spatially varying coupling strengths.</p>
+<h3 id="modification-b-additive-gaussian-noise">Modification B: Additive Gaussian Noise</h3>
+<p>The extracellular medium contains ions undergoing random thermal motion. This is modeled as additive Gaussian noise $n_{ip}(z,t)$ added to ephaptic signals: \[ {</p>
+<p>tial^2 V_i}{</p>
+<p>tial z^2} \;\; {</p>
+<p>tial^2 V_i}{</p>
+<p>tial z^2} + n_{ip}(z,t). \] This transforms the tract into a noisy communication channel.</p>
+<h2 id="tract-as-a-vector-gaussian-channel">Tract as a Vector Gaussian Channel</h2>
+<p>Discretizing the ephaptic equation via the Crank–Nicolson scheme yields:</p>
+<div class="math-block">$$
+[A]\tilde{V} = [B]V + j_{\text{ion}} + j_{\text{stim}},
+$$</div>
+<p>where $A$ and $B$ are coefficient matrices, $V$ is the present voltage vector, ${V}$ the next-step voltage vector, and $j_{{ion}}, j_{{stim}}$ are ionic and stimulation currents.</p>
+<p>Inverting $A$ via singular value decomposition gives:</p>
+<div class="math-block">$$
+\tilde{V} = K V + R m + j_{\text{stim}} - S m - I T_2,
+$$</div>
+<p>with $K = A^{-1}B$, $R$ and $S$ matrices coupling ionic variables, and $T_2$ nonlinear terms. This system can be expressed as:</p>
+<div class="math-block">$$
+Y_{k+1} = D(Y_k) + X_{k+1} + N_{k+1},
+$$</div>
+<p>where $Y_k$ is the output state, $X_{k+1}$ the input stimulus, $D()$ deterministic feedback, and $N_{k+1}$ Gaussian noise. Thus, the tract acts as a vector Gaussian channel with perfect feedback.</p>
+<h2 id="feedback-elimination">Feedback Elimination</h2>
+<p>Because $D()$ is deterministic and causal, it can be eliminated by algebraic manipulation. Stacking outputs over $n$ epochs: \[ {Y} = {D}{Y} + {G}{X} + {N}. \] Solving, \[ {Y} = ({I}-{D})^{-1}{G}{X} + ({I}-{D})^{-1}{N}. \] Define effective channel and noise: \[ {H}_{{eff}} = ({I}-{D})^{-1}{G}, _{{eff}} = ({I}-{D})^{-1}_N(({I}-{D})^{-1})^T. \] The tract reduces to: \[ {Y} = {H}_{{eff}}{X} + {Z}, {Z} {N}(0,_{{eff}}). \]</p>
+<h2 id="finite-block-capacity">Finite-block Capacity</h2>
+<p>For block length $n$, input covariance ${K}_X$, and power constraint ${1}{n}{tr}({K}_X) P$, the capacity is:</p>
+<div class="math-block">$$
+C_n(P) = \frac{1}{2n}\log\det\left(I + \Sigma_{\text{eff}}^{-1/2}\mathbf{H}_{\text{eff}}\mathbf{K}_X\mathbf{H}_{\text{eff}}^T\Sigma_{\text{eff}}^{-1/2}\right).
+$$</div>
+<p>Maximization over ${K}_X$ yields the optimal allocation.</p>
+<h3 id="waterfilling">Waterfilling</h3>
+<p>Diagonalizing \[ R = _{{eff}}^{-1/2}{H}_{{eff}}{H}_{{eff}}^T_{{eff}}^{-1/2}, \] reveals eigenmodes. Power is allocated across these modes via waterfilling: \[ p_i = ( - {1}{_i})^+, \] where $_i$ are eigenvalues of $R$, $$ chosen to satisfy $ p_i = P$.</p>
+<h2 id="stationary-infinite-horizon-capacity">Stationary Infinite-horizon Capacity</h2>
+<p>If ${H}_{{eff}}$ and $_{{eff}}$ are block Toeplitz (stationary), as $n$ capacity per epoch converges to:</p>
+<div class="math-block">$$
+C(P) = \frac{1}{4\pi}\int_{-\pi}^{\pi}\log\det\left(I + S_Z(\omega)^{-1/2}S_{YX}(\omega)S_X(\omega)S_{YX}(\omega)^TS_Z(\omega)^{-1/2}\right)d\omega,
+$$</div>
+<p>where $S_Z()$ is noise spectral density, $S_{YX}()$ channel frequency response, and $S_X()$ input spectrum optimized under power constraint.</p>
+<h2 id="illustrative-examples">Illustrative Examples</h2>
+<h3 id="without-ephaptic-coupling">Without Ephaptic Coupling</h3>
+<p>Setting $W_{ip}(z)=0$ decouples axons. ${H}_{{eff}}$ becomes block-diagonal, yielding independent channels. Capacity is sum of individual axon capacities.</p>
+<h3 id="with-ephaptic-coupling">With Ephaptic Coupling</h3>
+<p>Nonzero $W_{ip}(z)$ introduces cross-terms, enlarging ${H}_{{eff}}$. Eigenvalues of $R$ increase, allowing higher capacity via spatial multiplexing. Thus, ephaptic coupling can enhance tract capacity.</p>
+<h2 id="discussion">Discussion</h2>
+<p>The tract capacity analysis reveals several insights:</p>
+<ul class="article-list"><li><p><strong>Feedback neutrality:</strong> Deterministic feedback does not reduce capacity; it is absorbed into effective channel parameters.</p></li><li><p><strong>Noise shaping:</strong> Position-dependent $W_{ip}(z)$ and colored noise $_{{eff}}$ create nontrivial spectral dependencies.</p></li><li><p><strong>Biophysical constraints:</strong> Power constraint $P$ corresponds to stimulation energy limits; realistic values must be estimated from neurophysiology.</p></li><li><p><strong>Ephaptic gain:</strong> Coupling can increase capacity, but also introduces correlated noise; net effect depends on geometry and noise statistics.</p></li></ul>
+<h2 id="capacity-per-unit-cost-verd-x27-u-regime">Capacity per Unit Cost: Verd\&#x27;u Regime</h2>
+<h3 id="motivation">Motivation</h3>
+<p>In biological communication systems, energetic efficiency rather than average power is often the fundamental constraint. Ionic pumping, membrane recovery, and stimulation currents incur a metabolic cost that scales with signal amplitude and duration. This motivates analyzing the <em>capacity per unit cost</em>, as introduced by Verd\&#x27;u, which characterizes the maximum achievable information rate per unit energetic expenditure in the low-cost regime.</p>
+<p>This framework is particularly relevant for axon tracts, where signaling is often sparse and near-resting, and where efficiency constraints may dominate over raw throughput.</p>
+<h3 id="effective-channel-model">Effective Channel Model</h3>
+<p>From Section 4, the axon tract reduces to an equivalent memoryless vector Gaussian channel with deterministic feedback eliminated:</p>
+<div class="math-block">$$
+Y = H_{\mathrm{eff}} X + Z,
+$$</div>
+<p>where $Z {N}(0,_{{eff}})$ and $X {R}^m$ denotes the stimulation input vector.</p>
+<p>We assume the existence of a zero-cost input symbol $X=0$, corresponding to the resting state of the tract.</p>
+<h3 id="cost-function">Cost Function</h3>
+<p>We associate a quadratic cost function to each input:</p>
+<div class="math-block">$$
+c(x) = x^{T} Q x,
+$$</div>
+<p>where $Q 0$ is a symmetric positive-definite matrix modeling energetic or metabolic cost. The choice $Q=I$ corresponds to isotropic energy expenditure, while diagonal $Q$ allows axon-dependent energetic efficiencies.</p>
+<h3 id="verd-x27-u-capacity-per-unit-cost">Verd\&#x27;u Capacity per Unit Cost</h3>
+<p>For a memoryless channel with a zero-cost input, Verd\&#x27;u showed that the capacity per unit cost is given by</p>
+<div class="math-block">$$
+\mathcal{C}_{\mathrm{uc}}
+=
+\sup_{x \neq 0}
+\frac{
+D\!\left( P_{Y|X=x} \,\|\, P_{Y|X=0} \right)
+}{
+c(x)
+},
+$$</div>
+<p>where $D(\|)$ denotes the Kullback–Leibler divergence.</p>
+<p>This expression characterizes the slope of the capacity–cost curve at zero cost and avoids explicit blocklength optimization.</p>
+<h3 id="evaluation-for-the-axon-tract">Evaluation for the Axon Tract</h3>
+<p>For the effective Gaussian channel,</p>
+<div class="math-block">$$
+\begin{align}
+Y|X=x &\sim \mathcal{N}(H_{\mathrm{eff}}x,\Sigma_{\mathrm{eff}}), 
+
+Y|X=0 &\sim \mathcal{N}(0,\Sigma_{\mathrm{eff}}).
+\end{align}
+$$</div>
+<p>The KL divergence evaluates to</p>
+<div class="math-block">$$
+D
+=
+\frac{1}{2}
+x^{T}
+H_{\mathrm{eff}}^{T}
+\Sigma_{\mathrm{eff}}^{-1}
+H_{\mathrm{eff}}
+x.
+$$</div>
+<p>Substituting into Verd\&#x27;u&#x27;s formula yields</p>
+<div class="math-block">$$
+\mathcal{C}_{\mathrm{uc}}
+=
+\sup_{x \neq 0}
+\frac{
+\frac{1}{2}
+x^{T}
+H_{\mathrm{eff}}^{T}
+\Sigma_{\mathrm{eff}}^{-1}
+H_{\mathrm{eff}}
+x
+}{
+x^{T} Q x
+}.
+$$</div>
+<h3 id="generalized-eigenvalue-characterization">Generalized Eigenvalue Characterization</h3>
+<p>The supremum is achieved by the principal generalized eigenvector of the matrix pair</p>
+<div class="math-block">$$
+\left(
+H_{\mathrm{eff}}^{T}\Sigma_{\mathrm{eff}}^{-1}H_{\mathrm{eff}},
+\;
+Q
+\right).
+$$</div>
+<p>Hence, the capacity per unit cost admits the closed-form expression</p>
+<div class="math-block">$$
+\boxed{
+\mathcal{C}_{\mathrm{uc}}
+=
+\frac{1}{2}
+\lambda_{\max}
+\!\left(
+Q^{-1/2}
+H_{\mathrm{eff}}^{T}
+\Sigma_{\mathrm{eff}}^{-1}
+H_{\mathrm{eff}}
+Q^{-1/2}
+\right)
+}
+$$</div>
+<p>in nats per unit cost. Division by $ 2$ converts this quantity to bits per unit cost.</p>
+<h3 id="relation-to-power-constrained-capacity">Relation to Power-Constrained Capacity</h3>
+<p>Let $C(P)$ denote the power-constrained capacity derived in Sections 5 and 6. Then</p>
+<div class="math-block">$$
+\mathcal{C}_{\mathrm{uc}}
+=
+\lim_{P \to 0}
+\frac{C(P)}{P},
+$$</div>
+<p>showing that the Verd\&#x27;u regime corresponds to the low-power limit of the classical capacity expression.</p>
+<h3 id="implications-for-axon-tracts">Implications for Axon Tracts</h3>
+<p>The capacity per unit cost provides a sharp efficiency bound for tract-level communication:</p>
+<ul class="article-list"><li><p>Optimal signaling at vanishing energy aligns with the most efficient eigenmode of the ephaptically coupled tract.</p></li><li><p>Ephaptic coupling can increase information efficiency even when total capacity gains are modest.</p></li><li><p>Deterministic feedback remains capacity-neutral in the low-cost regime.</p></li><li><p>The framework directly links information flow to metabolic constraints, offering a principled notion of bits per unit biological cost.</p></li></ul>
+<h2 id="relation-to-bergerlevy-energy-efficient-neural-communication">Relation to Berger–Levy Energy-Efficient Neural Communication</h2>
+<h3 id="overview">Overview</h3>
+<p>Berger and Levy <span class="citation" title="BergerLevy2010">[2]</span> developed a seminal information-theoretic theory of neural communication focused on <em>single-neuron spike timing codes</em> optimized for bits per joule. Their framework models a neuron as a stochastic encoder that converts afferent excitation into interspike intervals (ISIs), with optimization performed over ISI distributions under explicit metabolic cost constraints.</p>
+<p>The present work addresses a complementary but fundamentally distinct problem: the <em>collective communication capacity of an axon tract</em>, modeled as a vector Gaussian channel with ephaptic coupling and perfect feedback. This section clarifies the relationship between the two formulations and delineates their respective domains of validity.</p>
+<h3 id="level-of-description">Level of Description</h3>
+<p>A primary distinction lies in the level at which communication is modeled.</p>
+<ul class="article-list"><li><p><strong>Berger–Levy:</strong> A single neuron is treated as the channel. Information is encoded in the <em>timing of spikes</em>, specifically in the distribution of interspike intervals generated by an integrate-and-fire–type mechanism driven by Poisson afferent bombardment.</p></li><li><p><strong>Present work:</strong> An axon tract is treated as the channel. Information is encoded in <em>continuous-valued transmembrane voltage vectors</em> evolving along space and time, with ephaptic coupling inducing MIMO-like interactions.</p></li></ul>
+<p>Thus, Berger–Levy operate at the level of discrete spike events and their timing statistics, whereas the present formulation operates at the level of spatially extended, analog biophysical fields prior to spike generation.</p>
+<h3 id="channel-models">Channel Models</h3>
+<p>The underlying channel models differ both structurally and mathematically.</p>
+<p>agraph{Berger–Levy} The neuron is modeled as a timing channel whose output is a point process. Noise is primarily Poissonian and arises from stochastic afferent spike arrivals. The channel is nonlinear and history-dependent, with the ISI distribution emerging endogenously from the dynamics.</p>
+<p>agraph{Present Work} After discretization and feedback elimination, the axon tract reduces to an <em>effective vector Gaussian channel</em> \[ Y = H_{{eff}} X + Z, \] with colored Gaussian noise and deterministic feedback absorbed into $H_{{eff}}$ and $_{{eff}}$. This enables the use of classical tools such as eigenmode decomposition, waterfilling, and spectral capacity formulas.</p>
+<p>In short, Berger–Levy emphasize <em>Poisson timing noise</em>, whereas the tract model emphasizes <em>Gaussian field fluctuations and coupling</em>.</p>
+<h3 id="role-of-energy-and-cost">Role of Energy and Cost</h3>
+<p>Both frameworks are deeply concerned with energetic efficiency, but they formalize cost differently.</p>
+<ul class="article-list"><li><p><strong>Berger–Levy:</strong> Energy is expended per ISI and per spike. Optimization explicitly trades bits per second against bits per joule, leading to gamma-distributed ISIs and beta-distributed excitation statistics.</p></li><li><p><strong>Present work:</strong> Energy enters via a quadratic cost function on continuous-valued inputs, \[ c(x) = x^T Q x, \] and efficiency is quantified via Verd\&#x27;u’s capacity per unit cost. The result is governed by a generalized eigenvalue problem involving $H_{{eff}}$ and $_{{eff}}$.</p></li></ul>
+<p>The Berger–Levy cost is event-based and metabolic, while the present cost is signal-based and field-theoretic, reflecting different dominant biophysical expenditures at different scales.</p>
+<h3 id="feedback-and-memory">Feedback and Memory</h3>
+<p>Feedback plays markedly different roles in the two theories.</p>
+<p>Berger–Levy explicitly account for history dependence arising from refractoriness, excitation correlation time, and ISI-to-ISI dependence, leading to information-rate decrements due to temporal correlations.</p>
+<p>In contrast, the present work shows that <em>deterministic, causal feedback in the tract dynamics does not reduce capacity</em>: it can be eliminated algebraically and absorbed into an effective channel. This difference reflects the fact that Berger–Levy feedback is stochastic and energetic, whereas tract-level feedback is deterministic and biophysical.</p>
+<h3 id="complementarity-of-the-two-approaches">Complementarity of the Two Approaches</h3>
+<p>The two formulations should be viewed as complementary rather than competing.</p>
+<ul class="article-list"><li><p>Berger–Levy characterize how a <em>single neuron</em> optimally converts analog excitation into sparse spike timing under metabolic constraints.</p></li><li><p>The present work characterizes how a <em>population of axons</em> collectively transports analog information prior to discretization into spikes.</p></li></ul>
+<p>Conceptually, the tract capacity analyzed here provides an <em>upper bound on the information available to downstream spike encoders of the Berger–Levy type</em>. Conversely, Berger–Levy’s bpj-optimal spike codes can be interpreted as candidate mechanisms for approaching this bound at the single-neuron level.</p>
+<h3 id="summary-of-key-differences">Summary of Key Differences</h3>
+<p>Table II: Key Differences summarize the key points of variation between the Berger-Levy and present approaches.</p>
+<figure class="article-table"><div class="table-scroll"><table><thead><tr><th>{lcc}</th><th>Berger–Levy</th><th>Present Work Scale</th><th>Single neuron</th><th>Axon tract Signal type</th><th>Spike timing</th><th>Continuous voltages Noise</th><th>Poisson</th><th>Gaussian (effective) Coupling</th><th>None</th><th>Ephaptic (MIMO) Feedback</th><th>Stochastic, costly</th><th>Deterministic, removable Efficiency metric</th><th>Bits per joule</th><th>Capacity per unit cost Optimization</th><th>ISI distributions</th><th>Eigenmodes of $H_{{eff}}$</th></tr></thead><tbody></tbody></table></div><figcaption><span>Table 2.</span> Key Differences</figcaption></figure>
+<h3 id="perspective">Perspective</h3>
+<p>Taken together, Berger–Levy and the present work suggest a multiscale picture of neural communication: energy-efficient spike timing emerges as an optimal <em>encoding layer</em> built atop a tract-level analog channel whose capacity and efficiency are governed by geometry, coupling, and noise. Bridging these two levels remains an open and promising direction for future work.</p>
+<h2 id="relation-to-ikedamanton-capacity-formulations">Relation to Ikeda–Manton Capacity Formulations</h2>
+<h3 id="overview">Overview</h3>
+<p>Ikeda and Manton developed an information-theoretic framework for the capacity of continuous-time channels governed by stochastic differential equations (SDEs), with particular emphasis on nonlinear dynamics and additive Gaussian diffusion noise. Their work characterizes mutual information rates for channels of the form</p>
+<div class="math-block">$$
+dY_t = f(Y_t, X_t)\,dt + G\,dW_t,
+$$</div>
+<p>where $f()$ is generally nonlinear, $X_t$ is the control or input process, and $W_t$ is a Wiener process. Capacity is defined as a supremum over admissible input processes subject to energy or power constraints.</p>
+<p>The present work addresses a related but distinct problem: the information-carrying capacity of an axon tract governed by biophysical field equations with ephaptic coupling, discretized in space and time and subsequently reduced to an effective vector Gaussian channel.</p>
+<h3 id="modeling-philosophy">Modeling Philosophy</h3>
+<p>Ikeda and Manton treat the channel as an <em>irreducibly nonlinear stochastic dynamical system</em>. The signal and noise are intertwined at the level of the diffusion process, and capacity is defined directly on the path space of trajectories. Feedback enters naturally through the state dependence of the drift term $f(Y_t,X_t)$.</p>
+<p>In contrast, the present work begins from a nonlinear biophysical model (the generalized ephaptic equation) but demonstrates that, after discretization and algebraic manipulation, the deterministic nonlinear feedback can be eliminated. This yields an <em>equivalent linear vector Gaussian channel</em> with modified channel matrix $H_{{eff}}$ and noise covariance $_{{eff}}$. Capacity analysis is then performed using classical Gaussian tools.</p>
+<p>Thus, while Ikeda–Manton retain the nonlinear SDE structure throughout, the present work shows that for axon tracts the relevant nonlinearities are capacity-neutral and can be absorbed into effective linear parameters.</p>
+<h3 id="treatment-of-feedback">Treatment of Feedback</h3>
+<p>Feedback plays a central role in both formulations, but with different consequences.</p>
+<p>In Ikeda–Manton, feedback is intrinsic to the continuous-time dynamics and generally cannot be removed without altering the channel law. Capacity expressions involve innovations processes and Radon–Nikodym derivatives on path space, reflecting the deep coupling between signal, state, and noise.</p>
+<p>In the present work, feedback arising from ephaptic interactions and ionic dynamics is deterministic and causal. As shown in Section 4, this feedback can be eliminated exactly, leaving capacity unchanged. This distinction highlights a key structural difference: Ikeda–Manton feedback is stochastic and diffusion-level, whereas tract-level feedback is deterministic and field-mediated.</p>
+<h3 id="noise-structure">Noise Structure</h3>
+<p>Ikeda and Manton model noise as continuous-time Brownian motion acting directly on the system state, leading to nontrivial stochastic calculus considerations and capacity expressions involving quadratic variation.</p>
+<p>By contrast, the axon tract model yields additive Gaussian noise after discretization, with spatial and temporal correlations captured in $_{{eff}}$. This permits an eigenmode-based interpretation of capacity and an explicit connection to MIMO Gaussian channels.</p>
+<h3 id="capacity-notions">Capacity Notions</h3>
+<p>Capacity in Ikeda–Manton is defined as an information rate per unit time over continuous trajectories, typically under average power constraints on $X_t$. Closed-form expressions are rare and generally limited to special cases.</p>
+<p>The present work derives explicit finite-block, stationary, and capacity-per-unit-cost expressions. In particular, the Verd\&#x27;u regime yields a closed-form eigenvalue characterization, which has no direct analog in the general Ikeda–Manton setting.</p>
+<h3 id="conceptual-relationship">Conceptual Relationship</h3>
+<p>The present formulation can be viewed as a <em>biophysically grounded specialization</em> of the general Ikeda–Manton framework to a class of systems where nonlinear feedback is deterministic and noise enters additively. From this perspective, the tract model identifies a regime in which the formidable path-space capacity problem collapses to a tractable Gaussian channel without loss of rigor.</p>
+<h3 id="summary">Summary</h3>
+<p>Ikeda and Manton provide a general and mathematically sophisticated theory of capacity for nonlinear stochastic dynamical channels. The present work complements this theory by showing that axon tracts occupy a structurally simpler subclass in which effective linearization is exact, enabling explicit capacity and efficiency results directly tied to neurobiological structure.</p>
+<h2 id="multivariate-mutual-information-of-the-axon-tract">Multivariate Mutual Information of the Axon Tract</h2>
+<h3 id="vector-valued-channel-representation">Vector-Valued Channel Representation</h3>
+<p>After feedback elimination (Section 4), the axon tract over one signaling epoch is represented as a vector channel</p>
+<div class="math-block">$$
+\mathbf{Y} = H_{\mathrm{eff}} \mathbf{X} + \mathbf{Z},
+$$</div>
+<p>where \( {X} = (X_1,,X_m)^T \) and \( {Y} = (Y_1,,Y_n)^T \) are random vectors whose components correspond to axons or spatial modes, and \( {Z} {N}(0,_{{eff}}) \) is multivariate Gaussian noise.</p>
+<p>Unlike scalar mutual information, this formulation naturally invites <em>multivariate mutual information</em> (MMI), since dependence is distributed across multiple random variables within each vector.</p>
+<h3 id="multivariate-mutual-information-mmi">Multivariate Mutual Information (MMI)</h3>
+<p>Given a collection of random variables \( (U_1,,U_k) \), the multivariate mutual information (also known as total correlation) is defined as</p>
+<div class="math-block">$$
+I_{\mathrm{MMI}}(U_1;\dots;U_k)
+=
+\sum_{i=1}^k H(U_i) - H(U_1,\dots,U_k).
+$$</div>
+<p>MMI quantifies the <em>total statistical dependence</em> among the components and vanishes if and only if the variables are independent.</p>
+<p>For the axon tract, two natural MMI quantities arise:</p>
+<ul class="article-list"><li><p>internal dependence among output components ${Y_i}$,</p></li><li><p>dependence induced between input and output component collections.</p></li></ul>
+<h3 id="output-mmi-of-the-tract">Output MMI of the Tract</h3>
+<p>Assume ${X} {N}(0,K_X)$. Then</p>
+<div class="math-block">$$
+\mathbf{Y} \sim \mathcal{N}\!\left(0,\,
+K_Y \right),
+\quad
+K_Y = H_{\mathrm{eff}} K_X H_{\mathrm{eff}}^T + \Sigma_{\mathrm{eff}}.
+$$</div>
+<p>The multivariate mutual information among the output components ${Y_1,,Y_n}$ is</p>
+<div class="math-block">$$
+I_{\mathrm{MMI}}(\mathbf{Y})
+=
+\sum_{i=1}^n H(Y_i) - H(\mathbf{Y}).
+$$</div>
+<p>For Gaussian variables,</p>
+<div class="math-block">$$
+\begin{align}
+H(Y_i) &= \tfrac{1}{2}\log(2\pi e\, [K_Y]_{ii}),
+
+H(\mathbf{Y}) &= \tfrac{1}{2}\log\!\big((2\pi e)^n \det K_Y\big),
+\end{align}
+$$</div>
+<p>yielding</p>
+<div class="math-block">$$
+\boxed{
+I_{\mathrm{MMI}}(\mathbf{Y})
+=
+\frac{1}{2}
+\log
+\left(
+\frac{\prod_{i=1}^n [K_Y]_{ii}}{\det K_Y}
+\right).
+}
+$$</div>
+<p>This quantity measures the degree to which ephaptic coupling and shared noise induce collective dependence across axons.</p>
+<h3 id="inputoutput-multivariate-mutual-information">Input–Output Multivariate Mutual Information</h3>
+<p>To characterize tract-level information transfer, consider the MMI between the input vector ${X}$ and output vector ${Y}$, defined as</p>
+<div class="math-block">$$
+I_{\mathrm{MMI}}(\mathbf{X};\mathbf{Y})
+=
+\sum_{i=1}^m H(X_i)
++
+\sum_{j=1}^n H(Y_j)
+-
+H(\mathbf{X},\mathbf{Y}).
+$$</div>
+<p>For jointly Gaussian $({X},{Y})$, with covariance \[ K_{XY} =</p>
+<div class="math-block">$$
+\begin{pmatrix}
+K_X & K_X H_{\mathrm{eff}}^T 
+
+H_{\mathrm{eff}} K_X & K_Y
+\end{pmatrix}
+$$</div>
+<p>, \] we obtain</p>
+<div class="math-block">$$
+H(\mathbf{X},\mathbf{Y})
+=
+\frac{1}{2}
+\log\!\big((2\pi e)^{m+n}\det K_{XY}\big).
+$$</div>
+<p>Substitution yields the closed-form expression</p>
+<div class="math-block">$$
+\boxed{
+I_{\mathrm{MMI}}(\mathbf{X};\mathbf{Y})
+=
+\frac{1}{2}
+\log
+\left(
+\frac{
+\prod_{i=1}^m [K_X]_{ii}
+\prod_{j=1}^n [K_Y]_{jj}
+}{
+\det K_{XY}
+}
+\right).
+}
+$$</div>
+<h3 id="relation-to-classical-mutual-information">Relation to Classical Mutual Information</h3>
+<p>Classical mutual information satisfies</p>
+<div class="math-block">$$
+I(\mathbf{X};\mathbf{Y})
+=
+H(\mathbf{Y}) - H(\mathbf{Y}|\mathbf{X})
+=
+\frac{1}{2}\log
+\frac{\det K_Y}{\det \Sigma_{\mathrm{eff}}}.
+$$</div>
+<p>The MMI decomposes this quantity into contributions from marginal entropies and joint dependence. In particular,</p>
+<div class="math-block">$$
+I_{\mathrm{MMI}}(\mathbf{X};\mathbf{Y})
+=
+I(\mathbf{X};\mathbf{Y})
++
+I_{\mathrm{MMI}}(\mathbf{X})
++
+I_{\mathrm{MMI}}(\mathbf{Y}|\mathbf{X}),
+$$</div>
+<p>making explicit how tract capacity arises from both <em>signal transmission</em> and <em>collective dependence across axons</em>.</p>
+<h3 id="interpretation">Interpretation</h3>
+<p>The multivariate mutual information provides a tract-level measure of <em>synergistic coding</em>: ephaptic coupling increases not only channel capacity but also the irreducible dependence among axonal signals. Hence, MMI captures structural information integration beyond what is visible from scalar or pairwise mutual information alone.</p>
+<h2 id="relation-to-chungchan-network-mmi-partitions">Relation to Chung–Chan Network MMI Partitions</h2>
+<h3 id="chungchan-network-mmi">Chung–Chan Network MMI</h3>
+<p>Chung and Chan define the multivariate mutual information of a network ${V} = {V_1,,V_N}$ via its <em>minimum information partition</em> (MIP). Given a partition ${P} = {C_1,,C_k}$ of ${V}$, the partition information is</p>
+<div class="math-block">$$
+I_{\mathcal{P}}(\mathcal{V})
+=
+\frac{1}{k-1}
+\left(
+\sum_{i=1}^k H(C_i) - H(\mathcal{V})
+\right),
+$$</div>
+<p>and the network MMI is defined as</p>
+<div class="math-block">$$
+\boxed{
+I_{\mathrm{CC}}(\mathcal{V})
+=
+\min_{\mathcal{P}}
+I_{\mathcal{P}}(\mathcal{V}),
+}
+$$</div>
+<p>where the minimum is taken over all nontrivial partitions.</p>
+<p>This construction identifies the <em>weakest informational cut</em> of the network and yields a principled measure of global integration.</p>
+<h3 id="axon-tract-as-a-communication-network">Axon Tract as a Communication Network</h3>
+<p>In the present work, the axon tract output \( {Y} = (Y_1,,Y_n) \) naturally defines a network whose nodes are individual axons or spatial modes. Ephaptic coupling induces statistical dependence among these nodes, making the Chung–Chan framework directly applicable.</p>
+<p>Let ${V} = {Y_1,,Y_n}$. For any partition ${P} = {C_1,,C_k}$ of the tract, the partition information is</p>
+<div class="math-block">$$
+I_{\mathcal{P}}(\mathbf{Y})
+=
+\frac{1}{k-1}
+\left(
+\sum_{i=1}^k H(\mathbf{Y}_{C_i}) - H(\mathbf{Y})
+\right),
+$$</div>
+<p>where ${Y}_{C_i}$ denotes the subvector indexed by cluster $C_i$.</p>
+<h3 id="gaussian-evaluation">Gaussian Evaluation</h3>
+<p>Since ${Y}$ is jointly Gaussian with covariance $K_Y$, each term admits a closed form:</p>
+<div class="math-block">$$
+\begin{align}
+H(\mathbf{Y}_{C_i})
+&=
+\frac{1}{2}
+\log\!\left((2\pi e)^{|C_i|}
+\det K_Y[C_i]\right), 
+
+H(\mathbf{Y})
+&=
+\frac{1}{2}
+\log\!\left((2\pi e)^n \det K_Y\right),
+\end{align}
+$$</div>
+<p>where $K_Y[C_i]$ denotes the principal submatrix indexed by $C_i$.</p>
+<p>Thus,</p>
+<div class="math-block">$$
+\boxed{
+I_{\mathcal{P}}(\mathbf{Y})
+=
+\frac{1}{2(k-1)}
+\log
+\left(
+\frac{
+\prod_{i=1}^k \det K_Y[C_i]
+}{
+\det K_Y
+}
+\right).
+}
+$$</div>
+<p>The Chung–Chan network MMI of the tract output is therefore</p>
+<div class="math-block">$$
+\boxed{
+I_{\mathrm{CC}}(\mathbf{Y})
+=
+\min_{\mathcal{P}}
+\frac{1}{2(k-1)}
+\log
+\left(
+\frac{
+\prod_{i=1}^k \det K_Y[C_i]
+}{
+\det K_Y
+}
+\right).
+}
+$$</div>
+<h3 id="relation-to-output-total-correlation">Relation to Output Total Correlation</h3>
+<p>The output MMI defined in Section X, \[ I_{{MMI}}({Y}) = {1}{2} ( {_{i=1}^n [K_Y]_{ii}}{ K_Y} ), \] corresponds to the special case of the Chung–Chan framework where the partition ${P}$ consists solely of singletons, \( {P} = {{Y_1},,{Y_n}}. \)</p>
+<p>Hence,</p>
+<div class="math-block">$$
+I_{\mathrm{CC}}(\mathbf{Y})
+\;\le\;
+I_{\mathrm{MMI}}(\mathbf{Y}),
+$$</div>
+<p>with equality if and only if the singleton partition is the minimum information partition. This occurs when dependence is distributed homogeneously across the tract.</p>
+<h3 id="inputoutput-network-partitioning">Input–Output Network Partitioning</h3>
+<p>The Chung–Chan construction also applies to the joint network ${V} = {X} {Y}$. In this case, partitions that separate input and output nodes quantify bottlenecks in tract information transfer.</p>
+<p>In particular, the bipartition \( {P} = {{X},{Y}} \) yields</p>
+<div class="math-block">$$
+I_{\mathcal{P}}(\mathbf{X},\mathbf{Y})
+=
+H(\mathbf{X}) + H(\mathbf{Y}) - H(\mathbf{X},\mathbf{Y})
+=
+I(\mathbf{X};\mathbf{Y}),
+$$</div>
+<p>showing that classical mutual information is a special case of network MMI under bipartitioning.</p>
+<h3 id="interpretation-for-axon-tracts">Interpretation for Axon Tracts</h3>
+<p>Within this framework:</p>
+<ul class="article-list"><li><p>The minimum information partition identifies the weakest ephaptically coupled cut of the tract.</p></li><li><p>A large $I_{{CC}}({Y})$ implies strong global integration across axons, not reducible to independent sub-bundles.</p></li><li><p>Classical capacity measures how much information is transmitted, while Chung–Chan MMI measures how irreducibly <em>distributed</em> that information is across the tract.</p></li></ul>
+<p>Thus, the Chung–Chan network MMI provides a natural measure of tract information integration complementary to channel capacity.</p>
+<h2 id="information-spectrum-reduction-to-point-to-point-tract-channels">Information-Spectrum Reduction to Point-to-Point Tract Channels</h2>
+<h3 id="from-general-information-spectrum-to-point-to-point-capacity">From General Information-Spectrum to Point-to-Point Capacity</h3>
+<p>Han’s information-spectrum framework provides a capacity characterization for channels without assumptions of stationarity, ergodicity, or memorylessness. While originally developed for multi-user channels, the formalism reduces naturally to the single-user (point-to-point) case, which is the relevant abstraction for an axon tract viewed as a distributed channel between an input vector ${X}^n$ and an output vector ${Y}^n$.</p>
+<p>Consider a general point-to-point channel specified by a sequence of conditional distributions \[ W^n({y}^n {x}^n), \] with arbitrary (possibly continuous) alphabets. Let ${{X}^n}_{n1}$ be an arbitrary input process and ${Y}^n$ the corresponding output process induced by the channel.</p>
+<p>The normalized information density is defined as</p>
+<div class="math-block">$$
+\imath_n(\mathbf{X}^n;\mathbf{Y}^n)
+=
+\frac{1}{n}
+\log
+\frac{
+W^n(\mathbf{Y}^n \mid \mathbf{X}^n)
+}{
+P_{\mathbf{Y}^n}(\mathbf{Y}^n)
+}.
+$$</div>
+<p>Following Verdú and Han, the achievable rate for a given input process is determined by the <em>liminf in probability</em></p>
+<div class="math-block">$$
+\underline{I}(\mathbf{X};\mathbf{Y})
+=
+\mathrm{p\text{-}liminf}_{n\to\infty}
+\,
+\imath_n(\mathbf{X}^n;\mathbf{Y}^n).
+$$</div>
+<p>The channel capacity is then</p>
+<div class="math-block">$$
+\boxed{
+C
+=
+\sup_{\mathbf{X}}
+\underline{I}(\mathbf{X};\mathbf{Y}),
+}
+$$</div>
+<p>where the supremum is taken over all admissible input processes, including nonstationary and nonergodic ones.</p>
+<p>This formulation remains valid even when the channel exhibits spatial coupling, long memory, or blockwise variability—features intrinsic to axon tract propagation.</p>
+<h3 id="reduction-to-gaussian-vector-channels">Reduction to Gaussian Vector Channels</h3>
+<p>In the present work, the axon tract is modeled as a linear stochastic channel</p>
+<div class="math-block">$$
+\mathbf{Y}^n = H^n \mathbf{X}^n + \mathbf{Z}^n,
+$$</div>
+<p>where:</p>
+<ul class="article-list"><li><p>${X}^n {R}^{mn}$ is the stacked input vector across $m$ axons and $n$ temporal samples,</p></li><li><p>$H^n$ encodes ephaptic coupling and spatial mixing,</p></li><li><p>${Z}^n$ is additive noise, possibly correlated across axons and time.</p></li></ul>
+<p>No assumption of stationarity across $n$ is required. The noise process ${Z}^n$ may be nonergodic or mixed, directly aligning with the information-spectrum setting.</p>
+<p>For Gaussian inputs and noise, the normalized information density converges in probability, and the information-spectrum capacity reduces to a spectral determinant form:</p>
+<div class="math-block">$$
+\underline{I}(\mathbf{X};\mathbf{Y})
+=
+\lim_{n\to\infty}
+\frac{1}{2n}
+\log
+\frac{
+\det(K_{Y^n})
+}{
+\det(K_{Z^n})
+},
+$$</div>
+<p>provided the limit exists.</p>
+<p>Thus, the general information-spectrum capacity coincides with the Gaussian mutual information rate even when classical ergodicity assumptions fail.</p>
+<h3 id="application-to-the-axon-tract-model">Application to the Axon Tract Model</h3>
+<p>In the tract model developed in this paper, the channel input is a vector ${X}^n$ of axonal drive signals, and the output ${Y}^n$ represents measured or effective field variables along the tract. The channel law is spatially extended and anisotropic, reflecting axonal geometry and ephaptic coupling.</p>
+<p>Let $K_{X^n}$ denote the input covariance subject to a global metabolic or energetic constraint</p>
+<div class="math-block">$$
+\frac{1}{n}\mathrm{tr}(K_{X^n}) \le P.
+$$</div>
+<p>The induced output covariance is</p>
+<div class="math-block">$$
+K_{Y^n} = H^n K_{X^n} (H^n)^\top + K_{Z^n}.
+$$</div>
+<p>Using the information-spectrum formulation, the achievable rate for a given covariance sequence is</p>
+<div class="math-block">$$
+R
+=
+\mathrm{p\text{-}liminf}_{n\to\infty}
+\frac{1}{2n}
+\log
+\frac{
+\det(H^n K_{X^n} (H^n)^\top + K_{Z^n})
+}{
+\det(K_{Z^n})
+}.
+$$</div>
+<p>Maximizing over admissible $K_{X^n}$ yields the tract capacity</p>
+<div class="math-block">$$
+\boxed{
+C_{\mathrm{tract}}
+=
+\sup_{\{K_{X^n}\}}
+\mathrm{p\text{-}liminf}_{n\to\infty}
+\frac{1}{2n}
+\log
+\frac{
+\det(K_{Y^n})
+}{
+\det(K_{Z^n})
+}.
+}
+$$</div>
+<p>Importantly, this expression remains valid even if the tract exhibits slowly varying coupling, spatial heterogeneity, or mixed noise regimes, which would invalidate classical Shannon derivations.</p>
+<h3 id="connection-to-vector-to-vector-information-flow">Connection to Vector-to-Vector Information Flow</h3>
+<p>Unlike scalar point-to-point channels, the tract channel maps a vector input to a vector output. Han’s framework accommodates this naturally, since ${X}^n$ and ${Y}^n$ are treated as arbitrary random objects.</p>
+<p>The resulting capacity quantifies <em>aggregate information flow</em> through the tract rather than per-axon throughput. This aligns with the biophysical interpretation that signaling capacity emerges collectively from ephaptically coupled axons, not from isolated fibers.</p>
+<p>Moreover, the information-spectrum formulation makes explicit that capacity is determined by the <em>worst-case asymptotic information density</em>, rather than by average mutual information alone. This is particularly relevant for biological systems, where nonstationary fluctuations and rare events may dominate functional performance.</p>
+<h3 id="relation-to-mmi-and-network-integration">Relation to MMI and Network Integration</h3>
+<p>The point-to-point capacity derived above complements the multivariate mutual information (MMI) analysis developed earlier. Capacity measures how much information can be reliably conveyed from ${X}$ to ${Y}$, while MMI quantifies how irreducibly that information is distributed across axonal degrees of freedom.</p>
+<p>Within the information-spectrum view, MMI emerges as a <em>structural constraint</em> on achievable capacity: strong output integration (high MMI) implies that capacity cannot be decomposed into independent subchannels. Conversely, weak MMI corresponds to near-block-diagonal covariance structure and additive capacities.</p>
+<p>Thus, the tract capacity computed here should be interpreted jointly with the Chung–Chan network MMI as characterizing both <em>quantity</em> and <em>integration</em> of information flow.</p>
+<h3 id="interpretational-summary">Interpretational Summary</h3>
+<p>The reduction of Han’s general framework to the tract setting yields three key insights:</p>
+<ol class="article-list"><li><p>The axon tract is naturally a general point-to-point channel in the information-spectrum sense.</p></li><li><p>Capacity remains well-defined without assuming stationarity, ergodicity, or independence.</p></li><li><p>The resulting expression interfaces cleanly with Gaussian tract models and with multivariate information measures.</p></li></ol>
+<p>This places the present work within a rigorous, modern extension of Shannon theory suitable for structured biological communication systems.</p>
+<h2 id="comparison-with-prior-ephaptic-mutual-information-analysis">Comparison with Prior Ephaptic Mutual Information Analysis</h2>
+<p>The present work builds directly on, but also substantially extends, the framework developed in <span class="citation" title="ChawlaMorgera2025">[3]</span>, where ephaptic coupling in small axon groups was analyzed primarily through the lens of input–output mutual information computed from simulated Hodgkin–Huxley dynamics. While both works share a common physical substrate and information-theoretic motivation, they differ in modeling abstraction, mathematical scope, and the nature of the information measures employed.</p>
+<h3 id="level-of-abstraction-and-channel-modeling">Level of Abstraction and Channel Modeling</h3>
+<p>In <span class="citation" title="ChawlaMorgera2025">[3]</span>, the axon or axon tract is treated as a waveform-to-waveform channel. The transmembrane voltage at an input node and an output node is expanded in a complete orthonormal basis (typically Fourier), and the resulting expansion coefficients are treated as discrete random variables. Mutual information is then computed empirically using histograms derived from repeated numerical simulations.</p>
+<p>The present work departs from this explicitly waveform-centric approach by introducing a higher-level vector channel abstraction. Instead of focusing on individual expansion coefficients or their empirical distributions, the tract is modeled as a linear (or linearized) stochastic mapping between high-dimensional input and output vectors, each representing collective axon activity over space and time. This abstraction enables the use of modern multivariate information measures, including multivariate mutual information (MMI) and information-spectrum capacity, which are not directly accessible in the earlier formulation.</p>
+<h3 id="mutual-information-versus-capacity">Mutual Information versus Capacity</h3>
+<p>A central distinction lies in the role played by optimization. The prior work explicitly acknowledges that it does not solve the maximization problem required to compute channel capacity, focusing instead on mutual information as a descriptive metric. Capacity is discussed conceptually but not operationally realized.</p>
+<p>In contrast, the present work treats capacity as a primary object of study. By invoking Verdú–Han information-spectrum methods and Gaussian vector channel theory, it provides explicit capacity expressions (or lower bounds) under broad conditions, including nonstationarity and spatial coupling. Mutual information appears as an intermediate or structural quantity, whereas capacity emerges as an asymptotic performance limit.</p>
+<p>This shift is significant: whereas the earlier work demonstrates how ephaptic coupling can reduce mutual information for fixed signaling distributions, the present work clarifies how ephaptic structure constrains the <em>maximum achievable information flow</em> under optimal signaling.</p>
+<h3 id="role-of-ephaptic-coupling">Role of Ephaptic Coupling</h3>
+<p>Both works identify ephaptic coupling as a distortion mechanism that tends to reduce pointwise input–output mutual information. In <span class="citation" title="ChawlaMorgera2025">[3]</span>, this effect is observed numerically: increased coupling strength leads to reduced mutual information, interpreted as increased synchronization and reduced variability among signals.</p>
+<p>The present work reframes this phenomenon in structural information-theoretic terms. Ephaptic coupling is shown to induce statistical dependence across axon outputs, which increases multivariate integration as quantified by MMI. From this perspective, the reduction in pairwise mutual information is not merely a loss, but a redistribution of information from separable channels into integrated collective modes. Thus, ephaptic coupling trades independent capacity for integrated capacity, a distinction not explicit in the earlier analysis.</p>
+<h3 id="dimensionality-and-network-perspective">Dimensionality and Network Perspective</h3>
+<p>The earlier work primarily treats the $N=2$ axon case, with extensions to higher $N$ discussed formally but not deeply analyzed. Mutual information is computed between aggregate input and output sets, but the internal partitioning structure of the tract is not examined.</p>
+<p>The present work explicitly adopts a network information perspective. By using Chung–Chan MMI partitions, it decomposes information flow according to how it is distributed across axonal subsets. This allows one to distinguish between reducible information (attributable to sub-tracts) and irreducible information (emergent at the tract level). In this sense, the present work adds a layer of explanatory power by characterizing not only how much information flows, but <em>how it is integrated</em>.</p>
+<h3 id="mathematical-generality">Mathematical Generality</h3>
+<p>Methodologically, <span class="citation" title="ChawlaMorgera2025">[3]</span> relies on discrete approximations, empirical probability mass functions, and simulation-based estimation. This approach is well suited for detailed biophysical modeling but becomes cumbersome for large-scale theoretical analysis.</p>
+<p>The present work abstracts away many microscopic details to achieve greater generality. Information-spectrum methods allow arbitrary noise statistics, nonergodicity, and spatial heterogeneity, while Gaussian vector models yield closed-form or asymptotic expressions. As a result, the theory applies not only to specific Hodgkin–Huxley simulations, but to a broad class of distributed biological channels.</p>
+<h3 id="interpretational-shift">Interpretational Shift</h3>
+<p>Finally, there is a conceptual shift in interpretation. The earlier paper frames ephaptic coupling primarily as detrimental to communication, in the sense of reducing mutual information between predefined input and output variables. The present work adopts a more nuanced view: ephaptic coupling reduces decomposability but increases integration. Whether this is &quot;beneficial&quot; or &quot;detrimental&quot; depends on the computational or functional objective of the neural system.</p>
+<p>In summary, the present work should be viewed not as a replacement for <span class="citation" title="ChawlaMorgera2025">[3]</span>, but as a theoretical extension. The earlier work establishes detailed numerical evidence and biophysical grounding, while the present formulation situates ephaptic axon tracts within modern multivariate and information-spectrum information theory, enabling capacity analysis, integration quantification, and principled comparison with communication networks.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This work was prepared with the assistance of LLMs.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-ChawlaUSF"><span class="ref-key">[1]</span> <p>A. Chawla, <em>Axon-axon Interaction Using Currents and Fields</em>. Tampa, FL, USA: University of South Florida, 2017.</p></li><li id="ref-Verdu1990"><span class="ref-key">[2]</span> <p>S. Verd\&#x27;u, &quot;On channel capacity per unit cost,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 36, no. 5, pp. 1019–1030, Sept. 1990.</p></li><li id="ref-VerduHan1994"><span class="ref-key">[3]</span> <p>S. Verd\&#x27;u and T. S. Han, &quot;A general formula for channel capacity,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 40, no. 4, pp. 1147–1157, July 1994.</p></li><li id="ref-Han2003"><span class="ref-key">[4]</span> <p>T. S. Han, <em>Information-Spectrum Methods in Information Theory</em>. Berlin, Germany: Springer, 2003.</p></li><li id="ref-CoverThomas"><span class="ref-key">[5]</span> <p>T. M. Cover and J. A. Thomas, <em>Elements of Information Theory</em>, 2nd ed. New York, NY, USA: Wiley, 2006.</p></li><li id="ref-BergerLevy2010"><span class="ref-key">[6]</span> <p>T. W. Berger and W. B. Levy, &quot;A mathematical theory of energy-efficient neural communication,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 56, no. 2, pp. 852–874, Feb. 2010.</p></li><li id="ref-IkedaManton2009"><span class="ref-key">[7]</span> <p>S. Ikeda and J. H. Manton, &quot;Capacity of continuous-time Gaussian channels with feedback,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 55, no. 9, pp. 4174–4185, Sept. 2009.</p></li><li id="ref-IkedaManton2010"><span class="ref-key">[8]</span> <p>S. Ikeda and J. H. Manton, &quot;Stochastic differential equation approach to capacity of continuous-time channels,&quot; in <em>Proc. IEEE International Symposium on Information Theory (ISIT)</em>, Austin, TX, USA, 2010, pp. 236–240.</p></li><li id="ref-ChungChan2014"><span class="ref-key">[9]</span> <p>K. M. Chung and T. H. Chan, &quot;Multivariate mutual information and its applications to network information theory,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 60, no. 7, pp. 3953–3972, July 2014.</p></li><li id="ref-Yeung1991"><span class="ref-key">[10]</span> <p>R. W. Yeung, &quot;A new outlook on Shannon&#x27;s information measures,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 37, no. 3, pp. 466–474, May 1991.</p></li><li id="ref-Watanabe1960"><span class="ref-key">[11]</span> <p>S. Watanabe, &quot;Information theoretical analysis of multivariate correlation,&quot; <em>IBM Journal of Research and Development</em>, vol. 4, no. 1, pp. 66–82, Jan. 1960.</p></li><li id="ref-CoverPombra1989"><span class="ref-key">[12]</span> <p>T. M. Cover and S. Pombra, &quot;Gaussian feedback capacity,&quot; <em>IEEE Transactions on Information Theory</em>, vol. 35, no. 1, pp. 37–43, Jan. 1989.</p></li><li id="ref-GrayToeplitz"><span class="ref-key">[13]</span> <p>R. M. Gray, <em>Toeplitz and Circulant Matrices: A Review</em>. Hanover, MA, USA: Now Publishers, 2006.</p></li><li id="ref-ChawlaMorgera2025"><span class="ref-key">[14]</span> <p>A. Chawla and S. D. Morgera, &quot;Ephaptic information flow: Information processing in groups of neurons,&quot; <em>IEEE Transactions on Molecular, Biological and Multi-Scale Communications</em>, vol. 11, no. 1, pp. 1–14, 2025.</p></li><li id="ref-Goldsmith"><span class="ref-key">[15]</span> <p>A. Goldsmith, <em>Wireless Communications</em>. Cambridge, UK: Cambridge Univ. Press, 2005.</p></li><li id="ref-Lapidoth"><span class="ref-key">[16]</span> <p>A. Lapidoth, <em>A Foundation in Digital Communication</em>. Cambridge, UK: Cambridge Univ. Press, 2009.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

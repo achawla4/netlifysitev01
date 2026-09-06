@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Towards Weak Source Coding - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Towards Weak Source Coding</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this paper, the authors provide a weak decoding version of the traditional source coding theorem of Claude Shannon. The central bound that is obtained is χ &gt; logϵ(2−n(H(X)+ϵ)) where χ = log(k) n(H(X) + ϵ) and k is the number of unsupervised learning classes formed out of the non-typical source sequences. The bound leads to the con- clusion that if the number of classes is high enough, the reliabil- ity function might possibly be improved. The speciﬁc regime in which this improvement might be allowable is the one in which the atypical-sequence clusters are small in size and sparsely placed; sim- ilar regimes might also show an improvement. Introduction In this paper we will attempt to lower the upper bound ϵ on the source coding probability of error. The paper assumes readers’ familiarity with source cod- ing. Consider that in traditional source coding1, the probability of error of the encoder is bounded above by a small positive constant ϵ. This means that the error-exponent, which captures the rate of decay of the probability of error with block length, is bounded below by −ln ϵ N . So if we change ϵ →ϵ 2, say, and so reduce the upper bound, it is equivalent to adding ln 2 N to the lower bound. A larger lower bound means that the rate of decay of the probability of error with blocklength is higher. In this work, we will thus aim for a reduction in the upper bound. In the traditional source coding procedure, if the input sequence doesn’t lie in the typical set, the encoder outputs an arbitrary n(H(X) + ϵ) bit number which represents the error condition. In this paper we will ask the question whether we can do better in a speciﬁc sense. 1A very simply described - and hence accessible - version of Shannon’s source coding theorem can be found in [1]. arXiv:2209.04765v1  [cs.IT]  11 Sep 2022</p> <p>Figure 1: The space of all sequences is divided into the typical and atypical sets. Figure 1 shows the space of all sequences divided into the typical and atypical subsets. The typical sequences are encoded according to their position in a numbered list. They constitute a high probability set. The atypical sequences lead to the error declaration. Innovation and its Analysis Let An ϵ denote the typical set and let Bn ϵ be the associated non-typical set. Their union is the space of all sequences, X n. If the sequence xn does not belong to the typical set, instead of declaring an error, we classify the sequence into one of k classes or clusters within Bn ϵ . Suppose we classify it into the jth class where jϵ {1, ..., k}. Further, suppose the classiﬁcation obeys the rule that d(xn, µj) is the lowest amongst choices of jϵ {1, ..., k}, µ standing for the mean of a cluster. In more detail, we output an error, but specify that it is of the jth type. Since we want to encode the source, we attempt to do unsupervised learning within Bn ϵ . We keep building up k clusters whenever xn lies in Bn ϵ . After a while of ‘training,’ the cluster-formation will more or less represent the part of the source that generates Bn ϵ members. We will extend the encoding scheme in such a way that log(k) bits will be appended to the n(H(X) + ϵ) bits previously created for the typical sequences. 2</p> <p>If we include another bit to specify that we are now beginning to index from the atypical set, then the net length of the encoding becomes 1+n(H(X)+ϵ)+log(k) bits. At the same time, the error will be constrained by the size of the largest of the k clusters. Since k ≥2, the size of the largest cluster belongs to the closed interval [1, |Bn ϵ | −k + 1]. In other words, the ambiguity is constrained by |Bn ϵ | −k + 1 as opposed to |Bn ϵ |. These (k −1) fewer sequences are the means of the unity-sized (non-largest) clusters. Let B′ denote the set with the size |Bn ϵ | −k + 1. Since Bn ϵ is the atypical set, the probability of lying in it is upper-bounded (strictly) by ϵ. In this section, we are interested in saying something about the probability of lying in B′. Note that Bn ϵ contains such sequences xn as having p(x1, ..., xn) &lt; 2−n(H(X)+ϵ) or p(x1, ..., xn) &gt; 2−n(H(X)−ϵ). Denote the former inequality as specifying a VLPZ or Very Low Probability Zone and the latter inequality as specifying a VHPZ or Very High Probability Zone. The typical sequences lie in MPZ or the Medium Probability Zone between these two extremes. Also note that se- quences within a cluster are “close” to each other, i.e., they are separated by a few bit ﬂips only. Thus, their probabilities are alike. Hence, a cluster will lie either completely in VHPZ or completely in VLPZ. Suppose the largest cluster lies in VLPZ and the other k −1 mean sequences are in VHPZ. Then the probability of B′ is approximately 0. On the other hand, suppose the largest cluster lies in VHPZ and the other k −1 mean sequences are in VLPZ. Then the probability of B′ is the probability of the largest cluster. Denote this probability as PLC. Clearly PLC is strictly less than the probability of Bn ϵ which in turn is strictly less than ϵ. Conclusion To summarize, if PoE1 is strictly less than ϵ, and requires n(H(X) + ϵ) bits for operationalization2, and additionally, if PoE2 is equal to PLC which is strictly less than PoE1, and requires 1+n(H(X)+ϵ)+log(k) bits for operationalization, it is easy to show, as is done in the Appendix, that the exponent corresponding to the second situation can possibly be better in some similar settings. To conclude, we have demonstrated that there may be room for improvement in the traditional source coding error exponent by making use of a simple k- means clustering approach to the atypical sequences. Thus machine learning might be of aid in generating (marginal) improvements to the source coding reliability function. In upcoming work, the authors will focus on a quantum information theoretic version of the present paper. We will also utilize MATLAB simulations to concretely see the gains from using machine learning, as was done in the channel coding case [2]. 2By operationalization, we refer to the process of enumerating the members of the set whose probability we are discussing. This enumeration requires a certain number of bits for the description of the enumerated sequences. 3</p> <p>Appendix 1 Consider two cases: Case 1 The error exponent is e1. The PoE is PoE1. The blocklength of sequences is N1. Thus, we can write: e1 = −ln(PoE1) N1 (1) Case 2 The error exponent is e2. The PoE is PoE2. The blocklength of sequences is N2. Thus, we can write: e2 = −ln(PoE2) N2 (2) From Section 3, we have PoE1 &lt; ϵ, (3) N1 = n(H(X) + ϵ), (4) PoE2 = PLC (5) and N2 = 1 + n(H(X) + ϵ) + log(k). (6) We ask the question: when is e2 &gt; e1? Expanding the LHS and the RHS in this question, we obtain the relation −ln(PoE2) N2 &gt; −ln(PoE1) N1 (7) from the deﬁnitions. This implies that − ln(PLC) 1 + n(H(X) + ϵ) + log(k) &gt; − ln(PoE1) n(H(X) + ϵ). (8) Upon multiplying throughout by negative unity, we get ln(PLC) 1 + n(H(X) + ϵ) + log(k) &lt; ln(PoE1) n(H(X) + ϵ). (9) Utilizing the bound on PoE1 we get 4</p> <p>ln(PLC) 1 + n(H(X) + ϵ) + log(k) &lt; ln(ϵ) n(H(X) + ϵ). (10) Upon rearranging we get ln(PLC) &lt; ln(ϵ) · (1 + n(H(X) + ϵ) + log(k)) n(H(X) + ϵ) . (11) This can be simpliﬁed to ln(PLC) &lt; ln(ϵ) · (1 + n(H(X) + ϵ) + log(k) n(H(X) + ϵ)). (12) For large n, the second term on the RHS vanishes, but the third term can linger if the number of clusters formed within the atypical set also increases. Denote, χ = log(k) n(H(X) + ϵ). (13) Thus, for large n, ln(PLC) &lt; ln(ϵ) · (1 + χ). (14) where χ &gt; 0. These considerations imply that e2 &lt; e1. However, note that this is only one setting and was described in Section 2. We next study the other extreme case wherein there were exactly k sequences in Bn ϵ , each forming its own cluster. Here suppose that the largest cluster is in VLPZ. Then P(B′) &lt; 2−n(H(X)+ϵ). On the other hand, if the largest cluster is in VHPZ, then P(B′) &gt; 2−n(H(X)−ϵ). Since the error depends upon the size of the largest cluster, we can quantify it exactly as PoE2 = P(Cluster1mean) · P(Cluster1) + ... + P(Clusterkmean) · P(Clusterk). This gives the upper bound PoE2 &lt; ϵ · 2−n(H(X)+ϵ). We use the just obtained bound. We have PoE1 &lt; ϵ, (15) N1 = n(H(X) + ϵ), (16) PoE2 &lt; ϵ · 2−n(H(X)+ϵ) (17) and N2 = 1 + n(H(X) + ϵ) + log(k). (18) We again ask the question: when is e2 &gt; e1? Expanding the LHS and the RHS in this question, we obtain the relation −ln(PoE2) N2 &gt; −ln(PoE1) N1 (19) 5</p> <p>which implies that − ln(PoE2) 1 + n(H(X) + ϵ) + log(k) &gt; − ln(PoE1) n(H(X) + ϵ). (20) Upon multiplying throughout by negative unity we get ln(PoE2) 1 + n(H(X) + ϵ) + log(k) &lt; ln(PoE1) n(H(X) + ϵ). (21) Utilizing the bound (Equation (15)) on PoE1 we get ln(PoE2) 1 + n(H(X) + ϵ) + log(k) &lt; ln(ϵ) n(H(X) + ϵ). (22) Upon rearranging we get ln(PoE2) &lt; ln(ϵ) · (1 + n(H(X) + ϵ) + log(k)) n(H(X) + ϵ) . (23) This can be simpliﬁed to ln(PoE2) &lt; ln(ϵ) · (1 + n(H(X) + ϵ) + log(k) n(H(X) + ϵ)). (24) For large n, the second term on the RHS vanishes, but the third term can linger if the number of clusters formed within the atypical set also increases. Denote, χ = log(k) n(H(X) + ϵ). (25) Thus, for large n, ln(PoE2) &lt; ln(ϵ) · (1 + χ). (26) where χ &gt; 0. Compare Equation (26) with, ln(PoE2) &lt; ln(ϵ) + ln(2−n(H(X)+ϵ)) (27) which is the inequality one obtains based on Equation (17). The comparison yields that both inequalities can be satisﬁed if χ &gt; logϵ(2−n(H(X)+ϵ)), (28) which, being a non-integer-logarithmic lower bound that involves the number of clusters k on the LHS, shows that there is a region wherein having k-means clustering in the atypical set can improve the reliability function in this extreme setting. Since the usual setting will possibly lie somewhere in between the two extreme regimes studied in Section 2 and the present Appendix, we may conclude that a gain (i.e. e2 &gt; e1) from machine learning is not ruled out. 6</p> <p>References [1] Shannon source coding theorem. Wikipedia, 2022. [2] Aman Chawla and Salvatore Domenic Morgera. Towards weak information theory: Weak-joint typicality decoding using support vector machines may lead to improved error exponents, 2022.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Towards_Weak_Source_Coding.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

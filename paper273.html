@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glimpses of Conformal Information - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Glimpses of Conformal Information</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">We develop a conformal geometric framework for analyzing tree codes by mapping the tradi- tional infinite blocklength domain to the compactified interval (0, 1]. This structure-preserving transformation converts Shannon’s asymptotic results into boundary phenomena while making finite blocklength analysis computationally tractable. Applied to Sahai’s anytime tree codes with pulse position modulation (PPM), the conformal approach reveals the geometric structure underlying delay-error trade-offs and enables direct computation of quantities that are typically represented as infinite constructions. The framework unifies Shannon theory, finite blocklength analysis, and practical coding schemes within a single bounded mathematical domain. “And although the natural light of human reason indeed compels us to acknowledge a certain supreme being that is similar to ourselves in all things of perception and under- standing, still it is only in an incomprehensible manner that he perceives everything in space, as if it were in his sensory [sensorium].” — Principia, General Scholium, 2nd ed., 1713, translated by I. Bernard Cohen and Anne Whitman, 1999, p. 941. Introduction The classical formulation of Shannon’s noisy channel coding theorem operates in the asymptotic regime where blocklength n →∞and the probability of decoding error P (n) e →0 for any transmis- sion rate R below the channel capacity C. This framework treats infinity as an idealized horizon, an unreachable but conceptually clean boundary where the geometry of information becomes exact. While foundational, this approach leaves a gap between theoretical limits and practical implemen- tations operating at finite blocklengths. The work of Verdu, Poor, and Polyanskiy bridged this gap by engaging directly with the finite blocklength regime, offering precision geometry near the Shannon boundary through second-order asymptotics, dispersion analysis, and non-asymptotic bounds. However, both classical Shannon theory and finite blocklength analysis operate in the unbounded domain of positive integers, making direct computational analysis challenging for infinite constructions like tree codes. We propose a conformal geometric approach that maps the infinite blocklength domain into the compactified interval (0, 1] through a structure-preserving transformation. This reframing treats Shannon’s asymptotic results as boundary phenomena at the point ϵ = 0, while finite blocklength analysis occupies the interior region ϵ ∈(0, 1). The transformation eliminates infinities from the mathematical framework while preserving essential geometric structures, enabling direct computa- tion of code-rate dependent quantities for constructions traditionally represented as infinite objects. 1</p> <p>2 Conformal Mapping Framework Consider the structure-preserving map ϕ(n) = 1 n from the positive integers Z+ into the com- pactified interval (0, 1]. This conformal transformation reinterprets Shannon’s asymptotic regime as a boundary phenomenon: the limit n →∞becomes ϵ →0, where ϵ = ϕ(n) serves as a scale parameter encoding resolution. The infinite domain is compressed into a single boundary point, rendering Shannon’s theory as defining what is ultimately possible without specifying how it is approached. In this conformally compactified space, Shannon’s theorem asserts that limϵ→0 Pe(ϵ) = 0 for rates below capacity, but remains silent on behavior for ϵ &gt; 0. The finite blocklength results of Verdu, Poor, and Polyanskiy describe the local behavior of achievable rates R(ϵ, δ) as functions of both scale ϵ and error tolerance δ. The expansion R(ϵ, δ) = C − √ V ·Q−1(δ)·√ϵ+o(√ϵ) reveals the curvature and slope of the rate-error trade-off near the boundary, where V is the channel dispersion and Q−1 is the inverse Gaussian tail function. This transforms the compactified interval (0, 1] into a coordinate chart for precision asymptotics, where the geometry of trade-offs becomes visible. Shannon’s theory defines the conformal boundary of information—the ideal point at infinity—while finite blocklength analysis resolves its metric structure, revealing the near-horizon behavior of real systems. Together, they form a duality: one defines the geometry of possibility, the other the geometry of approach. Tree Codes in Conformal Coordinates Tree codes represent a fundamental class of error-correcting codes where information is encoded along paths in an infinite tree structure. Traditionally, such codes are represented with unbounded branching, often denoted as continuing indefinitely with notation such as ”. . ..” This infinite con- struction, while mathematically precise, presents challenges for direct computational analysis and visualization of asymptotic behavior. The conformal mapping framework provides a natural resolution to these challenges. By map- ping tree depth to scale parameter, we transform infinite tree constructions into finite objects within the bounded domain [0, 1). Consider a tree code where each node at depth d has branching factor M. In the traditional representation, the tree extends infinitely with exponentially growing complexity. Under the conformal transformation ϵ = 1/d, each depth level corresponds to a specific scale parameter, with the infinite horizon corresponding to the boundary point ϵ = 0. 2</p> <p>The geometric structure of the tree becomes visible in conformal coordinates. Each node at depth d and position p receives a conformal address within the interval, computed as Address(d, p) = ϵd + (p/M d) · ∆ϵd, where ϵd = 1/d represents the scale at depth d, and ∆ϵd = 1/(d −1) −1/d = 1/[d(d −1)] represents the spacing between consecutive scale levels. The total space occupied by all nodes at depth d is given by Space(d) = Md · ∆ϵd = Md/[d(d − 1)]. Despite the exponential growth in the number of nodes, the 1/d2 decay in spacing ensures convergence, guaranteeing that the entire infinite tree fits within the bounded interval [0, 1). This geometric convergence makes the infinite tree structure computationally tractable while preserving all essential coding properties. Sahai’s Anytime PPM Tree Code Sahai’s anytime tree code provides a compelling example for conformal analysis. This construction uses a semi-orthogonal variation of pulse position modulation that is sequential in nature, allowing bits to be streamed continuously without buffering blocks at the transmitter. The code achieves maximum likelihood decoding with exponentially small error probability as a function of tolerated receiver delay, eventually reaching zero error probability on every transmitted bit. In traditional representation, Sahai’s code exhibits infinite branching where each symbol uses one of M time slots, creating Mk possible paths at depth k. The information rate is log2(M) bits per symbol, and the sequential nature eliminates the need for blocking. However, analysis of delay-error trade-offs requires careful treatment of infinite constructions and asymptotic limits. The conformal framework transforms this analysis by mapping tree depth directly to delay tolerance through the scale parameter ϵ = 1/D, where D represents the delay. Information content at depth d with delay tolerance ϵ = 1/d becomes I(ϵ) = d · log2(M) = (1/ϵ) · log2(M) bits. This relationship reveals the fundamental trade-off between information rate and delay tolerance within the bounded conformal domain. The PPM structure maps naturally into conformal coordinates. Each pulse position corresponds to a finite interval within [0, 1), and the tree addressing system provides a bijective mapping between infinite tree paths and points in the compactified interval. The sequential decoding process operates with bounded delay parameterized by ϵ, making the entire infinite construction amenable to direct computational analysis. Delay-Error Exponent Analysis Traditional analysis of Sahai’s code establishes that for delay D, the error probability satisfies Pe(D) ≤exp(−D · E(R)), where E(R) represents the error exponent function. This result, while mathematically precise, operates in the unbounded domain of delay values and requires asymptotic analysis to understand limiting behavior. The conformal transformation ϵ = 1/D converts this bound to Pe(ϵ) ≤exp(−E(R)/ϵ), revealing the conformal error exponent Econf(R, ϵ) = ϵ · E(R). This transformation exposes the geometric structure underlying delay-error trade-offs and enables new analysis techniques impossible in the traditional framework. In the conformally compactified space, error probability forms a geometric surface in (ϵ, R, Pe) coordinates described by log Pe(ϵ, R) = −E(R)/ϵ + o(1/ϵ). This surface exhibits well-defined ge- ometric properties: an asymptotic boundary at ϵ = 0 where Pe →0 for rates R &lt; C, curvature determined by the second derivative E′′(R), and ridge lines corresponding to optimal rate-delay trade-offs. 3</p> <p>The rate of approach to the Shannon limit becomes geometrically visible through conformal derivatives. The quantity ∂Pe/∂ϵ|ϵ→0 = E(R)/ϵ2 · exp(−E(R)/ϵ) describes exponentially fast con- vergence, quantified within the conformal geometric framework. This provides direct computational access to asymptotic behavior that traditionally requires sophisticated analytical techniques. Geometric Structure and Computational Advantages The conformal approach reveals rich geometric structure in the delay-error trade-off space. Equal error contours in the (ϵ, R) plane form approximately hyperbolic curves, while optimal paths for rate-delay optimization become geodesics in the conformal metric. The transformation introduces a natural scale-invariant distance measure dconf(ϵ1, ϵ2) = | log(Pe(ϵ1)) −log(Pe(ϵ2))| that captures the exponential scaling inherent in error probability bounds. This geometric perspective enables visualization of asymptotic behavior that is typically hidden in analytical expressions. The approach to Shannon capacity becomes visible as motion toward the boundary ϵ = 0, while practical finite-delay systems correspond to specific points in the interior ϵ ∈(0, 1). Trade-off surfaces in three-dimensional parameter space reveal optimal operating regions and guide practical system design. The computational advantages are substantial. All quantities remain finite within the bounded domain [0, 1), eliminating numerical issues associated with infinite constructions. Direct numerical evaluation becomes possible for expressions that traditionally require asymptotic approximations. Visualization tools can display the complete parameter space, making abstract theoretical results accessible to practical engineering analysis. The framework provides algorithmic stability by taming exponential scaling through conformal coordinates. Traditional expressions involving exp(−cD) for large delay D become exp(−c/ϵ) for small ϵ, but the geometric structure of the conformal space provides natural regularization that prevents numerical overflow in computational implementations. Unified Framework and Extensions The conformal approach creates a unified mathematical framework encompassing Shannon’s asymp- totic results at the boundary ϵ = 0, finite blocklength theory in the interior ϵ ∈(0, 1), and practical finite-delay systems near ϵ = 1. This unification reveals previously hidden connections between different regimes of information theory and enables seamless analysis across scales. Extensions to multi-user scenarios follow naturally within the conformal framework. Multiple access channels, broadcast channels, and interference networks can each be assigned portions of the interval [0, 1) with geometric resource allocation. The conformal structure provides natural fairness criteria and optimization objectives that respect the underlying information-theoretic geometry. Adaptive coding schemes benefit from the dynamic nature of the scale parameter ϵ. Systems can adapt to varying channel conditions by adjusting their position in conformal space, optimizing delay-error trade-offs in real time while maintaining provable quality-of-service guarantees. The bounded domain ensures that all operating points remain computationally accessible. The conformal structure exhibits intriguing connections to physics, particularly the AdS/CFT correspondence in string theory and renormalization group flows in statistical physics. These paral- lels suggest deeper mathematical connections between information theory and fundamental physics, potentially revealing new insights into the nature of information processing in complex systems. 4</p> <p>8 Conclusion The conformal geometric approach transforms tree codes from infinite mathematical constructions into finite objects with rich geometric structure. By mapping the traditional infinite blocklength domain to the compactified interval (0, 1], we eliminate computational infinities while preserving essential coding properties and enabling direct analysis of asymptotic behavior. Applied to Sahai’s anytime PPM tree codes, this framework reveals the geometric structure un- derlying delay-error trade-offs and provides new computational tools for analyzing performance. The transformation converts traditional asymptotic results into boundary phenomena, making Shannon’s idealized limits geometrically visible and computationally accessible. The unified framework encompassing Shannon theory, finite blocklength analysis, and practical coding schemes opens new directions for research at the intersection of information theory, geometry, and computation. The approach suggests that many fundamental results in information theory may benefit from similar conformal reframing, potentially revealing hidden geometric structures and enabling new analytical techniques. Future work should explore extensions to broader classes of codes, investigation of the physics connections suggested by the conformal structure, and development of computational algorithms optimized for the geometric properties of the conformally compactified space. The framework provides a foundation for bridging the gap between theoretical information limits and practical system implementation through geometric insight and computational accessibility.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Glimpses_of_Conformal_Information.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

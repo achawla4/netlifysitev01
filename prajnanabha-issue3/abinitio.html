@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ab Initio Control of a SPAD Sensor Using an AVR-Controlled External Datapath: \\ A Replicable Table-Top Architecture for Long-Horizon Quantum Computation | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 3 · V1I3-A08</div>
+            <h1>Ab Initio Control of a SPAD Sensor Using an AVR-Controlled External Datapath: \\ A Replicable Table-Top Architecture for Long-Horizon Quantum Computation</h1>
+            <div class="hero-meta">A. Chawla \\ IIT Delhi and REAL Institute, Gurugram</div>
+            <div class="hero-meta">Source PDF: REALionTrapJournalv5.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_3.html">Issue 3</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>This document records, in a deliberately explicit and low-level manner, the architectural reasoning, experimental constraints, and design decisions underlying an ongoing research program whose long-term vision is the realization of a table-top ion-trap quantum computer. The present work does not attempt to implement quantum computation directly. Instead, it establishes a foundational control and measurement ontology by studying the ab initio control of a SPAD-based photon-counting sensor using an AVR-class microcontroller, augmented by an explicitly externalized datapath consisting of discrete SRAM and ALU components. The overriding goal is epistemic rather than performative: to expose, rather than conceal, the boundaries between sensor physics, classical control, computation, memory, and timing. The system is intentionally slow, fragile, and manually orchestrated so that its failure modes are legible. This document is written with the explicit aim that the entire setup, including its motivations, constraints, and experimental logic, should be replicable by a competent researcher twenty-five years in the future.</p></section>
+            <section class="meta-card"><h2>Keywords</h2><p>Quantum control, Ion-trap computing, SPAD sensor, AVR microcontroller, External datapath, Ab initio architecture, Classical-quantum boundary, Correspondence principle, Decoherence, Long-term replicability</p></section>
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="vision-and-long-term-motivation">Vision and Long-Term Motivation</h2>
+<p>The motivating vision for this work is the eventual construction of a table-top ion-trap quantum computer. Such a system is fundamentally constrained not by abstract algorithms but by timing, control fidelity, measurement latency, noise coupling, and the classical-quantum interface. In operational ion-trap systems, the majority of engineering effort is devoted not to qubits themselves but to deterministic sequencing, real-time classical feedback, and the reliable interpretation of stochastic measurement outcomes.</p>
+<p>The present research therefore begins far upstream of trapped ions. It asks a more primitive but foundational question: how much control, determinism, and interpretability can be achieved when one deliberately refuses modern abstractions and instead reconstructs the control stack from first principles? In particular, what are the consequences of separating the control plane from the data plane as explicitly as possible, and what pathologies emerge when the host controller is slow, resource-limited, and fully transparent?</p>
+<p>A SPAD (single-photon avalanche diode) sensor serves as a stand-in for a quantum measurement device. An AVR microcontroller serves as a deliberately constrained classical controller. External SRAM and an external ALU are introduced not to improve performance, but to externalize computation and memory so that their interactions with timing and control can be directly observed.</p>
+<h2 id="organization-of-the-work">Organization of the Work</h2>
+<p>Herein we provide a structured overview of the document, listing each section and appendix with a concise description.</p>
+<ul class="article-list"><li><p><strong>2 Philosophical and Architectural Commitments</strong> – Outlines guiding principles: ab initio control, visibility, separation of planes, replicability.</p></li><li><p><strong>3 Choice of the AVR as Control Sequencer</strong> – Justifies AVR selection for its limitations and transparency in orchestration.</p></li><li><p><strong>4 SPAD Sensor as a Quantum-Analog Measurement Device</strong> – Treats SPAD as a surrogate quantum measurement interface.</p></li><li><p><strong>5 Initial Ab Initio Bring-Up Strategy</strong> – Describes first experiments with register-level control and timing.</p></li><li><p><strong>6 Motivation for Externalizing Memory</strong> – Explains use of external SRAM to separate control state from experimental state.</p></li><li><p><strong>7 Motivation for an External ALU</strong> – Details rationale for discrete ALU to make computation physically visible.</p></li><li><p><strong>8 SPAD-to-ALU Data Path</strong> – Establishes direct photon data flow to ALU via shift registers.</p></li><li><p><strong>9 Bus Ownership and Isolation</strong> – Discusses tri-state buffers and explicit bus contention management.</p></li><li><p><strong>10 Why the System Is Slow and Fragile by Design</strong> – Emphasizes fragility as a deliberate pedagogical and architectural choice.</p></li><li><p><strong>11 Mapping to Ion-Trap Quantum Computing</strong> – Draws analogies between classical surrogate system and ion-trap control stack.</p></li><li><p><strong>12 Replicability in 25 Years</strong> – States design choices for long-horizon reproducibility.</p></li><li><p><strong>13 Conclusion</strong> – Summarizes the epistemic value of explicit control and datapath separation.</p></li><li><p><strong>Appendix A: Photographic Documentation</strong> – Provides visual records of hardware layout and wiring practices.</p>
+<ul class="article-list"><li><p>A Overall Table-Top Arrangement – Captures spatial relationships and grounding topology.</p></li><li><p>B Datapath and Control Detail – Shows detailed view of datapath and control wiring.</p></li><li><p>C Notes on Long-Term Archival Value – Advises on preserving images and metadata for replicability.</p></li></ul></li><li><p><strong>Appendix B: Interpretation Through Correspondence Principle and Classical-Quantum Boundary</strong> – Situates architecture within Bohr’s and Zurek’s frameworks.</p>
+<ul class="article-list"><li><p>D Bohr&#x27;s Correspondence Principle as a Design Constraint – Frames classical describability as a design requirement.</p></li><li><p>E Why Slowness Does Not Violate Correspondence – Argues that transparency outweighs speed in correspondence.</p></li><li><p>F Zurek&#x27;s Decoherence and Emergence of Classical Records – Connects external SRAM to explicit record creation.</p></li><li><p>G The Classical-Quantum Boundary as an Architectural Interface – Treats boundary as a designed interface, not hidden abstraction.</p></li><li><p>H Control as a Classical Observer – Positions AVR as observer of classical records, not quantum events.</p></li><li><p>I Implications for Long-Term Replicability – Notes theoretical grounding ensures intelligibility across decades.</p></li><li><p>J Conclusion – Synthesizes correspondence and decoherence perspectives on the architecture.</p></li></ul></li><li><p><strong>Appendix C: Arduino Firmware</strong> – Archives verbatim firmware used in the experiment.</p>
+<ul class="article-list"><li><p>K Notes on Compilation and Context – Records toolchain and board details affecting timing.</p></li><li><p>L Arduino Sketch (Verbatim Listing) – Provides full source code of the firmware.</p></li><li><p>M Archival Guidance – Advises on preserving original files and versioning.</p></li></ul></li><li><p><strong>References and Bibliography</strong> – Lists scholarly and technical sources supporting the work.</p></li></ul>
+<h2 id="philosophical-and-architectural-commitments">Philosophical and Architectural Commitments</h2>
+<p>Several commitments guide the work documented here:</p>
+<ul class="article-list"><li><p><strong>Ab initio control</strong>: All meaningful behavior should be derivable from documented register writes, explicit timing, and observable state transitions. Vendor libraries are treated as opaque artifacts to be avoided or, at minimum, decomposed.</p></li><li><p><strong>Visibility over performance</strong>: Slowness and fragility are acceptable if they preserve interpretability.</p></li><li><p><strong>Explicit separation of planes</strong>: Control, data movement, computation, and storage are implemented as physically and conceptually distinct subsystems.</p></li><li><p><strong>Long-horizon replicability</strong>: Every assumption that depends on contemporary tooling, availability, or convention is made explicit so that it may be reconstructed decades later.</p></li></ul>
+<p>These commitments intentionally mirror those found in successful quantum-control platforms, where hidden automation often becomes an obstacle to diagnosis and trust.</p>
+<h2 id="choice-of-the-avr-as-control-sequencer">Choice of the AVR as Control Sequencer</h2>
+<p>The ATmega328P-class AVR microcontroller was chosen not because it is powerful, but because it is not. Its limitations—2 KB of internal SRAM, no DMA, no cache, no memory management unit, and a Harvard architecture with strict separation of code and data—make it an ideal instrument for studying architectural boundaries.</p>
+<p>Crucially, the AVR cannot execute code from external memory and cannot transparently extend its stack or heap beyond internal SRAM. These limitations force an explicit acknowledgment of where control logic resides and where data must flow. In the context of this research, the AVR is not treated as a computer in the conventional sense, but as a deterministic sequencer: a device whose primary role is to orchestrate timing, bus ownership, and state transitions.</p>
+<h2 id="spad-sensor-as-a-quantum-analog-measurement-device">SPAD Sensor as a Quantum-Analog Measurement Device</h2>
+<p>The SPAD sensor, exemplified by devices such as the TMF8820 class, integrates a complex internal system: a SPAD array, quenching circuitry, time-to-digital converters, histogram accumulation logic, and often an embedded sequencer or firmware engine. From the perspective of this research, the SPAD is treated as a black-box quantum-analog measurement device whose exposed interface consists of:</p>
+<ul class="article-list"><li><p>Power and reset behavior</p></li><li><p>A serial control and data interface (typically I{2}C)</p></li><li><p>A register map of varying completeness</p></li><li><p>Observable outputs in the form of photon counts or histograms</p></li></ul>
+<p>Ab initio control, in this context, does not mean control of individual avalanche events. It means establishing a complete and testable understanding of the mapping between register-level configuration, timing, and observable photon statistics.</p>
+<h2 id="initial-ab-initio-bring-up-strategy">Initial Ab Initio Bring-Up Strategy</h2>
+<p>The initial phase of work focused on determining whether meaningful photon data could be obtained without relying on vendor-provided firmware abstractions. This involved:</p>
+<ol class="article-list"><li><p>Verifying power and reset sequencing using only minimal delays and direct register reads.</p></li><li><p>Probing register stability across time to infer autonomous internal activity.</p></li><li><p>Attempting to halt or quiesce acquisition to test the degree of internal autonomy.</p></li><li><p>Performing single-shot acquisitions with minimal integration windows.</p></li></ol>
+<p>A key observation during this phase was the appearance of flat or saturated photon counts under certain host-side timing conditions, suggesting that host starvation and readout latency could masquerade as physical saturation. This observation motivated the architectural decoupling that followed.</p>
+<h2 id="motivation-for-externalizing-memory">Motivation for Externalizing Memory</h2>
+<p>The AVR&#x27;s internal SRAM is insufficient for storing large photon histograms, intermediate buffers, or extended experimental state. More importantly, its scarcity makes it difficult to distinguish between memory pressure artifacts and genuine sensor behavior.</p>
+<p>External SRAM is therefore introduced not as a transparent extension of AVR memory, but as an explicitly separate storage substrate. A parallel SRAM (e.g., 62256-class) is chosen over serial alternatives to avoid reintroducing serialization overhead and to preserve the conceptual clarity of a shared data bus.</p>
+<p>The AVR does not treat this SRAM as part of its address space. All reads and writes are explicitly sequenced and controlled, reinforcing the distinction between internal control state and external experimental state.</p>
+<h2 id="motivation-for-an-external-alu">Motivation for an External ALU</h2>
+<p>Introducing an external ALU is perhaps the most conceptually unusual aspect of the setup. Modern microcontrollers integrate arithmetic tightly with control flow, making it difficult to separate the cost and timing of computation from that of orchestration.</p>
+<p>By moving even simple arithmetic operations (such as accumulation of photon counts) into an external ALU constructed from discrete logic (e.g., 74HC283 adders or a 74HC181 ALU), computation becomes:</p>
+<ul class="article-list"><li><p>Physically visible</p></li><li><p>Explicitly clocked or strobed</p></li><li><p>Decoupled from the control sequencer&#x27;s internal state</p></li></ul>
+<p>This mirrors the structure of many quantum-control systems, where fast classical logic (often implemented in FPGA fabric) performs thresholding or accumulation independently of a slower experiment controller.</p>
+<h2 id="spad-to-alu-data-path">SPAD-to-ALU Data Path</h2>
+<p>A central architectural goal is that photon data should reach the ALU without ever being stored in, or manipulated by, the AVR&#x27;s registers. This is achieved by interposing a deserialization stage between the SPAD&#x27;s serial interface and the parallel ALU.</p>
+<p>In practice, this takes the form of a serial-in, parallel-out shift register (e.g., 74HC595) whose outputs feed the ALU operands. The AVR&#x27;s role is restricted to providing clock and latch signals, defining when a word is considered valid, and sequencing subsequent operations. The data bits themselves never enter AVR memory.</p>
+<p>This design choice enforces a strict separation between control and data planes and allows latency, jitter, and contention to be studied directly.</p>
+<h2 id="bus-ownership-and-isolation">Bus Ownership and Isolation</h2>
+<p>Because multiple devices (shift registers, ALU outputs, SRAM) may need to drive a shared data bus, explicit bus isolation is required. Bidirectional tri-state buffers (e.g., 74HC245) are used to ensure that at any given time, only one device asserts the bus.</p>
+<p>Bus ownership is treated as a first-class control problem. The AVR sequences enable signals explicitly, and bus contention is treated as an observable failure mode rather than an abstract error.</p>
+<h2 id="why-the-system-is-slow-and-fragile-by-design">Why the System Is Slow and Fragile by Design</h2>
+<p>The resulting system is orders of magnitude slower than what could be achieved with integrated MCUs or FPGAs. Signal integrity is sensitive, debugging is manual, and failure modes are numerous. This is not accidental.</p>
+<p>In quantum instrumentation, particularly in ion-trap systems, similar fragility appears at the boundaries between analog physics, fast classical logic, and slow supervisory control. By encountering these issues in a classical setting, the researcher develops an intuition that transfers directly to future quantum systems.</p>
+<h2 id="mapping-to-ion-trap-quantum-computing">Mapping to Ion-Trap Quantum Computing</h2>
+<p>The architectural correspondence is direct:</p>
+<div class="callout-block"><p>{ll} Present System &amp; Ion-Trap Analogue</p>
+<p>SPAD sensor &amp; Qubit state readout (PMT/SPAD)</p>
+<p>External ALU &amp; Fast classical post-processing</p>
+<p>External SRAM &amp; Experimental state / history buffer</p>
+<p>AVR sequencer &amp; Experiment controller</p></div>
+<p>The present work therefore serves as a classical surrogate for the control challenges inherent in quantum computing.</p>
+<h2 id="replicability-in-25-years">Replicability in 25 Years</h2>
+<p>To ensure replicability over a 25-year horizon, several principles are followed:</p>
+<ul class="article-list"><li><p>Use of generic logic families (74HC series) likely to remain available or emulable.</p></li><li><p>Avoidance of undocumented vendor firmware where possible.</p></li><li><p>Explicit documentation of timing assumptions and control sequences.</p></li><li><p>Conceptual designs that can be reimplemented in alternative technologies (e.g., FPGA) without loss of intent.</p></li></ul>
+<p>Even if specific components become unavailable, the architectural roles they play should remain clear.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This document has described not a finished system, but a deliberately constrained and exposed research apparatus. By insisting on ab initio control, explicit datapaths, and visible timing, the work establishes a foundation for understanding the classical control problems that dominate practical quantum computing.</p>
+<p>The value of the system lies not in its performance, but in the clarity with which it reveals where computation, control, and measurement meet. That clarity is intended to persist, and to remain useful, long after the specific components described here have become historical curiosities.</p>
+<h2 id="appendix-a-photographic-documentation-of-the-current-experimental-setup">Appendix A: Photographic Documentation of the Current Experimental Setup</h2>
+<p>This appendix provides placeholders for photographic records of the current hardware implementation. These photographs are intended to serve as historical and technical references, capturing physical layout, wiring practices, component proximity, and scale. They are not illustrative embellishments; they are primary experimental artifacts.</p>
+<p>The photographs should be updated whenever a significant architectural change is made. Each image should be accompanied, in future revisions, by a short caption describing what is visible, what is intentionally omitted, and what failure modes or constraints the photograph helps contextualize.</p>
+<h3 id="overall-table-top-arrangement">Overall Table-Top Arrangement</h3>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I3-A08_REALionTrapJournalv5/images/images/realiontrap2025decimage1.jpeg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I3-A08_REALionTrapJournalv5/images/images/realiontrap2025decimage1.jpeg</div><figcaption><span>Figure 1.</span> Overall table-top view of the experimental setup.</figcaption></figure>
+<p>This image is intended to preserve spatial relationships that are often lost in schematics, including unintended coupling paths, wire lengths, and grounding topology.</p>
+<h3 id="datapath-and-control-detail">Datapath and Control Detail</h3>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I3-A08_REALionTrapJournalv5/images/images/realiontrap2025decimage2.jpeg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I3-A08_REALionTrapJournalv5/images/images/realiontrap2025decimage2.jpeg</div><figcaption><span>Figure 2.</span> View 2</figcaption></figure>
+<p>This image gives another view.</p>
+<h3 id="notes-on-long-term-archival-value">Notes on Long-Term Archival Value</h3>
+<p>For long-term replicability, original-resolution image files should be archived alongside this document, with filenames matching those referenced above. Metadata such as date, camera type, and any deviations from the documented architecture should be preserved externally or embedded in accompanying notes.</p>
+<p>In the event that specific components become obsolete, these photographs should allow a future researcher to infer functional roles even when part numbers are no longer meaningful.</p>
+<h2 id="appendix-b-interpretation-of-the-architecture-through-the-correspondence-principle-and-the-classicalquantum-boundary">Appendix B: Interpretation of the Architecture Through the Correspondence Principle and the Classical–Quantum Boundary</h2>
+<p>This appendix situates the work described in the main text within two foundational conceptual frameworks of quantum theory: Niels Bohr’s correspondence principle and Wojciech Zurek’s decoherence-based account of the classical–quantum (C–Q) boundary. The purpose of this discussion is not philosophical ornamentation, but clarification of intent. The present architecture is deliberately classical, yet it is designed to probe questions that arise precisely at the interface where classical control encounters quantum measurement. Understanding this positioning is essential if the system is to remain intelligible and useful decades into the future.</p>
+<h3 id="bohrs-correspondence-principle-as-a-design-constraint">Bohr’s Correspondence Principle as a Design Constraint</h3>
+<p>Bohr’s correspondence principle is often summarized as the requirement that quantum mechanics reproduce classical physics in the appropriate limits. Less commonly emphasized, but more relevant here, is Bohr’s insistence that experimental descriptions must ultimately be expressed in classical terms. Measurement outcomes, apparatus configurations, timing relationships, and control actions are all articulated in the language of classical physics, even when the underlying phenomena are quantum.</p>
+<p>The architecture described in the main text internalizes this requirement as an explicit design constraint. The AVR microcontroller, external ALU, and SRAM are not merely convenient tools; they constitute the classical descriptive framework within which any future quantum experiment must be embedded. By refusing to blur control, computation, and measurement into a monolithic abstraction, the system enforces a separation that mirrors Bohr’s epistemic boundary: the quantum system may behave nonclassically, but the apparatus that prepares, probes, and records it must remain classically intelligible.</p>
+<p>In this sense, the SPAD sensor functions as a correspondence object. It produces discrete detection events—photon counts—that are inherently probabilistic at the microscopic level, yet are accumulated, thresholded, and interpreted using entirely classical operations. The external ALU and SRAM serve as the arena in which quantum-derived randomness is transformed into classical records. This transformation is not hidden inside a vendor ASIC or firmware blob; it is laid bare as a sequence of explicit, clocked operations.</p>
+<h3 id="why-slowness-does-not-violate-correspondence">Why Slowness Does Not Violate Correspondence</h3>
+<p>A superficial reading of the correspondence principle might suggest that increasing classical fidelity requires increasing speed, precision, or integration. The present work adopts the opposite stance. Slowness is embraced because it allows the classical description to remain explicit. Each control signal, bus transaction, and timing delay is observable and accountable.</p>
+<p>From a correspondence perspective, this is not a deficiency but a virtue. Classical physics is not defined by speed, but by determinism and describability. The AVR-based sequencer, despite its limited performance, satisfies these criteria more transparently than a highly integrated modern system. It therefore provides a more faithful correspondence framework for future quantum experiments, where hidden latencies or undocumented behavior can undermine interpretability.</p>
+<h3 id="zureks-decoherence-and-the-emergence-of-classical-records">Zurek’s Decoherence and the Emergence of Classical Records</h3>
+<p>Zurek’s formulation of decoherence reframes the classical–quantum boundary not as a sharp divide, but as an emergent phenomenon arising from the interaction of a quantum system with its environment. In this view, classicality is selected through the proliferation of stable, redundant records—a process Zurek terms quantum Darwinism.</p>
+<p>The relevance of this framework to the present architecture lies in the explicit construction of record-making machinery. Photon detections in the SPAD are ephemeral quantum events. They become classical facts only when they are copied, stored, and made robust against further interaction. The external SRAM, populated through deterministic control signals, is a literal instantiation of this process. Each stored count is a classical record that has survived interaction with a noisy environment and been stabilized by macroscopic degrees of freedom.</p>
+<p>By externalizing memory and computation, the architecture makes the act of record creation explicit. One can point to the exact moment when a quantum-derived signal is latched, when it is added to an accumulator, and when it is written into nonvolatile experimental history. This is not merely an implementation detail; it is an operational definition of the C–Q boundary.</p>
+<h3 id="the-classicalquantum-boundary-as-an-architectural-interface">The Classical–Quantum Boundary as an Architectural Interface</h3>
+<p>In many modern experimental systems, the classical–quantum boundary is buried inside firmware, FPGA bitstreams, or proprietary hardware. The present work instead treats the boundary as an interface to be designed, tested, and reasoned about.</p>
+<p>The decision to route SPAD data directly to an external ALU, bypassing the AVR’s internal registers, is particularly significant in this context. It ensures that the first stage of classical post-processing occurs outside the general-purpose controller. This mirrors practices in advanced quantum experiments, where fast classical logic performs thresholding or state discrimination before higher-level control software becomes involved.</p>
+<p>From Zurek’s perspective, this arrangement reduces ambiguity about where decoherence has become effectively irreversible. The ALU and SRAM constitute the first macroscopic environment in which the measurement outcome is redundantly encoded. The AVR, acting as a slower supervisory agent, interacts only with already-classical information.</p>
+<h3 id="control-as-a-classical-observer">Control as a Classical Observer</h3>
+<p>Both Bohr and Zurek emphasize, in different ways, the role of the observer. In this architecture, the AVR sequencer plays that role, but in a constrained and disciplined fashion. It does not observe quantum events directly; it observes classical records produced by the datapath. Its ignorance of the underlying microscopic details is intentional.</p>
+<p>This separation guards against a common conceptual error: conflating the controller with the measurement. By treating the AVR as an observer of records rather than events, the system aligns with the decoherence view that classical observers access only stable, environment-selected states.</p>
+<h3 id="implications-for-long-term-replicability">Implications for Long-Term Replicability</h3>
+<p>Situating the architecture within these theoretical frameworks strengthens its claim to long-term relevance. The correspondence principle and decoherence are not transient ideas tied to specific technologies; they are structural features of how quantum theory interfaces with the classical world. An apparatus designed to make these structures explicit is therefore more likely to remain intelligible even as components, programming languages, and fabrication techniques change.</p>
+<p>A future researcher reconstructing this system need not believe the same interpretations of quantum mechanics to benefit from the design. The apparatus encodes, in hardware and timing, a disciplined stance on where quantum behavior ends and classical control begins. That stance is legible, testable, and adaptable.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Viewed through the lens of Bohr’s correspondence principle, the system described in the main text is an exercise in preserving classical describability in the face of quantum-derived data. Viewed through Zurek’s decoherence framework, it is an explicit construction of the machinery that turns microscopic events into macroscopic records.</p>
+<p>The architecture’s slowness, modularity, and transparency are therefore not historical accidents or pedagogical crutches. They are deliberate choices that align the experiment with the deepest structural insights we have about the relationship between the quantum world and the classical apparatus we use to interrogate it. As such, they serve the long-term vision not merely of building a device, but of sustaining understanding.</p>
+<h2 id="appendix-c-arduino-firmware-used-in-the-current-experimental-setup">Appendix C: Arduino Firmware Used in the Current Experimental Setup</h2>
+<p>This appendix contains the exact Arduino sketch (<code>.ino</code> file) used in the most recent experimental configuration described in the main text. The firmware is included verbatim to preserve behavior, timing assumptions, register access patterns, and control flow.</p>
+<p>The sketch is treated as a primary experimental artifact. No attempt is made here to optimize, refactor, or modernize the code. Any inefficiencies, redundancies, or limitations are part of the documented state of the system and should be preserved when replicating the experiment.</p>
+<h3 id="notes-on-compilation-and-context">Notes on Compilation and Context</h3>
+<p>The firmware was compiled using the Arduino toolchain targeting an ATmega328P-class microcontroller. Clock speed, compiler version, and board support package may affect timing-sensitive behavior and should be recorded alongside this document in future revisions.</p>
+<p>The code below is included exactly as used, without editorial modification. Comments present in the original file are retained.</p>
+<h3 id="arduino-sketch-verbatim-listing">Arduino Sketch (Verbatim Listing)</h3>
+<pre class="code-block">[language=C++,basicstyle=\ttfamily\small,breaklines=true]
+#include &lt;Wire.h&gt;
+
+// ---------------- TMF8820 Minimal Setup ----------------
+#define TMF8820_ADDR 0x41
+#define SYSRESULT_RANGE_RAW 0x0400
+#define SYS__START 0x0002
+#define SYS__FRESH_OUT_OF_RESET 0x0000  // Reset register
+
+// I2C helpers
+void writeRegister16(uint16_t reg, uint16_t value) {
+  Wire.beginTransmission(TMF8820_ADDR);
+  Wire.write(reg &gt;&gt; 8);
+  Wire.write(reg &amp; 0xFF);
+  Wire.write(value &gt;&gt; 8);
+  Wire.write(value &amp; 0xFF);
+  Wire.endTransmission();
+}
+
+uint16_t readRegister16(uint16_t reg) {
+  Wire.beginTransmission(TMF8820_ADDR);
+  Wire.write(reg &gt;&gt; 8);
+  Wire.write(reg &amp; 0xFF);
+  Wire.endTransmission(false);
+
+  Wire.requestFrom(TMF8820_ADDR, (uint8_t)2);
+  return (Wire.read() &lt;&lt; 8) | Wire.read();
+}
+
+// Minimal TMF8820 initialization
+void initTMF8820() {
+  // 1. Reset device
+  writeRegister16(SYS__FRESH_OUT_OF_RESET, 0x0001);
+  delay(5);  // small delay for reset
+
+  // 2. Start continuous ranging mode (single-shot if desired)
+  writeRegister16(SYS__START, 0x0001);
+  delay(5);  // give time for first integration
+}
+
+// ---------------- Laser + LDR Setup ----------------
+const int ldrPin = A0;
+const int laserPin = 9;
+const int buttonPin = 2;
+
+int ldrValue = 0;
+int targetLightLevel = 500;
+int laserPower = 0;
+float kp = 0.5;
+unsigned long lastUpdate = 0;
+
+// ---------------- Setup ----------------
+void setup() {
+  Wire.begin();
+  Serial.begin(9600);
+
+  pinMode(laserPin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
+
+  Serial.println(&quot;UNO Quantum Illumination + Laser Control Ready&quot;);
+
+  initTMF8820();  // Initialize TMF8820
+
+  Serial.println(&quot;TMF8820 initialized (minimal mode)&quot;);
+}
+
+// ---------------- Loop ----------------
+void loop() {
+  // Read LDR
+  ldrValue = analogRead(ldrPin);
+
+  // Read TMF8820 photon count
+  uint16_t photonCount = readRegister16(SYSRESULT_RANGE_RAW);
+
+  // Check serial commands
+  if (Serial.available() &gt; 0) {
+    String command = Serial.readStringUntil(&#x27;\n&#x27;);
+    processCommand(command);
+  }
+
+  // Button manual override
+  if (digitalRead(buttonPin) == LOW) {
+    manualControl();
+  }
+
+  // Closed-loop control (every 100 ms)
+  if (millis() - lastUpdate &gt;= 100) {
+    updateLaserPower();
+    lastUpdate = millis();
+  }
+
+  // Send all sensor data
+  sendSensorData(photonCount);
+
+  delay(50); // small delay for stability
+}
+
+// ---------------- Command Processing ----------------
+void processCommand(String command) {
+  command.trim();
+
+  if (command.startsWith(&quot;SET_TARGET&quot;)) {
+    targetLightLevel = command.substring(11).toInt();
+    targetLightLevel = constrain(targetLightLevel, 0, 1023);
+    Serial.print(&quot;Target set to: &quot;);
+    Serial.println(targetLightLevel);
+  }
+  else if (command.startsWith(&quot;SET_KP&quot;)) {
+    kp = command.substring(8).toFloat();
+    Serial.print(&quot;Kp set to: &quot;);
+    Serial.println(kp);
+  }
+  else if (command.startsWith(&quot;MANUAL&quot;)) {
+    laserPower = command.substring(7).toInt();
+    laserPower = constrain(laserPower, 0, 255);
+    analogWrite(laserPin, laserPower);
+    Serial.print(&quot;Manual power set to: &quot;);
+    Serial.println(laserPower);
+  }
+}
+
+// ---------------- Laser Control ----------------
+void updateLaserPower() {
+  int error = targetLightLevel - ldrValue;
+  int powerAdjustment = error * kp;
+
+  laserPower += powerAdjustment;
+  laserPower = constrain(laserPower, 0, 255);
+
+  analogWrite(laserPin, laserPower);
+}
+
+void manualControl() {
+  static int manualPower = 0;
+  manualPower = (manualPower + 51) 
+  analogWrite(laserPin, manualPower);
+
+  Serial.print(&quot;Manual override: &quot;);
+  Serial.println(manualPower);
+
+  delay(500); // debounce
+}
+
+// ---------------- Data Reporting ----------------
+void sendSensorData(uint16_t photonCount) {
+  Serial.print(&quot;LDR:&quot;);
+  Serial.print(ldrValue);
+  Serial.print(&quot;,TARGET:&quot;);
+  Serial.print(targetLightLevel);
+  Serial.print(&quot;,POWER:&quot;);
+  Serial.print(laserPower);
+  Serial.print(&quot;,KP:&quot;);
+  Serial.print(kp);
+  Serial.print(&quot;,PHOTONS:&quot;);
+  Serial.println(photonCount);
+}</pre>
+<h3 id="archival-guidance">Archival Guidance</h3>
+<p>For long-term preservation, the original <code>.ino</code> file should be archived as a plain-text artifact alongside this document. The filename sketch_dec29a.ino, Arduino IDE version [Arduino IDE Version: 2.3.6 Date: 2025-04-09T11:26:55.498Z (8 months ago) CLI Version: 1.2.0 Copyright © 2025 Arduino SA], and target board definition [Arduino Uno on COM6] should be recorded externally or appended in future revisions of this appendix.</p>
+<p>Any subsequent firmware changes should result in a new appendix revision rather than modification of this listing, so that the evolution of control logic remains traceable over time.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-PattersonHennessy2017"><span class="ref-key">[1]</span> <p>Patterson, D. A., &amp; Hennessy, J. L. (2017). <em>Computer Organization and Design: The Hardware/Software Interface</em> (5th ed.). Morgan Kaufmann. (https://doi.org/10.1016/C2015-0-01298-1). Retrieved December 29, 2025, from (https://www.sciencedirect.com/book/9780124077263)</p></li><li id="ref-Wakerly2006"><span class="ref-key">[2]</span> <p>Wakerly, J. F. (2006). <em>Digital Design: Principles and Practices</em> (4th ed.). Prentice Hall. Retrieved December 29, 2025, from (https://www.pearson.com)</p></li><li id="ref-Atmel328P"><span class="ref-key">[3]</span> <p>Microchip Technology Inc. (2018). <em>ATmega328P Datasheet</em>. Retrieved December 29, 2025, from (https://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328P-Data-Sheet-DS40002061A.pdf)</p></li><li id="ref-ArduinoRef"><span class="ref-key">[4]</span> <p>Banzi, M., &amp; Shiloh, M. (2014). <em>Getting Started with Arduino</em> (3rd ed.). Maker Media. Retrieved December 29, 2025, from (https://www.arduino.cc)</p></li><li id="ref-BusIsolation"><span class="ref-key">[5]</span> <p>Johnson, H. W., &amp; Graham, M. (2003). <em>High-Speed Digital Design: A Handbook of Black Magic</em>. Prentice Hall. Retrieved December 29, 2025, from (https://www.pearson.com)</p></li><li id="ref-TTLHistory"><span class="ref-key">[6]</span> <p>Ceruzzi, P. E. (2012). <em>Computing: A Concise History</em>. MIT Press. (https://doi.org/10.7551/mitpress/9691.001.0001). Retrieved December 29, 2025, from (https://mitpress.mit.edu)</p></li><li id="ref-EmbeddedLatency"><span class="ref-key">[7]</span> <p>Lee, E. A. (2008). Cyber-physical systems: Design challenges. <em>IEEE International Symposium on Object Oriented Real-Time Distributed Computing</em>. (https://doi.org/10.1109/ISORC.2008.25). Retrieved December 29, 2025, from (https://ieeexplore.ieee.org)</p></li><li id="ref-MemoryHierarchy"><span class="ref-key">[8]</span> <p>Denning, P. J. (2005). The locality principle. <em>Communications of the ACM</em>, 48(7), 19–24. (https://doi.org/10.1145/1070838.1070856). Retrieved December 29, 2025, from (https://dl.acm.org)</p></li><li id="ref-FPGAControl"><span class="ref-key">[9]</span> <p>Kuon, I., Rose, J., &amp; Hamacher, V. (2007). <em>FPGA Architecture: Survey and Challenges</em>. Foundations and Trends in Electronic Design Automation. (https://doi.org/10.1561/1000000005). Retrieved December 29, 2025, from (https://www.nowpublishers.com)</p></li><li id="ref-SPADReview"><span class="ref-key">[10]</span> <p>Bronzi, D., Villa, F., Tisa, S., &amp; Zappa, F. (2016). SPAD figures of merit for photon-counting applications. <em>Sensors</em>, 16(12), 2091. (https://doi.org/10.3390/s16122091). Retrieved December 29, 2025, from (https://www.mdpi.com)</p></li><li id="ref-PhotonCounting"><span class="ref-key">[11]</span> <p>Becker, W. (2012). <em>Advanced Time-Correlated Single Photon Counting Techniques</em>. Springer. (https://doi.org/10.1007/978-3-642-00911-7). Retrieved December 29, 2025, from (https://link.springer.com)</p></li><li id="ref-Instrumentation"><span class="ref-key">[12]</span> <p>Horowitz, P., &amp; Hill, W. (2015). <em>The Art of Electronics</em> (3rd ed.). Cambridge University Press. Retrieved December 29, 2025, from (https://www.cambridge.org)</p></li><li id="ref-Bohr1920s"><span class="ref-key">[13]</span> <p>Bohr, N. (1928). The quantum postulate and the recent development of atomic theory. <em>Nature</em>, 121, 580–590. (https://doi.org/10.1038/121580a0). Retrieved December 29, 2025, from (https://www.nature.com)</p></li><li id="ref-BohrCorrespondenceSEP"><span class="ref-key">[14]</span> <p>Rynasiewicz, R. (2020). Bohr’s correspondence principle. In <em>Stanford Encyclopedia of Philosophy</em>. Retrieved December 29, 2025, from (https://plato.stanford.edu/entries/bohr-correspondence/)</p></li><li id="ref-WheelerZurek1983"><span class="ref-key">[15]</span> <p>Wheeler, J. A., &amp; Zurek, W. H. (Eds.). (1983). <em>Quantum Theory and Measurement</em>. Princeton University Press. (https://doi.org/10.1515/9781400854554). Retrieved December 29, 2025, from (https://press.princeton.edu)</p></li><li id="ref-WheelerDelayedChoice"><span class="ref-key">[16]</span> <p>Wheeler, J. A. (1978). The “past” and the delayed-choice double-slit experiment. In A. R. Marlow (Ed.), <em>Mathematical Foundations of Quantum Theory</em>. Academic Press. Retrieved December 29, 2025.</p></li><li id="ref-Zeh1970"><span class="ref-key">[17]</span> <p>Zeh, H. D. (1970). On the interpretation of measurement in quantum theory. <em>Foundations of Physics</em>, 1, 69–76. (https://doi.org/10.1007/BF00708656). Retrieved December 29, 2025, from (https://link.springer.com)</p></li><li id="ref-Zurek1991"><span class="ref-key">[18]</span> <p>Zurek, W. H. (1991). Decoherence and the transition from quantum to classical. <em>Physics Today</em>, 44(10), 36–44. (https://doi.org/10.1063/1.881293). Retrieved December 29, 2025, from (https://physicstoday.scitation.org)</p></li><li id="ref-Zurek2003"><span class="ref-key">[19]</span> <p>Zurek, W. H. (2003). Decoherence and the transition from quantum to classical—Revisited. <em>Reviews of Modern Physics</em>, 75(3), 715–775. (https://doi.org/10.1103/RevModPhys.75.715). Retrieved December 29, 2025, from (https://journals.aps.org)</p></li><li id="ref-QuantumDarwinism"><span class="ref-key">[20]</span> <p>Zurek, W. H. (2009). Quantum Darwinism. <em>Nature Physics</em>, 5, 181–188. (https://doi.org/10.1038/nphys1202). Retrieved December 29, 2025, from (https://www.nature.com)</p></li><li id="ref-Schlosshauer2007"><span class="ref-key">[21]</span> <p>Schlosshauer, M. (2007). <em>Decoherence and the Quantum-to-Classical Transition</em>. Springer. (https://doi.org/10.1007/978-3-540-35775-9). Retrieved December 29, 2025, from (https://link.springer.com)</p></li><li id="ref-Bell1990"><span class="ref-key">[22]</span> <p>Bell, J. S. (1990). Against “measurement”. <em>Physics World</em>, 3(8), 33–40. [https://doi.org/10.1088/2058-7058/3/8/33](https://doi.org/10.1088/2058-7058/3/8/33). Retrieved December 29, 2025, from [https://physicsworld.com](https://physicsworld.com)</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

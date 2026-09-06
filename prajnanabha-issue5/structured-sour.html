@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Source Coding: Shannon Theory as the Vanishing-Clustering Limit | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    
+/* RELATED PAPERS + PREMIUM STYLE START */
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .related-list li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .related-list li:hover {
+            background-color: #f0f8ff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.15);
+        }
+        .related-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .related-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Premium Service Box */
+        .premium-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .premium-box h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .premium-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        .paypal-button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* Navigation Links */
+        .nav-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+/* RELATED PAPERS + PREMIUM STYLE END */
+</style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 5 &middot; V1I5-A02</div>
+            <h1>Structured Source Coding: Shannon Theory as the Vanishing-Clustering Limit</h1>
+            <div class="hero-meta">{Aman Chawla} {REAL Institute, Gurugram, India\\ IIT Delhi\\ Email: aman.chawla@gmail.com}</div>
+            <div class="hero-meta">Source PDF: sscodingv6p2.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_5.html">Issue 5</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>Classical source coding treats the atypical set as a monolithic error event, achieving reliable compression at rates approaching the source entropy \(H(X)\). We develop a <em>structured</em> extension in which the atypical set \(B_^{(n)}\) is partitioned into \(k\) clusters <em>under a Hamming-distance metric</em>. This induces a tunable parameter \[ = {_2 k}{n(H(X) + )} \] that controls clustering granularity. The effective rate becomes \(R = (1 + )(H(X) + )\). We prove that when the atypical set is clustered according to a distortion metric, the dominant-cluster probability satisfies \[ D (X^n C_{}) (,\ 2^{2n}/k), \] with strict improvement \(D < \) in a nonempty finite-blocklength regime. Classical Shannon source coding emerges exactly as the limiting case \( 0\). Exhaustive Monte-Carlo simulations on a Bernoulli(\(p=0.3\)) source (\(H(X) 0.881\) bits) demonstrate that <em>real Hamming-distance \(k\)-means clustering</em> exploits the geometric structure of the atypical set, yielding measurable reductions in \(D\) (e.g., \(D = 0.0367 < 0.1\) for \(n=30\), \(k=16\)). The structure in the atypical set is real, measurable, and exploitable. The refinement vanishes asymptotically, preserving consistency with Shannon&rsquo;s theorem.</p></section>
+            <section class="meta-card"><h2>Keywords</h2><p>Source coding, typical set, clustering, finite blocklength, error exponent, rate&ndash;error tradeoff.</p></section>
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>Shannon&rsquo;s source coding theorem guarantees that for any \( > 0\), the atypical set \(B_^{(n)}\) satisfies \((X^n B_^{(n)}) \) for sufficiently large \(n\). All sequences in \(B_^{(n)}\) are mapped to a single error symbol.</p>
+<p>We introduce <em>structure</em> by partitioning \(B_^{(n)}\) into \(k 2\) clusters \({C_1, , C_k}\) <em>using a distortion metric</em> (Hamming distance). The encoder now outputs:</p>
+<ul class="article-list"><li><p>1 indicator bit (typical vs.\ atypical),</p></li><li><p>\(n(H(X) + )\) bits for typical sequences,</p></li><li><p>\(_2 k\) bits for the cluster label.</p></li></ul>
+<p>The clustering overhead \(\) yields the effective rate \(R = (1 + )(H(X) + )\). When \( 0\), the scheme reduces exactly to classical source coding. For \( > 0\), we obtain a refined rate&ndash;error tradeoff that exploits the internal geometry of the atypical set.</p>
+<h2 id="classical-framework">Classical Framework</h2>
+<p>Let \(A_^{(n)} = {x^n : |-{1}{n}_2 P(x^n) - H(X)| }\) be the typical set and \(B_^{(n)}\) its complement. Then \[ (X^n B_^{(n)}) , |B_^{(n)}| 2^{n(H(X)+)}. \] Every \(x^n B_^{(n)}\) satisfies \(P(x^n) 2^{-n(H(X)-)}\).</p>
+<h2 id="structured-clustering-and-dominant-cluster-bound">Structured Clustering and Dominant-Cluster Bound</h2>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>[Refined Dominant-Error Bound via Structured Clustering (Upper Bound)] Let \(X^n\) be an i.i.d.\ sequence from a discrete memoryless source with entropy \(H(X)\). Partition the atypical set \(B_^{(n)}\) into \(k 2\) clusters \({C_1,,C_k}\) according to any distortion metric. Let \(C_{}\) be the cluster of largest cardinality. Then \[ D (X^n C_{}) (,\ 2^{2n}/k). \] Moreover, when the atypical set possesses geometric structure under the chosen metric, Hamming-distance \(k\)-means clustering empirically achieves a dominant probability \(D\) that is strictly smaller than \(\) in the finite-blocklength regime \[ n < {1}{2}_2(k/). \]</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>In the worst-case equal-size partition, \(c_{} |B_^{(n)}|/k 2^{n(H(X)+)}/k\). Since each sequence in \(B_^{(n)}\) has probability at most \(2^{-n(H(X)-)}\), we obtain \[ D c_{} 2^{-n(H(X)-)} 2^{2n}/k. \] Combining with the classical bound \((B_^{(n)}) \) yields the stated result. The strict improvement \(D < \) holds precisely when \(k > 2^{2n}/\).</p></section>
+<section class="theorem-block"><div class="theorem-title">Lemma</div><p>[Matching Lower Bound &ndash; Worst-Case Tightness] For any clustering into \(k\) parts, there exist sources (e.g., those for which the atypical mass is nearly uniformly distributed across the support of \(B_^{(n)}\)) such that \[ D (1-o(1)) {2^{2n}}{k}. \] Thus the upper bound of Theorem 1 is tight in the worst case: no clustering scheme can achieve a better dominant-cluster probability than the combinatorial bound when the atypical set has uniform mass distribution.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>[Sketch] If the probability mass of \(B_^{(n)}\) is distributed approximately uniformly over its \(|B_^{(n)}|\) elements (possible when atypical types have comparable rate-function values), then any partition into \(k\) clusters satisfies \(_i |C_i| |B_^{(n)}|/k\). Multiplying by the per-sequence probability bound \(2^{-n(H(X)-)}\) yields the stated lower bound on \(D\).</p></section>
+<p>The strict improvement \(D \) therefore occurs <em>only</em> when the source geometry induces <em>cluster concentration</em>: the atypical mass is heavily concentrated in a small number of Hamming-balls (or type classes) near the typical-set boundary, as predicted by Sanov&rsquo;s theorem for convex rate functions.</p>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>[Unequal Cluster Sizes] Let the clusters have arbitrary cardinalities \(c_1 c_2 c_k\). Then \[ D ( ,\ _i c_i 2^{-n(H(X)-)} ). \] When the partition is produced by Hamming-distance \(k\)-means, the largest cluster \(C_{}\) is typically the one nearest the typical-set boundary, yielding the empirical scaling \(D ^{1+}\).</p></section>
+<p>The geometric-structure claim (concentration near the boundary) is verified empirically in Section [sec:simulations].</p>
+<p>agraph{Structural refinement (empirical law).} While the cardinality bounds provide worst-case limits, empirical evidence indicates that real sources exhibit strong non-uniformity within the atypical set under natural metrics. In particular, for clustering induced by Hamming distance on i.i.d.\ Bernoulli sources, the dominant-cluster probability empirically satisfies \[ D ^{1+}, \] suggesting that the atypical set decomposes into highly unequal components. This behavior is not implied by the combinatorial bounds and reflects underlying geometric structure in the source distribution.</p>
+<p>agraph{Conditional improvement.} If the atypical set exhibits cluster concentration under the chosen metric, i.e., if there exists a partition such that \[ _i (X^n C_i) {}{k}, \] then clustering yields a strictly stronger bound on the dominant error probability than uniform partitioning, and the empirical scaling \(D ^{1+}\) becomes achievable.</p>
+<p><strong>Rate&ndash;error tradeoff.</strong> In regimes where the exponential term dominates, the empirical law above produces the explicit tradeoff curve \[ -_2 D {R}{H(X)+} (-_2 ). \]</p>
+<h2 id="finite-blocklength-simulations">Finite-Blocklength Simulations</h2>
+<p>We performed exhaustive Monte-Carlo simulations on a Bernoulli(\(p=0.3\)) source (\(H(X) 0.881\) bits). For each \((n,k,=0.1)\) we generated up to \(10^6\) sequences, identified atypical ones via the exact information-density test, and applied Hamming-distance \(k\)-means clustering.</p>
+<p><strong>Representative result</strong> (\(n=30\), \(k=16\)):</p>
+<ul class="article-list"><li><p>Atypical fraction \( 0.319\)</p></li><li><p>Empirical \(D = 0.0367\)</p></li><li><p>Classical \( = 0.1\)</p></li><li><p>Improvement = \(0.0633\) (63% reduction)</p></li><li><p>\( = 0.136\)</p></li></ul>
+<p>The full parameter sweep (\(n=1550\), \(k=4,8,16,32\)) produces three key figures:</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A02_sscodingv6p2/tex/structured_source_coding_figures.png">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A02_sscodingv6p2/tex/structured_source_coding_figures.png</div><figcaption><span>Figure 1.</span> Simulation results for Bernoulli(\(p=0.3\)) source. Left: dominant-cluster probability \(D\) vs.\ blocklength \(n\) for different \(k\). Center: improvement heatmap \(( - D)\). Right: rate&ndash;error tradeoff (\(-_2 D\) vs.\ \(\)). The structure in the atypical set is real, measurable, and exploitable.</figcaption></figure>
+<p>The heatmap reveals a phase transition in $(n,k)$, indicating that clustering must exceed a resolution threshold to exploit structure. The rate&ndash;error plot shows an approximately linear relationship between $$ and $-_2 D$, consistent with the predicted scaling law.</p>
+<p>These simulations demonstrate that Hamming-distance clustering consistently exploits the natural geometry of the atypical set, achieving \(D\) values significantly below both the classical \(\) and the worst-case combinatorial bound.</p>
+<h2 id="limiting-case-0">Limiting Case: \( 0\)</h2>
+<p>As \(k\) remains sub-exponential in \(n\) (\(_2 k = o(n)\)), we have \( 0\). Then \(R H(X) + \) and \(D \), recovering classical source coding exactly. Shannon&rsquo;s theorem is therefore the boundary of a richer, structure-aware paradigm.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>By paying a small rate overhead \(\), we convert the monolithic error event of classical source coding into a hierarchy of ambiguity classes. Theorems 1&ndash;2 together with the matching lower bound, the empirical law, the conditional improvement, and the simulations show that the dominant probability \(D\) can be made strictly smaller than \(\) in a well-characterized finite-blocklength regime precisely because the atypical set possesses exploitable geometric structure under a distortion metric.</p>
+<p>The classical result is recovered in the limit, so there is no contradiction. This framework unifies typicality-based coding with structure-aware techniques and opens practical avenues for finite-blocklength source coding, adaptive clustering, and extensions to non-i.i.d.\ and quantum sources.</p>
+<h2 id="acknowledgment">Acknowledgment</h2>
+<p>The author thanks the REAL Institute for support. Reproducible Python simulation scripts are available upon request.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-shannon"><span class="ref-key">[1]</span> <p>C. E. Shannon, &quot;A mathematical theory of communication,&quot; <em>Bell System Technical Journal</em>, vol. 27, pp. 379&ndash;423, 623&ndash;656, 1948.</p></li><li id="ref-cover"><span class="ref-key">[2]</span> <p>T. M. Cover and J. A. Thomas, <em>Elements of Information Theory</em>, 2nd ed., Wiley, 2006.</p></li><li id="ref-sanov"><span class="ref-key">[3]</span> <p>I. Csisz&aacute;r and J. K&ouml;rner, <em>Information Theory: Coding Theorems for Discrete Memoryless Systems</em>, 2nd ed., Cambridge University Press, 2011.</p></li><li id="ref-chawla2022"><span class="ref-key">[4]</span> <p>A. Chawla, &quot;Towards weak source coding,&quot; arXiv:2209.04765, 2022.</p></li></ol></section>
+        </article>
+
+<!-- RELATED PAPERS SECTION START -->
+        <div class="section">
+            <h2>Related Papers You May Like</h2>
+            <ul class="related-list">
+            <li><a href="../paper354.html">Shannon Source Coding as a Limiting Case of Structured Source Coding</a></li>
+            <li><a href="../paper366.html">Finite-Blocklength Advantage for Quantum Structured Source Coding</a></li>
+            <li><a href="../paper355.html">Post-Shannon Information Theory</a></li>
+            <li><a href="../paper14.html">Towards Weak Source Coding</a></li>
+            <li><a href="../paper330.html">Weak Source Coding: Entropy-Tightened Bounds via Clustering of Atypical Sequences</a></li>
+            </ul>
+        </div>
+<!-- RELATED PAPERS SECTION END -->
+
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section">
+            <div class="premium-box">
+                <h2>Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price">$5 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-button">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="amanalliance@gmail.com">
+                    <input type="hidden" name="item_name" value="Premium Support - Structured Source Coding: Shannon Theory as the Vanishing-Clustering Limit | Prajnanabha">
+                    <input type="hidden" name="amount" value="5.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="https://yourwebsite.com/thankyou">
+                    <input type="hidden" name="cancel_return" value="https://yourwebsite.com">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+                           border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                </form>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+
+
+<!-- NAVIGATION LINKS START -->
+        <div class="nav-links">
+            <a href="../assets/Soft_Copies/sscodingv6p2.pdf" target="_blank">📄 View Full Paper (PDF)</a>
+            <a href="../prajnanabha-i_5.html">← Back to Issue 5</a>
+        </div>
+<!-- NAVIGATION LINKS END -->
+
+
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

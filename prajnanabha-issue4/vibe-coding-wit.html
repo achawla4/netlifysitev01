@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding with Nyaya | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 4 · V1I4-A01</div>
+            <h1>Vibe Coding with Nyaya</h1>
+            <div class="hero-meta">REAL Institute / A. Chawla | January 28, 2026</div>
+            <div class="hero-meta">Source PDF: suganitaEmailv1p2.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_4.html">Issue 4</a>
+        </div>
+        <div class="meta-grid">
+            
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>Coding in Suganita is not merely a technical act—it is a philosophical alignment. As the world&#x27;s first Nyaya-compatible programming language, Suganita reimagines computation through the lens of Indian intellectual traditions. It is written entirely in Devanagari script and designed for microcontroller platforms like the Arduino Uno. This document explores the vibe of coding in Suganita, using the secure email sender app as a case study.</p>
+<h2 id="philosophical-foundations">Philosophical Foundations</h2>
+<p>Suganita draws from six Indian traditions:</p>
+<ul class="article-list"><li><p>Nyaya Logic: Guides control flow with tokens like यदि (if), अन्यथा (else), हेतु (cause), and उदाहरण (example).</p></li><li><p>Vedic Mathematics: Shapes arithmetic semantics with tokens like गुणन (multiply), भागहार (divide), and शेष (modulo).</p></li><li><p>Paninian Grammar: Informs lexical discipline and token structure.</p></li><li><p>Sankhya and Yoga: Influence execution state and halting semantics, e.g., निरोध (halt).</p></li><li><p>Vākya Tradition: Ensures surface clarity with tokens like कार्य (function), मुख्य (main), वाक्य (string).</p></li><li><p>Embedded ML Praxis: Enables lightweight inference with tokens like मॉडल (model), पूर्वानुमान (predict).</p></li></ul>
+<h2 id="hardware-discipline">Hardware Discipline</h2>
+<p>Suganita targets the ATmega328P microcontroller:</p>
+<ul class="article-list"><li><p>8-bit AVR core at 16 MHz</p></li><li><p>2 KB SRAM, 32 KB flash</p></li><li><p>No floating point unit</p></li></ul>
+<p>These constraints enforce compact, semantically rich tokens and a stack-based VM using 16-bit logical words.</p>
+<h2 id="lexical-layer-and-tokens">Lexical Layer and Tokens</h2>
+<p>Part I of the Suganita blueprint defines the token system for versions v0–v2. Highlights include:</p>
+<ul class="article-list"><li><p>Core Keywords: कार्य (function), मुख्य (main), वापस (return)</p></li><li><p>Control Flow: यदि, अन्यथा, क्रम (for), जबतक (while)</p></li><li><p>Operators: तुल्य (equal), अतुल्य (not equal), अन्वय (and), व्यतिरेक (or)</p></li><li><p>VM Opcodes: शु (NOP), प्रवेश (push), विसर्जन (pop), निरोध (halt)</p></li><li><p>Hardware Functions: लिखो (print), स्पर्श_पढ़ो (digital read), रुको (delay)</p></li></ul>
+<h2 id="case-study-secure-email-sender">Case Study: Secure Email Sender</h2>
+<p>The secure email sender app demonstrates Suganita&#x27;s expressive power. Its source code:</p>
+<ul class="article-list"><li><p>लिखो REALInstitute</p></li><li><p>लिखो Post-QuantumEmail(Simulation)</p></li><li><p>लिखो MessageBody</p></li><li><p>प्रवेश Type_your_secure_message_here</p></li><li><p>प्रवेश Type_your_secure_message_here_too_additional_space</p></li><li><p>लिखो Status_Log</p></li></ul>
+<p>This code uses लिखो to emit UI labels and प्रवेश to define input fields. It is parsed by the SuganitaTranslator and compiled into frontend HTML and backend Flask code.</p>
+<h2 id="frontend-output">Frontend Output</h2>
+<p>The generated HTML includes:</p>
+<ul class="article-list"><li><p>Title: Suganita Generated Mail Sender</p></li><li><p>Labels: REALInstitute, Post-QuantumEmail(Simulation), MessageBody, Status_Log</p></li><li><p>Textareas with placeholders from प्रवेश tokens</p></li><li><p>Button: Encrypt &amp; Send</p></li></ul>
+<h2 id="backend-output">Backend Output</h2>
+<p>The Flask backend:</p>
+<ul class="article-list"><li><p>Logs each लिखो instruction using Aryabhata consonant enumeration</p></li><li><p>Accepts POST requests at <code>/send</code> and echoes the message</p></li></ul>
+<p>This modular design allows secure message simulation with Nyaya-aligned semantics.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Suganita is more than a language—it is a philosophical and cultural reorientation of programming. By embedding Nyaya logic and Vedic clarity into the token system, it offers a new vibe for coding: one that is grounded, expressive, and spiritually resonant. The secure email sender app is just the beginning. As the language evolves through its phases—VM prototyping, compiler development, ML augmentation—it will continue to honor its roots while expanding its reach.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This work was produced with the assistance of LLMs.</p>
+            
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

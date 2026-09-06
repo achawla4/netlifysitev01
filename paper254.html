@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fundamental Finitary Limits to Maximal Mutual Information - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Fundamental Finitary Limits to Maximal Mutual Information</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">—In both classical and quantum communication, the idea of perfect noiseless transmission remains an idealization. This paper draws a novel connection between two seemingly unrelated noise floors: the irreducible geometric distortion im- plied by the manifold hypothesis (MH) in high-dimensional data representation, and the uncertainty-limited precision of quantum nondemolition (QND) measurements using squeezed states. We argue that MH introduces a classical analog of quantum measure- ment back-action, thereby bounding the capacity of even ideal channels. As a consequence, well-known paradoxes in control theory—such as the insufficiency of infinite-capacity channels for stabilization—can be reinterpreted without invoking hypothetical channels of unbounded Shannon capacity. We propose that this irreducible error, rooted in geometry rather than randomness, constitutes a minimal noise floor that must be engineered around rather than eliminated. Key Insight Even in the absence of stochastic noise, the mani- fold hypothesis implies a geometric distortion floor, meaning that no communication channel—regardless of Shannon capacity—can be truly noiseless. The manifold hypothesis, a common assumption in machine learning and signal processing, posits that high-dimensional data often lies on or near a lower-dimensional manifold embedded in ambient space [1]. This geometric constraint has profound implications beyond representation learning; it imposes a structural limitation on the fidelity of encoding and decoding processes. If the data lives on a nonlinear manifold, any attempt to tile the space with uniform quantizers or pack- ing spheres—such as in traditional channel coding—inevitably results in mismatch and distortion. This leads to an in- principle error, not due to stochastic noise but due to geometric incompatibility. Unlike classical additive noise models, this distortion persists even in the limit of perfect hardware and noiseless transmission. This leads to a surprising insight: Shannon’s original sphere- packing bound, while stochastic in formulation, hides an implicit geometric assumption. In traditional coding theory, capacity is defined in terms of achievable rates given additive noise [2]. However, if the codewords are drawn from or intended to represent points on a manifold, then a standard uniform quantizer induces errors orthogonal to the mani- fold—errors that cannot be made arbitrarily small without infinite resolution adapted to the manifold’s geometry [3], [4]. This suggests a classical analog to the Heisenberg uncertainty principle: an irreducible limit to precision arising from the structure of the signal space itself. This phenomenon mirrors the limits encountered in quantum nondemolition (QND) measurements with squeezed states. In QND measurement, one attempts to measure an observable without perturbing it, which is only possible for a subset of observables that commute with the system’s dynamics [5], [6]. Squeezed states allow one to reduce measurement noise in one observable at the cost of increased uncertainty in its conjugate. But crucially, total uncertainty remains bounded by Heisen- berg’s limit. Similarly, encoding data along a manifold can be made highly precise only at the cost of increased vulnerability to errors in the orthogonal directions. No encoding strategy can eliminate this fundamental trade-off. This analogy draws a conceptual bridge between quantum metrology and classical information theory, both governed by irreducible geometric constraints. The consequences extend into control theory. In a widely cited argument, Sahai and Mitter demonstrated that certain un- stable systems cannot be stabilized over noisy channels—even those with infinite Shannon capacity—due to a lack of anytime reliability [7]. But if our geometric reasoning holds, then truly infinite-capacity channels cannot exist in physical reality, as the manifold-induced error persists even in the absence of stochastic noise. Hence, the foundational paradox motivating the definition of anytime capacity—that infinite capacity can still be insufficient—may be reinterpreted as a geometric constraint. There are no such channels in practice; geometry might forbid them. This strengthens, rather than weakens, the case for anytime communication, as it emerges not from paradox but from necessity. Furthermore, this geometric noise floor offers a unifying ex- planation for the empirical success of generative compression and manifold-aware learning models. Neural codecs such as VAEs and diffusion models effectively learn data manifolds and map them to lower-dimensional latent spaces [8], [9]. These systems are not immune to noise, but they encode signal variability in a way that respects manifold constraints, effectively reducing the mismatch error present in traditional quantizers. Similarly, recent work in neural error-correcting codes and learned source-channel coding seeks to align the codebook with the data geometry, implicitly working around the manifold-induced distortion floor [10], [11]. In summary, we propose that the manifold hypothesis im-</p> <p>poses a minimal noise floor in communication systems, even in the absence of stochastic channel noise. This parallels the quantum measurement problem, where no measurement can avoid introducing disturbance due to structural constraints. Both settings are governed not by randomness but by irre- ducible geometry. The task for future systems is not to elim- inate this noise, but to engineer around it: by adapting codes to the manifold, using generative models to flatten geome- try, or invoking hierarchical representations to progressively reduce error. Just as quantum engineers have learned to live with the Heisenberg limit via squeezing and error correction, classical communication systems must accommodate their own fundamental limits—limits not of bits, but of shape. We invite readers to consider how geometric distortion may reshape bounds across coding, control, and learning. ACKNOWLEDGMENT Prepared in collaboration with an LLM. APPENDIX GEOMETRIC ILLUSTRATION OF MANIFOLD-INDUCED DISTORTION M x ⃗e Fig. 1: Illustration of quantization mismatch: a point x ∈M lies off the uniform grid of quantization centers. The projection induces an irreducible geometric error ⃗e even in the absence of stochastic noise. Mathematical Footnote.: Let M be a smooth d- dimensional Riemannian manifold embedded in Rn, with curvature bounded above by κ &gt; 0. Suppose quantization centers form a grid Cδ of spacing δ in the ambient space Rn. Then the minimum distortion due to off-manifold projection satisfies: min c∈Cδ ∥x −c∥≥δ · sin θ(x) for x ∈M, (1) where θ(x) is the angle between the tangent space TxM and the vector to the nearest center. Since TxM varies continuously and curvature is nonzero, there exists θmin &gt; 0 such that sin θ(x) ≥sin θmin &gt; 0 locally. Thus, no finite- resolution uniform grid avoids this geometric mismatch. Conclusion.: This geometric distortion is irreducible and structural: it arises not from probabilistic noise but from curva- ture and dimensionality reduction. As grid resolution δ →0, ∥e∥→0 only if the grid adapts to the manifold’s tangent geometry, such as via learned or geodesic tiling—supporting our thesis that there exists a minimal classical noise floor imposed by geometry. APPENDIX ON EPISTEMIC VS. REPRESENTATIONAL LIMITS To preempt potential conflation, we offer a brief clarification on the nature of the limitations discussed, particularly in distinguishing quantum back-action from classical geometric distortion. The representational limit imposed by the manifold hypoth- esis is structural: data constrained to a nonlinear manifold can- not be faithfully encoded using uniform quantization schemes in the ambient space without incurring error orthogonal to the manifold. This distortion arises from the mismatch between the intrinsic geometry of the data and the geometry of the en- coding space, and persists regardless of observer knowledge or probabilistic uncertainty. It is, in that sense, a representational or ontological limit. In contrast, quantum back-action stems from the dynamical (cf. the Heisenberg equations of motion) non-commutativity of observables in quantum mechanics. Specifically, let ˆx and ˆp be canonically conjugate observables satisfying [ˆx, ˆp] = iℏ. Any attempt to reduce the uncertainty in ˆx necessarily increases uncertainty in ˆp, not due to lack of knowledge, but because the Heisenberg equations of motion ensure that the act of measuring ˆx perturbs ˆp: dˆp dt = −∂ˆH ∂ˆx and dˆx dt = ∂ˆH ∂ˆp , (2) where ˆH is the system’s Hamiltonian. In a quantum nonde- molition (QND) measurement, one attempts to circumvent this by choosing observables that commute with the Hamiltonian, thereby limiting the induced back-action. But even then, the Heisenberg uncertainty principle bounds the joint precision with which certain observables can be known or preserved under measurement. This stands in contrast to classical statistical uncertainty, which reflects epistemic limitations—the observer’s lack of complete knowledge about the system state. For example, additive white Gaussian noise in a channel is an epistemic model of environmental variability; it represents what we do not know or control. In contrast, both quantum back-action and manifold-induced distortion are not reducible to better modeling; they persist even with perfect information and ideal observers. We thus reframe our central analogy: the manifold-induced distortion in classical systems is not an epistemic uncer- tainty, but a representational limit similar in spirit—but not in mechanism—to quantum measurement back-action. Both are governed by structural constraints: one by geometry, the other by algebraic commutation relations. Each imposes a minimal distortion that cannot be eliminated, only managed. REFERENCES [1] C. Fefferman, S. Mitter, and H. Narayanan, “Testing the manifold hypothesis,” Journal of the American Mathematical Society, vol. 29, no. 4, pp. 983–1049, 2016. [2] C. E. Shannon, “A mathematical theory of communication,” Bell System Technical Journal, vol. 27, no. 3, pp. 379–423, 1948.</p> <p>[3] V. Shah and S. Verdu, “The geometry of mutual information,” IEEE Transactions on Information Theory, vol. 66, no. 1, pp. 402–432, 2020. [4] M. Belkin, D. Hsu, and P. Mitra, “Reconciling modern machine-learning practice and the bias–variance trade-off,” PNAS, vol. 116, no. 32, pp. 15849–15854, 2019. [5] V. B. Braginsky and F. Y. Khalili, Quantum Measurement. Cambridge University Press, 1996. [6] C. M. Caves, “Quantum-mechanical noise in an interferometer,” Physical Review D, vol. 23, no. 8, p. 1693, 1981. [7] A. Sahai and S. K. Mitter, “The necessity and sufficiency of anytime capacity for stabilization of a linear system over a noisy communication link,” IEEE Transactions on Information Theory, vol. 52, no. 8, pp. 3369–3395, 2006. [8] D. P. Kingma and M. Welling, “Auto-encoding variational Bayes,” arXiv preprint arXiv:1312.6114, 2013. [9] R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer, “High- resolution image synthesis with latent diffusion models,” in CVPR, 2022. [10] J. Choi and Y. C. Eldar, “Neural layered decoding for error correction,” IEEE Transactions on Neural Networks and Learning Systems, 2019. [11] E. Bourtsoulatze, D. B. Kurka, and D. Gesbert, “Deep joint source- channel coding for wireless image transmission,” IEEE Transactions on Cognitive Communications and Networking, vol. 5, no. 3, pp. 567–579, 2019.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Fundamental_Finitary_Limits_to_Maximal_Mutual_Information.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

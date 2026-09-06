@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Towards an in-Silico Study of Sternarchus - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Towards an in-Silico Study of Sternarchus</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">—Modeling a biological system accurately allows its mathematical and computer representation which allows for prediction of responses under various conditions. The Sternarchus is a strange biological system wherein there are two different types of nodes within a single axon length, the length itself being uniquely shaped spatially. In this letter, we look at the Sternarchus model in two variations - as a single axon and as a short tract of three axons. We find the expected conduction block by type- two nodes. We also find temperature dependence on the action potential conduction profile for the second model. I. INTRODUCTION In this letter, the authors perform in-silico experiments on axons with a second type of node of Ranvier. The experiments are carried out on the MATLAB software platform. This sec- ond type of node was introduced by Waxman et. al. (Waxman et al., 1972) on the basis of their examination of Sternarchus. In that paper, Waxman presents a number of interesting images showing the presence of two types of nodes. We find that, as suggested in that paper, when the node is allowed only a capacity-like feature or property, it doesn’t re-generate the action potential, effectively blocking conduction. This is in contrast to a normal node which, due to ionic currents flowing in and out, allows re-generation of action potential trains. It was suggested in that paper that such nodes (of the second type) are found at the tapering posterior end of the electric organ of the Sternarchus, just before it bends and turns in the opposite direction. The electric organ is a unique organ where axons seem to have a non-communication function. The tapering of the axons and the presence of these type- two capacity-like nodes is consistent with a slowing down and near-stopping of action potential trains. This letter is organized as follows. In Section II we review the early literature on this fascinating organism. In Section III we discuss the computer simulation methods used to perform our investigations. Finally, we present our simulation results in Section IV. Section V closes the letter with a discussion. II. LITERATURE REVIEW The Sternarchus turns out to be a widely studied model organism starting in the 1960s, and as early as 1905 we find an entire book on the Gymnotidae family to which it belongs (Eigenmann &amp; Ward, 1905). From 1963, we have (Hagiwara &amp; Morita, 1963). From 1965, we have the paper (Hagiwara et al., 1965). Another paper from the same year and one shared author is (Enger &amp; Szabo, 1965). The research volume on this organism continues to grow (see for example, (Maler et al., 1974; Tokunaga et al., 1980; Anderson et al., 1983)) and it would not be appropriate to cite every paper in the literature. III. METHODS-IN-BRIEF In order to replicate our results of Section IV, the reader should first develop the program introduced in detail in (Chawla et al., 2019). This is to be followed by a modification of some of the nodes into type-two nodes. Thereafter the simulations can be run. IV. SIMULATION RESULTS A. Single Axon In this section we look at the Sternarchus with regular nodes at positions 20, 30, 60 and beyond and type 2 nodes at positions 40 and 50. We observe that conduction gets blocked at node 40. This is due to the purely capacitive feature of type 2 nodes. In these nodes the ionic and activation variables are all zeroed out and purely diffusive effects under the influence of the large capacitance are allowed. Figure 1 below shows our simulation output. Figure 1. A single axon is stimulated at 29.3 degrees C. After a single additional hop, conduction is blocked by a Type-2 node. B. Current-coupled Axon Tract; Temperature Variations The following figures (Figure 2, Figure 3 and Figure 4) show the response of two type 1 nodes followed by two type 2 nodes in a three-axon tract. The tract length is chosen to be a segment that avoids the bending present in the Sternarchus geometry. Even though the Sternarchus case is not a tract but a single axon, we look at a tract to see if the work can be ex- tended to the ephaptic coupling case. (Hilton et al., 2007) gives the ambient temperature range to be 26.6 degree Centigrade to 29.3 degree Centigrade. We find intriguing variations with temperature changes. The second action potential initiation time gets substantially delayed with temperature.</p> <p>2 Figure 2. A three-axon tract with current-mediated ephaptic coupling is triply stimulated with delay at 20 degrees C. Axons are numbered 1, 2 and 3 from top to bottom subplot. The x-axis is time in seconds and the y-axis is voltage in Volts. Figure 3. A three-axon tract with current-mediated ephaptic coupling is triply stimulated with delay at 26.6 degrees C. Axons are numbered 1, 2 and 3 from top to bottom subplot. The x-axis is time in seconds and the y-axis is voltage in Volts. Figure 4. A three-axon tract with current-mediated ephaptic coupling is triply stimulated with delay at 29.3 degrees C. Axons are numbered 1, 2 and 3 from top to bottom subplot. The x-axis is time in seconds and the y-axis is voltage in Volts. V. DISCUSSION Tegmark, in (Tegmark, 2000), looks at a single type of node in a neuron with two states: in and out or firing and not- firing. But if we have two types of nodes, or a continuum of nodal lengths, meaning a continuum of nodal types, then there is effectively a two dimensional manifold of states. One can therefore consider quantum superpositions of states, each of which belongs to this 2D manifold. Nevertheless, we have to keep in mind the caveat that these alternate node types (the so-called type-two in the Sternarchus) might not be full- fledged nodes, performing more of a capacity-like function. A direction to extend our present work on the Sternarchus is therefore to look at universal quantum computation at both the node types and whether there can be some collaboration or cooperation between the nodes. This would be in the context of (Chawla &amp; Morgera, 2022a). It would also be interesting to investigate whether we can provide a lower bound to the date of evolution of Sternarchus. This might be feasible if we do a model of the Sternarchus in an expanding universe and study when the impact of the expansion molds the Sternarchus into the form where information processing is done as at present, as presented herein. Similar ideas were proposed in (Chawla et al., 2021). Finally, (Quick &amp; Waxman, 1978) looks at demyelination in the Sternarchus and it would be interesting to include this feature in our models. With two node types, we might expect slightly different results from those presented in our earlier work (Chawla &amp; Morgera, 2022b). REFERENCES Anderson, Marilyn J, Waxman, Stephen G, &amp; Laufer, Michael. 1983. Fine structure of regenerated ependyma and spinal cord in sternarchus albifrons. The anatomical record, 205(1), 73–83. Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022a. Mech- anism of universal quantum computation in the brain. Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022b. On the geometry of interacting axon tracts in relation to their functional properties. Chawla, Aman, Morgera, Salvatore D, &amp; Snider, Arthur D. 2019. On axon interaction and its role in neurological networks. Ieee/acm transactions on computational biology and bioinformatics, 18(2), 790–796. Chawla, Aman, Morgera, Salvatore D., &amp; Snider, Arthur D. 2021. Fields, geometry, and their impact on axon inter- action. Journal of applied mathematics and physics, 9(4), 751–778. Eigenmann, C.H., &amp; Ward, D.P. 1905. The gymnotidæ. Prodeedings of the Washington academy of sciences. The Academy. Enger, Per S, &amp; Szabo, Thomas. 1965. Activity of central neurons involved in electroreception in some weakly electric fish (gymnotidae). Journal of neurophysiology, 28(5), 800– 818. Hagiwara, S, &amp; Morita, H. 1963. Coding mechanisms of electroreceptor fibers in some electric fish. Journal of neurophysiology, 26(4), 551–567. Hagiwara, S, Szabo, Th, &amp; Enger, PS. 1965. Electrorecep- tor mechanisms in a high-frequency weakly electric fish, sternarchus albifrons. Journal of neurophysiology, 28(5), 784–799. Hilton, Eric J, Fernandes, Cristina Cox, Sullivan, John P, Lund- berg, John G, &amp; Campos-da Paz, Ricardo. 2007. Redescrip- tion of orthosternarchus tamandua (boulenger, 1898)(gym- notiformes, apteronotidae), with reviews of its ecology, electric organ discharges, external morphology, osteology, and phylogenetic affinities. Proceedings of the academy of natural sciences of philadelphia, 156(1), 1–25. Maler, L, Finger, Th, &amp; Karten, HJ. 1974. Differential projec- tions of ordinary lateral line receptors and electroreceptors in the gymnotid fish, apteronotus (sternarchus) albifrons. Journal of comparative neurology, 158(4), 363–382.</p> <p>3 Quick, Donald C, &amp; Waxman, Stephen G. 1978. Demyeli- nation of sternarchus electrocyte fibers by injection of diphtheria toxin. Journal of the neurological sciences, 35(2- 3), 235–241. Tegmark, Max. 2000. Importance of quantum decoherence in brain processes. Physical review e, 61(4), 4194. Tokunaga, Akira, Akert, Konrad, Sandri, Clara, &amp; Bennett, Michael VL. 1980. Cell types and synaptic organization of the medullary electromotor nucleus in a constant frequency weakly electric fish, sternarchus albifrons. Journal of comparative neurology, 192(3), 407–426. Waxman, SG, Pappas, GD, &amp; Bennett, MVL. 1972. Morpho- logical correlates of functional differentiation of nodes of ranvier along single fibers in the neurogenic electric organ of the knife fish sternarchus. The journal of cell biology, 53(1), 210–224.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Towards_an_in_Silico_Study_of_Sternarchus.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

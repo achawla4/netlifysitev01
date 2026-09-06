@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Theory and Direction Selectivity | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    
+/* RELATED PAPERS + PREMIUM STYLE START */
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .related-list li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .related-list li:hover {
+            background-color: #f0f8ff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.15);
+        }
+        .related-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .related-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Premium Service Box */
+        .premium-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .premium-box h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .premium-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        .paypal-button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* Navigation Links */
+        .nav-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+/* RELATED PAPERS + PREMIUM STYLE END */
+</style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 5 · V1I5-A09</div>
+            <h1>Information Theory and Direction Selectivity</h1>
+            <div class="hero-meta">Aman Chawla</div>
+            <div class="hero-meta">Source PDF: 2404.02915v1.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_5.html">Issue 5</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>In this brief paper, the authors study the tuning curves of starburst amacrine cells (SACs) and introduce a quantity called the irresolution or ambiguity of a SAC. They show that the rate of data generated by a starburst amacrine cell is inversely proportional to its irresolution. This is done by providing bounds on the rate required to encode the generated data. This technique can be applied to different cell types with different tuning curves. In this manner, information theoretic views can be introduced to the cases of biological cells which are not normally considered as transmitters of information as say retinal ganglion cells are. The intuition that even such cells generate information is thus quantified.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p>{Information Theory and Direction Selectivity} {Aman Chawla}</p>
+<p>The detection of motion is a need of living organisms. In the wakeful state of consciousness, things are not necessarily still. Motion may only be detected against a background stillness. Therefore to identify motion, more than a single cell may be needed. In the retina, this is therefore one of the earliest places where co-operation and co-ordination between cells is needed.</p>
+<p>There are two main known mechanisms for direction selectivity: The Reichardt detector, shown conceptually in Figure [fig: reich] and the Rall mechanism, Figure [fig: rall].</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/reichardtmech.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/reichardtmech.jpg</div><figcaption><span>Figure 1.</span> Reichardt detector</figcaption></figure>
+<p>The Reichardt detector works as follows. The bipolar cells A and B impinge on the dendrite under consideration at locations A and B, respectively. The input of bipolar cell A is broad, while that of bipolar cell B is narrower. Suppose the stimulus moves from left to right. Then, first the broad peak is stimulated and then the narrower peak. When these peaks reach the terminal, they get summed. The narrower then gets raised by the broad and they together cross the threshold. Suppose the stimulus moves from right to left. Then, first the narrower peak is stimulated and then the broader one. As a result, there is little or no overlap between the two peaks, and even if summed, they will not cross the threshold. This is what gives rise to direction selectivity.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/RallMech.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/RallMech.jpg</div><figcaption><span>Figure 2.</span> Rall mechanism</figcaption></figure>
+<p>In the Rall mechanism there is a delay element, D, introduced by the axoplasm between A and B. This delay causes the signals from A to be broadened when reaching the terminal, whereas the signals from B remain narrow. A similar summation effect as the Reichardt mechanism then leads to directional preference.</p>
+<p>The Rall and the Reichardt mechanisms have been known for some time. Several experiments have tried to discriminate between the two mechanisms, to pick the correct one. The predicted observations for the Reichardt mechanism are found to match more closely the experimental results than those of the Rall mechanism.</p>
+<p>From the theorists perspective, can we consider the dendrite as a channel? Alternately, it is a source encoder. The question is, what is it that qualifies an encoder as being good. And if a dendrite is a communication channel, what is the capacity of the channel? Does there lurk a rate-distortion problem? From the experimenter&#x27;s perspective, the stimulus is presented on the screen and an output is obtained from the apex of the dendrite. So it does seem to be a communication channel. Figures [fig:Polar-Tuning-Curve.] and [fig:Cartesian-version-of] show how the experimentalist observes the output.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/polarcurve.png">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/polarcurve.png</div><figcaption><span>Figure 3.</span> Polar Tuning Curve.</figcaption></figure>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/cartesiancurve.png">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/cartesiancurve.png</div><figcaption><span>Figure 4.</span> Cartesian version of polar tuning curve.</figcaption></figure>
+<p>Consider Figure [fig: axonfournodese3]. It shows the response of a starburst amacrine cell to stimulation presented at various input directions. The response is given by the curve $f()$.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/twopreimages.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/twopreimages.jpg</div><figcaption><span>Figure 5.</span> The response of a starburst amacrine cell to different input directions, depicted as an arbitrary function of angle theta. The image y1 corresponds to two preimages x1 and x2.</figcaption></figure>
+<p>Suppose the experimenter presents an angle of $_{1}$ degrees. The cell has a response curve $f_{1}()$ so it produces an amplitude response $f_{1}(_{1})$. This response is corrupted by noise $_{1}$ so that the final output with the experimenter is</p>
+<div class="math-block">$$
+y_{1}=f_{1}(\theta_{1})+\eta_{1}.
+$$</div>
+<p>It is the task of the cell, we can assume, to allow the recovery of the direction (in degrees) from $y_{1}$. Here we show that it is impossible to recover the angle uniquely.</p>
+<section class="theorem-block"><div class="theorem-title">Lemma</div><p>Recovery Lemma. Given a cellular response $y_{1}$ (see Eqn. [eq: 1]), it is impossible to recover the directional angle in degrees uniquely, for an arbitrary response function $f_{1}()$.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>To prove this lemma we need to come up with one example of a response function where it is not possible to recover the directional angle uniquely. One such example is shown in Figure [fig: axonfournodese3].$$</p></section>
+<p>Next we quantify the error in recovery.</p>
+<section class="theorem-block"><div class="theorem-title">Theorem</div><p>Given a cellular response $y_{1}$ (see Eqn. [eq: 1]) and a response function $f_{1}()$, the error (representational) in recovering the input direction is bounded from above by $_{2}(k)$ bits where $k$ is the maximum number of angles corresponding to a value of the response function. From rudimentary graphical considerations, $k=2*n-1$ where $n$ is the number of critical points (maxima or minima) of the (continuous) response function.</p></section>
+<section class="theorem-block"><div class="theorem-title">Proof</div><p>Suppose we are using $l$ bits of precision to represent a real number. The cellular response must be used to first estimate the value of the response function $f_{1}()$ at the transmitted angle $$, in the presence of Gaussian noise. The error analysis for recovering the value of the response function, would be the same as that for an additive white Gaussian noise channel, which has a probability of error $Poe$ which decays with block length $N$, given by the reliability function:</p>
+<div class="math-block">$$
+Poe\approx\exp^{-Ng(R,N)}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+g(R,N)=C/2-R
+$$</div>
+<p>for low rates and</p>
+<div class="math-block">$$
+g(R,N)=(\sqrt{C}-\sqrt{R})^{2}
+$$</div>
+<p>for high rates less than capacity <span class="citation" title="gallager1968information">[1]</span>. Under this probability of error decay law, the value of the response function can be estimated to within</p>
+<div class="math-block">$$
+POE\leq\exp^{-lg(R,l)}
+$$</div>
+<p>at the data rate $R$ bits per second. This means that $l R$ bits are transmitted in $l$ seconds.</p></section>
+<p>We have next to recover from the value of the response function, the actual angle that was transmitted and we immediately see that if there are at most $k$ angles corresponding to the estimated value of the response function, then $_{2}(k)$ bits would suffice to recover the precise angle.</p>
+<section class="theorem-block"><div class="theorem-title">Definition</div><p>Irresolution</p></section>
+<p>As per Theorem [th: 1] a total of $s$ bits must be transmitted by the cell for every $l$ seconds of directional information transmission, where $l R s l R+_{2}(k)$. We send $c=s/(l*R)$ bits for every input bit. $c$ is thus dimensionless. Clearly, $1 c1+{_{2}(k)}{l*R}$. Since this allows error free recovery, this number is akin to a performance metric for the system. We can call it the <strong>irresolution</strong> of the cell. Clearly, if irresolution increases for a change in coding mechanism (Rall, Reichardt, etc.), the new mechanism is taking fewer bits in for every output bit and so is less effective in resolving the input angle. This allows us to quantify potential coding mechanisms&#x27; performance by simply looking at the response function. $$</p>
+<p>This definition is explored in Figure [fig: axonfournodese4]. The irresolution goes down as the transmission duration increases. The curves look like rate-distortion functions. We will explore this parallel shortly.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/irresolution3.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/irresolution3.jpg</div><figcaption><span>Figure 6.</span> Variation in the irresolution of a cell with increasing duration of transmission and varying directional ambiguity $k$</figcaption></figure>
+<p>We can ask the question, which coding scheme is optimal for transmitting in the presence of irresolution. We can also allow different mechanisms to send the image and the preimage resolving bits and compare the resulting achieved bit rates with a biophysically plausible cellular mechanism such as the Rall or Reichardt mechanisms discussed above. The irresolution of the cell is akin to a distortion and we can plot, on the horizontal-axis, the rate instead of the duration of transmission. This is shown in Fig. [fig: axonfournodese5].</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/irresolution5.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A09_2404.02915v1/images/images/irresolution5.jpg</div><figcaption><span>Figure 7.</span> Irresolution-rate formulation: Bound on the irresolution of a cell with increasing rate of transmission (and a total transmission duration of 2 seconds) and varying directional ambiguity $k$. In the legend, $k$ goes from 2 through 20 in steps of 3.</figcaption></figure>
+<p>To conclude, in this paper we introduced a simple information theoretic analysis of the tuning curve generated by a starburst amacrine cell. We introduced a new quantity called the irresolution of a cell and provided illustrations of how it varies with directional ambiguity, a parameter we defined: $k$.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-gallager1968information"><span class="ref-key">[1]</span> Reference entry not found for key gallager1968information.</li></ol></section>
+        </article>
+
+<!-- RELATED PAPERS SECTION START -->
+        <div class="section">
+            <h2>Related Papers You May Like</h2>
+            <ul class="related-list">
+            <li><a href="../paper90.html">Information Theory and Direction Selectivity</a></li>
+            <li><a href="../paper135.html">Information Theory in India</a></li>
+            <li><a href="../paper26.html">Quantum Anytime Information Theory: A Proposal</a></li>
+            <li><a href="../paper212.html">Braid Information Theory</a></li>
+            <li><a href="../paper355.html">Post-Shannon Information Theory</a></li>
+            </ul>
+        </div>
+<!-- RELATED PAPERS SECTION END -->
+
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section">
+            <div class="premium-box">
+                <h2>Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price">$5 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-button">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="amanalliance@gmail.com">
+                    <input type="hidden" name="item_name" value="Premium Support - Information Theory and Direction Selectivity | Prajnanabha">
+                    <input type="hidden" name="amount" value="5.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="https://yourwebsite.com/thankyou">
+                    <input type="hidden" name="cancel_return" value="https://yourwebsite.com">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+                           border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                </form>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+
+
+<!-- NAVIGATION LINKS START -->
+        <div class="nav-links">
+            <a href="../assets/Soft_Copies/2404.02915v1.pdf" target="_blank">📄 View Full Paper (PDF)</a>
+            <a href="../prajnanabha-i_5.html">← Back to Issue 5</a>
+        </div>
+<!-- NAVIGATION LINKS END -->
+
+
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

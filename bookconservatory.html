@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAL Book Conservatory — Preserving Knowledge. Empowering Discovery.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/cart.css">
+<script src="assets/config.js"></script>
+<script src="assets/cart.js" defer></script>
+<style>
+  :root{
+    --ink:#1b2a3d;
+    --ink-soft:#3c4c60;
+    --parchment:#f3ead7;
+    --parchment-dark:#e5d6ae;
+    --card:#faf5e8;
+    --brass:#a9793c;
+    --brass-dark:#7e5a29;
+    --stamp:#a13d2e;
+    --sage:#556b53;
+    --rule:#cdbd94;
+    --shadow: 0 10px 26px rgba(27,42,61,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -5%, #fbf4e2 0%, transparent 60%),
+      var(--parchment);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  /* ===== Ledger header bar ===== */
+  .ledger-bar{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .ledger-bar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; opacity:0.85;}
+
+  /* ===== Hero: catalog title card ===== */
+  header.hero{padding:64px 0 40px;}
+  .title-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    padding:52px 48px 44px;
+    position:relative;
+    text-align:center;
+  }
+  .title-card::before, .title-card::after{
+    content:"";
+    position:absolute; top:14px; bottom:14px; width:1px;
+    background:var(--rule);
+  }
+  .title-card::before{left:14px;}
+  .title-card::after{right:14px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--brass-dark); margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.05;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .title-italic{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .lede{
+    max-width:640px; margin:0 auto 26px;
+    font-size:1.12rem; color:var(--ink-soft);
+  }
+  .tagline-stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem; letter-spacing:0.05em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:8px 18px;
+    transform:rotate(-2deg);
+    border-radius:2px;
+  }
+  .accession{
+    margin-top:30px; padding-top:24px; border-top:1px dashed var(--rule);
+    display:flex; justify-content:center; gap:56px; flex-wrap:wrap;
+  }
+  .accession-item{text-align:center;}
+  .accession-num{font-family:'Fraunces',serif; font-weight:600; font-size:1.9rem; color:var(--brass-dark);}
+  .accession-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;}
+
+  /* ===== Section shell ===== */
+  section{padding:56px 0;}
+  .section-head{margin-bottom:34px; max-width:720px;}
+  .section-tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff;
+    padding:5px 12px; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    color:var(--ink);
+  }
+  .section-sub{color:var(--ink-soft); margin-top:10px; font-size:1.02rem;}
+
+  /* ===== Vision / Mission ===== */
+  .plate{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:34px 38px; position:relative;
+  }
+  .plate + .plate{margin-top:22px;}
+  .plate-label{
+    position:absolute; top:-11px; left:30px; background:var(--parchment);
+    padding:0 10px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-dark);
+  }
+  .plate p{font-size:1.08rem; color:var(--ink);}
+  .plate p.quote{font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:1.28rem; line-height:1.5; color:var(--ink);}
+
+  /* ===== Activities: index-card grid ===== */
+  .activity-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(255px,1fr));
+    gap:20px;
+  }
+  .activity-card{
+    background:var(--card); border:1px solid var(--rule);
+    padding:22px 22px 20px; position:relative; box-shadow:var(--shadow);
+  }
+  .activity-card .tab{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; letter-spacing:0.1em;
+    color:var(--brass-dark); text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .activity-card h3{font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; margin-bottom:10px;}
+  .activity-card ul{list-style:none; font-size:0.92rem; color:var(--ink-soft);}
+  .activity-card ul li{padding:3px 0 3px 16px; position:relative;}
+  .activity-card ul li::before{content:"—"; position:absolute; left:0; color:var(--brass);}
+
+  /* ===== Collections chips ===== */
+  .collections{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
+    border:1px solid var(--brass); color:var(--brass-dark);
+    padding:8px 14px; background:var(--card);
+  }
+
+  /* ===== Book Rescue banner ===== */
+  .rescue-banner{
+    background:var(--ink); color:var(--parchment);
+    padding:40px 38px; display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  .rescue-banner h3{font-family:'Fraunces', serif; font-size:1.5rem; font-weight:600; margin-bottom:8px;}
+  .rescue-banner p{color:#cdd6e0; max-width:520px;}
+  .rescue-sources{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em;
+    color:var(--parchment-dark); margin-top:10px;
+  }
+
+  /* ===== Catalog / Marketplace ===== */
+  .catalog-toolbar{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:26px;
+  }
+  .filter-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.05em;
+    background:transparent; border:1px solid var(--rule); color:var(--ink-soft);
+    padding:9px 16px; cursor:pointer; transition:.2s;
+  }
+  .filter-btn.active, .filter-btn:hover{border-color:var(--brass); color:var(--brass-dark); background:var(--card);}
+
+  .catalog-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(270px,1fr));
+    gap:24px;
+  }
+  .book-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    position:relative; padding-top:34px;
+    display:flex; flex-direction:column;
+  }
+  .call-tab{
+    position:absolute; top:0; left:18px;
+    background:var(--brass); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.04em;
+    padding:5px 10px; transform:translateY(-50%);
+  }
+  .book-body{padding:16px 22px 22px; display:flex; flex-direction:column; flex:1;}
+  .book-collection{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--sage); margin-bottom:8px;}
+  .book-title{font-family:'Fraunces', serif; font-weight:600; font-size:1.18rem; margin-bottom:4px; line-height:1.3;}
+  .book-author{font-size:0.88rem; font-style:italic; color:var(--ink-soft); margin-bottom:10px;}
+  .book-desc{font-size:0.9rem; color:var(--ink-soft); margin-bottom:14px; flex:1;}
+  .book-meta{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--ink-soft); display:flex; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+  .condition{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
+    padding:2px 8px; border:1px solid var(--sage); color:var(--sage); align-self:flex-start; margin-bottom:12px;
+  }
+  .book-price{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-top:1px dashed var(--rule); padding-top:12px; margin-bottom:14px;
+  }
+  .price-amt{font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem; color:var(--ink);}
+  .price-note{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--ink-soft);}
+
+  .stamp-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    border:2px solid var(--stamp); color:var(--stamp);
+    padding:11px 14px; text-align:center; cursor:pointer;
+    background:transparent; transition:.18s;
+    display:block; width:100%;
+  }
+  .stamp-btn:hover{background:var(--stamp); color:#fff; transform:rotate(-0.6deg);}
+  .stamp-btn.reserved{border-color:var(--sage); color:var(--sage); cursor:default;}
+  .stamp-btn.reserved:hover{background:transparent; color:var(--sage); transform:none;}
+
+  /* ===== Donate / Sell strip ===== */
+  .contribute{
+    display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  }
+  .contribute .plate p{font-size:0.98rem;}
+  .contribute a.link-btn{
+    display:inline-block; margin-top:14px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.04em;
+    color:var(--ink); border-bottom:1px solid var(--brass); padding-bottom:2px; text-decoration:none;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:var(--parchment-dark);
+    padding:48px 0 30px; margin-top:20px;
+  }
+  footer .wrap{text-align:center;}
+  footer h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; color:#fff; margin-bottom:12px;}
+  footer p{max-width:560px; margin:0 auto 10px; font-size:0.94rem;}
+  footer a{color:#e5c993; text-decoration:none; font-weight:600;}
+  footer a:hover{text-decoration:underline;}
+  .devanagari{margin-top:18px; font-size:0.85rem; color:var(--rule);}
+
+  /* ===== Modal (PhonePe / UPI) ===== */
+  .modal{
+    display:none; position:fixed; inset:0; z-index:1000;
+    background:rgba(27,42,61,0.62);
+  }
+  .modal-content{
+    background:var(--card); max-width:440px; width:90%;
+    margin:60px auto; padding:32px; border:1px solid var(--rule);
+    box-shadow:0 24px 60px rgba(0,0,0,0.35);
+  }
+  .modal-content h2{font-family:'Fraunces', serif; font-size:1.4rem; margin-bottom:6px;}
+  .modal-sub{font-size:0.88rem; color:var(--ink-soft); margin-bottom:18px;}
+  .close-btn{float:right; font-size:1.5rem; cursor:pointer; color:var(--ink-soft); line-height:1;}
+  .close-btn:hover{color:var(--stamp);}
+  .phonepe-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background:#5f259f; color:#fff; text-decoration:none;
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.9rem;
+    padding:13px; margin-bottom:16px; letter-spacing:0.02em;
+  }
+  .phonepe-btn:hover{background:#4b1d80;}
+  .qr-box{text-align:center; margin-bottom:16px;}
+  .qr-box img{max-width:170px; border:1px solid var(--rule);}
+  .upi-id-row{
+    background:var(--parchment); border:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace; font-size:0.9rem;
+    padding:12px; text-align:center; margin-bottom:12px; word-break:break-all;
+  }
+  .copy-btn{
+    width:100%; padding:10px; background:var(--brass); color:#fff; border:none;
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.04em;
+    cursor:pointer;
+  }
+  .copy-btn:hover{background:var(--brass-dark);}
+  .modal-fine{font-size:0.8rem; color:var(--ink-soft); text-align:center; margin-top:16px; line-height:1.5;}
+
+  /* ===== Sourcing / Provenance Notice ===== */
+  .provenance{
+    background:var(--card); border:2px solid var(--sage);
+    box-shadow:var(--shadow);
+    padding:28px 32px; position:relative;
+    display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap;
+  }
+  .provenance .seal{
+    flex:0 0 auto;
+    width:74px; height:74px; border-radius:50%;
+    border:2.5px solid var(--sage); color:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'IBM Plex Mono', monospace;
+    font-size:0.6rem; letter-spacing:0.05em; text-transform:uppercase;
+    line-height:1.25; padding:6px; transform:rotate(-4deg);
+  }
+  .provenance-body{flex:1; min-width:240px;}
+  .provenance-head{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--sage); margin-bottom:8px; font-weight:600;
+  }
+  .provenance p{font-size:0.98rem; color:var(--ink); margin-bottom:10px;}
+  .provenance ol{margin:10px 0 4px 20px; font-size:0.94rem; color:var(--ink-soft);}
+  .provenance ol li{margin-bottom:4px;}
+  .provenance ol li strong{color:var(--ink);}
+  .catalog-note{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sage);
+    letter-spacing:0.02em; margin-bottom:20px; border-left:3px solid var(--sage);
+    padding-left:12px;
+  }
+  .search-input{
+    width:100%; max-width:420px;
+    font-family:'Source Serif 4', serif; font-size:0.95rem;
+    background:var(--card); border:1px solid var(--rule); color:var(--ink);
+    padding:11px 14px;
+  }
+  .search-input:focus{outline:2px solid var(--brass); outline-offset:1px;}
+  .catalog-count{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+  .load-more-wrap{text-align:center; margin-top:28px;}
+  .load-more-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.05em;
+    background:transparent; border:1px solid var(--brass); color:var(--brass-dark);
+    padding:11px 24px; cursor:pointer;
+  }
+  .load-more-btn:hover{background:var(--brass); color:#fff;}
+  .no-results{
+    font-family:'IBM Plex Mono', monospace; font-size:0.88rem; color:var(--ink-soft);
+    padding:30px 0; text-align:center;
+  }
+  .amount-field{
+    display:flex; align-items:center; gap:8px;
+    background:var(--parchment); border:1px solid var(--rule);
+    padding:10px 12px; margin-bottom:16px;
+  }
+  .amount-field label{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-soft);}
+  .amount-field input{
+    flex:1; border:none; background:transparent; font-family:'IBM Plex Mono', monospace;
+    font-size:1.05rem; color:var(--ink); text-align:right;
+  }
+  .amount-field input:focus{outline:none;}
+
+  /* ===== v2 additions: metadata + order form ===== */
+  .book-metadata{
+    display:flex; gap:12px; align-items:flex-start; margin:-4px 0 14px;
+    min-height:0;
+  }
+  .book-cover{
+    width:72px; height:96px; object-fit:cover; flex:0 0 72px;
+    border:1px solid var(--rule); background:var(--parchment); box-shadow:0 3px 8px rgba(27,42,61,0.10);
+  }
+  .book-cover-fallback{
+    width:72px; height:96px; flex:0 0 72px; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:8px; border:1px dashed var(--rule); background:var(--parchment);
+    color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; font-size:0.58rem; line-height:1.3;
+  }
+  .metadata-tags{display:flex; flex-wrap:wrap; gap:6px; align-items:flex-start;}
+  .metadata-tag{
+    display:inline-block; padding:4px 7px; border:1px solid var(--rule); background:var(--parchment);
+    color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; font-size:0.62rem; line-height:1.25;
+  }
+  .metadata-tag.isbn{border-color:var(--sage); color:var(--sage);}
+  .order-form{border-top:1px dashed var(--rule); padding-top:18px; margin-top:18px;}
+  .order-form h3{font-family:'Fraunces',serif; font-size:1.12rem; margin-bottom:5px;}
+  .order-form-sub{font-size:0.78rem; color:var(--ink-soft); margin-bottom:12px;}
+  .order-field{margin-bottom:10px;}
+  .order-field label{display:block; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:4px;}
+  .order-field input,.order-field textarea{
+    width:100%; border:1px solid var(--rule); background:#fffdf7; color:var(--ink);
+    padding:9px 10px; font-family:'Source Serif 4',serif; font-size:.9rem;
+  }
+  .order-field textarea{min-height:74px; resize:vertical;}
+  .order-field input:focus,.order-field textarea:focus{outline:2px solid var(--brass); outline-offset:1px;}
+  .order-submit{
+    width:100%; padding:11px; border:2px solid var(--sage); background:var(--sage); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-size:.76rem; letter-spacing:.04em; cursor:pointer;
+  }
+  .order-submit:disabled{opacity:.65; cursor:wait;}
+  .order-status{margin-top:10px; padding:10px; text-align:center; font-size:.82rem; display:none;}
+  .order-status.success{display:block; border:1px solid var(--sage); background:#eef4ec; color:var(--sage);}
+  .order-status.error{display:block; border:1px solid var(--stamp); background:#f9ece8; color:var(--stamp);}
+  .order-book-note{font-family:'IBM Plex Mono',monospace; font-size:.66rem; color:var(--ink-soft); margin-bottom:10px;}
+
+  @media (max-width:720px){
+    .title-card{padding:38px 22px;}
+    .contribute{grid-template-columns:1fr;}
+    .rescue-banner{flex-direction:column; align-items:flex-start;}
+    .provenance{padding:22px;}
+  }
+
+  /* Shared cart styles are loaded from assets/cart.css */
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<main data-pagefind-body data-pagefind-filter="type:Catalog">
+
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>REAL BOOK CONSERVATORY · EST. RECORD NO. 2026-01</span>
+    <span>ACCESSION · RESTORATION · CIRCULATION</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="title-card">
+      <div class="eyebrow">A Division of the REAL Institute</div>
+      <h1 class="title">REAL Book<br><span class="title-italic">Conservatory</span></h1>
+      <p class="lede">We acquire, restore, catalogue, and circulate academic and scholarly books in science, engineering, medicine, mathematics, and philosophy — so that no book of value is retired before its knowledge is.</p>
+      <span class="tagline-stamp">PRESERVING KNOWLEDGE · EMPOWERING DISCOVERY</span>
+      <div class="accession">
+        <div class="accession-item"><div class="accession-num">10+</div><div class="accession-label">Subject Collections</div></div>
+        <div class="accession-item"><div class="accession-num">IIT · NIT</div><div class="accession-label">Source Institutions</div></div>
+        <div class="accession-item"><div class="accession-num">₹ &amp; UPI</div><div class="accession-label">Circulation via PhonePe</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="provenance" style="padding-top:0;">
+  <div class="wrap">
+    <div class="provenance">
+      <div class="seal">Legally<br>Sourced<br>&amp; Upgraded</div>
+      <div class="provenance-body">
+        <div class="provenance-head">Sourcing &amp; Provenance Notice</div>
+        <p>Every book in the REAL Book Conservatory is <strong>sourced used, through legal channels</strong> — student donations, campus book drives, and reputable marketplaces (such as reputable used-book marketplaces). We do not acquire from vendors known to circulate photocopied or counterfeit editions.</p>
+        <p>Before a book is listed for sale, it goes through a documented upgrade process:</p>
+        <ol>
+          <li><strong>Inspection</strong> — every copy is checked page-by-page and its condition documented (cover, spine, markings, missing pages).</li>
+          <li><strong>Restoration</strong> — cleaning, spine repair, and supportive rebinding where needed, plus a protective cover.</li>
+          <li><strong>Cataloguing</strong> — ISBN, edition, condition grade, and acquisition source are recorded before the book is listed.</li>
+        </ol>
+        <p style="margin-bottom:0;">Because of this inspection, restoration, and cataloguing work, listed prices are set <strong>above the original used-purchase price</strong> — this reflects the labour of conservation, not a markup on the book alone. All titles are available for <strong>direct sale and shipping anywhere within India.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vision">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Charter</span>
+      <h2>Vision &amp; Mission</h2>
+    </div>
+    <div class="plate">
+      <span class="plate-label">Vision</span>
+      <p class="quote">The REAL Book Conservatory preserves, restores, curates, and circulates books that advance science, engineering, medicine, mathematics, philosophy, and human flourishing.</p>
+    </div>
+    <div class="plate">
+      <span class="plate-label">Mission</span>
+      <p>The Conservatory acquires academic and scholarly books from graduating students, researchers, professors, and libraries; restores and catalogues them; and redistributes them to learners, educators, and institutions — supporting the research and educational mission of the REAL Institute. This is stewardship, not retail. Site is operational, but undergoing development.</p>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">What We Do</span>
+      <h2>Activities of the Conservatory</h2>
+      <p class="section-sub">Every book that enters the Conservatory moves through the same disciplined path: rescue, restore, record, and return to circulation.</p>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-card">
+        <span class="tab">01 · Conservation</span>
+        <h3>Repair &amp; Care</h3>
+        <ul>
+          <li>Cleaning and de-acidification</li>
+          <li>Minor repairs, rebinding when economical</li>
+          <li>Protective covers</li>
+          <li>Acid-free storage for valuable editions</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">02 · Cataloguing</span>
+        <h3>Every Book, Recorded</h3>
+        <ul>
+          <li>ISBN, edition, subject, keywords</li>
+          <li>Condition grade &amp; shelf location</li>
+          <li>Photograph &amp; acquisition source</li>
+          <li>Feeds a searchable digital catalogue</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">03 · Marketplace</span>
+        <h3>Student Exchange</h3>
+        <ul>
+          <li>Sell, donate, exchange, or reserve books</li>
+          <li>Conservatory handles cataloguing &amp; distribution</li>
+          <li>UPI / PhonePe checkout for buyers</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">04 · Library Development</span>
+        <h3>Permanent Collections</h3>
+        <ul>
+          <li>REAL Computational Neuroscience Collection</li>
+          <li>REAL Quantum Information Collection</li>
+          <li>REAL Mathematical Sciences Collection</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">05 · Book Rescue</span>
+        <h3>Save a Book from Recycling</h3>
+        <ul>
+          <li>Collected from IITs, NITs, IIITs, IISERs, AIIMS</li>
+          <li>From retiring professors &amp; research labs</li>
+          <li>Post-graduation book drives</li>
+        </ul>
+      </div>
+      <div class="activity-card">
+        <span class="tab">06 · Digital Archive</span>
+        <h3>Where Legally Permissible</h3>
+        <ul>
+          <li>Searchable metadata for public-domain works</li>
+          <li>Bibliographies &amp; curated reading pathways</li>
+          <li>Links to legitimate digital editions</li>
+          <li>No unauthorized distribution of copyrighted texts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Holdings</span>
+      <h2>Academic Collections</h2>
+      <p class="section-sub">Rather than loose titles, we curate by field — so a collection can be studied, cited, and passed on as a whole.</p>
+    </div>
+    <div class="collections">
+      <span class="chip">Artificial Intelligence</span>
+      <span class="chip">Machine Learning</span>
+      <span class="chip">Quantum Computing</span>
+      <span class="chip">Computational Neuroscience</span>
+      <span class="chip">Information Theory</span>
+      <span class="chip">Mathematics</span>
+      <span class="chip">Physics</span>
+      <span class="chip">Electronics</span>
+      <span class="chip">Philosophy</span>
+      <span class="chip">Sanskrit</span>
+      <span class="chip">Kriya Yoga &amp; Contemplative Traditions</span>
+    </div>
+  </div>
+</section>
+
+<section id="rescue">
+  <div class="wrap">
+    <div class="rescue-banner">
+      <div>
+        <h3>Save a Book from Recycling</h3>
+        <p>Graduating? Clearing a lab shelf? Retiring from teaching? Donate your academic books instead of recycling them — we restore and re-circulate them to students who need them.</p>
+        <div class="rescue-sources">SOURCES · IITs — NITs — IIITs — IISERs — AIIMS — RESEARCH LABS</div>
+      </div>
+      <a href="mailto:aman.chawla@gmail.com?subject=Donating%20books%20to%20REAL%20Book%20Conservatory" class="stamp-btn" style="border-color:var(--parchment-dark); color:var(--parchment-dark); width:auto;">Donate Books →</a>
+    </div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Circulation Desk</span>
+      <h2>Available for Sale</h2>
+      <p class="section-sub">The full REAL Book Conservatory shelf inventory, pulled directly from our library records. Every purchase supports acquisition and restoration of the next book. Pay directly via PhonePe or any UPI app.</p>
+    </div>
+
+    <div class="catalog-note">All copies below are legally sourced used books, inspected and restored before listing. Ships anywhere within India. Flat price: ₹300 per book.</div>
+
+    <div class="catalog-toolbar">
+      <input type="text" id="catalogSearch" class="search-input" placeholder="Search by title or author…" oninput="onSearchInput()">
+    </div>
+    <div class="catalog-toolbar" id="filterBar"><!-- filter buttons generated dynamically from catalog data --></div>
+    <div class="catalog-count" id="catalogCount"></div>
+
+    <div class="catalog-grid" id="catalogGrid"></div>
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Join The Shelf</span>
+      <h2>Sell, Donate, or Reserve</h2>
+    </div>
+    <div class="contribute">
+      <div class="plate">
+        <span class="plate-label">Sell / Donate</span>
+        <p>Have academic books you no longer need? We catalogue, restore, and re-circulate them, and can arrange pickup from campuses and labs.</p>
+        <a class="link-btn" href="mailto:aman.chawla@gmail.com?subject=Selling%2FDonating%20books%20to%20REAL%20Book%20Conservatory">List your books →</a>
+      </div>
+      <div class="plate">
+        <span class="plate-label">Reserve / Request</span>
+        <p>Looking for a specific title or edition not yet in the catalogue? Send us the details and we'll flag it during our next acquisition drive.</p>
+        <a class="link-btn" href="mailto:aman.chawla@gmail.com?subject=Book%20request%20-%20REAL%20Book%20Conservatory">Request a title →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <h3>REAL Book Conservatory</h3>
+    <p>Rescuing books. Enabling research. A stewardship initiative of the REAL Institute, generating sustainable support for its educational and research mission.</p>
+    <p><strong>Contact:</strong> <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a> &nbsp;·&nbsp; <strong>Home:</strong> <a href="index.html">REAL Institute</a> &nbsp;·&nbsp; <a href="book_sales_catalog.html">Prajnanabha Press BookSales</a></p>
+    <p class="devanagari">सत्यमेव जयते नानृतम् — Truth alone triumphs, never falsehood</p>
+  </div>
+</footer>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()">
+  🛒 View Cart <span id="cartBadge" class="cart-badge">0</span>
+</button>
+
+<script>
+  const FIXED_PRICE = 300; // flat price applied to every book
+
+  // Full shelf inventory, pulled dynamically from HREALBooksv5.ods (the Conservatory's
+  // physical shelf-location spreadsheet). Each entry is {t: title, a: author, loc: shelf
+  // location, c: collection}. Collections were auto-assigned from title/author keywords.
+  // To refresh this list from an updated spreadsheet, re-export it to this same {t,a,loc,c}
+  // shape and swap the array below — everything else (filters, search, rendering,
+  // pagination, payment) rebuilds itself from whatever is in this array.
+  const catalog = [
+  {t:'Classical Mechanics',a:'Goldman, Poole and Safko',loc:'Shelf 2 · Row 1',c:'Physics'},
+  {t:'Gravity Hartle',a:'',loc:'Shelf 2 · Row 1',c:'Physics'},
+  {t:'An Introduction to QFT',a:'Peskin and Schroeder',loc:'Shelf 2 · Row 1',c:'Physics'},
+  {t:'Information Theory',a:'Ash',loc:'Shelf 2 · Row 1',c:'Information Theory'},
+  {t:'Mathematical Foundations of Information Theory',a:'Khinchin',loc:'Shelf 2 · Row 1',c:'Information Theory'},
+  {t:'Vedic Tantrism',a:'Bhat',loc:'Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Religion of the Rig Veda',a:'',loc:'Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Self, Reality and Reason',a:'Jinpa',loc:'Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Yogananda Sanga',a:'',loc:'Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Computer Internet Shabd Kosh',a:'',loc:'Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Decoherence Computational and Theoretical Problems',a:'Blanchard',loc:'Shelf 2 · Row 1',c:'Quantum Computing'},
+  {t:'The Principal Upanishads',a:'Radhakrishnan',loc:'Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Abhidharma Kosha Bhashya of Vasubandhu Volume 4',a:'',loc:'Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Microelectronic Circuits',a:'Sedra and Smith',loc:'Shelf 2 · Row 1',c:'Electronics'},
+  {t:'Deciphering the Indus Script',a:'Asko Parpola',loc:'Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Mahan Kriya Yogi Paramahamsa Hariharananda',a:'Hara Prasad Ray',loc:'Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Paramahamsa Hariharananda River of Compassion',a:'Paramahamsa Prajnanananda',loc:'Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Deep Work',a:'Cal Newport',loc:'Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'An Enquiry Concerning Human Understanding',a:'David Hume',loc:'Shelf 2 · Row 2',c:'Philosophy'},
+  {t:'Aristotle the Nichomachean Ethics',a:'',loc:'Shelf 2 · Row 2',c:'Philosophy'},
+  {t:'The Genealogy of Morals',a:'Nietzsche',loc:'Shelf 2 · Row 2',c:'Philosophy'},
+  {t:'Mejda',a:'Sananda Lal Ghosh',loc:'Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Living at the Source',a:'Vivekananda',loc:'Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Steven Strogatz Sync',a:'',loc:'Shelf 2 · Row 2',c:'Mathematics'},
+  {t:'Speak Sanskrit the Easy Way',a:'',loc:'Shelf 2 · Row 2',c:'Sanskrit'},
+  {t:'General Relativity',a:'Norbert Straumann',loc:'Shelf 2 · Row 2',c:'Physics'},
+  {t:'Tarka Sangraha',a:'Annambhatta',loc:'Shelf 2 · Row 2',c:'Sanskrit'},
+  {t:'The Story of Swami Rama',a:'Puran Singh',loc:'Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'An Introduction to Information Theory',a:'John R. Pierce',loc:'Shelf 2 · Row 2',c:'Information Theory'},
+  {t:'Tractatus Logico-Philosophicus',a:'Ludwig Wittgenstein',loc:'Shelf 2 · Row 2',c:'Philosophy'},
+  {t:'Einstein Manifolds',a:'Besse',loc:'Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'The Undivided Universe',a:'Bohm and Hiley',loc:'Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Mantrapushpam',a:'Ramakrishna Math',loc:'Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Fundamentals of Differential Geometry',a:'Lang',loc:'Shelf 2 · Row 2',c:'Mathematics'},
+  {t:'Spanda Karika',a:'Singh',loc:'Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Humble Hariharananda',a:'',loc:'Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Principles of Mathematical Analysis',a:'Walter Rudin',loc:'Shelf 2 · Row 2',c:'Mathematics'},
+  {t:'The Guru Tradition',a:'Jagadguru',loc:'Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Rama Katha',a:'Paramahamsa Prajnanananda',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'What the Coronavirus teaches us',a:'Paramahamsa Prajnanananda',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Thought Power',a:'Swami Sivananda',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Emmy Noether\'s Wonderful Theorem',a:'Neuenschwander',loc:'Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Plasmas and Controlled Fusion',a:'Rose and Clark',loc:'Shelf 2 · Row 3',c:'Physics'},
+  {t:'Symplectic Techniques in Physics',a:'Guillemin and Sternberg',loc:'Shelf 2 · Row 3',c:'Physics'},
+  {t:'Elements of Dynamical Systems',a:'Nagar and Shah',loc:'Shelf 2 · Row 3',c:'Mathematics'},
+  {t:'An Appetite for Wonder',a:'Richard Dawkins',loc:'Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Light on Pranayama',a:'BKS Iyengar',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Secret Daily Teachings',a:'Rhonda Byrne',loc:'Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'The N-Vortex Problem',a:'Newton',loc:'Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Japa Yoga',a:'Swami Sivananda',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Babaji: The Divine Himalayan Yogi',a:'Swami Satyeswarananda Giri',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Architecture of Cognition',a:'Anderson',loc:'Shelf 2 · Row 3',c:'Computational Neuroscience'},
+  {t:'Men of Mathematics',a:'E. T. Bell',loc:'Shelf 2 · Row 3',c:'Mathematics'},
+  {t:'Tattvamimamsa and Gyanamimamsa',a:'Dr. Kedarnath Tiwari',loc:'Shelf 2 · Row 3',c:'Sanskrit'},
+  {t:'The Pursuit of Nature',a:'Hodgkin, Huxley',loc:'Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Milarepa',a:'Evans-Wentz',loc:'Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Science of Reality',a:'Swami Sivananda',loc:'Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Mahabharata',a:'J.A. van Beuitenen',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Churning of the Heart vol. 2',a:'Shivom Tirtha',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Tough Times Never Last but Tough People Do',a:'Schuller',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'The Doctors\' Lives',a:'A.K. Chawla',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Conquering the Mind',a:'Eknath Easwaran',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Upanishat Sangraha',a:'Pandit Jadish Shastri',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Philosophical Devices',a:'Papineau',loc:'Shelf 2 · Row 4',c:'Philosophy'},
+  {t:'Wordsworth',a:'Everyman\'s Library',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'What are you doing with your life',a:'Krishnamurti',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Philosophical Investigations',a:'Ludwig Wittgenstein',loc:'Shelf 2 · Row 4',c:'Philosophy'},
+  {t:'Oneness with God',a:'Swami Ramsukhdas',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Conquest of Mind',a:'Swami Sivananda',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Mandukya Upanishad an Exposition',a:'Swami Krishnananda',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Taittiriya Upanishad',a:'Gita Press',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Mind-Its Mysteries and Control',a:'Swami Sivananda',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Man and Environment',a:'Swami Chidananda',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Vision of Life',a:'Swami Krishnananda',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Tree of Life',a:'Swami Krishnananda',loc:'Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Concise Hindi Dictionary of Science',a:'',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Freedom and Neurobiology',a:'Searle',loc:'Shelf 2 · Row 4',c:'Computational Neuroscience'},
+  {t:'Holy Bible',a:'',loc:'Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Quantum Theory',a:'David Bohm',loc:'Shelf 2 · Row 4',c:'Quantum Computing'},
+  {t:'In Woods of God-Realization Volume 1',a:'Ram Tirtha Pratisthan',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'Vaiyakaransiddhantakaumudi Part 1',a:'Motilal Banarsidas',loc:'Shelf 1',c:'Sanskrit'},
+  {t:'Listening For Well-Being',a:'Arun Maira',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'The Theory of Everything',a:'Stephen W Hawking',loc:'Shelf 1',c:'Physics'},
+  {t:'Mein Kampf',a:'Adolf Hitler',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'In Woods of God-Realization Volume 2',a:'Ram Tirtha Pratisthan',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'In Woods of God-Realization Volume 3',a:'Ram Tirtha Pratisthan',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'Einstein: the Life and Times',a:'Ronald W. Clark',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'Vilvadala, Part 2',a:'Sri Bhupendranath Sanyal',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'Omnibus 3',a:'Rabindranath Tagore',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'This Light in Oneself',a:'J. Krishnamurti',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Nuclear Forces',a:'Silvan S. Schweber',loc:'Shelf 1',c:'Physics'},
+  {t:'The Nature of Space and Time',a:'Stephen Hawking and Roger Penrose, Princeton Science Library',loc:'Shelf 1',c:'Physics'},
+  {t:'Srimad Valmiki Ramayana Part 1',a:'Gita Press, Gorakhpur, India',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Student\'s Sanskrit-English Dictionary',a:'Vaman Shivram Apte',loc:'Shelf 1',c:'Sanskrit'},
+  {t:'The Intelligent Investor',a:'Benjamin Graham',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'I am That Talks with Sri Nisargadatta Maharaj',a:'',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Electrodynamics',a:'Wolfgang Pauli',loc:'Shelf 1',c:'Physics'},
+  {t:'The Four Disciplines of Execution',a:'Chris McChesney and Sean Covey',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'Nighantu Tatha Nirukta',a:'Satyabhushan Yogi and Shashi Kumar',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'A Practical Vedic Dictionary',a:'Suryakanta',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'The Zend Avesta',a:'Darmesteter [Cover: An Outline of History of Saiva Philosophy by Pandey and Dwivedi]',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Teachings of Raman Maharshi in His Own Words',a:'Arthur Osborne',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Padma Purana Vol. 44 Part 6',a:'',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'A Critical Survey of Indian Philosophy',a:'Chandradhar Sharma',loc:'Shelf 1',c:'Philosophy'},
+  {t:'Five of Maxwell\'s Papers',a:'James Clerk Maxwell',loc:'Shelf 1',c:'Physics'},
+  {t:'Gita Dainandini',a:'Gita Press, Gorakhpur',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'First French Reader',a:'Stanley Appelbaum',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'The Life Divine',a:'Aurobindo',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Sure Ways',a:'Swami Sivananda',loc:'Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Path of Information',a:'Chawla',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'In Search of the Sublime Oman',a:'',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'String Theory and M-Theory',a:'Becker and Schwarz',loc:'Shelf 1',c:'Physics'},
+  {t:'Living with Death and Dying',a:'Elisabeth Kubler-Ross',loc:'Shelf 1',c:'Literature & General Reading'},
+  {t:'Intention',a:'G. E. M. Anscombe',loc:'Shelf 3 · Right Row',c:'Literature & General Reading'},
+  {t:'The Spectrum of Consciousness',a:'Ken Wilber',loc:'Shelf 3 · Right Row',c:'Computational Neuroscience'},
+  {t:'Essays: First and Second Series',a:'Ralph Waldo Emerson',loc:'Shelf 3 · Right Row',c:'Literature & General Reading'},
+  {t:'The Complete Foundation',a:'The Dalai Lama',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Algebra Volume 1: Groups',a:'Luthar and Passi',loc:'Shelf 3 · Right Row',c:'Mathematics'},
+  {t:'Mathematical Foundations of Quantum Mechanics',a:'K. R. Parthasarathy',loc:'Shelf 3 · Right Row',c:'Quantum Computing'},
+  {t:'The Divine Romance',a:'Sri Sri Paramahamsa Yogananda',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Srimad Bhagavad Gita',a:'Satsang Bhavan Ambala',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Essays: First and Second Series',a:'Ralph Waldo Emerson',loc:'Shelf 3 · Right Row',c:'Literature & General Reading'},
+  {t:'Aarati Sangraha',a:'Gitapress Gorakhpur',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Bankim Chandra Chatterji',a:'Sri Aurobindo',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Sarasashlokaah',a:'Sri Aurobindo Ashrama',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Kathamanjari',a:'Sri  Matuh',loc:'Shelf 3 · Right Row',c:'Literature & General Reading'},
+  {t:'Sufi Teachings: The Message',a:'Hazrat Inayat Khan',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Gems of Prayers',a:'Swami Sivananda',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Introduction to Electrodynamics Fourth Edition',a:'David J. Griffiths',loc:'Shelf 3 · Right Row',c:'Physics'},
+  {t:'Vaiyakaranasiddhantakaumudi',a:'Giridhar Sharma Chaturvedaha, Part 3',loc:'Shelf 3 · Right Row',c:'Sanskrit'},
+  {t:'Srimad Bhagavad Gita Part 2',a:'Sri Bhupendranath Sanyal',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Srimad Bhagavad Gita Part 3',a:'Sri Bhupendranath Sanyal',loc:'Shelf 3 · Right Row',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Early Indian Thought',a:'Kalpatharu Research Academy',loc:'Shelf 3 · Right Row',c:'Literature & General Reading'},
+  {t:'Large Deviations',a:'S. R. S. Varadhan',loc:'Shelf 3 · Right Row',c:'Mathematics'},
+  {t:'Quantum theory of near field electrodynamics',a:'Ole Keller',loc:'Shelf 3 · Row 3',c:'Quantum Computing'},
+  {t:'How to cultivate virtues and eradicate vices',a:'Swami Sivananda',loc:'Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Satyarthaprakashah Sanskrit',a:'Swami Dayananda Saraswati',loc:'Shelf 3 · Row 3',c:'Sanskrit'},
+  {t:'The Meaning and Method of Meditation',a:'Swami Krishnananda',loc:'Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Classical Mechanics',a:'Goldstein',loc:'Shelf 3 · Row 3',c:'Physics'},
+  {t:'Srimad Bhagavad Gita (Part One )',a:'Bhupendranath Sanyal',loc:'Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Nature of Space and Time',a:'Hawking and Penrose',loc:'Shelf 3 · Row 3',c:'Physics'},
+  {t:'The Universe Within',a:'Paramahamsa Prajnanananda',loc:'Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Time Warrior',a:'Steve Chandler',loc:'Shelf 3 · Row 3',c:'Literature & General Reading'},
+  {t:'The Awakening of Intelligence',a:'J Krishnamurti',loc:'Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Meditation',a:'Paramahamsa Hariharananda (Qty. 3)',loc:'Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Readings in the Philosophy of Religion',a:'Baruch Brody',loc:'Shelf 3 · Row 2',c:'Philosophy'},
+  {t:'A Critical History of Greek Philosophy',a:'Stace',loc:'Shelf 3 · Row 2',c:'Philosophy'},
+  {t:'Overcoming Fear Through Knowledge',a:'Aman Chawla',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'The Path Across Despondency',a:'Aman Chawla',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Science and Religion',a:'Swami Ranganathananda',loc:'Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Prayers and Sadhana',a:'Swami Sivananda',loc:'Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Saral Sanskrit Balbodh',a:'Bharatiya Vidya Bhavan',loc:'Shelf 3 · Row 2',c:'Sanskrit'},
+  {t:'Life is Short, Make it Great',a:'Dale Carnegie',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Jaiminiya Brahmana of the Sama Veda',a:'Raghu Vira',loc:'Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Triple Transformation',a:'Sri Aurobindo (Oriya)',loc:'Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Atlas Shrugged',a:'Ayn Rand',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Nityakarma-Prayog (Hindi)',a:'Gitapress Gorakhpur',loc:'Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Bharatiya Gyanamimamsa  (Hindi)',a:'Nilima Sinha',loc:'Shelf 3 · Row 2',c:'Sanskrit'},
+  {t:'Philosophy of Religion',a:'John Hick',loc:'Shelf 3 · Row 2',c:'Philosophy'},
+  {t:'IELTS General Training Volume 1',a:'',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Anabhayin Flights to the Supreme',a:'Aman Chawla',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Analytical Philosophy (Second Series)',a:'R. J. Butler',loc:'Shelf 3 · Row 2',c:'Philosophy'},
+  {t:'Guitar Method Book 01',a:'',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Trinity Grade 06 Keyboard',a:'',loc:'Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'The Mathematical Principles of Natural Philosophy',a:'Newton',loc:'Shelf 3 · Row 2',c:'Mathematics'},
+  {t:'The Eternal Silence',a:'Swami Satyeswarananda',loc:'Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Jatarupa\'s Commentary on the Amarakosa Volume 1',a:'',loc:'Shelf 3 · Row 1',c:'Sanskrit'},
+  {t:'Jatarupa\'s Commentary on the Amarakosa Volume 2',a:'',loc:'Shelf 3 · Row 1',c:'Sanskrit'},
+  {t:'Quantum measure theory',a:'Jan Hamhalter',loc:'Shelf 3 · Row 1',c:'Quantum Computing'},
+  {t:'Foundations of Complex Analysis',a:'Ponnusamy',loc:'Shelf 3 · Row 1',c:'Mathematics'},
+  {t:'Seven Habits of Highly Effective Families',a:'Steven Covey',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Selected Papers',a:'Kiyosi Ito',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Think and Grow Rich',a:'Napoleon Hill',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Introduction to Grothendieck Duality Theory',a:'Kleiman',loc:'Shelf 3 · Row 1',c:'Mathematics'},
+  {t:'On Formally Undecidable Propositions',a:'Godel',loc:'Shelf 3 · Row 1',c:'Mathematics'},
+  {t:'Thinking Fast and Slow',a:'Kahneman',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'The Ultimate Hitchhiker Guide to the Galaxy',a:'Douglas Adams',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'The Doctors\' Lives',a:'Anil K Chawla',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Mind your Mind',a:'Anil K Chawla',loc:'Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Padma Purana Part 1 Vol. 39',a:'',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Probability and Analysis',a:'Fritz, Konig et. al.',loc:'Right Almira · Shelf 1',c:'Mathematics'},
+  {t:'Twenty Five Pearls of Jnanaopadesa',a:'Swami Sivananda',loc:'Right Almira · Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Sankshipt Bhautik Vigyan Shabdkosh',a:'',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Theory of Relativity',a:'Wolfgang Pauli',loc:'Right Almira · Shelf 1',c:'Physics'},
+  {t:'Introduction to Electrodynamics',a:'Griffiths',loc:'Right Almira · Shelf 1',c:'Physics'},
+  {t:'Conquering the Physics GRE',a:'Kahn and Anderson',loc:'Right Almira · Shelf 1',c:'Physics'},
+  {t:'IEEE TIT Vol. 60 No. 11',a:'',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'IEEE TIT Vol. 60 No. 9',a:'',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'The Architecture of Language',a:'Chomsky',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Determination Formulas',a:'A. R. K. Sarma',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'The Wonder that was India',a:'Basham',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Bharaiya Darshan or Indian Philosophy',a:'Jagadishchandra Mishra',loc:'Right Almira · Shelf 1',c:'Philosophy'},
+  {t:'Statistical Mechanics',a:'Pathria and Beale',loc:'Right Almira · Shelf 1',c:'Physics'},
+  {t:'Decoherence and the Appearance of a Classical World',a:'Giulini et. al.',loc:'Right Almira · Shelf 1',c:'Quantum Computing'},
+  {t:'Classical Electrodynamics',a:'Jackson',loc:'Right Almira · Shelf 1',c:'Physics'},
+  {t:'Einstein',a:'Walter Isaacson',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'The American Future',a:'Simon Schama',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Meditations',a:'Marcus Aurelius',loc:'Right Almira · Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Collins English Thesaurus',a:'',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Padma Purana Part 7 Vol. 45',a:'',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'The Official Cambridge Guide to IELTS',a:'Cullen et. al.',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'History of Yoga Vol. 16 part 2',a:'',loc:'Right Almira · Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Quest for Consciousness',a:'Koch',loc:'Right Almira · Shelf 1',c:'Computational Neuroscience'},
+  {t:'Agnirekha',a:'Mahadevi Varma',loc:'Right Almira · Shelf 1',c:'Literature & General Reading'},
+  {t:'Vivekananda',a:'Rajendra Mohan Bhatnagar',loc:'Right Almira · Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Doorway to Yoga',a:'Rameshwar Dass Gupta',loc:'Right Almira · Shelf 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Mimamsa Sutras of Jaimini',a:'Mohan Lal Sandal',loc:'Right Almira · Shelf 2 · Row 1',c:'Sanskrit'},
+  {t:'The Genius of India',a:'Sri Aurobindo',loc:'Right Almira · Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Dhyan',a:'Swami Vivekananda (Hindi)',loc:'Right Almira · Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Rangmanche Sanskritam',a:'Sri Aurobindo (Sanskrit)',loc:'Right Almira · Shelf 2 · Row 1',c:'Sanskrit'},
+  {t:'The Nyaya Theory of Knowledge',a:'Satischandra Chatterjee',loc:'Right Almira · Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'The Miracle of Mindfulness',a:'Thich Nhat Hanh',loc:'Right Almira · Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Rajpal Hindi Dictionary',a:'',loc:'Right Almira · Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Adhyatma Ramayana',a:'',loc:'Right Almira · Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Principles of Digital Communication',a:'Gallager',loc:'Right Almira · Shelf 2 · Row 1',c:'Information Theory'},
+  {t:'Selected Writings',a:'A. P. J. Abdul Kalam',loc:'Right Almira · Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'A Man for All Seasons',a:'Kingshuk Nag',loc:'Right Almira · Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'IEEE TIT Vol. 60 No. 8',a:'',loc:'Right Almira · Shelf 2 · Row 1',c:'Literature & General Reading'},
+  {t:'Glimpses of Vedic Metaphysics',a:'Prem Sabhlok',loc:'Right Almira · Shelf 2 · Row 1',c:'Physics'},
+  {t:'Wine of the Mystic',a:'Yogananda',loc:'Right Almira · Shelf 2 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Foundations of Analog and Digital Electronic Circuits',a:'Agarwal and Lang',loc:'Right Almira · Shelf 2 · Row 2',c:'Electronics'},
+  {t:'Gitanjali',a:'Rabindranath Tagore',loc:'Right Almira · Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Mind its Mysteries and Control',a:'Swami Sivananda',loc:'Right Almira · Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'To Explain the World',a:'Weinberg',loc:'Right Almira · Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Sure Ways for Success in Life and God Realization',a:'Swami Sivananda',loc:'Right Almira · Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Linear Operators for Quantum Mechanics',a:'Jordan',loc:'Right Almira · Shelf 2 · Row 2',c:'Quantum Computing'},
+  {t:'IELTS General Training Packet',a:'',loc:'Right Almira · Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Self Comes to Mind',a:'Damasio',loc:'Right Almira · Shelf 2 · Row 2',c:'Computational Neuroscience'},
+  {t:'Quantum Mechanics and Path Integrals',a:'Feynman and Hibbs',loc:'Right Almira · Shelf 2 · Row 2',c:'Quantum Computing'},
+  {t:'Dincharya (Hindi)',a:'Bhupendranath Sanyal',loc:'Right Almira · Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Sri Aurobindo',a:'Promode Kumar Sen',loc:'Right Almira · Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Bharatiya Darshan (Hindi)',a:'Jadunath Sinha',loc:'Right Almira · Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Time Magazine Person of the Century',a:'',loc:'Right Almira · Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Indian Philosophy',a:'Sain Dass Aeri',loc:'Right Almira · Shelf 2 · Row 2',c:'Philosophy'},
+  {t:'Fundamentals of Electric Circuits',a:'Sadiku',loc:'Right Almira · Shelf 2 · Row 2',c:'Electronics'},
+  {t:'Swami Vivekananda (Bengali) Habibpur',a:'',loc:'Right Almira · Shelf 2 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Mohanmala A Gandhian Rosary',a:'',loc:'Right Almira · Shelf 2 · Row 2',c:'Literature & General Reading'},
+  {t:'Feynman Lectures on Physics Vol. 3',a:'',loc:'Right Almira · Shelf 2 · Row 3',c:'Physics'},
+  {t:'IELTS 11 General Training',a:'',loc:'Right Almira · Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'God Lived With Them',a:'Chetanananda',loc:'Right Almira · Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Turstworthy Machine Learning',a:'Kush Varshney',loc:'Right Almira · Shelf 2 · Row 3',c:'AI / ML'},
+  {t:'Cosmology',a:'Steven Weinberg',loc:'Right Almira · Shelf 2 · Row 3',c:'Physics'},
+  {t:'Connectionism and the Mind',a:'Bechtel',loc:'Right Almira · Shelf 2 · Row 3',c:'Computational Neuroscience'},
+  {t:'Python The Complete Reference',a:'',loc:'Right Almira · Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'The Gheranda Samhita',a:'Vasu',loc:'Right Almira · Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Mastery',a:'Robert Greene',loc:'Right Almira · Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Selections from the Complete Works of Swami Vivekananda',a:'',loc:'Right Almira · Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Pratyabhijnahrdayam',a:'Jaideva Singh',loc:'Right Almira · Shelf 2 · Row 3',c:'Literature & General Reading'},
+  {t:'Footprints of the Master',a:'Paramahamsa Hariharananda',loc:'Right Almira · Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Sama Veda',a:'',loc:'Right Almira · Shelf 2 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Sanskrit Vyakaran Bhag 3 (Hindi)',a:'',loc:'Right Almira · Shelf 2 · Row 4',c:'Sanskrit'},
+  {t:'Shreyasi (Tritiyo Bhagaha) Sanskrit',a:'',loc:'Right Almira · Shelf 2 · Row 4',c:'Sanskrit'},
+  {t:'Sanskrit Vyakaran Bhag 2 (Hindi)',a:'',loc:'Right Almira · Shelf 2 · Row 4',c:'Sanskrit'},
+  {t:'Classical Mechanics',a:'Goldstein',loc:'Right Almira · Shelf 2 · Row 4',c:'Physics'},
+  {t:'Autobiography of a Yogi',a:'Yogananda',loc:'Right Almira · Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'My Experiments with Truth',a:'Gandhi',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'A Vedic Life',a:'Pawan Kanwar',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'The Constitution of India',a:'P. K. Agarwal',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'How to Succeed',a:'Orison Swett Marden',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Anabhayin Flights to the Supreme',a:'Aman Chawla',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'The Timeless Within',a:'Aman Chawla',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'My Time With the Master',a:'Paramahamsa Prajnanananda',loc:'Right Almira · Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Tao of Physics',a:'Fritjof Capra',loc:'Right Almira · Shelf 2 · Row 4',c:'Physics'},
+  {t:'The Life of Isaac Newton',a:'Westfall',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Write to the Top',a:'Johnson',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Seek God Alone',a:'Paramahamsa Prajnanananda',loc:'Right Almira · Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Cybernetics',a:'Norbert Wiener',loc:'Right Almira · Shelf 2 · Row 4',c:'Literature & General Reading'},
+  {t:'Reflections',a:'Swami Vivekananda',loc:'Right Almira · Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Where There is Light',a:'Yogananda',loc:'Right Almira · Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Need for Integral Knowledge',a:'Swami Krishnananda',loc:'Right Almira · Shelf 2 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Triumph and Tragedy Winston Churchill',a:'',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Learn Like a Pro',a:'Oakley',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Rasahrdayatantram (Hindi)',a:'Pandit Vajpayee',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Habibpur Ashram Booklet (Bengali)',a:'',loc:'Right Almira · Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Partial Differential Equations for Probabilists',a:'Stroock',loc:'Right Almira · Shelf 3 · Row 1',c:'Mathematics'},
+  {t:'The Universality of Being',a:'Swami Krishnananda',loc:'Right Almira · Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Srimad Bhagavad Gita As it Is',a:'Prabhupada',loc:'Right Almira · Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Critical Thinking',a:'Haber',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Causal Inference',a:'Rosenbaum',loc:'Right Almira · Shelf 3 · Row 1',c:'AI / ML'},
+  {t:'Healing without Harm',a:'Bartlett',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Differential Topology',a:'Pollack',loc:'Right Almira · Shelf 3 · Row 1',c:'Mathematics'},
+  {t:'Words of Wisdom',a:'Prajnanananda Giri',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Nonlinear Dynamics and Chaos',a:'Strogatz',loc:'Right Almira · Shelf 3 · Row 1',c:'Mathematics'},
+  {t:'Biomechanics',a:'Winter',loc:'Right Almira · Shelf 3 · Row 1',c:'Physics'},
+  {t:'Love is Letting Go of Fear',a:'Jampolsky',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'The Flight of the Eagle',a:'J. Krishnamurti',loc:'Right Almira · Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'A Brief History of Time',a:'Stephen Hawking',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'You will be a paramahamsa',a:'Swami Sarvagatananda',loc:'Right Almira · Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Bhagavad Gita in the Light of Kriya Yoga Book Three',a:'',loc:'Right Almira · Shelf 3 · Row 1',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Ten Steps to a More Fulfilling Life',a:'Dale Carnegie',loc:'Right Almira · Shelf 3 · Row 1',c:'Literature & General Reading'},
+  {t:'Murshidabad Defying Time',a:'Biswa Bangla',loc:'Right Almira · Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Light on the Yoga Sutras of Patanjali',a:'B. K. S. Iyengar',loc:'Right Almira · Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Padma Purana Vol. 40 Part 2',a:'',loc:'Right Almira · Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'The Last Decade',a:'Paramahamsa Prajnanananda',loc:'Right Almira · Shelf 3 · Row 2',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Brain',a:'David Eagleman',loc:'Right Almira · Shelf 3 · Row 2',c:'Computational Neuroscience'},
+  {t:'Vedic Mathematics',a:'Bharti Krishna Tirtha',loc:'Right Almira · Shelf 3 · Row 2',c:'Mathematics'},
+  {t:'Discrete Time Signal Processing',a:'Oppenheim',loc:'Right Almira · Shelf 3 · Row 2',c:'Information Theory'},
+  {t:'Manusmritih',a:'',loc:'Right Almira · Shelf 3 · Row 2',c:'Literature & General Reading'},
+  {t:'Consciousness Explained',a:'Dennett',loc:'Right Almira · Shelf 3 · Row 2',c:'Computational Neuroscience'},
+  {t:'Use Your Brain',a:'Daniel Amen',loc:'Right Almira · Shelf 3 · Row 2',c:'Computational Neuroscience'},
+  {t:'Neural Networks and Learning Machines',a:'Haykin',loc:'Right Almira · Shelf 3 · Row 2',c:'Computational Neuroscience'},
+  {t:'Lectures on Quantum Mechanics',a:'Baym',loc:'Right Almira · Shelf 3 · Row 2',c:'Quantum Computing'},
+  {t:'Ion Channels of Excitable Membranes',a:'Hille',loc:'Right Almira · Shelf 3 · Row 3',c:'Literature & General Reading'},
+  {t:'Foundations of Cognitive Science',a:'Posner',loc:'Right Almira · Shelf 3 · Row 3',c:'Computational Neuroscience'},
+  {t:'The Laws of Nature',a:'Robert Greene',loc:'Right Almira · Shelf 3 · Row 3',c:'Literature & General Reading'},
+  {t:'Sri Aurobindo and the Mother on Physical Education',a:'',loc:'Right Almira · Shelf 3 · Row 3',c:'Physics'},
+  {t:'A Sanskrit Primer',a:'Deshpande',loc:'Right Almira · Shelf 3 · Row 3',c:'Sanskrit'},
+  {t:'Peace is Every Step',a:'Thich Nhat Hanh',loc:'Right Almira · Shelf 3 · Row 3',c:'Literature & General Reading'},
+  {t:'Man\'s Eternal Quest',a:'Yogananda',loc:'Right Almira · Shelf 3 · Row 3',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Stotraratnavali (Hindi)',a:'',loc:'Right Almira · Shelf 3 · Row 3',c:'Literature & General Reading'},
+  {t:'Bhajan Sudha (Hindi)',a:'',loc:'Right Almira · Shelf 3 · Row 3',c:'Literature & General Reading'},
+  {t:'Mantrapushpam (Sanskrit)',a:'',loc:'Right Almira · Shelf 3 · Row 3',c:'Sanskrit'},
+  {t:'One Two Three Infinity',a:'Gamow',loc:'Right Almira · Shelf 3 · Row 4',c:'Literature & General Reading'},
+  {t:'Gorakhbani (Hindi)',a:'Gorakhnath',loc:'Right Almira · Shelf 3 · Row 4',c:'Literature & General Reading'},
+  {t:'The Wealth of Nations',a:'Adam Smith',loc:'Right Almira · Shelf 3 · Row 4',c:'Literature & General Reading'},
+  {t:'Indian Logic A Reader',a:'Ganeri',loc:'Right Almira · Shelf 3 · Row 4',c:'Philosophy'},
+  {t:'Society of Mind',a:'Minsky',loc:'Right Almira · Shelf 3 · Row 4',c:'AI / ML'},
+  {t:'The Principles of Cognitive Neuroscience',a:'Purves',loc:'Right Almira · Shelf 3 · Row 4',c:'Computational Neuroscience'},
+  {t:'Anabhayin Flights to the Supreme',a:'Aman Chawla',loc:'Right Almira · Shelf 3 · Row 4',c:'Literature & General Reading'},
+  {t:'Hymns to the Goddess and Hymn to Kali',a:'Woodroffe',loc:'Right Almira · Shelf 3 · Row 4',c:'Literature & General Reading'},
+  {t:'Srimad Bhagavad Gita (Hindi)',a:'Pancanan Bhattacarya',loc:'Right Almira · Shelf 3 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Paramahamsa Yogananda In Memoriam',a:'',loc:'Right Almira · Shelf 3 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'The Sama Veda (English)',a:'',loc:'Right Almira · Shelf 3 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Mevlana Rumi',a:'',loc:'Right Almira · Shelf 3 · Row 4',c:'Literature & General Reading'},
+  {t:'Elements of Information Theory',a:'Cover',loc:'Right Almira · Shelf 3 · Row 4',c:'Information Theory'},
+  {t:'Mathematical Foundations of Information Theory',a:'Khinchin',loc:'Right Almira · Shelf 3 · Row 4',c:'Information Theory'},
+  {t:'Most Important Sadhana',a:'Sivananda',loc:'Right Almira · Shelf 3 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Servant of God',a:'Swami Ramdas',loc:'Right Almira · Shelf 3 · Row 4',c:'Kriya Yoga & Contemplative Traditions'},
+  {t:'Secret of the Veda',a:'Aurobindo',loc:'Right Almira · Shelf 3 · Row 4',c:'Kriya Yoga & Contemplative Traditions'}
+];
+
+  const PAGE_SIZE = 24;
+  let activeFilter = 'all';
+  let searchTerm = '';
+  let visibleCount = PAGE_SIZE;
+
+  function buildFilterBar(){
+    const counts = {};
+    catalog.forEach(b => { counts[b.c] = (counts[b.c] || 0) + 1; });
+    const collections = Object.keys(counts).sort((a,b) => counts[b] - counts[a]);
+
+    const bar = document.getElementById('filterBar');
+    let html = `<button class="filter-btn active" data-c="all" onclick="filterCatalog('all', this)">All Collections (${catalog.length})</button>`;
+    html += collections.map(c =>
+      `<button class="filter-btn" data-c="${c}" onclick="filterCatalog('${c.replace(/'/g,"\\'")}', this)">${c} (${counts[c]})</button>`
+    ).join('');
+    bar.innerHTML = html;
+  }
+
+  function getFiltered(){
+    let items = activeFilter === 'all' ? catalog : catalog.filter(b => b.c === activeFilter);
+    if(searchTerm){
+      const q = searchTerm.toLowerCase();
+      items = items.filter(b => b.t.toLowerCase().includes(q) || b.a.toLowerCase().includes(q));
+    }
+    return items;
+  }
+
+  // ---- Metadata merge pipeline (books_metadata_cache.json) ----
+  let metadataCache = {};
+  let metadataLoaded = false;
+
+  function normalizeMetadataText(value){
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  }
+
+  function metadataMatchesBook(meta, book, key){
+    const bookTitle = normalizeMetadataText(book.t);
+    const bookAuthor = normalizeMetadataText(book.a);
+    const description = normalizeMetadataText(meta && meta.description);
+    if(bookTitle && description.includes(bookTitle)) return true;
+    if(bookAuthor && description.includes(bookAuthor) && bookTitle && description.includes(bookTitle)) return true;
+    // The supplied cache is keyed 1..329 in catalog order; use that deterministic key as fallback.
+    return String(key) === String(catalog.indexOf(book) + 1);
+  }
+
+  function getMetadataForBook(book){
+    const exactKey = String(catalog.indexOf(book) + 1);
+    if(metadataCache[exactKey]) return metadataCache[exactKey];
+    for(const [key, meta] of Object.entries(metadataCache)){
+      if(metadataMatchesBook(meta, book, key)) return meta;
+    }
+    return null;
+  }
+
+  function metadataMarkup(meta){
+    const tags=[];
+    if(meta && meta.publishedDate) tags.push(`<span class="metadata-tag">${meta.publishedDate}</span>`);
+    if(meta && meta.isbn) tags.push(`<span class="metadata-tag isbn">ISBN ${meta.isbn}</span>`);
+    if(meta && meta.publisher) tags.push(`<span class="metadata-tag">${meta.publisher}</span>`);
+    const cover = meta && meta.thumbnail
+      ? `<img class="book-cover" src="${meta.thumbnail}" alt="Book cover" loading="lazy" onerror="this.outerHTML='<div class=\"book-cover-fallback\">No Cover Available</div>'">`
+      : `<div class="book-cover-fallback">No Cover Available</div>`;
+    return `<div class="book-metadata">${cover}<div class="metadata-tags">${tags.join('')}</div></div>`;
+  }
+
+  async function loadMetadata(){
+    try{
+      const response = await fetch('books_metadata_cache.json', {cache:'no-store'});
+      if(!response.ok) throw new Error('Metadata cache unavailable');
+      metadataCache = await response.json();
+      metadataLoaded = true;
+      renderCatalog();
+    }catch(err){
+      metadataCache = {};
+      metadataLoaded = false;
+      renderCatalog();
+      console.warn('REAL Book Conservatory metadata cache could not be loaded:', err);
+    }
+  }
+
+  // Cart State
+  let cart = [];
+
+  function renderCatalog(){
+    const all = getFiltered();
+    const items = all.slice(0, visibleCount);
+    const grid = document.getElementById('catalogGrid');
+    const count = document.getElementById('catalogCount');
+
+    count.textContent = all.length
+      ? `Showing ${items.length} of ${all.length} titles`
+      : '';
+
+    if(all.length === 0){
+      grid.innerHTML = '';
+      count.innerHTML = '<div class="no-results">No titles match that search — try a different word or collection.</div>';
+      return;
+    }
+
+    grid.innerHTML = items.map(b => `
+      <div class="book-card">
+        <span class="call-tab">${b.loc}</span>
+        <div class="book-body">
+          ${metadataMarkup(getMetadataForBook(b))}
+          <div class="book-collection">${b.c}</div>
+          <div class="book-title">${b.t}</div>
+          <div class="book-author">${b.a ? 'by ' + b.a : ''}</div>
+          <span class="condition">Used — Inspected</span>
+          <p class="book-desc">From the Conservatory's shelf inventory. Contact us to confirm condition and price before reserving.</p>
+          <div class="book-price">
+            <span class="price-amt">₹300</span>
+            <span class="price-note">one-time · UPI/PhonePe</span>
+          </div>
+          <button class="stamp-btn" onclick="addToCart('${b.t.replace(/'/g,"\\'")}', 300, { loc: '${b.loc.replace(/'/g,"\\'")}' })">Add to Cart</button>
+        </div>
+      </div>
+    `).join('');
+
+    const gridWrap = grid.parentElement;
+    let moreWrap = document.getElementById('loadMoreWrap');
+    if(moreWrap) moreWrap.remove();
+    if(all.length > items.length){
+      moreWrap = document.createElement('div');
+      moreWrap.id = 'loadMoreWrap';
+      moreWrap.className = 'load-more-wrap';
+      moreWrap.innerHTML = `<button class="load-more-btn" onclick="loadMore()">Load more (${all.length - items.length} remaining)</button>`;
+      gridWrap.appendChild(moreWrap);
+    }
+  }
+
+  function loadMore(){
+    visibleCount += PAGE_SIZE;
+    renderCatalog();
+  }
+
+  function filterCatalog(collection, btn){
+    activeFilter = collection;
+    visibleCount = PAGE_SIZE;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCatalog();
+  }
+
+  let searchDebounce;
+  function onSearchInput(){
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      searchTerm = document.getElementById('catalogSearch').value.trim();
+      visibleCount = PAGE_SIZE;
+      renderCatalog();
+    }, 150);
+  }
+
+  buildFilterBar();
+  renderCatalog();
+  loadMetadata();
+</script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

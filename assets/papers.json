@@ -1,0 +1,3362 @@
+﻿[
+  {
+    "Authors": "Shams, Ladan; Iwaki, Sunao; Chawla, Aman; Bhattacharya, Joydeep; ",
+    "Title": "Early Modulation of Visual Cortex by Sound: an MEG Study",
+    "Publication": "Neuroscience letters",
+    "Volume": 378.0,
+    "Number": "2",
+    "Pages": "76-81",
+    "Year": 2005.0,
+    "Publisher": "Elsevier"
+  },
+  {
+    "Authors": "Neil, Patricia A; Chawla, Aman; Bhattacharya, Joydeep; Shimojo, Shinsuke; ",
+    "Title": "Significant Audio-visual Interaction for Spatially Congruent Stimuli",
+    "Publication": "Journal of Vision",
+    "Volume": 4.0,
+    "Number": "8",
+    "Pages": "702-702",
+    "Year": 2004.0,
+    "Publisher": "The Association for Research in Vision and Ophthalmology"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Reliability of a Gaussian Channel in the Presence of Gaussian Feedback",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2006.0,
+    "Publisher": "Massachusetts Institute of Technology"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Axon-axon Interaction via Currents and Fields",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2017.0,
+    "Publisher": "University of South Florida"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore D; ",
+    "Title": "Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli",
+    "Publication": "BMC Neuroscience",
+    "Volume": 15.0,
+    "Number": "Suppl 1",
+    "Pages": "P87",
+    "Year": 2014.0,
+    "Publisher": "BioMed Central"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore; Snider, Arthur; ",
+    "Title": "On Axon Interaction and its Role in Neurological Networks",
+    "Publication": "IEEE/ACM Transactions on Computational Biology and Bioinformatics",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2019.0,
+    "Publisher": "IEEE"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore D.; Snider, Arthur D.; ",
+    "Title": "Fields, Geometry, and Their Impact on Axon Interaction",
+    "Publication": "Journal of Applied Mathematics and Physics",
+    "Volume": 9.0,
+    "Number": "4",
+    "Pages": "751-778",
+    "Year": 2021.0,
+    "Publisher": "Scientific Research Publishing"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "On the Continuous Time Additive Gaussian Noise Channel in the Presence of Perfect Feedback",
+    "Publication": "2020 IEEE Information Theory Workshop (ITW)",
+    "Volume": null,
+    "Number": null,
+    "Pages": "05/01/26",
+    "Year": 2021.0,
+    "Publisher": "IEEE"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Reliability of a Classical-quantum Communication System With Noisy Feedback",
+    "Publication": "Quantum Information Processing 2012",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2011.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, A; ",
+    "Title": "Noisy Feedback Reliability of a Peak Power Constrained AWGN Channel",
+    "Publication": "First Annual School of Information Theory, 2008",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2008.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "On the Geometry of Interacting Axon Tracts in Relation to Their Functional Properties",
+    "Publication": "Communications in Mathematical Biology and Neuroscience",
+    "Volume": 2024.0,
+    "Number": "57",
+    "Pages": null,
+    "Year": 2022.0,
+    "Publisher": "scik.org"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Ephaptic Coupling in Axon Tracts Under Time and Rate Coding of Information: a Computer Study",
+    "Publication": "Bernstein Conference",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2020.0,
+    "Publisher": "doi: 10.12751/nncn.bc2020.0068"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Towards Weak Information Theory: Weak-Joint Typicality Decoding Using Support Vector Machines May Lead to Improved Error Exponents",
+    "Publication": "https://arxiv.org/abs/2208.04263",
+    "Volume": null,
+    "Number": "TR-166-2022",
+    "Pages": null,
+    "Year": 2022.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards Weak Source Coding",
+    "Publication": "https://arxiv.org/abs/2209.04765",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2022.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "On the Error Exponent of Axon-Coupled Channels: Computer Explorations.",
+    "Publication": "Bernstein Conference 2022",
+    "Volume": null,
+    "Number": null,
+    "Pages": "PIII.19",
+    "Year": 2022.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts",
+    "Publication": "Physics Essays",
+    "Volume": 36.0,
+    "Number": "2",
+    "Pages": null,
+    "Year": 2022.0,
+    "Publisher": "Physics Essays Publications"
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Differential Ephaptic Networks",
+    "Publication": "Journal of Applied Mathematics and Physics",
+    "Volume": 10.0,
+    "Number": "10",
+    "Pages": "2876-2882",
+    "Year": 2022.0,
+    "Publisher": "Scientific Research Publishing"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Gedanken Experiment on the Brain as a Quantum Computer",
+    "Publication": "dx.doi.org/10.13140/RG.2.2.15135.02720",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2022.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "On an analogy between ephaptic coupling in large tracts and cross-modal integration during illusory percept",
+    "Publication": "bioRxiv",
+    "Volume": null,
+    "Number": null,
+    "Pages": "2022.10. 27.509121",
+    "Year": 2022.0,
+    "Publisher": "Cold Spring Harbor Laboratory"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Mathematical Model for the Vector Ephaptic Perceptron.",
+    "Publication": "Zenodo [English & Spanish]",
+    "Volume": null,
+    "Number": "dx.doi.org/10.5281/zenodo.7421770",
+    "Pages": null,
+    "Year": 2022.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "High Reliability Communication System Using Statistical Learning",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": null,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Axon Tract as a Transducer: Simulation of Gravitational Waves Coupling With an Ion at the Node of Ranvier",
+    "Publication": "dx.doi.org/10.5281/zenodo.7535755",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Study of Compound Action Potentials in Current-Coupled Tracts of Identical Axons",
+    "Publication": "https://doi.org/10.5281/zenodo.7582199",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Towards a Network Coding View of Ephaptic Synchronization",
+    "Publication": "https://zenodo.org/record/7608640/files/butterflynervev13forYHKim.pdf?download=1",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On a Unification Problem in Mathematical Neuroscience",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.7623570",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "A Study of Compound Action Potentials in Current-Coupled Tracts: the General Case",
+    "Publication": "Journal of Applied Mathematics and Physics",
+    "Volume": 11.0,
+    "Number": "11",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": "https://www.scirp.org/journal/paperinformation.aspx?paperid=128888"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Anytime Information Theory: A Proposal",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.7642516",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Shapiro, J; Wong, D. N.; Erkmen, Baris I.; GarcÃ­a-PatrÃ³n, RaÃºl; Le GouÃ«t, Julien; Tengner, M.; Chawla, Aman; O., Kuzucu; Venkatraman, D.; ",
+    "Title": "Chapter 45. Optical and Quantum Communications Optical and Quantum Communications",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2005.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards an in-Silico Study of Sternarchus",
+    "Publication": "https://zenodo.org/record/7724880",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Signal Detection and Integration Theory: a Gedanken Experiment",
+    "Publication": "https://zenodo.org/record/7774610",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "An Application of Inductive Anvaya",
+    "Publication": "https://zenodo.org/record/7793065",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards Clarifying Shared Ancestry Between Munda and Old Indo-Aryan: A Selective Overview of Michael Witzel's 1999 Paper",
+    "Publication": "https://www.researchgate.net/publication/369739145_Towards_Clarifying_Shared_Ancestry_Between_Munda_and_Old_Indo-Aryan_A_Selective_Overview_of_Michael_Witzel's_1999_Paper",
+    "Volume": null,
+    "Number": "10.13140/RG.2.2.13229.15841",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Relation Between Central Asian Languages and Vedic Sanskrit: a ChatGPT Study",
+    "Publication": "https://dx.doi.org/10.13140/RG.2.2.31315.45608",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Sanskrit as a Stable `Eigen'-Language Well-Suited for Storage and Transmission",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.7826623",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on a Chomskian Analogy Between Sanskrit and Huffman Coding",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.7832928",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "How Biology can Control Information Flow in the Nervous System",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.7882553",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Manjunath, Suma; ",
+    "Title": "A Note on Nonlinearities in Ephaptic Axon Tracts",
+    "Publication": "https://dx.doi.org/10.13140/RG.2.2.15603.20009",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on an Error of Representation in Parpola (1994)",
+    "Publication": "https://zenodo.org/record/7954176#.ZGnBhKVBxD8",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Metric Perturbations and Channel Capacity: Information Acquisition in Spacetime",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.8054759",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Representation of Time in the Brain",
+    "Publication": "https://dx.doi.org/10.5281/zenodo.8143251",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a Dynamical Systems Approach to Feedback Communication",
+    "Publication": "dx.doi.org/10.5281/zenodo.10033938",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Snider, Arthur; Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Axonal Conduction Velocity: a Computer Study",
+    "Publication": "Journal of Applied Mathematics and Physics",
+    "Volume": 12.0,
+    "Number": "1",
+    "Pages": "10.4236/jamp.2024.121007",
+    "Year": 2024.0,
+    "Publisher": "Scientific Research Publishing"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on the Origin and Fate of Consciousness",
+    "Publication": "10.5281/zenodo.10076267",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards `Real' Learning: a Computer Study of Perceptrons",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Impact of the Expansion of the Universe on Tract Information Processing",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "dx.doi.org/10.5281/zenodo.10150833",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Infant Numerical Cognition and Ephaptic Synchronization",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "dx.doi.org/10.5281/zenodo.10198775",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Can AI Detect G-Waves in Neural Data?",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10205559",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On General Nonlinearities in Ephaptic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10205250",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Enlightened AI: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10246167",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a Unified Picture of Everything",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10248815",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Structure of Nimble or Resilient Organizations: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10250201",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Networked Universal Awareness: a Note",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://zenodo.org/records/14995645",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Re-Viewing Information as a Fluid: an Error Exponent Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10378740",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Discrete Time, Continuous Time and the Self-image: A Gedanken Experiment",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10379411",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Remark on Ampliation in Probability and Philosophy",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10393467",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Quantum Information Processing in a Neuron",
+    "Publication": "Physics Essays",
+    "Volume": 37.0,
+    "Number": "3",
+    "Pages": "212-214",
+    "Year": 2024.0,
+    "Publisher": "Physics Essays Publications"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Deformations in axons, and their threshold",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10396961",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Application of the Conservation of Information",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10424046",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Of Codes and Consciousness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10425949",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Network Random Refresh",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10427792",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Of Omniscience and Probability",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10429806",
+    "Pages": null,
+    "Year": 2023.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Geometric Relativity of Action Potentials: a Mathematical Approach",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10910056",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Does Baseline Spiking Activity of a Neuron Enhance its Data Transmission Rates?",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10469506",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Capacity of a Neural PDE",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10468771",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Wigner Function Approach to Brain Decoherence Processes: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10525269",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Basic Electrodermal Recording: a Report",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10530140",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Measurement of Consciousness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10544030",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Cell-to-Cell Coupling: a Unifying Approach",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10547325",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Mathematical Model for the Node of Ranvier",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10548946",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantifying the MacKay Hypothesis",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10570736",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Distributed Control of Axonal Conduction: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10578632",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Capacity of an Axon Tract With Random Demyelination",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10599932",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Some Thoughts on Cosmic-Conscious Devices",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10606490",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Probability Theory, Logic and LLMs: A Prediction of Jaynes (1990)",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10609908",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Dating of the Jyotisa Vedanga",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10633165",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Varshney, Lav; Richter, Brandon; Chawla, Aman; ",
+    "Title": "Rate Distortion Characterization of Wavelet-Based Image Compression Schemes",
+    "Publication": "Cornell University Digital Signal Processing Final Project",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2003.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Perfect Feedback Exponent is Not Achieved Everywhere by Every Asymptoting Two Phase Noisy Feedback Scheme",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10654922",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Neuro-inspired Quantum Nets: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10655613",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Vedic Approach to a Short Internode",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10686001",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Model Problems in Ephaptic Interaction",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10686462",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore Domenic; ",
+    "Title": "Mechanism of Universal Quantum Computation in the Brain",
+    "Publication": "Journal of Applied Mathematics and Physics",
+    "Volume": 12.0,
+    "Number": "2",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": "Scientific Research Publishing"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Interaction of Metric Perturbations With an Axon Tract: Demonstration of the Strong Wave Curves",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10700047",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Enquiry on the Dating of the Jyotisa Vedanga",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10700519",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On an Agent-aided Noisy Feedback Scheme",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10701655",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Rigorous Approach to Demyelination Capacity",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10751645",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Behavior Near Capacity: A Study of Error Exponents",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10786444",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards the Exact Quantum Computation Sequence in Axon Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10799497",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Thoughts on Some Connections Between General Relativity and the Knowledge of Observers",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10804710",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On an Agent-aided Noisy Feedback Scheme -II",
+    "Publication": "ResearchGate",
+    "Volume": null,
+    "Number": "http://dx.doi.org/10.13140/RG.2.2.24660.",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ephaptic Coupling and Power Consumption",
+    "Publication": "ResearchGate",
+    "Volume": null,
+    "Number": "http://dx.doi.org/10.13140/RG.2.2.11238.",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Information Theory and Direction Selectivity",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10827250",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Consciousness of Objects Alters Only Their Perception Over Time",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10829206",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Perceptrons and Evolution",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10829621",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Compactness and Observers: Consideration of Implications",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10841270",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Dendro-dendritic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10854042",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Generalizing the Information-theoretic Characterization of Channels That Compute",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10854231",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Inverse Perceptrons and Regression",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10854605",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Weak Quantum Decoding for Axon Tracts in the Tatikonda-Mitter Framework: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10866146",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Percolating Consciousness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10866312",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Two-Tract Gedanken Experiment",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10878457",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Irrelevance of Angular Geometry for Very Large Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10886347",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Framework for Quantum Character Recognition",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10900090",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Recognition Using the Quantum Perceptron",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10901051",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Bi-directional Classical Transmission Using One-way Entanglement-assisted Quantum Transmission",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10908373",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Federated Quantum Perceptrons",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10908984",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Joint View of Computation and Learning",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10948498",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Extending the Quperceptron to Spin Systems: a Note",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10952875",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Gambling and Learning",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10953575",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Anytime Coding for Gaussian Rate-Limited Noisy Feedback: Low Average Rates of Data Transmission",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10969023",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Anytime Coding for Non-Stationary Channels: an Exploration",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.10978130",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Extending the Quperceptron to Spin Systems",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Configured Structures and Their Representation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11046953",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Knots and Information",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11063124",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Sphere-packing in Spherical Spaces",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11090212",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Geometric Application of Bell's Perturbative Theorems",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11162231",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Shannon Approach to Bosons",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11309894",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Memory and Entropy",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11392531",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Ephaptic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11398370",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ideas on Ultracold Coherent Systems and Communication",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11524599",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Security Aspects of Viterbi Decoding",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11530069",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On History",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.11648676",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Optimal Placement of Extracellular Recording Electrodes Near Axon Tracts: a Note",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12058755",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On an Agent-aided Noisy Feedback Scheme -III",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12516758",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Attitude Adopted by Thinking Towards Itself",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12566003",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Sinusoidal Perceptron in a Different Form",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12568811",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Metric Perturbations May Address Instruction Memory in the Brain",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12599388",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Using Mutual Information to Characterize Neural PDEs",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12765241",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Variation of Mutual Information With Tract Temperature",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12794810",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Characterization of Cascaded LTI Instances Using Mutual Information: a Computer Study",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12805377",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Reflections on Model System Sequestration in the Laboratory",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.12807426",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Consequence of Distance From the Metric Perturbation Source on Tract Timing",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13252941",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; Morgera, Salvatore; ",
+    "Title": "Ephaptic Information Flow: Information Processing in Groups of Neurons",
+    "Publication": "Physics Essays",
+    "Volume": 38.0,
+    "Number": "1",
+    "Pages": "57",
+    "Year": 2025.0,
+    "Publisher": "PEP"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a General Theory of Medium-Sensitive Current-Mediated Ephaptic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13313122",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards Simplex-Coded Noisy Feedback Communication on the Gaussian Channel",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13318345",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "QUBO Formulation of Entropy Maximization",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13323639",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Study of Cross-Information",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13334725",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Information Theory in India",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13337597",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Assumptions and Axioms in the Construction of Theories",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13357689",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a Mathematical Theory of DS Computation in SAC Dendrites",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13624879",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Neurobiophysical Communication",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": "10.5281/zenodo.13624957"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Quantum Algorithm for MAXSAT",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13625017",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Finding the Parity of an Unknown Quantum State",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13637707",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Does Quantum Randomness Govern Universal Evolution?",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13638767",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Gedanken Experiment on the Flow of Time",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13645370",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Quantum Extension of Action Potential Coupling in 3D Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13725468",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Revisiting the 3D Tract Equation for Generic Axonal Geometry",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13763057",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Simulating nullofluidics: an LLM Study",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13769327",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Illumination for nullofluidics: an LLM Study",
+    "Publication": "ResearchGate",
+    "Volume": null,
+    "Number": "10.13140/RG.2.2.18607.55202",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Solar Energy",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13788594",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Applying the Method of Types to Channels With Continuous Alphabets",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13822713",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Theory of Coupled Languages",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13829538",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Li-Vitanyi Approach to Noisy Channel Coding",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13835492",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Refractors",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13845920",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on Entangled Processing in Tracts of Axons",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13881195",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "How Internodal Spacing Modulates Saltatory Information Flow",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13893561",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "How Internodal Spacing Modulates Saltatory Ephaptic Information Flow",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13895234",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Stroboscope: A Note on Quantum Illumination of Moving Targets",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13933124",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Anytime Delay and the Streaming Gaussian Reliability Function",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13936896",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Volterra Functional Approach to the Poisson Channel with Noisy Feedback: a Note",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13975320",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a Vedic Algorithm for the Singular Value Decomposition: Part I - On Matrix Eigenvalues",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13981929",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Perception of Randomness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13987582",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "t'Hooft Meets a String: A Proposal on Shockwave Production by Massive Particles",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.13995462",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Mass as a State",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14030296",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Mass as a State: Impact on the Heisenberg Equations of Motion",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14045335",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Path of Information",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": "ISBN-13: 979-8345832639"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on the Mass-Position Uncertainty Principle",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14096718",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a General Theory of Scientific Communication",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14173420",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Operational Amplifier Axons",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14173586",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Large Language Model-guided Quantum MaxSAT Algorithm Design",
+    "Publication": "Quantum Computing Theory in Practice QCTiP 2025 (accepted)",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14876383",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Frequency-resolved Gravitational Wave Spectrometer: A Thought Experiment",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14249083",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Of Scales and Displacement: the Need for a New Quantum Law",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14288885",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Diseased Learning Machines",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14429023",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Two Paths to Nietzsche's Ubermensch",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14475007",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "fMRI Tests for Neural Gravity: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14569078",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Law of Ephaptic Information-dynamics",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14590585",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "fMRI Tests for Neural Gravity: Analysis",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14691009",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Sarvaprakataviveka",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14702533",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Mahasiddhartha",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14714492",
+    "Pages": null,
+    "Year": 2024.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Mahasiddhartha",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14714492",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Vedic Religion and Vedic Law: Universal in Bharata",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14722481",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Coherent Quantum Feedback Control of a BEC Under Communication Constraints: Proposed Simulation and Analytical Study",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14731296",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Effect of Temperature on Ephaptic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14771688",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Modulation of Neurotransmitter Activity by Metric Perturbations: a Gedanken Study",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14786421",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Everyday Origin of Life",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14850100",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Architecture of a Brain-Inspired Quantum Supercomputer and its Separation From Consciousness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14867811",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Cosmic Religion: A Call to Action",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14876891",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Coupled Cable Equations in the Witten-Rozansky Framework: an LLM Study",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14913213",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Studying Healthcare in Rural India",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14916399",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Distance and Time in Prajna and Physics",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.14949955",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Mathematical Theory of Consciousness",
+    "Publication": "Prajnullabha",
+    "Volume": 1.0,
+    "Number": "1",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "REAL Institute, Gurugram"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Un Modelo MatemÃ¡tico para el PerceptrÃ³n EphÃ¡ptico Vectorial",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": null,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "AI Yoga Darshanam",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15030702",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Some Progress on Axonal Quantum Computation in the Markin Approximation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15031264",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Impact of f(R) Gravity on Gravitational Wave-Induced Action Potential Timing Differentials in Ephaptic Axon Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15070186",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Theoretical Basis From String Theory Which Precludes Brain Quantum Computation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15070375",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Cosmic Quantum Orchestra: A Brief History of the Brain",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15087069",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Wrinkles in Computation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15093377",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Of Lenses and Wrinkles",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15094894",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "AI-Critical Review of \"Of Codes and Consciousness\"",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15106184",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantifying the Impact of Lift-off on the Optic Nerve Tract of Space Crew",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15194779",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Low Frequency Experimental Characterization of an FSO Channel: an Invitation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15262410",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a Computer Study of Pulsing Fields: a Report",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15341864",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Towards a MIMO Analysis of Ephaptic Communications",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15342027",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Tortuosity and the Flatness of Local Spacetime",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15342736",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Crystals and Quantum Computation: a Note",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15353492",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Photon Mean Free Path in Turbulence: First Investigation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15354548",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "AI-Based Healthcare: Website and App Feedback Form for Entrepreneurs",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15354969",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Communication-on-the-fly With High Quality Bits - Part I: Motivation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15361019",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Implementing Network Random Refresh: an Algorithmic Approach",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15365406",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Quantum Perceptron: A First Approach",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15365469",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Unification of Encryption and Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15365551",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Behavioral Gravity",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15379957",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "MacDonald-Thorne Black-hole Electrodynamics for Nerves. Part I: Motivation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15384640",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Addressing Einstein's Question",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15392068",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Braid Information Theory",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15399884",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Integrating Mach and Vedanta: a Note",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15400057",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "His Legacy: A Poetic Call to Higher Consciousness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15400266",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Version of Plonsey (1967): a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15420918",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Magnetic Stimulation Alters Conduction Profiles in Ephaptic Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15448101",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Polygonal Reliability: the Problem",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15449640",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Near-field Reliability: the Problem",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15453394",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Zero, the Unifier: Reflections on a Gift of India to the World",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15454102",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Systematic Non-Tree Codes: Rudiments",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15464217",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Extroversion and Expansion: a Distinction",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15469106",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Study in Pink and Green",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15477282",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Interferometric Quantum Stroboscope",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15501428",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Hodgkin-Huxley Equation on a Curve",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15502387",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Simultaneous Transmission via Sound and Light: Squeezing and Uncertainty",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15505406",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Hacia una Picture Unificada de Todo",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15551083",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "View from the Crowne",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15561359",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Brownian Motion During Neurodevelopment",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15580830",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ephaptic Coupling Study Based on the Conditional PNP Equation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15606204",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Of Qualia and the Nature of the Universe",
+    "Publication": "ResearchGate",
+    "Volume": null,
+    "Number": "10.13140/RG.2.2.16313.89447",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Pulsation of a Universe in the Tattvabodha",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15617466",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Inner Search",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15617858",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum-Enabled Signal Processing: a Method for Quantum Filter Design",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15620854",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Approach to Yao's Minimax Principle: a Proposal",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15621202",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Mapping the Synaptic Electric Field",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15645154",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Rigorous Computational Jyotisa",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15665465",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On a Work by Prof. Sergio Servetto",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15668687",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "An Information-Regulated Spacetime Framework for Smooth Solutions of the 3D NavierÂ–Stokes Equations",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15673477",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Evolution and Clustering Probabilities in a Vortex Fluid: Analogy with a BEC",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15703827",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Immortal Contribution of Vedavyasa",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15713733",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Apprehension of Monism: the Means",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15715531",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Function Theoretic Approach to Quantum Measurements",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15741249",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "ComprensiÃ³n del Monismo: los Medios",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15770743",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Axon Interaction for the Novice",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15775562",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 1: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15795038",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Role of Algorithms in Quantum Computing",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15795099",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 2: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15795604",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 3: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15798063",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 4: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15802712",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Essence of Worship",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15815460",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Construction of a Mathematical Variant on Bosonic Noise",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15817130",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Personal Finullce PDE Whose Aggregation Yields the BlackÂ–Scholes Equation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15834173",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Theory of Nonlocal Unification: the Foundation and its Application",
+    "Publication": "Prajnullabha",
+    "Volume": 1.0,
+    "Number": "1",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "REAL Institute, Gurugram"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Fundamental Finitary Limits to Maximal Mutual Information",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15870412",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 6: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.15872035",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Anscombe's Realism and Nonlocal Unification",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16002379",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Mathematical Anscombian View of Nonlocal Unification",
+    "Publication": "https://realinstitute.netlify.app/svarxiv/consc-studs",
+    "Volume": null,
+    "Number": "svarxiv/consc-studs:2025.07.17_1209",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Euclid, the Sulbasutras, and the Geometry of the Mind: A Mathematical Continuum from Antiquity to Brain-Machine Interfaces",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16295304",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Consequences of Nonlocal Unification for Limit Observers",
+    "Publication": "Prajnullabha",
+    "Volume": 1.0,
+    "Number": "1",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "REAL Institute, Gurugram"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Quantum Biophysics of Deep Learning",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16417379",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Interlocked Impact of Geometry and Coupling Strength on Maximal Mutual Information in a Nerve Tract",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16445043",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Speculative Medical Applications of Light-Gated Ion Channel Control",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16525357",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "NU Provides an Energy-Injection Mechanism",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16679453",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Claude Meets Chawla: Banter About Consciousness",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16710586",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Data Flow in the Sun",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16737443",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Igor Pro Procedure for SAC Irresolution Analysis",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16752220",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Modulator Design in String Information Theory",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16760052",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Nonlinear Neural Correlates of Nonlocal Consciousness",
+    "Publication": "Prajnullabha",
+    "Volume": 1.0,
+    "Number": "1",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "REAL Institute, Gurugram"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Gaia's Capacity: Information Flow in the Climate",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "10.5281/zenodo.16791640",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Capacity of Any Communication Network",
+    "Publication": "Research Gate Preprint",
+    "Volume": null,
+    "Number": "http://dx.doi.org/10.13140/RG.2.2.24440",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ephaptic Neuro-Modulation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16878995",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "DENs of Purkinje Cells",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16881423",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Glimpses of Conformal Information",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16890079",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ongoing Studies of Network Capacity: Large User Number Case",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16892208",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Vaidyutik-dvi-stariyon ke vidyut-yukt-anu pravah path - 1",
+    "Publication": "Vaidyutik-dvi-stariyon ke vidyut-yukt-anu pravah path",
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "https://doi.org/10.5281/zenodo.16903543"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Graduate Seminar in Electricity and Magnetism, Lecture 1",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16919647",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Rejuvenation From Ingrained Negativity: an AI Approach",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16919972",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Self-realization, Science and the Constitution of India: a Computational Perspective",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.16993986",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Bi-stochastic Versions of Hairer Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17018320",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Energy Needs of Artificial Intelligence",
+    "Publication": "ResearchGate",
+    "Volume": null,
+    "Number": "http://dx.doi.org/10.13140/RG.2.2.19237.",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 7: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17066363",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Nodal Misalignment Affects Spike Propagation in 3D Ephaptic Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17068277",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantifying the Quantum Intelligence of a Language",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17099672",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Integration with respect to SIC-POVMs: a Generalized View",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17107723",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 8: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17112506",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "An Application of Mitter-Young Theory to Hurwitz Detection",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17138843",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Bodhsanchar 1: Agent-Aided Maritime Communication System for Green Port Operations",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17140577",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 9: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17194673",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ocean of Divine Bliss Verse 10: a Commentary",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17207336",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Design of More Capable Nervous Systems",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17276503",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on Message Passing Decoding Over Non-Gaussian Channels",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17279023",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Nonlocal Unification Field Theory and Its Quantum Optics Limit: Observer-Function Formulation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17317312",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Dramatic Velocity Changes Under Temperature Differentials in Ephaptic Tracts",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17383707",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Tracking the Neuronal Paths of Ephaptic Information",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17389001",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Covariant Reformulation and Simulation of Action Potential Diffusion",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17448202",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Performance of the Vector Perceptron With Ephaptic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17465231",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On the Black Hole Information Loss Paradox Under a Novel Phenomenological Model of Quantum Measurements",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17507769",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Depolarizing Channel can be Worse Than the Dephasing Channel When Replacing the Identity map in a Problem of Quantum Control",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17561795",
+    "Pages": null,
+    "Year": 2011.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Note on Invoking Indo-Scandinavian Cultural Affinity for Increased Cooperation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17571699",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Unification of Intelligence and Information: Beyond Blahut-Arimoto Using Machine Learning",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17577660",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Self-recovery and Security: Novel Aspects of Network Random Refresh",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17600892",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "First Observation: A Dialogue on Nonlocal Unification",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17614206",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Modest Security Gains With Modulus Diversity in Elliptic Curve Cryptography",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17617693",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Synaptic and Ephaptic Proposals for Selective Attention: A Comparative Study",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17621219",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "An Approach to Genuine Intelligence Using Electrophysiology",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17636666",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "FSO Channel Design With Halo-Inclusive Source",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17649553",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Vedantic PaÃ±cikarana and the Emergence of Collective Neural Dynamics via Ephaptic Coupling",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17651324",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Programming Hilbert Space",
+    "Publication": "Submitted on 2025/12/08",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17667003",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Unified Grammar of Science",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17681138",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Shared Human Models on Ethics",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17765726",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Suganita",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17796194",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "A Multi-Ethics of Mechanism",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17851105",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On an Argument of Hume",
+    "Publication": "Available from author via email request.",
+    "Volume": null,
+    "Number": "humeanv5.pdf",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Wave-Spin Interaction in an Angular Momentum Lens",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17900451",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Living Fire",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "Available from author upon email request"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Nonlinear Emergence of Creation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17973775",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Augmenting Human Research Insight Using Large Language Models",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17993712",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "On Tinkering With Text: How to Refashion Prose",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.17999610",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Minimal Systems for Computational Creativity: Evidence of Motif Stabilization",
+    "Publication": "Prajnullabha: Information and Physics",
+    "Volume": 1.0,
+    "Number": "2",
+    "Pages": "Article 6",
+    "Year": 2025.0,
+    "Publisher": "REAL Institute"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Networks of Transformers",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18007581",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "My Immortal India",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18050692",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Concentration as Modulated Gathering",
+    "Publication": "Research Gate",
+    "Volume": null,
+    "Number": "https://doi.org/10.13140/RG.2.2.20254.19",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "The Action Potential Field: Why Consciousness May be Irreducible",
+    "Publication": "Prajnullabha: Information and Physics",
+    "Volume": 1.0,
+    "Number": "2",
+    "Pages": "Article 5",
+    "Year": 2025.0,
+    "Publisher": "REAL Institute"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Necessary and Sufficient Substrate for Consciousness",
+    "Publication": "Prajnullabha: Information and Physics",
+    "Volume": 1.0,
+    "Number": "2",
+    "Pages": "Article 2",
+    "Year": 2025.0,
+    "Publisher": "REAL Institute"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "White Matter Capacity",
+    "Publication": "Prajnullabha: Information and Physics",
+    "Volume": 1.0,
+    "Number": "2",
+    "Pages": "Article 4",
+    "Year": 2025.0,
+    "Publisher": "REAL Institute"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Quantum Made in Bharat",
+    "Publication": "---",
+    "Volume": 1.0,
+    "Number": "---",
+    "Pages": "https://zenodo.org/records/18079172",
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ab Initio Control of a SPAD Sensor Using an AVR-Controlled External Datapath: A Replicable Table-Top Architecture for Long-Horizon Quantum Computation",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18091198",
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ephemeris Mundi",
+    "Publication": null,
+    "Volume": null,
+    "Number": null,
+    "Pages": null,
+    "Year": 2025.0,
+    "Publisher": "Prajnullabha Press, India"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Capacity Boost: Data Transmission in the Unified Regime",
+    "Publication": "Prajnullabha: Information and Physics",
+    "Volume": 1.0,
+    "Number": "3",
+    "Pages": "6",
+    "Year": 2025.0,
+    "Publisher": "REAL Institute, Gurugram, India"
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Weak Source Coding: Entropy-Tightened Bounds via Clustering of Atypical Sequences",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18148555",
+    "Pages": null,
+    "Year": 2026.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Ephaptic Quantum Energy Teleportation and Quantum Ephaptic Coupling: A Unified Mechanism for EnergyÂ–Charge Recombination Across Lipid Barriers",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18207631",
+    "Pages": null,
+    "Year": 2026.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Extending Baar's Theatre: a Substrate for World Peace",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18211218",
+    "Pages": null,
+    "Year": 2026.0,
+    "Publisher": null
+  },
+  {
+    "Authors": "Chawla, Aman; ",
+    "Title": "Dharma Advisory Councils: Role and Recruitment",
+    "Publication": "Zenodo",
+    "Volume": null,
+    "Number": "https://doi.org/10.5281/zenodo.18218211",
+    "Pages": null,
+    "Year": 2026.0,
+    "Publisher": null
+  }
+]

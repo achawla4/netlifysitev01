@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Re-Viewing Information as a Fluid: an Error Exponent Proposal - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Re-Viewing Information as a Fluid: an Error Exponent Proposal</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this brief note, the authors propose to compare data transmission over a point-to-point channel with viscous uid ow and describe a way to possibly realize the analogy in terms of error exponents. Consider the ow of information in a point-to-point channel [1]. It does remind us in a way, of the ow of uid in a pipe. The analogy has been pursued extensively in the literature [2, 3], as well as even in the early days of information theory. In this proposal, we focus exclusively on the reliability function, or error exponent aspect. For a white Gaussian channel, in the R &lt; C/4 region, there is ease of reliable transmission (see Figure 1). The number n of symbols that must be sent to achieve a given, low, probability of error is small. In the R &gt; C/4 region on the other hand, there is toughness of reliable transmission. The number n of symbols that must be sent to achieve the same probability of error is large. Remarks: 1. Where few symbols need to be sent in a given time, i.e., at low rates, a network of intermingling (cross-interfering) Gaussian channels will be consequently less clogged. Thus more transmit-receive antenna pairs can be operational, with the same given low chance of error. 2. Suppose we have simultaneous interleaved transmissions at multiple rates over the same channel. These rates cover the whole x-axis from 0 through C. 3. Streams sent at rates &lt; C/4 will obey the following: more transmit-receive pairs operational and ease of transmission with fewer number of symbols that need to be sent in a given time. 4. On the other hand, streams sent at rates &gt; C/4 will obey the follow- ing: fewer transmit-receive pairs operational and toughness of transmis- sion with many symbols that need to be sent in a given time, leading to a high probability of error. 1</p> <p>5. Sending as per points 1 through 4, will `esh out' the prole of reliable transmission (Figure 1). Now, we may be able to study viscous uid ow phenomena such as laminar ow, Reynold's number, turbulent ow, vortex formation etc. in the same setting [4]. Figure 1: Information Theory and Fluid Mechanics: a Proposal. The x-axis on the top plot is rate in bits per second and the y-axis is the error exponent at that rate for an AWGN channel. C is the capacity of the channel. On the bottom plot, the x-axis is distance from the center of a pipe and the y-axis is the velocity of the uid owing through the pipe at that distance from the center. Note that rate is simply the distance from the center of the pipe where velocity  the magnitude of the reliability  is highest. So, if we take (x = Rate, y = time), in the Rate-time plane, we ought to be able to see vortices. But this might require some freedom for the interleaved stream-packets to shift to lower and/or higher rates depending on `conditions.' In the anytime tree- code [5], as we traverse the tree from the root to the lower branches, a single bit's reliability is constantly increasing  and, the rate at which the bit is being sent is constantly decreasing. This is thus an example of `motion' from high rate streams to lower rate regions  towards the center of the pipe. Thus the anytime tree-code [6] is an example of a streamline that goes from right to left as we move forward in time. How would we construct a code where the rate was going up and the reliabil- ity decreasing? If we cut the anytime tree at a certain level, we x the reliability 2</p> <p>of the bit at the corresponding level. Thus we can have bits of dierent reli- abilities. But if a bit has been sent for t seconds, we cannot then send it for t' &lt; t seconds. However, we can send the next bit in the same packet for t' &lt; t seconds. So that particular packet of bits has a decreasing reliability. The rate of the packet itself is going up because it is taking fewer symbols to carry the same number of bits. So bits per symbol is going up. Thus if we combine packet transmission with variable-length packets (including particularly unit length), and use anytime tree-codes as described herein, then we can move both left to right and right to left on the x-axis as time progresses on the y-axis, in the (Rate,time)-plane. In subsequent work, key quantities that will need to be specied, to execute this proposal include: information streamline, ease of reliable transmission, in- terleaved transmission, as well as rate-time and velocity-space mapping, to name a few. Following the point-to-point setting, the next step will be to extend to a network of channels. Acknowledgment The author thanks Prof. Salvatore Domenic Morgera of the University of South Florida for reviewing an earlier version of this proposal. References [1] Robert G Gallager. Information theory and reliable communication, volume 588. New York: Wiley, 1968. [2] Fang Wu, Bernardo A Huberman, Lada A Adamic, and Joshua R Tyler. Information ow in social groups. Physica A: Statistical Mechanics and its Applications, 337(1-2):327335, 2004. [3] A Salman Avestimehr, Suhas N Diggavi, and NC David. Wireless network information ow: A deterministic approach. IEEE Transactions on Infor- mation theory, 57(4):18721905, 2011. [4] P.K. Newton. The N-Vortex Problem: Analytical Techniques. Applied Math- ematical Sciences. Springer New York, 2001. [5] Aman Chawla. Reliability of a gaussian channel in the presence of gaussian feedback, 2006. [6] Anant Sahai. Anytime coding on the innite bandwidth awgn channel: A sequential semi-orthogonal code. In Proc. 2005 Conf. Inf. Sci. Syst. Citeseer, 2005.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Re_Viewing_Information_as_a_Fluid_an_Error_Exponent_Proposal.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

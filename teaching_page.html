@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching - REAL Institute of Meditation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(218,165,32,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .meditation-banner {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 20px rgba(218,165,32,0.3);
+        }
+        
+        .meditation-banner h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .meditation-banner p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .zoom-link {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .zoom-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            text-align: center;
+        }
+        
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .session-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #daa520;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .session-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .session-number {
+            display: inline-block;
+            background: #daa520;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .session-title {
+            font-size: 1.2em;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .session-datetime {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .session-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #1a1a2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+        
+        .session-link:hover {
+            background: #16213e;
+        }
+        
+        .courses-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+        
+        .courses-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #1a1a2e;
+            text-align: center;
+        }
+        
+        .course-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .course-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #daa520;
+            background: #fafaf8;
+            border-radius: 8px;
+        }
+        
+        .course-item h3 {
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+        
+        .course-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .course-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+        
+        .status-available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-inprogress {
+            background: #d4edef;
+            color: #155744;
+        }
+
+        
+        .status-planned {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-upcoming {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .resources-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+        
+        .resources-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #daa520;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid rgba(218,165,32,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #daa520;
+        }
+        
+        .resource-card h3 {
+            color: #daa520;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .resource-card p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #daa520;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            background: #b8860b;
+        }
+        
+        .image-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .dedication-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .dedication-section h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .dedication-section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .dedication-section .sanskrit {
+            font-size: 1.3em;
+            margin: 20px 0;
+            color: #daa520;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: #f0f0ed;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #e0e0dd;
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .meditation-banner h2 {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="hero">
+        <h1>REAL Institute of Meditation</h1>
+        <p>Experience the Integration through meditation, study, and contemplative practice. Understanding reality intellectually is just the beginning—direct experience reveals what equations can only hint at.</p>
+    </div>
+
+
+<div class="container" data-pagefind-body data-pagefind-filter="type:Yoga">
+  <div class="image-section">
+    <h2 class="section-title">Quote of the Day</h2>
+    <div class="image-wrapper">
+      <img src="./assets/quote2.png" alt="Quote for Growth" class="featured-image">
+    </div>
+  </div>
+</div>
+
+    
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Yoga">
+        <div class="meditation-banner">
+            <h2>🧘 Prayers, Chanting & First Kriya Meditation</h2>
+            <p>Guidance sessions announced periodically via Zoom</p>
+            <p style="font-size: 1em; opacity: 0.9; margin-bottom: 30px;">Silent breath awareness • Weekly & biweekly sessions • Open to all sincere seekers</p>
+            <a href="https://us05web.zoom.us/" class="zoom-link" target="_blank">Join Zoom Session</a>
+        </div>
+        
+        <h2 class="section-title">Upcoming & Recent Sessions</h2>
+        
+        <div class="sessions-grid">
+           
+            
+            <div class="session-card">
+                <span class="session-number">Session 9</span>
+                <div class="session-title">Sitting with Breath in Silence</div>
+                <div class="session-datetime">Saturday, October 19, 2025<br>7:30 AM IST • 7 minutes</div>
+                <a href="https://us05web.zoom.us/" class="session-link" target="_blank">Zoom Link</a>
+            </div>
+            
+            <div class="session-card">
+                <span class="session-number">Session 8</span>
+                <div class="session-title">Sitting with Breath in Silence</div>
+                <div class="session-datetime">Saturday, October 12, 2025<br>9:00 AM IST • 5 minutes</div>
+                <a href="https://us05web.zoom.us/" class="session-link" target="_blank">Zoom Link</a>
+            </div>
+            
+            <div class="session-card">
+                <span class="session-number">Session 7</span>
+                <div class="session-title">Janmashtami Special - Breath in Silence</div>
+                <div class="session-datetime">Saturday, August 16, 2025<br>11:00 PM IST • 5 minutes</div>
+                <a href="https://us05web.zoom.us/" class="session-link" target="_blank">Zoom Link</a>
+            </div>
+            
+            <div class="session-card">
+                <span class="session-number">Session 6</span>
+                <div class="session-title">Sitting in Silence</div>
+                <div class="session-datetime">Sunday, August 10, 2025<br>4:00 AM IST • 5 minutes</div>
+                <a href="https://us05web.zoom.us/" class="session-link" target="_blank">Zoom Link</a>
+            </div>
+        </div>
+        
+        <div class="courses-section">
+            <h2>Teaching Programs</h2>
+            <div class="course-list">
+                <div class="course-item">
+                    <h3>Metacognitive Training <span class="course-status status-available">Available</span></h3>
+                    <p>Develop awareness of your own thinking processes and enhance self-regulated learning.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Information Theory Fundamentals <span class="course-status status-available">Available</span></h3>
+                    <p>Mathematical foundations of information, entropy, and their applications to consciousness studies.</p>
+                </div>
+
+                <div class="course-item">
+                    <h3>Ganita Vedanga: Differential Geometry<span class="course-status status-available">In Progress</span></h3>
+                    <p>Mathematical foundations of differential geometry.</p>
+		    <p>Links: <a href="https://drive.google.com/file/d/1--JMpB7R81mBMG6g2Gs-oxyJM0Le2SCU/view?usp=sharing">pdf1</a> <a href="https://drive.google.com/file/d/1LUWTUGYi1QA6nqOAl7xIZ1YgX6LKqiHP/view?usp=sharing">pdf2</a></p>
+                </div>
+
+                
+                <div class="course-item">
+                    <h3>Valmiki Ramayana Analysis of Text <span class="course-status status-planned">In Progress</span></h3>
+                    <p>Deep textual and philosophical analysis of the ancient Sanskrit epic via the Adhyatma Ramayana.</p>
+                    <p>Links: <a href="https://drive.google.com/file/d/1Aip1BTneU4eub2T30Qb3wRW5AJPrlFLd/view?usp=sharing">pdf1</a></p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Sama Veda Analysis of Text <span class="course-status status-planned">Planned</span></h3>
+                    <p>Study of the Vedic hymns and their musical-spiritual dimensions.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Nighantu & Nirukta <span class="course-status status-planned">Planned</span></h3>
+                    <p>Vedic lexicography and etymology—the science of sacred language.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Amarakosa & Jatarupa's Commentary <span class="course-status status-planned">Planned</span></h3>
+                    <p>Classical Sanskrit thesaurus and its traditional interpretations.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Shad Darshan Shastra <span class="course-status status-planned">Planned</span></h3>
+                    <p>The six systems of Hindu philosophy—comprehensive study.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Rig Veda Bhashya <span class="course-status status-planned">Planned</span></h3>
+                    <p>Commentary and interpretation of the oldest Vedic text.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>The Essence of Renunciation <span class="course-status status-upcoming">Upcoming</span></h3>
+                    <p>Exploring sannyasa and spiritual detachment in modern life.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3>Teachings of St. Francis and Swami Sivananda <span class="course-status status-planned">Planned</span></h3>
+                    <p>Comparative study of Christian and Vedantic mysticism.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resources-section">
+            <h2>Teaching Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>📿 Holy Names of Sri Gurudev</h3>
+                    <p>Sacred invocations and prayers for daily practice.</p>
+                    <a href="https://drive.google.com/file/d/1IX-A_qlx4Ctb1NGWEDvUJ2iNdtrljxyw/view?usp=sharing" class="resource-link" target="_blank">Download PDF</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>🧘 Basic Guided Meditation Template</h3>
+                    <p>Open to all seekers—a simple introduction to meditation practice.</p>
+                    <a href="https://drive.google.com/file/d/15FafwC_g_OjZZqdKh5dRyDpOrvRRhetm/view?usp=sharing" class="resource-link" target="_blank">Download Guide</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>📖 Reaching the Timeless: Booklet I</h3>
+                    <p>Foundational teachings on meditation and consciousness.</p>
+                    <a href="https://drive.google.com/file/d/1uI6bc9e_Udvij_kXUUK8cjwGRhza5xD8/view?usp=sharing" class="resource-link" target="_blank">Download PDF</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>✨ Sanskrit Spiritual Namakarana</h3>
+                    <p><strong>Hṛdprakāśa</strong> (inner intuitive light)<br><small>To be combined with ananda and Giri in the lineage of Kriya Yoga</small></p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="dedication-section">
+            <h3>Truth & Service</h3>
+            <p>To Shri Gurudev</p>
+            <p class="sanskrit">सत्यमेव जयते सर्वदा, नानृतम्</p>
+            <p>Satyameva Jayate Sarvada, Nanrtam</p>
+            <p style="margin-top: 20px; opacity: 0.8;">Under the inspiration of the shastras and Masters</p>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-link">← Back to Research Laboratory</a>
+        </div>
+    </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

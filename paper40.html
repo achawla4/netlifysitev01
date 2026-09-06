@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Towards a Dynamical Systems Approach to Feedback Communication - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Towards a Dynamical Systems Approach to Feedback Communication</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">—In this proposal, the authors study the reliability function of a Gaussian noise communication system with Gaus- sian noise in the feedback link. The noisy feedback error exponent is proposed to be upper bounded by drawing an analogy with random dynamical systems. A sketch of the path forward is outlined, utilizing parallels between dynamical systems theory and information theory. This proposal is dedicated to Prof. Sanjoy K. Mitter (1933-2023). Index Terms—Gaussian, feedback, noisy channel, reliability function, Lyapunov exponent. I. INTRODUCTION AND PROBLEM SETUP In [1], the author determined a lower bound on the reliability function of a Gaussian noise channel with Gaussian noisy feedback. The aim of the present note is to propose a path to an upper bound on the very same reliability function. Fig. 1 shows the events which occur in a noisy feedback communication system with time increasing from left to right. Fig. 1. Time evolution of a random dynamical communication system with noisy feedback In Fig. 2, which is for the noiseless or perfect feedback case, the y and f stochastic processes have been equated. Fig. 2. Time evolution of a random dynamical communication system with noiseless feedback In the figures, the arrows indicate dependencies between the stochastic processes. In Fig. 3, in the “g” sequence, there are two component “sub-sequences”: 1) The “odd” subsequence which is the x-sequence or input sequence, and 2) The “even” subsequence which is the y/f-sequence or output sequence. Fig. 3. Time evolution of a random dynamical communication system with noiseless feedback In another view, if we want to just look at the inputs, we can simply observe the x-sequence as in the following figure, Fig. 4. Fig. 4. Time evolution of a random dynamical system based on the inputs to the corresponding communication system with noiseless feedback. If we relabel g(1) as h(1), g(3) as h(2), and so on, upto g(2n −1) as h(n), then we obtain the next figure, Fig. 5. Fig. 5. Time evolution of a random dynamical system based on the inputs to the corresponding communication system with noiseless feedback. Define ϕ = N · E. Then ϕ is a dynamical system. In an alternate approach, the following figure, Fig. 6, looks at the even subsequence, which is the output. Next, we let α(1) be g(2), α(2) be g(4), α(3) be g(6) and so on until we let α(n) = g(2n), where n is a positive integer. Further, we let ϕ ′ = E · N. As a result, we have the mapping from α(1) to α(2), called ψ ′. Thus, α(2) = ψ ′ (α(1)) and in general, α(n) = ψ ′(α(n −1)) (1)</p> <p>2 Fig. 6. Time evolution of a random dynamical system based on the inputs to the corresponding communication system with noiseless feedback. The random dynamical system of 1 will be having statistics which are independent of time because N is time-independent and also E has time-independent statistics. II. NOISY FEEDBACK CASE If we consider the noisy feedback case, then f(1) ̸= y(1) but rather f(1) = y(1)+noise. So the encoder can be treated as adding this noise before using y(1) to generate x(2). So it is a noisy encoder Enoisy. Thus ψ ′′ = Enoisy · N and so β(n) = ψ ′′(β(n −1)). (2) The random dynamical system of (2) will also have statistics which are independent of time. III. LYAPUNOV EXPONENT INTUITION In this section we present some intuition on the Lyapunov exponent as it relates to our problem setup. The Lyapunov exponent of our RDS ψ ′′ will be high ⇐⇒ the system diverges in phase space ⇐⇒two close-by initial conditions lead to divergent trajectories of the system. But, if the two trajectories are divergent, for close-by initial conditions, then resolution of decoding would have increased. That is, you would easily be able to say, given a trajectory, which initial condition it came from, or at least, that it is from a distinct set of possible initial conditions. Fig. 7. Divergence of paths starting from nearby initial conditions. In Figure 7, even if the clouds y1 and y1′ had some small overlap, a large Lyapunov exponent would lead to a huge gap in a short time between the resultant clouds. Under ML decoding, this would imply a very low probability of error in short time, or a huge error exponent. IV. APPLICATION OF INTUITION Consider a channel with noisy feedback, such as the Dis- crete Memoryless Channel (DMC), the Gaussian channel or a Vector Gaussian channel, which models an ephaptic tract [2]. As per the development in the preceding sections, we can model these channels as random dynamical systems and find the corresponding Lyapunov exponent (LE). The larger the LE, the larger would be the error exponent. As a procedure, we can first determine the RDS correspond- ing to the communication system, then perturb this so that we get a ‘closest’ chaotic communication system. That latter dynamical system’s Lyapunov exponent will be proportional to a tight upper bound on the original random dynamical communication system’s error exponent. Here the assumption is that chaotic systems are an altogether different class of dynamical systems. V. FINDING THE LYAPUNOV EXPONENT Our first step is to find the Lyapunov exponent of the random dynamical system shown in Equation 2. For this we will need an application of the multiplicative ergodic theorem [3] and the book [4]. Before we can write the Lyapunov exponent in the most general case, we need the map ψ ′. We can specialize to the binary case. That is, we consider only antipodal signaling over the AWGN channel on the forward link as well as the feedback link. Thus the noise is Gaussian but at each step we have either a ‘0’ (just a label for ‘-1’) or a ‘1’. The most general non-noisy encoder would be Et : (m, Y t 1 ) →Xt (3) Here m is the message, which can also belong to a binary set (two possibilities) and Y t 1 is a length t bit sequence. This thus represents a feedback encoder. We can assume initially that there is only a length 1 feedback. However, for illustration purposes (see Figure 8), let us consider a length 2 feedback at each step. That is, it is a fixed length feedback code instead of a variable length one. For this feedback code, we can write Fig. 8. Illustration of a binary feedback code.</p> <p>3 X(t = 2) = m′ · y ′ 1 · y2 + m′ · y1 · y ′ 2 + m · y1 · y ′ 2 (4) + m · y1 · y2 = m′(y1(xor)y2) + m · y1 We can write the above succinctly as X(t) = X a,b,c Ka,b,c · m(t −1)a · y(t −1)b · y(t −2)c (5) where {a, b, c} ∈{prime, non−prime} and Ka,b,c is a coef- ficient which is either 0 or 1 and indicates if the corresponding product term is present or not. For equating with a Random Dynamical System, the en- coder has to be a fixed mapping applied at every instant. So, our present formulation is applicable perhaps only to fixed length codes as opposed to variable length codes. This is fine to begin with, but this assumption will have to be relaxed to find the most general upper bound. Further, a new theory, broadening that of Random Dynamical Systems as defined in Arnold’s book [4], might have to be developed 1. Next we look at the channel. Let it be an additive noise channel. The input-output mapping is therefore the identity map, perturbed by noise. Thus, y(t) = x(t) + noise (6) = I · x(t) + noise Thus we can finally write ψ ′ for this special case as ψ ′ = E·N. This gives us ψ ′ = X a,b,c Ka,b,c · m(t −1)a · y(t −1)b · y(t −2)c (7) to which noise would be added. This is the Random Dynamical System (RDS) corresponding to the output y of the channel. Our next step would be to consider the binary case where dis- tances are Hamming distances and then to find the Lyapunov exponent which would tell us about the divergence rates of trajectories. We will have to find the perturbed RDS of ψ ′ with the smallest Lyapunov exponent such that the system is still chaotic in order to upper bound the reliability function. VI. CONCLUSION In this note, we have presented initial ideas in an approach towards understanding noisy feedback converses to various types of channels, in relation to their error exponent or reliability function. Our approach leads to a merger between the fields of dynamical systems theory and information theory and in future work, we will take this program to its logical conclusion. REFERENCES [1] Aman Chawla. Reliability of a gaussian channel in the presence of gaussian feedback, 2006. [2] Aman Chawla. On Axon-Axon Interaction via Currents and Fields. PhD thesis, University of South Florida, 2017. 1Note however that if a random dynamical system is described in terms of a triple, then within the choice of maps we can include variable length codes [5]. [3] Alex Furman. On the multiplicative ergodic theorem for uniquely ergodic systems. In Annales de l’Institut Henri Poincare (B) Probability and Statistics, volume 33, pages 797–815. Elsevier, 1997. [4] Ludwig Arnold, Christopher KRT Jones, Konstantin Mischaikow, Genevi`eve Raugel, and Ludwig Arnold. Random dynamical systems. Springer, 1995. [5] Rabi Bhattacharya and Mukul Majumdar. Random dynamical systems: a review. Economic Theory, 23:13–38, 2003.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Towards_a_Dynamical_Systems_Approach_to_Feedback_Communication.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suganita - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Suganita</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">This document presents the first part of a multi­stage blueprint for सुगणिता(``well-computed''), a programming language written entirely in Devanāgarī script and designed for microcontroller platforms, specifically the Arduino Uno (ATmega328P). Unlike su- perficial localization efforts that simply translate Western programming constructs, सुगणिताdraws conceptually from Indian intellectual traditions: Vedic mathematics, Nyāya logic (classical Indian reasoning), and Pāninian grammatical theory. Part I focuses on the lexical layer---the fundamental vocabulary of the language. It establishes design goals, outlines a phased development plan, and provides a complete token specification for versions v0--v2. The token tables cover both high-level language keywords (function definitions, control flow) and low-level virtual machine operations (stack manipulation, arithmetic, hardware I/O). Each token is documented with its Devanāgarī form, ASCII transliteration, and English gloss linking it to its philosophical background. Key design choices include representing ``no operation'' as शूः(śūnya, constructive pause rather than meaningless gap) and modeling conditional jumps after the structure of classical Indian argumentation. The hardware constraints of the Ar- duino Uno (2 KB RAM, 32 KB flash, 8-bit architecture) enforce discipline on the to- ken design, ensuring the language remains implementable on resource-constrained platforms while preserving its conceptual foundations. This work is dedicated to Kriya Yoga master Paramahamsa Hariharananda Giri (1907-2002). 1</p> <p>Contents Design goals for सुगणिता 1.1 Motivation and identity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1.2 Hardware and engineering constraints . . . . . . . . . . . . . . . . . . . . . . 1.3 Philosophical and mathematical background . . . . . . . . . . . . . . . . . . . 1.4 Scope of Part I . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Development plan overview 2.1 Phase 0: Concept and constraints . . . . . . . . . . . . . . . . . . . . . . . . . 2.2 Phase 1: Arduino–hosted VM prototype . . . . . . . . . . . . . . . . . . . . . 2.3 Phase 2: External compiler and language syntax . . . . . . . . . . . . . . . . . 2.4 Phase 3: Assembly implementation of the VM . . . . . . . . . . . . . . . . . . 2.5 Phase 4: Lightweight ML augmentation . . . . . . . . . . . . . . . . . . . . . 2.6 Phase 5: Self–hosting and expansion . . . . . . . . . . . . . . . . . . . . . . . Token specification for versions v0–v2 3.1 Core language keywords . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.2 Control flow and logical structure . . . . . . . . . . . . . . . . . . . . . . . . 3.3 Operators and punctuation . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.4 Virtual machine opcodes (v0–v2) . . . . . . . . . . . . . . . . . . . . . . . . . 3.5 Built–in hardware functions (source–level) . . . . . . . . . . . . . . . . . . . . 3.6 ML–related tokens (planned for v2) . . . . . . . . . . . . . . . . . . . . . . . Summary and outlook 2</p> <p>1 Design goals for सुगणिता 1.1 Motivation and identity The language सुगणिताis intended to differ from a purely transliterated or ``lo- calised'' Western language in three crucial ways: 1. Script and surface form. All identifiers, keywords, and structural tokens of the language are expressed in Devanāgarī. Source files are stored as UTF--8 and are visually legible to anyone familiar with Sanskrit or modern Indian languages using this script. 2. Conceptual grounding. The interpretation of tokens, especially at the con- trol, arithmetic and logical levels, is guided by Indian mathematical and philo- sophical categories. For example, the instruction traditionally called ``NOP'' (no operation) is replaced by शु(śūnya), representing a constructive pause rather than a meaningless gap. 3. Hardware orientation. The first several years of the project explicitly target the Arduino Uno. This constraint enforces clarity, compactness, and disci- pline on the language design: the token set must be implementable in a few kilobytes of RAM and a few tens of kilobytes of flash, on an 8–bit archi- tecture. 1.2 Hardware and engineering constraints The initial target architecture is the ATmega328P microcontroller, as configured on the Arduino Uno board: • 8–bit AVR core at 16 MHz • 2 KB SRAM • 32 KB flash program memory (approximately 30 KB usable after bootloader) • 1 KB EEPROM • No hardware floating point unit • Simple peripherals: timers, ADC, PWM, digital IO, UART 3</p> <p>These constraints inform the token design: • The virtual machine will be stack–based, using 16–bit logical words imple- mented over 8–bit registers. • The bytecode instruction space is limited; opcodes must be compact and semantically dense. • Strings and Devanāgarī text will be emitted as UTF–8 sequences but inter- preted as opaque bytes by the VM. • Arithmetic in v0–v2 will focus on integers; fixed–point or scaled integer arith- metic may later represent real values. 1.3 Philosophical and mathematical background At a conceptual level, सुगणिताaligns core language affordances with six strands of the Indian knowledge tradition: Vedic mathematics informs arithmetic seman- tics; Nyāya logic shapes control flow; Pāninian grammar guides lexical discipline; Sānkhya and Yoga concepts govern execution state; Vākya tradition ensures mean- ingful surface forms; and embedded ML praxis enables lightweight inference. The goal is not mere ornamentation, but principled mapping from philosophical cat- egories to concrete implementation. Concept diagram (overview). The diagram below sketches how traditions inform layers of the language. It is illustrative rather than prescriptive. Pragmatic constraints. All mappings must respect the ATmega328P envelope: 2 KB SRAM, ∼30 KB usable flash, 8-bit arithmetic, and no FPU. Accordingly, v0--v2 pri- oritize: integer-first arithmetic, compact branching encodings (16-bit jump tar- gets), UTF-8 treated opaquely in the VM, and ML as minimal fixed-point primitives callable without complicating the core interpreter loop 1.4 Scope of Part I This Part I addresses the lexical layer only: • Keyword and operator names 4</p> <p>Vedic mathematics Nyāya logic Pāninian grammar Sāṅkhya &amp; Yoga Vākya surface Embedded ML praxis Surface tokens Control­flow semantics Arithmetic semantics VM state &amp; timing ML hooks &amp; fixed­point कार्य, मुख्य, प्रकार, वाक्य, रिक्त यदि, अन्यथा, हेतु(JZ), उदाहरण(JNZ) गुणन(MUL), भागहार(DIV), शेष(MOD) निरोध(HALT), शु(NOP), कालविराम(DELAY) मॉडल, पूर्वानुमान, सूत्र_समूह, भार_स्थापन, सीमा Figure 1: Conceptual mapping from Indian traditions to language layers and token examples in सुगणिता • Punctuation tokens and structural delimiters • Virtual machine opcode names and their semantic labels • Built–in function names for hardware interaction Grammar, semantics, and virtual machine implementation details will appear in later parts. 5</p> <p>2 Development plan overview The overall development path is structured into phases. Only the tokens relevant to v0--v2 are specified in this document; however, the plan contextualizes how these will be used. 2.1 Phase 0: Concept and constraints • Fix the hardware target to Arduino Uno / ATmega328P. • Decide on UTF--8 as the sole source encoding for .su files. • Choose a stack–based virtual machine model and a 16–bit logical word size. • Reserve ranges of bytecode opcodes for arithmetic, control, IO, and future ML extensions. • Decide that early implementation will be in Arduino C++ (for ease), followed by a rewrite in AVR assembly. 2.2 Phase 1: Arduino–hosted VM prototype • Implement a minimal interpreter loop in C++ on the Arduino Uno. • Support: – stack operations, – integer arithmetic, – unconditional and conditional jumps, – serial output, – a HALT instruction. • Hard--code small bytecode pages in flash to test the VM. • Use simple Devanāgarī strings for serial output to verify the complete UTF--8 path. 6</p> <p>2.3 Phase 2: External compiler and language syntax • Implement a compiler on a host computer (language still to be chosen) which: – reads सुगणिताsource code, – tokenizes using the token specification in this document, – parses according to the basic grammar (to be specified later), – emits bytecode (.subc) using the opcode set defined here. • Introduce language--level keywords (function definitions, conditionals, loops) mapped to the low–level VM tokens. 2.4 Phase 3: Assembly implementation of the VM • Rewrite the VM core in AVR assembly, using the same opcode semantics. • Allocate fixed memory regions for: – VM state (instruction pointer, stack pointer, frame pointer), – data stack, – global variables, and – hardware state caches if needed. • Implement the hardware IO opcodes: digital IO, analog input, delay, and serial. 2.5 Phase 4: Lightweight ML augmentation • Introduce ML tokens for simple models suitable for an 8–bit microcontroller: – linear models or very small multi–layer perceptrons with a handful of parameters, – hand–coded fixed–point inference. • Ensure the ML tokens are integrated without altering the core VM structure. 7</p> <p>2.6 Phase 5: Self–hosting and expansion As the toolchain stabilizes: • Gradually rewrite the host compiler in सुगणिताitself. • Port the VM and language to more powerful microcontrollers. • Expand the token set conservatively when new capabilities are needed. 8</p> <p>3 Token specification for versions v0–v2 The token system for सुगणिताcan be grouped into several categories: 1. Core language keywords 2. Types and literals 3. Operators and punctuation 4. Control–flow and structure keywords 5. Virtual machine opcodes 6. Built–in hardware functions 7. ML–related high–level constructs In the tables below, each row lists: • the Western or conventional concept, • the intended Devanāgarī token, • an ASCII transliteration, • an English gloss. Only tokens planned for implementation in v0, v1 or v2 are included. 3.1 Core language keywords These are high–level language keywords, visible to the programmer in सुगणिता source files. Western con- cept Devanāgarī to- ken Transliteration English gloss / role Function defi- nition कार्य kārya Introduces a function definition 9</p> <p>Entry point (main) मुख्य mukhya Designated main entry function Return from function वापस vāpas Return a value and exit function Type keyword प्रकार prakāra Used in type annotations (v2) Integer type पूर्णांक pūrnānka 16--bit signed integer Fixed--point / real type दशमलव daśamala Real values represented as scaled integers (v2) Boolean type सत्यता satyatā Boolean truth value String type वाक्य vākya UTF--8 string Void / unit type रिक्त rikta No return value Model defini- tion मॉडल mōdal Declares a statistical or ML model (v2) Training block प्रशिक्षण prasiksana Marks a training config- uration block (for host side) Prediction / in- ference पूर्वानुमान pūrvānumāna Request a model predic- tion Dataset refer- ence डाटा dātā Points to a dataset con- figuration (host side) Infinite loop, forever अनवरत anavarata Used as a convenience keyword for endless loops (v2) 3.2 Control flow and logical structure Western con- cept Devanāgarī to- ken Transliteration English gloss / role If यदि yadi Conditional branching (if) 10</p> <p>Else अन्यथा anyathā Alternative branch (else) While loop जबतक jabtaka While a condition holds For loop क्रम krama Iterative sequence (for) Break विच्छेद vicched Terminate current loop early Continue पुनः punah Skip to next iteration Logical true सत्य satya Boolean true literal Logical false असत्य asatya Boolean false literal 3.3 Operators and punctuation Because सुगणिताaims for an entirely Devanāgarī surface, even the roles of assign- ment and statement termination are symbolized by meaningful characters. For practicality, however, the early implementations may accept some ASCII oper- ators alongside the preferred Vedic forms; the table below documents the in- tended canonical forms. Role Token (De- vanāgarī or symbol) Transliteration / alias Explanation Assignmentः ः visarga The visarga marks associ- ation (nameःःvalue) Statement ter- minator । danda End of sentence / state- ment, mirroring Sanskrit orthography Block start ᳵ --- Introduces a block (like {) Block end ᳶ --- Ends a block (like }) Call / parame- ter open [ --- Function or macro call ar- gument list, open Call / parame- ter close ] --- Function or macro call ar- gument list, close 11</p> <p>Addition TBD in part II + Encoded in the numerals as in Aryabhatiya (v0: in- ternally mapped to ADD) Subtraction TBD in part II - Encoded in the numer- als as in Aryabhatiya Sub- traction Multiplication TBD in part II * Encoded in the numerals as in Aryabhatiya Multi- plication Division TBD in part II / Encoded in the numerals as in Aryabhatiya Division Equality com- parison तुल्य tulya Keyword operator for equality (v2 sugar) Inequality comparison अतुल्य atulya Keyword operator for in- equality Logical and अन्वय anvaya Conjunctive logical and Logical or व्यतिरेक vyatireka Disjunctive logical or Logical not निषेध nisedha Negation operator 3.4 Virtual machine opcodes (v0–v2) The following table aligns conceptual VM operations with their Devanāgarī names. The actual bytecode values (0x00, 0x01, etc.) are assigned in a separate VM spec- ification; here we focus on the semantic token names. Opcode (ab- stract) Western label Devanāgarī to- ken Transliteration Role / meaning OP_SHU NOP शु śu / śūnya Neutral operation, time–filler, align- ment OP_PUSHI8 Push 8--bit प्रवेश praveśa Push 8--bit immedi- ate on stack 12</p> <p>OP_PUSHI16 Push 16--bit दीर्घप्रवेश dīrgha–praveśa Push 16--bit imme- diate OP_POP Pop विसर्जन visarjana Discard top of stack OP_DUP Duplicate पुनरावृत्ति punarāvṛtti Duplicate top stack value OP_SWAP Swap परिवर्त parivarta Swap top two stack values OP_ADD Add परिवर्तनम् parivartanam Add two values, re- turn sum OP_SUB Subtract व्यवकलन vyavakalana Subtract, LHS minus RHS OP_MUL Multiply गुणन gunana Integer multiplica- tion OP_DIV Divide भागहार bhāgahāra Integer division OP_MOD Remainder शेष sesa Remainder after di- vision OP_CMP_EQ Compare equal तुल्य tulya Push 1 if equal, else OP_CMP_NE Compare not equal अतुल्य atulya Push 1 if not equal OP_CMP_LT Compare less हीन hīna LHS less than RHS (signed) OP_CMP_GT Compare greater श्रेष्ठ srestha LHS greater than RHS OP_AND Logical and अन्वय anvaya Logical conjunction OP_OR Logical or व्यतिरेक vyatireka Logical disjunction OP_NOT Logical not निषेध nisedha Logical negation OP_JMP Unconditional jump संचरण samcarana Move instruction pointer 13</p> <p>OP_JZ Jump if zero हेतु hetu Conditional branch on false OP_JNZ Jump if nonzero उदाहरण udāharana Conditional branch on true OP_CALL Call subroutine आह्वान āhvāna Invoke function, push return address OP_RET Return प्रत्यावर्तन pratyāvartana Pop return address, jump back OP_HALT Halt निरोध nirodha Stop program exe- cution OP_PRINT_INT Print integer अङ्कउक्ति aṅka–ukti Print top of stack as integer OP_PRINT_CHAR Print char अक्षरउक्ति aksara–ukti Print top of stack as byte OP_PRINT_STR Print literal string वाक्यउक्ति vākya–ukti Emit string embed- ded in code OP_PIN_MODE Pin mode संधान sandhāna Configure pin direc- tion OP_DIGI- TAL_WRITE Digital write स्पर्शलेख sparśa–lekha Write digital value to pin OP_DIGI- TAL_READ Digital read स्पर्शपाठ sparśa–pātha Read pin as 0/1 OP_ANA- LOG_READ Analog read रसपाठ rasa–pātha Read analog sensor (0--1023) OP_DELAY_MS Delay कालविराम kāla–virāma Pause execution for milliseconds 3.5 Built–in hardware functions (source–level) At the language level, the following built–ins will correspond to one or more VM opcodes, but appear to the programmer as function calls: 14</p> <p>Purpose Devanāgarī name Transliteration Role Print integer अङ्क_लिखो aṅka_likho Print integer to serial Print string लिखो likho Print a string Read digital pin स्पर्श_पढ़ो sparśa_padho Return 0/1 for a pin Write digital pin स्पर्श_लिखो sparśa_likho Set digital pin high or low Read analog pin रस_पढ़ो rasa_padho Return sensor value Wait for time रुको ruko Delay in ms 3.6 ML–related tokens (planned for v2) For early ML capabilities, most heavy training will occur off–device. On the Ar- duino side, we primarily need tokens for invoking small models and handling their parameters. Concept Devanāgarī to- ken Transliteration Role Model con- struct मॉडल mōdal Declare a model symbol Model run / predict पूर्वानुमान pūrvānumāna Invoke model with inputs Small tensor सूत्र_समूह sūtra_samūha Compact vector/matrix (fixed shape) Load weights भार_स्थापन bhāra_sthā- pana Initialize weight values in flash Linear map- ping रेखा_परिवर्तन rekhā_parivar- tana One affine transform step 15</p> <p>Threshold सीमा sīmā Apply threshold (e.g. step function) These tokens are sufficient to encode simple control policies and decision rules learned elsewhere and embedded on the Arduino as constant parameters. 16</p> <p>4 Summary and outlook This Part I specification has assembled: • a concise statement of overall design goals for सुगणिता, • a phased development plan focused initially on Arduino Uno, • and a concrete, implementable token set for language keywords, operators, opcodes, hardware primitives, and basic ML hooks for versions v0--v2. Three design choices illustrate this conceptual alignment. First, शूःreplaces a neu- tral "NOP" with a meaningful sunya operation. Second, control-flow operations like conditional jump are associated with हेतु(cause) and उदाहरण(example), echo- ing Nyāya structure. Third, निरोध(cessation) gives semantic depth to the idea of halting computation. In Part II, ``Grammar and structural forms'', the next steps will be: 1. to define the precise lexical rules for identifiers, including permissible De- vanāgarī codepoints and combining marks; 2. to describe the context--free grammar for expressions, statements, and mod- ule structure; 3. to specify how control flow constructs map systematically to the underlying opcodes; 4. and to demonstrate small complete programs in सुगणिताand their compiled bytecode. Subsequent parts will address the virtual machine layout, the Arduino C++ imple- mentation, and the eventual AVR assembly version. Over time, as the language stabilizes, the token set may grow; however, the aim will be to preserve the con- ceptual clarity and Vedic orientation recorded in this first blueprint. Acknowledgments This work was produced with the assistance of large language models. 17</p> <p>Tradition Core idea Language fea­ ture layer Example tokens Implementation notes Vedic mathemat­ ics Sūtra­driven computa­ tion (e.g., ऊर्ध्वतिर्यग्भ्याम्: vertically and crosswise) Arithmetic se­ mantics and future specialized ops गुणन (OP_MUL), भागहार(OP_DIV), शेष (OP_MOD) Start with integer ops (v0–v2), reserve opcode space for patterned arithmetic; validate cost on 8­bit AVR before inclusion. Nyāya logic Five­part infer­ ence (प्रतिज्ञा, हेतु, उदाहरण, उपनय, निगमन) Control flow semantics and branching vocab­ ulary यदि(if), अन्यथा(else); हेतु (OP_JZ), उदाहरण (OP_JNZ) Model conditional jumps as cause/ex­ ample; later sugar for multi­claim branching; keep jump targets 16­ bit for compact code. Pāṇinian grammar Rule­governed transformations (सूत्र, संधि) Lexical discipline and parsing trans­ forms दण्ड(I as statement end), विसर्ग(: as- sociation), आह्वान (OP_CALL), प्रत्यावर्तन (OP_RET) Deterministic tokenizer over Devanāgarī; UTF­8 treated as opaque bytes in VM; grammar­level trans­ forms constrained to linear­time passes. Sāṅkhya and Yoga Purusha/Prakṛti distinction; निरोध (cessation) Execution state and halting se­ mantics निरोध (OP_HALT), शु (OP_SHU; सून्य pause) HALT maps to a quies­ cent VM state; NOP as constructive pause for timing/alignment; ex­ pose timing semantics via कालविराम(OP_DE- LAY_MS). Vākya tradition (śāstric clarity) Meaningful sur­ face aligned with roles Surface tokens and keyword design कार्य(function), मुख्य (entry), प्रकार(type), वाक्य (string), रिक्त (void) Prefer semantically grounded lexemes over transliteration; maintain compact en­ codings; provide ASCII aliases only for early tooling. Early ML praxis (em­ bedded) Small, fixed mod­ els; affine maps and thresholds High­level ML hooks and com­ pact tensors मॉडल, पूर्वानुमान, सूत्र_समूह, भार_स्थापन, रेखा_परिवर्तन, सीमा Host­side training; device­side fixed­point inference; weights in flash; preserve VM simplicity by treating ML as callable primi­ tives. Table 1: Mapping philosophical traditions to language and VM features (v0–v2 focus, with reserved room for later expansion).</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Suganita.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

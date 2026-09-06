@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Covariant Reformulation and Simulation of Action Potential Diffusion - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Covariant Reformulation and Simulation of Action Potential Diffusion</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this note, we take steps towards using the machinery of differential geometry fully in modeling 3D axon tracts. We show via simulations that background spacetime curvature affects action potential diffusion governed by a Hodgkin-Huxley-like equation. Introduction In the doctoral dissertation of the author [1] the concluding chapter mentioned the hope of incorporating differential geometry in the calculus machinery of the models. Herein we build upon [2] and [3] and take first steps in upgrading the mathematical machinery to genuine differential geometry. We show how this inclusion from first principles allows a fundamental study of axons - themselves possibly non-straight-line - in curved backgrounds. Details of Implementation and Results Lang Theorem 8.4.1 [4] shows the existence of a covariant derivative on every pseudo-Riemannian (pR) manifold. We construct a pseudo-Riemannian man- ifold as spacetime. We embed within it a right circular pseudo-Riemannian cylindrical manifold. Let a be a coordinate along the longer dimension and let b be a coordinate along the circular dimension. We form the covariant partial derivative of a function V (a, t) with respect to a, take the second derivative of V (a, t) with respect to a and equate it to the first temporal partial derivative of V (a, t). This defines the basic diffusion-like equation along the “length” of the pseudo-Riemannian cylinder. Let the global pR manifold (background) have a local curvature θ near the cylinder. We provide below an .m script that allows visualization of the diffusion of V in cylindrical coordinate a and time t, based on the basic diffusion equation mentioned herein (above), for differing values of local background curvature θ. The script outputs a 3D plot of V (a, t), one for each of several θ values. These are displayed in the figures enclosed. 1</p> <p>Algorithm 1 The code, part 1. % Pseudo-Riemannian Cylindrical Diffusion with Background Curvature % Solves the covariant diffusion equation on a pR cylindrical manifold % embedded in a curved background spacetime clear all; close all; %% Parameters L = 10; % Length of cylinder in coordinate a T_final = 2.0; % Final time Na = 200; % Spatial grid points D = 1.0; % Diffusion coefficient % Calculate time step for stability (CFL condition: D*dt/da^2 &lt;= 0.5) da = L / (Na - 1); dt_max = 0.4 * da^2 / D; % Use 0.4 for safety margin Nt = ceil(T_final / dt_max) + 1; dt = T_final / (Nt - 1); % Curvature values to test theta_values = [0, 0.1, 0.3, 0.5]; % Find maximum metric variation for stability analysis theta_max = max(theta_values); g_aa_max = 1 + theta_max; % Maximum value of g_aa g_aa_min = 1 - theta_max; % Minimum value of g_aa (could be negative for large theta!) % Ensure metric stays positive definite if g_aa_min &lt;= 0 error(’Curvature too large: metric becomes degenerate. Reduce theta_max below 1.0’); end % Effective maximum diffusion coefficient (accounting for g^aa = 1/g_aa) D_eff_max = D / g_aa_min; % Largest effective diffusion % Recalculate time step with safety factor for curvature dt_max = 0.25 * da^2 / D_eff_max; % More conservative: 0.25 instead of 0.4 Nt = ceil(T_final / dt_max) + 1; dt = T_final / (Nt - 1); % Grid setup a = linspace(0, L, Na); t = linspace(0, T_final, Nt); % Verify stability (CFL condition) cfl_nominal = D * dt / da^2; cfl_effective = D_eff_max * dt / da^2; fprintf(’Grid parameters:\n’); fprintf(’ Spatial step da = %.4f\n’, da); fprintf(’ Time step dt = %.6f\n’, dt); fprintf(’ Nominal CFL number = %.4f\n’, cfl_nominal); fprintf(’ Effective CFL number (with curvature) = %.4f (should be &lt;= 0.5)\n’, cfl_effective); fprintf(’ Number of time steps = %d\n’, Nt); fprintf(’ Max theta = %.2f, g_aa range: [%.3f, %.3f]\n\n’, theta_max, g_aa_min, g_aa_max); %% Initial condition: Gaussian pulse a0 = L/2; sigma = 0.5; V0 = exp(-(a - a0).^2 / (2*sigma^2)); %% Solve for each curvature value figure(’Position’, [100 100 1400 800]); for idx = 1:length(theta_values) theta = theta values(idx); 2</p> <p>Algorithm 2 The code, part 2. % Initialize solution matrix V = zeros(Nt, Na); V(1, :) = V0; % Time evolution using finite differences % Covariant diffusion: dV/dt = D * nabla^2 V % where nabla^2 V = (1/sqrt(g)) * d/da[sqrt(g) * g^aa * dV/da] for n = 1:Nt-1 V_current = V(n, :); V_new = V_current; % Interior points (covariant derivative discretization) for i = 2:Na-1 % First covariant derivative: nabla_a V dV_da = (V_current(i+1) - V_current(i-1)) / (2*da); % Contravariant component: V^a = g^aa * nabla_a V V_contra = (1/g_aa(i)) * dV_da; % Second covariant derivative (Laplace-Beltrami operator) % nabla^2 V = (1/sqrt(g)) * d/da[sqrt(g) * V^a] - Gamma^a_aa * nabla_a V % Compute d/da[sqrt(g) * V^a] term_left = sqrt_g(i-1) * (1/g_aa(i-1)) * ... (V_current(i) - V_current(i-1)) / da; term_right = sqrt_g(i+1) * (1/g_aa(i+1)) * ... (V_current(i+1) - V_current(i)) / da; d_term = (term_right - term_left) / da; % Laplace-Beltrami operator laplacian = (1/sqrt_g(i)) * d_term - Gamma_aaa(i) * dV_da; % Time evolution V_new(i) = V_current(i) + D * dt * laplacian; end % Boundary conditions (Neumann - no flux) V_new(1) = V_new(2); V_new(Na) = V_new(Na-1); V(n+1, :) = V_new; end % Plot results subplot(2, 2, idx); [T_grid, A_grid] = meshgrid(t, a); surf(T_grid, A_grid, V’, ’EdgeColor’, ’none’); xlabel(’Time t’, ’FontSize’, 12); ylabel(’Coordinate a’, ’FontSize’, 12); zlabel(’V(a,t)’, ’FontSize’, 12); title(sprintf(’\\theta = %.2f’, theta), ’FontSize’, 14); colorbar; view(45, 30); xlim([0 T_final]); ylim([0 L]); grid on; shading interp; % Calculate and display total "mass" conservation mass_initial = trapz(a, V0 .* sqrt_g); mass_final = trapz(a, V(end,:) .* sqrt_g); conservation_error = abs(mass_final - mass_initial) / mass_initial * 100; text(0.05*T_final, 0.95*L, max(V(:))*0.9, ... sprintf(’Conservation error: %.2f%%’, conservation_error), ... ’FontSize’, 9, ’BackgroundColor’, ’white’); end 3</p> <p>Algorithm 3 The code, part 3. t_slice = round(0.75 * Nt); % At 75% of final time for idx = 1:length(theta_values) theta = theta_values(idx); g_aa = 1 + theta * sin(2*pi*a/L); sqrt_g = sqrt(abs(g_aa)); dg_aa_da = theta * (2*pi/L) * cos(2*pi*a/L); Gamma_aaa = 0.5 * (1./g_aa) .* dg_aa_da; V = zeros(Nt, Na); V(1, :) = V0; for n = 1:Nt-1 V_current = V(n, :); V_new = V_current; for i = 2:Na-1 dV_da = (V_current(i+1) - V_current(i-1)) / (2*da); term_left = sqrt_g(i-1) * (1/g_aa(i-1)) * ... (V_current(i) - V_current(i-1)) / da; term_right = sqrt_g(i+1) * (1/g_aa(i+1)) * ... (V_current(i+1) - V_current(i)) / da; d_term = (term_right - term_left) / da; laplacian = (1/sqrt_g(i)) * d_term - Gamma_aaa(i) * dV_da; V_new(i) = V_current(i) + D * dt * laplacian; end V_new(1) = V_new(2); V_new(Na) = V_new(Na-1); V(n+1, :) = V_new; end subplot(1,2,1); plot(a, V(t_slice, :), ’LineWidth’, 2, ’DisplayName’, sprintf(’\\theta = %.2f’, theta)); hold on; subplot(1,2,2); plot(a, g_aa, ’LineWidth’, 2, ’DisplayName’, sprintf(’\\theta = %.2f’, theta)); hold on; end subplot(1,2,1); xlabel(’Coordinate a’, ’FontSize’, 12); ylabel(’V(a,t)’, ’FontSize’, 12); title(sprintf(’Profiles at t = %.2f’, t(t_slice)), ’FontSize’, 14); legend(’Location’, ’best’); grid on; subplot(1,2,2); xlabel(’Coordinate a’, ’FontSize’, 12); ylabel(’Metric component g_{aa}’, ’FontSize’, 12); title(’Background Metric Variations’, ’FontSize’, 14); legend(’Location’, ’best’); grid on; fprintf(’\nSimulation complete!\n’); fprintf(’Spatial points: %d\n’, Na); fprintf(’Time steps: %d\n’, Nt); 4</p> <p>Figure 1: The code’s output, part 1. Conclusion This study reiterates implications for “in-principle” linkages between axon tracts, and the curvature of the spacetime in which these axons grow and function. In future work, more intricate and multi-parameter background geometries can be studied. The work can also be extended to multiple axons in ephaptic tracts; in that setting it would be intriguing to investigate coupling or resonance between θ and the internal geometry of the tract. Acknowledgment This work was generated with the assistance of LLMs. References [1] Aman Chawla. On Axon-Axon Interaction via Currents and Fields. PhD thesis, University of South Florida, 2017. [2] Aman Chawla, Salvatore Morgera, and Arthur Snider. On axon interaction and its role in neurological networks. IEEE/ACM Transactions on Compu- tational Biology and Bioinformatics, 2019. 5</p> <p>V(a,t)</p> <p>Profiles at t= 1.50 03</p> <p>0.2</p> <p>0.1</p> <p>0.05</p> <p>0 2 4 6 8 10 Coordinate a</p> <p>aa</p> <p>Metric component g</p> <p>Background Metric Variations</p> <p>S o</p> <p>° &gt;</p> <p>eS q</p> <p>0.6</p> <p>0.5</p> <p>Coordinate a</p> <p>Figure 2: The code’s output, part 2.</p> <p>[3] Aman Chawla, Salvatore D. Morgera, and Arthur D. Snider. Fields, geom- etry, and their impact on axon interaction. Journal of Applied Mathematics and Physics, 9(4):751–778, 2021. [4] Serge Lang. Fundamentals of differential geometry, volume 191. Springer Science &amp; Business Media, 2012.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Covariant_Reformulation_and_Simulation_of_Action_Potential_Diffusion.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

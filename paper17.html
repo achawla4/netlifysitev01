@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Differential Ephaptic Networks - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Differential Ephaptic Networks</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman and Morgera, Salvatore Domenic</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card">
+<div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading" style="font-family: 'Cinzel', serif; color: #152238; font-size: 1.4rem; border-bottom: 2px solid #e2d7c5; padding-bottom: 6px; margin-bottom: 15px;">Abstract</h2>
+    <div class="abstract-box" style="background-color: #f9f6f0; padding: 22px 28px; border-left: 4px solid #8b5a2b; border-radius: 6px; font-style: italic; color: #2c2a29; margin-bottom: 25px;">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">Ephaptic coupling is the phenomenon where the various axons in an axon tract contribute to the evolution of the voltage variable on each axon. In this paper, we relax the central assumption of electroneutrality used by Reutskiy et al. That assumption is based on charge conservation laws. However, we present data from the literature in support of this relaxation. Thus we are able to justify the presence of negative entries in the geometric W matrix. These negative entries then impact the action potential conduction profiles of the axons in the tract. These “signed” and coupled tracts can be envisioned as bearers of neural information which is akin to that borne by a synapse. Keywords Ephaptic Coupling, Ephaptic Networks, Axons 1. Introduction In science, we find that simple laws often lead to the most complicated of phe- nomena. For example, in the field of cellular automata, simple conservation laws imposed on the lattice gas lead to equations in the form of Navier-Stokes. When these laws are slightly modified, the resultant equation has very different proper- ties [1]. Taking the cue from that field, in this paper, we modify the conservation law (charge conservation), justifying the modification by use of biological data in Section 3. In [2], the authors provide a model of ephaptic interactions that introduces these interactions as strictly unipolar interactions. Although the voltage terms in the ephaptic sum can individually be negative over time and space, there is no overall multiplicative sign that can be either positive or negative and is encoded in the W-matrix. In [3], the authors introduce a W-matrix like function to capture the locality How to cite this paper: Chawla, A. and Morgera, S.D. (2022) Differential Ephaptic Networks. Journal of Applied Mathematics and Physics, 10, 2876-2882. https://doi.org/10.4236/jamp.2022.1010192 Received: June 28, 2022 Accepted: October 7, 2022 Published: October 10, 2022 Copyright © 2022 by author(s) and Scientific Research Publishing Inc. This work is licensed under the Creative Commons Attribution-NonCommercial International License (CC BY-NC 4.0). http://creativecommons.org/licenses/by-nc/4.0/ Open Access A. Chawla, S. D. Morgera DOI: 10.4236/jamp.2022.1010192 2877 Journal of Applied Mathematics and Physics of ephaptic-like interactions but make no mention of the work done in [4], which was the first (to our knowledge) to introduce the W-matrix. Their EMOD1 index allows signs but is done in the context of electric fields, in contrast to the present paper’s focus on current-based coupling. To provide a bird’s eye view, this paper is structured as follows. In Section 2, we provide the notation that is used in this paper and also some of the back- ground on the electroneutral setting. In Section 3 we provide empirical support for the relaxed setting. In Section 4 we provide some of the consequences of re- laxing electroneutrality—how is the W matrix influenced. In Section 5 we pro- vide some simulations of these modified W matrices. Finally we conclude in Sec- tion 6. Table of Notation The notation used in this paper is succinctly presented in Table 1. 2. The Electroneutrality Assumption Interaction between two physical systems has been of interest to man since the time of Huygens, at least, who discovered clock synchronization [5]. Reutskiy et al. have written an important paper on the related topic of ephaptic coupling of myelinated axons [2]. They provide us with the differential equations that go- vern not only a single axon but an entire bundle of axons, not only at the inter- nodal regions but also at the nodes of Ranvier. The latter are small regions where there is a heavy density of ion channels or “pores” linking the axoplasm with the extracellular space. These equations are of the following form: eph k k mk mk k f I V V c g V t r x x ∂ ∂ ∂ = + − ∂ ∂ ∂ (1) for the internodal regions and Table 1. Description of notation. S. No. Symbol Meaning , mk mk c g membrane (capacitance, conductance) of the k-th axon ( ) ,x t (space, time) variables k V transmembrane voltage of the k-th axon fr axoplasmic resistance eph I ephaptic current , ion ex j j (ionic, extracellular) current input UB, LB (upper, lower) bound , e p d d (epineurium, perineurium) thickness , e p σ σ (epineurium, perineurium) conductivity rI relaxation current ε small positive constant A. Chawla, S. D. Morgera DOI: 10.4236/jamp.2022.1010192 2878 Journal of Applied Mathematics and Physics eph k k mk ion ex f I V V c j j t r x x ∂ ∂ ∂ = + − − ∂ ∂ ∂ (2) for the nodal segments. They are derived under a set of assumptions which the authors mention in Section 2.1 of their paper. One of these assumptions is stated there as follows: ...(j) the nerve boundary is perfectly insulating... It is expanded upon a little later as follows: Assumption (j) represents a good approximation, given the low conductiv- ity of the connective tissue enclosing bundles of fibers in a nerve. We reproduce these statements above for a ready reference. 3. Empirical Electrical Conductivities For the hypoglossal nerve, the electrical conductivity values of the epineurium, perineurium and endoneurium (transverse) are provided in [6] as 0.0826, 0.0021 and 0.0826 Siemens per meter respectively. In [7], the authors provide the mean epineural thickness of the cervical vagus nerve of the dog to be slightly larger than 0.5 mm. In [8], the authors provide the thickness of the epineurium to be 0.13 mm in the rat sciatic nerve with a conductivity of 0.008 Siemens per meter. They also provide the thickness of the perineurium to be 0.01 mm in the same nerve with a conductivity of 0.00336 Siemens per meter. Since both, the thickness and the corresponding conductivity values are provided, we follow [8] instead of [7] herein. Next, we use Equation (15) from [9] to compute upper and lower bounds on the effective conductivity of the perineurium-epineurium combination in the rat sciatic nerve. The upper bound is: 0.13 3.0.008 0.01 3.0.00336 0.00766857 0.14 e e p p e p d d e e UB d d e σ σ + − + − = = = + − Siemens per meter, and the lower bound is: 0.14 0.0072817 0.13 0.01 0.008 0.00336 e p p e e p d d e LB d e e d σ σ + − = = = − − + + Siemens per meter. We can thus take the conductivity to be a middling 0.0074 Siemens per meter for the bounding layer of the rat sciatic nerve axon tract. Whereas this is a small value, the conductivity is not as low as that required for it to be classified as an insula- tor. It lies more in the region of being a semiconductor. 4. Consequences of Relaxing Electroneutrality Practically speaking, by relaxing the electroneutrality assumption of the tract, we can get negative W-entries and it also enables the above-described interactions. As demonstrated in the previous subsections, there does not exist electroneutral- A. Chawla, S. D. Morgera DOI: 10.4236/jamp.2022.1010192 2879 Journal of Applied Mathematics and Physics ity (necessarily). Therefore, ephaptic modulation of axon-transported informa- tion (without neurotransmitters) might be widespread. It might explain why targeting only neurotransmitters in drug-based brain interventions is usually slow and ineffective—we need to target ephapses too, not just synapses. Consid- er the electroneutrality-dependent equation (1) from Reutskiy’s paper [2]: ( ) ( ) , , N k k I x t I x t = + = ∑ (3) or its more general version [4] where 0 is now replaced by a very small positive current rI ε : ( ) ( ) , , N k r k I x t I x t I ε = + = ∑ (4) for 1, , k N =  . This represents the relaxation we are considering in this paper. It means that we allow some leakage across the tract boundary. Due to this free- dom, some of the axons can have a negative (or opposite-signed) contribution to a given axon when compared with the other axons, even though the differentia- tion step ensures that the derivation of Equation (10) in [4] remains unchanged. 5. Examples with the Relaxed Formulation To reiterate, in this paper, we ask the question: what the consequence of having signed, or differential, ephaptic interaction as discussed in Section 4 is. To an- swer this question, we implement Equation (4) by simply inverting the sign on some of the W-matrix entries. By doing so, we observe that we have thrown off the timing of action potential initiation on the coupled tracts. In particular, we have introduced delays as compared to the original W matrix output. In Figure 1, we have used the W matrix shown as Algorithm 1. Figure 1. Unsigned ephaptic interaction among N = 3 axons with the topmost axon being the only stimulated axon. The x-axis is time in seconds and the y-axis is voltage in Volts on all the three sub-figures. The axons are numbered 1, 2 and 3 from top to bottom. A. Chawla, S. D. Morgera DOI: 10.4236/jamp.2022.1010192 2880 Journal of Applied Mathematics and Physics Algorithm 1. W-matrix used in Figure 1. We next invert some of the signs. For instance, we can experiment with in- verting d23. Since d23 equals d32, we must flip that one too. We get the output shown in Figure 2. A minor difference is visible in the two lower axons. Their time traces are shifted slightly to the left, visible particularly in the blue trace. Next, we experi- ment with inverting d12 and also d21, having removed the previous experimen- tal modification. We obtain the output shown in Figure 3. It is clear in Figure 3 that there is a much larger impact of inverting d12 as com- pared with d23. This is not unrelated to the fact that the absolute value of d12 is larger than that of d23. These modified delays can be accepted as present, because the introduced negative entries are now inhibiting the concerned axons—these axons are no longer allowed to fire as soon as they would otherwise. This is quite akin to what happens at an inhibitory synapse. The inputs from such a synapse lead to IPSPs which then detract from the impact of EPSPs and therefore delay the firing of action potentials once threshold is crossed at the axon hillock. Figure 2. Signed ephaptic interaction among N = 3 axons with the topmost axon being the only stimulated axon. The x-axis is time in seconds and the y-axis is voltage in Volts on all the three sub-figures. The axons are numbered 1, 2 and 3 from top to bottom. A. Chawla, S. D. Morgera DOI: 10.4236/jamp.2022.1010192 2881 Journal of Applied Mathematics and Physics Figure 3. Signed ephaptic interactions among N = 3 axons. The x-axis is time in seconds and the y-axis is voltage in Volts on all the three sub-figures. The axons are numbered 1, 2 and 3 from top to bottom. If we next treat the sympathetically excited axon as the “post-ephaptic” axon, we have a cascaded system of axon-ephapse-axon. If we can somehow isolate the two axons as lying within a black box, extract the impulse from the second axon, and treat it as the output of the black box, then we can make replicas of this black box and in so doing, after interconnecting these black boxes, generate “ephaptic networks.” 6. Concluding Discussion With numbering as introduced in Section 5, the question arises: can we have axon 1 with a positive ephaptic influence on axon 3 while axon 2 has a negative one? Further, can we ensure unidirectionality? In the absence of unidirectionali- ty, we may be able to map this configuration to a specific W-matrix for N = 3 axons. But, in order to have true one-way influence, we may take axon 3 as a rel- atively long one, allowing its initial segments to interact in an N = 2 system with axon 1 and its final segments in another N = 2 system, but with axon 2. In this way, we may have a method to exactly replicate synaptic interactions. Thus, de- void of neurotransmitters, a synapse-like ephaptic network can be conceived. It is tantalizing to imagine the possibilities when electric field based interactions are additionally considered. To summarize, we introduced the possibility that most axon tracts are not electroneutral. Consequently, we were led to the conclusion that ephaptic inte- ractions can be signed. Allowing for signed ephaptic interactions imparts to the nervous system much more freedom in its signal processing and information transmission than the unsigned case considered previously for current-coupling. In future work, we will examine the information theoretic capacity of differential ephaptic networks by applying the DMC-network model of Kramer [10]. A. Chawla, S. D. Morgera DOI: 10.4236/jamp.2022.1010192 2882 Journal of Applied Mathematics and Physics Conflicts of Interest The authors declare no conflicts of interest regarding the publication of this pa- per. References [1] Gershenfeld, N.A. (1999) The Nature of Mathematical Modeling. Cambridge Uni- versity Press, Cambridge. [2] Reutskiy, S., Rossoni, E. and Tirozzi, B. (2003) Conduction in Bundles of Demyeli- nated Nerve Fibers: Computer Simulation. Biological Cybernetics, 89, 439-448. https://doi.org/10.1007/s00422-003-0430-x [3] Ruffini, G., Salvador, R., Tadayon, E., Sanchez-Todo, R., Pascual-Leone, A. and Santarnecchi, E. (2020) Realistic Modeling of Mesoscopic Ephaptic Coupling in the Human Brain. PLOS Computational Biology, 16, e1007923. https://doi.org/10.1371/journal.pcbi.1007923 [4] Chawla, A., Morgera, S. and Snider, A. (2019) On Axon Interaction and Its Role in Neurological Networks. IEEE/ACM Transactions on Computational Biology and Bioinformatics, 18, 790-796. https://doi.org/10.1109/TCBB.2019.2941689 [5] Pikovsky, A., Rosenblum, M. and Kurths, J. (2003) Synchronization: A Universal Concept in Nonlinear Sciences. Cambridge University Press, Cambridge. [6] Johnson, M.D., Dweiri, Y.M., Cornelius, J., Strohl, K.P., Steffen, A., Suurna, M., Soose, R.J., Coleman, M., Rondoni, J., Durand, D.M. and Ni, Q. (2021) Model-Based Analysis of Implanted Hypoglossal Nerve Stimulation for the Treatment of Ob- structive Sleep Apnea. Sleep, 44, S11-S19. https://doi.org/10.1093/sleep/zsaa269 [7] Yoo, P.B., Lubock, N.B., Hincapie, J.G., Ruble, S.B., Hamann, J.J. and Grill, W.M. (2013) High-Resolution Measurement of Electrically-Evoked Vagus Nerve Activity in the Anesthetized Dog. Journal of Neural Engineering, 10, Article ID: 026003. https://doi.org/10.1088/1741-2560/10/2/026003 [8] Bucksot, J.E., Wells, A.J., Rahebi, K.C., Sivaji, V., Romero-Ortega, M., Kilgard, M.P., Rennaker, R.L. and Hays, S.A. (2019) Flat Electrode Contacts for Vagus Nerve Sti- mulation. PLOS ONE, 14, e0215191. https://doi.org/10.1371/journal.pone.0215191 [9] Peters, M.J., Stinstra, G. and Hendriks, M. (2001) Estimation of the Electrical Con- ductivity of Human Tissue. Electromagnetics, 21, 545-557. https://doi.org/10.1080/027263401752246199 [10] Kramer, G. (2003) Capacity Results for the Discrete Memoryless Network. IEEE Transactions on Information Theory, 49, 4-21. https://doi.org/10.1109/TIT.2002.806135</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Differential_Ephaptic_Networks.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div>
+</article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

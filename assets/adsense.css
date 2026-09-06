@@ -1,0 +1,161 @@
+.real-adsense-slot {
+    display: block;
+    max-width: 820px;
+    margin: 40px auto 24px;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Hide only if disabled explicitly and no fallback */
+.real-adsense-slot.is-disabled {
+    display: none;
+}
+
+.real-adsense-slot .adsbygoogle {
+    margin: 0 auto;
+}
+
+/* Amazon Affiliate Card Unit */
+.amazon-ad-card {
+    background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 12px;
+    padding: 18px 24px;
+    color: #f3f4f6;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    margin: 0 auto;
+}
+
+.amazon-ad-card:hover {
+    border-color: rgba(245, 158, 11, 0.6);
+    transform: translateY(-2px);
+}
+
+.amazon-ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.amazon-ad-badge {
+    color: #f59e0b;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.amazon-ad-badge::before {
+    content: '✦';
+    color: #f59e0b;
+}
+
+.amazon-ad-tag {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #9ca3af;
+}
+
+.amazon-ad-body {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.amazon-ad-icon {
+    font-size: 2.2rem;
+    background: rgba(245, 158, 11, 0.12);
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.amazon-ad-info {
+    flex-grow: 1;
+}
+
+.amazon-ad-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.3;
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.amazon-ad-title:hover {
+    color: #f59e0b;
+}
+
+.amazon-ad-author {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-top: 2px;
+}
+
+.amazon-ad-tagline {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.amazon-ad-btn {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.amazon-ad-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.45);
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.amazon-ad-footer {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.7rem;
+    color: #64748b;
+    text-align: right;
+}
+
+@media (max-width: 640px) {
+    .real-adsense-slot {
+        margin: 28px 16px 18px;
+    }
+
+    .amazon-ad-body {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .amazon-ad-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

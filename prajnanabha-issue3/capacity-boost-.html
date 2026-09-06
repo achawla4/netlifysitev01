@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacity Boost: Data Transmission in the Unified Regime | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 3 · V1I3-A04</div>
+            <h1>Capacity Boost: Data Transmission in the Unified Regime</h1>
+            <div class="hero-meta">Aman Chawla \\ REAL Institute and IIT Delhi {Manuscript received December 31, 2025; accepted for publication December 31, 2025.}</div>
+            <div class="hero-meta">Source PDF: nuRegimev6.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_3.html">Issue 3</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>Traditional theories of information transmission, both classical and quantum, assume that information is evaluated within a fixed and flat informational measure. Recent developments in the theory of nonlocal unification challenge this assumption by treating information as a conserved quantity whose observable manifestations depend on relational and nonlocal structure. In this paper, we develop a rigorous account of data transmission in what we term the <em>Unified Regime</em>, where informational observables arise as stationary quantities of a nonlocal informational action. Using Theorem A.1 of Prajnanabha, Vol. 1, Issue 1, we derive the unified (NU) entropy as a weighted logarithmic functional without assuming pointwise observer action. We show how additivity follows from the minimum interaction principle (Example 6), define unified channel capacity, and compare it with classical Shannon and quantum Holevo capacities for free-space optical (FSO) channels. The resulting framework preserves all physical channel constraints while revealing a principled capacity enhancement driven by informational geometry.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>Information theory has achieved remarkable success by identifying fundamental limits on reliable data transmission. Shannon&#x27;s classical theory established capacity as the maximal mutual information between channel input and output, while quantum information theory extended this result through the Holevo bound for classical communication using quantum states. Despite their differences, both theories share a foundational assumption: information is quantified using a fixed entropy functional defined on a flat informational space.</p>
+<p>However, many physical communication channels—particularly free-space optical (FSO) channels—are dominated by multiplicative noise, long-range correlations, and observer-dependent access to information. These features suggest that the geometry of information itself may be shaped by the channel and by relational structure, rather than remaining fixed.</p>
+<p>The theory of nonlocal unification, developed in Prajnanabha, proposes that information is a conserved quantity whose observable flux depends on nonlocal and relational constraints. Entropy, in this framework, is not a primitive concept but an emergent scalar observable derived from a more fundamental informational action.</p>
+<p>The objective of this paper is to reformulate data transmission theory within this unified perspective. We derive the appropriate entropy functional, define unified channel capacity, and evaluate its implications for FSO links. Throughout, we emphasize logical necessity and reduction to known theory in appropriate limits.</p>
+<h2 id="classical-and-quantum-transmission-limits">Classical and Quantum Transmission Limits</h2>
+<h3 id="classical-capacity">Classical Capacity</h3>
+<p>For a memoryless classical channel with input $X$ and output $Y$, Shannon capacity is defined as</p>
+<div class="math-block">$$
+C = \sup_{p(x)} I(X;Y),
+$$</div>
+<p>where $I(X;Y)$ is the mutual information. This result assumes that uncertainty is quantified by Shannon entropy, which is extensive and additive over independent degrees of freedom.</p>
+<h3 id="quantum-capacity-for-classical-information">Quantum Capacity for Classical Information</h3>
+<p>For a quantum channel ${N}$ used to transmit classical information, the ultimate achievable rate is given by the Holevo capacity</p>
+<div class="math-block">$$
+C_Q = \sup_{\{p_i,\rho_i\}} \left[ S\!\left(\sum_i p_i \mathcal{N}(\rho_i)\right) - \sum_i p_i S(\mathcal{N}(\rho_i)) \right],
+$$</div>
+<p>where $S()$ denotes von Neumann entropy. As in the classical case, the entropy functional is fixed a priori.</p>
+<h3 id="free-space-optical-channels">Free-Space Optical Channels</h3>
+<p>FSO channels are commonly modeled as fading channels of the form</p>
+<div class="math-block">$$
+Y = \sqrt{I}\,X + N,
+$$</div>
+<p>where $I$ is a random turbulence-induced intensity and $N$ is additive noise. The statistics of $I$ are often non-Gaussian and induce strong variability in instantaneous channel quality.</p>
+<h2 id="nonlocal-unification-and-informational-observables">Nonlocal Unification and Informational Observables</h2>
+<h3 id="informational-state-and-observer-functional">Informational State and Observer Functional</h3>
+<p>In the theory of nonlocal unification, the fundamental object is the informational state $S(t)$, which encodes all informational degrees of freedom accessible to the system. Observable information is obtained through an observer functional</p>
+<div class="math-block">$$
+\Phi_t = f_t(S(t)),
+$$</div>
+<p>where $f_t$ represents the informational perspective of the observer.</p>
+<p>Crucially, information is conserved, but its observable manifestation depends on both the evolution of $S(t)$ and the evolution of $f_t$.</p>
+<h3 id="theorem-a-1-informational-chain-rule">Theorem A.1: Informational Chain Rule</h3>
+<p>Theorem A.1 (Prajnanabha, Vol. 1, Issue 1) establishes a functional chain rule for informational flux:</p>
+<div class="math-block">$$
+\frac{d\Phi_t}{dt}
+=
+D f_t[S(t)] \cdot \frac{dS}{dt}
++
+\left(\frac{
+
+tial f_t}{
+
+tial t}\right)(S(t)).
+$$</div>
+<p>This theorem formalizes the principle that observed informational change arises jointly from system evolution and observer evolution.</p>
+<h3 id="minimum-interaction-principle">Minimum Interaction Principle</h3>
+<p>Example 6 in the same work states that at least two local consciousness instruments are required for definable informational interaction. In other words, informational dynamics are only observable when relational contrast exists.</p>
+<p>This principle implies that independent informational degrees of freedom—those lacking relational structure—cannot generate interaction terms in observed flux.</p>
+<h2 id="derivation-of-unified-entropy">Derivation of Unified Entropy</h2>
+<h3 id="from-informational-flux-to-scalar-observables">From Informational Flux to Scalar Observables</h3>
+<p>We seek scalar informational observables that are stationary under admissible informational flows. Such observables must be functionals of the informational state whose time derivative vanishes or extremizes under the chain rule of Theorem A.1.</p>
+<h3 id="additivity-from-independence">Additivity from Independence</h3>
+<p>Let the informational state decompose as $S = S_1 S_2$, where $S_1$ and $S_2$ are informationally independent. By the minimum interaction principle, no relational structure exists between them. Therefore, the observer functional must satisfy</p>
+<div class="math-block">$$
+f(S_1 \oplus S_2) = f(S_1) + f(S_2).
+$$</div>
+<p>Any cross-term would introduce observer-induced interaction, contradicting Example 6.</p>
+<p>This additivity forces the Fr\&#x27;echet derivative of $f$ to admit a diagonal kernel representation, implying that the functional admits an integral density form.</p>
+<h3 id="specialization-to-probabilistic-states">Specialization to Probabilistic States</h3>
+<p>When the informational state is represented by a probability density $p(x)$, the most general additive scalar observable consistent with Theorem A.1 is</p>
+<div class="math-block">$$
+\mathcal{I}[p] = \int p(x)\,\phi(p(x))\,\lambda(x)\,dx,
+$$</div>
+<p>where $(x)$ is an informational weighting induced by nonlocal structure.</p>
+<p>The additivity and conservation constraints uniquely fix</p>
+<div class="math-block">$$
+\phi(p) = \log\!\frac{1}{p}.
+$$</div>
+<h3 id="unified-entropy">Unified Entropy</h3>
+<p>The unified (NU) entropy is therefore</p>
+<div class="math-block">$$
+H_{\mathrm{NU}}(X)
+=
+\int \lambda(x)\,p(x)\,\log\!\frac{1}{p(x)}\,dx.
+$$</div>
+<p>When $(x)=1$, the informational manifold is flat and $H_{{NU}}$ reduces to Shannon entropy.</p>
+<h2 id="unified-channel-capacity">Unified Channel Capacity</h2>
+<h3 id="definition">Definition</h3>
+<p>The unified capacity of a channel is defined as</p>
+<div class="math-block">$$
+C_{\mathrm{NU}} = \sup_{p(x)} I_{\mathrm{NU}}(X;Y),
+$$</div>
+<p>where mutual information is computed using unified entropy.</p>
+<h3 id="unified-capacity-for-fso-channels">Unified Capacity for FSO Channels</h3>
+<p>For an FSO channel with instantaneous signal-to-noise ratio $ I$, the unified capacity becomes</p>
+<div class="math-block">$$
+C_{\mathrm{NU}} = \mathbb{E}_I \left[ \log\!\left(1 + (1+\kappa)\gamma I\right) \right],
+$$</div>
+<p>where $$ is an effective informational curvature parameter derived from $(x)$.</p>
+<h2 id="comparison-with-classical-and-quantum-capacities">Comparison with Classical and Quantum Capacities</h2>
+<p>At low SNR,</p>
+<div class="math-block">$$
+\frac{C_{\mathrm{NU}}}{C} = 1 + \kappa,
+$$</div>
+<p>indicating a proportional gain.</p>
+<p>For quantum transmission of classical information over a bosonic FSO channel, the Holevo capacity takes the form</p>
+<div class="math-block">$$
+C_Q = \mathbb{E}_I[g(\bar{n}I)],
+$$</div>
+<p>where $g()$ is the bosonic entropy function. In the unified regime, the effective photon number becomes ${n}(1+)$, yielding</p>
+<div class="math-block">$$
+C_{\mathrm{NU}} = \mathbb{E}_I[g(\bar{n}(1+\kappa)I)].
+$$</div>
+<p>This enhancement does not violate quantum limits, as it arises from informational geometry rather than additional physical resources.</p>
+<h2 id="discussion">Discussion</h2>
+<p>The Unified Regime reframes data transmission by recognizing entropy as an emergent, observer-covariant quantity. Nonlocality enters through informational weighting and admissible flows, while additivity and locality of representation follow from independence and the minimum interaction principle.</p>
+<p>This framework preserves all standard results in appropriate limits while extending capacity analysis to channels with strong relational structure.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have developed a unified theory of data transmission grounded in nonlocal unification. By deriving unified entropy from Theorem A.1 and the minimum interaction principle, we established a principled basis for unified channel capacity. Application to FSO channels demonstrates a consistent capacity enhancement relative to classical and quantum baselines. These results suggest that informational geometry is a meaningful and operational extension of modern communication theory.</p>
+<h2 id="acknowledgment">Acknowledgment</h2>
+<p>The author acknowledges the use of language models in the preparation of the paper. The author is grateful to Sri Mooji and Paramahamsa Prajnananandaji for spiritual guidance.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-Shannon"><span class="ref-key">[1]</span> <p>C. E. Shannon, &quot;A mathematical theory of communication,&quot; <em>Bell Syst. Tech. J.</em>, vol. 27, pp. 379–423, 623–656, 1948.</p></li><li id="ref-Holevo"><span class="ref-key">[2]</span> <p>A. S. Holevo, &quot;The capacity of the quantum channel with general signal states,&quot; <em>IEEE Trans. Inf. Theory</em>, vol. 44, no. 1, pp. 269–273, 1998.</p></li><li id="ref-FSO"><span class="ref-key">[3]</span> <p>L. Andrews and R. Phillips, <em>Laser Beam Propagation through Random Media</em>. SPIE Press, 2005.</p></li><li id="ref-PrajnanabhaNU2025"><span class="ref-key">[4]</span> <p>A. Chawla, &quot;Theory of Nonlocal unification: The Foundation and Its Application&quot; <em>Prajnanabha</em>, vol. 1, no. 1, December 2025, REAL Institute, Haryana, India.</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

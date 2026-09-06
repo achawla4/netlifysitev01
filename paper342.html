@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GNS Shadows Behind PBR - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">GNS Shadows Behind PBR</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">We develop the convex geometry of C*-algebraic state spaces and prove that the state space of a noncommutative C*-algebra is not a simplex. This structural obstruction prevents any affine identification of quantum state spaces with classical probability simplices. All foundational definitions and intermediate results are given explicitly. C*-Algebras and States Definition 1.1. A C*-algebra A is a complex Banach algebra with involution a 7→a∗satisfying ∥a∗a∥= ∥a∥2. Definition 1.2. A linear functional ω : A →C is positive if ω(a∗a) ≥0 ∀a ∈A. Definition 1.3. A state on a unital C*-algebra A is a positive linear functional ω satisfying ω(1) = 1. The set of states is denoted S(A). Proposition 1.4. S(A) is convex. Proof. If ω1, ω2 ∈S(A) and t ∈[0, 1], define ω = tω1 + (1 −t)ω2. Linearity is immediate. Positivity: ω(a∗a) = tω1(a∗a) + (1 −t)ω2(a∗a) ≥0. Normalization: ω(1) = t + (1 −t) = 1. Pure States and Extremality Definition 2.1. A state ω is pure if it is an extreme point of S(A). Theorem 2.2. A state is pure if and only if it cannot be written as a nontrivial convex combination of distinct states. 1</p> <p>3 Classical Probability Simplices Definition 3.1. Let Λ be a compact Hausdorff space. The set of Borel probability measures Prob(Λ) is called a probability simplex. Theorem 3.2. Prob(Λ) is a simplex: every element admits a unique decomposition into extreme points (Dirac measures). Proof. By the Choquet theorem and the fact that extreme points are Dirac measures δλ, each probability measure decomposes uniquely into these. Finite-Dimensional Quantum Example Let A = M2(C). States correspond to density matrices: ρ = 1 2(I + ⃗r · ⃗σ), |⃗r| ≤1. The state space is the Bloch ball. Pure states correspond to |⃗r| = 1. Proposition 4.1. The maximally mixed state ρ∗= 1 2I has infinitely many distinct convex decom- positions into pure states. Proof. For any orthonormal basis {ψ1, ψ2}: ρ∗= 1 2|ψ1⟩⟨ψ1| + 1 2|ψ2⟩⟨ψ2|. Different bases yield different decompositions. Failure of Simplex Structure Theorem 5.1. If A is noncommutative, then S(A) is not a simplex. Proof. If S(A) were a simplex, each state would admit unique pure decomposition. The Bloch ball counterexample shows non-uniqueness. Therefore S(A) is not a simplex. Corollary 5.2. There is no affine isomorphism between S(A) and Prob(Λ) for any measurable space Λ. Interpretation The failure of simplex structure is purely algebraic, arising from noncommutativity. This convex- geometric rigidity will underlie the structural obstruction developed in Part II. Tensor Products of C*-Algebras Let A, B be C*-algebras. Their minimal tensor product A ⊗B encodes independent systems. Definition 7.1. A product state is (ω1 ⊗ω2)(a ⊗b) = ω1(a)ω2(b). 2</p> <p>8 Preparation Independence Assume existence of an ontic space Λ. Each pure quantum state ψ corresponds to a probability distribution µψ on Λ. Preparation independence: µψ⊗ϕ = µψ × µϕ. Structural Conflict Suppose distinct pure states ψ1, ψ2 correspond to overlapping measures. Then µψ1 ∩µψ2 has positive measure. By preparation independence, µψi⊗ψj overlap for all i, j. Quantum Distinguishing Measurement In A ⊗A, there exist projectors distinguishing ψ1 ⊗ψ1, ψ1 ⊗ψ2, ψ2 ⊗ψ1, ψ2 ⊗ψ2. This contradicts overlapping classical supports. Structural Theorem Theorem 11.1. Let A be noncommutative. Then S(A) cannot be affinely embedded into Prob(Λ) in a manner preserving tensor product structure and preparation independence. Proof. Non-simplex structure (Part I) forbids classical convex embedding. Tensor-product distin- guishability produces contradiction with overlapping supports. Conclusion The obstruction exploited in the PBR theorem is rooted in: • Noncommutativity • Non-simplex convex geometry • Tensor product structure GNS does not assume hidden variables, but its convex-geometric framework contains the rigidity that makes ψ-epistemic models structurally unstable. 3</p> <p>Bibliography 1. I. M. Gelfand and M. A. Naimark, On the embedding of normed rings into the ring of operators in Hilbert space, Mat. Sbornik, 1943. 2. R. V. Kadison and J. R. Ringrose, Fundamentals of the Theory of Operator Algebras, AMS. 3. G. Murphy, C*-Algebras and Operator Theory, Academic Press. 4. M. Pusey, J. Barrett, T. Rudolph, On the reality of the quantum state, Nature Physics, 2012. 5. E. Schr¨odinger, Discussion of probability relations between separated systems, Proc. Cam- bridge Phil. Soc., 1935. 6. J. Bell, On the Einstein-Podolsky-Rosen paradox, Physics, 1964.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/On_the_Possible_Influence_of_Metric_Perturbations_on_Neural_Tract_Timing.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

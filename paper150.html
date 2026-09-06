@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Li-Vitanyi Approach to Noisy Channel Coding - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Li-Vitanyi Approach to Noisy Channel Coding</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this report, the authors have an LLM work out a version of the noisy channel coding theorem on the basis of Kolmogorov complexity and similar non-Shannon measures. Consider the statement by Li and Vitanyi: Thus, we have discovered an interesting phenomenon: the descrip- tion of some strings can be compressed considerably. In fact, there is no limit to the amount to which strings can be compressed, pro- vided they exhibit enough regularity. This observation, of course, is the basis of all systems to express very large numbers, and was ex- ploited early on by Archimedes in "The Sand Reckoner". However, if regularity is lacking, it becomes more cumbersome to express large numbers. from the "Handbook of Theoretical Computer Science A", page 190. In the noisy channel coding theorem of Shannon, a random codebook consisting of M rows (messages), each of length n is generated from a pmf in an i.i.d. fashion. The above quote suggests that some of these strings don't require a length n representation, but can be captured by fewer entries. Let there be r such rows and let them be captured by k &lt; n entries. Collect these length k messages in one matrix and the remaining in another matrix or codebook. When the codebook(s) is to be used, get the message index, map it to the correct codebook and message within that codebook and transmit that message. For this modied procedure, in this paper we step through the proof of the noisy channel coding theorem, highlighting points where our new setup diverges from the standard proof. In this modied setup of the noisy channel coding theorem, the central idea is to separate strings (messages) into two groups based on their compressibility. To examine the divergence from the standard proof, we proceed step by step and note where the dierences arise. 1</p> <p>Standard Proof of the Noisy Channel Coding The- orem The standard proof of the noisy channel coding theorem can be summarized in these key steps: Random Codebook Generation: Generate a random codebook consisting of M = 2nR codewords, each of length n, drawn i.i.d. from a probability mass function (pmf). Encoding and Transmission: For each message, select a corresponding codeword from the codebook and trans- mit it over a noisy channel. Decoding: The receiver decodes the received noisy version of the codeword by searching for the codeword in the codebook that is "typical" relative to the received sequence, within a certain noise tolerance. Error Probability Analysis: The probability of decoding error is made arbitrarily small by ensuring the rate R is less than the channel capacity C, i.e., R &lt; C. Modied Steps in the Proof 1. Random Codebook Generation Standard Proof: A random codebook of M = 2nR codewords is generated, with each codeword of length n, drawn i.i.d. from the same pmf. Modied Setup: There is no divergence from the standard proof at this stage. All codewords are still generated as length-n strings in the same way as in the standard proof. The key dierence arises after the codebook is generated, when the compressible and non-compressible messages are identied. 2</p> <p>2. Partition of Codebook into Compressible and Non-compressible Messages Standard Proof: No such partitioning occurs; all codewords are treated equally. Modied Setup: After generating the full codebook, some messages are identied as compressible and can be represented with fewer entries, say k &lt; n symbols. This creates two sets of messages: Compressible: r rows can be compressed to length k. Non-compressible: The remaining M −r rows retain their full length n. Divergence: This step introduces the partitioning of the original codebook into two parts based on compressibility, leading to variable-length codewords. 3. Rate of the Code Standard Proof: The rate is R = 1 n log(M), uniform across the entire codebook. Modied Setup: The overall rate now becomes a weighted sum of the rates for compressible and non-compressible messages. For compressible messages, the rate is ef- fectively Rk = k log(r), and for non-compressible messages, the rate remains Rn = 1 n log(M −r). Divergence: The rate analysis changes, as now there are eectively two dierent rates for compressible and non-compressible messages. The overall rate becomes a com- bination of these two: Roverall = r M Rk + M−r M Rn This can aect the achievable rates relative to the channel capacity. 4. Encoding and Transmission Standard Proof: Each message is encoded into a length-n codeword and transmitted over the channel. 3</p> <p>Modied Setup: After determining whether a message is compressible or non-compressible, the encoding follows two paths: For compressible messages, the shorter length-k sequence is transmitted. For non-compressible messages, the full length-n sequence is transmitted. Divergence: The transmission now involves codewords of variable lengths, adding complexity in terms of both encoding and channel utilization. The channel input distribu- tion changes, as shorter messages (length k) are now mixed with longer messages (length n). 5. Decoding Standard Proof: The decoder looks for the codeword in the codebook that is "typical" relative to the received sequence, treating all codewords uniformly. Modied Setup: The decoder must rst determine whether the received sequence corresponds to a compressible (length k) or non-compressible (length n) codeword. Then, it decodes the message within the appropriate subset of the codebook. Divergence: The decoding complexity increases because the decoder must now handle variable- length inputs. Additionally, typicality is dened relative to sequences of dierent lengths (k for compressible and n for non-compressible). 6. Error Probability Analysis Standard Proof: The probability of decoding error is made arbitrarily small as long as the rate R is less than the channel capacity C. Modied Setup: The overall error probability is now split into two parts: The probability of error for compressible messages depends on their shorter length k and the cor- responding eective rate. The probability of error for non-compressible messages remains governed by length n sequences. The total error probability is a weighted combination of the error probabil- ities for compressible and non-compressible messages: Perror = r M Perror,compressible + M−r M Perror,non−compressible 4</p> <p>Divergence: The error analysis is more involved because the decoder has to distinguish be- tween compressible and non-compressible messages, and typicality arguments apply dierently based on the length of the message being decoded. The rate R must now be adjusted to ensure the error probability stays within the acceptable bounds for both parts of the codebook. Conclusion With the split occurring after codebook generation, the divergence from the standard noisy channel coding theorem begins at the partitioning stage (step 2). This aects the rate, encoding, transmission, decoding, and error probability analysis due to the introduction of variable-length codewords and the need to handle compressible and non-compressible messages separately. However, the i.i.d. generation of codewords remains intact, maintaining consistency with the standard setup up until the partitioning. An analytical comparison of Roverall and R In this section we analytically compare the overall rate in the modied setup, Roverall, with the rate R in the standard noisy channel coding theorem. Standard Rate R In the standard noisy channel coding theorem, the rate R is dened as: R = 1 n log M where: - M is the total number of messages. - n is the length of each codeword. Modied Setup: Overall Rate Roverall In your modied setup, the messages are partitioned into two groups: 1. Compressible Messages: r messages can be represented using k symbols (k &lt; n). 2. Non-compressible Messages: M −r messages require the full n-length representation. Thus, we can dene two separate rates: - For compressible messages: Rk = 1 k log r 5</p> <p>- For non-compressible messages: Rn = 1 n log(M −r) Now, the overall rate Roverall is a weighted combination of these two rates: Roverall = r M Rk + M −r M Rn Substituting Rk and Rn into this expression: Roverall = r M · 1 k log r + M −r M · 1 n log(M −r) Analytical Comparison: Roverall vs. R To compare Roverall with R, we break down their components and analyze the key factors: 1. Relative Proportion of Compressible and Non-compressible Messages - If r (the number of compressible messages) is large compared to M, the term r M · 1 k log r will dominate Roverall, leading to a rate that largely depends on the shorter codewords of length k. - Conversely, if r is small, the second term M−r M · 1 n log(M −r) dominates, so Roverall behaves similarly to the standard R. 2. Impact of Compressibility (k &lt; n) - The compressible messages (with length k) reduce the overall encoding length, thereby potentially reducing the rate required to transmit these mes- sages. - When k ≪n, the contribution of the compressible messages can signi- cantly reduce Roverall compared to R, because these messages are represented more compactly than in the standard case. 3. Rate Dierence Next we can calculate the dierence between the two rates: ∆R = Roverall −R =  r M · 1 k log r + M −r M · 1 n log(M −r)  −1 n log M Expanding this: ∆R = r M · 1 k log r + M −r M · 1 n log(M −r) −1 n log M If the proportion of compressible messages r is small, then log r will have a smaller inuence, and Roverall will approach R. However, if r is large, log r becomes signicant, and the overall rate Roverall can be lower than R because compressible messages take advantage of the smaller codeword length k. 4. Key Observations - If k ≪n and r is substantial compared to M, Roverall will be signicantly less than R. The more compressible messages there are, and the smaller the length k, the more compression is achieved, reducing the overall rate. 6</p> <p>- If r is small (i.e., most messages are non-compressible), then Roverall ≈R, since the majority of messages use full-length codewords. - The balance between r and M −r, as well as the disparity between k and n, will determine how much Roverall deviates from R. Conclusion - When r is large and k is much smaller than n, the overall rate Roverall is likely to be signicantly lower than R, reecting the fact that compressible messages are using shorter representations. - When r is small or k ≈n, the overall rate Roverall approaches R, as most messages require full-length encoding. This analytical comparison shows that the modied setup can oer rate savings when a signicant portion of the messages are compressible, especially if the compression factor k/n is substantial. Benets of the New Setup Thus for a given M and n, we have managed to reduce the rate since Roverall ≤ R. In this section we do the full analysis taking the channel to be a discrete memoryless channel, so that we can determine if we gain any advantage. For example, we may have improved the error exponent or the rate at which the probability of error decays with number of transmissions. Since the overall code is now variable-length (specically, there are two lengths, k and n), one can per- haps treat the post-split analysis as two separate channels, perform the analysis for each, and then recombine the partial results to get the overall picture. In what follows, to analyze the advantage gained in the modied setup for a discrete memoryless channel (DMC), we will step through how the error prob- ability and error exponent (the rate at which the error probability decays with the number of transmissions) change based on this new structure. Standard Noisy Channel Coding Theorem For a standard DMC, let: - Xn be the transmitted n-length codeword, with each symbol drawn i.i.d. according to some probability mass function (pmf). - The channel is characterized by a conditional probability distribution PY |X, where Y n is the received sequence. - The codebook consists of M codewords, each of length n. - The channel transition probabilities PY |X are memoryless, meaning: P(Y n|Xn) = n Y i=1 P(Yi|Xi) 7</p> <p>For any rate R = 1 n log M below the channel capacity C, the probability of decoding error Pe decreases exponentially with n: Pe ≤2−nE(R) where E(R) is the error exponent (or reliability function) that depends on the rate R and the properties of the channel. Modied Setup: Two Lengths k and n In the modied setup, the messages are split into two sets: 1. Compressible messages: r messages, which are represented by codewords of length k. 2. Non-compressible messages: M −r messages, which are represented by codewords of length n. We will treat this as two separate communication channels with the same DMC: - One channel for the compressible messages (length k). - One channel for the non-compressible messages (length \( n \)). Error Exponent for Compressible and Non-compressible Messages 1. Compressible Messages (length k) For the r compressible messages, each represented by a codeword of length k, the rate is: Rk = 1 k log r The probability of error for these messages decays exponentially with k, so we have: P k e ≤2−kE(Rk) where E(Rk) is the error exponent corresponding to the rate Rk. 2. Non-compressible Messages (length n) For the M −r non-compressible messages, each represented by a codeword of length n, the rate is: Rn = 1 n log(M −r) The probability of error for these messages decays exponentially with n, so we have: P n e ≤2−nE(Rn) where E(Rn) is the error exponent corresponding to the rate Rn. 8</p> <p>Overall Error Probability To compute the overall error probability for the modied setup, we can com- bine the error probabilities of the compressible and non-compressible messages. Since these are two disjoint sets of messages, the overall error probability is the weighted sum of the error probabilities for the two groups. The overall error probability P overall e is: P overall e = r M P k e + M −r M P n e Substituting the bounds for P k e and P n e : P overall e ≤r M 2−kE(Rk) + M −r M 2−nE(Rn) This gives us the overall error bound in the modied setup, accounting for the two types of messages with dierent lengths. Error Exponent for the Overall System Next, we analyze the overall error exponent Eoverall, which controls how fast the error probability decays with the number of transmissions. In the standard setup, the error probability decays as 2−nE(R), but now we have two rates and two error exponents. Dene the overall error exponent Eoverall such that: P overall e ≤2−neEoverall where ne is the eective length capturing the variable-length nature of the code. We can approximate ne as the expected length of a codeword: ne = r M k + M −r M n This is a weighted average of the lengths k and n. Now, the overall error exponent Eoverall can be approximated by combining the error exponents for the two groups: Eoverall = r M E(Rk) + M −r M E(Rn) Thus, the overall error probability decays approximately as: P overall e ≤2−neEoverall Comparison with Standard Setup In the standard setup, the probability of error decays as 2−nE(R), where n is the xed length of the codewords and E(R) is the error exponent for the given rate R = 1 n log M. 9</p> <p>In the modied setup: - The eective length ne is shorter than n, provided k &lt; n and r is non-zero. - The overall error exponent Eoverall is a weighted combination of the error exponents for the two groups, E(Rk) and E(Rn). Thus, the modied setup may improve the error probability in two ways: 1. Faster error decay: The overall code may achieve a faster decay in error probability due to the lower eective length ne. 2. Improved error exponent: The overall error exponent Eoverall is a com- bination of two dierent exponents. If E(Rk) (for compressible messages) is signicantly larger than E(Rn), this can further improve the overall reliability. Conclusion In the modied setup: - The overall rate Roverall is less than or equal to the standard rate R, indicating a potential gain in compression eciency. - The eective length ne is shorter than n, leading to a potentially faster decay of the error probability. - The overall error exponent Eoverall is a combination of the error exponents for the two groups, potentially improving the system's reliability. Overall, this suggests that the modied codebook structure provides a possi- ble advantage in terms of both rate and reliability, particularly if the compress- ible messages are a signicant fraction of the total and the compression factor k/n is substantial. Identifying Regularity The remaining question is, how does one identify "regularity" in bit strings such that some of the messages can be sent on the length-k channel. Identifying "regularity" in bit strings that allows compression is a fundamental problem in both data compression and coding theory. For the modied setup, where some messages can be sent on a shorter channel (of length k), this "regularity" would imply that certain bit strings can be represented in a more compact form. Dening Regularity in Bit Strings In essence, regularity in bit strings refers to patterns, repetitions, or predictabil- ity that can be exploited to reduce the number of bits required for transmission. The more regularity a string has, the more it can be compressed. There are a few techniques that can be used to detect and quantify regularity in bit strings: 1. Kolmogorov Complexity - Kolmogorov complexity measures the shortest possible description of a bit string. It is the length of the shortest computer program that can generate the string. If a bit string has low Kolmogorov com- plexity, it is highly regular and can be described by a small program. 10</p> <p>2. Pattern Recognition (Repetitive Patterns) - Bit strings with clear repeti- tive patterns, such as `01010101` or `111000111`, can be compressed eciently. This can be detected using: - Run-length encoding (RLE), where consecutive bits of the same value are compressed. - Lempel-Ziv compression, which identies repeated substrings and replaces them with shorter references. 3. Markov Models (Low-order Markov Chains) - Markov chains model se- quences where the probability of each symbol depends on a xed number of preceding symbols (the order of the Markov chain). Bit strings with predictable transitions can be compressed based on this structure. Post-split Codebook: Routing Messages to Channels Once we have identied regular messages that can be compressed, we can pro- ceed with the routing of messages: 1. Compressible Messages: - After identifying messages that exhibit regularity and are compressible, store these in the compressed codebook with codewords of length k. - Use a mapping function to eciently encode these messages. 2. Non-compressible Messages: - The remaining messages that show no regularity remain in the standard codebook and are transmitted on the full-length n-channel. Final Considerations and Future Work The challenge is balancing the complexity of detecting regularity (which can be computationally expensive) with the gains in compression and transmission e- ciency. The identication of regularity must be done after codebook generation, meaning it is a post-processing step to reduce redundancy in certain messages. In conclusion, to determine whether a message can be sent over the shorter k-length channel, we focus on pattern recognition, and approximate measures of Kolmogorov complexity using practical compression algorithms like run-length encoding. These methods allow us to ag "regular" messages and split them o for transmission on the more ecient channel. In future work, we will do a full probability of error analysis for this split codebook procedure along the lines of Shannon's noisy channel coding theorem proof [1]. Acknowledgment The author thanks ChatGPT for assisting with the analysis. 11</p> <p>References [1] Thomas M. Cover and Joy A. Thomas. Elements of Information Theory. 2005.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Li_Vitanyi_Approach_to_Noisy_Channel_Coding.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

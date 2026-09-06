@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-monotonic schemes for data transmission: an assessment - Prajnanabha Monograph Vol. 1 Issue 9</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 LaTeX Engine -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --muted: #5e574d;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+            --shadow: 0 15px 45px rgba(21, 34, 56, 0.07);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(21, 34, 56, 0.97), rgba(19, 53, 52, 0.94)),
+                        radial-gradient(circle at top right, rgba(218, 165, 32, 0.15), transparent 25rem);
+            color: #f9f5ed;
+            padding: 60px 20px 50px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            color: #dfba88;
+            font-size: 0.85rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.15;
+            margin: 0 0 16px;
+            font-weight: 700;
+        }
+
+        .author-line {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
+            color: rgba(249, 245, 237, 0.88);
+        }
+
+        .main-container {
+            max-width: 920px;
+            margin: -30px auto 70px;
+            padding: 0 20px;
+        }
+
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px 55px;
+            box-shadow: var(--shadow);
+        }
+
+        .breadcrumbs {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumbs a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .abstract-box {
+            background: #f1e9dc;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 30px 0 40px;
+        }
+
+        .abstract-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .abstract-box p {
+            margin: 0;
+            font-style: italic;
+            color: #332d26;
+            font-size: 1.04rem;
+        }
+
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.55rem;
+            margin-top: 45px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        p {
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #152238 0%, #1c2e4a 100%);
+            color: #fff !important;
+            padding: 12px 26px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(21, 34, 56, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .paper-card { padding: 30px 24px; }
+            body { font-size: 1.02rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero-banner">
+        <div class="hero-inner">
+            <div class="kicker">Information Theory & Defeasible Nyāaya Logic | Pages 5–10</div>
+            <h1>Non-monotonic schemes for data transmission: an assessment</h1>
+            <div class="author-line">Aman Chawla — Information Theory Lab | REAL Institute</div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <article class="paper-card">
+            <nav class="breadcrumbs">
+                <a href="../prajnanabha_upd.html">Prajnanabha Archive</a> / 
+                <a href="../prajnanabha-i_9.html">Volume 1 Issue 9</a> / 
+                V1I9-A07
+            </nav>
+
+            <div class="paper-body">
+                <p>Non-monotonic schemes for data transmission: an assessment</p>
+<p>A. Chawla</p>
+<p>January 19, 2026</p>
+<p>Introduction</p>
+<p>Modern data transmission schemes with feedback—especially those operating under noise, delay, and uncertainty—exhibit behavior that is difficult to interpret using strictly monotonic logical frameworks. Classical analysis often treats such schemes as sequences of stages in which each phase builds upon the validated outcomes of previous phases. Once a phase is analyzed and assigned an error exponent or reliability guarantee, its logical role is treated as fixed. While probabilistic error is acknowledged, the logical status of earlier conclusions is rarely revisited. Ancient Indian logical traditions, particularly Nyāya, offer a different perspective. Nyāya logic does not assume that conclusions, once reached, are irrevocable. Instead, it treats inference as context-sensitive, defeasible, and continuously open to revision in light of new evidence. Several scholars have argued that classical Indian logic can be understood as an early and sophisticated form of non-monotonic reasoning [1, 2]. This document assesses non-monotonic data transmission schemes by mapping the canonical four phases of a feedback-based communication protocol onto core concepts from Indian logic. The goal is not to alter the mathematics of such schemes, but to reinterpret their epistemic structure in</p>
+<p>a way that clarifies why iterative correction, feedback, and possible retraction of earlier decisions are not anomalies but central features of the system.</p>
+<p>Non-monotonicity in Nyāya Logic</p>
+<p>Nyāya epistemology is structured around valid means of knowledge (pramāṇa), of which perception (pratyakṣa) and inference (anumāna) are central. Inference depends on the recognition of a reliable relation (vyāpti) between a reason or sign (hetu) and what is to be proved (sādhya). However, this reliability is not taken as an absolute, exceptionless universal. Instead, it is established empirically and remains open to revision [3]. A crucial role is played by upādhi, or limiting conditions. An upādhi qualifies an apparent universal relation by identifying contextual constraints under which it holds. If such constraints are overlooked, an inference may appear valid while in fact being defective. In contemporary terms, upādhi functions as a defeater, analogous to exceptions or abnormality predicates in modern non-monotonic logic [4]. As a result, Nyāya reasoning is inherently non-monotonic: the addition of new information can invalidate or retract a previously accepted conclusion. This aligns closely with modern views of reasoning under uncertainty, especially in artificial intelligence and belief revision systems [6].</p>
+<p>Phase 1: Signal Initiation and Perception (Pratyakṣa)</p>
+<p>The first phase of a data transmission scheme involves the initial emission and reception of a signal. Conceptually, this phase corresponds to pratyakṣa, or perception, in Indian logic. Pratyakṣa provides immediate awareness of a datum without inferential mediation. In the communication context, the presence of a received waveform or symbol sequence functions as such a datum.</p>
+<p>However, Nyāya does not treat perception as infallible or final. Subsequent evidence can reveal perceptual error, misclassification, or distortion. Likewise, in transmission systems, the mere reception of a signal does not guarantee its correctness. Noise, interference, and timing errors may later undermine the initial belief that a signal was faithfully received. Thus, Phase 1 provides a necessary starting point, but its epistemic status is provisional. It is a candidate for knowledge, not an irrevocable commitment.</p>
+<p>Phase 2: Tentative Decoding and Inference</p>
+<p>(Anumāna)</p>
+<p>Once a signal is perceived, the receiver attempts to interpret it. This corresponds to anumāna, inference, in Nyāya logic. The receiver reasons from observed features of the signal (the hetu) to a conclusion about the transmitted message (the sādhya). This reasoning relies on an assumed regularity between signal structure and meaning, analogous to vyāpti. Importantly, vyāpti in Nyāya is not a purely formal or axiomatic relation. It is grounded in experience and inductive generalization, and therefore remains defeasible [5]. If counterexamples arise—here, in the form of feedback contradicting the tentative decoding—the inference must be revised or withdrawn. In communication terms, tentative decoding is best understood as a default conclusion. It is rational given current information, but it does not close the epistemic process. Later phases may expose hidden constraints or noise patterns that function as upādhi, forcing revision of the decoding.</p>
+<p>Phase 3: Feedback and Limiting Conditions</p>
+<p>(Upādhi)</p>
+<p>Feedback introduces new information that directly bears on the validity of earlier inferences. In Nyāya logic, this is precisely the role played by upādhi. Feedback can reveal that the assumed relation between signal and meaning held only under certain conditions, or failed in this instance due to exceptional circumstances. For example, a decoder’s feedback indicating uncertainty or error functions as a counter-instance to the previously assumed vyāpti. The system must then qualify or abandon the inference drawn in Phase 2. This is a paradigmatic case of non-monotonic reasoning: adding information reduces, rather than increases, the set of accepted conclusions. Rather than viewing feedback as a mere auxiliary mechanism, the Nyāya perspective places it at the center of rational operation. Without feedback, inference risks becoming dogmatic; with feedback, inference remains corrigible and adaptive.</p>
+<p>Phase 4: Stabilization and Defeasible Knowl-</p>
+<p>edge</p>
+<p>The final phase of a transmission scheme aims at convergence: a state in which sender and receiver share a sufficiently stable and reliable interpretation of the message. In Nyāya terms, this corresponds not to absolute certainty, but to well-supported knowledge that has withstood available defeaters. Such knowledge remains, in principle, defeasible. Its stability is practical rather than metaphysical. It is justified because no outstanding upādhi or counter-instance is present, not because revision has become impossible. This</p>
+<p>conception aligns naturally with non-monotonic fixpoint semantics, where a stable belief state emerges after iterative revision. Thus, stabilization in data transmission mirrors the Nyāya view that knowledge is the outcome of a dynamic process, not a single inferential leap.</p>
+<p>Scrambling Phases and Epistemic Order</p>
+<p>In monotonic systems, the order in which premises are processed does not affect the final set of conclusions. Non-monotonic systems behave differently. The sequence in which information arrives can influence which conclusions are tentatively adopted, later rejected, or ultimately stabilized. From a Nyāya perspective, scrambling the phases of a transmission scheme does not render the system meaningless, but it does alter the trajectory of defeasible inference. Introducing feedback before tentative decoding, or attempting stabilization prematurely, corresponds to applying defeaters before conclusions have fully formed. The result is a different, though not irrational, epistemic path. This reinforces the idea that communication with feedback is best understood not as a linear proof but as an evolving reasoning process.</p>
+<h2 class="section-heading">Conclusion</h2>
+<p>Viewing feedback-based data transmission schemes through the lens of ancient Indian logic reveals their fundamentally non-monotonic character. Each phase corresponds naturally to a component of Nyāya epistemology: perception, inference, limiting conditions, and defeasible stabilization. Earlier conclusions are not sacrosanct; they remain open to revision as new information arrives. This assessment suggests that Indian logical traditions anticipated many of the conceptual challenges posed by modern systems operating under un-</p>
+<p>certainty. Far from being a mere historical curiosity, Nyāya logic offers a coherent philosophical framework for understanding why non-monotonicity is not a flaw in such systems, but a rational response to incomplete and noisy information.</p>
+<p>Acknowledgments</p>
+<p>This work was produced with the assistance of large language models.</p>
+<h2 class="section-heading">References</h2>
+<p>[1] C. Oetke, “Ancient Indian Logic as a Theory of Non-Monotonic Reasoning,” Journal of Indian Philosophy, vol. 24, no. 5, 1996.</p>
+<p>[2] J. A. Taber, “Is Indian Logic Nonmonotonic?” Philosophy East and West, vol. 44, no. 2, 1994.</p>
+<p>[3] J. Ganeri, “Logic in Classical Indian Philosophy,” Stanford Encyclopedia of Philosophy, 2021.</p>
+<p>[4] “Upādhi (Indian Logic),” Grokipedia, available online.</p>
+<p>[5] “Vyāpti,” Wikipedia, available online.</p>
+<p>[6] “Exploring Non-Monotonic Logic in Artificial Intelligence,” IndiaAI Knowledge Portal, Government of India.</p>
+            </div>
+
+            <div class="action-bar">
+                <a href="../prajnanabha-i_9.html" style="font-family:'Inter',sans-serif; color:var(--accent); text-decoration:none; font-weight:600;">
+                    ← Back to Issue 9 Index
+                </a>
+                <a href="../assets/vol1issue9v1.pdf" class="download-btn" target="_blank">
+                    Download Issue PDF (vol1issue9v1.pdf) ➔
+                </a>
+            </div>
+        </article>
+    </main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>

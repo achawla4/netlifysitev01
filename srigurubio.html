@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Guru — Paramahamsa Prajnananandaji</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2a3d;
+    --ink-soft:#3c4c60;
+    --parchment:#f3ead7;
+    --parchment-dark:#e5d6ae;
+    --card:#faf5e8;
+    --brass:#a9793c;
+    --brass-dark:#7e5a29;
+    --stamp:#a13d2e;
+    --sage:#556b53;
+    --rule:#cdbd94;
+    --shadow: 0 10px 26px rgba(27,42,61,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -5%, #fbf4e2 0%, transparent 60%),
+      var(--parchment);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+
+  /* ===== Ledger header bar ===== */
+  .ledger-bar{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .ledger-bar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; opacity:0.85; max-width:1180px;}
+
+  /* ===== Hero ===== */
+  header.hero{padding:64px 0 40px;}
+  .title-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    box-shadow:var(--shadow);
+    padding:52px 48px 44px;
+    position:relative;
+    text-align:center;
+  }
+  .title-card::before, .title-card::after{
+    content:"";
+    position:absolute; top:14px; bottom:14px; width:1px;
+    background:var(--rule);
+  }
+  .title-card::before{left:14px;}
+  .title-card::after{right:14px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--brass-dark); margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.1rem, 4.6vw, 3.1rem);
+    line-height:1.14;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .title-italic{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .lede{
+    max-width:600px; margin:0 auto 26px;
+    font-size:1.08rem; color:var(--ink-soft);
+  }
+  .tagline-stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem; letter-spacing:0.05em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:8px 18px;
+    transform:rotate(-2deg);
+    border-radius:2px;
+  }
+  .om-mark{
+    font-family:'Fraunces', serif; font-size:1.6rem; color:var(--brass);
+    margin:0 auto 10px; display:block;
+  }
+
+  section{padding:40px 0 52px;}
+  .section-head{margin-bottom:28px; max-width:660px;}
+  .section-tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff;
+    padding:5px 12px; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(1.45rem,3vw,1.9rem);
+    color:var(--ink);
+  }
+  .section-sub{color:var(--ink-soft); margin-top:10px; font-size:1rem;}
+
+  /* ===== Portrait cards (reused post-card language, unlocked) ===== */
+  .portrait-card{
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    position:relative; padding-top:34px; margin-bottom:26px;
+  }
+  .card-tab{
+    position:absolute; top:0; left:18px;
+    background:var(--brass); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.04em;
+    padding:5px 10px; transform:translateY(-50%);
+  }
+  .card-body{padding:8px 34px 30px;}
+  .card-title{font-family:'Fraunces', serif; font-size:1.4rem; font-weight:600; margin-bottom:14px; line-height:1.3;}
+  .card-body p{margin-bottom:14px; font-size:1.04rem;}
+  .card-body p:last-child{margin-bottom:0;}
+
+  blockquote.utterance{
+    border-left:3px solid var(--brass);
+    padding:4px 0 4px 20px;
+    margin:22px 0;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+  }
+
+  .lineage-strip{
+    display:flex; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem;
+    color:var(--sage); margin-top:18px;
+  }
+  .lineage-strip span{
+    border:1px solid var(--rule); padding:5px 10px; background:var(--parchment);
+  }
+  .lineage-strip span.arrow{border:none; background:none; padding:5px 0; color:var(--brass-dark);}
+
+  .catalog-note{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sage);
+    letter-spacing:0.02em; margin-bottom:26px; border-left:3px solid var(--sage);
+    padding-left:12px;
+  }
+
+  .invite-panel{
+    text-align:center;
+    background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+    padding:40px 34px;
+  }
+  .invite-panel p{max-width:560px; margin:0 auto 22px; color:var(--ink-soft);}
+  .stamp-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    border:2px solid var(--stamp); color:var(--stamp);
+    padding:12px 22px; text-align:center; cursor:pointer;
+    background:transparent; transition:.18s;
+    display:inline-block; white-space:nowrap;
+  }
+  .stamp-btn:hover{background:var(--stamp); color:#fff; transform:rotate(-0.6deg);}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:var(--parchment-dark);
+    padding:48px 0 30px; margin-top:20px;
+  }
+  footer .wrap{text-align:center; max-width:1180px;}
+  footer h3{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; color:#fff; margin-bottom:12px;}
+  footer p{max-width:560px; margin:0 auto 10px; font-size:0.94rem;}
+  footer a{color:#e5c993; text-decoration:none; font-weight:600;}
+  footer a:hover{text-decoration:underline;}
+  .devanagari{margin-top:18px; font-size:0.85rem; color:var(--rule);}
+
+  @media (max-width:600px){
+    .title-card{padding:38px 22px;}
+    .card-body{padding:8px 22px 24px;}
+  }
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<main data-pagefind-body data-pagefind-filter="type:Yoga">
+
+
+<div class="ledger-bar">
+  <div class="wrap">
+    <span>SPIRITUAL INSIGHTS · A DIVISION OF THE REAL INSTITUTE</span>
+    <span>SRI GURU · KRIYA YOGA · REALIZATION</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="title-card">
+      <span class="om-mark">ॐ</span>
+      <div class="eyebrow">A Portrait of the Master</div>
+      <h1 class="title">Sri Guru<br><span class="title-italic">Paramahamsa Prajnananandaji</span></h1>
+      <p class="lede">A modern voice in the living lineage of Kriya Yoga — quietly guiding those who seek not another idea about the Self, but the Self itself.</p>
+      <span class="tagline-stamp">DIRECT EXPERIENCE, NOT INSTANT NIRVANA</span>
+    </div>
+  </div>
+</header>
+
+<section id="portrait">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">Who the Master Is</span>
+      <h2>A Presence, Not a Promise</h2>
+      <p class="section-sub">Some teachers offer the idea of peace. Sri Guru offers the practice of arriving at it.</p>
+    </div>
+
+    <div class="portrait-card">
+      <span class="card-tab">Reflection · On Meeting the Master</span>
+      <div class="card-body">
+        <p>The modern age is crowded with teachers promising instant, coffee-shop nirvana — a weekend of insight, a slogan for a mantra. Paramahamsa Prajnananandaji offers something older and slower: he meets the seeker exactly where they stand, and turns their scattered longing into steady, soul-deep aspiration. Not aspiration that stays aspiration — actual experience of what the scriptures have always pointed toward.</p>
+        <p>To sit in his presence is to feel, quite simply, unhurried. There is anticipation before it, and there is a strange fullness after — not because expectation is the right thing to carry into a Master's company, but because whatever a sincere heart brings is somehow already met. Something within that has been asleep for years begins, gently, to stir.</p>
+      </div>
+    </div>
+
+    <div class="portrait-card">
+      <span class="card-tab">Lineage · Kriya Yoga</span>
+      <div class="card-body">
+        <p class="card-title">Standing in a Living Tradition</p>
+        <p>Kriya Yoga has never been a doctrine to be argued over; it is a science of direct experience, handed from teacher to student across generations, each one a living witness rather than a mere custodian of scripture. Paramahamsa Prajnananandaji carries that current forward in our own time — not as an innovation, but as a continuation, offering the same interior technology that has, in every age, turned earnest practice into realized truth.</p>
+        <div class="lineage-strip">
+          <span>Unbroken transmission</span>
+          <span class="arrow">→</span>
+          <span>Guru to disciple</span>
+          <span class="arrow">→</span>
+          <span>Direct experience</span>
+          <span class="arrow">→</span>
+          <span>Paramahamsa Prajnananandaji</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portrait-card">
+      <span class="card-tab">Kinship · Among the Great Souls</span>
+      <div class="card-body">
+        <p>To speak of the soul's goal is naturally to remember those who have already walked it in full view of the world — fiery Vivekananda, luminous Yogananda, blissful Rama-tirtha, God-intoxicated Rumi. Their company is not a comparison so much as a lineage of longing: every generation asks again where such fulfillment can still be found. Sri Guru is offered here in that same company — not as their equal by claim, but as a living answer to the same ancient question, available in this generation as they were in theirs.</p>
+        <blockquote class="utterance">The one who can rekindle the soul-spirit within can benefit greatly from the Master's glance.</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">The Teaching</span>
+      <h2>The Rope, and the Music That Wakes It</h2>
+      <p class="section-sub">A single image the tradition returns to, again and again, to describe what happens in a Master's presence.</p>
+    </div>
+    <div class="catalog-note">Not a performance, and not a metaphor to be admired from a distance — an invitation to notice what actually stirs when sincere practice meets a true guide.</div>
+
+    <div class="portrait-card">
+      <div class="card-body">
+        <p>Leave a rope on the ground and it stays coiled, lifeless, ordinary. But play the right music, with real skill, and the same rope begins to rise — straight up, impossibly, and without end. The old tellers called this the Rope Trick. It is not a trick at all. It is simply how transformation looks from the outside.</p>
+        <p>The Master is the skillful musician; the disciple, before this happens, is only the rope lying still. Under patient, skillful guidance the disciple's life takes an upward turn and does not stop rising — through the lower spheres, into wider and wider air, until the one who was climbing looks up to find the Master already there, further still, having gone before. This is the whole of the path, put simply: presence, and the willingness to be shaped by it.</p>
+        <p>The only equipment required is a disciple's own quiet determination — held steadily, returned to again and again — for the effort of a sincere soul reaching toward the Master in reality, not merely in imagination.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="invitation">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tab">An Invitation</span>
+      <h2>The Path Becomes Simple</h2>
+      <p class="section-sub">Not a call to belief, but to a beginning.</p>
+    </div>
+
+    <div class="invite-panel">
+      <p>The road is long for the one walking it alone. In the Master's presence it becomes, quite simply, a straight and companionable path — not because the walking is removed, but because the walker is no longer without company. Realize the goal this life, this year, this day: that is the whole of the challenge Sri Guru extends, gently, to anyone willing to turn within.</p>
+      <a class="stamp-btn" href="mailto:disnance.ac@gmail.com">Begin the Conversation</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <h3>Sri Guru Paramahamsa Prajnananandaji</h3>
+    <p>A devotional portrait offered by the <a href="https://realinstitute.netlify.app">REAL Institute</a> — for those seeking direct experience within the living Kriya Yoga tradition.</p>
+    <p><strong>Contact:</strong> <a href="mailto:disnance.ac@gmail.com">disnance.ac@gmail.com</a></p>
+    <p class="devanagari">सत्यमेव जयते नानृतम् — Truth alone triumphs, never falsehood</p>
+  </div>
+</footer>
+
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

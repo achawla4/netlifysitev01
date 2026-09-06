@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structured Notepad v3 — Standalone Document Workspace</title>
+<meta name="description" content="Structured Notepad v3 is a standalone document-style desktop notepad application featuring a dynamic tabbed workspace, rich text formatting, inline image support, and custom visual themes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ink:#172536;--ink-soft:#526174;--paper:#f7f1e5;--card:#fffaf0;
+ --gold:#a87839;--gold-dark:#76511f;--red:#9d3d31;--sage:#536a54;
+ --rule:#d9c9a5;--shadow:0 12px 32px rgba(23,37,54,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Source Serif 4',Georgia,serif;background:radial-gradient(1000px 500px at 0 -5%,#fff9ec 0,transparent 65%),var(--paper);color:var(--ink);line-height:1.65}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+a{color:inherit}
+.ledger{background:var(--ink);color:#eee3ce;font:600 .7rem 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;padding:9px 0}
+.ledger .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{padding:52px 0 30px}
+.hero{background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:58px 48px;text-align:center;position:relative}
+.hero:before,.hero:after{content:"";position:absolute;top:14px;bottom:14px;width:1px;background:var(--rule)}
+.hero:before{left:14px}.hero:after{right:14px}
+.eyebrow,.mono{font:600 .72rem 'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase}
+.eyebrow{color:var(--gold-dark);margin-bottom:16px}
+h1{font:600 clamp(2.7rem,6vw,4.5rem)/1.02 'Fraunces',serif;margin-bottom:18px}
+.italic{font-style:italic;font-weight:400;color:var(--ink-soft)}
+.lede{max-width:780px;margin:auto;font-size:1.22rem;color:var(--ink-soft)}
+.hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:28px 0 10px}
+.btn{display:inline-block;padding:12px 20px;border:1px solid var(--gold);text-decoration:none;font-weight:600}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.secondary{background:transparent;color:var(--ink)}
+.stamp{display:inline-block;color:var(--red);border:2px solid var(--red);padding:7px 14px;transform:rotate(-1.5deg);font:600 .72rem 'IBM Plex Mono',monospace;margin-top:14px}
+section{padding:58px 0}
+.section-head{max-width:800px;margin-bottom:30px}
+.tab{display:inline-block;background:var(--gold);color:#fff;padding:5px 12px;margin-bottom:13px;font:600 .68rem 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+h2{font:600 clamp(1.8rem,3.5vw,2.5rem)/1.15 'Fraunces',serif}
+.sub{margin-top:10px;color:var(--ink-soft);font-size:1.05rem}
+.message{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+.card{background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:30px}
+.card h3{font:600 1.4rem 'Fraunces',serif;margin-bottom:10px}
+.card p{color:var(--ink-soft);margin-bottom:12px}
+.dark{background:var(--ink);color:#f7f1e5}
+.dark .sub,.dark p{color:#c8d2dd}
+.feature-grid,.shortcuts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature,.shortcut-card{background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:25px}
+.feature .num{font:600 .7rem 'IBM Plex Mono',monospace;color:var(--gold-dark);letter-spacing:.12em}
+.feature h3,.shortcut-card h3{font:600 1.35rem 'Fraunces',serif;margin:8px 0 10px}
+.feature p,.shortcut-card p{font-size:.96rem;color:var(--ink-soft)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.tag{border:1px solid var(--rule);padding:4px 8px;font:600 .67rem 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+.shortcuts-grid{grid-template-columns:repeat(2,1fr)}
+.shortcut-list{list-style:none;margin-top:12px}
+.shortcut-list li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--rule);font-size:.95rem}
+.shortcut-list .key{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--gold-dark);background:#ece3cf;padding:2px 8px}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--ink);box-shadow:var(--shadow)}
+.step{padding:30px 24px;border-right:1px solid rgba(255,255,255,.1);color:#f7f1e5}
+.step:last-child{border:0}.step .n{font:600 .7rem 'IBM Plex Mono',monospace;color:#e3c48a}
+.step h3{font:600 1.2rem 'Fraunces',serif;margin:8px 0}.step p{font-size:.9rem;color:#c4cfdb}
+.note{font:600 .72rem 'IBM Plex Mono',monospace;color:var(--sage);border-left:3px solid var(--sage);padding-left:12px;margin:20px 0}
+.storage-box{background:var(--card);border:1px solid var(--rule);padding:30px;box-shadow:var(--shadow);margin-top:20px}
+.storage-box h3{font:600 1.35rem 'Fraunces',serif;margin-bottom:10px}
+.path-box{background:#eee3ce;padding:12px 16px;border-left:4px solid var(--gold);font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--ink);margin:12px 0 16px}
+footer{background:var(--ink);color:#d7cdbb;padding:42px 0 28px;margin-top:20px;text-align:center}
+footer h3{font:600 1.4rem 'Fraunces',serif;color:#fff;margin-bottom:10px}
+footer a{color:#e4c58c;text-decoration:none}
+.legal{max-width:800px;margin:18px auto 0;font:400 .66rem/1.5 'IBM Plex Mono',monospace;color:#8fa0b2}
+@media(max-width:850px){
+ .message,.feature-grid,.shortcuts-grid,.process{grid-template-columns:1fr}
+ .step{border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
+ .hero{padding:42px 23px}
+}
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div class="ledger"><div class="wrap"><span>STRUCTURED NOTEPAD V3 · DESKTOP WORKSPACE</span><span>DYNAMIC TABS · RICH TEXT · EMBEDDED MEDIA</span></div></div>
+
+<header>
+<div class="wrap">
+<div class="hero">
+<div class="eyebrow">Standalone Document-Style Notepad Application</div>
+<h1>Structured Notepad <span class="italic">v3</span></h1>
+<p class="lede"><strong>A document-style desktop workspace designed for structured writing, note-taking, and documentation.</strong> Featuring a dynamic tabbed workspace, rich typography styling, inline image support, and visual themes — delivered as a self-contained executable.</p>
+<div class="hero-cta">
+<a class="btn primary" href="#features">Explore Features</a>
+<a class="btn secondary" href="#shortcuts">Keyboard Shortcuts</a>
+</div>
+<span class="stamp">FREE · CC-BY-NC-ND-4.0 LICENSE</span>
+</div>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<div class="section-head">
+<span class="tab">Application Overview</span>
+<h2>Structured organization meets clean writing.</h2>
+<p class="sub">Structured Notepad v3 brings document metadata, rich formatting, and modular sections together into an intuitive workspace.</p>
+</div>
+<div class="message">
+<div class="card">
+<h3>Download</h3>
+<p>Download (free) <a href="./assets/Soft_ware/StructuredNotepad_v3_0.zip">here</a></p>
+</div>
+<div class="card">
+<h3>Immediate Standalone Execution</h3>
+<p>Structured Notepad v3 runs as a standalone desktop binary without requiring Python installations or external environment setup.</p>
+<p>All core dependencies and image-handling libraries are bundled directly inside the executable, enabling immediate note-taking on any Windows workstation.</p>
+</div>
+<div class="card">
+<h3>Organized Workspace Layout</h3>
+<p>Every note integrates document metadata headers, including fields for Day, Date (with a one-click "Today" autofill button), Topic, and Keywords.</p>
+<p>Organize complex documents across customizable sections, manage saved files through a dedicated document sidebar, and switch themes instantly.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="dark" id="features">
+<div class="wrap">
+<div class="section-head">
+<span class="tab">Core Features</span>
+<h2>Built for clarity, speed, and structure.</h2>
+<p class="sub">Essential tools for modular note management and formatted documentation.</p>
+</div>
+<div class="feature-grid">
+<div class="feature"><div class="num">01 · DOCUMENT METADATA</div><h3>Header Fields</h3><p>Assign structured metadata instantly with dedicated fields for Day, Date, Topic, and searchable Keywords, complemented by a one-click Today button.</p><div class="tags"><span class="tag">Day</span><span class="tag">Date</span><span class="tag">Topic</span><span class="tag">Keywords</span></div></div>
+<div class="feature"><div class="num">02 · DYNAMIC TABS</div><h3>Section Management</h3><p>Add, delete, rename, and reorder document tabs freely. Double-click tab headers for rapid renaming. Includes default templates from Abstract to Appendix.</p><div class="tags"><span class="tag">Abstract</span><span class="tag">Intro</span><span class="tag">Body</span><span class="tag">Conclusion</span></div></div>
+<div class="feature"><div class="num">03 · RICH TYPOGRAPHY</div><h3>Character Styling</h3><p>Format text selections with Bold, Italic, Underline, and Strikethrough, alongside real-time step-by-step font size scaling (A+ / A-).</p><div class="tags"><span class="tag">Bold</span><span class="tag">Italic</span><span class="tag">Underline</span><span class="tag">Font Size</span></div></div>
+<div class="feature"><div class="num">04 · PARAGRAPH FORMATTING</div><h3>Alignment & Lists</h3><p>Refine content layout with Left, Center, Right, and Justified paragraph alignment, or create structured bullet lists and sequential numbered outlines.</p><div class="tags"><span class="tag">Align</span><span class="tag">Justify</span><span class="tag">Bullets</span><span class="tag">Numbering</span></div></div>
+<div class="feature"><div class="num">05 · EMBEDDED MEDIA</div><h3>Inline Image Support</h3><p>Insert graphic assets, charts, and diagrams directly into any active note section with built-in format decoding and automatic thumbnail scaling[cite: 1, 2].</p><div class="tags"><span class="tag">Inline Images</span><span class="tag">Thumbnails</span><span class="tag">Embedded</span></div></div>
+<div class="feature"><div class="num">06 · WORKSPACE CONTROLS</div><h3>Themes & Document Manager</h3><p>Toggle between functional "Normal" and confetti "Colorful" styling. Save, load, rename, or delete documents via the sidebar manager.</p><div class="tags"><span class="tag">Normal Theme</span><span class="tag">Colorful</span><span class="tag">Sidebar</span><span class="tag">JSON</span></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head"><span class="tab">Getting Started</span><h2>A frictionless workflow from launch to storage.</h2></div>
+<div class="process">
+<div class="step"><div class="n">01</div><h3>Launch Standalone</h3><p>Double-click StructuredNotepad_v3.exe to run without setup or runtime configuration.</p></div>
+<div class="step"><div class="n">02</div><h3>Draft & Organize</h3><p>Configure tab sections, write rich notes, embed images, and fill document topic headers.</p></div>
+<div class="step"><div class="n">03</div><h3>Save & Manage</h3><p>Save notes instantly with Ctrl+S; manage your active document catalog directly in the sidebar.</p></div>
+</div>
+<div class="note">All files, sections, formatting tags, and embedded images are preserved across application restarts[cite: 1, 2].</div>
+</div>
+</section>
+
+<section class="dark" id="shortcuts">
+<div class="wrap">
+<div class="section-head">
+<span class="tab">Productivity</span>
+<h2>Keyboard Shortcuts & Fast Commands.</h2>
+<p class="sub">Accelerate your documentation process with standard hotkeys.</p>
+</div>
+<div class="shortcuts-grid">
+<div class="shortcut-card">
+<h3>Document & History Operations</h3>
+<ul class="shortcut-list">
+<li><span>New Document</span><span class="key">Ctrl + N</span></li>
+<li><span>Save Document</span><span class="key">Ctrl + S</span></li>
+<li><span>Undo Action</span><span class="key">Ctrl + Z</span></li>
+<li><span>Redo Action</span><span class="key">Ctrl + Y</span></li>
+</ul>
+</div>
+<div class="shortcut-card">
+<h3>Text Styling & Formatting</h3>
+<ul class="shortcut-list">
+<li><span>Bold Selection</span><span class="key">Ctrl + B</span></li>
+<li><span>Italic Selection</span><span class="key">Ctrl + I</span></li>
+<li><span>Underline Selection</span><span class="key">Ctrl + U</span></li>
+<li><span>Rename Tab</span><span class="key">Double Click Tab</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head">
+<span class="tab">Data & Storage</span>
+<h2>Transparent local file architecture.</h2>
+<p class="sub">Your data remains entirely on your machine in open, structured formats.</p>
+</div>
+<div class="storage-box">
+<h3>Local Profile Directory</h3>
+<p>Structured Notepad v3 saves all documents and embedded media automatically as structured JSON files within your local profile directory:</p>
+<div class="path-box">C:\Users\&lt;YourUsername&gt;\StructuredNotepadDocs\</div>
+<p><strong>Backups & Portability:</strong> To transfer notes to another machine or maintain regular backups, copy the entire <code>StructuredNotepadDocs</code> folder to any drive or storage medium.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<h3>Structured Notepad v3</h3>
+<p>Document-Style Desktop Workspace · Dynamic Tabs · Rich Text</p>
+<p class="legal">Structured Notepad v3 is distributed free under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC-BY-NC-ND-4.0). All document data remains stored locally under the user's local operating system directory.</p>
+<p><a href="./index.html">REAL Institute</a></p>
+</div>
+</footer>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

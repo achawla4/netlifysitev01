@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2211.07353v1 | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    
+/* RELATED PAPERS + PREMIUM STYLE START */
+        .related-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .related-list li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .related-list li:hover {
+            background-color: #f0f8ff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.15);
+        }
+        .related-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .related-list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Premium Service Box */
+        .premium-box {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .premium-box h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .premium-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 15px 0;
+        }
+        .paypal-button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* Navigation Links */
+        .nav-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #2980b9;
+        }
+/* RELATED PAPERS + PREMIUM STYLE END */
+</style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 5 · V1I5-A08</div>
+            <h1>2211.07353v1</h1>
+            <div class="hero-meta">2211.07353v1.pdf</div>
+            <div class="hero-meta">Source PDF: 2211.07353v1.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_5.html">Issue 5</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>In this paper the authors extend <span class="citation" title="chawla2022gedanken">[?]</span> and provide more details of how the brain may act like a quantum computer. In particular, positing the difference between voltages on two axons as the environment for ions undergoing spatial superposition, we argue that evolution in the presence of metric perturbations will differ from that in the absence of these waves. This differential state evolution will then encode the information being processed by the tract due to the interaction of the quantum state of the ions at the nodes with the `controlling&#x27; potential. Upon decoherence, which is equal to a measurement, the final spatial state of the ions is decided and it also gets reset by the next impulse initiation time. Under synchronization, several tracts undergo such processes in synchrony and therefore the picture of a quantum computing circuit is complete. Under this model, based on the number of axons in the corpus callosum alone, we estimate that upwards of 50 million quantum states might be prepared and evolved every second in this white matter tract, far greater processing than any present quantum computer can accomplish.</p></section>
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <p>{Mechanism of Universal Quantum Computation in the Brain} {Aman Chawla and Salvatore Domenic Morgera}</p>
+<h2 id="introduction">Introduction</h2>
+<p>As per Tegmark <span class="citation" title="tegmark2000importance">[2]</span>, the smallest neuron imaginable, with only a single ion traversing the cell, would have a decoherence time of $10e-14$ seconds. As per <span class="citation" title="chawla2022computer">[3]</span>, gravitational waves with strains of the order of $h=1e-16$ will have an impact on axon tract information processing at the time order of $10e-14$ seconds to $10e-18$ seconds. Multiply each of the above three time periods by $1e17$ to get 1000 seconds, 1000 seconds and 1 second. Thus, if I start my clock now and a neuron can stay coherent for 1000 seconds, then in parallel I can consider the other two numbers. That is, I will send along (in the past) a gravitational wave in the direction of my neuron tract. Say at $t=0$ it interacts with the axon tract. As a result, if in its absence there was 0 time difference between action potential initiation times on the two axons, in its presence this increases to say 100 seconds. As information is time coded in the brain, the organism can sense the fact that there is some timing differential in progress. But can it do something with this information? Well, suppose the wave is switched on and off 3 times, then about 300 seconds of time differential is accumulated by the tract input-output. But each of the neurons in the tract was in a quantum state during this time. This implies that the tract itself was in a joint quantum state. Now in the absence of these 3 switches, the quantum state would be preserved, but due to the 3 switches, it would get perturbed to a different state. This transformation can then be measured quantum mechanically, in order to detect the passage of 3 switches of a gravitational wave. If no measurement is performed, then because the coherence time is an additional 700 seconds, the perturbed quantum state would in principle be held for another 700 seconds. In contrast if the coherence time was say 0.1 second, then there would be no initial quantum state which could be perturbed 3 times gently to another quantum state and we would strictly be in the classical domain.</p>
+<p>The perturbed quantum state is held for 700 seconds. This quantum information can, if it is part of a larger tract quantum state, be considered as a new state of the larger tract. In other words, the gravity wave induced a &quot;quantum operation&quot; on part of the brain. Several such different gravity waves can impinge sequentially or in parallel in different brain regions, carrying out a quantum computation in the brain. The moment the computation is over, say, the coherence time elapses and a decohering mechanism such as a measurement is carried out on the brain. This measurement thus reads out the result of this quantum computation. In other words, the brain can act like a quantum computer <span class="citation" title="chawla2022gedanken">[1]</span>.</p>
+<p>The paper is structured as follows. In Section [sec:Tegmark-Review] we provide a review of Tegmark&#x27;s paper and its implications and differences as compared to the present work, along with a survey of relevant papers. In Section [sec:Mechanism] we look in detail at the action potential level, going further down to the quantum level. Finally, we conclude in Section [sec:Limitations-and-Future].</p>
+<h2 id="literature-review">Literature Review</h2>
+<p>In a series of papers <span class="citation" title="markin1970electrical; markin1970electrical2; markin1973electrical">[4, 5, 6]</span>, V. S. Markin studied the propagation of action potentials in nerve bundles. Markin&#x27;s method differs from that of Hodgkin and Huxley in that he assumes a solvable model. In other words, by assuming a simple form for the ionic currents, he is able to get a solution to the propagation equations. He extends his single axon model to several interacting axons as well.</p>
+<p>In Jonathan Bell&#x27;s work on the coupled propagation of action potentials <span class="citation" title="bell1981modeling">[7]</span>, he looks at ephaptic coupling. In this context he studies `waves&#x27; propagating on coupled axons using perturbation theory. Bell&#x27;s paper is seminal and adds rigor to Arvanitaki&#x27;s experimental work on ephaptic transmission. Bell is able to give an exact theorem governing the rise of the coupled pulse.</p>
+<p>In Wojtiech Zurek&#x27;s works on decoherence <span class="citation" title="zurek1993coherent; zurek2006decoherence; zurek2000einselection">[8, 9, 10]</span>, he starts with simple model systems and studies decoherence under coupling between two systems. This work is related to his work on the classical-quantum border since decoherence is effectively how one transitions from the quantum to the classical domain. Zurek&#x27;s work is important and he may be one of the `fathers&#x27; of decoherence theory.</p>
+<p>Tegmark&#x27;s paper <span class="citation" title="tegmark2000importance">[2]</span> contains decoherence computations. He divides the problem into ion-ion, ion-water and other decoherence mechanisms. For each such mechanism, he considers a superposition of ions between the inside and the outside of the cell. Within say the ion-ion collision mediated decoherence section, he computes how long the spatial superposition state will stay quantum mechanical. His estimates yield the conclusion that decoherence precludes a significant role for quantum features because the characteristic time of a neuron is the action potential duration of 2 ms, according to him. He also considers microtubules and the associated decoherence times.</p>
+<p>This absence of quantum effects can be used to argue that the brain and conscious processes can be entirely explained in terms of classical physics. In the present paper however, we show that the entire universe in a sense has a say in the quantum computation being performed in each part of the brain and the action potential is a very `summed up&#x27; or `gross&#x27; indication of what is happening at the deeper physical layers of the brain<span class="footnote-inline"><sup>†</sup>As opposed to the data layer <span class="citation" title="chawlamorgerasnider2020">[11]</span>.</span>.</p>
+<p>Einstein and Rosen, in a joint paper, explore the consequences of general relativity in a specific direction, that of the generation and propagation of cylindrical gravitational waves <span class="citation" title="einstein1937gravitational">[12]</span>. Thorne&#x27;s work on gravitational radiation provides detailed analysis and a modern survey of the then current status of the field of gravitational wave research <span class="citation" title="thorne1980gravitational">[13]</span>. Other relevant literature includes the paper of Penrose and Hameroff wherein they propose microtubule-based quantum computation in the brain <span class="citation" title="hameroff1996orchestrated; hameroff1996conscious; penrose1994shadows">[14, 15, 16]</span>. In the next section we delve deeper into our specific proposal as it pertains to the theme of this paper.</p>
+<h2 id="mechanism">Mechanism</h2>
+<p>In this section, we delve into the mechanism by which a metric perturbation ends up influencing the quantum computation performed in an axon tract. Consider two slightly temporally displaced action potentials, as shown in Figure [fig:Two-slightly-displaced].</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/fig1new.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/fig1new.jpg</div><figcaption><span>Figure 1.</span> Two slightly displaced (in time) action potentials, $V_{1}$ representing axon 1 (top) and $V_{2}$ representing axon 2 (bottom). The temporal gap $a$ is indicated at an arbitrary temporal location using solid black lines. The $x$-axis is time in seconds and the $y$-axis is voltage in Volts.</figcaption></figure>
+<p>Due to the gravitational wave, the temporal gap between the two action potentials, $a$, takes the value $a_{1}$ seconds during its presence and $a_{2}$ seconds during its absence. Suppose that $V_{2}-$$V_{1}$ induces the quantum environment of an ion in the node of Ranvier (please see Figure [fig:Environment-in-the]).</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/fig2new.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/fig2new.jpg</div><figcaption><span>Figure 2.</span> Environment in the presence (left) and absence (right) of the gravitational wave. The temporal gap between action potentials is stretched or compressed due to the passage of a gravitational wave, due to changes in distance between positions where voltage on the two axons is measured. The $x$-axis is time in seconds and they $y$-axis is voltage in Volts.</figcaption></figure>
+<p>Thus the potential $V(x)$ that enters into the Schrodinger evolution equation will be different during the presence and the absence of the gravitational wave. That is, the evolution will be different in the two cases. Again, if a different gravitational wave-tract interaction takes place, the evolution will be yet of another type. Post evolution and subsequent decoherence, and following further classical evolution (see Figure [fig:Quantum-trajectory-concatenated]), the action potential initiation process of the cell starts up again and this re-prepares a quantum state of the tract.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/fig4new.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/fig4new.jpg</div><figcaption><span>Figure 3.</span> Quantum trajectory spliced with a longer classical trajectory of the state of the tract with and without the influence of gravitational radiation.</figcaption></figure>
+<p>Suppose there are a few tracts, each with synchronized impulses, where the synchronization has taken place using a combination of electric fields (between tracts) and currents (intratract) <span class="citation" title="chawla2017axon">[17]</span>. At a particular instant say $t_{a}$, all the axons are synchronized, and a joint quantum state is prepared on each of the axons. If there is a way for us to show that this joint state is actually entangled, then it results in more interesting processes taking place in the tract. But regardless, the joint quantum state of the ions will evolve under the influence of slightly different gravitational impact on each axon. And because there is this parallel evolution, we have the process of a quantum circuit evolution taking place <span class="citation" title="mermin2007quantum">[18]</span>. This is illustrated in Figure [fig:Quantum-computation-in]. Where square blocks are shown in Figure [fig:Quantum-computation-in], unitary gates are normally placed in the usual quantum circuit paradigm <span class="citation" title="nielsen2010quantum">[19]</span>, and triangular blocks are where measurements (POVMs, say) are normally performed.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/tractqcomp.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I5-A08_2211.07353v1/tex/tractqcomp.jpg</div><figcaption><span>Figure 4.</span> Quantum computation in synchronized axon tracts. The square blocks are where there is interaction with gravitational radiation, resulting in quantum operations. The triangular blocks at the end represent the points where the quantum computation comes to an end due to ensuing decoherence.</figcaption></figure>
+<h2 id="limitations-and-future-work">Limitations and Future Work</h2>
+<p>We have presented a model for brain quantum computation in this paper. The key insight of this model was obtained once progress was made in understanding how metric perturbations influence the timing of action potentials in a tract which has current-mediated coupling <span class="citation" title="chawla2023computer">[20]</span>. From there we connected the modified action potential waveforms to the modified environment that an ion in the axon&#x27;s node of Ranvier would experience. This allowed us to visualize the entire intertwined cycle of a single computation starting with quantum evolution, decoherence, classical evolution and finally followed by the classical reset phase wherein a new action potential is initiated. This four step cycle can potentially be used to develop novel classical-quantum machine learning algorithms as well.</p>
+<p>Furthermore, we could have set up a mathematical framework for the entire process of quantum computation, but did not do so. We felt that there are adequate presentations of quantum computation in the literature. Our main goal was to present the novel aspect, namely that these computations can take place in the coherence window and the external `control&#x27; or `direction&#x27; is provided by impinging metric perturbations. In future work we need to investigate and demonstrate a mechanism for entanglement between the various tracts.</p>
+<p>To conclude, this paper has pushed forward our understanding of how man and his universe are integrated as one inseparable whole, even at the level that at least some aspects of what man thinks and does are enabled and directed by fundamental phenomena in the universe. Thus without the need for positing any external entity, the universe is seen to be a guiding force in the life of each being.</p>
+<p>This paper&#x27;s view is not without its limitations. For example, different brain-like entities, all and each governed by the whole universe, do interact in space and time. The present paper says nothing about the interaction&#x27;s back-action on each entity and its quantum computation. The picture shown by Tegmark <span class="citation" title="tegmark2000importance">[2]</span> with a pie-chart-like partitioning into the observer, observation and the observed acquires added relevance in the light of this remark and will need to be further explored in future work. Further, John Wheeler&#x27;s view of the universe as a self-excited quantum circuit <span class="citation" title="archibald1977genesis">[21]</span> can be re-imagined as a medusa-headed serpent looking at its own origin, instead of a single headed serpent doing so. Which of the two possibilities is more realistic, is left for future research.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-chawla2022gedanken"><span class="ref-key">[1]</span> Chawla, Aman “A Gedanken Experiment on the Brain as a Quantum Computer” ResearchGate Preprint 2022</li><li id="ref-tegmark2000importance"><span class="ref-key">[2]</span> Reference entry not found for key tegmark2000importance.</li><li id="ref-chawla2022computer"><span class="ref-key">[3]</span> Reference entry not found for key chawla2022computer.</li><li id="ref-markin1970electrical"><span class="ref-key">[4]</span> Reference entry not found for key markin1970electrical.</li><li id="ref-markin1970electrical2"><span class="ref-key">[5]</span> Reference entry not found for key markin1970electrical2.</li><li id="ref-markin1973electrical"><span class="ref-key">[6]</span> Reference entry not found for key markin1973electrical.</li><li id="ref-bell1981modeling"><span class="ref-key">[7]</span> Reference entry not found for key bell1981modeling.</li><li id="ref-zurek1993coherent"><span class="ref-key">[8]</span> Reference entry not found for key zurek1993coherent.</li><li id="ref-zurek2006decoherence"><span class="ref-key">[9]</span> Reference entry not found for key zurek2006decoherence.</li><li id="ref-zurek2000einselection"><span class="ref-key">[10]</span> Reference entry not found for key zurek2000einselection.</li><li id="ref-chawlamorgerasnider2020"><span class="ref-key">[11]</span> Reference entry not found for key chawlamorgerasnider2020.</li><li id="ref-einstein1937gravitational"><span class="ref-key">[12]</span> Reference entry not found for key einstein1937gravitational.</li><li id="ref-thorne1980gravitational"><span class="ref-key">[13]</span> Reference entry not found for key thorne1980gravitational.</li><li id="ref-hameroff1996orchestrated"><span class="ref-key">[14]</span> Reference entry not found for key hameroff1996orchestrated.</li><li id="ref-hameroff1996conscious"><span class="ref-key">[15]</span> Reference entry not found for key hameroff1996conscious.</li><li id="ref-penrose1994shadows"><span class="ref-key">[16]</span> Reference entry not found for key penrose1994shadows.</li><li id="ref-chawla2017axon"><span class="ref-key">[17]</span> Chawla, Aman “On Axon-Axon Interaction via Currents and Fields” 2017</li><li id="ref-mermin2007quantum"><span class="ref-key">[18]</span> Reference entry not found for key mermin2007quantum.</li><li id="ref-nielsen2010quantum"><span class="ref-key">[19]</span> Reference entry not found for key nielsen2010quantum.</li><li id="ref-chawla2023computer"><span class="ref-key">[20]</span> Reference entry not found for key chawla2023computer.</li><li id="ref-archibald1977genesis"><span class="ref-key">[21]</span> Reference entry not found for key archibald1977genesis.</li></ol></section>
+        </article>
+
+<!-- RELATED PAPERS SECTION START -->
+        <div class="section">
+            <h2>Related Papers You May Like</h2>
+            <ul class="related-list">
+            <li><a href="../paper1.html">Early Modulation of Visual Cortex by Sound: an MEG Study</a></li>
+            <li><a href="../paper2.html">Significant Audio-visual Interaction for Spatially Congruent Stimuli</a></li>
+            <li><a href="../paper3.html">Reliability of a Gaussian Channel in the Presence of Gaussian Feedback</a></li>
+            <li><a href="../paper4.html">On Axon-axon Interaction via Currents and Fields</a></li>
+            <li><a href="../paper5.html">Ephaptic Synchronization as a Mechanism for Selective Amplification of Stimuli</a></li>
+            </ul>
+        </div>
+<!-- RELATED PAPERS SECTION END -->
+
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section">
+            <div class="premium-box">
+                <h2>Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price">$5 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-button">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="amanalliance@gmail.com">
+                    <input type="hidden" name="item_name" value="Premium Support - 2211.07353v1 | Prajnanabha">
+                    <input type="hidden" name="amount" value="5.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="https://yourwebsite.com/thankyou">
+                    <input type="hidden" name="cancel_return" value="https://yourwebsite.com">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+                           border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                </form>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+
+
+<!-- NAVIGATION LINKS START -->
+        <div class="nav-links">
+            <a href="../assets/Soft_Copies/2211.07353v1.pdf" target="_blank">📄 View Full Paper (PDF)</a>
+            <a href="../prajnanabha-i_5.html">← Back to Issue 5</a>
+        </div>
+<!-- NAVIGATION LINKS END -->
+
+
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Some Progress on Axonal Quantum Computation in the Markin Approximation - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Some Progress on Axonal Quantum Computation in the Markin Approximation</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this note, the authors consider Markin's approximation to the ionic current, in the context of the Frankenhaeuser-Huxley equations. Using a Green's function approach, they derive the solution to the equations. This is a rst step in a program to determine the exact quantum computation sequence in axon tracts. It is well recognized that the Hodgkin Huxley equations or the corresponding Frankenhaeuser-Huxley equations are dicult to solve exactly due to the com- plexity of the ionic current term [1]. Markin and co-authors circumvent this diculty by assuming a general form of the ionic current [2, 3]. In a paper by Markin and Chizmadzhev cited within [1], they present a piecewise-linear approach to the ion channel current. In later work, Markin uses this formulation to solve the single and multiple axon coupling situation. In Section 1, we set the problem up and then use the Green's method for solving the two-variable second order partial dierential equation that arises. We conclude in Section 2. Problem Setup and Solution We utilize the Markin model for the ion currents. They can be succinctly written using Heaviside step functions. In particular, let I(z, t) stand for the ionic current at a time t at a node. We can write, I(z, t) = s1(t) · s2(t) (1) where s1(t) = j1 + (j1 + j2) · Θ(t −τ1) (2) and s2(t) = Θ(t) −Θ(t −τ2) (3) and where j1, j2, τ1, τ2 are the parameters in Markin's model and Θ(·) is the Heaviside step function. Next recall that in the no-coupling case, the relevant PDE can be written in terms of a dierential operator L dened as, 1</p> <p>L = C ∂ ∂t + κ ∂2 ∂z2 + G (4) where C is the membrane capacitance and G is the myelin conductance and κ is a constant. The PDE, expressed in these terms is, LV (z, t) = I(z, t). (5) In the Green's approach we replace the forcing term with Dirac deltas and look for the corresponding solution which is known as the Green's function ˜G((z, t), (ξ, ξt)). Thus the equation we want to solve becomes, L ˜G(z, t) = δ(z −ξ) · δ(t −ξt). (6) Using an LLM, we nd, ˜G((z, t), (ξ, ξt)) = 1 2C s πC κ|z −ξ| · e G|z−ξ| C · e−(t−ξt)2C 4κ|z−ξ| . (7) Thus, the transmembrane voltage solution can be written as, V (z, t) =  ˜G((z, t), (ξ, ξt))s1(ξt)s2(ξt)dξdξt + b.i. (8) where b.i. stands for boundary integral. Discussion If the above solution is veried manually, the next steps are straightforward. We will extend this approach to three ephaptically coupled axons [4], and nd the explicit expression for Vi(z, t) with i = 1, 2, 3, also forming ˜Va(z, t) = V2(z, t) − V1(z, t) and ˜Vb(z, t) = V3(z, t) −V1(z, t). Next, we will extend the approach to the case when a gravitational wave (indicated by the strain h) is impinging on the tract of three axons and nd, analytically, ˜Vb,h(z, t) −˜Vb(z, t). This will be the perturbation potential that will enter into the environment term for controlling the quantum harmonic oscillator of [5]. This program was outlined in detail in the Zenodo preprint [6]. References [1] VS Markin. Electrical interaction of parallel non-myelinated nerve bres. 1. change in excitability of adjacent bre. Biophysics-USSR, 15(1):122, 1970. [2] VS Markin. Electrical interaction of parallel non-myelinated nerve bres. 2. collective conduction of impulses. BIOPHYSICS-USSR, 15(4):713, 1970. [3] VS Markin. Electrical interaction of parallel non-myelinated nerve bres 3. interaction in bundles. Biophysics, 18:324332, 1973. 2</p> <p>[4] Aman Chawla, Salvatore Morgera, and Arthur Snider. On axon interaction and its role in neurological networks. IEEE/ACM Transactions on Compu- tational Biology and Bioinformatics, 2019. [5] Ugo Boscain, Thomas Chambrion, and Mario Sigalotti. On some open questions in bilinear quantum control. 2013 European Control Conference (ECC), pages 20802085, 2013. [6] Aman Chawla. Towards the exact quantum computation sequence in axon tracts.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Some_Progress_on_Axonal_Quantum_Computation_in_the_Markin_Approximation.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

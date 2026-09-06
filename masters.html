@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Masters of Kriya Yoga - REAL Institute</title>
+    <meta name="description" content="Meet the eight self-realized Kriya Yoga masters of our lineage: Mahavatar Babaji, Lahiri Mahasaya, Sri Yukteswarji, Paramahansa Yogananda, Paramahamsa Hariharananda, Swami Satyananda, Sannyal Mahasaya, and Paramahamsa Prajnanananda.">
+    <link rel="icon" href="favicon.png">
+    <link rel="canonical" href="https://realinstitute.netlify.app/masters.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cart.css">
+    <style>
+        :root {
+            --bg-page: #faf8f5;
+            --bg-card: #ffffff;
+            --ink-dark: #1b2a3d;
+            --ink-soft: #3c4c60;
+            --brass-gold: #daa520;
+            --brass-dark: #7e5a29;
+            --rule-line: #e2d7c0;
+            --parchment: #f4ede0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background-color: var(--bg-page);
+            color: var(--ink-dark);
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+
+        /* Header */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--rule-line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--ink-dark);
+            text-decoration: none;
+        }
+
+        .brand-logo span {
+            color: var(--brass-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--brass-dark);
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1b2a3d 0%, #111a26 100%);
+            color: #ffffff;
+            padding: 70px 24px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--brass-gold);
+        }
+
+        .hero-banner h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #f5eaae;
+            margin-bottom: 14px;
+        }
+
+        .hero-banner p {
+            max-width: 800px;
+            margin: 0 auto 24px;
+            font-size: 1.2rem;
+            color: #d6e2f0;
+        }
+
+        /* Altar Image Banner Display */
+        .altar-display {
+            text-align: center;
+            margin: -30px auto 40px;
+            max-width: 780px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .altar-img {
+            width: 100%;
+            max-width: 680px;
+            border-radius: 12px;
+            border: 4px solid var(--brass-gold);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+            background: #ffffff;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 24px 60px;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            color: var(--ink-soft);
+            font-size: 1.1rem;
+        }
+
+        /* Masters Grid */
+        .masters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 32px;
+        }
+
+        @media (max-width: 580px) {
+            .masters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .master-card {
+            background: var(--bg-card);
+            border: 1px solid var(--rule-line);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .master-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brass-gold) 0%, var(--brass-dark) 100%);
+        }
+
+        .master-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .master-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--brass-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .master-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            color: var(--ink-dark);
+            margin-bottom: 4px;
+        }
+
+        .master-title {
+            font-style: italic;
+            color: var(--brass-dark);
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .master-bio {
+            color: var(--ink-soft);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .master-key-teaching {
+            background: var(--parchment);
+            border-left: 3px solid var(--brass-gold);
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #4a3b2c;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink-dark);
+            color: #a8b8cc;
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--brass-gold);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--brass-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                REAL <span>Institute</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="welcome.html">Start Here</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="masters.html" class="active">Meet the Masters</a></li>
+                <li><a href="kriyacorpus.html">Kriya Corpus</a></li>
+                <li><a href="teaching_page.html">Meditation</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <h1>Meet the Masters</h1>
+        <p>The self-realized spiritual masters of the Kriya Yoga lineage — guiding householders and monastics alike into the science of breath, devotion, and divine stillness.</p>
+    </section>
+
+    <!-- Altar Display -->
+    <div class="altar-display">
+        <img src="./assets/altar2.png" alt="Kriya Yoga Lineage Altar of Masters" class="altar-img">
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        
+        <p class="intro-text">
+            Kriya Yoga is an ancient, unbroken spiritual science passed down through direct initiation from teacher to student. The lineage integrates practical householder life with profound monastic contemplation, teaching that every human being carries equal potential for self-realization.
+        </p>
+
+        <!-- Masters Grid -->
+        <div class="masters-grid">
+            
+            <!-- Master 1 -->
+            <article class="master-card" id="babaji">
+                <div>
+                    <div class="master-number">Master 01</div>
+                    <h2>Mahavatar Babaji</h2>
+                    <div class="master-title">The Eternal Deathless Master</div>
+                    <p class="master-bio">
+                        The timeless Himalayan master who revived the ancient science of Kriya Yoga in modern times. In 1861, near Ranikhet in the Himalayas, Babaji initiated Shyama Charan Lahiri Mahasaya, restoring Kriya Yoga to humanity as a universal technique for liberation.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Kriya Yoga is an instrument through which human evolution can be quickened. The law of cause and effect operate in both outer nature and inner consciousness."
+                </div>
+            </article>
+
+            <!-- Master 2 -->
+            <article class="master-card" id="lahiri-mahasaya">
+                <div>
+                    <div class="master-number">Master 02</div>
+                    <h2>Shyama Charan Lahiri Mahasaya</h2>
+                    <div class="master-title">Yogiraj (1828 – 1895) — The Householder Master</div>
+                    <p class="master-bio">
+                        A devout accountant, family man, and spiritual titan residing in Varanasi. Lahiri Mahasaya demonstrated that the highest states of Samadhi and self-realization are fully attainable while fulfilling household, professional, and family duties.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Banat Banat Ban Jai" — Always practicing, practicing, one day it will be done. Solve all your problems through meditation.
+                </div>
+            </article>
+
+            <!-- Master 3 -->
+            <article class="master-card" id="sri-yukteswar">
+                <div>
+                    <div class="master-number">Master 03</div>
+                    <h2>Swami Sri Yukteswar Giri</h2>
+                    <div class="master-title">Jnanavatar (1855 – 1936) — Incarnation of Wisdom</div>
+                    <p class="master-bio">
+                        A master of astronomy, Vedic astrology, and scriptural commentary. Author of <em>The Holy Science (Kaivalya Darsanam)</em>, Sri Yukteswarji established ashrams in Serampore and Puri, trainingParamahansa Yogananda and Paramahamsa Hariharananda in strict discipline and deep scriptural unity.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Wisdom is the greatest cleanser. Good intent without discipline is incomplete."
+                </div>
+            </article>
+
+            <!-- Master 4 -->
+            <article class="master-card" id="yogananda">
+                <div>
+                    <div class="master-number">Master 04</div>
+                    <h2>Paramahansa Yogananda</h2>
+                    <div class="master-title">Messenger of Kriya Yoga to the World (1893 – 1952)</div>
+                    <p class="master-bio">
+                        Author of the world-renowned <em>Autobiography of a Yogi</em>. Sent to the West by Mahavatar Babaji and Sri Yukteswarji in 1920, Yoganandaji introduced millions to Kriya Yoga, scientific meditation, and Self-Realization Fellowship worldwide.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Self-realization is the knowing in all parts of body, mind, and soul that you are now in possession of the kingdom of God."
+                </div>
+            </article>
+
+            <!-- Master 5 -->
+            <article class="master-card" id="hariharananda">
+                <div>
+                    <div class="master-number">Master 05</div>
+                    <h2>Paramahamsa Hariharananda Giri</h2>
+                    <div class="master-title">Gurudev (1907 – 2002) — Master of Divine Love & Breath</div>
+                    <p class="master-bio">
+                        Inspiration and spiritual guide of the Hariharananda REAL Institute. Attained <em>Nirvikalpa Samadhi</em> after mastering all higher stages of Kriya under Sri Yukteswarji, Yoganandaji, and Sannyal Mahasaya. He traveled tirelessly across India, Europe, and the Americas, bringing breath-awareness and meditation to all.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Breath is God. Every breath is your divine life. With every breath, feel the presence of the Almighty within."
+                </div>
+            </article>
+
+            <!-- Master 6 -->
+            <article class="master-card" id="satyananda">
+                <div>
+                    <div class="master-number">Master 06</div>
+                    <h2>Swami Satyananda Giri</h2>
+                    <div class="master-title">Master of Devotion & Education (1896 – 1971)</div>
+                    <p class="master-bio">
+                        Direct disciple of Sri Yukteswarji and close boyhood companion of Paramahansa Yogananda. Swami Satyanandaji served as leader of Karar Ashram in Puri and established educational and spiritual institutions in Sevayatan and Malkha Nagar.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "True education is the unfolding of the soul's divine potential through service and meditation."
+                </div>
+            </article>
+
+            <!-- Master 7 -->
+            <article class="master-card" id="sannyal-mahasaya">
+                <div>
+                    <div class="master-number">Master 07</div>
+                    <h2>Bhupendranath Sannyal Mahasaya</h2>
+                    <div class="master-title">The Ideal Householder Master (1877 – 1962)</div>
+                    <p class="master-bio">
+                        Initiated by Lahiri Mahasaya at age 16. Sannyal Mahasaya taught alongside Rabindranath Tagore at Santiniketan, wrote extensive commentaries on the Bhagavad Gita, and established Gurudham Ashrams in Puri and Bhagalpur.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Live in the world as a lotus flower lives in water — untouched by mud, fully dedicated to divine light."
+                </div>
+            </article>
+
+            <!-- Master 8 -->
+            <article class="master-card" id="prajnanananda">
+                <div>
+                    <div class="master-number">Master 08</div>
+                    <h2>Paramahamsa Prajnanananda</h2>
+                    <div class="master-title">Current Spiritual Leader (1960 – Present)</div>
+                    <p class="master-bio">
+                        Chief spiritual disciple of Paramahamsa Hariharananda. Prolific author, humanitarian, and leader of Kriya Yoga International institutes worldwide, continuing the living tradition of silent meditation, education, and compassionate service.
+                    </p>
+                </div>
+                <div class="master-key-teaching">
+                    "Love all, serve all, meditate daily. Let your thoughts, words, and actions bring peace to the world."
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Hariharananda REAL Institute. All rights reserved. | <a href="index.html">Home</a> | <a href="welcome.html">Start Here Guide</a> | <a href="kriyacorpus.html">Kriya Corpus</a></p>
+    </footer>
+
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

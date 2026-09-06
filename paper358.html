@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Structured Decomposition of the Quantum Atypical Sector - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Structured Decomposition of the Quantum Atypical Sector</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">This note develops the second step of the structured quantum source-coding program. Starting from the typical–atypical decomposition established in Step 1, it introduces spectral probability zones, defines a structured orthogonal decomposition of the atypical subspace, isolates the dominant atypical component, and records the asymptotic conditions under which the additional structure remains consistent with Schumacher compression. The purpose of the present step is not yet to choose a clustering geometry, but rather to identify the formal objects and accounting relations that any later structured encoder must respect. Introduction In weak source coding, the principal modification of Shannon’s classical scheme is to replace the single atypical error declaration by a partition of the atypical set into classes, zones, or residual components. The purpose of the present step is to formulate the quantum analogue of that move. Step 1 established the spectral representation of a memoryless quantum source, the typical subspace T (n) ϵ , the atypical projector Q(n) ϵ = I −Π(n) ϵ , and the asymptotic Schumacher compression rate S(ρ). It also identified the atypical sector as a low-weight spectral tail with finite-blocklength internal structure. From the standpoint of the larger program, this observation is decisive: once the atypical sector is seen not as a featureless remainder but as a structured tail in the spectrum of ρ⊗n, it becomes natural to ask how much of that structure can be retained and exploited. The role of the present step is therefore organizational. It does not yet claim a gain in compression fidelity, nor does it prescribe a unique clustering rule. Instead, it introduces the formal language in which such refinements can later be stated. In particular, it identifies the relevant probability zones, the projectors attached to those zones, the possible decompositions of the atypical sector, and the weights of the resulting components. The role of this step is threefold: 1. To introduce the three-zone quantum counterpart of the weak-coding picture. 2. To define orthogonal atypical components together with their weights and dominant contri- bution. 3. To record the structural overhead needed to distinguish these components while preserving asymptotic consistency with Schumacher compression. No geometric criterion is imposed at this stage. This deferral is intentional. Step 3 will determine how the decomposition should be chosen by introducing distance-based clustering in the quantum state space. Step 4 will explain how the resulting component structure enters a rate–fidelity tradeoff. The present note should therefore be read as the formal bridge between the spectral typicality of Step 1 and the operational refinements that follow. 1</p> <p>2 Quantum Probability Zones Let ρ = d X i=1 λi |ei⟩⟨ei| be the spectral decomposition of the source state, and let ρ⊗n = X i1,...,in λi1 · · · λin |ei1 · · · ein⟩⟨ei1 · · · ein| be the induced block source. The key observation is that Step 1 already supplies a natural scalar quantity with which the spectrum may be stratified, namely the information density. Once the eigenvalue products of ρ⊗n are written in logarithmic form, one obtains an immediate analogue of the classical picture in which typicality is defined by comparison with the entropy. For a spectral word i = (i1, . . . , in), define its information density by ın(i) := −1 n log2(λi1 · · · λin). The entropy level S(ρ) therefore plays the same organizing role here that H(X) plays in the classical asymptotic equipartition property. The natural next step is to separate the spectral words according to whether their information density is near, above, or below this benchmark. Definition 1 (Quantum Probability Zones). Fix ϵ &gt; 0. a) The Quantum Medium Probability Zone (qmpz) is the set of spectral words satisfying |ın(i) −S(ρ)| ≤ϵ. b) The Quantum Very Low Probability Zone (qvlpz) is the set of spectral words satisfying ın(i) &gt; S(ρ) + ϵ. c) The Quantum Very High Probability Zone (qvhpz) is the set of spectral words satisfying ın(i) &lt; S(ρ) −ϵ. The same partition may be written directly in terms of eigenvalue bands: i ∈qmpz ⇐⇒2−n(S(ρ)+ϵ) ≤λi1 · · · λin ≤2−n(S(ρ)−ϵ), i ∈qvlpz ⇐⇒λi1 · · · λin &lt; 2−n(S(ρ)+ϵ), i ∈qvhpz ⇐⇒λi1 · · · λin &gt; 2−n(S(ρ)−ϵ). This three-zone language is useful for two reasons. First, it makes the connection with weak source coding explicit. Second, it separates two conceptually different kinds of atypicality: spectral words may be atypical because they are too rare relative to the entropy scale, or because they are too concentrated. Later geometric clustering can then be asked to operate within these tails rather than on an undifferentiated complement. Remark 1. qmpz is exactly the spectral typical region of Step 1. The atypical sector decomposes into the two tails qvlpz and qvhpz. This is the direct quantum counterpart of the medium-, very-low-, and very-high-probability zones used in weak source coding. 2</p> <p>3 Projectors Onto the Three Zones Once the zones have been defined at the level of spectral words, the corresponding subspaces and projectors are immediate. This step is formally simple, but it is important because it converts the three-zone classification into Hilbert-space objects that can enter later encoder and decoder constructions. Definition 2 (Zone Projectors). Define the orthogonal projectors Π(n) M := X i∈qmpz |ei⟩⟨ei| , Π(n) L := X i∈qvlpz |ei⟩⟨ei| , Π(n) H := X i∈qvhpz |ei⟩⟨ei| , where |ei⟩= |ei1 · · · ein⟩. These projectors resolve the identity: Π(n) M + Π(n) L + Π(n) H = I, Π(n) M Π(n) L = Π(n) M Π(n) H = Π(n) L Π(n) H = 0. Moreover, Π(n) M = Π(n) ϵ , Q(n) ϵ = Π(n) L + Π(n) H . Thus the typical projector of Step 1 is recovered as the projector onto qmpz, while the atypical projector is now split into two spectrally distinguished pieces. This makes precise the statement that the atypical sector already contains a nontrivial internal organization before any clustering rule has been imposed. Proposition 1 (Weight of the Quantum Zones). Let w(n) M = Tr  ρ⊗nΠ(n) M  , w(n) L = Tr  ρ⊗nΠ(n) L  , w(n) H = Tr  ρ⊗nΠ(n) H  . Then w(n) M + w(n) L + w(n) H = 1, and, for sufficiently large n, w(n) L + w(n) H ≤ϵ. Proof. The first identity follows from the orthogonal resolution of the identity. For the second, Step 1 gives w(n) L + w(n) H = Tr  ρ⊗nQ(n) ϵ  ≤ϵ for sufficiently large n. The proposition shows that the medium zone carries asymptotically almost all of the spectral weight, while the union of the two tails remains small. Nevertheless, the tails need not be negligible for finite blocklength. It is precisely in this finite-n regime that a structured treatment of the atypical part may become meaningful. 3</p> <p>4 Structured Decomposition of the Atypical Subspace The quantum atypical subspace is B(n) ϵ := Ran(Q(n) ϵ ). Up to this point, the atypical sector has been split only into the two coarse tails qvlpz and qvhpz. The next definition introduces the more general object that will be used in later steps: an arbitrary orthogonal resolution of the atypical subspace into components. Definition 3 (Structured Atypical Decomposition). A structured atypical decomposition of B(n) ϵ is a family of mutually orthogonal subspaces C(n) , . . . , C(n) k ⊆B(n) ϵ such that B(n) ϵ = k M r=1 C(n) r . If Π(n) r denotes the projector onto C(n) r , then Q(n) ϵ = k X r=1 Π(n) r . This definition is intentionally broad. Its purpose is not to decide which decomposition is optimal, but to identify the class of decompositions that a structured theory may consider. At this level one wants a formal framework with enough flexibility to accommodate spectral shells, zone refinements, or later metric-induced clusters. Remark 2. The decomposition is intentionally left abstract. It may simply separate qvlpz from qvhpz, it may refine one of the two tails, or it may partition the tails into shells or smaller components. In Step 3, the choice of decomposition will be guided by metric-based clustering in the quantum state space. Proposition 2 (Component Weight Identity). For a structured atypical decomposition, define w(n) r := Tr  ρ⊗nΠ(n) r  , r = 1, . . . , k. Then k X r=1 w(n) r = Tr  ρ⊗nQ(n) ϵ  ≤ϵ for sufficiently large n. Proof. Since Q(n) ϵ = Pk r=1 Π(n) r and the trace is linear, k X r=1 w(n) r = k X r=1 Tr  ρ⊗nΠ(n) r  = Tr  ρ⊗nQ(n) ϵ  . The upper bound follows from Proposition 1. This identity is the basic accounting relation of the structured theory. It ensures that every atypical spectral component is counted exactly once and that no hidden remainder survives outside the chosen decomposition. Later encoder constructions can therefore allocate resources component by component without ambiguity. 4</p> <p>5 Dominant Atypical Component Once a decomposition has been chosen, the next natural question is whether one of its components carries most of the atypical mass. The answer to this question will later determine whether a differentiated treatment of the atypical sector is worthwhile. Definition 4 (Dominant Atypical Component). For a structured atypical decomposition, define the dominant atypical weight by D(n) Q := max 1≤r≤k w(n) r . Any component attaining this maximum will be called a dominant atypical component. The quantity D(n) Q is the quantum analogue of the largest residual class weight in weak source coding. It is important because any refined encoder that singles out a privileged atypical component will inevitably be controlled by this maximal weight rather than by the full atypical weight alone. Proposition 3 (Elementary Bounds on the Dominant Weight). For every structured atypical decomposition, k Tr  ρ⊗nQ(n) ϵ  ≤D(n) Q ≤Tr  ρ⊗nQ(n) ϵ  . Consequently, for sufficiently large n, D(n) Q ≤ϵ. Proof. Since D(n) Q is the maximum of the nonnegative numbers w(n) 1 , . . . , w(n) k , kD(n) Q ≥ k X r=1 w(n) r and also D(n) Q ≤ k X r=1 w(n) r . Using Proposition 2 gives the stated inequality. The final statement follows from Tr  ρ⊗nQ(n) ϵ  ≤ϵ. The proposition does not yet prove that a structured encoder helps. What it does provide is the correct quantitative target. If later geometric clustering succeeds in concentrating most of the atypical mass into a comparatively small number of components, then D(n) Q will be the quantity through which that concentration becomes operationally visible. Structural Overhead Parameter Weak source coding tracks the number of atypical classes through an explicit structural parameter. The corresponding quantum parameter is as follows. Definition 5 (Quantum Structural Overhead). If the atypical sector is decomposed into k orthogonal components, define χQ := log2 k n(S(ρ) + ϵ). 5</p> <p>The meaning of χQ is straightforward: it measures the relative overhead required to specify which atypical component has occurred, using the Schumacher baseline scale n(S(ρ) + ϵ) as the reference denominator. Thus χQ does not yet represent a theorem about rate improvement or deterioration. Rather, it is the natural bookkeeping parameter against which later operational gains must be compared. Remark 3. The quantity χQ measures the relative rate overhead required to label k atypical components with respect to the Schumacher baseline scale n(S(ρ) + ϵ). If a later encoder attaches a component label to atypical states, then log2 k is the number of additional label bits, and χQ is the normalized form of that overhead. Remark 4. The number of components k may be fixed in advance or may grow with the blocklength. A coarse decomposition corresponds to small k, whereas a fine decomposition may allow k to increase with n. If log2 k = o  n(S(ρ) + ϵ)  , then χQ →0 as n →∞, so the relative overhead vanishes asymptotically. Asymptotic Consistency The structured decomposition introduced in this step must remain compatible with Schumacher compression in the asymptotic limit. This requirement is conceptually important: the structured theory is intended as a refinement of Schumacher coding, not as a different asymptotic coding law. Proposition 4 (Asymptotic Recovery of Schumacher Compression). Suppose ϵ = ϵn →0 and the number of atypical components satisfies log2 kn = o  n(S(ρ) + ϵn)  . Then χ(n) Q →0 and D(n) Q →0 as n →∞. In this sense, the structured refinement reduces asymptotically to Schumacher compression. Proof. The first claim is immediate from the definition χ(n) Q = log2 kn n(S(ρ) + ϵn). For the second, Proposition 3 yields 0 ≤D(n) Q ≤Tr  ρ⊗nQ(n) ϵn  ≤ϵn for sufficiently large n, hence D(n) Q →0. Remark 5. The preceding proposition records explicitly what was only implicit in Step 1. The structural overhead and the dominant atypical weight can both be made asymptotically negligible, provided the component count grows slowly enough. This ensures that Step 2 remains a refinement of Schumacher coding rather than a competing asymptotic theory. 6</p> <p>8 Example: Diagonal Qubit Source It is useful to see the preceding constructions in a concrete source for which the spectral structure is completely explicit. The diagonal qubit source provides exactly such an example. Let ρ = diag(1 −p, p), 0 &lt; p &lt; 1. For a spectral word i ∈{1, 2}n, let m(i) denote the number of occurrences of the symbol 2. Then λi = (1 −p)n−m(i)pm(i). All words with the same value of m have the same eigenvalue, so the block source admits the shell decomposition ρ⊗n = n X m=0 (1 −p)n−mpmP (n) m , where P (n) m := X i∈{1,2}n m(i)=m |ei⟩⟨ei| . The corresponding shell weight is Tr  ρ⊗nP (n) m  = n m  (1 −p)n−mpm. Hence the source is already stratified by empirical frequency before any clustering algorithm is introduced. The shells provide a natural finite-blocklength language for discussing typicality, atypicality, and later component grouping. Proposition 5 (Zone Description for the Diagonal Qubit Source). For the diagonal qubit source, the three quantum probability zones are determined by the empirical frequency m/n: P (n) m ⊆qmpz ⇐⇒ −1 n log2  (1 −p)n−mpm −h2(p) ≤ϵ, P (n) m ⊆qvlpz ⇐⇒−1 n log2  (1 −p)n−mpm &gt; h2(p) + ϵ, P (n) m ⊆qvhpz ⇐⇒−1 n log2  (1 −p)n−mpm &lt; h2(p) −ϵ. Proof. All basis vectors in the shell indexed by m have the same eigenvalue (1 −p)n−mpm. Hence the information density is constant on that shell and equal to −1 n log2  (1 −p)n−mpm . The result follows by substituting this value into the defining inequalities for qmpz, qvlpz, and qvhpz. Remark 6. For this source, the natural shell decomposition already suggests several choices of k. One may keep the two tails separate, refine each tail into shell groups, or isolate every atypical shell individually. In the latter case k = O(n), so χQ = O log n n  , which still vanishes asymptotically. Step 3 will determine which such decompositions are geometrically meaningful. 7</p> <p>9 Forward Role of Step 2 The present step defines: 1. The spectral zones qmpz, qvlpz, and qvhpz. 2. The atypical components C(n) r and their projectors Π(n) r . 3. The component weights w(n) r , the dominant atypical weight D(n) Q , and the structural overhead χQ. These are the objects on which the next stages of the program operate. Step 3 will endow the decomposition with geometric meaning by clustering components whose associated states are close in a suitable metric. Step 4 will then ask how those geometrically chosen components should be encoded. The improvements in fidelity from refining the dominant atypical component through structured encoding must exceed the label overhead χQ for the overall rate to remain competitive with Schumacher compression. Step 4 will formalize this tradeoff. Conclusion Step 2 formalizes the quantum counterpart of weak atypical-set classification. The medium-probability region is identified with the Schumacher typical subspace, while the atypical sector is split into very-low- and very-high-probability tails. A structured decomposition of the atypical subspace is then introduced, together with the dominant atypical weight, the structural overhead parameter, and the asymptotic conditions under which the refinement remains consistent with Schumacher compression. The main contribution of this step is therefore conceptual and structural. It shows that the atypical sector of a quantum source may be treated as an organized collection of weighted components rather than as a single undifferentiated failure event. This is the formal setting in which the later geometric and operational refinements become meaningful.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Quantum_Distortion_Geometry_and_Nearest_Representative_Classification_of_the_Atypical_Sector.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

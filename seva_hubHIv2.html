@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head><link href="favicon.png" rel="icon"/>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>REAL सेवा केंद्र</title>
+<script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+body { font-family: 'Noto Serif Devanagari', 'Nirmala UI', 'Mangal', 'Kokila', Georgia, 'Times New Roman', serif; }
+</style>    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+        const { useState, useEffect } = React;
+        const { Upload, Download, Trophy, CheckCircle, XCircle, Plus, LogOut, User, Star } = lucide;
+
+        const SevaHub = () => {
+          const [user, setUser] = useState(null);
+          const [loginMode, setLoginMode] = useState('login');
+          const [formData, setFormData] = useState({ username: '', password: '', email: '' });
+          const [tasks, setTasks] = useState([]);
+          const [sevaks, setSevaks] = useState([]);
+          const [selectedTask, setSelectedTask] = useState(null);
+          const [uploadedFile, setUploadedFile] = useState(null);
+          const [submissionLink, setSubmissionLink] = useState('');
+          const [newTask, setNewTask] = useState({ title: '', description: '', type: '', file: null });
+
+          useEffect(() => {
+            lucide.createIcons();
+          }, [user, selectedTask, tasks]);
+
+          // Simple hash function for password storage
+          const hashPassword = async (password) => {
+            const msgBuffer = new TextEncoder().encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+          };
+
+          // Load data from localStorage on mount
+          useEffect(() => {
+            const storedTasks = localStorage.getItem('sevaTasks');
+            const storedSevaks = localStorage.getItem('sevakList');
+            
+            if (storedTasks) {
+              setTasks(JSON.parse(storedTasks));
+            } else {
+              // Initialize with demo data only if no saved data exists
+              const demoTasks = [
+                { id: 1, title: 'Bhagavad Gita Chapter 2 Translation', type: 'translation', status: 'available', assignedTo: null, file: 'gita_ch2.pdf', submittedFile: null, karma: 50 },
+                { id: 2, title: 'Patanjali Sutras Transcription', type: 'transcription', status: 'available', assignedTo: null, file: 'patanjali_audio.mp3', submittedFile: null, karma: 30 },
+                { id: 3, title: 'Yoga Mudra Descriptions', type: 'description', status: 'in_progress', assignedTo: 'radha_seva', file: 'mudras.docx', submittedFile: null, karma: 40 },
+                { id: 4, title: 'Upanishad Commentary Review', type: 'translation', status: 'pending_review', assignedTo: 'krishna_das', file: 'upanishad.pdf', submittedFile: 'upanishad_translated.pdf', karma: 60 },
+              ];
+              setTasks(demoTasks);
+              localStorage.setItem('sevaTasks', JSON.stringify(demoTasks));
+            }
+            
+            if (storedSevaks) {
+              setSevaks(JSON.parse(storedSevaks));
+            } else {
+              const demoSevaks = [
+                { username: 'radha_seva', karma: 180, tasksCompleted: 6 },
+                { username: 'krishna_das', karma: 240, tasksCompleted: 8 },
+                { username: 'ananda_ji', karma: 150, tasksCompleted: 5 },
+                { username: 'dharma_path', karma: 90, tasksCompleted: 3 },
+              ];
+              setSevaks(demoSevaks);
+              localStorage.setItem('sevakList', JSON.stringify(demoSevaks));
+            }
+          }, []);
+
+          // Save tasks to localStorage whenever they change
+          useEffect(() => {
+            if (tasks.length > 0) {
+              localStorage.setItem('sevaTasks', JSON.stringify(tasks));
+            }
+          }, [tasks]);
+
+          // Save sevaks to localStorage whenever they change
+          useEffect(() => {
+            if (sevaks.length > 0) {
+              localStorage.setItem('sevakList', JSON.stringify(sevaks));
+            }
+          }, [sevaks]);
+
+          const handleLogin = async () => {
+            if (formData.username && formData.password) {
+              // ADMIN PASSWORD HASH - Change this to your hashed password
+              // To generate: Open browser console and run: 
+              // crypto.subtle.digest('SHA-256', new TextEncoder().encode('YourPassword')).then(h => console.log(Array.from(new Uint8Array(h)).map(b => b.toString(16).padStart(2, '0')).join('')))
+              const ADMIN_PASSWORD_HASH = '0954dfce117d8b849340d0fa153b3a05b16a03f643ecc1da69f140811560cabf'; // This is hash of 'admin' - CHANGE THIS!
+              
+              const isAdmin = formData.username === 'admin';
+              
+              if (isAdmin) {
+                const passwordHash = await hashPassword(formData.password);
+                if (passwordHash !== ADMIN_PASSWORD_HASH) {
+                  alert('Invalid admin credentials');
+                  return;
+                }
+                setUser({ username: formData.username, isAdmin, karma: 0, tasksCompleted: 0 });
+                setFormData({ username: '', password: '', email: '' });
+              } else {
+                // For sevaks, retrieve stored users from memory
+                const storedUsers = JSON.parse(localStorage.getItem('sevakUsers') || '{}');
+                const storedPasswordHash = storedUsers[formData.username];
+                
+                if (!storedPasswordHash) {
+                  alert('User not found. Please register first.');
+                  return;
+                }
+                
+                const passwordHash = await hashPassword(formData.password);
+                if (passwordHash !== storedPasswordHash) {
+                  alert('Invalid password');
+                  return;
+                }
+                
+                // Load sevak's persistent data from sevakList
+                const storedSevaks = JSON.parse(localStorage.getItem('sevakList') || '[]');
+                const sevakData = storedSevaks.find(s => s.username === formData.username);
+                
+                if (sevakData) {
+                  setUser({ 
+                    username: formData.username, 
+                    isAdmin: false, 
+                    karma: sevakData.karma, 
+                    tasksCompleted: sevakData.tasksCompleted 
+                  });
+                } else {
+                  // Create new sevak entry if doesn't exist in sevakList
+                  const newSevak = { username: formData.username, karma: 0, tasksCompleted: 0 };
+                  const updatedSevaks = [...storedSevaks, newSevak];
+                  localStorage.setItem('sevakList', JSON.stringify(updatedSevaks));
+                  setSevaks(updatedSevaks);
+                  setUser({ username: formData.username, isAdmin: false, karma: 0, tasksCompleted: 0 });
+                }
+                
+                setFormData({ username: '', password: '', email: '' });
+              }
+            }
+          };
+
+          const validatePassword = (password) => {
+            const minLength = 8;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            
+            if (password.length < minLength) {
+              return 'Password must be at least 8 characters long';
+            }
+            if (!hasUpperCase) {
+              return 'Password must contain at least one uppercase letter';
+            }
+            if (!hasLowerCase) {
+              return 'Password must contain at least one lowercase letter';
+            }
+            if (!hasNumbers) {
+              return 'Password must contain at least one number';
+            }
+            if (!hasSpecialChar) {
+              return 'Password must contain at least one special character';
+            }
+            return null;
+          };
+
+          const handleRegister = async () => {
+            if (formData.username && formData.password && formData.email) {
+              // Validate username
+              if (formData.username === 'admin') {
+                alert('Username "admin" is reserved');
+                return;
+              }
+              
+              if (formData.username.length < 3) {
+                alert('Username must be at least 3 characters long');
+                return;
+              }
+              
+              // Validate email
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(formData.email)) {
+                alert('Please enter a valid email address');
+                return;
+              }
+              
+              // Validate password strength
+              const passwordError = validatePassword(formData.password);
+              if (passwordError) {
+                alert(passwordError);
+                return;
+              }
+              
+              // Check if user already exists
+              const storedUsers = JSON.parse(localStorage.getItem('sevakUsers') || '{}');
+              if (storedUsers[formData.username]) {
+                alert('Username already exists');
+                return;
+              }
+              
+              // Hash and store password
+              const passwordHash = await hashPassword(formData.password);
+              storedUsers[formData.username] = passwordHash;
+              localStorage.setItem('sevakUsers', JSON.stringify(storedUsers));
+              
+              setUser({ username: formData.username, isAdmin: false, karma: 0, tasksCompleted: 0 });
+              setSevaks([...sevaks, { username: formData.username, karma: 0, tasksCompleted: 0 }]);
+              setFormData({ username: '', password: '', email: '' });
+              alert('Registration successful! Welcome to REAL Seva Hub 🙏');
+            }
+          };
+
+          const handleTaskSelect = (task) => {
+            if (task.status === 'available' && !user.isAdmin) {
+              setTasks(tasks.map(t => 
+                t.id === task.id ? { ...t, status: 'in_progress', assignedTo: user.username } : t
+              ));
+              setSelectedTask({ ...task, status: 'in_progress', assignedTo: user.username });
+            } else {
+              setSelectedTask(task);
+            }
+            setSubmissionLink(''); // ADD THIS LINE
+          };
+
+          const handleFileUpload = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+              setUploadedFile(file);
+            }
+          };
+
+          const handleSubmitTask = () => {
+            if ((uploadedFile || submissionLink) && selectedTask) {
+              const updatedTasks = tasks.map(t => 
+                t.id === selectedTask.id 
+                  ? { 
+                      ...t, 
+                      status: 'pending_review', 
+                      submittedFile: uploadedFile?.name || 'See link below',
+                      submissionLink: submissionLink || null
+                    }
+                  : t
+              );
+              setTasks(updatedTasks);
+              localStorage.setItem('sevaTasks', JSON.stringify(updatedTasks));
+              setSelectedTask(null);
+              setUploadedFile(null);
+              setSubmissionLink('');
+              alert('Task submitted for review! 🙏');
+            } else {
+              alert('Please either upload a file or provide a link to your completed work.');
+            }
+          };
+
+          const handleAdminAction = (taskId, action) => {
+            const task = tasks.find(t => t.id === taskId);
+            if (action === 'approve') {
+              setTasks(tasks.map(t => 
+                t.id === taskId ? { ...t, status: 'completed' } : t
+              ));
+              setSevaks(sevaks.map(s => 
+                s.username === task.assignedTo 
+                  ? { ...s, karma: s.karma + task.karma, tasksCompleted: s.tasksCompleted + 1 }
+                  : s
+              ));
+              alert(`Task approved! ${task.assignedTo} earned ${task.karma} karma points.`);
+            } else if (action === 'revision') {
+              setTasks(tasks.map(t => 
+                t.id === taskId ? { ...t, status: 'in_progress', submittedFile: null } : t
+              ));
+              alert('Task sent back for revision.');
+            }
+            setSelectedTask(null);
+          };
+
+          const handleCreateTask = () => {
+            if (newTask.title && newTask.description && newTask.type) {
+              const task = {
+                id: tasks.length + 1,
+                title: newTask.title,
+                description: newTask.description,
+                type: newTask.type,
+                status: 'available',
+                assignedTo: null,
+                file: newTask.file?.name || 'task_file.pdf',
+                submittedFile: null,
+                karma: 50
+              };
+              setTasks([...tasks, task]);
+              setNewTask({ title: '', description: '', type: '', file: null });
+              alert('New seva task created! 🙏');
+            }
+          };
+
+          if (!user) {
+            return (
+              <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 flex items-center justify-center p-4">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+                  <div className="text-center mb-8">
+                    <h1 className="text-4xl font-bold text-orange-800 mb-2">REAL Seva Hub</h1>
+                    <p className="text-orange-600">Serve with devotion, grow in wisdom</p>
+                  </div>
+
+                  <div className="flex gap-2 mb-6">
+                    <button
+                      onClick={() => setLoginMode('login')}
+                      className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                        loginMode === 'login' 
+                          ? 'bg-orange-600 text-white' 
+                          : 'bg-orange-100 text-orange-600'
+                      }`}
+                    >
+                      Login
+                    </button>
+                    <button
+                      onClick={() => setLoginMode('register')}
+                      className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                        loginMode === 'register' 
+                          ? 'bg-orange-600 text-white' 
+                          : 'bg-orange-100 text-orange-600'
+                      }`}
+                    >
+                      Register
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      value={formData.username}
+                      onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                      onKeyPress={(e) => e.key === 'Enter' && (loginMode === 'login' ? handleLogin() : handleRegister())}
+                      className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    />
+                    {loginMode === 'register' && (
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onKeyPress={(e) => e.key === 'Enter' && handleRegister()}
+                        className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                    )}
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={formData.password}
+                      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                      onKeyPress={(e) => e.key === 'Enter' && (loginMode === 'login' ? handleLogin() : handleRegister())}
+                      className="w-full px-4 py-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    />
+                  </div>
+                  <button
+                    onClick={loginMode === 'login' ? handleLogin : handleRegister}
+                    className="w-full mt-6 bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition"
+                  >
+                    {loginMode === 'login' ? 'Enter Hub' : 'Join as Sevaka'}
+                  </button>
+
+                  <p className="text-sm text-orange-600 text-center mt-4">
+                    Password must contain: 8+ characters, uppercase, lowercase, number, and special character
+                  </p>
+                  
+                  <div className="text-center mt-4">
+                    <a href="index.html" className="text-sm text-orange-600 hover:text-orange-800 underline">
+                      ← Back to REAL Institute
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          const availableTasks = tasks.filter(t => t.status === 'available');
+          const myTasks = tasks.filter(t => t.assignedTo === user.username && t.status === 'in_progress');
+          const pendingReview = tasks.filter(t => t.status === 'pending_review');
+          const completedTasks = tasks.filter(t => t.status === 'completed');
+          const sortedSevaks = [...sevaks].sort((a, b) => b.karma - a.karma);
+
+          return (
+            <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+              <nav className="bg-white shadow-md">
+                <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                  <div>
+                    <h1 className="text-2xl font-bold text-orange-800">REAL Seva Hub</h1>
+                    <p className="text-sm text-orange-600">Welcome, {user.username} {user.isAdmin && '(Admin)'}</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <a href="index.html" className="flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 transition">
+                      Home
+                    </a>
+                    <button
+                      onClick={() => setUser(null)}
+                      className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition"
+                    >
+                      <i data-lucide="log-out" className="w-4 h-4"></i>
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </nav>
+
+              <div className="max-w-7xl mx-auto p-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                  {!user.isAdmin && (
+                    <div className="bg-white rounded-xl shadow-lg p-6">
+                      <div className="flex items-center gap-3 mb-2">
+                        <i data-lucide="star" className="w-6 h-6 text-yellow-500"></i>
+                        <h2 className="text-xl font-bold text-orange-800">Your Karma</h2>
+                      </div>
+                      <p className="text-4xl font-bold text-orange-600">{user.karma}</p>
+                      <p className="text-sm text-gray-600">{user.tasksCompleted} tasks completed</p>
+                    </div>
+                  )}
+
+                  <div className="bg-white rounded-xl shadow-lg p-6">
+                    <div className="flex items-center gap-3 mb-2">
+                      <i data-lucide="trophy" className="w-6 h-6 text-orange-500"></i>
+                      <h2 className="text-xl font-bold text-orange-800">Leaderboard</h2>
+                    </div>
+                    <div className="space-y-2 max-h-40 overflow-y-auto">
+                      {sortedSevaks.slice(0, 5).map((sevak, idx) => (
+                        <div key={sevak.username} className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-orange-600">#{idx + 1}</span>
+                            <span className="text-sm">{sevak.username}</span>
+                          </div>
+                          <span className="text-sm font-semibold text-yellow-600">{sevak.karma} ✨</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl shadow-lg p-6">
+                    <h2 className="text-xl font-bold text-orange-800 mb-2">Quick Stats</h2>
+                    <div className="space-y-1 text-sm">
+                      <p>📋 Available: {availableTasks.length}</p>
+                      <p>⏳ In Progress: {tasks.filter(t => t.status === 'in_progress').length}</p>
+                      <p>👁️ Pending Review: {pendingReview.length}</p>
+                      <p>✅ Completed: {completedTasks.length}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {user.isAdmin && (
+                  <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+                    <h2 className="text-2xl font-bold text-orange-800 mb-4">Create New Task</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        placeholder="Task Title"
+                        value={newTask.title}
+                        onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                      <select
+                        value={newTask.type}
+                        onChange={(e) => setNewTask({ ...newTask, type: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      >
+                        <option value="">Select Type</option>
+                        <option value="translation">Translation</option>
+                        <option value="transcription">Transcription</option>
+                        <option value="description">Description</option>
+                        <option value="editing">Editing</option>
+                      </select>
+                      <input
+                        type="text"
+                        placeholder="Description"
+                        value={newTask.description}
+                        onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                      <input
+                        type="file"
+                        onChange={(e) => setNewTask({ ...newTask, file: e.target.files[0] })}
+                        className="px-4 py-2 border border-orange-200 rounded-lg"
+                      />
+                      <button
+                        onClick={handleCreateTask}
+                        className="md:col-span-2 flex items-center justify-center gap-2 bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition"
+                      >
+                        <i data-lucide="plus" className="w-4 h-4"></i>
+                        Create Task
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    {!user.isAdmin && (
+                      <>
+                        <h2 className="text-2xl font-bold text-orange-800 mb-4">Available Tasks</h2>
+                        <div className="space-y-4 mb-8">
+                          {availableTasks.map(task => (
+                            <div key={task.id} className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition cursor-pointer" onClick={() => handleTaskSelect(task)}>
+                              <div className="flex justify-between items-start mb-2">
+                                <h3 className="font-bold text-orange-800">{task.title}</h3>
+                                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">{task.karma} karma</span>
+                              </div>
+                              <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-xs mb-2">{task.type}</span>
+                              <div className="flex items-center gap-2 text-sm text-gray-600">
+                                <i data-lucide="download" className="w-3 h-3"></i>
+                                <span>{task.file}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <h2 className="text-2xl font-bold text-orange-800 mb-4">My Tasks</h2>
+                        <div className="space-y-4">
+                          {myTasks.map(task => (
+                            <div key={task.id} className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition cursor-pointer" onClick={() => handleTaskSelect(task)}>
+                              <div className="flex justify-between items-start mb-2">
+                                <h3 className="font-bold text-orange-800">{task.title}</h3>
+                                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">In Progress</span>
+                              </div>
+                              <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-xs">{task.type}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
+
+                    {user.isAdmin && (
+                      <>
+                        <h2 className="text-2xl font-bold text-orange-800 mb-4">Pending Review</h2>
+                        <div className="space-y-4">
+                          {pendingReview.map(task => (
+                            <div key={task.id} className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition cursor-pointer" onClick={() => handleTaskSelect(task)}>
+                              <div className="flex justify-between items-start mb-2">
+                                <h3 className="font-bold text-orange-800">{task.title}</h3>
+                                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-semibold">Review</span>
+                              </div>
+                              <p className="text-sm text-gray-600">Submitted by: {task.assignedTo}</p>
+                              <div className="space-y-1 mt-2">
+                                <div className="flex items-center gap-2 text-sm text-gray-600">
+                                  <i data-lucide="download" className="w-3 h-3"></i>
+                                  <span>{task.submittedFile}</span>
+                                </div>
+                                {task.submissionLink && (
+                                  <div className="flex items-center gap-2 text-sm text-blue-600">
+                                    <i data-lucide="link" className="w-3 h-3"></i>
+                                    <a href={task.submissionLink} target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">
+                                      View submitted file
+                                    </a>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {selectedTask && (
+                    <div className="bg-white rounded-xl shadow-lg p-6 h-fit sticky top-4">
+                      <h2 className="text-2xl font-bold text-orange-800 mb-4">{selectedTask.title}</h2>
+                      <div className="space-y-4">
+                        <div>
+                          <span className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded text-sm font-semibold mb-2">{selectedTask.type}</span>
+                          <p className="text-sm text-gray-600">Karma Points: {selectedTask.karma} ✨</p>
+                        </div>
+
+                        <div className="border-t pt-4">
+                          <h3 className="font-semibold text-orange-800 mb-2">Task File</h3>
+                          <button className="flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-lg hover:bg-orange-200 transition w-full justify-center">
+                            <i data-lucide="download" className="w-4 h-4"></i>
+                            Download {selectedTask.file}
+                          </button>
+                        </div>
+
+                        {!user.isAdmin && selectedTask.status === 'in_progress' && (
+                          <div className="border-t pt-4">
+                            <h3 className="font-semibold text-orange-800 mb-2">Upload Completed Work</h3>
+                            <input
+                              type="file"
+                              onChange={handleFileUpload}
+                              className="w-full px-4 py-2 border border-orange-200 rounded-lg mb-2"
+                            />
+                            {uploadedFile && (
+                              <p className="text-sm text-green-600 mb-2">✓ {uploadedFile.name}</p>
+                            )}
+                            <div className="my-3 text-center text-sm text-gray-500">OR</div>
+                            <input
+                              type="url"
+                              placeholder="Paste link to your file (Google Drive, Dropbox, etc.)"
+                              value={submissionLink}
+                              onChange={(e) => setSubmissionLink(e.target.value)}
+                              className="w-full px-4 py-2 border border-orange-200 rounded-lg mb-2"
+                            />
+                            {submissionLink && (
+                              <p className="text-sm text-green-600 mb-2">✓ Link added</p>
+                            )}
+                            <button
+                              onClick={handleSubmitTask}
+                              disabled={!uploadedFile && !submissionLink}
+                              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              <i data-lucide="upload" className="w-4 h-4"></i>
+                              Submit for Review
+                            </button>
+                          </div>
+                        )}
+
+                        {user.isAdmin && selectedTask.status === 'pending_review' && (
+                          <div className="border-t pt-4 space-y-2">
+                            <h3 className="font-semibold text-orange-800 mb-2">Admin Actions</h3>
+                            <button
+                              onClick={() => handleAdminAction(selectedTask.id, 'approve')}
+                              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition w-full justify-center"
+                            >
+                              <i data-lucide="check-circle" className="w-4 h-4"></i>
+                              Approve & Award Karma
+                            </button>
+                            <button
+                              onClick={() => handleAdminAction(selectedTask.id, 'revision')}
+                              className="flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition w-full justify-center"
+                            >
+                              <i data-lucide="x-circle" className="w-4 h-4"></i>
+                              Request Revision
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        };
+
+        ReactDOM.render(<SevaHub />, document.getElementById('root'));
+    </script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

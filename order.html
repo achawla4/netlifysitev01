@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members of the Order - REAL Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafaf8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(218,165,32,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #daa520;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #b8860b;
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+        
+        .monastics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .monastic-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #daa520;
+            overflow: hidden;
+        }
+        
+        .monastic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .monastic-image {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: #f5f5f5;
+        }
+        
+        .monastic-info {
+            padding: 30px;
+        }
+        
+        .monastic-name {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        
+        .monastic-title {
+            font-size: 1.1em;
+            color: #daa520;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .monastic-bio {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .monastic-dedication {
+            font-style: italic;
+            color: #1a1a2e;
+            border-left: 3px solid #daa520;
+            padding-left: 15px;
+            margin-top: 20px;
+        }
+        
+        .order-info {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 20px rgba(218,165,32,0.3);
+        }
+        
+        .order-info h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .order-info p {
+            font-size: 1.15em;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f0f0ed;
+            border-radius: 12px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #daa520;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            background: #b8860b;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .monastics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .monastic-image {
+                height: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <div class="hero">
+        <h1>Members of the Order</h1>
+        <p>Dedicated seekers who have taken vows of single-hood in service to truth, bridging ancient wisdom and modern inquiry through contemplative practice and rigorous scholarship.</p>
+        <a href="index.html" class="back-link">← Return to Main Page</a>
+    </div>
+
+    <div class="container" data-pagefind-body data-pagefind-filter="type:Other">
+        <div class="order-info">
+            <h2>The Vision</h2>
+            <p>The order of Hariharananda REAL Institute embodies the integration of scientific inquiry and spiritual practice. Each member has renounced worldly attachments to pursue the ultimate questions at the intersection of consciousness, quantum physics, and the nature of reality itself.</p>
+            <p>Through daily meditation, scholarly research, and service, these monastics demonstrate that the laboratory and the meditation hall are not separate domains but complementary paths to understanding the fundamental nature of existence. They thus progress towards and onwards on the razor edge path.</p>
+        </div>
+
+        <h2 class="section-title">Current Members</h2>
+        <p class="section-subtitle">"In the silence of renunciation, truth reveals itself"</p>
+        
+
+	<div class="guru-grid">
+            <!-- Guru Card -->
+            <div class="monastic-card">
+                <div class="monastic-info">
+                    <h3 class="monastic-name">Gurudev Paramahamsa Hariharananda</h3>
+                    <div class="monastic-title">Patriarch</div>
+                    <p class="monastic-bio">
+                        Paramahamsa Hariharananda Giri, Sri Guru, inspired the founder to integrate reason and spirit. He is an ocean of instruction in subtle ways that transform the individual.
+                    </p>
+                    <div class="monastic-dedication">
+                        "You can never erase my love for you."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template for future members - currently commented out -->
+            <!--
+            <div class="monastic-card">
+                <img src="./assets/member2.jpg" alt="Monastic Name" class="monastic-image">
+                <div class="monastic-info">
+                    <h3 class="monastic-name">Name</h3>
+                    <div class="monastic-title">Title/Role</div>
+                    <p class="monastic-bio">
+                        Biography text here...
+                    </p>
+                    <div class="monastic-dedication">
+                        "Personal dedication quote here."
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+        <div class="founder-grid">
+		<!-- Founder Card -->
+            <div class="monastic-card">
+              
+                <div class="monastic-info">
+                    <h3 class="monastic-name">Founder</h3>
+                    <div class="monastic-title">Founder</div>
+                    <p class="monastic-bio">
+                        Living on the Upanishadic razor's edge: The founder established REAL Institute, an ashram, to bridge the ancient wisdom traditions of India with cutting-edge quantum physics and consciousness studies. Through decades of both scientific research and meditative practice, the founder demonstrates the essential unity of these seemingly disparate paths.
+                    </p>
+                    
+                </div>
+            </div>
+
+</div>
+
+        <div class="cta-section">
+            <h2>Join the Path</h2>
+            <p>The order welcomes sincere seekers who wish to dedicate their lives to the integration of wisdom and knowledge. It is inspired, motivated and spiritually led by Paramahamsa Hariharananda Giri.</p>
+            <a href="https://drive.google.com/file/d/1jqffcvD-KPxPFezltttEgwz0VHMQMxuM/view?usp=sharing" class="cta-btn">View Draft Guidelines</a>
+        </div>
+    </div>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

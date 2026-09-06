@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Note on a Chomskian Analogy Between Sanskrit and Huffman Coding - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">A Note on a Chomskian Analogy Between Sanskrit and Huffman Coding</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">In this paper, the author uses Chomsky's parse trees to compare San- skrit and Human coding as two dierent data compression schemes. The paper begins with a review of parse trees in English and Sanskrit and goes on to propose the aforesaid comparison. Introduction "Three models for the description of language" is a classic paper by Noam Chomsky [1], in which he proposed three models for the analysis of language: the nite-state grammar, the phrase-structure grammar, and the transformational grammar. The paper is considered a landmark in the history of linguistics and has had a signicant impact on the development of the eld. In that paper, Chomsky did not explicitly apply information theory to parse trees. However, he did make use of mathematical concepts and techniques from information theory in his analysis of language structure, particularly in his discussions of entropy and redundancy. Entropy is a concept from information theory that measures the amount of uncertainty or randomness in a system. Chomsky used entropy as a way to quantify the complexity of linguistic systems, and to argue that human language is characterized by a high degree of structural complexity, despite the fact that speakers are able to generate and comprehend an innite number of sentences. Redundancy, on the other hand, refers to the amount of information in a system that is redundant or unnecessary, and can be used to optimize commu- nication by reducing the amount of information that needs to be transmitted. Chomsky argued that human language exhibits a high degree of redundancy, which serves to make communication more ecient and reliable. While Chomsky did not use parse trees specically in his discussions of entropy and redundancy, parse trees are a tool that can be used to analyze and represent the hierarchical structure of language, which is a key aspect of linguistic complexity. By representing sentences as trees, linguists can examine the relationships between dierent components of sentences, such as words, phrases, and clauses, and gain insights into the underlying structure of language. 1</p> <p>This paper is structured as follows. In Section 2, we discuss phrase-structure grammar and other preliminaries. In Section 3, we apply these preliminaries to Sanskrit. In Section 4, we look at information packing, compressed representa- tion, and a comparison with Human coding in the Sanskrit context. Finally we conclude with a discussion in Section 5. Preliminaries 2.1 Phrase-structure grammar Phrase-structure grammar is a type of grammar in which a language is ana- lyzed in terms of a hierarchy of phrases, each of which is composed of smaller constituents. The basic idea behind phrase-structure grammar is that every sentence in a language can be broken down into smaller units, or constituents, which are organized into a hierarchical structure. In phrase-structure grammar, the hierarchy of phrases is typically repre- sented using a tree structure called a parse tree. The tree has a single root node representing the entire sentence, and each branch of the tree represents a constituent of the sentence. The leaves of the tree represent the individual words of the sentence. Phrase-structure grammar distinguishes between two types of constituents: terminal constituents and nonterminal constituents. Terminal constituents are the individual words of the sentence, while nonterminal constituents are com- posed of one or more other constituents. In a phrase-structure grammar, the rules of the grammar are used to gen- erate all of the well-formed sentences of the language. The rules specify how constituents can be combined to form larger constituents, and ultimately a com- plete sentence. The rules also specify the order in which constituents can be combined, and any restrictions on the types of constituents that can be com- bined. Overall, phrase-structure grammar provides a way to systematically describe the structure of sentences in a language, and has been an important tool in the development of modern linguistics. 2.2 Example of a Parse Tree A parse tree for the sentence "The cat chased the mouse" is shown in Figure 1. In this parse tree, the sentence "The cat chased the mouse" is broken down into smaller constituents. The root node of the tree represents the entire sen- tence, and has two children: a noun phrase (NP) and a verb phrase (VP). The NP has two children: a determiner (Det) "the" and a noun (N) "cat". The VP also has two children: a verb (V) "chased" and another NP, which has two children: a determiner "the" and a noun "mouse". The parse tree shows the hierarchical structure of the sentence, and how each constituent is composed of smaller constituents. It also shows the order in 2</p> <p>Figure 1: The cat chased the mouse.</p> <p>Figure 2: The cat chased the mouse (in Sanskrit). which the constituents are combined to form the sentence. Application to Sanskrit 3.1 Parse Trees in Sanskrit In this subsection we consider the Sanskrit translation of "The cat chased the mouse." The translation of "The cat chased the mouse" into Sanskrit would depend on the context and the intended meaning, as Sanskrit, like many languages, has dierent words and expressions for dierent situations and contexts. However, a possible Sanskrit translation of the sentence, using classical Sanskrit vocabulary, could be: (±a±akah. mooshakam. aveks.at.) Here, (±a±akah.) means "cat", (mooshakam. ) means "mouse", and (aveks.at) means "chased" or "pursued". The sentence follows the word order Subject- Object-Verb, which is a common word order in Sanskrit. A parse tree based on [±a±akah. mooshakam. aveks.at] in Sanskrit is shown in Figure 2: 4</p> <p>In this parse tree, the root node represents the entire sentence, which consists of a subject and a verb phrase. The subject is represented by the noun "±a±akah." (cat), and the verb phrase consists of the verb "aveks.at" (chased) and the object "mooshakam. " (mouse). The parse tree shows the hierarchical structure of the sentence, with the subject and verb phrase as the two main constituents. It also shows the rela- tionships between the constituents and the order in which they appear in the sentence. Note that the Verb Phrase in Figure 2 can also be reversed into the order Object-Verb to match the example given in the text above. 3.2 Comparison Between English and Sanskrit Parse Trees The parse tree for the Sanskrit sentence and the parse tree for the English sen- tence can be dierent, because the two sentences can have dierent grammati- cal structures and word orders. The English sentence has a subject-verb-object (SVO) word order, while the Sanskrit sentence may have a subject-object-verb (SOV) word order. The grammatical rules and structures that apply to one language may not necessarily apply to the other language. The parse tree for the Sanskrit sentence represents the sentence structure in accordance with the rules of Sanskrit grammar, while the parse tree for the English sentence represents the sentence structure in accordance with the rules of English grammar. However, both parse trees show the hierarchical structure of the sentences and the relationships between the dierent constituents of the sentences. 3.3 Use of Flexible Parse Tree Descriptions It is clear that while English allows only SVO word order, Sanskrit may be ne with SOV as well as SVO. We ask the question herein if this exibility can be exploited in providing more permutations of ways in which two speakers can interact? Since dierent word orders can convey dierent emphasis and meaning, speakers can use this exibility to express their ideas and intentions more precisely and eectively. This can be especially useful in situations where speakers need to convey complex or nuanced ideas, or when they want to add emphasis or rhetorical eect to their speech. For example, in a literary context, Sanskrit poets and authors have used the exibility of word order to create intricate and expressive verses, which can convey multiple layers of meaning and emotion. In a conversational context, speakers can use dierent word orders to highlight or clarify dierent parts of their message, or to respond to the speech of their interlocutor in a more nuanced and eective way. Overall, the exibility of word order in Sanskrit provides a rich and versa- tile tool for communication, which can allow for more expressive and eective interactions between speakers. However, this exibility can also make the anal- ysis and interpretation of Sanskrit sentences more challenging, since the same 5</p> <p>sentence can have multiple valid parse trees depending on the intended meaning and emphasis. Information-Packing, Compressed Representa- tion and Human Codes Suppose we are given two sentences one in Sanskrit and one in English, each with x words. The Sanskrit sentence encodes one of x! permutations of the x words whereas the English sentence encodes exactly one of 1 possible forms. Transmitting the Sanskrit sentence through a permutation noise channel is like choosing one codeword out of a codebook of size x! Transmitting the English sentence is like chosing 1 codeword from a codebook of size 1. The former carries log(x!) bits while the latter carries 0 bits. Thus as sentence length increases, the number of bits transmitted by the Sanskrit sentence grows in comparison to the English sentence bits. It is often claimed that Sanskrit allows for "compressed" representations of sentences due to its highly inected grammatical system. This is because inec- tions can convey information such as tense, gender, case, and number, allowing for more exibility in word order and reducing the need for additional words or auxiliary verbs to convey the same information. In contrast, languages such as English rely more heavily on word order and auxiliary verbs to convey meaning, which can result in longer sentences and potentially less compact representa- tions. If Sanskrit, being information-dense, allows for compressed representations, we can think of comparing it with a Human code in data compression theory, which also produces compressed representations. Human coding is a lossless data compression technique that assigns shorter codes to frequently occurring symbols and longer codes to less frequently occur- ring symbols. Similarly, Sanskrit's grammatical system assigns inections and case markings to words, which can allow for more exible word order and reduce the need for additional words or constructions to convey the same meaning. While there are dierences between the two systems, such as the fact that Human coding is based on frequency of occurrence of symbols while Sanskrit's inections are based on grammatical rules, the comparison can still be useful in understanding how Sanskrit's grammar can potentially allow for more ecient communication by compressing information into a smaller number of words or symbols. Coming back to Chomsky's paper, it doesn't directly suggest which model would be more useful in comparing Sanskrit to Human coding. The three models he presents in the paper, namely the nite-state grammar, the phrase- structure grammar, and the transformational grammar, are all dierent ways of describing the structure of a language. They can be used to analyze dierent aspects of language, such as syntax, morphology, and semantics. However, if we were to make a comparison between Sanskrit's grammati- 6</p> <p>cal system and Human coding, the phrase-structure grammar model may be more relevant as it focuses on the hierarchical structure of language and the relationships between dierent components of a sentence. This is because the inected forms in Sanskrit are arranged hierarchically in a phrase structure tree, with the head of the phrase being the root node and the inections modifying or complementing the head. Similarly, in Human coding, the symbols are arranged hierarchically based on their frequency of occurrence, with the most frequent symbols being assigned shorter codes and the less frequent symbols being assigned longer codes. That being said, it's important to note that the comparison between San- skrit's grammar and Human coding is an analogy and there are dierences in the way the two systems work. Sanskrit's grammar is a natural language system that evolved over time, while Human coding is a specic algorithm used for data compression. Conclusion In this paper, the author presents arguments and analysis that illustrate the unique feature of Sanskrit of exibility in its word order. Chomskian parse trees are used for this description. This exibility is proposed to imply that an additional log(x!) x bits per word are transmitted when a Sanskrit sentence of x words is transmitted, as compared to an equally lengthy English sentence. Conversely, a Sanskrit sentence can be seen as a compressed representation of bits, much like a Human code output. In future work, the author intends to expand upon the implications of this compression and comparison. Acknowledgment The author would like to thank OpenAI for access to the language model Chat- GPT which helped to develop the ideas presented in this paper. References [1] Noam Chomsky. Three models for the description of language. IRE Trans- actions on information theory, 2(3):113124, 1956.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/A_Note_on_a_Chomskian_Analogy_Between_Sanskrit_and_Huffman_Coding.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

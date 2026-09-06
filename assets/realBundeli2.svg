@@ -1,0 +1,197 @@
+<!-- REAL Institute — Bundeli Folk Frontispiece (SVG)
+     Responsive, accessible, and customizable.
+     ViewBox: 1440x540 (header banner)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" role="img" aria-labelledby="title desc">
+  <title id="title">REAL Institute Frontispiece in Bundeli Folk Art Style</title>
+  <desc id="desc">Earthy tones, stylized figures of Rama, Sita, and Lakshmana amid forest and temple motifs, with ornamental Bundeli border.</desc>
+
+  <!-- Palette -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e6c5"/>
+      <stop offset="100%" stop-color="#e7d7a2"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c6762b"/>
+      <stop offset="100%" stop-color="#9a4d1f"/>
+    </linearGradient>
+
+    <!-- Bundeli lotus motif -->
+    <symbol id="lotus" viewBox="0 0 100 100">
+      <path d="M50,70 C35,70 20,60 18,48 C26,52 33,48 36,40 C28,38 22,30 24,22 C33,27 40,30 50,30
+               C60,30 67,27 76,22 C78,30 72,38 64,40 C67,48 74,52 82,48 C80,60 65,70 50,70 Z"
+            fill="#cf6f44" stroke="#2b1f17" stroke-width="3"/>
+      <circle cx="50" cy="50" r="6" fill="#153b5e"/>
+    </symbol>
+
+    <!-- Paisley/karhai motif -->
+    <symbol id="paisley" viewBox="0 0 100 100">
+      <path d="M60,20 C30,20 20,45 28,62 C35,78 54,85 70,78 C86,71 90,51 74,38
+               C66,32 62,28 60,20 Z"
+            fill="#e0b326" stroke="#2b1f17" stroke-width="4"/>
+      <circle cx="64" cy="46" r="8" fill="#153b5e"/>
+      <circle cx="76" cy="56" r="5" fill="#2f6e44"/>
+    </symbol>
+
+    <!-- Temple shikhara silhouette (Nagara-inspired) -->
+    <symbol id="shikhara" viewBox="0 0 120 180">
+      <path d="M60,5 C80,30 95,65 102,110 C105,130 108,150 112,175 L8,175 C12,150 15,130 18,110
+               C25,65 40,30 60,5 Z"
+            fill="#9a4d1f" stroke="#2b1f17" stroke-width="5"/>
+      <rect x="25" y="145" width="70" height="18" fill="#cf6f44" stroke="#2b1f17" stroke-width="4"/>
+    </symbol>
+
+    <!-- Peacock (folk) -->
+    <symbol id="peacock" viewBox="0 0 160 120">
+      <path d="M40,90 C20,70 20,50 40,40 C60,30 80,40 85,55 C90,40 110,30 130,40 C150,50 150,70 130,90
+               C115,105 90,110 70,105 C60,110 50,105 40,90 Z"
+            fill="#153b5e" stroke="#2b1f17" stroke-width="4"/>
+      <circle cx="85" cy="55" r="8" fill="#e0b326"/>
+      <circle cx="75" cy="65" r="5" fill="#2f6e44"/>
+    </symbol>
+
+    <!-- Stylized figures: Rama, Sita, Lakshmana (silhouette narrative) -->
+    <symbol id="rama" viewBox="0 0 140 220">
+      <!-- Torso -->
+      <path d="M70,60 C85,60 95,70 98,86 C101,100 96,118 85,130 C75,142 65,145 55,135 C45,125 42,110 46,92
+               C50,74 58,60 70,60 Z"
+            fill="#cf6f44" stroke="#2b1f17" stroke-width="5"/>
+      <!-- Bow -->
+      <path d="M110,40 C130,80 130,140 110,180" fill="none" stroke="#2b1f17" stroke-width="6"/>
+      <path d="M110,40 C90,60 90,160 110,180" fill="none" stroke="#2b1f17" stroke-width="3"/>
+      <!-- Headband and face -->
+      <circle cx="70" cy="45" r="16" fill="#e0b326" stroke="#2b1f17" stroke-width="4"/>
+      <rect x="58" y="36" width="24" height="6" fill="#153b5e"/>
+      <!-- Arms -->
+      <path d="M90,90 C108,96 120,110 118,125" fill="none" stroke="#2b1f17" stroke-width="5"/>
+      <path d="M55,90 C45,105 50,118 62,125" fill="none" stroke="#2b1f17" stroke-width="5"/>
+      <!-- Dhoti -->
+      <path d="M45,130 L95,130 L100,165 L40,165 Z" fill="#e0b326" stroke="#2b1f17" stroke-width="5"/>
+      <!-- Feet -->
+      <rect x="50" y="165" width="14" height="20" fill="#2b1f17"/>
+      <rect x="80" y="165" width="14" height="20" fill="#2b1f17"/>
+      <!-- Arrow -->
+      <rect x="105" y="105" width="30" height="4" fill="#2b1f17"/>
+    </symbol>
+
+    <symbol id="sita" viewBox="0 0 140 220">
+      <circle cx="70" cy="50" r="16" fill="#e0b326" stroke="#2b1f17" stroke-width="4"/>
+      <path d="M40,70 C60,60 80,60 100,70 C110,76 116,90 114,104 C110,128 95,150 70,160
+               C45,150 30,128 26,104 C24,90 30,76 40,70 Z"
+            fill="#cf6f44" stroke="#2b1f17" stroke-width="5"/>
+      <path d="M50,160 L90,160 L95,190 L45,190 Z" fill="#e0b326" stroke="#2b1f17" stroke-width="5"/>
+      <rect x="54" y="190" width="12" height="16" fill="#2b1f17"/>
+      <rect x="74" y="190" width="12" height="16" fill="#2b1f17"/>
+      <circle cx="70" cy="76" r="6" fill="#153b5e"/>
+    </symbol>
+
+    <symbol id="lakshmana" viewBox="0 0 140 220">
+      <circle cx="70" cy="48" r="16" fill="#e0b326" stroke="#2b1f17" stroke-width="4"/>
+      <path d="M44,68 C60,58 80,58 96,68 C108,75 114,90 112,104 C108,128 92,148 70,156
+               C48,148 32,128 28,104 C26,90 32,75 44,68 Z"
+            fill="#cf6f44" stroke="#2b1f17" stroke-width="5"/>
+      <path d="M50,156 L90,156 L94,184 L46,184 Z" fill="#e0b326" stroke="#2b1f17" stroke-width="5"/>
+      <rect x="54" y="184" width="12" height="16" fill="#2b1f17"/>
+      <rect x="74" y="184" width="12" height="16" fill="#2b1f17"/>
+      <!-- Short bow -->
+      <path d="M104,44 C118,80 118,124 104,160" fill="none" stroke="#2b1f17" stroke-width="5"/>
+    </symbol>
+
+    <!-- Decorative divider -->
+    <symbol id="divider" viewBox="0 0 800 40">
+      <path d="M10,20 C60,5 120,35 170,20 C220,5 280,35 330,20 C380,5 440,35 490,20 C540,5 600,35 650,20 C700,5 760,35 790,20"
+            fill="none" stroke="#2b1f17" stroke-width="5"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1440" height="540" fill="url(#sky)"/>
+  <rect x="0" y="380" width="1440" height="160" fill="url(#ground)"/>
+
+  <!-- Forest band (Bundeli stylization) -->
+  <g opacity="0.9">
+    <path d="M0,360 C120,340 240,360 360,340 C480,320 600,360 720,340 C840,320 960,360 1080,340 C1200,320 1320,360 1440,340
+             L1440,380 L0,380 Z"
+          fill="#2f6e44"/>
+    <!-- Tree silhouettes -->
+    <g fill="#1f4e33" stroke="#2b1f17" stroke-width="4">
+      <path d="M120,300 L120,360 C120,360 90,340 100,320 C110,300 130,300 140,320 C150,340 120,360 120,360 Z"/>
+      <path d="M420,300 L420,360 C420,360 390,340 400,320 C410,300 430,300 440,320 C450,340 420,360 420,360 Z"/>
+      <path d="M780,300 L780,360 C780,360 750,340 760,320 C770,300 790,300 800,320 C810,340 780,360 780,360 Z"/>
+      <path d="M1100,300 L1100,360 C1100,360 1070,340 1080,320 C1090,300 1110,300 1120,320 C1130,340 1100,360 1100,360 Z"/>
+    </g>
+  </g>
+
+  <!-- Temple silhouettes -->
+  <g transform="translate(1040,120) scale(1.1)" opacity="0.95">
+    <use href="#shikhara"/>
+    <g transform="translate(-140,20) scale(0.85)"><use href="#shikhara"/></g>
+    <g transform="translate(140,30) scale(0.8)"><use href="#shikhara"/></g>
+  </g>
+
+  <!-- Narrative figures (center-left) -->
+  <g transform="translate(380,120)">
+    <g transform="translate(0,0) scale(1)">
+      <use href="#rama"/>
+    </g>
+    <g transform="translate(-120,40) scale(0.95)">
+      <use href="#sita"/>
+    </g>
+    <g transform="translate(140,30) scale(0.95)">
+      <use href="#lakshmana"/>
+    </g>
+  </g>
+
+  <!-- Ornamental top border -->
+  <g transform="translate(0,0)">
+    <rect x="0" y="0" width="1440" height="64" fill="#cf6f44"/>
+    <g transform="translate(40,12) scale(0.6)">
+      <use href="#lotus"/>
+    </g>
+    <g transform="translate(200,6) scale(0.7)">
+      <use href="#paisley"/>
+    </g>
+    <g transform="translate(360,10) scale(0.6)">
+      <use href="#lotus"/>
+    </g>
+    <g transform="translate(520,6) scale(0.7)">
+      <use href="#paisley"/>
+    </g>
+    <g transform="translate(680,10) scale(0.6)">
+      <use href="#lotus"/>
+    </g>
+    <g transform="translate(840,6) scale(0.7)">
+      <use href="#paisley"/>
+    </g>
+    <g transform="translate(1000,10) scale(0.6)">
+      <use href="#lotus"/>
+    </g>
+    <g transform="translate(1160,6) scale(0.7)">
+      <use href="#paisley"/>
+    </g>
+    <g transform="translate(1320,10) scale(0.6)">
+      <use href="#lotus"/>
+    </g>
+  </g>
+
+  <!-- Title band -->
+  <g transform="translate(80,280)">
+    <use href="#divider" transform="translate(0,-60) scale(1.6)"/>
+   
+  </g>
+
+  <!-- Bottom ornaments -->
+  <g transform="translate(0,480)">
+    <rect x="0" y="0" width="1440" height="60" fill="#cf6f44"/>
+    <g transform="translate(60,10) scale(0.8)"><use href="#paisley"/></g>
+    <g transform="translate(220,8) scale(0.8)"><use href="#lotus"/></g>
+    <g transform="translate(380,10) scale(0.8)"><use href="#paisley"/></g>
+    <g transform="translate(540,8) scale(0.8)"><use href="#lotus"/></g>
+    <g transform="translate(700,10) scale(0.8)"><use href="#paisley"/></g>
+    <g transform="translate(860,8) scale(0.8)"><use href="#lotus"/></g>
+    <g transform="translate(1020,10) scale(0.8)"><use href="#paisley"/></g>
+    <g transform="translate(1180,8) scale(0.8)"><use href="#lotus"/></g>
+    <g transform="translate(1340,10) scale(0.8)"><use href="#paisley"/></g>
+  </g>
+</svg>

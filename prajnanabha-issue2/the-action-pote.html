@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Action Potential Field: Why Consciousness May be Irreducible | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 2 · V1I2-A05</div>
+            <h1>The Action Potential Field: Why Consciousness May be Irreducible</h1>
+            <div class="hero-meta">A. Chawla \\ REAL Institute and IIT Delhi | December 25, 2025</div>
+            <div class="hero-meta">Source PDF: apFieldBookv2.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_2.html">Issue 2</a>
+        </div>
+        <div class="meta-grid">
+            
+            
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="mathematical-preliminaries-for-a-field-theory-of-action-potentials">Mathematical Preliminaries for a Field Theory of Action Potentials</h2>
+<h3 id="why-a-field-theoretic-preliminaries-chapter-is-necessary">Why a Field-Theoretic Preliminaries Chapter is Necessary</h3>
+<p>Before a field theory of action potentials can be meaningfully proposed, the reader must be equipped with a precise mathematical language that distinguishes between <em>objects</em>, <em>fields</em>, and <em>excitations</em>. This distinction is not semantic; it is structural. In physics, the failure to make this distinction led historically to deep conceptual confusion, most notably in the early interpretation of quantum mechanics. In neuroscience, a parallel confusion persists: action potentials are routinely treated as discrete, neuron-bound events, rather than as manifestations of an underlying dynamical substrate.</p>
+<p>This chapter introduces the mathematical framework required to understand how a field can be fundamental, how localized phenomena can emerge from it, and how equations governing discrete objects can arise as effective limits of continuous dynamics. These ideas will later be applied to action potentials, ephaptic coupling, and ultimately to the question of whether conscious phenomena admit irreducible field-level descriptions.</p>
+<p>We begin with the general concept of a field.</p>
+<h3 id="fields-as-primitive-mathematical-objects">Fields as Primitive Mathematical Objects</h3>
+<p>A <em>field</em> is a map from spacetime into a value space. Formally,</p>
+<div class="math-block">$$
+\Phi : \mathcal{M} \rightarrow \mathcal{V},
+$$</div>
+<p>where ${M}$ is a spacetime manifold (typically ${R}^3 {R}$) and ${V}$ is a vector space (e.g.\ ${R}$ or ${C}$).</p>
+<p>Crucially, a field is defined <em>everywhere</em>, independent of whether any localized structure is present. This distinguishes fields from particles, signals, or objects, which exist only at particular locations and times.</p>
+<p>Examples include:</p>
+<ul class="article-list"><li><p>The electromagnetic field ${E}({r},t)$,</p></li><li><p>The quantum electron field $({r},t)$,</p></li><li><p>The temperature field $T({r},t)$ in a medium.</p></li></ul>
+<p>In each case, the field exists even in regions where its magnitude is zero or constant. This observation will later become central when we discuss neural &quot;silence&quot; as a vacuum state rather than an absence of dynamics.</p>
+<h3 id="configuration-space-vs-physical-space">Configuration Space vs.\ Physical Space</h3>
+<p>A common source of confusion arises from conflating physical space with configuration space. In quantum mechanics, the wavefunction $({x},t)$ is often interpreted as a physical field, yet for multi-particle systems it lives in a high-dimensional configuration space. Quantum field theory resolves this by reinstating physical spacetime as the domain of fundamental fields.</p>
+<p>The lesson generalizes: a physically meaningful field theory assigns fields to spacetime, not to abstract state spaces. In the present work, the action potential field will be defined over physical neural tissue and extracellular space, not over neuronal indices or network graphs.</p>
+<h3 id="linear-operators-and-differential-structure">Linear Operators and Differential Structure</h3>
+<p>Fields become dynamical when equipped with differential operators. Given a scalar field $({r},t)$, the fundamental operators are:</p>
+<div class="math-block">$$
+\begin{align}
+
+
+\partial_t \Phi &\quad \text{(temporal derivative)}, 
+
+\nabla \Phi &\quad \text{(spatial gradient)}, 
+
+\nabla^2 \Phi &\quad \text{(Laplacian)}.
+\end{align}
+$$</div>
+<p>These operators encode locality: the evolution of the field at a point depends on infinitesimal neighborhoods in space and time. This locality will later distinguish field-mediated coupling from synaptic or graph- based interactions.</p>
+<h3 id="action-functionals-and-variational-principles">Action Functionals and Variational Principles</h3>
+<p>The central mathematical object in modern field theory is the <em>action functional</em>:</p>
+<div class="math-block">$$
+S[\Phi] = \int \mathcal{L}(\Phi,
+
+\partial_\mu \Phi)\, d^4x,
+$$</div>
+<p>where ${L}$ is the Lagrangian density.</p>
+<p>The equations of motion follow from the stationary action principle:</p>
+<div class="math-block">$$
+\delta S = 0.
+$$</div>
+<p>This yields the Euler–Lagrange equation:</p>
+<div class="math-block">$$
+\frac{
+
+\partial \mathcal{L}}{
+
+\partial \Phi}
+-
+
+
+\partial_\mu
+\left(
+\frac{
+
+\partial \mathcal{L}}{
+
+\partial (
+
+\partial_\mu \Phi)}
+\right)
+= 0.
+$$</div>
+<p>The importance of this construction cannot be overstated. It ensures that dynamics are not postulated ad hoc but arise from deeper structural constraints. Later chapters will argue that any irreducible account of conscious dynamics must satisfy analogous global constraints.</p>
+<h3 id="excitations-and-background-structure">Excitations and Background Structure</h3>
+<p>A field theory distinguishes between:</p>
+<ul class="article-list"><li><p>The <em>field itself</em>, which is universal and continuous,</p></li><li><p>The <em>background structure</em>, which modulates the field’s parameters,</p></li><li><p>The <em>excitations</em>, which are localized solutions.</p></li></ul>
+<p>Mathematically, this appears as spatial dependence in coefficients:</p>
+<div class="math-block">$$
+\mathcal{L}
+=
+\frac{1}{2}C(\mathbf{r})(
+
+\partial_t \Phi)^2
+-
+\frac{1}{2}G^{ij}(\mathbf{r})
+
+\partial_i \Phi 
+
+\partial_j \Phi
+-
+V(\Phi).
+$$</div>
+<p>Neural tissue will later play the role of background structure. Action potentials will emerge as excitations. Conscious phenomena, we will suggest, may correspond to global field configurations rather than localized events.</p>
+<h3 id="from-discrete-equations-to-continuum-limits">From Discrete Equations to Continuum Limits</h3>
+<p>Many familiar equations originate as discretizations of underlying fields. The cable equation, for example, arises from spatially discretized current conservation laws. Conversely, discrete equations can often be recovered as projections of continuum field dynamics.</p>
+<p>Understanding this duality is essential before one can meaningfully ask whether neuronal descriptions exhaust neural reality.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this first part, we have established:</p>
+<ul class="article-list"><li><p>Fields as primary mathematical objects,</p></li><li><p>Locality encoded via differential operators,</p></li><li><p>Action principles as generators of dynamics,</p></li><li><p>Excitations as emergent, not fundamental,</p></li><li><p>Background structure as a modulator of field behavior.</p></li></ul>
+<p>These ideas will now be sharpened by examining a concrete and familiar example: the emergence of the Schr\&quot;odinger equation from quantum field theory.</p>
+<h3 id="the-schr-quot-odinger-equation-as-an-emergent-description">The Schr\&quot;odinger Equation as an Emergent Description</h3>
+<p>To appreciate how familiar equations can mislead when treated as fundamental, it is instructive to revisit the Schr\&quot;odinger equation. Although ubiquitous in quantum mechanics, it is not a fundamental law of nature. Rather, it arises as a low-energy, single-excitation limit of an underlying quantum field theory.</p>
+<p>Consider a complex scalar field $({r},t)$ governed by the Klein–Gordon Lagrangian:</p>
+<div class="math-block">$$
+\mathcal{L}
+=
+
+
+\partial_\mu \psi^* 
+
+tial^\mu \psi
+-
+m^2 \psi^* \psi.
+$$</div>
+<p>The corresponding field equation is:</p>
+<div class="math-block">$$
+(\Box + m^2)\psi = 0.
+$$</div>
+<p>This equation governs the dynamics of the field everywhere in spacetime, independent of whether any particle is present.</p>
+<h3 id="envelope-decomposition-and-scale-separation">Envelope Decomposition and Scale Separation</h3>
+<p>To recover nonrelativistic dynamics, one introduces a slowly varying envelope:</p>
+<div class="math-block">$$
+\psi(\mathbf{r},t) = e^{-imt}\phi(\mathbf{r},t).
+$$</div>
+<p>Substitution yields, after neglecting higher-order terms:</p>
+<div class="math-block">$$
+i
+
+\partial_t \phi
+=
+-\frac{1}{2m}\nabla^2 \phi.
+$$</div>
+<p>This is the Schr\&quot;odinger equation. Importantly, it is valid only when:</p>
+<ul class="article-list"><li><p>Energies are small compared to $mc^2$,</p></li><li><p>Particle number is conserved,</p></li><li><p>Field excitations are dilute.</p></li></ul>
+<p>Outside this regime, the Schr\&quot;odinger equation fails.</p>
+<h3 id="lessons-from-the-quantum-case">Lessons from the Quantum Case</h3>
+<p>Several lessons are immediate:</p>
+<ol class="article-list"><li><p>The wavefunction is not fundamental.</p></li><li><p>Particles are field excitations.</p></li><li><p>Effective equations hide underlying ontologies.</p></li></ol>
+<p>These lessons will be carried forward verbatim into the neural domain.</p>
+<h3 id="neural-variables-as-effective-descriptions">Neural Variables as Effective Descriptions</h3>
+<p>Membrane voltage $V(t)$, gating variables, and spike trains are analogous to $({r},t)$ in quantum mechanics: effective, restricted descriptions of deeper dynamics.</p>
+<p>In standard neuroscience, the underlying field is rarely made explicit. Instead, neurons are treated as primitive entities. This choice is historical, not inevitable.</p>
+<h3 id="towards-an-action-potential-field">Towards an Action Potential Field</h3>
+<p>We now introduce the central hypothesis of this work:</p>
+<p><em>There exists an action potential field ${A}({r},t)$ defined over neural spacetime, whose localized excitations manifest as spikes when constrained by axonal and membrane structure.</em></p>
+<p>Mathematically, ${A}$ will satisfy a nonlinear field equation derived from an action principle. Neurons will appear only through spatial modulation of field parameters.</p>
+<h3 id="projection-and-localization">Projection and Localization</h3>
+<p>To connect the field to observable quantities, we define a projection:</p>
+<div class="math-block">$$
+V_i(z,t)
+=
+\int_{\Sigma_i}
+\mathcal{A}(\mathbf{r}_\perp,z,t)\,d^2 r_\perp.
+$$</div>
+<p>This projection plays the same role as measurement operators in quantum field theory. It does not define the field; it samples it.</p>
+<h3 id="why-this-matters-for-consciousness">Why This Matters for Consciousness</h3>
+<p>Although consciousness will not be treated explicitly until later chapters, the mathematical structure introduced here already suggests a key point: if neural dynamics are fundamentally field-based, then any phenomenon tied to global field configurations may resist reduction to localized neuronal events.</p>
+<p>This does not prove irreducibility. But it removes, at the mathematical level, the assumption that reduction must succeed.</p>
+<h3 id="summary-of-chapter-1">Summary of Chapter 1</h3>
+<p>This chapter has prepared the mathematical ground by:</p>
+<ul class="article-list"><li><p>Establishing field ontology as distinct from object ontology,</p></li><li><p>Demonstrating emergence of familiar equations from fields,</p></li><li><p>Introducing projection and localization as key operations,</p></li><li><p>Motivating an action potential field framework.</p></li></ul>
+<p>The next chapter will construct the AP field explicitly and derive its governing equations.</p>
+<h2 id="the-ap-field-and-its-analysis">The AP Field and Its Analysis</h2>
+<h3 id="from-mathematical-preliminaries-to-a-concrete-field-theory">From Mathematical Preliminaries to a Concrete Field Theory</h3>
+<p>In Chapter 1, we established the mathematical language required to treat fields as ontologically primary objects and to understand how localized phenomena emerge from them. We now apply this language to construct a field theory of neural excitation. The central object of this theory is the <em>action potential field</em>, abbreviated throughout as the <em>AP field</em>.</p>
+<p>The purpose of this chapter is threefold:</p>
+<ol class="article-list"><li><p>To define the AP field precisely as a dynamical entity,</p></li><li><p>To derive its governing equations from an action principle,</p></li><li><p>To analyze the qualitative structure of those equations.</p></li></ol>
+<p>Only after these steps are completed can questions of reduction, emergence, and irreducibility be posed with mathematical seriousness.</p>
+<h3 id="ontological-status-of-the-ap-field">Ontological Status of the AP Field</h3>
+<p>We posit the existence of a real-valued scalar field</p>
+<div class="math-block">$$
+\mathcal{A} : \mathbb{R}^3 \times \mathbb{R} \rightarrow \mathbb{R},
+$$</div>
+<p>defined over physical space and time.</p>
+<p>This field represents the local excitability state of neural tissue and its surrounding medium. It is not identical to membrane voltage, nor is it confined to neuronal membranes. Instead, membrane voltage will later be shown to arise as a projection or restriction of ${A}$ onto specific geometrical structures.</p>
+<p>The AP field exists everywhere in neural spacetime, including regions where no neurons are present. In such regions, it typically resides in a stable vacuum configuration.</p>
+<h3 id="vacuum-state-and-excitations">Vacuum State and Excitations</h3>
+<p>The vacuum of the AP field is defined as a stable solution</p>
+<div class="math-block">$$
+\mathcal{A}_0(\mathbf{r}) = 0,
+$$</div>
+<p>or, more generally, as a spatially varying baseline determined by tissue properties.</p>
+<p>Action potentials correspond to localized, transient excitations above this vacuum. Crucially, these excitations are <em>solutions</em> of the field equations, not externally imposed events.</p>
+<p>This mirrors the quantum field-theoretic distinction between the vacuum state and particle excitations. Silence in neural tissue is not an absence of dynamics; it is a particular field configuration.</p>
+<h3 id="action-functional-for-the-ap-field">Action Functional for the AP Field</h3>
+<p>We now specify the dynamics of ${A}$ via an action functional:</p>
+<div class="math-block">$$
+S[\mathcal{A}]
+=
+\int dt \int d^3 r \, \mathcal{L}(\mathcal{A},
+
+\partial_t \mathcal{A},
+\nabla \mathcal{A}).
+$$</div>
+<p>A minimal Lagrangian density capable of supporting excitable dynamics is:</p>
+<div class="math-block">$$
+\mathcal{L}
+=
+\frac{C(\mathbf{r})}{2}(
+
+\partial_t \mathcal{A})^2
+-
+\frac{1}{2}\nabla \mathcal{A}\cdot
+\mathbf{G}(\mathbf{r}) \nabla \mathcal{A}
+-
+V(\mathcal{A})
++
+\mathcal{A}J(\mathbf{r},t).
+$$</div>
+<p>Here:</p>
+<ul class="article-list"><li><p>$C({r})$ is an effective capacitance density,</p></li><li><p>${G}({r})$ is a symmetric, positive-definite conductance tensor,</p></li><li><p>$V({A})$ is a nonlinear potential encoding excitability,</p></li><li><p>$J$ is an external source term.</p></li></ul>
+<p>Neural morphology appears only through spatial modulation of $C$ and ${G}$.</p>
+<h3 id="eulerlagrange-equation">Euler–Lagrange Equation</h3>
+<p>Applying the variational principle yields:</p>
+<div class="math-block">$$
+C(\mathbf{r})\,
+
+\partial_t^2 \mathcal{A}
+=
+\nabla\cdot\left(
+\mathbf{G}(\mathbf{r}) \nabla \mathcal{A}
+\right)
+-
+\frac{dV}{d\mathcal{A}}
++
+J.
+$$</div>
+<p>This is the fundamental equation of motion for the AP field.</p>
+<p>Dissipative effects, such as ionic leakage and metabolic loss, are introduced phenomenologically by adding a Rayleigh dissipation term, leading to:</p>
+<div class="math-block">$$
+C(\mathbf{r})\,
+
+\partial_t^2 \mathcal{A}
++
+\Gamma(\mathbf{r})\,
+
+\partial_t \mathcal{A}
+=
+\nabla\cdot(\mathbf{G}\nabla \mathcal{A})
+-
+\frac{dV}{d\mathcal{A}}
++
+J.
+$$</div>
+<p>This second-order-in-time structure will later be reduced to first-order dynamics under biologically relevant limits.</p>
+<h3 id="choice-of-the-excitable-potential">Choice of the Excitable Potential</h3>
+<p>The qualitative behavior of the AP field is governed primarily by the form of $V({A})$. A generic excitable potential satisfies:</p>
+<ol class="article-list"><li><p>A stable minimum at ${A}=0$,</p></li><li><p>A threshold separating linear and nonlinear regimes,</p></li><li><p>A recovery structure enabling refractoriness.</p></li></ol>
+<p>A canonical example is:</p>
+<div class="math-block">$$
+V(\mathcal{A})
+=
+\frac{a}{2}\mathcal{A}^2
+-
+\frac{b}{3}\mathcal{A}^3
++
+\frac{c}{4}\mathcal{A}^4,
+$$</div>
+<p>with $a,b,c > 0$.</p>
+<p>This polynomial form is not fundamental; it is a coarse-grained representation of microscopic ionic processes.</p>
+<h3 id="symmetries-and-conservation-laws">Symmetries and Conservation Laws</h3>
+<p>If $C$ and ${G}$ are time-independent, the action is invariant under time translation, implying a conserved energy functional:</p>
+<div class="math-block">$$
+E
+=
+\int d^3 r \left[
+\frac{C}{2}(
+
+\partial_t \mathcal{A})^2
++
+\frac{1}{2}\nabla \mathcal{A}\cdot \mathbf{G}\nabla \mathcal{A}
++
+V(\mathcal{A})
+\right].
+$$</div>
+<p>This energy is not electrical energy in the classical sense; it is a generalized excitation energy of the field.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have:</p>
+<ul class="article-list"><li><p>Defined the AP field as a spacetime entity,</p></li><li><p>Introduced its action functional,</p></li><li><p>Derived its governing equations,</p></li><li><p>Identified the role of nonlinear excitability.</p></li></ul>
+<p>We now proceed to analyze the structure and solutions of these equations.</p>
+<h3 id="linearized-dynamics-and-dispersion">Linearized Dynamics and Dispersion</h3>
+<p>To understand signal propagation, we first linearize about the vacuum:</p>
+<div class="math-block">$$
+\mathcal{A} = 0 + \delta \mathcal{A}.
+$$</div>
+<p>Neglecting nonlinear terms yields:</p>
+<div class="math-block">$$
+C\,
+
+\partial_t^2 \delta \mathcal{A}
++
+\Gamma\,
+
+\partial_t \delta \mathcal{A}
+=
+\nabla\cdot(\mathbf{G}\nabla \delta \mathcal{A})
+-
+a\,\delta \mathcal{A}.
+$$</div>
+<p>Assuming homogeneous coefficients and plane-wave solutions $ {A} e^{i({k}{r}- t)}$ yields the dispersion relation:</p>
+<div class="math-block">$$
+C\omega^2 - i\Gamma\omega = \mathbf{k}^T\mathbf{G}\mathbf{k} + a.
+$$</div>
+<p>This relation characterizes how subthreshold perturbations propagate and decay.</p>
+<h3 id="nonlinear-excitations-and-solitary-waves">Nonlinear Excitations and Solitary Waves</h3>
+<p>Beyond threshold, nonlinear terms dominate. In one spatial dimension and under overdamped conditions, the field equation reduces to:</p>
+<div class="math-block">$$
+\Gamma\,
+
+\partial_t \mathcal{A}
+=
+G\,
+
+\partial_z^2 \mathcal{A}
+-
+\frac{dV}{d\mathcal{A}}.
+$$</div>
+<p>This equation admits traveling wave solutions ${A}(z,t) = f(z - vt)$, representing propagating action potentials.</p>
+<p>These solutions are not imposed externally; they arise dynamically as stable attractors in function space.</p>
+<h3 id="reduction-to-cable-theory">Reduction to Cable Theory</h3>
+<p>Consider an elongated axonal region aligned along $z$, with strong anisotropy:</p>
+<div class="math-block">$$
+\mathbf{G}
+=
+G_
+
+allel \hat{z}\hat{z}
++
+G_\perp (\mathbf{I}-\hat{z}\hat{z}),
+\quad G_
+
+allel \gg G_\perp.
+$$</div>
+<p>Projecting the field equation onto the axonal cross-section yields:</p>
+<div class="math-block">$$
+C_m 
+
+\partial_t V
+=
+G_
+
+allel 
+
+\partial_z^2 V
+-
+I_{\mathrm{ion}}(V,\mathbf{w}),
+$$</div>
+<p>which is the cable equation.</p>
+<p>Thus, cable theory is not fundamental; it is a dimensional reduction of the AP field.</p>
+<h3 id="emergence-of-hodgkinhuxley-dynamics">Emergence of Hodgkin–Huxley Dynamics</h3>
+<p>To recover Hodgkin–Huxley equations, we localize the nonlinear potential to nodal regions:</p>
+<div class="math-block">$$
+V(\mathcal{A})
+=
+\sum_n \chi_n(\mathbf{r})\,U(\mathcal{A},\mathbf{w}),
+$$</div>
+<p>where $_n$ selects nodes of Ranvier.</p>
+<p>Variation with respect to auxiliary variables ${w}$ yields standard gating equations:</p>
+<div class="math-block">$$
+\dot{w}_i = \alpha_i(V)(1-w_i) - \beta_i(V)w_i.
+$$</div>
+<p>Thus, Hodgkin–Huxley dynamics arise as localized boundary conditions on the AP field.</p>
+<h3 id="ephaptic-coupling-revisited">Ephaptic Coupling Revisited</h3>
+<p>Because the AP field occupies extracellular space, multiple axons couple naturally through shared field gradients. No additional variables are required.</p>
+<p>What appears in neuron-centric models as &quot;ephaptic interaction&quot; is, in this framework, simply field continuity.</p>
+<h3 id="interpretive-interlude-fields-vs-events">Interpretive Interlude: Fields vs.\ Events</h3>
+<p>At this stage, an ontological shift becomes unavoidable. Action potentials are not primitive events; they are recurrent patterns in a field. Neurons do not generate spikes; they shape the field’s allowed solutions.</p>
+<p>This distinction will later become central when we discuss conscious states as global, extended field configurations.</p>
+<h3 id="summary-of-chapter-2">Summary of Chapter 2</h3>
+<p>This chapter has:</p>
+<ul class="article-list"><li><p>Defined the AP field rigorously,</p></li><li><p>Derived its governing equations,</p></li><li><p>Analyzed linear and nonlinear regimes,</p></li><li><p>Shown how standard neural models emerge as limits.</p></li></ul>
+<p>With the AP field now established, we are prepared to explore collective dynamics, coupling, and global organization in subsequent chapters.</p>
+<h2 id="synchronization-phenomenology-in-ap-fields">Synchronization Phenomenology in AP Fields</h2>
+<h3 id="from-isolated-excitations-to-collective-dynamics">From Isolated Excitations to Collective Dynamics</h3>
+<p>In Chapters 1 and 2, we established the existence of an action potential field ${A}({r},t)$ and derived its governing equations. Thus far, our focus has been on single excitations, linear propagation, and localized reductions to cable theory and Hodgkin–Huxley dynamics. However, neural tissue is never occupied by a single excitation in isolation. The field is continuously driven, perturbed, and reshaped by multiple simultaneous excitations.</p>
+<p>Synchronization phenomena emerge precisely in this regime of overlapping, interacting field solutions. In traditional neuroscience, synchronization is often described as a property of neurons or networks: neurons &quot;lock phases,&quot; &quot;oscillate together,&quot; or &quot;entrain.&quot; In the AP field framework, synchronization is neither a special mechanism nor an added interaction. It is a natural consequence of field continuity, nonlinearity, and shared geometry.</p>
+<p>This chapter develops synchronization as a <em>field-level phenomenology</em>.</p>
+<h3 id="what-synchronizes-in-a-field-theory">What Synchronizes in a Field Theory?</h3>
+<p>Before proceeding, we must clarify what synchronization means in a field-theoretic context. In discrete models, synchronization typically refers to temporal alignment of events: spikes occur at the same time, phases align, or oscillators lock.</p>
+<p>In a field theory, the primary object is not an event but a function. Synchronization therefore refers to the emergence of:</p>
+<ul class="article-list"><li><p>Coherent spatiotemporal patterns,</p></li><li><p>Phase-locked field oscillations,</p></li><li><p>Stable global modes spanning extended regions.</p></li></ul>
+<p>Thus, synchronization in AP fields is better understood as <em>mode organization</em> rather than event coincidence.</p>
+<h3 id="phase-representation-of-the-ap-field">Phase Representation of the AP Field</h3>
+<p>To analyze synchronization, it is often useful to decompose the AP field into amplitude and phase components. For oscillatory or quasi-periodic regimes, we write:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+=
+\rho(\mathbf{r},t)\cos\!\left[\theta(\mathbf{r},t)\right],
+$$</div>
+<p>where $\rho$ is a slowly varying amplitude and $\theta$ is a phase field.</p>
+<p>This decomposition is not assumed globally; it is valid in regimes where oscillatory solutions exist. Importantly, the phase $$ is itself a field defined over spacetime.</p>
+<p>Synchronization corresponds to the emergence of large regions in which $\nabla\theta \approx 0$ or $\partial_t \theta$ becomes spatially uniform.</p>
+<h3 id="phase-dynamics-from-the-ap-field-equation">Phase Dynamics from the AP Field Equation</h3>
+<p>Substituting the amplitude–phase decomposition into the AP field equation and performing a multiple-scale expansion yields, to leading order, an effective phase equation:</p>
+<div class="math-block">$$
+\partial_t \theta
+=
+\omega_0
++
+D_\theta \nabla^2 \theta
++
+\mathcal{N}(\nabla \theta,\rho),
+$$</div>
+<p>where $_0$ is the intrinsic frequency and $D_$ is a phase diffusion constant determined by the underlying field parameters.</p>
+<p>This equation reveals a key point: <em>phase coupling is intrinsic</em>. It does not require synapses, gap junctions, or explicit oscillator links. It arises from the spatial derivatives already present in the field theory.</p>
+<h3 id="synchronization-without-discrete-oscillators">Synchronization Without Discrete Oscillators</h3>
+<p>In standard models such as Kuramoto networks, synchronization is introduced by coupling discrete oscillators. In the AP field framework, there are no primitive oscillators to couple. Instead, oscillatory behavior emerges locally from nonlinear excitability, and phase alignment follows from spatial continuity.</p>
+<p>This inversion of explanatory order is crucial. Synchronization is not explained by coupling; coupling is explained by field structure.</p>
+<h3 id="ephaptic-mediation-revisited">Ephaptic Mediation Revisited</h3>
+<p>Ephaptic coupling, traditionally understood as indirect interaction via extracellular fields, finds a natural home here. Because the AP field spans both intra- and extracellular domains, phase gradients in one region directly influence neighboring regions.</p>
+<p>Mathematically, this appears as cross-terms in the gradient energy:</p>
+<div class="math-block">$$
+\nabla \mathcal{A}\cdot \mathbf{G} \nabla \mathcal{A}
+=
+\sum_{i,j} G_{ij}
+
+\partial_i \mathcal{A}
+
+\partial_j \mathcal{A}.
+$$</div>
+<p>Phase synchronization is therefore mediated by the same terms that govern propagation.</p>
+<h3 id="local-vs-global-synchronization">Local vs.\ Global Synchronization</h3>
+<p>The AP field supports multiple synchronization regimes:</p>
+<ol class="article-list"><li><p><em>Local synchronization</em>: small regions phase-lock due to strong local gradients.</p></li><li><p><em>Mesoscopic synchronization</em>: extended tissue patches share common oscillatory modes.</p></li><li><p><em>Global synchronization</em>: phase coherence spans macroscopic regions.</p></li></ol>
+<p>Which regime is realized depends on boundary conditions, field parameters, and driving.</p>
+<h3 id="failure-of-synchronization">Failure of Synchronization</h3>
+<p>Equally important is the possibility of desynchronization. Strong inhomogeneities in $C({r})$ or ${G}({r})$ can fragment phase coherence, producing domains with independent dynamics. This provides a field-theoretic account of functional segregation.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this first part, we have shown that:</p>
+<ul class="article-list"><li><p>Synchronization is naturally defined at the field level,</p></li><li><p>Phase is a continuous field, not a discrete label,</p></li><li><p>Phase coupling arises intrinsically from spatial dynamics,</p></li><li><p>Ephaptic effects are built into the formalism.</p></li></ul>
+<p>We now turn to concrete synchronization patterns and their stability.</p>
+<h3 id="normal-modes-of-the-ap-field">Normal Modes of the AP Field</h3>
+<p>Synchronization phenomena are most transparently understood through the analysis of normal modes. Linearizing the AP field equation about a background oscillatory state yields:</p>
+<div class="math-block">$$
+C
+
+\partial_t^2 \delta \mathcal{A}
++
+\Gamma
+
+\partial_t \delta \mathcal{A}
+=
+\nabla\cdot(\mathbf{G}\nabla \delta \mathcal{A})
+-
+V''(\mathcal{A}_0)\delta \mathcal{A}.
+$$</div>
+<p>Solutions of the form $ {A} = _n({r})e^{i_n t}$ define a spectrum of modes. Synchronization corresponds to the selective excitation of a small subset of low-damping modes.</p>
+<h3 id="mode-locking-and-entrainment">Mode Locking and Entrainment</h3>
+<p>When external driving $J({r},t)$ is applied, modes can become entrained. Entrainment is not neuron-specific; it is a resonance between the driving and the field’s eigenstructure.</p>
+<p>This explains why rhythmic sensory input can synchronize large neural populations without requiring precise spike timing.</p>
+<h3 id="traveling-waves-and-phase-fronts">Traveling Waves and Phase Fronts</h3>
+<p>One of the most robust synchronized solutions of the AP field is the traveling wave:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+=
+f(\mathbf{k}\cdot\mathbf{r} - \omega t).
+$$</div>
+<p>Traveling waves correspond to constant phase gradients and represent a form of partial synchronization: temporal coherence with spatial structure.</p>
+<p>Such waves are ubiquitous in cortex and are difficult to reconcile with purely discrete network models.</p>
+<h3 id="standing-waves-and-global-oscillations">Standing Waves and Global Oscillations</h3>
+<p>Under reflective or periodic boundary conditions, standing wave solutions emerge. These correspond to global oscillatory states, often identified experimentally as EEG or LFP rhythms.</p>
+<p>In the AP field framework, such rhythms are not summaries of neuronal activity; they are macroscopic field modes.</p>
+<h3 id="stability-of-synchronized-states">Stability of Synchronized States</h3>
+<p>The stability of synchronized configurations is determined by the spectrum of perturbations around them. Small perturbations obey:</p>
+<div class="math-block">$$
+\partial_t \delta \theta
+=
+D_\theta \nabla^2 \delta \theta
+-
+\lambda \delta \theta.
+$$</div>
+<p>Positive $$ ensures phase rigidity. Negative $$ leads to phase turbulence and desynchronization.</p>
+<h3 id="phase-slips-and-defects">Phase Slips and Defects</h3>
+<p>In two and three dimensions, the phase field $({r},t)$ can support topological defects where phase is undefined. These defects manifest as phase slips or vortices and play a key role in transitions between synchronized states.</p>
+<p>Such structures have no natural description in neuron-centric models but arise generically in field theories.</p>
+<h3 id="synchronization-across-scales">Synchronization Across Scales</h3>
+<p>Because the AP field is continuous, synchronization can span multiple scales simultaneously. Microscopic ionic processes influence mesoscopic field modes, which in turn shape macroscopic oscillations.</p>
+<p>This multiscale coupling undermines attempts to assign synchronization to any single level of description.</p>
+<h3 id="interpretive-interlude-coordination-without-central-control">Interpretive Interlude: Coordination Without Central Control</h3>
+<p>At no point in this chapter have we introduced a coordinating agent, clock, or executive controller. Synchronization arises from the structure of the field equations themselves.</p>
+<p>This observation will later prove critical when we ask whether unified conscious experience requires a central locus.</p>
+<h3 id="summary-of-chapter-3">Summary of Chapter 3</h3>
+<p>This chapter has developed a phenomenology of synchronization grounded entirely in the AP field framework. We have shown that:</p>
+<ul class="article-list"><li><p>Synchronization is a property of field modes,</p></li><li><p>Phase coherence arises intrinsically from spatial dynamics,</p></li><li><p>Traveling and standing waves are natural solutions,</p></li><li><p>Field theories support defects and transitions absent in discrete models.</p></li></ul>
+<p>The next chapter will examine how global field organization gives rise to coherent macroscopic states and why such states may resist reduction to local events.</p>
+<h2 id="independent-component-analysis-of-the-ap-field">Independent Component Analysis of the AP Field</h2>
+<h3 id="why-decomposition-matters-in-a-field-ontology">Why Decomposition Matters in a Field Ontology</h3>
+<p>By the end of Chapter 3, we have established that neural dynamics, when understood as an action potential field ${A}({r},t)$, naturally give rise to synchronized modes, traveling waves, and global oscillatory patterns. At this point, a pressing question arises: how are such field-level structures observed, measured, and analyzed in practice?</p>
+<p>Experimental neuroscience does not provide direct access to the AP field. Instead, it provides time series recorded at electrodes, optical sensors, or imaging pixels. These measurements are inevitably <em>mixtures</em> of underlying field activity. Independent Component Analysis (ICA) has emerged as one of the most powerful tools for unmixing such signals.</p>
+<p>Traditionally, ICA is interpreted as a method for recovering statistically independent &quot;sources,&quot; often implicitly identified with neurons, neural populations, or functional modules. In this chapter, we argue that this interpretation is ontologically misplaced. Within the AP field framework, ICA should instead be understood as a method for extracting approximately independent <em>field components</em> or <em>modes</em>.</p>
+<h3 id="measurement-as-projection-of-the-ap-field">Measurement as Projection of the AP Field</h3>
+<p>Let ${A}({r},t)$ denote the AP field. A measurement device indexed by $k$ records a signal:</p>
+<div class="math-block">$$
+x_k(t)
+=
+\int d^3 r \, W_k(\mathbf{r}) \mathcal{A}(\mathbf{r},t)
++
+\eta_k(t),
+$$</div>
+<p>where $W_k({r})$ is a spatial sensitivity kernel and $_k(t)$ is noise.</p>
+<p>This equation expresses a central fact: experimental signals are linear (or approximately linear) projections of a continuous field. Discrete time series are therefore not fundamental observables but sampled, integrated views of field dynamics.</p>
+<h3 id="linear-mixing-model">Linear Mixing Model</h3>
+<p>Collecting $N$ measurements into a vector ${x}(t)$, we may write:</p>
+<div class="math-block">$$
+\mathbf{x}(t) = \mathbf{M}\mathbf{s}(t),
+$$</div>
+<p>where ${s}(t)$ are latent variables and ${M}$ is a mixing matrix determined by geometry and sensor placement.</p>
+<p>In standard ICA, the components of ${s}(t)$ are interpreted as independent sources. In the AP field framework, ${s}(t)$ are better understood as coefficients of a basis expansion of the field:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+=
+\sum_{i} s_i(t)\,\phi_i(\mathbf{r}).
+$$</div>
+<p>The functions $_i({r})$ are spatial modes shaped by tissue properties and boundary conditions.</p>
+<h3 id="statistical-independence-vs-dynamical-independence">Statistical Independence vs.\ Dynamical Independence</h3>
+<p>ICA seeks components that are statistically independent, typically by maximizing non-Gaussianity. However, statistical independence does not imply dynamical independence.</p>
+<p>In a field theory, modes may be weakly coupled dynamically yet appear statistically independent over finite observation windows. Conversely, modes that are dynamically related may appear independent if their coupling is nonlinear or phase-dependent.</p>
+<p>This distinction will later be crucial when interpreting ICA results in relation to consciousness.</p>
+<h3 id="why-ica-works-at-all">Why ICA Works at All</h3>
+<p>ICA succeeds in neural data analysis because the AP field exhibits:</p>
+<ul class="article-list"><li><p>Spatial structure (anisotropy, localization),</p></li><li><p>Nonlinear excitability (producing non-Gaussian statistics),</p></li><li><p>Approximate mode separation over relevant timescales.</p></li></ul>
+<p>These features ensure that certain projections of the field behave as quasi-independent stochastic processes.</p>
+<h3 id="field-theoretic-interpretation-of-ica-components">Field-Theoretic Interpretation of ICA Components</h3>
+<p>An ICA component corresponds not to a neuron, but to a spatiotemporal pattern:</p>
+<div class="math-block">$$
+\mathcal{A}_i(\mathbf{r},t) = s_i(t)\,\phi_i(\mathbf{r}).
+$$</div>
+<p>The spatial profile $_i({r})$ may correspond to:</p>
+<ul class="article-list"><li><p>A traveling wave corridor,</p></li><li><p>A localized oscillatory patch,</p></li><li><p>A standing-wave mode of a cortical region,</p></li><li><p>A transient excitation pathway.</p></li></ul>
+<p>Thus, ICA reveals the <em>modal structure</em> of the AP field as seen through a particular measurement apparatus.</p>
+<h3 id="non-uniqueness-and-gauge-freedom">Non-Uniqueness and Gauge Freedom</h3>
+<p>ICA solutions are not unique. Components are defined only up to permutation and scaling. In field-theoretic terms, this reflects a gauge freedom in the choice of basis functions $_i({r})$.</p>
+<p>The absence of a unique decomposition is not a flaw; it is a reflection of the underlying field’s richness. No single basis captures all relevant structure.</p>
+<h3 id="comparison-with-fourier-and-wavelet-decompositions">Comparison with Fourier and Wavelet Decompositions</h3>
+<p>Fourier and wavelet analyses impose predefined basis functions. ICA, by contrast, adapts the basis to the data. From the AP field perspective, this corresponds to discovering empirically relevant eigenmodes of the field under naturalistic conditions.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have:</p>
+<ul class="article-list"><li><p>Framed measurements as projections of the AP field,</p></li><li><p>Interpreted ICA as a modal decomposition,</p></li><li><p>Distinguished statistical from dynamical independence,</p></li><li><p>Recast ICA components as field patterns.</p></li></ul>
+<p>We now turn to dynamical, interpretive, and philosophical consequences.</p>
+<h3 id="temporal-structure-of-ica-components">Temporal Structure of ICA Components</h3>
+<p>The time courses $s_i(t)$ extracted by ICA often display oscillatory, bursty, or intermittent dynamics. Within the AP field framework, these temporal structures reflect the activation and deactivation of field modes under changing conditions.</p>
+<p>Importantly, the same spatial mode $_i({r})$ may recur across multiple cognitive or behavioral contexts, suggesting that it is a structural feature of the field rather than a task-specific artifact.</p>
+<h3 id="mode-interactions-beyond-ica">Mode Interactions Beyond ICA</h3>
+<p>ICA enforces independence by construction, but true AP field dynamics include mode interactions:</p>
+<div class="math-block">$$
+\dot{s}_i
+=
+f_i(s_i)
++
+\sum_{j \neq i} g_{ij}(s_i,s_j).
+$$</div>
+<p>These interactions may be weak, nonlinear, or phase-specific, and therefore invisible to ICA. Thus, ICA reveals only a shadow of the full field dynamics.</p>
+<h3 id="cross-frequency-coupling">Cross-Frequency Coupling</h3>
+<p>One of the most robust findings in neural data is cross-frequency coupling, such as phase–amplitude interactions. In the AP field framework, this arises naturally from nonlinear mode coupling:</p>
+<div class="math-block">$$
+\mathcal{A}
+=
+\sum_i s_i(t)\phi_i(\mathbf{r})
++
+\sum_{i,j} h_{ij}s_i(t)s_j(t)\psi_{ij}(\mathbf{r}).
+$$</div>
+<p>ICA, being linear, cannot capture such interactions directly. Their presence signals that the field cannot be fully decomposed into independent components.</p>
+<h3 id="spatial-overlap-and-entanglement-of-modes">Spatial Overlap and Entanglement of Modes</h3>
+<p>ICA often yields spatially overlapping components. This is frequently treated as a nuisance. In a field ontology, it is expected.</p>
+<p>Field modes are not orthogonal in physical space. Overlap reflects shared tissue, shared boundary conditions, and shared extracellular domains.</p>
+<h3 id="failure-of-neuron-centric-interpretation">Failure of Neuron-Centric Interpretation</h3>
+<p>Attempts to map ICA components onto individual neurons or localized modules invariably fail. This failure is not due to noise or poor methods; it reflects a category error.</p>
+<p>ICA components are properties of the field, not of its discrete constraints.</p>
+<h3 id="implications-for-functional-localization">Implications for Functional Localization</h3>
+<p>Functional localization, when interpreted through ICA, becomes a statement about which field modes dominate under certain conditions. This reframing dissolves the apparent tension between localization and distributed processing.</p>
+<h3 id="ica-and-macroscopic-observables">ICA and Macroscopic Observables</h3>
+<p>EEG, MEG, and LFP signals are particularly amenable to ICA. In the AP field framework, these signals primarily reflect low-spatial-frequency modes of the field. ICA thus preferentially reveals global and mesoscopic structures rather than microscopic ones.</p>
+<h3 id="interpretive-interlude-decomposition-without-reduction">Interpretive Interlude: Decomposition Without Reduction</h3>
+<p>ICA allows us to decompose neural activity without committing to a reductionist ontology. The components are not building blocks from which the whole is assembled; they are perspectives on an underlying whole.</p>
+<p>This distinction will later be decisive when addressing consciousness.</p>
+<h3 id="limits-of-blind-source-separation">Limits of Blind Source Separation</h3>
+<p>ICA is a blind method: it imposes independence without reference to the field equations. Consequently, it cannot distinguish between true dynamical independence and accidental statistical separation.</p>
+<p>Field-aware decompositions, informed by the AP field equations, may provide deeper insight.</p>
+<h3 id="summary-of-chapter-4">Summary of Chapter 4</h3>
+<p>This chapter has shown that:</p>
+<ul class="article-list"><li><p>ICA decomposes measurements, not the field itself,</p></li><li><p>Extracted components correspond to field modes,</p></li><li><p>Independence is approximate and scale-dependent,</p></li><li><p>Mode overlap and interaction are fundamental, not pathological.</p></li></ul>
+<p>The next chapter will examine how global AP field organization gives rise to coherent macroscopic states and why such states may resist reduction to independent components.</p>
+<h2 id="eeg-and-the-ap-field">EEG and the AP Field</h2>
+<h3 id="why-eeg-is-the-canonical-field-observable">Why EEG Is the Canonical Field Observable</h3>
+<p>Electroencephalography (EEG) occupies a unique position in neuroscience. It is one of the oldest, most widely used, and most clinically relevant measurement modalities, yet it has persistently resisted a clean reduction to neuronal spike activity. Despite decades of progress in single-unit recording, EEG rhythms remain irreducible to simple sums of action potentials.</p>
+<p>Within the action potential field (AP field) framework, this resistance is not mysterious. EEG is not a proxy for neuronal firing; it is a direct measurement of macroscopic AP field configurations. In this chapter, we formalize this claim and show that EEG provides empirical support for the AP field ontology.</p>
+<h3 id="the-physical-origin-of-eeg-signals">The Physical Origin of EEG Signals</h3>
+<p>EEG electrodes measure voltage differences at the scalp surface. These voltages arise from spatially extended current flows in cortical tissue and surrounding media. Standard derivations emphasize synaptic potentials and dendritic currents; however, from a field-theoretic perspective, these are boundary manifestations of deeper excitation dynamics.</p>
+<p>Let ${A}({r},t)$ denote the AP field. The electric potential measured at electrode $k$ is given by:</p>
+<div class="math-block">$$
+V_k(t)
+=
+\int d^3 r \, G_k(\mathbf{r}) \mathcal{A}(\mathbf{r},t),
+$$</div>
+<p>where $G_k({r})$ is a lead-field kernel determined by tissue conductivity and electrode geometry.</p>
+<p>This expression mirrors the general measurement equation introduced in Chapter 4. EEG signals are linear projections of a continuous field.</p>
+<h3 id="volume-conduction-as-field-propagation">Volume Conduction as Field Propagation</h3>
+<p>Volume conduction is often treated as a nuisance that smears spatial information. In the AP field framework, volume conduction is simply the propagation of the field through heterogeneous media.</p>
+<p>The governing equation for the electric potential $({r},t)$ satisfies:</p>
+<div class="math-block">$$
+\nabla \cdot (\sigma(\mathbf{r}) \nabla \Phi) = S(\mathbf{r},t),
+$$</div>
+<p>where the source term $S$ is driven by gradients of ${A}$.</p>
+<p>Thus, EEG does not measure isolated sources; it measures field continuity across space.</p>
+<h3 id="why-eeg-is-insensitive-to-single-spikes">Why EEG Is Insensitive to Single Spikes</h3>
+<p>A single action potential corresponds to a highly localized excitation of the AP field. Its contribution to the scalp potential is vanishingly small due to spatial averaging and cancellation.</p>
+<p>EEG becomes measurable only when the AP field organizes into coherent, extended configurations. This fact alone strongly favors a field ontology over a spike-centric one.</p>
+<h3 id="eeg-rhythms-as-field-modes">EEG Rhythms as Field Modes</h3>
+<p>EEG rhythms—delta, theta, alpha, beta, gamma—are traditionally classified by frequency bands. In the AP field framework, these rhythms correspond to distinct classes of field modes.</p>
+<p>Mathematically, consider a modal expansion:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+=
+\sum_n q_n(t)\phi_n(\mathbf{r}).
+$$</div>
+<p>Low-frequency EEG rhythms correspond to modes with large spatial support and low damping. High-frequency rhythms correspond to more localized or transient modes.</p>
+<h3 id="spatial-coherence-and-eeg-visibility">Spatial Coherence and EEG Visibility</h3>
+<p>A key requirement for EEG visibility is spatial coherence. If the phase $({r},t)$ of the AP field varies rapidly over short distances, contributions cancel at the scalp.</p>
+<p>Thus, EEG selectively reports on synchronized field states. This selectivity is not imposed by analysis; it is built into the physics of measurement.</p>
+<h3 id="temporal-filtering-and-scale-separation">Temporal Filtering and Scale Separation</h3>
+<p>The skull and scalp act as low-pass filters, further emphasizing slow field dynamics. This reinforces the interpretation of EEG as a window onto macroscopic AP field behavior rather than microscopic events.</p>
+<h3 id="failure-of-neuron-sum-models">Failure of Neuron-Sum Models</h3>
+<p>Attempts to model EEG as a sum of postsynaptic potentials or spike trains inevitably require strong assumptions about synchrony and geometry. In the AP field framework, these assumptions become natural consequences of field dynamics.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have shown that:</p>
+<ul class="article-list"><li><p>EEG is a linear projection of the AP field,</p></li><li><p>Volume conduction reflects field propagation,</p></li><li><p>EEG selectively measures coherent field states,</p></li><li><p>Single spikes are intrinsically invisible to EEG.</p></li></ul>
+<p>We now turn to EEG phenomenology and its interpretation in field terms.</p>
+<h3 id="eeg-rhythms-as-stable-field-configurations">EEG Rhythms as Stable Field Configurations</h3>
+<p>EEG rhythms are remarkably stable across individuals, species, and contexts. From a field perspective, this stability reflects the existence of robust attractors in the AP field dynamics.</p>
+<p>Each rhythm corresponds to a basin of attraction in function space, shaped by cortical geometry and tissue parameters.</p>
+<h3 id="alpha-rhythm-as-a-standing-field-mode">Alpha Rhythm as a Standing Field Mode</h3>
+<p>The alpha rhythm (8–12 Hz) provides a paradigmatic example. Alpha is strongly spatially organized, sensitive to boundary conditions, and modulated by attention.</p>
+<p>These properties are difficult to explain neuron by neuron but follow naturally if alpha corresponds to a standing wave mode of the AP field in posterior cortex.</p>
+<h3 id="gamma-activity-and-localized-field-turbulence">Gamma Activity and Localized Field Turbulence</h3>
+<p>Gamma-band activity (30–100 Hz) is spatially restricted and transient. In the AP field framework, gamma corresponds to localized, high-energy field excitations that fail to organize into global coherence.</p>
+<p>Thus, gamma is not simply &quot;fast firing&quot; but a different regime of field dynamics.</p>
+<h3 id="event-related-potentials-as-field-transients">Event-Related Potentials as Field Transients</h3>
+<p>Event-related potentials (ERPs) are stereotyped EEG responses to stimuli. They reflect transient reorganization of the AP field rather than sequences of discrete neural events.</p>
+<p>ERPs are reproducible because the underlying field dynamics are constrained by anatomy and boundary conditions.</p>
+<h3 id="phase-resetting-and-field-reorganization">Phase Resetting and Field Reorganization</h3>
+<p>Stimuli often induce phase resetting of EEG rhythms. In the AP field framework, this corresponds to a global realignment of the phase field $({r},t)$.</p>
+<p>Phase resetting is therefore a field-wide phenomenon, not a local triggering of neurons.</p>
+<h3 id="eeg-synchronization-and-conscious-state">EEG, Synchronization, and Conscious State</h3>
+<p>Although we postpone a full discussion of consciousness, it is notable that changes in conscious state—sleep, anesthesia, attention—are accompanied by systematic changes in EEG field organization.</p>
+<p>This correlation suggests that EEG reflects global field states rather than localized computations.</p>
+<h3 id="why-eeg-resists-localization">Why EEG Resists Localization</h3>
+<p>EEG source localization is fundamentally ill-posed. From the AP field perspective, this is expected: global field modes do not have unique point sources.</p>
+<p>Localization fails not because of poor algorithms, but because the ontology is wrong.</p>
+<h3 id="field-based-interpretation-of-eeg-pathology">Field-Based Interpretation of EEG Pathology</h3>
+<p>Epileptic seizures, coma, and anesthesia all involve dramatic changes in EEG structure. These changes correspond to transitions between field regimes: hypersynchrony, suppression, or fragmentation.</p>
+<p>Such transitions are more naturally described as phase transitions of the AP field than as failures of individual neurons.</p>
+<h3 id="interpretive-interlude-eeg-as-evidence-for-field-ontology">Interpretive Interlude: EEG as Evidence for Field Ontology</h3>
+<p>EEG provides continuous, direct evidence that neural dynamics organize at the field level. Its explanatory power does not derive from resolving neurons, but from revealing global structure.</p>
+<p>This makes EEG a cornerstone of the argument for irreducibility.</p>
+<h3 id="summary-of-chapter-5">Summary of Chapter 5</h3>
+<p>This chapter has established that:</p>
+<ul class="article-list"><li><p>EEG is fundamentally a field measurement,</p></li><li><p>EEG rhythms correspond to AP field modes,</p></li><li><p>EEG phenomenology aligns naturally with field dynamics,</p></li><li><p>Reduction to spikes is neither necessary nor sufficient.</p></li></ul>
+<p>The next chapter will confront the implications of this field ontology for measurement, observables, and the limits of decomposition in neural systems.</p>
+<h2 id="sources-ica-eeg-and-the-ap-field">Sources, ICA, EEG, and the AP Field</h2>
+<h3 id="why-the-concept-of-a-source-must-be-reexamined">Why the Concept of a Source Must Be Reexamined</h3>
+<p>Neuroscience routinely speaks of <em>sources</em>: neural sources of EEG, sources extracted by ICA, sources localized in cortex. This language is inherited from circuit metaphors, where currents flow from identifiable origins. However, once neural dynamics are formulated as a continuous action potential field ${A}({r},t)$, the notion of a source becomes conceptually unstable.</p>
+<p>In this chapter, we argue that &quot;sources&quot; are not primitive entities in neural dynamics. Instead, they are observer-dependent constructs arising from projection, decomposition, and modeling choices. This claim is not philosophical; it follows directly from the mathematics of field theory.</p>
+<h3 id="sources-in-classical-field-theory">Sources in Classical Field Theory</h3>
+<p>In classical electromagnetism, sources appear as charge and current densities in Maxwell’s equations:</p>
+<div class="math-block">$$
+\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}, \qquad
+\nabla \times \mathbf{B} - 
+
+\partial_t \mathbf{E} = \mu_0 \mathbf{J}.
+$$</div>
+<p>Yet even here, sources are not fundamental. In quantum electrodynamics, charges themselves are excitations of underlying fields. What appears as a source at one level dissolves into field dynamics at a deeper level.</p>
+<p>This hierarchy provides a template for neural field theory.</p>
+<h3 id="the-ap-field-has-no-primitive-sources">The AP Field Has No Primitive Sources</h3>
+<p>The AP field equation derived in Chapter 2,</p>
+<div class="math-block">$$
+C(\mathbf{r})
+
+\partial_t^2 \mathcal{A}
++
+\Gamma(\mathbf{r})
+
+\partial_t \mathcal{A}
+=
+\nabla \cdot (\mathbf{G}(\mathbf{r}) \nabla \mathcal{A})
+-
+\frac{dV}{d\mathcal{A}}
++
+J(\mathbf{r},t),
+$$</div>
+<p>contains a term $J({r},t)$ representing external perturbations. However, internal neural activity does not appear as a source term. Instead, it is encoded in the nonlinear potential and boundary conditions.</p>
+<p>Thus, neurons do not inject action potentials into the field; they shape the field’s allowed configurations.</p>
+<h3 id="from-sources-to-boundary-conditions">From Sources to Boundary Conditions</h3>
+<p>In the AP field framework, what are traditionally called &quot;sources&quot; correspond to:</p>
+<ul class="article-list"><li><p>Localized nonlinearities,</p></li><li><p>Geometric constraints,</p></li><li><p>Parameter inhomogeneities.</p></li></ul>
+<p>Mathematically, these enter as spatial variation in $C({r})$, ${G}({r})$, and $V({A})$, not as delta-function driving terms.</p>
+<p>This shift mirrors the transition from particle to field ontology in physics.</p>
+<h3 id="eeg-source-localization-revisited">EEG Source Localization Revisited</h3>
+<p>EEG source localization attempts to infer spatially localized sources that give rise to scalp potentials. The forward model assumes:</p>
+<div class="math-block">$$
+V_k(t) = \sum_i L_{ki} s_i(t),
+$$</div>
+<p>where $s_i(t)$ are source time courses.</p>
+<p>From the AP field perspective, this equation is a discretized approximation to:</p>
+<div class="math-block">$$
+V_k(t)
+=
+\int d^3 r \, G_k(\mathbf{r}) \mathcal{A}(\mathbf{r},t).
+$$</div>
+<p>The ill-posedness of source localization follows immediately: extended field configurations cannot be uniquely represented as sums of point sources.</p>
+<h3 id="why-source-localization-is-ill-posed-in-principle">Why Source Localization Is Ill-Posed in Principle</h3>
+<p>Inverse problems fail not merely because of noise or limited sensors, but because the assumed ontology is incompatible with the physics. Field modes do not possess unique spatial origins.</p>
+<p>No increase in data quality can resolve a non-existent mapping.</p>
+<h3 id="ica-and-the-source-metaphor">ICA and the Source Metaphor</h3>
+<p>ICA is often described as a blind source separation technique. The language of &quot;sources&quot; persists even when the extracted components are clearly non-local, overlapping, and context-dependent.</p>
+<p>Within the AP field framework, ICA does not recover sources. It recovers statistically convenient coordinates on the space of field configurations.</p>
+<h3 id="equivalence-classes-of-sources">Equivalence Classes of Sources</h3>
+<p>Different ICA runs, different preprocessing steps, or different sensor layouts yield different &quot;sources&quot; with comparable explanatory power. This non-uniqueness reflects the existence of equivalence classes of decompositions, all compatible with the same underlying field.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have shown that:</p>
+<ul class="article-list"><li><p>The concept of a neural source is inherited, not fundamental,</p></li><li><p>The AP field has no primitive internal sources,</p></li><li><p>EEG source localization is ill-posed by ontology, not technique,</p></li><li><p>ICA sources are coordinate choices, not entities.</p></li></ul>
+<p>We now turn to the deeper implications of this realization.</p>
+<h3 id="what-ica-actually-recovers">What ICA Actually Recovers</h3>
+<p>ICA seeks a linear transformation ${W}$ such that:</p>
+<div class="math-block">$$
+\mathbf{s}(t) = \mathbf{W}\mathbf{x}(t)
+$$</div>
+<p>maximizes statistical independence among the components of ${s}(t)$.</p>
+<p>In the AP field framework, this corresponds to finding directions in measurement space that best isolate quasi-independent projections of the field. These directions are not intrinsic to the field; they are relative to the measurement apparatus and time window.</p>
+<h3 id="observer-dependence-of-sources">Observer Dependence of Sources</h3>
+<p>A critical consequence follows: sources are observer-dependent. Change the sensors, change the preprocessing, or change the timescale, and the &quot;sources&quot; change.</p>
+<p>This observer dependence is not pathological. It is a natural feature of field theories when viewed through finite projections.</p>
+<h3 id="eeg-ica-and-global-field-states">EEG, ICA, and Global Field States</h3>
+<p>EEG combined with ICA often reveals components spanning wide cortical regions. These components are most naturally interpreted as global or mesoscopic field modes.</p>
+<p>Attempts to localize them to circumscribed cortical patches typically introduce artificial fragmentation.</p>
+<h3 id="why-reduction-to-independent-sources-fails">Why Reduction to Independent Sources Fails</h3>
+<p>The reductionist hope is that neural activity can be decomposed into a set of independent sources whose interactions explain cognition. Field dynamics undermine this hope.</p>
+<p>The AP field supports:</p>
+<ul class="article-list"><li><p>Nonlinear mode coupling,</p></li><li><p>Phase-dependent interactions,</p></li><li><p>Topological constraints.</p></li></ul>
+<p>No linear decomposition can fully capture these features.</p>
+<h3 id="sources-vs-states">Sources vs.\ States</h3>
+<p>A crucial distinction emerges between <em>sources</em> and <em>states</em>. Sources suggest localized origins; states describe global configurations.</p>
+<p>EEG, ICA, and synchronization phenomena consistently point toward the primacy of states over sources.</p>
+<h3 id="implications-for-functional-attribution">Implications for Functional Attribution</h3>
+<p>If cognitive functions correspond to field states rather than sources, then localization becomes a secondary question. The same field state may manifest through different anatomical substrates under different conditions.</p>
+<h3 id="measurement-does-not-reveal-ontology">Measurement Does Not Reveal Ontology</h3>
+<p>Measurements reveal projections, not primitives. This principle, familiar from quantum theory, applies equally here. EEG and ICA do not reveal &quot;what is really there&quot;; they reveal what is accessible under a given measurement regime.</p>
+<h3 id="interpretive-interlude-when-decomposition-becomes-misleading">Interpretive Interlude: When Decomposition Becomes Misleading</h3>
+<p>Decomposition is a powerful analytical tool, but it becomes misleading when its outputs are reified. Treating ICA components as sources is analogous to treating Fourier coefficients as particles.</p>
+<p>The error is subtle, widespread, and consequential.</p>
+<h3 id="summary-of-chapter-6">Summary of Chapter 6</h3>
+<p>This chapter has established that:</p>
+<ul class="article-list"><li><p>Sources are not fundamental entities in AP field dynamics,</p></li><li><p>ICA extracts coordinate representations, not causes,</p></li><li><p>EEG source localization fails for principled reasons,</p></li><li><p>Neural organization is better described in terms of global states than local origins.</p></li></ul>
+<p>With this realization, we are now prepared to confront the central question of the work: whether conscious experience corresponds to irreducible global AP field states.</p>
+<h2 id="hebb-and-the-ap-field">Hebb and the AP Field</h2>
+<h3 id="why-hebb-must-be-revisited">Why Hebb Must Be Revisited</h3>
+<p>Few principles have shaped neuroscience as profoundly as Hebb’s postulate: &quot;cells that fire together wire together.&quot; This idea provided the conceptual foundation for synaptic plasticity, learning, and memory. Yet Hebb formulated his rule within a neuron-centric framework that predated modern field-theoretic perspectives.</p>
+<p>In this chapter, we argue that Hebb’s insight remains valid, but its proper interpretation is not synaptic or neuronal. Instead, Hebbian learning reflects the self-organization of the action potential field ${A}({r},t)$ under repeated, correlated excitation.</p>
+<h3 id="the-original-hebbian-framework">The Original Hebbian Framework</h3>
+<p>Hebb envisioned learning as a change in synaptic efficacy between two neurons whose activities are correlated:</p>
+<div class="math-block">$$
+\Delta w_{ij} \propto x_i x_j,
+$$</div>
+<p>where $x_i$ and $x_j$ represent neuronal firing.</p>
+<p>Implicit in this formulation are several assumptions:</p>
+<ul class="article-list"><li><p>Neurons are primitive units,</p></li><li><p>Firing events are discrete,</p></li><li><p>Synapses are the locus of memory.</p></li></ul>
+<p>Each of these assumptions will be reexamined.</p>
+<h3 id="what-actually-quot-fires-together-quot">What Actually &quot;Fires Together&quot;?</h3>
+<p>From the AP field perspective, what fires together are not neurons but regions of the field exhibiting coherent excitation:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r}_1,t) \approx \mathcal{A}(\mathbf{r}_2,t).
+$$</div>
+<p>This coherence may manifest as synchronized phase, shared wavefronts, or stable field modes. Neuronal firing is merely one way this coherence becomes localized and observable.</p>
+<h3 id="from-correlated-spikes-to-correlated-fields">From Correlated Spikes to Correlated Fields</h3>
+<p>Spike correlations are discrete samples of underlying field correlations. Formally, define a field correlation function:</p>
+<div class="math-block">$$
+C(\mathbf{r},\mathbf{r}')
+=
+\langle \mathcal{A}(\mathbf{r},t)\mathcal{A}(\mathbf{r}',t) \rangle_t.
+$$</div>
+<p>Hebbian learning corresponds to the reinforcement of pathways along which this correlation is repeatedly high.</p>
+<h3 id="learning-as-field-parameter-adaptation">Learning as Field Parameter Adaptation</h3>
+<p>In the AP field framework, learning does not primarily modify the field itself but the parameters that shape it. These include:</p>
+<ul class="article-list"><li><p>Conductance tensors ${G}({r})$,</p></li><li><p>Nonlinear potentials $V({A})$,</p></li><li><p>Effective dissipation $({r})$.</p></li></ul>
+<p>Repeated field activation alters these parameters, biasing the field toward certain configurations.</p>
+<h3 id="a-field-theoretic-hebbian-rule">A Field-Theoretic Hebbian Rule</h3>
+<p>A natural generalization of Hebb’s rule is:</p>
+<div class="math-block">$$
+\Delta \mathbf{G}(\mathbf{r})
+\propto
+\langle \nabla \mathcal{A}(\mathbf{r},t)
+\otimes
+\nabla \mathcal{A}(\mathbf{r},t) \rangle_t.
+$$</div>
+<p>This rule strengthens conductive pathways along which field gradients recur, effectively &quot;wiring&quot; together regions that participate in the same field patterns.</p>
+<h3 id="why-synapses-still-matter">Why Synapses Still Matter</h3>
+<p>Synapses are not denied a role. Rather, they are understood as microscopic mechanisms through which field parameters change. Synaptic plasticity is a local, biochemical instantiation of a more general field adaptation process.</p>
+<h3 id="assemblies-as-field-modes">Assemblies as Field Modes</h3>
+<p>Hebb introduced the concept of cell assemblies: groups of neurons that act together. In the AP field framework, assemblies correspond to persistent or recurrent field modes.</p>
+<p>These modes may recruit different neurons at different times while maintaining their identity as field patterns.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have:</p>
+<ul class="article-list"><li><p>Reinterpreted Hebb’s rule at the field level,</p></li><li><p>Identified correlated excitation as a field phenomenon,</p></li><li><p>Framed learning as adaptation of field parameters,</p></li><li><p>Recast assemblies as field modes.</p></li></ul>
+<p>We now examine how this reinterpretation transforms learning, memory, and stability.</p>
+<h3 id="memory-as-field-bias">Memory as Field Bias</h3>
+<p>In neuron-centric models, memory is stored in synaptic weights. In the AP field framework, memory is stored as a bias in the field’s dynamics. After learning, certain field configurations become easier to excite and more stable once activated.</p>
+<p>Mathematically, learning reshapes the energy landscape:</p>
+<div class="math-block">$$
+E[\mathcal{A}] \rightarrow E[\mathcal{A}] + \Delta E_{\text{learned}}.
+$$</div>
+<h3 id="attractors-and-learned-states">Attractors and Learned States</h3>
+<p>Learned patterns correspond to attractors in the space of field configurations. These attractors are not point states but extended regions representing families of related field patterns.</p>
+<p>This view unifies Hebbian learning with attractor network models while escaping their discrete limitations.</p>
+<h3 id="generalization-without-explicit-storage">Generalization Without Explicit Storage</h3>
+<p>Because learning modifies field parameters rather than storing explicit patterns, generalization arises naturally. Novel inputs that partially overlap with learned field modes can trigger similar configurations.</p>
+<p>This provides a field-based account of similarity and association.</p>
+<h3 id="stabilityplasticity-balance">Stability–Plasticity Balance</h3>
+<p>The AP field must balance stability (memory retention) with plasticity (new learning). In field terms, this balance is governed by competing effects:</p>
+<ul class="article-list"><li><p>Nonlinear stabilization of learned modes,</p></li><li><p>Dissipation and noise that prevent runaway locking.</p></li></ul>
+<p>This balance emerges from field dynamics rather than explicit control mechanisms.</p>
+<h3 id="hebbian-learning-without-discrete-units">Hebbian Learning Without Discrete Units</h3>
+<p>A striking consequence of the field framework is that learning does not require discrete units. Hebbian-like adaptation can occur in continuous media, as seen in reaction–diffusion systems and physical pattern formation.</p>
+<p>Thus, Hebb’s principle is more general than its neuronal formulation.</p>
+<h3 id="developmental-and-long-term-learning">Developmental and Long-Term Learning</h3>
+<p>Over developmental timescales, field parameter adaptation shapes large- scale organization, such as cortical maps. Over shorter timescales, it supports learning and memory.</p>
+<p>Both processes are unified as slow evolution of field parameters.</p>
+<h3 id="reinterpreting-plasticity-experiments">Reinterpreting Plasticity Experiments</h3>
+<p>Classic plasticity experiments—LTP, LTD, STDP—can be reinterpreted as local probes of field adaptation. Timing dependence reflects sensitivity to phase relationships in the AP field rather than spike coincidence alone.</p>
+<h3 id="interpretive-interlude-learning-without-a-ledger">Interpretive Interlude: Learning Without a Ledger</h3>
+<p>In the AP field framework, the brain does not maintain a ledger of stored items. It maintains a shaped dynamical medium. Learning is not the accumulation of facts but the sculpting of possible field flows.</p>
+<p>This view challenges deeply ingrained metaphors of storage and recall.</p>
+<h3 id="implications-for-conscious-experience">Implications for Conscious Experience</h3>
+<p>Although we defer a full treatment, one implication is immediate: conscious content may correspond to transient occupation of learned field modes. Learning determines which modes exist; consciousness selects among them.</p>
+<h3 id="summary-of-chapter-7">Summary of Chapter 7</h3>
+<p>This chapter has shown that:</p>
+<ul class="article-list"><li><p>Hebb’s insight survives but changes ontology,</p></li><li><p>Learning adapts field parameters, not discrete links,</p></li><li><p>Memories are biases in field dynamics,</p></li><li><p>Assemblies are field modes, not fixed neuron groups.</p></li></ul>
+<p>The next chapter will bring these threads together to address how global AP field states relate to conscious experience and why such states may be irreducible.</p>
+<h2 id="illusory-percepts-as-probes">Illusory Percepts as Probes</h2>
+<h3 id="why-illusions-are-theoretically-privileged">Why Illusions Are Theoretically Privileged</h3>
+<p>Illusory percepts occupy a peculiar and revealing position in the study of perception. They are experiences that are compelling, structured, and often reproducible, yet systematically dissociated from external stimulus properties. For a neuron-centric framework, illusions are typically treated as errors, misfirings, or failures of inference. In the action potential (AP) field framework, this interpretation is misguided.</p>
+<p>Illusions are not failures of the perceptual system. They are probes. They reveal how the AP field organizes itself under constrained, ambiguous, or conflicting inputs. Precisely because illusions decouple experience from stimulus, they provide direct access to the internal dynamics of the field.</p>
+<h3 id="from-stimulus-to-field-configuration">From Stimulus to Field Configuration</h3>
+<p>Let $S({r},t)$ denote an external stimulus field (e.g., retinal illumination, auditory pressure waves). The stimulus does not determine perception directly. Instead, it perturbs the AP field:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+\rightarrow
+\mathcal{A}(\mathbf{r},t) + \delta \mathcal{A}_S(\mathbf{r},t).
+$$</div>
+<p>Perception corresponds to the resulting global field configuration, not to the stimulus itself. Illusions arise when different stimuli drive the AP field into the same or similar configurations, or when the same stimulus admits multiple competing configurations.</p>
+<h3 id="illusions-and-non-uniqueness-of-field-solutions">Illusions and Non-Uniqueness of Field Solutions</h3>
+<p>A central property of nonlinear field equations is non-uniqueness of solutions under given boundary conditions. The AP field supports multiple metastable configurations for the same external driving.</p>
+<p>Illusory percepts correspond to the occupation of one such metastable configuration that is weakly constrained by stimulus input but strongly shaped by intrinsic field dynamics.</p>
+<h3 id="why-illusions-are-robust">Why Illusions Are Robust</h3>
+<p>Illusions are often remarkably robust across individuals and cultures. This robustness is difficult to reconcile with explanations based on idiosyncratic neural wiring. In the AP field framework, robustness reflects the universality of the field equations and boundary conditions imposed by shared anatomy.</p>
+<p>Illusions persist because they correspond to stable or weakly unstable field modes.</p>
+<h3 id="multistable-perception-as-field-competition">Multistable Perception as Field Competition</h3>
+<p>Classic examples such as the Necker cube or binocular rivalry are instances of multistable perception. In field terms, these phenomena reflect competition between incompatible global field configurations.</p>
+<p>Mathematically, the AP field energy landscape contains multiple local minima:</p>
+<div class="math-block">$$
+E[\mathcal{A}_1] \approx E[\mathcal{A}_2],
+$$</div>
+<p>with noise or adaptation driving transitions between them.</p>
+<h3 id="why-illusions-are-not-localized">Why Illusions Are Not Localized</h3>
+<p>Attempts to localize illusions to specific cortical areas invariably fail or produce inconsistent results. This is expected in a field ontology: illusions are global states, not local errors.</p>
+<p>Local lesions may bias or suppress certain field configurations, but they do not define the illusion itself.</p>
+<h3 id="illusions-vs-hallucinations">Illusions vs.\ Hallucinations</h3>
+<p>It is important to distinguish illusions from hallucinations. Illusions require an external perturbation, however weak or ambiguous. Hallucinations correspond to spontaneous field configurations that arise without external driving.</p>
+<p>Both phenomena, however, reveal the same underlying fact: perceptual experience is determined by field state, not stimulus veracity.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have shown that:</p>
+<ul class="article-list"><li><p>Illusions are probes of intrinsic field dynamics,</p></li><li><p>Perception corresponds to global AP field configurations,</p></li><li><p>Non-uniqueness and multistability are fundamental,</p></li><li><p>Robust illusions reflect stable field modes.</p></li></ul>
+<p>We now turn to specific classes of illusions and what they reveal about the structure of the AP field.</p>
+<h3 id="geometric-illusions-and-spatial-field-biases">Geometric Illusions and Spatial Field Biases</h3>
+<p>Geometric illusions, such as the Müller–Lyer or Ponzo illusions, reveal systematic biases in spatial perception. In the AP field framework, these biases arise from anisotropies in the conductance tensor ${G}({r})$ and from learned field pathways shaped by experience.</p>
+<p>The illusion reflects the field’s tendency to favor configurations consistent with common spatial statistics, not a miscalculation by neurons.</p>
+<h3 id="motion-illusions-and-traveling-field-modes">Motion Illusions and Traveling Field Modes</h3>
+<p>Motion illusions, including apparent motion and motion aftereffects, probe the dynamics of traveling wave solutions in the AP field. The field supports wavefronts that can persist or propagate even when stimulus motion is absent.</p>
+<p>Such illusions demonstrate that motion perception is a property of field dynamics rather than instantaneous stimulus encoding.</p>
+<h3 id="color-and-brightness-illusions">Color and Brightness Illusions</h3>
+<p>Color constancy and brightness illusions reveal nonlinear normalization processes operating at the field level. The AP field integrates information over space and time, producing global normalization effects that cannot be attributed to local computations alone.</p>
+<h3 id="temporal-illusions-and-phase-structure">Temporal Illusions and Phase Structure</h3>
+<p>Temporal illusions, such as temporal order reversals or duration distortions, probe the phase structure of the AP field. They reveal that time perception depends on global phase coherence rather than local timing signals.</p>
+<h3 id="cross-modal-illusions">Cross-Modal Illusions</h3>
+<p>Illusions involving multiple sensory modalities, such as the McGurk effect, reveal coupling between field components across traditionally separate sensory domains. These effects arise naturally when multiple stimulus fields perturb a shared AP field.</p>
+<h3 id="learning-expectation-and-illusion-strength">Learning, Expectation, and Illusion Strength</h3>
+<p>Learning shapes the AP field’s energy landscape, making certain configurations more likely. Expectations bias perception by pre-shaping the field before stimulus arrival.</p>
+<p>Thus, illusion strength reflects learned field priors rather than explicit predictions or inference rules.</p>
+<h3 id="illusions-as-constraints-on-reduction">Illusions as Constraints on Reduction</h3>
+<p>Illusions place severe constraints on reductionist models. Any model that explains perception solely in terms of localized computations must also explain why globally coherent but stimulus-incongruent experiences arise so reliably.</p>
+<p>Field models satisfy this constraint naturally.</p>
+<h3 id="interpretive-interlude-why-illusions-feel-real">Interpretive Interlude: Why Illusions Feel Real</h3>
+<p>Illusory percepts feel real because they are real field states. The AP field does not encode truth or falsity; it realizes configurations. Veridicality is a relationship between field state and world, not an intrinsic property of experience.</p>
+<h3 id="illusions-as-experimental-levers">Illusions as Experimental Levers</h3>
+<p>Because illusions selectively perturb the AP field while holding stimulus energy fixed, they serve as powerful experimental levers for probing field dynamics. Subtle changes in illusion strength can reveal changes in global field organization.</p>
+<h3 id="summary-of-chapter-8">Summary of Chapter 8</h3>
+<p>This chapter has established that:</p>
+<ul class="article-list"><li><p>Illusions are diagnostic of AP field structure,</p></li><li><p>Perception reflects global field states,</p></li><li><p>Multistability and non-uniqueness are fundamental,</p></li><li><p>Illusions constrain any adequate theory of consciousness.</p></li></ul>
+<p>The next chapter will synthesize these insights to argue that conscious experience corresponds to irreducible global AP field states.</p>
+<h2 id="onset-of-cross-modal-illusion-related-synchrony-predicted-using-ap-field-theory">Onset of Cross-modal Illusion-related Synchrony Predicted Using AP Field Theory</h2>
+<h3 id="from-illusions-to-synchrony">From Illusions to Synchrony</h3>
+<p>In the preceding chapter, we established that illusory percepts are diagnostic probes of the intrinsic dynamics of the action potential (AP) field. In this chapter, we extend that analysis to a central and experimentally accessible phenomenon: the onset of cross-modal synchrony during illusion formation.</p>
+<p>The core claim of this chapter is strong and specific. If perception corresponds to global configurations of the AP field ${A}({r},t)$, then cross-modal illusions must be accompanied by measurable, time-locked synchronization across distributed cortical regions. This synchrony is not an added mechanism; it is a necessary consequence of field coherence.</p>
+<h3 id="cross-modal-illusions-as-global-field-constraints">Cross-modal Illusions as Global Field Constraints</h3>
+<p>Cross-modal illusions—such as the McGurk effect, the sound-induced flash illusion, or visuotactile body ownership illusions—share a defining feature: no single sensory modality provides a sufficient explanation for the resulting percept.</p>
+<p>In the AP field framework, this reflects the fact that multiple stimulus fields $S_k({r},t)$ perturb a single underlying AP field:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+=
+\mathcal{A}_0(\mathbf{r},t)
++
+\sum_k \delta \mathcal{A}_{S_k}(\mathbf{r},t).
+$$</div>
+<p>The resulting percept corresponds to a global field configuration that satisfies competing boundary constraints imposed by different sensory channels.</p>
+<h3 id="why-synchrony-is-not-optional">Why Synchrony Is Not Optional</h3>
+<p>A global field configuration cannot be realized without coordination across space. In dynamical terms, this coordination manifests as phase alignment or coherence across distant regions of the field.</p>
+<p>Thus, cross-modal perceptual unification implies:</p>
+<div class="math-block">$$
+\phi_i(t) \approx \phi_j(t)
+\quad
+\text{for regions } i,j \text{ participating in the percept}.
+$$</div>
+<p>Synchrony is therefore not a coding strategy but a physical signature of a unified field state.</p>
+<h3 id="field-coherence-vs-communication">Field Coherence vs.\ Communication</h3>
+<p>It is tempting to interpret synchrony as a mechanism for information transfer or inter-area communication. This interpretation is misleading. In the AP field framework, synchrony reflects coherence of a single extended system, not signaling between subsystems.</p>
+<p>Regions are synchronous because they are parts of the same field mode, not because they exchange messages.</p>
+<h3 id="illusion-onset-as-a-phase-transition">Illusion Onset as a Phase Transition</h3>
+<p>Empirically, many cross-modal illusions exhibit abrupt onset: the percept &quot;snaps&quot; into place after a brief delay. This phenomenology is naturally interpreted as a field-level phase transition.</p>
+<p>As stimulus parameters cross a critical threshold, the AP field reorganizes into a new global configuration characterized by enhanced coherence.</p>
+<h3 id="temporal-prediction-when-synchrony-must-appear">Temporal Prediction: When Synchrony Must Appear</h3>
+<p>A key prediction follows immediately. Synchrony must:</p>
+<ul class="article-list"><li><p>Appear at or just before subjective illusion onset,</p></li><li><p>Span regions corresponding to all involved modalities,</p></li><li><p>Be absent or weak when the illusion fails to form.</p></li></ul>
+<p>Any theory that predicts synchrony only as a late or epiphenomenal effect is incompatible with the AP field framework.</p>
+<h3 id="frequency-bands-as-field-signatures">Frequency Bands as Field Signatures</h3>
+<p>Different frequency bands correspond to different scales of field coordination. Cross-modal illusions are predicted to preferentially involve bands capable of long-range coherence, such as beta or gamma, depending on task demands.</p>
+<p>The specific band is less important than the emergence of coherence itself.</p>
+<h3 id="why-local-explanations-fail">Why Local Explanations Fail</h3>
+<p>Local circuit explanations struggle to account for the rapid emergence of global synchrony across anatomically distant areas. The AP field framework resolves this by treating the cortex not as a collection of modules but as a continuous excitable medium.</p>
+<p>In such a medium, global modes can emerge on timescales incompatible with stepwise communication.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have argued that:</p>
+<ul class="article-list"><li><p>Cross-modal illusions impose global field constraints,</p></li><li><p>Field coherence necessarily manifests as synchrony,</p></li><li><p>Synchrony must precede or coincide with illusion onset,</p></li><li><p>Abrupt illusion onset reflects field-level phase transitions.</p></li></ul>
+<p>We now turn to concrete predictions and empirical consequences.</p>
+<h3 id="predicting-synchrony-topography">Predicting Synchrony Topography</h3>
+<p>The AP field framework predicts that synchrony during cross-modal illusions will not be confined to classical multisensory hubs. Instead, it will involve distributed regions whose participation is determined by the field mode, not anatomical proximity.</p>
+<p>Thus, synchrony patterns may vary across individuals while preserving global coherence.</p>
+<h3 id="directionality-and-symmetry">Directionality and Symmetry</h3>
+<p>Because synchrony reflects field coherence rather than information flow, it should lack strong directionality. Measures that assume causal influence may therefore underestimate the phenomenon.</p>
+<p>Symmetric coherence measures are better suited to detecting field-level synchrony.</p>
+<h3 id="temporal-precedence-over-behavioral-reports">Temporal Precedence Over Behavioral Reports</h3>
+<p>Synchrony onset should precede behavioral reports of illusion perception. The field must reorganize before the percept becomes accessible to report.</p>
+<p>This provides a clear experimental test: synchrony predicts perception, not vice versa.</p>
+<h3 id="partial-synchrony-and-failed-illusions">Partial Synchrony and Failed Illusions</h3>
+<p>When stimulus conditions are near threshold, partial or transient synchrony may occur without stabilizing into a coherent field mode. Such cases should correlate with ambiguous or unstable percepts.</p>
+<h3 id="learning-and-synchrony-thresholds">Learning and Synchrony Thresholds</h3>
+<p>As discussed in Chapter 7, learning reshapes the AP field’s energy landscape. Repeated exposure to cross-modal illusions should lower the threshold for synchrony onset, leading to faster and more reliable illusion formation.</p>
+<h3 id="relation-to-eeg-and-meg-observations">Relation to EEG and MEG Observations</h3>
+<p>EEG and MEG are particularly well-suited to detecting the predicted synchrony, as they measure large-scale field dynamics directly. Illusion-related changes in coherence should be detectable even when local evoked responses are weak or inconsistent.</p>
+<h3 id="distinguishing-ap-field-predictions-from-alternatives">Distinguishing AP Field Predictions from Alternatives</h3>
+<p>Crucially, the AP field framework predicts:</p>
+<ul class="article-list"><li><p>Synchrony without explicit task demands,</p></li><li><p>Synchrony without increased firing rates,</p></li><li><p>Synchrony that correlates with subjective experience rather than stimulus properties.</p></li></ul>
+<p>These predictions sharply distinguish it from coding or communication theories.</p>
+<h3 id="interpretive-interlude-synchrony-as-perceptual-glue">Interpretive Interlude: Synchrony as Perceptual Glue</h3>
+<p>Synchrony is often described metaphorically as &quot;binding&quot; features. In the AP field framework, this metaphor becomes literal: synchrony is the physical glue that holds a percept together as a single field configuration.</p>
+<h3 id="implications-for-conscious-access">Implications for Conscious Access</h3>
+<p>If conscious access corresponds to the stabilization of a global field mode, then synchrony is not merely associated with consciousness but constitutive of it. Loss of synchrony should entail loss of unified experience, even if local processing persists.</p>
+<h3 id="summary-of-chapter-9">Summary of Chapter 9</h3>
+<p>This chapter has shown that:</p>
+<ul class="article-list"><li><p>Cross-modal illusion-related synchrony is a necessary prediction of AP field theory,</p></li><li><p>Synchrony must precede or coincide with perceptual onset,</p></li><li><p>Its spatial extent reflects field modes, not modular structure,</p></li><li><p>EEG and MEG provide direct empirical access to these dynamics.</p></li></ul>
+<p>The final chapter will synthesize these results to argue that conscious experience corresponds to irreducible global AP field states.</p>
+<h2 id="exact-onset-time-derivation">Exact Onset Time Derivation</h2>
+<h3 id="why-onset-time-matters">Why Onset Time Matters</h3>
+<p>Throughout this work, we have argued that conscious percepts correspond to global configurations of the action potential (AP) field ${A}({r},t)$. A crucial empirical fact now demands theoretical explanation: perceptual experiences, including illusory ones, exhibit a well-defined onset time. Subjects do not report a gradual emergence of experience but a sudden availability to awareness.</p>
+<p>In this chapter, we show that this onset time is not an auxiliary psychological construct. It is a mathematically derivable consequence of AP field dynamics under cross-modal constraint.</p>
+<h3 id="what-is-meant-by-onset-in-a-field-ontology">What Is Meant by Onset in a Field Ontology</h3>
+<p>In a neuron-centric framework, onset is often identified with firing rate thresholds or decision variables. In a field ontology, onset must be defined differently.</p>
+<p>We define the onset time $t_c$ as the earliest time at which the AP field enters a globally coherent configuration satisfying:</p>
+<div class="math-block">$$
+\lim_{|\mathbf{r}-\mathbf{r}'|\to\infty}
+\langle e^{i(\phi(\mathbf{r},t)-\phi(\mathbf{r}',t))} \rangle
+\neq 0.
+$$</div>
+<p>That is, onset corresponds to the establishment of long-range phase coherence.</p>
+<h3 id="the-governing-ap-field-equation">The Governing AP Field Equation</h3>
+<p>We recall the effective AP field equation derived in earlier chapters:</p>
+<div class="math-block">$$
+C(\mathbf{r}) 
+
+\partial_t^2 \mathcal{A}
++ \Gamma(\mathbf{r}) 
+
+\partial_t \mathcal{A}
+=
+\nabla \cdot (\mathbf{G}(\mathbf{r}) \nabla \mathcal{A})
+-
+V'(\mathcal{A})
++
+\sum_k S_k(\mathbf{r},t),
+$$</div>
+<p>where $S_k$ represent stimulus perturbations from different sensory modalities.</p>
+<h3 id="linearized-dynamics-near-rest">Linearized Dynamics Near Rest</h3>
+<p>To determine onset, we analyze the early-time dynamics near the resting state ${A}=0$. Linearizing:</p>
+<div class="math-block">$$
+C 
+
+\partial_t^2 \mathcal{A}
++ \Gamma 
+
+\partial_t \mathcal{A}
+=
+\nabla \cdot (\mathbf{G} \nabla \mathcal{A})
+-
+\alpha \mathcal{A}
++
+\sum_k S_k,
+$$</div>
+<p>with $ = V"(0) > 0$.</p>
+<p>This regime governs the pre-conscious evolution of the field.</p>
+<h3 id="mode-decomposition">Mode Decomposition</h3>
+<p>Expand the field in spatial eigenmodes:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+=
+\sum_n a_n(t)\psi_n(\mathbf{r}),
+$$</div>
+<p>where \[ - ({G} _n) = _n _n. \]</p>
+<p>Each mode evolves independently at early times.</p>
+<h3 id="temporal-evolution-of-modes">Temporal Evolution of Modes</h3>
+<p>Each mode satisfies:</p>
+<div class="math-block">$$
+C \ddot{a}_n + \Gamma \dot{a}_n + (\alpha + \lambda_n)a_n = F_n(t),
+$$</div>
+<p>where $F_n$ is the projection of the stimulus onto mode $n$.</p>
+<p>Solutions exhibit damped growth or decay depending on forcing and effective stiffness.</p>
+<h3 id="why-onset-is-not-mode-specific">Why Onset Is Not Mode-Specific</h3>
+<p>Importantly, no single mode corresponds to conscious onset. Onset requires the simultaneous stabilization of a *set* of modes whose phases become locked. Thus, onset is a collective phenomenon.</p>
+<h3 id="defining-a-global-order-parameter">Defining a Global Order Parameter</h3>
+<p>Introduce a global coherence order parameter:</p>
+<div class="math-block">$$
+R(t) =
+\left|
+\frac{1}{N}\sum_{n \in \mathcal{M}}
+\frac{a_n(t)}{|a_n(t)|}
+\right|,
+$$</div>
+<p>where ${M}$ is the set of relevant modes.</p>
+<p>Onset occurs when $R(t)$ crosses a critical value $R_c$.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have:</p>
+<ul class="article-list"><li><p>Defined onset as global phase coherence,</p></li><li><p>Linearized AP field dynamics near rest,</p></li><li><p>Shown that onset is a collective, not local, event,</p></li><li><p>Introduced an explicit order parameter for consciousness onset.</p></li></ul>
+<p>We now derive the exact onset time.</p>
+<h3 id="phase-dynamics-of-field-modes">Phase Dynamics of Field Modes</h3>
+<p>Write each mode as:</p>
+<div class="math-block">$$
+a_n(t) = A_n(t)e^{i\phi_n(t)}.
+$$</div>
+<p>Under weak nonlinearity and shared forcing, the phases obey an effective Kuramoto-type equation:</p>
+<div class="math-block">$$
+\dot{\phi}_n
+=
+\omega_n
++
+\sum_{m \in \mathcal{M}} K_{nm}\sin(\phi_m-\phi_n).
+$$</div>
+<p>The coupling matrix $K_{nm}$ arises from nonlinear terms in $V$ and shared stimulus structure.</p>
+<h3 id="critical-coupling-condition">Critical Coupling Condition</h3>
+<p>Global phase locking occurs when the effective coupling exceeds a critical value:</p>
+<div class="math-block">$$
+K_{\text{eff}} > K_c = 2\Delta\omega,
+$$</div>
+<p>where $$ is the dispersion of intrinsic mode frequencies.</p>
+<p>This condition defines whether onset is possible at all.</p>
+<h3 id="time-to-synchronization">Time to Synchronization</h3>
+<p>For $K_{{eff}} > K_c$, the time to synchronization is finite and given approximately by:</p>
+<div class="math-block">$$
+t_c
+\approx
+\frac{1}{K_{\text{eff}} - K_c}
+\ln\left(\frac{R_c}{R(0)}\right).
+$$</div>
+<p>This is the exact onset time prediction of AP field theory.</p>
+<h3 id="dependence-on-stimulus-and-learning">Dependence on Stimulus and Learning</h3>
+<p>The parameters entering $t_c$ depend on:</p>
+<ul class="article-list"><li><p>Stimulus strength and coherence (affecting $K_{{eff}}$),</p></li><li><p>Learned field structure (affecting $$),</p></li><li><p>Baseline noise and dissipation (affecting $R(0)$).</p></li></ul>
+<p>Thus, onset time is predictable but variable.</p>
+<h3 id="why-onset-appears-abrupt">Why Onset Appears Abrupt</h3>
+<p>Although synchronization takes finite time, the growth of $R(t)$ near $t_c$ is steep:</p>
+<div class="math-block">$$
+R(t) \sim \sqrt{t-t_c}.
+$$</div>
+<p>This produces the phenomenology of sudden perceptual availability.</p>
+<h3 id="cross-modal-specificity">Cross-modal Specificity</h3>
+<p>Cross-modal illusions increase $K_{{eff}}$ by aligning forcing across sensory channels. This predicts shorter onset times for multisensory illusions compared to unimodal ambiguity.</p>
+<h3 id="irreducibility-of-onset-time">Irreducibility of Onset Time</h3>
+<p>Crucially, $t_c$ cannot be reduced to the firing time of any neuron or local circuit. It depends on:</p>
+<ul class="article-list"><li><p>Global mode dispersion,</p></li><li><p>Distributed coupling structure,</p></li><li><p>Field-wide coherence thresholds.</p></li></ul>
+<p>Onset time is therefore an irreducible system-level quantity.</p>
+<h3 id="empirical-consequences">Empirical Consequences</h3>
+<p>The theory predicts:</p>
+<ul class="article-list"><li><p>Trial-to-trial variability correlated with coherence measures,</p></li><li><p>Earlier synchrony predicting earlier subjective reports,</p></li><li><p>Modulation of onset time by learning and expectation.</p></li></ul>
+<p>These predictions are testable with EEG and MEG.</p>
+<h3 id="interpretive-interlude-why-experience-has-a-moment-of-birth">Interpretive Interlude: Why Experience Has a Moment of Birth</h3>
+<p>The AP field does not gradually become conscious. It undergoes a qualitative reorganization. The moment this reorganization completes is the moment experience becomes available. That moment has a time.</p>
+<h3 id="summary-of-chapter-10">Summary of Chapter 10</h3>
+<p>We have shown that:</p>
+<ul class="article-list"><li><p>Conscious onset corresponds to global phase locking,</p></li><li><p>The onset time $t_c$ is explicitly derivable,</p></li><li><p>$t_c$ depends on field-level parameters,</p></li><li><p>Onset time is irreducible to local dynamics.</p></li></ul>
+<p>This completes the mathematical arc of the work.</p>
+<h2 id="independent-component-analysis-before-and-after-onset-time">Independent Component Analysis Before and After Onset Time</h2>
+<h3 id="why-ica-is-a-critical-test">Why ICA Is a Critical Test</h3>
+<p>Independent Component Analysis (ICA) occupies a privileged position in neuroscience. It is not a biophysical model but a mathematical decomposition that assumes data arise from a linear mixture of statistically independent sources. Its widespread success in EEG and MEG analysis has often been interpreted as evidence that brain activity is fundamentally modular.</p>
+<p>In this chapter, we show that ICA does not reveal neural ontology. It reveals regime. Specifically, ICA behaves qualitatively differently before and after the onset time $t_c$ derived in Chapter 10. This change is not an artifact but a direct signature of AP field reorganization.</p>
+<h3 id="the-ica-model">The ICA Model</h3>
+<p>Standard ICA assumes that observed signals ${x}(t)$ arise from:</p>
+<div class="math-block">$$
+\mathbf{x}(t) = \mathbf{A}\mathbf{s}(t),
+$$</div>
+<p>where ${s}(t)$ are statistically independent sources and ${A}$ is a fixed mixing matrix.</p>
+<p>Crucially, ICA assumes:</p>
+<ul class="article-list"><li><p>Linear superposition,</p></li><li><p>Statistical independence of sources,</p></li><li><p>Stationarity over the analysis window.</p></li></ul>
+<p>Each of these assumptions will be violated after AP field onset.</p>
+<h3 id="eeg-as-a-projection-of-the-ap-field">EEG as a Projection of the AP Field</h3>
+<p>EEG measurements reflect linear projections of the AP field:</p>
+<div class="math-block">$$
+x_i(t) = \int G_i(\mathbf{r}) \mathcal{A}(\mathbf{r},t)\,d^3r,
+$$</div>
+<p>where $G_i$ are lead fields. ICA therefore operates not on neurons, but on spatially filtered samples of the AP field.</p>
+<p>Thus, ICA results depend on the field’s dynamical regime.</p>
+<h3 id="pre-onset-dynamics-weakly-coupled-modes">Pre-Onset Dynamics: Weakly Coupled Modes</h3>
+<p>Before onset time $t_c$, the AP field evolves in the linear or weakly nonlinear regime described in Chapter 10. Field modes are weakly coupled, phases are dispersed, and global coherence is absent.</p>
+<p>In this regime, the field admits an approximate decomposition:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+\approx
+\sum_n a_n(t)\psi_n(\mathbf{r}),
+$$</div>
+<p>with low mutual dependence between modes.</p>
+<h3 id="why-ica-works-before-onset">Why ICA Works Before Onset</h3>
+<p>Because pre-onset modes are weakly coupled, their projections onto EEG channels exhibit low mutual information. ICA can therefore recover components that are:</p>
+<ul class="article-list"><li><p>Spatially localized,</p></li><li><p>Spectrally distinct,</p></li><li><p>Approximately independent.</p></li></ul>
+<p>This explains the empirical success of ICA in removing artifacts and isolating sensory components during early stimulus processing.</p>
+<h3 id="onset-as-a-breakdown-of-independence">Onset as a Breakdown of Independence</h3>
+<p>At onset time $t_c$, global phase locking occurs. The AP field enters a coherent configuration in which previously independent modes become phase-coupled:</p>
+<div class="math-block">$$
+\phi_n(t) \approx \phi_m(t)
+\quad \forall n,m \in \mathcal{M}.
+$$</div>
+<p>This coupling invalidates the statistical independence assumption at the heart of ICA.</p>
+<h3 id="what-ica-returns-after-onset">What ICA Returns After Onset</h3>
+<p>After onset, ICA does not fail outright. Instead, it returns components that are:</p>
+<ul class="article-list"><li><p>Less stable across runs,</p></li><li><p>More spatially distributed,</p></li><li><p>Strongly dependent in time and phase.</p></li></ul>
+<p>These components no longer correspond to underlying sources but to mathematical compromises forced by the algorithm.</p>
+<h3 id="misinterpretations-of-post-onset-ica">Misinterpretations of Post-Onset ICA</h3>
+<p>Post-onset ICA components are often misinterpreted as evidence for multiple parallel processes underlying a single percept. In the AP field framework, this is a category error. The percept corresponds to a single global field mode that ICA is artificially fragmenting.</p>
+<h3 id="summary-of-part-i">Summary of Part I</h3>
+<p>In this part, we have shown that:</p>
+<ul class="article-list"><li><p>ICA assumptions hold approximately before onset,</p></li><li><p>Onset corresponds to a breakdown of source independence,</p></li><li><p>ICA behavior changes qualitatively across $t_c$,</p></li><li><p>This change reflects field reorganization, not noise.</p></li></ul>
+<p>We now examine concrete predictions and experimental consequences.</p>
+<h3 id="predicted-ica-signature-of-onset">Predicted ICA Signature of Onset</h3>
+<p>The AP field framework predicts a specific ICA signature at onset time $t_c$:</p>
+<ul class="article-list"><li><p>A sudden increase in mutual information between components,</p></li><li><p>Reduced reproducibility of component topographies,</p></li><li><p>Emergence of strong cross-component phase locking.</p></li></ul>
+<p>These changes should align temporally with subjective perceptual onset.</p>
+<h3 id="beforeafter-ica-comparison-protocol">Before–After ICA Comparison Protocol</h3>
+<p>A principled analysis proceeds by performing ICA on sliding windows before and after $t_c$. Let ${s}_{{pre}}$ and ${s}_{{post}}$ denote the resulting components.</p>
+<p>The prediction is:</p>
+<div class="math-block">$$
+I(\mathbf{s}_{\text{post}}) \gg I(\mathbf{s}_{\text{pre}}),
+$$</div>
+<p>where $I$ denotes total mutual information.</p>
+<h3 id="relation-to-component-stability">Relation to Component Stability</h3>
+<p>Component stability across trials is often used as a quality metric. The AP field framework predicts a sharp decline in stability after onset, reflecting the fact that the decomposition no longer aligns with true field structure.</p>
+<h3 id="why-increasing-model-order-does-not-help">Why Increasing Model Order Does Not Help</h3>
+<p>One might attempt to rescue ICA by increasing the number of components. This fails in principle. No finite set of independent components can represent a globally coherent field mode without violating independence.</p>
+<p>This failure is not practical but mathematical.</p>
+<h3 id="field-coherence-vs-linear-mixing">Field Coherence vs.\ Linear Mixing</h3>
+<p>After onset, the EEG signal is better described as a manifestation of a single, high-dimensional coherent process rather than a mixture of independent sources. Linear mixing models are therefore fundamentally misaligned with the underlying dynamics.</p>
+<h3 id="ica-dimensionality-and-consciousness">ICA, Dimensionality, and Consciousness</h3>
+<p>The apparent dimensionality of EEG data often decreases after perceptual onset. In the AP field framework, this reflects collapse onto a global field mode. ICA obscures this collapse by enforcing artificial separation.</p>
+<h3 id="interpretive-interlude-when-decomposition-stops-making-sense">Interpretive Interlude: When Decomposition Stops Making Sense</h3>
+<p>Decomposition is a powerful analytic strategy—but only when the system admits it. Conscious onset marks the moment when decomposition ceases to be faithful. The failure of ICA is not a limitation of the method; it is evidence of irreducibility.</p>
+<h3 id="relation-to-other-decomposition-methods">Relation to Other Decomposition Methods</h3>
+<p>Similar before–after transitions should be observed for PCA, NMF, and other linear methods, though ICA is particularly sensitive due to its independence criterion.</p>
+<p>Nonlinear manifold methods may fare better but still cannot restore independence.</p>
+<h3 id="experimental-falsifiability">Experimental Falsifiability</h3>
+<p>The theory can be falsified if:</p>
+<ul class="article-list"><li><p>ICA independence remains unchanged across onset,</p></li><li><p>Post-onset components show no increase in mutual dependence,</p></li><li><p>Decomposition quality improves after perceptual unification.</p></li></ul>
+<p>Such outcomes would directly contradict the AP field framework.</p>
+<h3 id="summary-of-chapter-11">Summary of Chapter 11</h3>
+<p>This chapter has demonstrated that:</p>
+<ul class="article-list"><li><p>ICA behavior depends on AP field regime,</p></li><li><p>Independence holds before but not after onset,</p></li><li><p>Decomposition failure is a signature of global coherence,</p></li><li><p>Irreducibility becomes empirically visible in data analysis.</p></li></ul>
+<p>With this chapter, the methodological and theoretical arcs of the work converge.</p>
+<h2 id="python-examples-ap-field-onset-synchrony-and-ica-before-and-after">Python Examples: AP Field Onset, Synchrony, and ICA Before and After</h2>
+<h3 id="purpose-of-this-chapter">Purpose of This Chapter</h3>
+<p>This chapter provides concrete computational demonstrations of the claims developed throughout this work. While previous chapters derived field equations, synchronization conditions, onset times, and irreducibility arguments analytically, the present chapter shows how these structures manifest in data analysis pipelines commonly used in neuroscience.</p>
+<p>The intent is not to construct a biophysically complete neural model. Instead, the goal is structural fidelity: to demonstrate that once a system undergoes a transition from weakly coupled dynamics to global phase coherence, standard decomposition techniques such as Independent Component Analysis (ICA) must change behavior in precisely the manner predicted by AP field theory.</p>
+<h3 id="what-is-being-demonstrated">What Is Being Demonstrated</h3>
+<p>The simulations in this chapter demonstrate four central claims:</p>
+<ol class="article-list"><li><p>Before onset time $t_c$, AP field modes are weakly coupled and approximately independent.</p></li><li><p>At onset, a synchronization transition occurs.</p></li><li><p>After onset, statistical independence between components collapses.</p></li><li><p>ICA performs well before onset and degrades after onset for principled reasons.</p></li></ol>
+<p>Each demonstration corresponds directly to results derived in Chapters 9–11.</p>
+<h3 id="minimal-computational-model">Minimal Computational Model</h3>
+<p>We model the AP field as a set of spatial modes with evolving phases and amplitudes. Prior to onset, the modes evolve independently. After onset, they are coupled through a Kuramoto-type interaction that produces global phase locking.</p>
+<p>This model is intentionally minimal. It isolates the dynamical feature that matters for irreducibility: phase coherence.</p>
+<h3 id="simulation-of-ap-field-modes">Simulation of AP Field Modes</h3>
+<pre class="code-block">\caption{Simulation of AP Field Modes}
+\begin{algorithmic}[1]
+\STATE Initialize random number generator
+\STATE Choose number of modes $N$
+\STATE Sample intrinsic frequencies $\omega_n$
+\STATE Initialize phases $\phi_n \sim U(0,2\pi)$
+\FOR{each time step $t_k$}
+    \FOR{each mode $n$}
+        \STATE Compute coupling term
+        \[
+        K_n = K \sum_{m} \sin(\phi_m - \phi_n)
+        \]
+        \STATE Update phase:
+        \[
+        \phi_n \leftarrow \phi_n + (\omega_n + K_n)\Delta t + \eta_n
+        \]
+    \ENDFOR
+    \STATE Store mode signal $A_n(t_k) = \sin(\phi_n)$
+\ENDFOR
+\STATE \textbf{return} mode matrix $A$
+\end{algorithmic}</pre>
+<p>Here, $K$ is the coupling parameter. Small $K$ corresponds to pre-onset dynamics; large $K$ produces post-onset synchronization.</p>
+<h3 id="pre-onset-regime">Pre-Onset Regime</h3>
+<p>In the pre-onset regime, $K 0$. Modes evolve independently, phases drift, and no global structure emerges. This corresponds to the linearized AP field regime discussed in Chapter 10.</p>
+<p>Empirically, this regime supports approximate decomposition into independent components.</p>
+<h3 id="post-onset-regime">Post-Onset Regime</h3>
+<p>In the post-onset regime, $K > K_c$, where $K_c$ is the critical coupling derived in Chapter 10. Modes synchronize, phase dispersion collapses, and a global field mode emerges.</p>
+<p>This regime corresponds to conscious or illusory percept formation.</p>
+<h3 id="modeling-eeg-sensors-as-linear-projections">Modeling EEG Sensors as Linear Projections</h3>
+<p>EEG electrodes measure linear projections of the AP field. We simulate this using a random mixing matrix.</p>
+<pre class="code-block">\caption{Linear Mixing to Simulate EEG Sensors}
+\begin{algorithmic}[1]
+\STATE Generate random mixing matrix $M \in \mathbb{R}^{C \times N}$
+\STATE Compute sensor signals:
+\[
+X = M A
+\]
+\STATE \textbf{return} sensor matrix $X$
+\end{algorithmic}</pre>
+<p>This mirrors the lead-field mapping discussed in Chapter 6.</p>
+<h3 id="independent-component-analysis">Independent Component Analysis</h3>
+<p>ICA attempts to recover statistically independent sources from sensor signals.</p>
+<pre class="code-block">\caption{Independent Component Analysis}
+\begin{algorithmic}[1]
+\STATE Center and whiten sensor matrix $X$
+\STATE Initialize unmixing matrix $W$
+\REPEAT
+    \STATE Update $W$ using negentropy maximization
+    \STATE Normalize rows of $W$
+\UNTIL{convergence}
+\STATE Compute components $S = WX$
+\STATE \textbf{return} $S$
+\end{algorithmic}</pre>
+<p>ICA implicitly assumes that the underlying sources are independent and stationary over the analysis window.</p>
+<h3 id="ica-before-onset">ICA Before Onset</h3>
+<p>Applying ICA to pre-onset sensor data yields components that are:</p>
+<ul class="article-list"><li><p>Spatially stable,</p></li><li><p>Temporally distinct,</p></li><li><p>Weakly correlated.</p></li></ul>
+<p>This reflects the weak coupling of AP field modes in the pre-onset regime.</p>
+<h3 id="ica-after-onset">ICA After Onset</h3>
+<p>Applying ICA to post-onset data produces components that:</p>
+<ul class="article-list"><li><p>Are unstable across runs,</p></li><li><p>Show strong mutual dependence,</p></li><li><p>Appear redundant or fragmented.</p></li></ul>
+<p>This degradation is not a numerical artifact. It reflects the violation of ICA’s independence assumption after global phase locking.</p>
+<h3 id="quantifying-independence">Quantifying Independence</h3>
+<p>We quantify independence using mean absolute correlation between components.</p>
+<pre class="code-block">\caption{Mean Absolute Correlation Between Components}
+\begin{algorithmic}[1]
+\STATE Compute correlation matrix $C = \text{corr}(S)$
+\STATE Extract off-diagonal elements of $C$
+\STATE Compute mean absolute value
+\STATE \textbf{return} mean correlation
+\end{algorithmic}</pre>
+<p>AP field theory predicts a sharp increase in this quantity after onset.</p>
+<h3 id="global-synchrony-order-parameter">Global Synchrony Order Parameter</h3>
+<p>We compute a global coherence measure using instantaneous phase.</p>
+<pre class="code-block">\caption{Phase Coherence Order Parameter}
+\begin{algorithmic}[1]
+\STATE Compute analytic signal via Hilbert transform
+\STATE Extract instantaneous phases $\phi_i(t)$
+\STATE Compute coherence:
+\[
+R(t) = \left| \frac{1}{C} \sum_i e^{i\phi_i(t)} \right|
+\]
+\STATE \textbf{return} $R(t)$
+\end{algorithmic}</pre>
+<p>A sharp rise in $R(t)$ marks the onset time $t_c$.</p>
+<h3 id="estimating-onset-via-coupling-ramp">Estimating Onset via Coupling Ramp</h3>
+<p>To visualize the onset transition, we simulate a gradual increase in coupling strength.</p>
+<pre class="code-block">\caption{Coupling Ramp Simulation}
+\begin{algorithmic}[1]
+\FOR{each coupling value $K$}
+    \STATE Simulate AP field modes
+    \STATE Mix to sensors
+    \STATE Compute mean coherence $\langle R \rangle$
+\ENDFOR
+\STATE Plot $\langle R \rangle$ versus $K$
+\end{algorithmic}</pre>
+<p>The inflection point corresponds to the critical coupling and thus to the onset time predicted analytically.</p>
+<h3 id="why-ica-must-fail-after-onset">Why ICA Must Fail After Onset</h3>
+<p>After onset, the EEG signal is not a linear mixture of independent sources. It is the expression of a single, globally coherent field state. No increase in model order can restore independence without destroying the structure that defines the percept.</p>
+<p>This failure is therefore principled, not methodological.</p>
+<h3 id="relation-to-empirical-eeg-data">Relation to Empirical EEG Data</h3>
+<p>Empirical EEG studies consistently show:</p>
+<ul class="article-list"><li><p>Increased coherence near perceptual onset,</p></li><li><p>Reduced effectiveness of component separation,</p></li><li><p>Collapse of dimensionality during unified experience.</p></li></ul>
+<p>These findings align directly with AP field predictions.</p>
+<h3 id="what-would-falsify-the-theory">What Would Falsify the Theory</h3>
+<p>The AP field framework would be challenged if:</p>
+<ul class="article-list"><li><p>ICA independence improved after perceptual onset,</p></li><li><p>Global coherence failed to increase near onset,</p></li><li><p>Onset time showed no relation to synchrony.</p></li></ul>
+<p>The simulations in this chapter make these criteria explicit.</p>
+<h3 id="interpretive-interlude-when-decomposition-ceases-to-be-valid">Interpretive Interlude: When Decomposition Ceases to Be Valid</h3>
+<p>Decomposition is a powerful analytic tool, but only when the system admits it. Conscious onset marks the transition to a regime in which decomposition destroys explanatory adequacy. This transition is visible directly in data.</p>
+<h3 id="summary-of-chapter-12">Summary of Chapter 12</h3>
+<p>This chapter has:</p>
+<ul class="article-list"><li><p>Implemented a minimal AP field–inspired dynamical model,</p></li><li><p>Demonstrated synchronization-driven onset,</p></li><li><p>Shown principled ICA degradation after onset,</p></li><li><p>Connected theory, phenomenology, and analysis practice.</p></li></ul>
+<p>With this chapter, the theoretical arc of the work is computationally closed.</p>
+<h2 id="integrated-information-theory-for-ap-fields">Integrated Information Theory for AP Fields</h2>
+<h3 id="why-iit-must-be-revisited-in-a-field-ontology">Why IIT Must Be Revisited in a Field Ontology</h3>
+<p>Integrated Information Theory (IIT) is among the most ambitious attempts to formalize consciousness. Its central claim—that consciousness corresponds to the degree of integrated information in a system—has sparked extensive debate, largely because IIT has been formulated within a discrete, network-centric ontology.</p>
+<p>In this chapter, we argue that the core insight of IIT is correct but misplaced. Integration is not fundamentally a property of networks of elements; it is a property of continuous excitable fields. When reformulated at the level of the action potential (AP) field, integration becomes both mathematically tractable and empirically anchored.</p>
+<h3 id="the-core-idea-of-iit">The Core Idea of IIT</h3>
+<p>At its heart, IIT asserts three claims:</p>
+<ol class="article-list"><li><p>Conscious systems have intrinsic cause–effect power.</p></li><li><p>This power is irreducible to that of subsystems.</p></li><li><p>The degree of irreducibility can be quantified as integrated information, often denoted $$.</p></li></ol>
+<p>While these claims are conceptually compelling, their implementation in terms of discrete elements and partitions has proven problematic.</p>
+<h3 id="limitations-of-discrete-iit">Limitations of Discrete IIT</h3>
+<p>Standard IIT formulations assume:</p>
+<ul class="article-list"><li><p>A finite set of elements,</p></li><li><p>Discrete system states,</p></li><li><p>Explicit partitions between subsystems.</p></li></ul>
+<p>In biological brains, none of these assumptions holds naturally. Neuronal boundaries are porous, states are continuous, and partitions are observer-imposed rather than intrinsic.</p>
+<p>These limitations motivate a field-based reformulation.</p>
+<h3 id="the-ap-field-as-the-natural-substrate-of-integration">The AP Field as the Natural Substrate of Integration</h3>
+<p>The AP field ${A}({r},t)$ introduced in earlier chapters is a continuous, excitable medium spanning cortex and subcortical structures. It possesses intrinsic dynamics, causal closure at the field level, and global modes that cannot be decomposed without loss.</p>
+<p>These properties align precisely with IIT’s desiderata, but without the need for discrete elements.</p>
+<h3 id="causal-power-in-field-terms">Causal Power in Field Terms</h3>
+<p>In a field ontology, causal power is expressed through the field equation:</p>
+<div class="math-block">$$
+C(\mathbf{r}) 
+
+\partial_t^2 \mathcal{A}
++ \Gamma(\mathbf{r}) 
+
+\partial_t \mathcal{A}
+=
+\nabla \cdot (\mathbf{G}(\mathbf{r}) \nabla \mathcal{A})
+-
+V'(\mathcal{A})
++
+S(\mathbf{r},t).
+$$</div>
+<p>The future evolution of the field depends on its current global configuration. This dependence is intrinsic and does not rely on external observers or partitions.</p>
+<h3 id="what-integration-means-for-a-field">What Integration Means for a Field</h3>
+<p>Integration, in the AP field framework, corresponds to the inability to factor the field’s dynamics into independent subfields:</p>
+<div class="math-block">$$
+\mathcal{A}(\mathbf{r},t)
+\neq
+\mathcal{A}_1(\mathbf{r},t) + \mathcal{A}_2(\mathbf{r},t)
+\quad \text{with independent dynamics.}
+$$</div>
+<p>This failure of factorization is precisely what was observed operationally in Chapter 11 via the breakdown of ICA after onset.</p>
+<h3 id="field-theoretic-integrated-information">Field-Theoretic Integrated Information</h3>
+<p>We now define a field-theoretic analog of $$. Let ${P}$ be a partition of space into two regions $_1$ and $_2$. Define the full field evolution operator ${E}$ and the partitioned operator ${E}_{{P}}$ in which coupling terms across the boundary are removed.</p>
+<p>Then define:</p>
+<div class="math-block">$$
+\Phi_{\text{field}}
+=
+D\!\left(
+\mathcal{E}[\mathcal{A}(t)]
+\;\|\;
+\mathcal{E}_{\mathcal{P}}[\mathcal{A}(t)]
+\right),
+$$</div>
+<p>where $D(\|)$ is an appropriate distance between field evolutions (e.g., trajectory divergence or information-theoretic distance).</p>
+<h3 id="why-field-is-intrinsic">Why $_{{field}}$ Is Intrinsic</h3>
+<p>Unlike discrete IIT measures, $_{{field}}$ does not depend on arbitrary choices of elements. Partitions are geometric and physically defined. Coupling terms arise from the field equation itself, not from modeler decisions.</p>
+<p>Thus, integration is an intrinsic property of the AP field.</p>
+<h3 id="relation-between-field-and-synchrony">Relation Between $_{{field}}$ and Synchrony</h3>
+<p>Global phase locking, derived in Chapters 9 and 10, implies high $_{{field}}$. Removing couplings destroys both synchrony and integrated information.</p>
+<p>Thus:</p>
+<div class="math-block">$$
+\Phi_{\text{field}} > 0
+\quad \Longleftrightarrow \quad
+\text{Global field coherence}.
+$$</div>
+<p>This provides a dynamical interpretation of integration.</p>
+<h3 id="onset-time-as-the-rise-of-integrated-information">Onset Time as the Rise of Integrated Information</h3>
+<p>The onset time $t_c$ derived in Chapter 10 corresponds to the moment at which $_{{field}}$ becomes nonzero or sharply increases.</p>
+<p>Before onset, the field is decomposable; after onset, it is not. This gives $$ a precise temporal meaning absent in standard IIT.</p>
+<h3 id="why-decomposition-fails-after-onset">Why Decomposition Fails After Onset</h3>
+<p>As shown in Chapter 11, ICA fails after onset because the AP field has entered a regime of high integration. Statistical independence no longer exists because the field’s causal structure is unified.</p>
+<p>This failure is not a methodological weakness but a signature of high $_{{field}}$.</p>
+<h3 id="comparing-ap-field-iit-to-standard-iit">Comparing AP Field IIT to Standard IIT</h3>
+<div class="callout-block"><p>{lll} Standard IIT &amp; AP Field IIT</p>
+<p>Discrete elements &amp; Continuous field</p>
+<p>State transitions &amp; Field evolution</p>
+<p>Partition by nodes &amp; Partition by space</p>
+<p>Abstract $$ &amp; Dynamical $_{{field}}$</p>
+<p>Hard to compute &amp; Empirically estimable</p></div>
+<h3 id="empirical-accessibility">Empirical Accessibility</h3>
+<p>Because $_{{field}}$ is tied to coherence and coupling, it can be estimated indirectly via EEG/MEG measures of synchrony, phase locking, and dimensionality collapse.</p>
+<p>Thus, AP field IIT is not merely conceptual but experimentally grounded.</p>
+<h3 id="avoiding-panpsychism">Avoiding Panpsychism</h3>
+<p>A common criticism of IIT is its apparent panpsychist implication. In the AP field framework, this concern is mitigated. Integration depends on specific dynamical regimes—global phase locking in excitable fields— not merely on connectivity.</p>
+<p>Many physical systems have low or zero $_{{field}}$.</p>
+<h3 id="interpretive-interlude-integration-without-enumeration">Interpretive Interlude: Integration Without Enumeration</h3>
+<p>The brain does not enumerate its elements or evaluate partitions. Integration is not computed; it is realized dynamically. The AP field does not ask whether it is integrated—it becomes integrated.</p>
+<h3 id="implications-for-consciousness">Implications for Consciousness</h3>
+<p>If consciousness corresponds to high $_{{field}}$, then it is:</p>
+<ul class="article-list"><li><p>A global property,</p></li><li><p>Temporally emergent,</p></li><li><p>Destroyed by decomposition,</p></li><li><p>Irreducible by construction.</p></li></ul>
+<p>This aligns precisely with the phenomenology of unified experience.</p>
+<h3 id="what-this-reformulation-achieves">What This Reformulation Achieves</h3>
+<p>By embedding IIT within AP field theory, we achieve:</p>
+<ul class="article-list"><li><p>A natural substrate for integration,</p></li><li><p>A dynamical onset time,</p></li><li><p>Empirical observability,</p></li><li><p>Freedom from arbitrary discretization.</p></li></ul>
+<h3 id="summary-of-chapter-13">Summary of Chapter 13</h3>
+<p>This chapter has shown that:</p>
+<ul class="article-list"><li><p>IIT’s core insight survives a field reformulation,</p></li><li><p>Integration is a property of AP field dynamics,</p></li><li><p>$$ corresponds to non-factorizability of field evolution,</p></li><li><p>Consciousness aligns with high $_{{field}}$ after onset.</p></li></ul>
+<p>In the concluding chapter, we synthesize all results to argue formally that conscious experience corresponds to irreducible global AP field states—and cannot be decomposed without conceptual loss.</p>
+<h2 id="ap-field-theory-in-curved-spacetime">AP Field Theory in Curved Spacetime</h2>
+<h3 id="why-curved-spacetime-enters-the-theory">Why Curved Spacetime Enters the Theory</h3>
+<p>Up to this point, the action potential (AP) field ${A}({r},t)$ has been treated as evolving on a flat, Euclidean spatial substrate. This approximation is sufficient for many purposes, but it obscures a deeper and more unifying fact: the AP field is naturally defined on a curved, heterogeneous manifold whose geometry is determined by anatomy, development, and long-range connectivity.</p>
+<p>In this chapter, we show that AP field theory generalizes naturally to curved spacetime. This generalization is not an appeal to relativistic brain dynamics, but a recognition that cortical tissue is best modeled as a curved, anisotropic manifold embedded in physical space.</p>
+<p>Crucially, the core claims of this work—global coherence, onset time, and irreducibility—remain intact under this generalization.</p>
+<h3 id="the-brain-as-a-geometric-manifold">The Brain as a Geometric Manifold</h3>
+<p>Cortex is not a flat sheet. It is a folded, layered, anisotropic structure with spatially varying conductivity, thickness, and connectivity. These properties are more naturally encoded as a metric on a manifold than as perturbations of a flat domain.</p>
+<p>We therefore model the spatial substrate as a three-dimensional Riemannian manifold $({M}, g_{ij})$, with coordinates $x^i = (x^1,x^2,x^3)$ and metric tensor $g_{ij}(x)$.</p>
+<p>Time remains a distinguished parameter, yielding a $(3+1)$-dimensional spacetime description suitable for excitable media.</p>
+<h3 id="field-variables-on-a-curved-manifold">Field Variables on a Curved Manifold</h3>
+<p>The AP field is now written as: \[ {A} : {M} {R} {R}, (x,t) {A}(x,t). \]</p>
+<p>Spatial derivatives are replaced by covariant derivatives compatible with the metric $g_{ij}$. All physical quantities must transform covariantly under coordinate changes.</p>
+<h3 id="the-ap-field-action-in-curved-spacetime">The AP Field Action in Curved Spacetime</h3>
+<p>We generalize the flat-space action to:</p>
+<div class="math-block">$$
+S[\mathcal{A}]
+=
+\int dt \int_{\mathcal{M}} d^3x \sqrt{g}
+\left[
+\frac{C(x)}{2}(
+
+\partial_t \mathcal{A})^2
+-
+\frac{1}{2}
+g^{ij}(x)\nabla_i \mathcal{A}\,\nabla_j \mathcal{A}
+-
+V(\mathcal{A})
++
+\mathcal{A} J(x,t)
+\right],
+$$</div>
+<p>where:</p>
+<ul class="article-list"><li><p>$g = (g_{ij})$,</p></li><li><p>$_i$ is the Levi–Civita covariant derivative,</p></li><li><p>$C(x)$ encodes local capacitance,</p></li><li><p>$V({A})$ is the excitable potential,</p></li><li><p>$J$ represents external input.</p></li></ul>
+<p>This action is invariant under diffeomorphisms of ${M}$.</p>
+<h3 id="eulerlagrange-equation-on-a-curved-manifold">Euler–Lagrange Equation on a Curved Manifold</h3>
+<p>Varying the action yields the curved-space AP field equation:</p>
+<div class="math-block">$$
+C(x)
+
+\partial_t^2 \mathcal{A}
++
+\Gamma(x)
+
+\partial_t \mathcal{A}
+=
+\frac{1}{\sqrt{g}}
+\nabla_i
+\left(
+\sqrt{g}\,g^{ij}\nabla_j \mathcal{A}
+\right)
+-
+V'(\mathcal{A})
++
+J(x,t),
+$$</div>
+<p>where $(x)$ represents dissipation.</p>
+<p>The spatial operator is the Laplace–Beltrami operator on ${M}$.</p>
+<h3 id="interpretation-of-curvature">Interpretation of Curvature</h3>
+<p>Curvature in this framework has a clear interpretation. It does not represent gravitational effects. Instead, it encodes:</p>
+<ul class="article-list"><li><p>Cortical folding and topology,</p></li><li><p>Directional axonal conductivity,</p></li><li><p>Heterogeneous tissue properties,</p></li><li><p>Long-range shortcuts induced by white-matter tracts.</p></li></ul>
+<p>Different brain regions correspond to different geometric structures within the same field theory.</p>
+<h3 id="mode-structure-in-curved-geometry">Mode Structure in Curved Geometry</h3>
+<p>As in flat space, we decompose the field into spatial modes:</p>
+<div class="math-block">$$
+\mathcal{A}(x,t)
+=
+\sum_n a_n(t)\psi_n(x),
+$$</div>
+<p>where the modes satisfy: \[ -_g _n = _n _n, _g = {1}{{g}} _i({g}g^{ij}_j). \]</p>
+<p>Curvature modifies the spectrum ${_n}$ and hence the intrinsic mode frequencies.</p>
+<h3 id="curvature-and-synchronization">Curvature and Synchronization</h3>
+<p>The onset of global phase locking depends on the dispersion of mode frequencies. Curvature directly affects this dispersion by reshaping the eigenvalue spectrum of the Laplace–Beltrami operator.</p>
+<p>Thus, anatomical geometry influences the onset time $t_c$ derived in Chapter 10 without altering its conceptual role.</p>
+<h3 id="onset-time-in-curved-spacetime">Onset Time in Curved Spacetime</h3>
+<p>The synchronization condition becomes:</p>
+<div class="math-block">$$
+K_{\text{eff}} > 2\Delta\omega(g),
+$$</div>
+<p>where $(g)$ depends explicitly on the metric.</p>
+<p>Curvature shifts the critical coupling and therefore the onset time, but does not eliminate the phase transition itself.</p>
+<h3 id="irreducibility-is-geometric">Irreducibility Is Geometric</h3>
+<p>Global coherence in curved space is still global coherence. Once phase locking occurs, the field configuration cannot be decomposed into independent subfields on any partition of ${M}$ that respects the metric.</p>
+<p>Irreducibility is therefore not an artifact of flat geometry. It is a geometric property of coherent field states.</p>
+<h3 id="relation-to-integrated-information">Relation to Integrated Information</h3>
+<p>In Chapter 13, we defined a field-theoretic integrated information $_{{field}}$ via spatial partitions. In curved space, these partitions are geometric regions of ${M}$.</p>
+<p>Curvature makes explicit that integration is tied to the geometry of coupling, not to abstract network partitions.</p>
+<h3 id="pathology-and-geometry">Pathology and Geometry</h3>
+<p>Lesions, tumors, developmental abnormalities, and neurodegeneration can all be modeled as geometric perturbations:</p>
+<ul class="article-list"><li><p>Removal of regions (manifold excision),</p></li><li><p>Changes in local metric coefficients,</p></li><li><p>Altered boundary conditions.</p></li></ul>
+<p>The impact on consciousness is mediated through changes in global field modes and synchronization thresholds.</p>
+<h3 id="development-and-plasticity-as-metric-evolution">Development and Plasticity as Metric Evolution</h3>
+<p>Over developmental and learning timescales, the effective geometry of ${M}$ changes. Synaptic plasticity, myelination, and growth reshape the metric and conductance tensors.</p>
+<p>Thus, learning alters not only dynamics but geometry itself.</p>
+<h3 id="relation-to-embodiment">Relation to Embodiment</h3>
+<p>The AP field does not exist in isolation. Sensory and motor surfaces introduce boundary conditions that depend on the body and environment. Curved spacetime formulation naturally accommodates such embodied constraints.</p>
+<h3 id="interpretive-interlude-geometry-without-mysticism">Interpretive Interlude: Geometry Without Mysticism</h3>
+<p>No appeal to exotic physics is required. Curved spacetime here is a mathematical language for heterogeneity, anisotropy, and topology. Its value lies in unification, not speculation.</p>
+<h3 id="summary-of-chapter-14">Summary of Chapter 14</h3>
+<p>In this chapter, we have shown that:</p>
+<ul class="article-list"><li><p>AP field theory generalizes naturally to curved manifolds,</p></li><li><p>Cortical anatomy is encoded geometrically,</p></li><li><p>Synchronization and onset survive curvature,</p></li><li><p>Irreducibility is a geometric, not accidental, property.</p></li></ul>
+<p>This completes the extension of AP field theory from flat abstractions to anatomically grounded geometry.</p>
+<h2 id="information-borne-by-the-ap-field">Information Borne by the AP Field</h2>
+<h3 id="why-information-must-be-reexamined">Why Information Must Be Reexamined</h3>
+<p>Throughout this work, we have spoken of fields, coherence, onset, integration, and irreducibility. Yet one term has remained deliberately underspecified: information. This restraint was intentional. The term &quot;information&quot; carries multiple, often incompatible meanings across physics, neuroscience, and philosophy.</p>
+<p>In this chapter, we clarify precisely what kind of information is borne by the action potential (AP) field, what kind is not, and why this distinction matters critically for understanding consciousness.</p>
+<h3 id="the-error-of-message-based-thinking">The Error of Message-Based Thinking</h3>
+<p>A persistent intuition in neuroscience is that the brain &quot;encodes&quot; information in the sense that a communication channel encodes messages. This intuition imports Shannon information theory wholesale into a domain where its assumptions are violated.</p>
+<p>Shannon information presupposes:</p>
+<ul class="article-list"><li><p>A sender and a receiver,</p></li><li><p>A predefined codework,</p></li><li><p>A separable channel carrying symbols,</p></li><li><p>Information defined relative to an external observer.</p></li></ul>
+<p>None of these assumptions apply intrinsically to the AP field.</p>
+<h3 id="why-the-ap-field-is-not-a-message-channel">Why the AP Field Is Not a Message Channel</h3>
+<p>The AP field does not transmit messages from one region to another in the Shannon sense. There is no privileged sender, no symbolic alphabet, and no external decoder. The field evolves according to its own equations of motion.</p>
+<p>Information in the AP field is therefore not something sent. It is something realized.</p>
+<h3 id="intrinsic-vs-extrinsic-information">Intrinsic vs.\ Extrinsic Information</h3>
+<p>We distinguish two notions:</p>
+<ul class="article-list"><li><p>[Extrinsic information:] Information defined by an observer about a system (e.g., decoding stimuli from neural activity).</p></li><li><p>[Intrinsic information:] Information that constrains the system’s own future evolution.</p></li></ul>
+<p>Only intrinsic information is relevant to consciousness. The AP field carries intrinsic information in its global configuration.</p>
+<h3 id="information-as-constraint-on-dynamics">Information as Constraint on Dynamics</h3>
+<p>In the AP field framework, information is embodied in the constraints that the current field state imposes on its own future evolution. Given the field equation:</p>
+<div class="math-block">$$
+\mathcal{A}(t+\delta t) = \mathcal{F}[\mathcal{A}(t)],
+$$</div>
+<p>the information content of ${A}(t)$ lies in how strongly it restricts the set of possible future trajectories.</p>
+<p>This notion aligns with dynamical systems theory rather than communication theory.</p>
+<h3 id="field-configuration-as-informational-state">Field Configuration as Informational State</h3>
+<p>A global AP field configuration specifies:</p>
+<ul class="article-list"><li><p>Which modes are active,</p></li><li><p>How phases are aligned,</p></li><li><p>Which regions are causally coupled,</p></li><li><p>Which transitions are dynamically accessible.</p></li></ul>
+<p>This specification is informational in the strongest possible sense: it determines what can happen next.</p>
+<h3 id="relation-to-integrated-information">Relation to Integrated Information</h3>
+<p>In Chapter 13, we defined a field-theoretic integrated information $_{{field}}$ as the non-factorizability of field evolution. This quantity measures intrinsic information directly: it quantifies how much of the field’s causal power is lost under partition.</p>
+<p>Thus, information borne by the AP field is inseparable from integration.</p>
+<h3 id="why-spikes-alone-carry-little-information">Why Spikes Alone Carry Little Information</h3>
+<p>Discrete spikes, considered in isolation, carry limited intrinsic information. A spike indicates that a local threshold was crossed, but it does not specify the global field configuration in which it occurred.</p>
+<p>Spikes are manifestations of the field, not carriers of its information.</p>
+<h3 id="phase-not-rate-is-informationally-primary">Phase, Not Rate, Is Informationally Primary</h3>
+<p>In AP field theory, phase relationships carry more intrinsic information than firing rates. Phase alignment determines which regions participate in the same global field mode.</p>
+<p>This explains why synchrony correlates more strongly with conscious content than average firing rates.</p>
+<h3 id="information-is-distributed-not-localized">Information Is Distributed, Not Localized</h3>
+<p>No point in the AP field &quot;contains&quot; the information of a percept. The information is distributed across the entire coherent configuration. Any attempt to localize it destroys its defining structure.</p>
+<p>This is the operational meaning of irreducibility.</p>
+<h3 id="temporal-thickness-of-information">Temporal Thickness of Information</h3>
+<p>Information in the AP field is temporally extended. It is not confined to an instant but resides in the trajectory of the field over time. This explains why brief perturbations may fail to disrupt experience, while sustained disruptions do.</p>
+<h3 id="learning-as-information-reshaping">Learning as Information Reshaping</h3>
+<p>Learning modifies the information-bearing capacity of the AP field by reshaping its dynamical landscape. Learned structures bias the field toward certain configurations, effectively encoding information about the organism’s history.</p>
+<p>This encoding is implicit, not symbolic.</p>
+<h3 id="relation-to-prediction-and-expectation">Relation to Prediction and Expectation</h3>
+<p>Expectations do not encode predictions as explicit symbols. They pre-shape the AP field so that certain trajectories are more likely. Information about the future is therefore embedded as altered dynamical constraints.</p>
+<h3 id="information-without-representation">Information Without Representation</h3>
+<p>The AP field carries information without representing anything in the traditional sense. There is no inner picture or code. There is only a structured field whose evolution is constrained.</p>
+<p>This resolves long-standing confusions about mental representation.</p>
+<h3 id="interpretive-interlude-why-meaning-feels-immediate">Interpretive Interlude: Why Meaning Feels Immediate</h3>
+<p>Meaning feels immediate because it is not decoded. When a global AP field configuration forms, its informational content is already realized as constraint. There is no intermediate step.</p>
+<h3 id="relation-to-external-measurements">Relation to External Measurements</h3>
+<p>Observers can extract Shannon information from the AP field by defining codes and decoding rules. This extracted information is real but extrinsic. It does not define what the field is doing for itself.</p>
+<p>Confusing extrinsic measures with intrinsic information has led to many category errors.</p>
+<h3 id="why-information-is-inseparable-from-experience">Why Information Is Inseparable from Experience</h3>
+<p>If consciousness corresponds to global AP field states, and if information is the intrinsic constraint structure of those states, then experience and information are not two things. They are two descriptions of the same physical reality.</p>
+<h3 id="summary-of-chapter-15">Summary of Chapter 15</h3>
+<p>In this chapter, we have shown that:</p>
+<ul class="article-list"><li><p>The AP field does not carry information as messages,</p></li><li><p>Its information is intrinsic and dynamical,</p></li><li><p>Integration and information are inseparable,</p></li><li><p>Meaning arises without representation or decoding.</p></li></ul>
+<p>With this chapter, the conceptual framework of AP field theory is complete.</p>
+<h2 id="extending-the-theory-to-non-spike-signaling-mechanisms">Extending the Theory to Non-Spike Signaling Mechanisms</h2>
+<h3 id="why-spikes-cannot-be-the-whole-story">Why Spikes Cannot Be the Whole Story</h3>
+<p>Thus far, this work has focused on the action potential (AP) field as the primary dynamical substrate of conscious experience. This emphasis is well justified: spikes are discrete, measurable, and strongly correlated with perception, action, and cognition.</p>
+<p>However, modern neuroscience makes it clear that neural signaling is not exhausted by spikes alone. Subthreshold membrane fluctuations, dendritic integration, neuromodulation, ephaptic coupling, and glial signaling all play significant roles in shaping brain dynamics.</p>
+<p>If AP field theory is to be a fundamental framework rather than a narrow model, it must accommodate these mechanisms without losing coherence or explanatory power.</p>
+<h3 id="the-guiding-principle-excitability-not-spiking">The Guiding Principle: Excitability, Not Spiking</h3>
+<p>The unifying concept underlying AP field theory is not spiking per se, but excitability. Excitable systems are characterized by:</p>
+<ul class="article-list"><li><p>Threshold-dependent responses,</p></li><li><p>Nonlinear amplification,</p></li><li><p>Refractory dynamics,</p></li><li><p>Propagating disturbances.</p></li></ul>
+<p>Spikes are one particularly dramatic expression of excitability, but they are not its only manifestation.</p>
+<h3 id="the-generalized-excitability-field">The Generalized Excitability Field</h3>
+<p>We therefore generalize the AP field ${A}({r},t)$ to an excitability field ${E}({r},t)$, of which the AP field is a high-amplitude, nonlinear regime: \[ {A}({r},t) {E}({r},t). \]</p>
+<p>All signaling mechanisms considered in this chapter are interpreted as modulations or components of ${E}$.</p>
+<h3 id="subthreshold-membrane-dynamics">Subthreshold Membrane Dynamics</h3>
+<p>Subthreshold membrane potentials do not trigger spikes but strongly influence when and where spikes occur. In field terms, they correspond to low-amplitude fluctuations of ${E}$ that bias the field’s future evolution.</p>
+<p>These fluctuations carry intrinsic information by reshaping the dynamical landscape, even when no spikes are present.</p>
+<h3 id="dendritic-computation-as-local-field-shaping">Dendritic Computation as Local Field Shaping</h3>
+<p>Dendrites are not passive cables. They exhibit nonlinear integration, local spikes, and plateau potentials. Rather than viewing dendrites as separate computational units, AP field theory treats dendritic activity as fine-scale spatial structure within the excitability field.</p>
+<p>Dendritic computation enriches the local geometry of ${E}$ without fragmenting it into independent elements.</p>
+<h3 id="ephaptic-coupling">Ephaptic Coupling</h3>
+<p>Ephaptic interactions arise when extracellular electric fields influence nearby neurons directly. This mechanism is intrinsically field-like and fits naturally within the AP field framework.</p>
+<p>Ephaptic coupling contributes to synchronization by providing non-synaptic, spatially extended coupling terms in the field equation.</p>
+<h3 id="neuromodulatory-fields">Neuromodulatory Fields</h3>
+<p>Neuromodulators such as dopamine, serotonin, and acetylcholine operate on slower timescales and broader spatial extents than spikes. They do not convey precise timing information but instead reshape excitability globally.</p>
+<p>In the field framework, neuromodulators act as slowly varying background fields that modulate the parameters of ${E}$, such as thresholds, gain, and coupling strength.</p>
+<h3 id="glial-contributions">Glial Contributions</h3>
+<p>Astrocytes and other glial cells participate actively in neural signaling through calcium waves, metabolic regulation, and synaptic modulation. These processes are slower and smoother than spiking, but they strongly influence the excitability landscape.</p>
+<p>Rather than assigning glia a separate cognitive role, AP field theory treats glial activity as modifying the medium through which the excitability field propagates.</p>
+<h3 id="multiple-timescales-one-field">Multiple Timescales, One Field</h3>
+<p>A key advantage of the field framework is its natural accommodation of multiple timescales. Fast spiking dynamics, intermediate oscillations, and slow modulatory processes coexist as coupled components of ${E}({r},t)$.</p>
+<p>Conscious experience corresponds not to any single timescale, but to the emergence of coherent structure across them.</p>
+<h3 id="do-non-spike-signals-contribute-to-consciousness">Do Non-Spike Signals Contribute to Consciousness?</h3>
+<p>Non-spike mechanisms do not, by themselves, instantiate conscious content. Rather, they condition and constrain the AP field so that certain coherent configurations become possible.</p>
+<p>They are enabling conditions, not carriers of experience.</p>
+<h3 id="why-this-does-not-lead-to-panpsychism">Why This Does Not Lead to Panpsychism</h3>
+<p>Extending the theory to non-spike signaling does not imply that all biological fields are conscious. Consciousness still requires:</p>
+<ul class="article-list"><li><p>A globally coherent excitability field,</p></li><li><p>Sufficient coupling strength,</p></li><li><p>Entry into the synchronized regime,</p></li><li><p>High intrinsic integration.</p></li></ul>
+<p>Most biological fields fail to meet these criteria.</p>
+<h3 id="relation-to-loss-and-alteration-of-consciousness">Relation to Loss and Alteration of Consciousness</h3>
+<p>Anesthesia, sleep, and coma often leave subthreshold activity intact while disrupting global synchronization. This dissociation supports the claim that non-spike activity alone is insufficient for consciousness.</p>
+<p>The AP field must cross the onset threshold described in earlier chapters.</p>
+<h3 id="interpretive-interlude-the-field-is-more-than-its-peaks">Interpretive Interlude: The Field Is More Than Its Peaks</h3>
+<p>Spikes are peaks—highly visible, easily measured events. But peaks do not define the landscape. The excitability field includes valleys, slopes, and plateaus that shape the peaks without being peaks themselves.</p>
+<p>Consciousness depends on the landscape, not on individual summits.</p>
+<h3 id="toward-a-unified-biological-field-theory">Toward a Unified Biological Field Theory</h3>
+<p>By incorporating non-spike mechanisms, AP field theory moves closer to a unified biological field theory of neural dynamics. The same mathematical language can describe:</p>
+<ul class="article-list"><li><p>Fast electrical signaling,</p></li><li><p>Slow chemical modulation,</p></li><li><p>Spatial geometry,</p></li><li><p>Temporal emergence.</p></li></ul>
+<p>This unification is impossible in strictly spike-centric or network-centric models.</p>
+<h3 id="summary-of-chapter-16">Summary of Chapter 16</h3>
+<p>In this chapter, we have shown that:</p>
+<ul class="article-list"><li><p>AP field theory naturally generalizes to an excitability field,</p></li><li><p>Non-spike mechanisms shape but do not replace the AP field,</p></li><li><p>Consciousness remains tied to global coherence,</p></li><li><p>The irreducibility claim is strengthened, not weakened.</p></li></ul>
+<p>With this extension, the theory now encompasses the full richness of biological neural signaling without sacrificing conceptual clarity.</p>
+<h2 id="case-study-the-reichardt-mechanism-in-the-general-excitable-field-picture">Case Study: The Reichardt Mechanism in the General Excitable Field Picture</h2>
+<h3 id="why-the-reichardt-mechanism-matters">Why the Reichardt Mechanism Matters</h3>
+<p>The Reichardt mechanism occupies a special place in theoretical neuroscience. Originally proposed to explain motion detection in insect vision, it is often presented as a canonical example of a simple, well-defined neural computation: delay one signal, multiply it with another, and subtract the reverse combination.</p>
+<p>Because of its apparent clarity and success, the Reichardt detector has become a paradigmatic example of neural computation framed in terms of discrete signals and operations.</p>
+<p>In this chapter, we show that the Reichardt mechanism is more naturally understood as a local manifestation of excitable field dynamics. When embedded in the general excitability field ${E}({r},t)$, its structure emerges without invoking explicit delays, multipliers, or symbolic operations.</p>
+<h3 id="the-classical-reichardt-model">The Classical Reichardt Model</h3>
+<p>In its standard form, the Reichardt detector consists of:</p>
+<ul class="article-list"><li><p>Two spatially separated input channels,</p></li><li><p>A temporal delay applied to one channel,</p></li><li><p>A nonlinear interaction (often modeled as multiplication),</p></li><li><p>A subtraction to enforce direction selectivity.</p></li></ul>
+<p>Mathematically, this is often written as:</p>
+<div class="math-block">$$
+R = I_1(t)\,I_2(t-\tau) - I_2(t)\,I_1(t-\tau),
+$$</div>
+<p>where $I_1$ and $I_2$ are signals from neighboring receptors.</p>
+<p>While effective, this formulation raises a deeper question: where do these operations come from physically?</p>
+<h3 id="the-discrete-computation-illusion">The Discrete Computation Illusion</h3>
+<p>The classical description suggests that the nervous system explicitly implements delays, multipliers, and subtractors. However, biological tissue does not contain literal delay lines or arithmetic units.</p>
+<p>The Reichardt mechanism works in practice because it approximates the behavior of an underlying continuous, excitable medium. The discrete operations are descriptive conveniences, not ontological primitives.</p>
+<h3 id="motion-as-a-spatiotemporal-pattern">Motion as a Spatiotemporal Pattern</h3>
+<p>Motion is not a property of isolated points in space. It is a spatiotemporal pattern of excitation propagating across a sensory surface.</p>
+<p>From the field perspective, a moving stimulus induces a traveling wave in the excitability field ${E}({r},t)$.</p>
+<h3 id="traveling-waves-in-excitable-fields">Traveling Waves in Excitable Fields</h3>
+<p>Consider a one-dimensional sensory surface with coordinate $x$. A stimulus moving with velocity $v$ induces a field perturbation of the form:</p>
+<div class="math-block">$$
+\mathcal{E}(x,t) \approx f(x - vt).
+$$</div>
+<p>This form already contains temporal delays and spatial correlations as intrinsic properties of the field, not as explicit operations.</p>
+<h3 id="emergence-of-direction-selectivity">Emergence of Direction Selectivity</h3>
+<p>Direction selectivity arises naturally when the field dynamics are anisotropic or nonlinear. The response of the field to $f(x - vt)$ differs from its response to $f(x + vt)$ whenever coupling or relaxation dynamics break time-reversal symmetry.</p>
+<p>No explicit subtraction is required; the asymmetry is built into the field’s response.</p>
+<h3 id="delay-as-relaxation-time">Delay as Relaxation Time</h3>
+<p>In the field framework, the &quot;delay&quot; $$ of the Reichardt model corresponds to a relaxation timescale of the excitability field:</p>
+<div class="math-block">$$
+\tau \sim \Gamma^{-1},
+$$</div>
+<p>where $$ is the local damping or recovery parameter.</p>
+<p>Temporal filtering emerges from the field’s intrinsic dynamics.</p>
+<h3 id="multiplication-as-nonlinearity">Multiplication as Nonlinearity</h3>
+<p>The multiplicative interaction in the classical model corresponds to nonlinear response terms in the field equation, such as:</p>
+<div class="math-block">$$
+V'(\mathcal{E}) \sim \mathcal{E}^2 \;\; \text{or higher-order terms}.
+$$</div>
+<p>Nonlinearity causes coincident or sequential inputs to interact synergistically, producing direction-dependent amplification.</p>
+<h3 id="subtraction-as-mode-competition">Subtraction as Mode Competition</h3>
+<p>The subtractive step in the Reichardt detector enforces competition between opposite directions. In the field picture, this competition arises through mode suppression: excitation aligned with one traveling mode suppresses the conjugate mode through shared resources and nonlinear saturation.</p>
+<h3 id="the-reichardt-mechanism-as-a-local-field-approximation">The Reichardt Mechanism as a Local Field Approximation</h3>
+<p>Seen in this light, the Reichardt detector is a low-dimensional, phenomenological approximation to a patch of excitable field dynamics. It captures essential behavior while obscuring the underlying unity of the process.</p>
+<p>The field does not compute motion; it resonates with motion.</p>
+<h3 id="relation-to-ap-field-theory">Relation to AP Field Theory</h3>
+<p>In spiking systems, the excitability field may cross threshold locally, producing direction-selective spike patterns. These spikes are manifestations of the underlying field response to traveling waves.</p>
+<p>Thus, Reichardt-like behavior is a special case of AP field dynamics, not a separate computational module.</p>
+<h3 id="why-the-field-interpretation-generalizes-better">Why the Field Interpretation Generalizes Better</h3>
+<p>The classical Reichardt model is tied to specific architectures and stimulus types. The field interpretation generalizes naturally to:</p>
+<ul class="article-list"><li><p>Continuous spatial domains,</p></li><li><p>Complex geometries,</p></li><li><p>Multiple interacting timescales,</p></li><li><p>Non-spike signaling mechanisms.</p></li></ul>
+<p>This generality is essential for integrating perception into a global theory of consciousness.</p>
+<h3 id="implications-for-conscious-motion-perception">Implications for Conscious Motion Perception</h3>
+<p>Conscious motion perception correlates with large-scale synchronization in visual and parietal cortices. The field framework explains this by embedding local motion-sensitive dynamics within a globally coherent AP field.</p>
+<p>Local Reichardt-like responses contribute to conscious content only when they are integrated into the global field after onset.</p>
+<h3 id="interpretive-interlude-computation-without-operators">Interpretive Interlude: Computation Without Operators</h3>
+<p>The Reichardt mechanism appears computational only when we describe the field in a fragmented way. When viewed as a whole, the field simply evolves according to its dynamics. What we call &quot;computation&quot; is our way of summarizing regularities in that evolution.</p>
+<h3 id="from-case-study-to-principle">From Case Study to Principle</h3>
+<p>This case study illustrates a general lesson: many canonical neural &quot;computations&quot; are better understood as emergent properties of excitable fields. The apparent discreteness of the computation reflects the observer’s abstraction, not the system’s ontology.</p>
+<h3 id="summary-of-chapter-17">Summary of Chapter 17</h3>
+<p>In this chapter, we have shown that:</p>
+<ul class="article-list"><li><p>The Reichardt mechanism is a phenomenological description,</p></li><li><p>Its components correspond to intrinsic field properties,</p></li><li><p>Motion detection emerges from traveling-wave dynamics,</p></li><li><p>Excitable field theory unifies computation and dynamics.</p></li></ul>
+<p>The Reichardt mechanism thus serves not as a counterexample, but as a confirmation of the general excitable field picture developed throughout this work.</p>
+<h2 id="sacdsgc-direction-selectivity-in-the-general-excitable-field-viewpoint">SAC–DSGC Direction Selectivity in the General Excitable Field Viewpoint</h2>
+<h3 id="why-the-sacdsgc-system-is-a-critical-test-case">Why the SAC–DSGC System Is a Critical Test Case</h3>
+<p>Direction selectivity in the retina, mediated by starburst amacrine cells (SACs) and direction-selective ganglion cells (DSGCs), is among the most precisely characterized phenomena in sensory neuroscience. It is also one of the few systems where detailed cellular physiology, morphology, and circuit connectivity are all well established.</p>
+<p>For the purposes of this work, the SAC–DSGC system plays a special role. It provides a stringent test of the general excitable field framework under biologically realistic conditions. If field-based reasoning can subsume this system without distortion, then the framework is not merely abstract but anatomically and physiologically grounded.</p>
+<h3 id="a-crucial-biological-asymmetry">A Crucial Biological Asymmetry</h3>
+<p>A fact of central importance must be stated explicitly:</p>
+<div class="callout-block"><p><em>Starburst amacrine cells are predominantly non-spiking, whereas direction-selective ganglion cells generate classical action potentials.</em></p></div>
+<p>This asymmetry is not incidental. It reveals that direction selectivity in the retina is not fundamentally a spike-based computation. Instead, directional structure emerges within a continuous, non-spiking excitability field before any DSGC spikes occur.</p>
+<p>This biological arrangement anticipates precisely the distinction drawn in Chapter 16 between excitability fields and their spiking manifestations.</p>
+<h3 id="the-classical-circuit-description-and-its-limits">The Classical Circuit Description and Its Limits</h3>
+<p>The standard account of retinal direction selectivity emphasizes:</p>
+<ul class="article-list"><li><p>Direction-dependent calcium dynamics in SAC dendrites,</p></li><li><p>Asymmetric GABAergic inhibition from SACs to DSGCs,</p></li><li><p>Suppression of DSGC firing in the null direction.</p></li></ul>
+<p>While empirically accurate, this description remains circuit-centric. It invites the interpretation that SACs compute direction locally and transmit the result to DSGCs as a discrete inhibitory signal.</p>
+<p>This interpretation, though convenient, obscures the deeper dynamical unity of the process.</p>
+<h3 id="the-retina-as-a-non-spiking-excitable-sheet">The Retina as a Non-Spiking Excitable Sheet</h3>
+<p>The retina is best understood as a laminated, curved, excitable sheet. At the level relevant for motion detection, its dynamics are dominated by graded membrane potentials, calcium waves, and lateral coupling.</p>
+<p>We therefore model the retinal substrate as a two-dimensional excitability field: \[ {E}(x,y,t), \] with SAC dendrites contributing anisotropic structure to the field rather than acting as isolated computational units.</p>
+<h3 id="motion-as-traveling-excitation-in-the-field">Motion as Traveling Excitation in the Field</h3>
+<p>A moving visual stimulus induces a traveling excitation pattern across the retinal field:</p>
+<div class="math-block">$$
+\mathcal{E}(x,y,t) \approx f(x - v_x t, y - v_y t).
+$$</div>
+<p>This spatiotemporal pattern already contains temporal delays, spatial correlations, and directional structure intrinsically. No explicit delay lines or signal multipliers are required.</p>
+<h3 id="direction-selectivity-without-spikes">Direction Selectivity Without Spikes</h3>
+<p>In the general excitable field picture, direction selectivity emerges as a differential resonance of the field to traveling waves of opposite direction. This asymmetry arises from:</p>
+<ul class="article-list"><li><p>Direction-dependent recovery dynamics,</p></li><li><p>Anisotropic coupling along SAC dendrites,</p></li><li><p>Local saturation and gain control.</p></li></ul>
+<p>All of these mechanisms operate in a non-spiking regime. Direction is resolved before any action potential is generated.</p>
+<h3 id="sac-dendrites-as-anisotropic-field-geometry">SAC Dendrites as Anisotropic Field Geometry</h3>
+<p>SAC dendrites are radially oriented and exhibit direction-dependent calcium signaling. In the field framework, these dendrites shape the local geometry of ${E}$ by introducing anisotropic conductance and recovery parameters.</p>
+<p>The centrifugal preference of SAC dendrites follows naturally: outward traveling waves encounter excitable tissue, whereas inward waves encounter recently activated, partially refractory regions.</p>
+<p>This explanation is geometric and dynamical, not algorithmic.</p>
+<h3 id="inhibition-reinterpreted-as-field-saturation">Inhibition Reinterpreted as Field Saturation</h3>
+<p>Classically, SAC-mediated inhibition is described as a suppressive signal delivered to DSGCs. In the excitable field viewpoint, inhibition corresponds to local saturation or gain reduction in the field.</p>
+<p>Null-direction motion drives the field into a saturated regime that cannot support coherent propagation toward the DSGC, while preferred motion preserves excitability.</p>
+<h3 id="dsgcs-as-thresholded-field-readouts">DSGCs as Thresholded Field Readouts</h3>
+<p>DSGCs occupy a fundamentally different role from SACs. They are spiking neurons that act as thresholded readouts of the retinal field.</p>
+<p>When the excitability field aligns with a coherent traveling mode compatible with a DSGC’s preferred direction, the DSGC crosses threshold and emits a spike train. When the field fails to enter such a regime, no spiking occurs.</p>
+<p>DSGCs therefore do not compute direction; they report it.</p>
+<h3 id="why-spikes-appear-late-in-the-process">Why Spikes Appear Late in the Process</h3>
+<p>The late appearance of spikes in the SAC–DSGC system is not a biological quirk. It reflects a general architectural principle: spikes are well-suited for long-range communication, not for resolving fine spatiotemporal structure.</p>
+<p>The retina resolves direction using continuous field dynamics, then exports the result downstream using spikes.</p>
+<h3 id="relation-to-reichardt-type-models">Relation to Reichardt-Type Models</h3>
+<p>Reichardt detectors approximate SAC–DSGC behavior by discretizing space and time. While useful, such models hide the continuity of the underlying field.</p>
+<p>The excitable field picture explains why Reichardt-like computations work without elevating their components to fundamental status.</p>
+<h3 id="robustness-and-adaptation">Robustness and Adaptation</h3>
+<p>Retinal direction selectivity remains robust across variations in contrast, speed, and illumination. This robustness follows naturally from the stability of traveling-wave modes in excitable fields.</p>
+<p>Discrete circuit descriptions struggle to explain this invariance without fine-tuning.</p>
+<h3 id="implications-for-conscious-visual-processing">Implications for Conscious Visual Processing</h3>
+<p>Retinal direction selectivity alone is not sufficient for conscious motion perception. These non-spiking field dynamics contribute content only when integrated into the global cortical AP field after onset.</p>
+<p>The retina thus provides a clean separation between:</p>
+<ul class="article-list"><li><p>Pre-conscious field structuring,</p></li><li><p>Spiking-based communication,</p></li><li><p>Global integration underlying experience.</p></li></ul>
+<h3 id="interpretive-interlude-computation-without-computation">Interpretive Interlude: Computation Without Computation</h3>
+<p>The SAC–DSGC system appears computational only when decomposed into circuits. When viewed as a continuous excitable medium, the retina simply evolves. Direction selectivity is not computed; it is realized.</p>
+<h3 id="summary-of-chapter-18">Summary of Chapter 18</h3>
+<p>In this chapter, we have shown that:</p>
+<ul class="article-list"><li><p>SACs implement direction selectivity in a non-spiking regime,</p></li><li><p>DSGCs act as spiking readouts of a pre-organized field,</p></li><li><p>Direction selectivity is a property of excitability fields,</p></li><li><p>The general excitable field framework subsumes detailed retinal biology.</p></li></ul>
+<p>The SAC–DSGC system therefore stands as one of the clearest empirical confirmations that neural selectivity—and by extension neural meaning—emerges from field dynamics rather than from spike-based computation.</p>
+<h2 id="the-korenrall-synthesis-sac-dendritic-direction-selectivity-in-the-field-setting">The Koren–Rall Synthesis: SAC Dendritic Direction Selectivity in the Field Setting</h2>
+<h3 id="overview">Overview</h3>
+<p>This chapter develops a synthesis of experimental and theoretical work on SAC dendrites:</p>
+<ul class="article-list"><li><p><strong>Koren et al. (2018)</strong> provide detailed measurements of SAC dendritic dynamics, including:</p>
+<ul class="article-list"><li><p>Electrotonic isolation of dendritic sectors,</p></li><li><p>Centrifugal preference of dendritic responses,</p></li><li><p>mGluR2 modulation of cross-sector propagation.</p></li></ul></li><li><p><strong>Rall (1969)</strong> provides the foundational mathematical framework for dendritic electrotonus, including:</p>
+<ul class="article-list"><li><p>Cable theory and passive membrane propagation,</p></li><li><p>Eigenmode decomposition of dendritic trees,</p></li><li><p>Electrotonic lengths defining compartmental boundaries.</p></li></ul></li><li><p>The <strong>synthesis</strong> shows how experimental observations can be interpreted and formalized using Rall’s equations, producing a field-theoretic model of SAC dendritic excitability and direction selectivity.</p></li></ul>
+<h3 id="experimental-findings-koren-et-al">Experimental Findings: Koren et al.</h3>
+<p>Koren et al. demonstrate several key properties of SAC dendrites:</p>
+<ol class="article-list"><li><p><strong>Electrotonic isolation of dendritic sectors:</strong> Individual dendritic branches can respond independently to local stimuli, preventing centripetal contamination of centrifugal responses.</p></li><li><p><strong>Centrifugal preference:</strong> Dendritic varicosities show stronger calcium responses to motion moving away from the soma.</p></li><li><p><strong>mGluR2 modulation:</strong> Metabotropic glutamate receptor 2 reduces cross-sector signal propagation, sharpening the distinction between local dendritic responses.</p></li><li><p><strong>Local vs. global summation:</strong> Favorable spatiotemporal integration of multiple local sector responses enhances centrifugal responses.</p></li></ol>
+<p>These observations establish that direction selectivity in SACs is intrinsic to dendritic processing and relies on both local compartmentalization and controlled cross-sector coupling.</p>
+<h3 id="mathematical-framework-ralls-cable-theory">Mathematical Framework: Rall’s Cable Theory</h3>
+<p>Rall (1969) models dendritic trees as continuous cables with passive properties. The key elements are:</p>
+<ul class="article-list"><li><p><strong>Electrotonic length $L$:</strong> Determines the spatial extent over which voltage decays along a dendrite.</p></li><li><p><strong>Compartmentalization:</strong> The dendrite can be divided into segments of length $L$ or fractions thereof to define local versus global processing.</p></li><li><p><strong>Eigenmode decomposition:</strong> The dendritic voltage distribution $V(x,t)$ can be expressed as a sum of spatial eigenmodes, each with a characteristic decay constant $_n$.</p></li><li><p><strong>Passive spread:</strong> The cable equation, \[ {</p>
+<p>\partial V}{</p>
+<p>\partial t} = ^2 {</p>
+<p>tial^2 V}{</p>
+<p>\partial x^2} - V + I(x,t), \] describes how local inputs propagate within the dendritic tree.</p></li></ul>
+<p>This framework provides a quantitative basis for understanding how dendritic morphology shapes signal propagation, temporal summation, and compartmental independence.</p>
+<h3 id="synthesis-mapping-koren-observations-to-rall-theory">Synthesis: Mapping Koren Observations to Rall Theory</h3>
+<p>We can formalize Koren’s findings within Rall’s mathematics as follows:</p>
+<ol class="article-list"><li><p><strong>Local compartments:</strong> Electrotonically isolated dendritic sectors correspond to Rall-defined compartments of length $L_{local}$, within which signals propagate passively and summate.</p></li><li><p><strong>Global integration:</strong> The dendrite as a whole spans an effective length $L_{global} 2 L_{local}$, governing how summed inputs from multiple sectors combine to influence distal output.</p></li><li><p><strong>mGluR2 modulation:</strong> Receptor-mediated modulation adjusts the effective coupling between local compartments, mathematically altering the boundary conditions in the cable equation and thereby controlling cross-sector propagation.</p></li><li><p><strong>Direction selectivity:</strong> Centrifugal responses emerge naturally when local inputs propagate through the dendritic eigenmodes with asymmetric decay times and spatial weighting. The interaction of $L_{local}$ and $L_{global}$ determines the timing and amplitude differences between centrifugal and centripetal activation.</p></li></ol>
+<h3 id="two-pdes-for-local-and-global-electrotonic-spread">Two PDEs for Local and Global Electrotonic Spread</h3>
+<p>Following the synthesis:</p>
+<ul class="article-list"><li><p>Let $V_{local}(x,t)$ describe voltage within a dendritic sector of length $L_{local}$.</p></li><li><p>Let $V_{global}(x,t)$ describe voltage spanning multiple sectors of length $L_{global}$.</p></li><li><p>Each obeys a passive cable PDE with adjusted boundary conditions: \[ _{local} {</p>
+<p>\partial V_{local}}{</p>
+<p>\partial t} = _{local}^2 {</p>
+<p>tial^2 V_{local}}{</p>
+<p>\partial x^2} - V_{local} + I_{local}(x,t), \] \[ _{global} {</p>
+<p>\partial V_{global}}{</p>
+<p>\partial t} = _{global}^2 {</p>
+<p>tial^2 V_{global}}{</p>
+<p>\partial x^2} - V_{global} + I_{global}(x,t), \] with cross-sector interactions modulated by mGluR2.</p></li></ul>
+<p>The superposition of $V_{local}$ and $V_{global}$ determines the final dendritic response, producing experimentally observed centrifugal preference.</p>
+<h3 id="implications-for-field-theoretic-modeling">Implications for Field-Theoretic Modeling</h3>
+<p>Within the AP Field framework:</p>
+<ul class="article-list"><li><p>SAC dendrites realize spatially structured excitability fields.</p></li><li><p>$V_{local}$ and $V_{global}$ correspond to local and global modes of the excitability field.</p></li><li><p>Cross-sector coupling (mGluR2) adjusts the field’s effective metric, sharpening directional discrimination.</p></li><li><p>Spikes in DSGCs are thresholded outputs of the SAC field, not the source of selectivity.</p></li></ul>
+<p>This shows that Koren–Rall synthesis naturally bridges experimental physiology and continuous field theory.</p>
+<h3 id="predictive-consequences">Predictive Consequences</h3>
+<p>The combined framework predicts:</p>
+<ol class="article-list"><li><p>Blocking mGluR2 increases centripetal propagation and reduces direction selectivity, as observed.</p></li><li><p>Altering dendritic electrotonic length (e.g., by morphology changes) shifts the timing of centrifugal summation, affecting response amplitude.</p></li><li><p>The interaction of local and global modes can be simulated as coupled PDEs, producing SAC responses quantitatively consistent with calcium imaging data.</p></li></ol>
+<h3 id="summary">Summary</h3>
+<p>The Koren–Rall synthesis provides a mathematically principled field-theoretic account of SAC dendritic direction selectivity:</p>
+<ul class="article-list"><li><p>Koren supplies the empirical constraints: electrotonic isolation, centrifugal preference, mGluR2 effects.</p></li><li><p>Rall supplies the mathematical machinery: compartmental PDEs, eigenmodes, passive propagation.</p></li><li><p>Their combination yields a continuous excitability field model, bridging single-cell dendritic physiology and AP Field theory.</p></li></ul>
+<p>This framework underwrites Chapters 17–18 by showing that local dendritic computations are field-mode phenomena, fully compatible with a global AP field description.</p>
+            
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

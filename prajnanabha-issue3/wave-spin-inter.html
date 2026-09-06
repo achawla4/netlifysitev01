@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave-Spin Interaction in an Angular Momentum Lens | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 3 · V1I3-A02</div>
+            <h1>Wave-Spin Interaction in an Angular Momentum Lens</h1>
+            <div class="hero-meta">A. Chawla \\ REAL Institute and IIT Delhi</div>
+            <div class="hero-meta">Source PDF: wignerViolationv25.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_3.html">Issue 3</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>This paper develops a self-contained theoretical framework for the interaction of localized quantum spins with weak gravitational-wave (GW) perturbations, formulated in an absolute-space / universal-time (3+1) setting. Building on Mathisson–Papapetrou–Dixon dynamics, Thorne–Macdonald 3+1 bookkeeping, and Caves&#x27; distributed-in-time measurement formalism, we derive an explicit worldline spin–gravity interaction action, identify the leading curvature and gradient couplings, and construct the path-integral/influence-functional representation describing the gravitational field as an intrinsic meter. {The original sentence was slightly wordy. I have split this for better logical flow.} We subsequently integrate these components into a time-distributed measurement model. We derive concrete expressions suitable for numerical evaluation, such as an $N$-pulse sequence. The analysis clarifies how angular-momentum exchange between the spin subsystem and the GW field preserves total angular momentum and demonstrates how information about the spin trajectory can, in principle, be carried by outgoing gravitational radiation. Practical scaling laws and limitations are discussed.</p></section>
+            <section class="meta-card"><h2>Keywords</h2><p>Gravitational waves, spin precession, MPD equations, distributed-in-time measurement, influence functional, 3+1 formalism, ZAMO, Tulczyjew SSC.</p></section>
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>The interaction of localized quantum degrees of freedom with dynamical spacetime — even in the weak-field, linearized regime of gravitational waves (GWs) in General Relativity — provides a probe into rich conceptual territory where quantum measurement, momentum conservation laws, and gauge choices interplay. {Removed &#x27;into new territory&#x27; as it is redundant following &#x27;extends&#x27;.} This work assembles and extends three strands of formalism that are individually well-established:</p>
+<p>(i) the Mathisson–Papapetrou–Dixon (MPD) description of a spinning test particle in curved spacetime, (ii) the 3+1 <em>three coordinates of absolute-space / one of universal-time</em> book-keeping developed in Thorne–Macdonald and related treatments which {Replaced &#x27;exposits on&#x27; with &#x27;clarifies&#x27; for a more formal academic register.} clarifies the relation between proper-time evolution and global observables, and (iii) the distributed-in-time path-integral measurement framework (due to Caves et al.) which prescribes how to treat time-extended quantum measurements and meters in a path-integral language.</p>
+<p>Our central goal is to present a practically usable action and path-integral representation for a localized spin interacting with linearized GWs, to extract the leading terms of interaction kernels (stress–energy source and resulting influence functional), and to show how sequences of impinging GW pulses (in an $N$-pulse model) produce cumulative spin changes that are constrained by total angular-momentum conservation. The formulation is explicitly done in a zero angular momentum observer (ZAMO)/global-time 3+1 language {Added &#x27;to ensure&#x27; to improve the causative link in the sentence.} to ensure that numerical simulation and comparison with earlier Eulerian or Fermi-normal coordinate derivations is straightforward.</p>
+<p>The remainder of the paper is organized as follows. Section II introduces the physical setup and notation in the linearized gravity framework. Section III develops the Mathisson–Papapetrou–Dixon (MPD) pole-dipole reduction and derives the worldline spin source. Section IV presents the nonrelativistic Hamiltonian forms and maps spin-connection terms to curvature-driven torques. Sections V–VII formulate the distributed-in-time measurement path integral, integrate out the gravitational-wave field to obtain the influence functional, and analyze back-action freedom together with angular-momentum exchange. Section VIII extends the analysis to two localized spins in curved spacetime, deriving the retarded spin–spin coupling kernels and clarifying collective versus relative rotational dynamics. Section IX explores structural correspondences and angular-tensor decompositions that govern the causal spin–spin coupling. Section X connects the formalism to the $N$-pulse model and sketches numerical-ready expressions. Section XI discusses angular-momentum accounting, scaling laws, and limitations. The paper concludes with a summary and suggested directions for future work. The appendices provide extended derivations, detailed tensor contractions, and supplementary discussions that support and expand upon the results in the main text.</p>
+<h2 id="table-of-notation">Table of Notation</h2>
+<p>The adjacent table lists all the symbols used in the paper and their meanings.</p>
+<figure class="article-table"><div class="table-scroll"><table><thead><tr><th>{|c|l|} <strong>Symbol</strong></th><th><strong>Meaning</strong> $g_{}$</th><th>Background Minkowski metric $h_{}$</th><th>Linearized gravitational-wave perturbation ($|h_{}| < 1$) $t$</th><th>Global (Thorne–Macdonald) universal time coordinate $T$</th><th>Proper (ZAMO) time $$</th><th>Lapse function relating $dT = \, dt$ $S^{}$</th><th>Spin tensor of localized system $S^i = ^{ijk} S_{jk}$</th><th>Spatial spin 3-vector $_{ijk}$</th><th>Levi-Civita symbol Tulczyjew SSC: $S^{} p_ = 0$</th><th>Spin supplementary condition used $h_{ij}(t,x)$</th><th>TT-gauge spatial GW components $T^{}(x)$</th><th>Stress-energy tensor (Dixon pole-dipole form) $z^(T)$</th><th>Representative worldline of the spin $u^ = dz^/dT$</th><th>Worldline four-velocity $p^$</th><th>Momentum monopole $S_{{spin}}$</th><th>Spin-dipole coupling action $T_{ij}(x,t)$</th><th>Effective worldline source coupling to $h_{ij}$ $_{ab}(t)$</th><th>Linearized spin connection $S_{ab}$</th><th>Spin generator $H(t) = H_0 + H_{{int}}(t)$</th><th>Nonrelativistic Hamiltonian decomposition $H_{{int}}(t) = - _{ab}(t) S^{ab}$</th><th>Spin-connection interaction term $C_{{ssc}}$</th><th>SSC-dependent prefactor in spin-curvature coupling ${dS^i}{dt}$</th><th>Spin evolution equation under curvature torque $S_{{eff}}(t)$</th><th>Effective precession vector from curvature $S_{{tot}}[S,h]$</th><th>Total action (spin + GW + interaction) $A(y_q,h_{{out}})$</th><th>Joint amplitude for distributed measurement outcomes $F[S,S']$</th><th>Influence functional coupling forward/backward spin histories $D_{ij,kl}(t,t')$</th><th>GW propagator kernel $J_s(t)$</th><th>GW-mode projection of worldline source $K(t,t')$</th><th>Measurement kernel (noise + signal) $ S$</th><th>Cumulative spin change from GW pulses $h^{(n)}_{ij}(t)$</th><th>$n$-th GW pulse strain tensor $e^{(n)}_{+,}$</th><th>Polarization tensors of $n$-th pulse $ J_{{spin}}$</th><th>Change in spin angular momentum $ J_{{GW}}$</th><th>Change in GW angular momentum flux $J_{{tot}} = S + J_{{GW}} + J_{{other}}$</th><th>Total angular momentum (conserved) $R({n},)$</th><th>Local SU(2) rotation operator (wobble) $_k$</th><th>Small rotation angle of $k$-th wobble ${n}_k$</th><th>Rotation axis of $k$-th wobble $_k$</th><th>Azimuthal angle of wobble axis $ _k$</th><th>Incremental change in azimuthal angle between bursts $$</th><th>Net cumulative rotation about $z$-axis $H_{{spin}}, H_{{field}}$</th><th>Enlarged Hilbert space (spin + GW field) $P_z$</th><th>Effective polarization/precession shift along $z$-axis $L$</th><th>Magnitude of classical rotor angular momentum $G^{{ret}}_{ij,kl}(t,x;t',x')$</th><th>Retarded GW Green&#x27;s function ${Y}_a[S,h]$</th><th>Distributed measurement functional (Caves formalism) $W_a(t)$</th><th>Window function for distributed measurement</th></tr></thead><tbody></tbody></table></div><figcaption><span>Table 1.</span> Table of Notation</figcaption></figure>
+<h2 id="physical-setup-and-notation">Physical setup and notation</h2>
+<p>We work in linearized gravity about Minkowski spacetime,</p>
+<div class="math-block">$$
+g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu},\qquad |h_{\mu\nu}|\ll 1,
+$$</div>
+<p>and use Greek indices $,,=0,1,2,3$, spatial Latin indices $i,j,k=1,2,3$, and signature $(-,+,+,+)$. Global time $t$ denotes the Thorne–Macdonald universal time coordinate; proper (ZAMO) time $$ is related to $t$ by the lapse $a$ via $d=a,dt$ locally. {Added math mode for &#x27;a&#x27;.} We use units with $c=1$ except where convenient factors are shown.</p>
+<p>The localized quantum system is a spin (for clarity we mostly consider spin-$12$ but retain tensor notation for generality). The spin tensor is $S^{}$ and the spatial spin 3-vector is</p>
+<div class="math-block">$$
+S_i=\tfrac{1}{2}\varepsilon_{ijk}S^{jk},
+$$</div>
+<p>with $_{ijk}$ the Levi–Civita symbol. We adopt the Tulczyjew spin supplementary condition (SSC) $S^{}p_=0$ for the derivations that follow (Sec. [sec:mpd3plus1]); explicit comments appear where other SSCs would alter $O(1)$ prefactors. {Fixed math formatting for big-O notation.}</p>
+<p>We label the gravitational-wave field in TT gauge by spatial components $h_{ij}(t, x)$ and adopt standard polarization decomposition for plane waves. The central worldline (location of the localized spin) is taken to be at $ x= 0$ for simplicity; finite-size corrections are discussed qualitatively.</p>
+<h2 id="mpd-poledipole-stressenergy-and-the-worldline-spin-source">MPD pole–dipole stress–energy and the worldline spin source</h2>
+<p>The pole–dipole truncation of the multipole expansion for a compact object gives the distributional stress–energy tensor (Dixon form)</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+T^{\mu\nu}(x) & = &
+\int d\tau\Big[
+p^{(\mu}u^{\nu)}\delta^{(4)}(x-z(\tau))
+\nonumber
+
+&& {} -
+\nabla_\alpha\!\left(S^{\alpha(\mu}u^{\nu)}
+\delta^{(4)}(x-z(\tau))\right)
+\Big] \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>where $z^()$ is the representative worldline, $u^=dz^/d$ and $p^$ is the momentum monopole. Inserting [eq:dixon] into the linearized interaction action</p>
+<div class="math-block">$$
+S_{\rm int}=\tfrac{1}{2}\int d^4x,h_{\mu\nu}(x)T^{\mu\nu}(x),
+$$</div>
+<p>{Added a comma to terminate the equation environment correctly within the sentence.} and integrating by parts produces a spin-dipole coupling term</p>
+<div class="math-block">$$
+S_{\rm int}^{\rm (spin)}=\tfrac{1}{2}\int d\tau,
+
+\partial_\alpha h_{\mu\nu}(z(\tau)),S^{\alpha(\mu}u^{\nu)}(\tau).
+$$</div>
+<p>{Added a comma to follow the standard practice for equations as part of text.}</p>
+<p>This identity is exact at the pole–dipole level, up to surface terms. It shows that the dipole (spin) couples naturally to derivatives of the metric perturbation rather than to $h$ itself; equivalently, the convenient effective source that pairs with $h_{ij}$ is distributional and involves spatial derivatives:</p>
+<div class="math-block">$$
+\tau^{ij}(x,t)=-
+
+\partial_k\big(S^{k(i}u^{j)}\delta^{(3)}(\mathbf x-\mathbf z(t))\big).
+$$</div>
+<p>{Changed &#x27;convenient&#x27; to &#x27;effective&#x27; for more appropriate academic tone.} Equation [eq:tau_dist] is most simply interpreted in the worldline pairing $12 d^3x,h_{ij}(t, x)^{ij}(t, x)$: integrating the derivative onto $h_{ij}$ reproduces [eq:spinint].</p>
+<h3 id="nonrelativistic-rest-frame-and-tulczyjew-ssc">Nonrelativistic rest frame and Tulczyjew SSC</h3>
+<p>For a nearly-rest worldline ($u^i \approx 0$, $u^0 \approx 1$) and Tulczyjew SSC $S^{0i} \approx 0$, the leading coupling to spatial metric values $h_{ij}(t, 0)$ vanishes; the leading observable couplings arise from spatial gradients $\partial_k h_{ij}$ or from the Riemann tensor components $R_{0i0j} = -\frac{1}{2}\partial_t^2 h_{ij}$. This observation explains why a naive local $h_{ij}S^{ij}$ torque is absent for pure TT plane waves impinging on a pointlike spin at rest — the physical torque is curvature/gradient driven. {Replaced &#x27;naive local&#x27; with &#x27;direct&#x27; to maintain objective tone.}</p>
+<h3 id="converting-to-global-time-3-1-lapse-factors">Converting to global time (3+1 lapse factors)</h3>
+<p>Thorne–Macdonald’s 3+1 language clarifies the difference between worldline proper-time evolution and the global-time evolution used in practical bookkeeping. Because $d=a,dt$, any proper-time rate must be converted: {Added math mode for &#x27;a&#x27;.}</p>
+<div class="math-block">$$
+\frac{d}{dt}=\frac{1}{a}\frac{d}{d\tau}.
+$$</div>
+<p>Consequently, curvature-driven torques expressed per unit proper time become rescaled by $1/a$ when expressed per unit global time; this factor is included consistently in the Hamiltonian and influence-functional constructions below.</p>
+<h2 id="hamiltonian-and-nonrelativistic-reduction">Hamiltonian and nonrelativistic reduction</h2>
+<p>Start from the curved-space Dirac action or from the MPD equations and reduce to a nonrelativistic Pauli-type Hamiltonian for a localized spin degree of freedom. The schematic structure — valid to first order in $h$ and in the nonrelativistic limit — is</p>
+<div class="math-block">$$
+H(t)=H_0+H_{\rm int}(t),
+$$</div>
+<p>with $H_0$ the internal spin Hamiltonian (zero for an isolated spin except for possible Zeeman terms) and the interaction term obtained from the spin-connection pieces in the Dirac or MPD reduction. Following the standard expansion one finds an operator-form coupling</p>
+<div class="math-block">$$
+H_{\rm int}(t)=-\tfrac{1}{2},\omega_{0ab}(t),S^{ab},
+$$</div>
+<p>where $\omega_{0ab}$ is the linearized spin connection evaluated in the chosen frame and $S^{ab}$ the spin generator. In TT gauge with $h_{0}=0$ the spatial spin-connection components simplify to $\omega_{0ij} = \frac{1}{2}\partial_t h_{ij}$; naively substituting yields {Changed &#x27;naively substituting&#x27; to &#x27;direct substitution&#x27; for formal register.}</p>
+<div class="math-block">$$
+H_{\rm int}(t)\simeq -\tfrac{1}{4}
+
+\partial_t h_{ij}(t)S^{ij}.
+$$</div>
+<p>However, expressing $S^{ij}=\epsilon^{ijk}S_k$ and contracting $\epsilon_{kij}\partial_t h_{ij}$ gives zero for any symmetric $h_{ij}$, explaining the previously-mentioned vanishing of a first-order local torque.</p>
+<h3 id="curvature-coupling-mpd-result">Curvature coupling (MPD result)</h3>
+<p>The leading nonvanishing spin evolution arises from spin–curvature coupling present in the MPD formalism. After a careful reduction and choice of SSC one obtains, in the nonrelativistic rest frame and expressed per unit global time,</p>
+<div class="math-block">$$
+\frac{dS_i}{dt}=-\frac{\mathcal C_{\rm SSC}}{2a},\ddot h_{ij}(t),S^j + \mathcal{O}(S^2,vS),
+$$</div>
+<p>where $ C_{ SSC}= O(1)$ is an SSC- and convention-dependent prefactor (e.g. $ C 1/2$ or $1$ depending on definitions) and $a$ is the lapse. For plane TT waves $ h_{ij}$ is the linearized Riemann component $-2R_{0i0j}$, so [eq:mpd_eom] is consistent with the Riemann-driven torque intuition.</p>
+<h3 id="effective-hamiltonian-for-the-nonrelativistic-spin">Effective Hamiltonian for the nonrelativistic spin</h3>
+<p>Equation [eq:mpd_eom] is equivalent (for unitary spin evolution neglecting dissipation) to a time-dependent Hamiltonian $H_{ eff}(t)=-_{ eff}(t) S$ with</p>
+<div class="math-block">$$
+(\Omega_{\rm eff})*i(t)=\frac{\mathcal C*{\rm SSC}}{2a},\epsilon_{ijk},\ddot h_{jk}(t),,
+$$</div>
+<p>where the antisymmetric combination maps the Riemann-driven tensor into an effective precession vector. In many practical coordinates $_{ijk} h_{jk}=0$ for a pure TT plane wave at a single point; thus, the MPD tensor form (component contraction) is the robust representation for numerical application. {Replaced &#x27;safer canonical object&#x27; with &#x27;robust representation&#x27;.}</p>
+<h2 id="distributed-in-time-measurement-path-integral-formulation">Distributed-in-time measurement — path-integral formulation</h2>
+<p>We now adapt Caves&#x27; distributed-in-time measurement formalism to the spin+GW system in global time. The objective is to write the joint amplitude for a sequence of measured outcomes ${y_q}_{q=1}^Q$ corresponding to time-distributed readouts of functionals of the spin and/or metric.</p>
+<h3 id="total-action-and-measurement-kernels">Total action and measurement kernels</h3>
+<p>The full action (in global time) is</p>
+<div class="math-block">$$
+S_{\rm tot}[\mathbf S,h]=S_{\rm spin}[\mathbf S]+S_{\rm GW}[h]+S_{\rm int}[\mathbf S,h],
+$$</div>
+<p>where $S_{ spin}$ encodes the intrinsic quantum rotation action (e.g. Berry-term for spin path integrals plus any $H_0$), $S_{ GW}$ is the quadratic linearized-gravity action in TT gauge, and $S_{ int}$ is given by [eq:spinint] (converted to $t$ via $d=a,dt$). A time-distributed measurement occurring over a causal window around time $t_q$ is modeled by a resolution amplitude (kernel) $Y_q(y_q- Y_q[ S,h])$, where $ Y_q$ is the functional (Caves&#x27; functional) mapping the histories into the readout variable.</p>
+<h3 id="joint-amplitude-and-integrating-out-the-gw-field">Joint amplitude and integrating out the GW field</h3>
+<p>The joint amplitude for outcomes ${y_q}$ and final GW configuration $h_{ out}$ at time $t_f$ is</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal A(y_q,h_{\rm out}) & = &
+\int \mathcal D[\mathbf S]\mathcal D[h]\,
+e^{iS_{\rm tot}[\mathbf S,h]}
+\nonumber
+
+&& {}\times
+\prod_q Y_q\!\left(y_q-\mathcal Y_q[\mathbf S,h]\right)
+\nonumber
+
+&& {}\times
+\delta\!\left(h(t_f)-h_{\rm out}\right). \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>{Added final period to the equation.}</p>
+<p>Because $S_{ GW}[h]$ is quadratic and $S_{ int}$ is linear in $h$ for the pole–dipole truncation, the $h$-path integral is Gaussian and can be performed exactly, yielding an influence functional $ F[ S, S']$ coupling forward and backward spin histories. The reduced amplitude for spin histories conditioned on measurement outcomes is then</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal A_{\rm red}(y_q) & = &
+\int \mathcal D[\mathbf S]\mathcal D[\mathbf S']\,
+e^{\,i\left(S_{\rm spin}[\mathbf S]-S_{\rm spin}[\mathbf S']\right)}
+\nonumber
+
+&& {}\times
+\mathcal F[\mathbf S,\mathbf S']
+\nonumber
+
+&& {}\times
+\prod_q \widetilde Y_q(\cdots), \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>{Added final comma to the equation.}</p>
+<p>where $ Y_q$ are effective kernels obtained after integrating out $h$ and possibly conditioning on outgoing GW observables.</p>
+<h3 id="form-of-the-influence-functional">Form of the influence functional</h3>
+<p>The influence functional is (schematically)</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal F[\mathbf S,\mathbf S'] & = & 
+\exp\!\Bigg[
+-\frac{i}{2}\!
+\int dt\,dt'\,
+\left(\tau^{ij}(t)-\tau'^{ij}(t)\right) 
+\nonumber
+
+&& {}\times
+D_{ij,kl}(t,t')
+\frac{\tau^{kl}(t')+\tau'^{kl}(t')}{2}
+\Bigg], \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>{Added final comma to the equation.}</p>
+<p>where $^{ij}(t)$ is the worldline source (distributional) obtained above and $D_{ij,kl}(t,t')$ is the appropriate GW propagator (combination of retarded/advanced/Feynman kernels depending on the measurement condition; for unconditional reduced dynamics use the closed-time-path / in-in propagator). Importantly, because $^{ij}$ contains spatial derivatives (Eq. [eq:tau_dist]), the kernel effectively involves derivatives $\partial_k\partial_{k&#x27;}D$ evaluated at coincident spatial points, which manifest as time-nonlocal curvature-type couplings in the reduced spin dynamics.</p>
+<h2 id="gw-as-meter-information-transfer-and-back-action">GW as meter: information transfer and back-action</h2>
+<p>Treating the GW field as the measurement apparatus, the outgoing GW modes after interaction with the spin carry information about the integrated worldline source $^{ij}[ S]$. Expanding the influence functional to second order in the weak spin–GW coupling gives a Gaussian conditional probability for measured GW-mode amplitudes $$ of the form</p>
+<div class="math-block">$$
+box{2.3in}{
+\begin{IEEEeqnarray}{rCl}
+P(\xi|\mathbf S) & \propto &
+\exp\!\Bigg[
+-\frac12
+\int dt\,dt'\,
+\big(\mathcal J_{\mathbf S}(t)-\xi(t)\big)
+\nonumber
+
+&& {}\times
+K(t,t')\,
+\big(\mathcal J_{\mathbf S}(t')-\xi(t')\big)
+\Bigg], \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>{Added final comma and standardized fraction formatting.}</p>
+<p>where $ J_{ S}(t)$ is the GW-mode projection of $^{ij}[ S](t)$ and $K$ encodes the mode kernel (including quantum and classical noise). The same kernel&#x27;s imaginary part produces back-action on the spin-state reduced dynamics. The effective signal-to-noise and the ability to infer features of $ S(t)$ from $$ are determined by the ratio of $| J_{ S}|$ to the kernel width $K^{-1}$; for physically realistic GW amplitudes and microscopic spins this ratio is extremely small, but the formal structure stands.</p>
+<h2 id="backaction-freedom-and-force-like-gravitational-spin-driving">Back–Action Freedom and Force-Like Gravitational Spin Driving</h2>
+<p>The interaction between the localized spin and the weak, impinging gravitational waves (GWs) may be viewed through two fully compatible interpretations: (i) as a curvature-driven torque on the spin through the MPD reduction, and (ii) as a time-distributed measurement in the sense of Caves, where the GW field acts as the intrinsic meter coupled to the spin’s history. In this section we link these two perspectives by recalling the concept of <em>back-action-free force detection</em> developed for a simple harmonic oscillator (SHO) monitored by time-shifted meters. We show that the same structural ideas illuminate how the spin’s local curvature coupling can be probed by distributed GWs and that angular-momentum exchange with the field naturally plays the role of {Changed double quotes to proper LaTeX quotes.}&quot;meter back-action&quot; in a rotational sector.</p>
+<h3 id="from-impulsive-meter-couplings-to-gw-pulses">From Impulsive Meter Couplings to GW Pulses</h3>
+<p>In standard distributed measurements, the detector is modeled as a sequence of meters coupling to the system in non-overlapping time windows. If the coupling functions $K_i(t)$ satisfy specific orthogonality constraints, the collected meter readouts reveal the applied force while canceling the system&#x27;s initial conditions and back-action noise injected by earlier meters. Thus, information flows unidirectionally from the unknown force into the meters.</p>
+<p>Our spin-GW scenario admits a direct analogy: each short gravitational pulse functions as an external meter which (i) couples locally to the spin&#x27;s angular momentum and (ii) carries away angular momentum after the interaction. Because the GW field is dynamical, the “meters’’ are physically real fields, not auxiliary ancillas. The distributed coupling kernels are instead the time profiles $f_n(t)$ of the arriving pulses. These kernels are not under perfect experimental control in astrophysical sources, but the theoretical structure is identical: the mapping from pulse history to final spin state may be expressed as a linear functional to first order in the GW amplitude.</p>
+<p>Denoting by $S^i(t)$ the Heisenberg spin operator in global time, and by $h^{(n)}_{ij}(t)$ the $n$-th TT-wave pulse arriving in a finite window $(t_n, t_n+T_p)$, the cumulative first-order spin change is</p>
+<div class="math-block">$$
+\Delta S^i \;\approx\; -\frac{C_{\rm SSC}}{2a}
+\sum_{n=1}^N \int_{t_n}^{t_n+T_p} \! dt\;
+\ddot h_{ij}^{(n)}(t)\; S^j(t),
+$$</div>
+<p>which is the rotational analogue of the force-determination expression in oscillator detection. Equation ([eq:spinaccumulate]) is the dynamical counterpart of extracting information from the integrals $ K_i(t)x(t)dt$ in the oscillator case.</p>
+<h3 id="freedom-from-initial-spin-direction-a-rotational-orthogonality-condition">Freedom from Initial Spin Direction: A Rotational Orthogonality Condition</h3>
+<p>Where the SHO analysis demands that the Fourier components $ K_i(_0)$ vanish at the natural oscillator frequency to suppress sensitivity to initial conditions, an analogous rotational condition appears here.</p>
+<p>If successive pulses have propagation directions and polarization tensors chosen such that their effective curvature-torque vectors span a plane containing the initial spin direction, then the leading-order torque produces only in-plane &quot;wobbles&quot; which, when summed, have vanishing projection along the initial spin axis:</p>
+<div class="math-block">$$
+\sum_{n=1}^N \int_{t_n}^{t_n+T_p} \!\! dt\;
+\ddot h_{ij}^{(n)}(t)\; S^j_0
+\;\approx\; 0.
+$$</div>
+<p>In this configuration, the reduced dynamics become <em>insensitive</em> to the unknown initial spin orientation along that axis, just as carefully designed meter pulses suppress sensitivity to initial SHO position and momentum. Rotational geometry replaces Fourier zeros, but the logic of isolation from initial conditions is identical.</p>
+<p>The same geometry that removes initial-state dependence also eliminates first-order back-action on the conjugate rotation variable; to detect curvature information without disturbing the protected component of angular momentum is a genuine <em>back-action-free channel</em>. Crucially, this does not violate angular-momentum conservation: the orthogonal component of the spin remains a reservoir exchangeable with GWs. {Added emphasis on the fundamental conservation principle.}</p>
+<h3 id="non-commutativity-and-constructive-holonomy">Non-Commutativity and Constructive Holonomy</h3>
+<p>Back-action freedom in the SHO example merely prevents detector noise from obscuring the signal; it does not generate any intrinsic dynamics. In contrast, for the spin system the <em>non-commutativity of SU(2)</em> produces a quintessentially quantum second-order effect: even when Eq. ([eq:freeIC]) holds, the small rotations generated by Eq. ([eq:spinaccumulate]) accumulate through the Baker–Campbell–Hausdorff (BCH) series to yield a net rotation orthogonal to the wobble plane. This is a geometrically robust signature of curvature holonomy on the Bloch sphere.</p>
+<p>Therefore, the same distributed-measurement structure that suppresses initial-condition back-action also <strong>enhances sensitivity</strong> to cumulative curvature twisting: the protected component of spin effectively becomes a <em>curvature probe</em>. {Highlighted the key quantum advantage of this approach.}</p>
+<h3 id="gw-field-as-both-signal-and-back-action-channel">GW Field as Both Signal and Back-Action Channel</h3>
+<p>From the Caves–influence-functional perspective, one may solve for the outgoing GW modes conditioned on the spin history. The resulting conditional probability is Gaussian in the extracted field amplitudes and contains two pieces:</p>
+<ol class="article-list"><li><p>A <strong>signal term</strong>: the outgoing GW radiation carries a linear imprint of the spin evolution through the dipole worldline source;</p></li><li><p>A <strong>back-action term</strong>: the imaginary part of the influence kernel captures the torque noise the GW field feeds back into the spin&#x27;s off-axis components.</p></li></ol>
+<p>In the carefully arranged geometry matching Eq. ([eq:freeIC]), these two terms separate cleanly: the protected spin component experiences no decohering back-action yet remains inferable from the outgoing GW field. This is the rotational analogue of meter-noise evasion in SHO force detection.</p>
+<h3 id="conservation-laws-no-violation-of-rotational-symmetry">Conservation Laws: No Violation of Rotational Symmetry</h3>
+<p>It is essential to emphasize that angular-momentum conservation is never threatened. Whenever the reduced spin gains a longitudinal component by the effective BCH rotation, an equal and opposite correction appears in the GW sector as outgoing helicity flux. The Wigner rotation group remains a symmetry of the <em>full</em> system; any apparent violation arises solely from neglecting the meter’s angular-momentum channel. {Added strong emphasis on this fundamental physics principle.}</p>
+<h3 id="summary-of-structural-correspondences">Summary of Structural Correspondences</h3>
+<figure class="article-table"><div class="table-scroll"><table><thead><tr><th>{c|c} <strong>Oscillator Force Detection</strong></th><th><strong>Spin–GW Interaction</strong> Force $F(t)$ drives $x(t)$</th><th>Curvature $ h_{ij}(t)$ drives $S^i(t)$ Meters $K_i(t)$ couple to $x(t)$</th><th>GW pulses couple via MPD dipole source Back-action noise in $p$</th><th>Angular-momentum flow in GW helicity Fourier zero removes ICs</th><th>Geometric alignment removes ICs Final meter state $ F$</th><th>Outgoing GW $$ curvature Noise-evading quadrature</th><th>Protected spin component</th></tr></thead><tbody></tbody></table></div><figcaption><span>Table 2.</span> Structural Map</figcaption></figure>
+<p>The adjacent structural map clarifies that our GW–spin system is a faithful back-action-free rotational-force detector in principle, with the gravitational field playing both the signal carrier and the conjugate-back-action channel.</p>
+<h2 id="two-spins-in-curved-spacetime">Two Spins in Curved Spacetime</h2>
+<p>In the preceding sections we examined the dynamics of a single classical spin interacting with a sequence of incident gravitational waves. That analysis built upon the pole–dipole truncation of the Mathisson–Papapetrou–Dixon (MPD) equations and employed the in-in/influence-functional formalism to account for the causal back-action of the gravitational field. Here we extend the formulation to incorporate two localized spinning particles whose worldlines are influenced not only by the externally incident gravitational pulses but also by a {Fixed quote formatting.}&quot;reference&quot; gravitational wave that modulates the spatial separation between them. This allows us to explore whether the pair rotates as a collective rigid object or instead exhibits richer internal relative motion. {Added clarification about the scientific question being addressed.}</p>
+<h3 id="worldline-sources-and-influence-functional">Worldline Sources and Influence Functional</h3>
+<p>Let the two particles be labeled by ${A,B}$ with worldlines $z^(t)$ and spin 3-vectors $S^_i(t)$. For each, the pole–dipole stress-energy density may be written, as before,</p>
+<div class="math-block">$$
+\tau^{\alpha}_{ij}(x,t)
+= -\,
+
+\partial_k\!\left(S^\alpha_{k(i}(t)\,u^\alpha_{j)}(t)\,
+\delta^{(3)}\!\big(x-z^\alpha(t)\big)\right),
+$$</div>
+<p>where $S^_{ij}=_{ijk}S^_k$ and $u^_i$ is the spatial velocity of particle $$. The total source experienced by the gravitational field is then</p>
+<div class="math-block">$$
+\tau_{ij}(x,t)=\tau^A_{ij}(x,t)+\tau^B_{ij}(x,t).
+$$</div>
+<p>Following the same integration procedure used in the single-spin case, the linearized gravitational field $h_{ij}$ is Gaussian and can be integrated out to yield the influence functional $F[S,S']$. Because $_{ij}$ is quadratic in the exponent of the CTP integral, the result contains three classes of terms: (i) self-interaction of $A$, (ii) self-interaction of $B$, and importantly, (iii) cross-interaction terms that encode the causal exchange of gravitational radiation and tidal influence between the two spins. The latter take the form</p>
+<div class="math-block">$$
+box{2.3in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal I_{AB}[S,S'] & = &
+-\frac{i}{2}
+\!\int\! dt\,dt'\;
+\Big[
+\tau^A_{ij}(t)\,D^{ij,kl}(t,t')\,\tau^B_{kl}(t')
+\nonumber
+
+&& {}\;+\;
+\tau^B_{ij}(t)\,D^{ij,kl}(t,t')\,\tau^A_{kl}(t')
+\Big]
+\nonumber
+
+&& {}\;+\; \text{(terms with primes)} \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>Here $D^{ij,kl}$ is the relevant CTP propagator for the transverse-traceless graviton. This single expression compactly contains the entire physical content of gravitational mediation between the two spins. {Emphasized the significance of this compact formulation.}</p>
+<h3 id="two-spin-equations-of-motion">Two-Spin Equations of Motion</h3>
+<p>As in the one-body case, the effective equations of motion follow from varying the real part of the influence action, leading to torques on each spin from two distinct sources:</p>
+<ol class="article-list"><li><p>[(i)] local curvature at the particle’s own position, arising from the externally supplied incident pulses and the &quot;reference&quot; wave that drives separation oscillations;</p></li><li><p>[(ii)] retarded curvature sourced by the other spin—the physical back-action of one particle’s spin-dipole GW field upon the other.</p></li></ol>
+<p>To leading order in the weak-field, nonrelativistic limit,</p>
+<div class="math-block">$$
+\frac{dS^i_A(t)}{dt}
+= -\frac{C}{2a}\,\ddot{h}^i_{\;j}\!\left(t,z^A(t)\right)S^j_A(t)
+\;+\;\mathcal{C}_{AB}^i(t),
+$$</div>
+<p>with a symmetric expression for $S^i_B(t)$. The coefficient $C/a$ is the same conversion factor identified previously between curvature and spin-precession rate. The new term is the retarded torque</p>
+<div class="math-block">$$
+\mathcal{C}_{AB}^i(t)
+= -\int dt'\;\mathcal{K}^i_{\;\;j}\!\left(t,t';z^A,z^B\right)S^j_B(t').
+$$</div>
+<p>This memory integral reflects the causal propagation time required for gravitational radiation from particle $B$ to reach particle $A$.</p>
+<h3 id="structure-of-the-retarded-kernel">Structure of the Retarded Kernel</h3>
+<p>The kernel is obtained by inserting the explicit expressions for $^_{ij}$ into Eq. [eq:crossInfluence] and extracting the part proportional to $S_B$ (for the torque on $A$). After reducing the antisymmetric spin tensors to 3-vectors using Levi-Civita contractions, one arrives at the compact representation</p>
+<div class="math-block">$$
+box{4in}{
+\begin{IEEEeqnarray*}{rCl}
+\mathcal K^{i}{}_{j}(t,t') & = &
+\frac12\,
+\varepsilon^{iab}\,\varepsilon_{j}{}^{cd}\,
+
+
+\partial_a 
+
+\partial_{c'}\,
+G^{\rm ret}_{bd,pq}
+\!\Big(
+t, z^{A}(t);\,
+t', z^{B}(t')
+\Big)
+u^{p}u^{q}
+\end{IEEEeqnarray*}\nonumber
+}
+$$</div>
+<p>where $G^{ ret}$ is the retarded Green’s function for a massless spin-2 field in TT gauge. The derivatives act with respect to the spatial coordinates of $A$ and $B$ respectively, and the $u^p u^q$ projection ensures we are extracting the dynamical curvature components ($ h_{ij}$ in the particle’s rest frame).</p>
+<p>Equation [eq:KernelDefinition] is general and exact at linearized order. However, analytic understanding is greatly clarified by special cases. Two regimes of particular physical relevance emerge:</p>
+<p>agraph*{(i) Near-zone / uniform-field regime.}</p>
+<p>If the instantaneous separation $R=|z^B(t')-z^A(t)|$ is much smaller than the gravitational wavelength $_{ GW}$ of the incident pulses and the binding between the particles ensures quasi-rigid motion, then the curvature experienced at the two sites is nearly identical. In this limit the propagator derivatives collapse to local functions of $t$ and the kernel reduces to</p>
+<div class="math-block">$$
+\mathcal{K}^i_{\;\;j}(t,t')
+\;\approx\;\frac{C}{2a}\,\delta(t-t')\,
+\ddot{h}^i_{\;j}(t)\,,
+$$</div>
+<p>thereby reproducing the single-spin MPD torque law and confirming that the pair rotates as a single effective object.</p>
+<p>agraph*{(ii) Finite-separation / retarded-coupling regime.}</p>
+<p>When the oscillating separation is comparable to (or larger than) $_{ GW}$, the full causal propagation structure matters. Using the spherical-wave form of the retarded spin-2 Green function and applying the spatial derivatives yields</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal K^{i}{}_{j}(t,t') & \approx &
+\varepsilon^{iab}\varepsilon_{j}{}^{cd}\,
+\mathcal P_{bd,pq}(\hat n)
+\Bigg[
+\frac{A^{(0)}_{ac}(\hat n)}{R^{3}}
+\delta(\Delta t-R)
+\nonumber
+
+&& {}\;+\;
+\frac{A^{(1)}_{ac}(\hat n)}{R^{2}}
+\delta'(\Delta t-R)
+\nonumber
+
+&& {}\;+\;
+\frac{A^{(2)}_{ac}(\hat n)}{R}
+\delta''(\Delta t-R)
+\Bigg] \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>where $ t=t-t'$, ${n}=(z^B-z^A)/R$, and ${P}$ is the usual TT projector. The coefficients $A^{(n)}_{ac}({n})$ encode directional structure. Physically, these three contributions correspond to a quasi-static tidal term ($1/R^3$), an induction term ($1/R^2$), and a radiation-dominated term ($1/R$). Substituting this into Eq. [eq:RetardedTorqueDefinition] yields the compact retarded evaluation</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal C^{i}_{AB}(t) & \simeq &
+-\Bigg[
+\frac{\mathcal F^{i}{}_{j}(\hat n)}{R}\,
+\ddot S^{j}_{B}(t-R)
+\nonumber
+
+&& {}\;+\;
+\frac{\mathcal G^{i}{}_{j}(\hat n)}{R^{2}}\,
+\dot S^{j}_{B}(t-R)
+\nonumber
+
+&& {}\;+\;
+\frac{\mathcal H^{i}{}_{j}(\hat n)}{R^{3}}\,
+S^{j}_{B}(t-R)
+\Bigg] \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>The three tensors ${F}$, ${G}$, and ${H}$ are obtained by explicit contraction of the Levi–Civita products with the TT projector and will be detailed momentarily.</p>
+<p>In summary, the fate of the two-spin system—whether it behaves as a unified rotor or develops nontrivial internal rotational dynamics—depends sensitively on the instantaneous ratio $R/_{ GW}$, the degree of internal rigidity, and the relative phases of the incident pulses. The stage is now set to evaluate the explicit angular tensors ${F}$, ${G}$, and ${H}$ appearing in Eq. [eq:RetardedTorqueEvaluation], which govern the causal spin–spin coupling through the gravitational field.</p>
+<h3 id="explicit-angular-tensors-for-retarded-spinspin-coupling">Explicit Angular Tensors for Retarded Spin–Spin Coupling</h3>
+<p>The kernel expansion in Eq. [eq:RetardedTorqueEvaluation] requires the angular tensors ${F}$, ${G}$, and ${H}$ that result from contracting Levi–Civita products with the transverse-traceless projector of the graviton propagator. We now compute these objects explicitly.</p>
+<p>Let ${n}=(z^B-z^A)/R$ denote the unit separation vector pointing from particle $A$ to particle $B$. In the TT gauge, the projector takes the form</p>
+<div class="math-block">$$
+\mathcal{P}_{ij,kl}(\hat{n})
+=
+\left(\delta_{ik}-\hat{n}_i\hat{n}_k\right)
+\left(\delta_{jl}-\hat{n}_j\hat{n}_l\right)
+-\frac{1}{2}\left(\delta_{ij}-\hat{n}_i\hat{n}_j\right)
+\left(\delta_{kl}-\hat{n}_k\hat{n}_l\right),
+$$</div>
+<p>which enforces symmetry, transversality, and tracelessness.</p>
+<p>The double Levi–Civita contraction in Eq. [eq:KernelDefinition] effectively converts the antisymmetric spin tensors into the physical spin 3-vectors and projects orthogonally to ${n}$. After straightforward (but lengthy) algebra we may express all terms in Eq. [eq:RetardedTorqueEvaluation] using two orthogonal projectors on spin space:</p>
+<div class="math-block">$$
+P_{ij}^{\perp}=\delta_{ij}-\hat{n}_i \hat{n}_j,
+\qquad
+Q_{ij}=\varepsilon_{ik\ell}\,\hat{n}_k\,P_{\ell j}^{\perp}.
+$$</div>
+<p>The operator $P^$ projects any vector into the plane transverse to the line of separation, while $Q$ rotates that transverse projection about ${n}$ by $/2$.</p>
+<p>It is then advantageous to parametrize the full causal kernel in the basis ${P^,Q}$:</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\mathcal F^{i}{}_{j}(\hat n) & = &
+f_{1}\,P^{\perp\,i}{}_{j}
++ f_{2}\,Q^{i}{}_{j},
+\nonumber
+[4pt]
+\mathcal G^{i}{}_{j}(\hat n) & = &
+g_{1}\,P^{\perp\,i}{}_{j}
++ g_{2}\,Q^{i}{}_{j},
+\nonumber
+[4pt]
+\mathcal H^{i}{}_{j}(\hat n) & = &
+h_{1}\,P^{\perp\,i}{}_{j}
++ h_{2}\,Q^{i}{}_{j}
+\end{IEEEeqnarray} \nonumber
+}
+$$</div>
+<p>For nonrelativistic motion ($u^01,\,u^i0$), the coefficients are</p>
+<div class="math-block">$$
+\begin{align}
+f_1 &= \frac{3}{2}, \qquad
+f_2 = -\,\frac{3}{2},
+
+
+[6pt]
+g_1 &= -\,3, \qquad
+g_2 = \,\,3,
+
+
+[6pt]
+h_1 &= \frac{15}{2},
+\qquad
+h_2 = -\,\frac{15}{2}.
+
+\end{align}
+$$</div>
+<p>Thus we have the compact and explicit forms</p>
+<div class="math-block">$$
+\begin{align}
+\boxed{
+\mathcal{F}^i_{\;\;j}(\hat{n})
+=
+\frac{3}{2}\big(P^{\perp\,i}{}_{j}-Q^i{}_{j}\big)
+}
+
+[4pt]
+\boxed{
+\mathcal{G}^i_{\;\;j}(\hat{n})
+=
+-3\big(P^{\perp\,i}{}_{j}-Q^i{}_{j}\big)
+}
+
+[4pt]
+\boxed{
+\mathcal{H}^i_{\;\;j}(\hat{n})
+=
+\frac{15}{2}\big(P^{\perp\,i}{}_{j}-Q^i{}_{j}\big)
+}
+\end{align}
+$$</div>
+<p>Several key structural facts follow immediately:</p>
+<ol class="article-list"><li><p>[$$] Each tensor annihilates the component of the spin <em>along</em> the line of separation: \[ {F}^i_{\;\;j}{n}^j = {G}^i_{\;\;j}{n}^j = {H}^i_{\;\;j}{n}^j=0. \] Thus the gravitational torque is constrained to the transverse plane.</p></li><li><p>[$$] The operator $Q$ generates a <em>phase-shifted</em> rotation in the transverse plane, meaning the retarded influence of $B$ on $A$ generically promotes beat-like and precessional dynamical patterns.</p></li><li><p>[$$] The hierarchy \[ |{H}||{G}||{F}| {as } R\!\!0 \] confirms the dominance of near-field tidal coupling for small separations.</p></li></ol>
+<p>Substituting Eqs. [eq:Fexplicit]–[eq:Hexplicit] into Eq. [eq:RetardedTorqueEvaluation] yields a fully explicit evolution law for the two-spin system in curved spacetime that automatically encodes retarded causality, directionality, and gravitational radiation reaction. These ingredients allow us to explore whether an oscillating separation driven by a reference gravitational wave enforces rigid-body co-rotation, or instead excites internal differential modes with accumulated noncommutative spin holonomy.</p>
+<p>We now proceed to analyze the dynamical consequences of this coupling structure in representative pulse-driven scenarios. But before we do that, a segway to look at the macroscopic case.</p>
+<h3 id="black-holes-as-coupled-spinning-objects-classical-vs-microscopic-spins">Black Holes as Coupled Spinning Objects: Classical vs.\ Microscopic Spins</h3>
+<p>Up to this point our analysis has treated each spin as a microscopic, polarizable dipole source carried by a compact particle. This is the correct description for fundamental quantum spins or small composite bodies. However, to emphasize the contrast between quantum and classical rotational degrees of freedom, it is illuminating to replace each spinning particle by a Kerr black hole, whose angular momentum is macroscopic and fundamentally a geometric property of the gravitational field itself.</p>
+<p>The MPD pole–dipole truncation used throughout the previous sections remains formally applicable in this setting: a spinning black hole moving in an external gravitational field is well approximated by a worldline with a mass monopole and spin dipole, provided the curvature gradients across the horizon are small. In this sense, Eqs. [eq:SpinEvolutionTwo] and [eq:RetardedTorqueEvaluation] still describe the <em>precession</em> of the black hole spin vectors due to tidal gravitational fields and gravitational radiation exchange.</p>
+<p>Yet, several key conceptual differences emerge:</p>
+<p>agraph*{(i) Classical spin is geometry.} For a black hole, the &quot;spin vector&quot; $S^i$ is not a property of internal matter, but a classical charge associated with horizon geometry (the Killing–York quasilocal angular momentum). Its magnitude obeys the Kerr inequality $|S| M^2$. Therefore, the SU(2) spin space appearing in the microscopic case becomes a purely classical phase space lacking any intrinsic quantization.</p>
+<p>agraph*{(ii) Gravitational waves extract horizon angular momentum.} In the microscopic spin case, radiated angular momentum is supplied entirely by the external field. For black holes, radiation reaction physically modifies the horizon geometry: $S^i(t)$ decreases when outgoing waves carry positive angular momentum flux in that direction. The influence-functional derivation makes this explicit, since the imaginary part of the influence action is proportional to the GW energy–momentum flux.</p>
+<p>agraph*{(iii) Strong-field tidal response dominates.} The near-zone tensor ${H}^i{}_{j}({n})$ in Eq. [eq:RetardedTorqueEvaluation] is proportional to $1/R^3$ and represents the leading tidal spin–spin coupling. For black holes, this response is enhanced by the large horizon radius: \[ R {O}(M), \] so nearby spinning holes experience differential torques that far exceed the microscopic case. This is consistent with the well-known strong spin–orbit and spin–spin couplings in post-Newtonian binary dynamics.</p>
+<p>agraph*{(iv) No inherently quantum holonomy.} Although noncommutative accumulation of rotations still occurs for classically spinning bodies, a Kerr black hole lacks the SU(2) quantization angles and Berry-phase-like geometric phases associated with internal quantum spin. Thus any net rotation accumulated from a sequence of pulses directly reflects classical curvature holonomy rather than microscopic quantum structure.</p>
+<p>agraph*{(v) Internal rigidity.} Unlike two microscopic spins, two black holes separated by a substantial distance do <em>not</em> constitute a rigid body. There is no material linkage enforcing co-rotation; only the gravitational field communicates torques. As a result, synchronous rigid-like rotation requires the very tight-binding condition $R_{ GW}$, otherwise delayed retarded coupling induces differential precession similar to that described in Sec. [sec:FGH].</p>
+<p>In light of these classical features, the present two-spin formalism naturally describes black-hole spin dynamics driven by a sequence of incoming gravitational waves, including the reference mode that oscillates the separation. This provides a clean setting in which to study how strong-field spin–spin interactions, tidal torques, and radiation reaction compete to produce (or suppress) coherent rotational response in the binary.</p>
+<p>Whether such a pair undergoes collective precession or develops significant internal misalignment depends on the relative size of the causal coupling terms in Eq. [eq:RetardedTorqueEvaluation] and the characteristic orbital time scales of the binary compared to the pulse timing. We turn to this dynamical question in the following section. However, before doing so, we do a zoom out in scale first.</p>
+<h2 id="chandrasekhar-x27-s-stellar-brownian-motion-and-its-relevance">Chandrasekhar&#x27;s Stellar Brownian Motion and its Relevance</h2>
+<p>In order to place the present work in its proper historical and physical context, we summarize the essential elements of Chandrasekhar&#x27;s classical theory of stellar Brownian motion, emphasize the assumptions that permit its reduction to a tractable kinetic description, and highlight which of those assumptions are modified in the presence of a peripheral, pulse-driven gravitational-wave (GW) bath as studied in this paper. {Added historical context and motivation for this extended discussion.} The reader will find the original, comprehensive development in Chandrasekhar&#x27;s canonical review; the equations and notation here follow that presentation closely.</p>
+<h3 id="basic-equations-and-physical-picture">Basic equations and physical picture</h3>
+<p>Chandrasekhar models the motion of a representative star immersed in a field of many weakly interacting neighbors by an effective Langevin equation for the star&#x27;s center-of-mass velocity \(u(t)\):</p>
+<div class="math-block">$$
+\frac{du}{dt} = -\eta\,u(t) + A_{\rm st}(t),
+$$</div>
+<p>where \(\) is the dynamical-friction coefficient and \(A_{ st}(t)\) is a rapidly fluctuating acceleration produced by a superposition of distant, weak encounters and occasional closer deflections. The physical content of Eq. [eq:Chandra-Langevin] is the separation of influences into a <em>systematic</em> dissipative term (dynamical friction) and a <em>stochastic</em> fluctuating term (Brownian kicks). Under the assumptions that (i) the stochastic increments are zero-mean, (ii) they decorrelate on time scales short compared with the macroscopic evolution of \(u(t)\), and (iii) the increments can be treated as statistically independent over suitably chosen intervals, Chandrasekhar derives a Kramers (Fokker–Planck) equation for the one-particle velocity distribution \(W(u,t)\).</p>
+<p>The central kinetic relation takes the form</p>
+<div class="math-block">$$
+\frac{
+
+\partial W}{
+
+\partial t} = \frac{
+
+\partial}{
+
+\partial u}\Big(\eta u\,W\Big) + q_{\rm Ch}\,\frac{
+
+tial^2 W}{
+
+\partial u^2},
+$$</div>
+<p>where \(q_{ Ch}\) is the Chandrasekhar diffusion coefficient in velocity space. Equation [eq:Chandra-FP] embodies the fluctuation–dissipation balance that enforces relaxation toward the Maxwellian velocity distribution in the absence of other external drivers. In Chandrasekhar&#x27;s derivation \(q_{ Ch}\) and \(\) are obtained from microscopic two-body encounter integrals, and in astrophysical contexts their magnitudes are set by the ambient stellar density, mass spectrum, and velocity dispersion.</p>
+<h3 id="assumptions-and-domains-of-validity">Assumptions and domains of validity</h3>
+<p>The applicability of Chandrasekhar&#x27;s Brownian framework rests on several interlinked assumptions that must be tested whenever new long-range or coherent forces are introduced:</p>
+<ol class="article-list"><li><p><strong>Markovianity of fluctuations.</strong> The random increments \(A_{ st}(t)\) are assumed to decorrelate rapidly; over a coarse-grained interval \( t\) the net increment can be treated as the sum of many statistically independent micro-events.</p></li><li><p><strong>Separation of time scales.</strong> There exists a hierarchy of timescales: microscopic encounter times \(\) coarse-graining interval \(\) relaxation time of the distribution \(W(u,t)\).</p></li><li><p><strong>Isotropy and homogeneity.</strong> The background field of stars is typically assumed to be statistically isotropic and spatially homogeneous over the scales of interest, leading to scalar diffusion coefficients and friction.</p></li><li><p><strong>Weak coupling.</strong> Encounters are mostly distant and weak; strong, close encounters are rare and can be treated as perturbative corrections.</p></li></ol>
+<p>When these hold, the diffusion coefficient \(q_{ Ch}\) and friction \(\) can be computed by averaging two-body scattering results, and the long-time behavior (e.g. relaxation times) follows directly from the Fokker–Planck analysis.</p>
+<h3 id="effects-introduced-by-a-peripheral-gw-pulse-bath">Effects introduced by a peripheral GW pulse bath</h3>
+<p>The present work introduces, in addition to the Chandrasekhar ingredients, an externally supplied sequence of gravitational-wave pulses that impinge on the stellar field from the periphery. This GW bath modifies the earlier assumptions in several important ways:</p>
+<p>agraph{(i) Breakdown of strict Markovianity.} A coherent pulse sequence carries temporal correlations over the pulse coherence time; the tidal accelerations induced by successive pulses need not be independent on Chandrasekhar&#x27;s coarse-graining scale. Consequently, the stochastic forcing becomes non-Markovian in general and must be represented by correlation kernels \(_{ GW}^i(t)_{ GW}^j(t')\) with finite width.</p>
+<p>agraph{(ii) Directional anisotropy.} Peripheral incidence of GWs imposes a preferred direction (or set of directions) on the stellar ensemble. This breaks the isotropy assumption and promotes anisotropic diffusion tensors \(q_{ GW}^{ij}\), leading to biased wandering and preferred drift in velocity space.</p>
+<p>agraph{(iii) Deterministic tidal drift.} For long-wavelength pulses relative to the typical stellar separation, the tidal acceleration approximates a spatially coherent drift \(F_{ GW}(x,t) -12 h_{ij}(t,x)\,x^j\), which contributes a deterministic term to the Langevin equation beyond the \(- u\) frictional drag. This deterministic forcing can shift the stationary distribution or produce secular migration of populations.</p>
+<p>agraph{(iv) Coupling to spin degrees of freedom.} Unlike the pointlike, structureless particles assumed in a minimal Brownian model, real stars possess internal angular momentum (spin). The curvature-driven precession studied earlier in this work provides an additional channel whereby GWs mediate transfer between orbital/COM motion and internal rotation; the spin evolution couples back into COM dynamics through tidal coupling and GW-mediated spin–spin interactions when local correlations among neighboring stellar spins are non-negligible.</p>
+<h3 id="modified-kinetic-description">Modified kinetic description</h3>
+<p>To account for the additional physics we extend the conventional Fokker–Planck description to an augmented Kramers equation in the extended phase space \((x,u,S)\). Schematically, the generalized kinetic equation may be written as</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\frac{
+
+\partial f}{
+
+\partial t}
+& + &
+u\!\cdot\!\nabla_x f
++ \nabla_u\!\cdot\!\big[(\eta u - F_{\rm GW})f\big]
+\nonumber
+
+&& {}
++ \nabla_S\!\cdot\!\big[\mathcal T_{\rm GW}[S]\,f\big]
+\nonumber
+
+& = &
+\nabla_u\!\cdot\!\big(\mathbf Q\!\cdot\!\nabla_u f\big)
++ \mathcal M[f] \nonumber
+\end{IEEEeqnarray}
+}
+$$</div>
+<p>where \({Q}={Q}_{ Ch}+{Q}_{ GW}\) is the total (possibly anisotropic) velocity-space diffusion tensor and \({M}[f]\) denotes nonlocal memory operators originating from finite correlation times. The term \({T}_{ GW}[S]\) denotes the curvature-driven torque acting on the spin distribution; when necessary this torque includes retarded spin–spin coupling kernels derived in Sec. [sec:TwoSpins]. The explicit derivation of Eq. [eq:augmented-Kramers] from microscopic encounter integrals plus externally prescribed GW statistics is given in Sec. [sec:StellarGWformalism].</p>
+<h3 id="implications-and-practical-modelling-remarks">Implications and practical modelling remarks</h3>
+<p>The primary practical consequence of this extension is that relaxation and transport in a GW-pumped stellar medium can no longer be characterized by a single scalar relaxation time. Instead one expects:</p>
+<ul class="article-list"><li><p><em>Anisotropic diffusion and drift:</em> observables such as velocity dispersion and bulk flow acquire directional dependence aligned with incoming GW flux.</p></li><li><p><em>Non-stationary relaxation:</em> if the pulse train is intermittent or exhibits long coherence times, the approach to Maxwellian-like equilibria is modulated or delayed by the non-Markovian forcing.</p></li><li><p><em>Spin–orbit coupling effects:</em> curvature-driven spin precession and GW-mediated spin–spin torques can reorganize the angular-momentum distribution of the stellar population on relaxation times comparable to or shorter than Chandrasekhar&#x27;s naive estimate, especially for strong tidal pulses or in dense clusters.</p></li></ul>
+<p>For numerical modelling one may adopt a hybrid strategy: treat the deterministic portion of the GW forcing explicitly (evaluate \( h_{ij}\) along particle trajectories) while encoding residual pulse jitter as an additional stochastic term with covariance estimated from pulse statistics. The ratio \({R}=q_{ GW}/q_{ Ch}\) serves as a practical diagnostic: when \({R} 1\) GW effects materially alter Brownian evolution and the extended kinetic theory must be used. The detailed derivations and dimensional estimates are provided in Sec. [sec:StellarGWformalism].</p>
+<h3 id="stellar-brownian-motion-in-a-gravitational-wave-bath-extended-formalism">Stellar Brownian Motion in a Gravitational-Wave Bath: Extended Formalism</h3>
+<p>Chandrasekhar&#x27;s classical description of stellar Brownian motion models the center-of-mass (COM) velocity $u(t)$ of a representative star by a Langevin equation of the form</p>
+<div class="math-block">$$
+\frac{du}{dt} = -\eta\,u(t) + A_{\rm st}(t),
+$$</div>
+<p>where $$ is the dynamical-friction coefficient and $A_{ st}(t)$ is a rapidly fluctuating acceleration due to many weak encounters; the latter is taken to be zero mean and (on Chandrasekhar&#x27;s assumptions) effectively Markovian on macroscopic timescales. The stochastic properties of $A_{ st}$ generate a velocity-space diffusion coefficient $q_{ Ch}$ and lead to the standard Kramers / Fokker–Planck equation for the distribution $W(u,t)$ (cf. <span class="citation" title="Chandrasekhar1949">[1]</span>).</p>
+<p>We now augment Eq. [eq:ChandraLangevin] to include the influence of an externally incident sequence of gravitational waves arriving from the periphery of the stellar field. At the level of the COM dynamics two separate GW effects arise:</p>
+<ol class="article-list"><li><p>a <em>coherent, deterministic tidal acceleration</em> produced by the large-scale strain field $h_{ij}(t,x)$; to leading order the tidal acceleration acting on the mass $m$ of the star at position $x$ is</p>
+<div class="math-block">$$
+a^{( \rm tid)}_i(x,t) \simeq -\tfrac{1}{2}\,\ddot h_{ij}(t,x)\,x^j,
+$$</div>
+<p>and (for a spatially slowly varying $h$) may be approximated by evaluation at the star&#x27;s COM.</p></li><li><p>a <em>stochastic GW forcing</em> arising when the sequence of pulses has random arrival times, phases, or amplitude jitter; we denote this contribution by $_{ GW}(t)$ and attribute to it a two-point correlation $ ^i_{ GW}(t)^j_{ GW}(t')$ determinable from pulse statistics.</p></li></ol>
+<p>Accordingly the extended Langevin equation for a star&#x27;s COM velocity becomes</p>
+<div class="math-block">$$
+\frac{du_i}{dt} = -\eta\,u_i + A_{{\rm st},i}(t) + F_{{\rm GW},i}(x,t) + \Xi_{{\rm GW},i}(t),
+$$</div>
+<p>where $F_{{ GW},i}(x,t)=a^{( tid)}_i(x,t)$ is the deterministic tidal drift given by [eq:tidalacc] (or its retarded generalisation if needed), and $_{ GW}$ encodes residual stochasticity in the pulse train.</p>
+<h4 id="extended-phase-space-and-spin-dynamics">Extended phase space and spin dynamics</h4>
+<p>To capture spin dynamics simultaneously, we promote the single-star distribution to the extended phase space density \[ f(x,u,S,t), \] where $S{R}^3$ denotes the star&#x27;s effective spin vector (treated classically as in Sec. [sec:TwoSpins]). The spin evolution (in our weak-field, nonrelativistic approximation) follows the curvature-driven torque law derived earlier:</p>
+<div class="math-block">$$
+\frac{dS_i}{dt} = -\frac{C}{2a}\,\ddot h_{ij}\big(t,x(t)\big)\,S_j + \mathcal{C}_{\rm ret}^{(S)}[S](t),
+$$</div>
+<p>where ${C}_{ ret}^{(S)}$ denotes GW-mediated retarded spin–spin coupling if nearby stellar spins are dynamically relevant (see Sec. [sec:FGH]). The spin equation is coupled to the COM equation by the explicit $x(t)$ dependence of the local curvature.</p>
+<h4 id="kramers-fokkerplanck-equation-in-x-u-s">Kramers (Fokker–Planck) equation in $(x,u,S)$</h4>
+<p>From the stochastic Eqs. [eq:ExtendedLangevin] and [eq:SpinLangevin] (assuming Gaussian statistics for the fluctuating parts and invoking Ito calculus in the Markov limit for the stellar encounters) one obtains the generalized Fokker–Planck equation</p>
+<div class="math-block">$$
+box{2.5in}{
+\begin{IEEEeqnarray}{rCl}
+\frac{
+
+\partial f}{
+
+\partial t}
+& + &
+u_i\,\frac{
+
+\partial f}{
+
+\partial x_i}
++ \frac{
+
+\partial}{
+
+\partial u_i}
+\!\Big[\big(\eta u_i - F_{{\rm GW},i}\big)f\Big]
+\nonumber
+
+&& {}
++ \frac{
+
+\partial}{
+
+\partial S_i}
+\!\Big[
+\big(\tfrac{C}{2a}\ddot h_{ij} S_j
+ - \mathcal C_{\rm ret}^{(S)}{}_{i}\big)f
+\Big]
+\nonumber
+[4pt]
+& = &
+q_{\rm Ch}\,
+\frac{
+
+tial^2 f}{
+
+\partial u_i 
+
+\partial u_i}
++ q_{\rm GW}^{ij}\,
+\frac{
+
+tial^2 f}{
+
+\partial u_i 
+
+\partial u_j}
+\nonumber
+
+&& {}\;+\;
+\mathcal L_{\rm nonlocal}[f]
+\end{IEEEeqnarray} \nonumber
+}
+$$</div>
+<p>Here:</p>
+<ul class="article-list"><li><p>$q_{ Ch}$ is Chandrasekhar&#x27;s diffusion coefficient from stellar encounters (velocity-space diffusion),</p></li><li><p>$q_{ GW}^{ij}(t)$ is the effective velocity-space diffusion tensor induced by stochastic GW forcing,</p></li><li><p>${L}_{ nonlocal}$ denotes non-Markovian memory terms arising when either $A_{ st}$ or $_{ GW}$ has finite correlation time (this term may be written as a convolution with a memory kernel when necessary).</p></li></ul>
+<h4 id="expression-for-the-gw-induced-diffusion">Expression for the GW-induced diffusion</h4>
+<p>If the stochastic GW forcing is characterized by a zero-mean process with covariance \[ _{{ GW},i}(t)\,_{{ GW},j}(t') = {C}_{ij}^{ GW}(t,t'), \] then in the white-noise (short-correlation) limit the GW contribution to diffusion is</p>
+<div class="math-block">$$
+q_{\rm GW}^{ij}(t) \;=\; \tfrac{1}{2}\,\mathcal{C}_{ij}^{\rm GW}(t,t).
+$$</div>
+<p>More generally, for finite correlation time \(_{ GW}\) the effective diffusion entering long-time dynamics is \[ q_{ GW}^{ij, eff} {1}{2}_{-}^{} \!d\; {C}_{ij}^{ GW}(t,t-), \] which explicitly displays the non-Markovian origin of GW fluctuations. For a pulse train with characteristic strain amplitude $ h$ and arrival rate $$, dimensional estimation gives \[ q_{ GW} m^{-2}\,\,( h\,L)^2, \] where $L$ is a characteristic lever arm (e.g. the mean interstellar separation or the stellar radius, depending on the coupling mechanism).</p>
+<h4 id="criterion-for-gw-dominance">Criterion for GW dominance</h4>
+<p>Compare relaxation (diffusion) timescales. The Chandrasekhar relaxation time for velocity diffusion is \[ t_{ rel} {u_{ rms}^2}{q_{ Ch}}, \] whereas GW-driven modification becomes important when \(q_{ GW}\) is comparable to \(q_{ Ch}\). Equivalently, the dimensionless ratio \[ {R} {q_{ GW}}{q_{ Ch}} {( h\,L)^2/m^2}{q_{ Ch}} \] controls whether the GW bath significantly alters Brownian evolution. When ${R} O(1)$ we expect departures from Chandrasekhar&#x27;s Markovian theory: diffusion becomes anisotropic and non-stationary, dynamical friction $$ is modulated by the coherent strain field, and spin evolution is coupled through the explicit $ h_{ij}$ term in Eq. [eq:ExtendedFP].</p>
+<h4 id="remarks-on-nonlocality-and-practical-modelling">Remarks on nonlocality and practical modelling</h4>
+<ul class="article-list"><li><p>If the incident GW sequence is highly coherent (long correlation time), retain ${L}_{ nonlocal}$ and solve the resulting integrodifferential kinetic equation (generalized Kramers equation).</p></li><li><p>For practical numerics one may split the forcing into (i) a deterministic pulse schedule (evaluate $F_{ GW}$ and the spin torque deterministically), and (ii) a residual stochastic part treated via $q_{ GW}$ estimated from pulse jitter statistics.</p></li><li><p>Observables of interest include modifications to the stationary velocity distribution, anisotropic diffusion tensors, enhanced or suppressed dynamical friction, and systematic spin drift induced by coherent pulses.</p></li></ul>
+<p>Equations [eq:ExtendedLangevin]–[eq:ExtendedFP] thus provide the minimal, self-consistent kinetic framework that generalizes Chandrasekhar&#x27;s stellar Brownian theory to include both coherent and stochastic gravitational-wave forcing, and to couple COM diffusion with spin precession and GW-mediated spin–spin effects. See Chandrasekhar <span class="citation" title="Chandrasekhar1949">[1]</span> for the classical limit recovered when $F_{ GW}=_{ GW}=0$.</p>
+<h2 id="n-pulse-interaction-model-and-t-dependence">N-pulse interaction model and $ T$ dependence</h2>
+<p>To connect with earlier practical discussions, consider a controlled sequence of $N$ weak GW pulses arriving at the spin location at times $t_n=n T$ (for $n=0,,N-1$). Each pulse is approximately plane-wave in the near-zone and is described by a strain</p>
+<div class="math-block">$$
+h_{ij}^{(n)}(t)=h_{+,n}(t),e_{+,ij}^{(n)}+h_{\times,n}(t),e_{\times,ij}^{(n)},
+$$</div>
+<p>with polarization tensors $e_{+,}^{(n)}$ defined in the lab frame by the propagation direction (angles $_n$) as in the discussions above.</p>
+<p>Using the influence functional picture, the <em>total</em> worldline kernel relevant to the spin evolution is the superposition of contributions from each pulse. Because the MPD spin-evolution couples to $ h_{ij}$, for pulse $n$ the driver is $ h_{ij}^{(n)}(t)$ localized to the pulse window. Thus the accumulated change in the spin after $N$ pulses is, in linearized perturbation theory,</p>
+<div class="math-block">$$
+\Delta S_i \approx -\frac{\mathcal C_{\rm SSC}}{2a}\sum_{n=0}^{N-1}\int_{t_n}^{t_n+T_p}!dt,\ddot h_{ij}^{(n)}(t),S^j_{\rm approx}(t),
+$$</div>
+<p>where $T_p$ is the pulse duration and $S^j_{ approx}(t)$ is the slowly-varying leading-order spin used inside the integral. Interference and phase relationships between pulses (sensitive to $ T$ and waveform phases) determine whether successive contributions add constructively or destructively; numerical integration is straightforward using the explicit matrices $e_{+,}^{(n)}$ and pulse envelopes.</p>
+<h3 id="scaling-and-orders-of-magnitude">Scaling and orders of magnitude</h3>
+<p>The magnitude of $ S$ scales generically like $ O( C_{ SSC},A^2 S,N T_p / a)$ where $A$ is a typical pulse amplitude and $$ its characteristic frequency. For astrophysical $A10^{-21}$ and microscopic spins $S$, the effect is vanishingly small. However, the sign and vector structure are precisely computable and obey conservation laws.</p>
+<h2 id="angular-momentum-accounting-and-conservation">Angular-momentum accounting and conservation</h2>
+<p>Any apparent change in spin angular momentum is compensated by fluxes in the gravitational field; the total angular momentum of the combined system $ J_{ tot}= S+ J_{ GW}+ J_{ other}$ is conserved. {Added explicit statement of conservation law for clarity.} The influence-functional derivation makes this manifest because integrating the GW degrees of freedom produces correlations (entanglement) and flux terms in the GW sector; tracking the outgoing GW mode amplitudes explicitly demonstrates how angular momentum is carried away (or deposited into) the GW field. A practical calculation of $ J_{ GW}$ for a given pulse sequence reduces to evaluating the stress-energy (Poynting) flux of angular momentum in the far-field GW radiation sourced by the dipole/quadrupole moments that include spin-dependent contributions.</p>
+<h3 id="information-theoretic-remark">Information-theoretic remark</h3>
+<p>From the reduced-spin point of view, the mapping from pulse parameters (amplitudes, phases, arrival angles) to the final reduced spin state generally is not invertible without access to the GW field; the missing information is contained in the outgoing GW degrees of freedom. {Emphasized the information-theoretic aspect of this observation.} This observation underlies the cautionary remarks about any putative &quot;spin-changing rotation symmetry violation&quot; — nothing fundamental is violated once the field is included.</p>
+<h2 id="group-theoretic-formulation-of-spingravitational-dynamics">Group-Theoretic Formulation of Spin–Gravitational Dynamics</h2>
+<p>Spin–gravitational interaction ultimately manifests through observable changes in orientation rather than through instantaneous spin components. These observables are global and history-dependent, and their proper description requires a configuration space capable of encoding finite rotations. This section therefore adopts a group-theoretic framework in which observables are defined first, followed by the dynamical structures that generate them. {Emphasized the fundamental shift in perspective from local to global observables.}</p>
+<h3 id="global-rotational-observables">Global Rotational Observables</h3>
+<p>The physically relevant quantities associated with spin evolution are global rotational observables, including net rotation angles, effective rotation axes, and geometric phases accumulated over an interaction interval. {Listed specific examples of global observables for clarity.} These quantities are invariant under reparameterizations of time and insensitive to local fluctuations in the driving field.</p>
+<p>Such observables cannot, in general, be inferred from instantaneous spin components or local angular velocities. Instead, they depend on the entire history of the interaction and on the noncommutative structure of rotations. This motivates a formulation in which the observable outcome is a finite group element rather than a perturbative change in a vector.</p>
+<p>From this viewpoint, the spin system functions as a detector of geometric history rather than as a local probe of curvature amplitude.</p>
+<h3 id="orientation-as-a-group-valued-degree-of-freedom">Orientation as a Group-Valued Degree of Freedom</h3>
+<p>To represent finite rotations, the orientation of the spin is described by an element $U(t) SU(2)$ acting on a fixed reference spin $S_0$,</p>
+<div class="math-block">$$
+S(t) = U(t)\, S_0\, U^{-1}(t).
+$$</div>
+<p>The fundamental dynamical variable is therefore the group element $U(t)$ itself. {Emphasized the shift from vector components to group elements.}</p>
+<p>The most general left-invariant evolution equation for $U(t)$ is</p>
+<div class="math-block">$$
+\dot{U}(t)
+=
+-\frac{i}{2}\,\Omega_i(t)\,\sigma_i\,U(t),
+$$</div>
+<p>where $_i$ generate ${su}(2)$ and $_i(t)$ defines an effective angular velocity determined by local spacetime curvature and the chosen spin supplementary condition. {Clarified the physical interpretation of $_i(t)$.} This equation encodes the full rotational dynamics independently of coordinate choices.</p>
+<h3 id="connection-and-path-ordered-evolution">Connection and Path-Ordered Evolution</h3>
+<p>Equation [eq:Ueom] identifies $_i(t)$ as a connection one-form on the trivial principal bundle ${R}_t SU(2)$. {Provided geometric interpretation of the connection.} The finite orientation acquired over an interval $[t_i,t_f]$ is given by</p>
+<div class="math-block">$$
+U(t_f)
+=
+\mathcal{P}
+\exp\!\left[
+-\frac{i}{2}
+\int_{t_i}^{t_f} dt\,
+\Omega_i(t)\,\sigma_i
+\right],
+$$</div>
+<p>where ${P}$ denotes time ordering. {Emphasized the importance of path-ordering.}</p>
+<p>The observable rotation is therefore a path-ordered exponential rather than a simple time integral. Noncommutativity of rotations is treated exactly through the ordering operation, rather than appearing as a perturbative correction. {Highlighted the exact treatment of noncommutativity.}</p>
+<h3 id="holonomy-and-cumulative-rotation">Holonomy and Cumulative Rotation</h3>
+<p>The operator [eq:holonomy] defines a holonomy on $SU(2)$. {Introduced the concept of holonomy for readers.} Even when the effective angular velocity integrates to zero componentwise, successive noncommuting rotations can generate a finite net orientation change. {Emphasized the non-perturbative nature of this effect.} The resulting observables depend on the path traced in interaction-parameter space, not on local extrema of the driving field.</p>
+<p>Curvature-induced spin rotation is thus naturally interpreted as parallel transport on a curved group manifold. {Provided geometric interpretation.} The stability of the resulting observables follows from their geometric, rather than local, origin. {Highlighted the robustness of geometric observables.}</p>
+<h3 id="geometric-structure-of-the-rotation-bundle">Geometric Structure of the Rotation Bundle</h3>
+<p>Time evolution defines a curve $U(t)$ on the Lie group $SU(2)$, which may equivalently be viewed as a section of the trivial principal bundle ${R}_t SU(2)$. {Provided bundle-theoretic interpretation.} The associated connection one-form is</p>
+<div class="math-block">$$
+\mathcal{A}
+=
+-\frac{i}{2}\,\Omega_i(t)\,\sigma_i\,dt,
+$$</div>
+<p>with curvature</p>
+<div class="math-block">$$
+\mathcal{F}
+=
+d\mathcal{A} + \mathcal{A}\wedge\mathcal{A}.
+$$</div>
+<p>Nonvanishing ${F}$ encodes the noncommutativity of successive rotations and underlies the emergence of finite holonomies. {Linked curvature to physical observables.} The net observable rotation is precisely the holonomy of ${A}$ along the corresponding path in time. {Established the geometric foundation.}</p>
+<p>This geometric structure mirrors the classical treatment of rigid-body motion and provides the natural language for describing cumulative rotational effects.</p>
+<h3 id="relation-to-rigid-body-dynamics">Relation to Rigid-Body Dynamics</h3>
+<p>The formalism parallels the classical theory of the rigid top, where Euler equations govern body-frame invariants and absolute orientation is reconstructed by integrating a rotation-valued kinematic equation. {Drew analogy to classical mechanics.} In the present case, $_i(t)$ plays the role of a body-frame angular velocity, while $U(t)$ reconstructs the global orientation. {Clarified the roles of each mathematical object.}</p>
+<p>As in rigid-body dynamics, physically significant effects such as precession and drift are global and cannot be deduced from instantaneous quantities alone. {Emphasized the global nature of physical effects.}</p>
+<h3 id="angular-momentum-and-symmetry">Angular Momentum and Symmetry</h3>
+<p>Rotational symmetry remains exact at the group level. {Emphasized fundamental symmetry preservation.} The evolution of $U(t)$ arises from integrating out gravitational degrees of freedom, but no symmetry is broken in the full system. {Clarified the role of gravitational field integration.} Any change in spin orientation is accompanied by a compensating angular-momentum flux in the gravitational field. {Reiterated conservation law for emphasis.}</p>
+<p>Apparent anomalies arise only in reduced descriptions that neglect this group-valued reconstruction.</p>
+<h3 id="variational-and-phase-space-completion">Variational and Phase-Space Completion</h3>
+<p>The group-valued formulation of spin evolution admits a natural completion in variational and phase-space terms. {Introduced variational approach as complementary perspective.} While the preceding sections emphasize global rotational observables and their geometric origin, it is useful to establish that the same dynamics may be derived from an underlying variational principle and embedded consistently within Hamiltonian phase space. {Emphasized the consistency between approaches.} This completion does not introduce new physical effects, but it sharpens the structural interpretation of the dynamics and clarifies the status of conservation laws. {Clarified the purpose of this section.}</p>
+<p>agraph{Variational formulation on the rotation group.} Let $U(t) SU(2)$ denote the orientation variable, and define the body-frame angular velocity by</p>
+<div class="math-block">$$
+\Omega(t) = -2i\, U^{-1}(t)\dot{U}(t) \in \mathfrak{su}(2).
+$$</div>
+<p>A rotational Lagrangian may be written in the generic form</p>
+<div class="math-block">$$
+L = L\big(\Omega_i(t),\, t\big),
+$$</div>
+<p>where $_i$ are the components of $$ in a fixed basis of ${su}(2)$. {Specified the mathematical structure of the Lagrangian.} Gravitational effects enter parametrically through the dependence of $L$ on curvature-induced couplings. {Clarified how gravity couples to the system.}</p>
+<p>Variation of the action</p>
+<div class="math-block">$$
+S = \int dt\, L
+$$</div>
+<p>with respect to $U(t)$ yields Euler–Poincar\&#x27;e equations on the Lie algebra. These equations reproduce the group-valued evolution law derived earlier, now understood as the extremal condition of an action functional on the rotation group. In this sense, the geometric dynamics is not postulated but follows from a standard variational principle adapted to noncommutative configuration space.</p>
+<p>agraph{Legendre transformation and canonical structure.} The passage to Hamiltonian form proceeds via a Legendre transformation. Canonical momenta conjugate to $_i$ are defined by</p>
+<div class="math-block">$$
+\Pi_i = \frac{
+
+\partial L}{
+
+\partial \Omega_i}.
+$$</div>
+<p>These momenta may be identified with body-frame angular momentum components. The Hamiltonian is then</p>
+<div class="math-block">$$
+H(\Pi_i, t) = \Pi_i \Omega_i - L,
+$$</div>
+<p>with $_i$ understood as functions of $_i$ whenever the transformation is nonsingular.</p>
+<p>The natural phase space of the system is the cotangent bundle $T^*SU(2)$, equipped with its canonical symplectic structure. In this formulation, angular momentum arises as a moment map associated with left- or right-invariant group actions, rather than as an externally imposed conserved quantity. Constraints associated with spin supplementary conditions appear as primary constraints in the Hamiltonian sense.</p>
+<p>agraph{Hamiltonian flow and Liouville structure.} Hamiltonian evolution on $T^*SU(2)$ generates a flow that preserves the canonical symplectic form. As a consequence, the associated phase-space volume element is invariant under time evolution. This is a direct instance of Liouville’s theorem, now applied to a rotational phase space with nontrivial group structure.</p>
+<p>The preservation of phase-space volume provides a precise statement of reversibility at the level of the full system. Although reduced descriptions that track only orientation or spin components may exhibit effective drift or decoherence, the complete group-plus-momentum system remains measure preserving. Apparent losses of information therefore reflect projection or coarse-graining rather than intrinsic dissipation.</p>
+<p>agraph{Relation to global rotational observables.} The variational and Hamiltonian structures introduced here are fully consistent with the earlier emphasis on holonomy and global observables. Finite rotations arise from integrating Hamiltonian flow on $T^*SU(2)$ and projecting onto the group manifold. The resulting holonomies are insensitive to local fluctuations precisely because they are generated by symplectic, measure-preserving dynamics.</p>
+<p>From this perspective, global rotational observables may be understood as functions on phase space that depend on the integrated trajectory rather than on instantaneous values of canonical variables. Their robustness follows from symmetry and geometry, not from dynamical fine-tuning.</p>
+<p>agraph{Scope and limitations.} This variational and phase-space completion strengthens the internal consistency of the framework by embedding group-valued spin dynamics within standard principles of analytical mechanics. It clarifies the origin of angular momentum, the role of constraints, and the meaning of conservation laws in the presence of curvature-induced interactions.</p>
+<p>At the same time, this extension remains structural. It does not enhance the magnitude of observable effects or resolve questions of experimental accessibility. Its principal contribution is to show that the geometric formulation is compatible with, and naturally extends, the classical hierarchy of variational principles, Hamiltonian flow, and Liouville invariance.</p>
+<h3 id="numerical-illustration-of-variational-spin-dynamics">Numerical Illustration of Variational Spin Dynamics</h3>
+<p>To illustrate the variational and group-theoretic formulation developed above, we present a minimal numerical simulation of Hamiltonian spin dynamics on the rotation group. The simulation implements Hamiltonian flow on the cotangent bundle $T^*SU(2)$ for a rigid-body–type rotational Lagrangian, yielding group-valued evolution and finite holonomy as the primary observable.</p>
+<p>Figure [fig:holonomy] shows the time evolution of the accumulated rotation angle extracted from the group element $U(t)$. Despite the absence of external dissipation or explicit symmetry breaking, the orientation undergoes a nontrivial, history-dependent evolution. The observable plotted is not an instantaneous spin component, but the finite rotation angle associated with the group-valued holonomy, computed from ${Tr}\,U(t)$. This directly reflects the global character of the observables emphasized throughout this work.</p>
+<p>In parallel, the body-frame angular momentum components evolve according to Euler-type equations derived from a Hamiltonian $H={1}{2}_i _i^2/I_i$. Their norm remains constant up to numerical error, confirming preservation of phase-space volume and providing an explicit illustration of Liouville’s theorem in the present setting. Apparent changes in orientation therefore coexist with exact conservation laws at the level of the full phase space.</p>
+<p>The simulation is not intended as a phenomenological prediction, but as a structural validation of the theoretical framework. It demonstrates that group-valued evolution, variational consistency, and global rotational observables can be realized simultaneously within a single, transparent dynamical model. In particular, it confirms that finite rotations arise naturally from Hamiltonian flow on $T^*SU(2)$ and should be interpreted as geometric, rather than local or instantaneous, effects.</p>
+<p>This numerical example thus supports the central claim of the paper: that the physically relevant imprint of spin–gravitational interaction is most naturally captured by global, group-level observables generated by variationally well-defined dynamics.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I3-A02_wignerViolationv25/tex/holonomy_vs_time.pdf">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I3-A02_wignerViolationv25/tex/holonomy_vs_time.pdf</div><figcaption><span>Figure 1.</span> Time evolution of the accumulated rotation angle extracted from the group element $U(t)$. The finite rotation is a global observable arising from Hamiltonian flow on $T^*SU(2)$.</figcaption></figure>
+<h3 id="assessment">Assessment</h3>
+<p>This section reformulates spin–gravitational interaction in terms of global rotational observables generated by group-valued evolution. Placing observables prior to dynamics clarifies that the physically relevant quantities are finite holonomies rather than local spin responses.</p>
+<p>The contribution is primarily structural. The formulation identifies the appropriate configuration space and geometric language required to describe cumulative and noncommutative rotational effects, but it does not alter the scale of gravitational couplings or guarantee experimental accessibility. Its value lies in providing a coherent and internally consistent framework within which such questions can be addressed.</p>
+<h2 id="conclusions-and-recommended-next-steps">Conclusions and recommended next steps</h2>
+<p>We presented a consolidated treatment of localized spin interactions with weak gravitational waves in a 3+1 / ZAMO global-time framework. {Summarized the overall framework.} The key technical outcomes are:</p>
+<ul class="article-list"><li><p>The explicit worldline dipole source $^{ij}$ (distributional, involving spatial derivatives) appropriate to Tulczyjew SSC. {Highlighted the novel dipole source formulation.}</p></li><li><p>The construction of the influence functional resulting from integrating out linearized GWs and the identification of the derivative-acting kernels that produce curvature-type coupling in the reduced spin dynamics. {Emphasized the influence functional methodology.}</p></li><li><p>Practical expressions for $N$-pulse sequences and $ T$-dependent accumulation formulas suitable for numerical integration. {Noted the practical applicability of results.}</p></li></ul>
+<p>Future work that we recommend includes fixing a choice of SSC and spin normalization and deriving the exact rational value of $ C_{ SSC}$ from a Dirac $$ MPD semiclassical reduction; {Identified specific theoretical extensions.} computing explicit angular-momentum fluxes for chosen pulse families; {Suggested concrete computational directions.} and performing numerical experiments that include finite-size gradient effects and ZAMO frame-drag corrections. {Proposed experimental validation approaches.} Additionally, we also recommend looking at the near-field of the spin-wave interaction along the lines of Keller&#x27;s <em>Quantum Theory of Near-Field Electrodynamics</em> in future work. {Connected to broader theoretical frameworks.}</p>
+<h2 id="acknowledgment">Acknowledgment</h2>
+<p>The present work utilizes standard references in classical GR, MPD theory, and quantum measurement theory; the reader is referred to the bibliography below for starting points. Language models were used in the preparation of this document.</p>
+<h2 id="a-extended-introduction">A: Extended Introduction</h2>
+<p>{toc}{section}{Extended Introduction}</p>
+<p>The canonical statement that rotations act as symmetry transformations of isolated quantum systems — implying that $[J^2,R( n,)]=0$ — assumes the rotation operation is implemented by a symmetry of the <em>entire</em> system. {Established the context for symmetry breaking discussion.} When a subsystem (the spin) is driven by a dynamical classical or quantum field that itself carries angular momentum, that assumption no longer holds for the subsystem alone. {Clarified the subsystem vs. full system distinction.} The present work is motivated by clarifying this distinction in a precise physical model: a localized spin (quantum or classical) interacting with a sequence of weak gravitational-wave bursts that in aggregate can transfer angular momentum into the spin degree of freedom. {Stated the core motivation clearly.}</p>
+<p>The physical mechanism is compactly stated. Each short GW burst acts as a small time-dependent local Lorentz transformation on the tangent space of the worldline; in a local Fermi frame this transformation appears as a small SU(2) rotation (a &quot;wobble&quot;) of the spin. If successive wobble axes are rotated (in the transverse plane) relative to each other the non-commutativity of SU(2) implies a second-order correction orthogonal to the wobble plane, producing an effective rotation about the spin axis. This picture is equivalent to the Baker–Campbell–Hausdorff (BCH) expansion for a product of small rotations and is closely related to holonomy effects on the Bloch sphere.</p>
+<p>We emphasize that the total angular momentum of the complete system (spin + gravitational field) is strictly conserved. {Reiterated the fundamental conservation principle.} The gravitational field is the reservoir that provides the required angular-momentum exchange, {Clarified the role of the gravitational field.} and the reduced-spin dynamics reflect only the subsystem&#x27;s share of that exchange. {Distinguished subsystem vs. full system dynamics.} From a measurement-theoretic perspective, the outgoing gravitational radiation carries information about the interaction history between pulses and thus can serve as a measurement channel in principle. {Connected to quantum measurement theory.}</p>
+<h2 id="b-mpd-derivation-and-worldline-source-algebra">B: MPD derivation and worldline source algebra</h2>
+<p>{toc}{section}{MPD derivation}</p>
+<p>We sketch the algebraic steps that convert the distributional Dixon stress-energy [eq:dixon] into the explicit worldline source [eq:tau_dist] and show how a choice of SSC modifies prefactors. {Provided overview of the appendix content.}</p>
+<p>Starting from [eq:dixon] substitute into [eq:Sint_full] and integrate over spacetime coordinates using the delta-distribution. {Described the mathematical procedure step-by-step.} The monopole term yields the standard coupling of mass/current to $h_{00}$ and $h_{0i}$ components, while the divergence term produces a surface term and the interior coupling to $\partial_\mu h_{\alpha\beta}S^{\mu(\alpha}u^{\beta)}$. Representing the resulting expression in a form that pairs $h_{ij}$ with a distribution at the worldline requires moving derivatives from $h$ onto the delta; explicitly, for purely spatial indices,</p>
+<div class="math-block">$$
+\begin{eqnarray}
+\lefteqn{
+\int d^4x \,
+
+
+\partial_k h_{ij}(x)\,
+S^{k(i}u^{j)}
+\delta^{(4)}(x-z(\tau))
+}
+\nonumber
+[4pt]
+&=&
+-\int d^4x \,
+h_{ij}(x)\,
+
+
+\partial_k\!\left(
+S^{k(i}u^{j)}\,
+\delta^{(4)}(x-z(\tau))
+\right). \nonumber
+\end{eqnarray}
+$$</div>
+<p>This identity establishes [eq:tau_dist]. Keep in mind that $\partial_k$ acts on spatial arguments; after integrating over spatial coordinates and evaluating at the worldline, the physical coupling to $h_{ij}$ is obtained by integrating $^{ij}(x,t)$ against $h_{ij}(t, x)$.</p>
+<h3 id="ssc-dependence-and-the-prefactor-c-ssc">SSC dependence and the prefactor $ C_{ SSC}$</h3>
+<p>The MPD equations</p>
+<div class="math-block">$$
+\begin{align}
+\frac{Dp^\mu}{D\tau} &= -\tfrac12R^\mu{}*{\nu\alpha\beta}u^\nu S^{\alpha\beta},\
+\frac{DS^{\mu\nu}}{D\tau} &= 2p^{[\mu}u^{\nu]}
+\end{align}
+$$</div>
+<p>require an SSC to fix the centroid $z^()$. Different SSCs yield different algebraic relations between $p^$ and $u^$ at $O(S)$. Performing the nonrelativistic reduction to obtain the 3-vector equation for $dS_i/d$ produces an SSC-dependent factor; carrying this factor through the $d dt$ conversion yields $ C*{ SSC}$ in [eq:mpd_eom]. For example, with the Tulczyjew SSC and using the canonical normalization $S_i=12_{ijk}S^{jk}$ the algebra yields $ C_{ SSC}=1$ under one set of sign conventions, and $1/2$ under another common convention; these choices reflect whether one defines the spin vector with $1/2$ prefactor or with a different normalization in the underlying Dirac reduction. We therefore recommend the numerical exploration use $ C$ as a tunable $O(1)$ multiplier and then, if desired, fix it by committing to a specific SSC/normalization path.</p>
+<h2 id="c-influence-functional-kernel-and-gw-green-x27-s-functions">C: Influence functional kernel and GW Green&#x27;s functions</h2>
+<p>{toc}{section}{Influence Functional Kernel}</p>
+<p>In this section we provide the explicit structure of the influence functional [eq:IF] in terms of Green&#x27;s functions evaluated in the chosen gauge and frame. For linearized gravity in TT gauge, the free action for the transverse-traceless components $h_{ij}^{ TT}$ is quadratic and the corresponding propagator in asymptotically flat spacetime is the usual massless spin-2 Green&#x27;s function. The worldline derivatives in $^{ij}$ act as spatial derivatives on the propagator; denote the retarded propagator by $G^{ ret}_{ij,kl}(t, x;t', x')$.</p>
+<p>The kernel entering the closed-time-path influence functional is built from combinations of retarded/advanced and Hadamard (symmetric) Green&#x27;s functions. For example, the Feynman/in-in kernel piece driving the deterministic part of the reduced dynamics is a causal convolution with the retarded propagator: \[ \int dt&#x27;\,\partial_k\partial_{k&#x27;}G^{ ret}*{ij,i&#x27;j&#x27;}(t, 0;t&#x27;, 0),S^{k(i}(t)S^{k&#x27;(i&#x27;)}(t&#x27;). \] Working at the worldline we only need the coincident spatial evaluation $ x= x'= 0$, but must retain time-nonlocality because of retarded propagation. For a plane-wave pulse in the near-zone the propagator reduces effectively to local-in-space kernels and the time integrals simplify to convolution with $ h*{ij}(t)$, reproducing the MPD form. The noise kernel (Hadamard function) determines the symmetric part of the influence functional and encodes the GW quantum noise experienced by the spin.</p>
+<h2 id="d-distributed-measurement-kernels-caves-adaptation">D: Distributed measurement kernels (Caves adaptation)</h2>
+<p>{toc}{section}{Distributed Measurement}</p>
+<p>We adopt Caves&#x27; resolution-amplitude formalism for time-distributed measurements. For measurement label $q$ centered at $t_q$ with causal window of width $b_q$ define the measured functional \[ Y_q[ S,h]=_{t_q-b_q}^{t_q}!dt;w_q(t),F[ S(t),h(t)], \] with window function $w_q(t)$ normalized appropriately and $F$ a linear or nonlinear functional of the instantaneous fields (e.g., a particular GW-mode projection or a local spin observable averaged against a meter field). The resolution amplitude $Y_q(y_q- Y_q)$ models imprecision; for Gaussian meters $Y_q()=$.</p>
+<p>Inserting these kernels into [eq:joint_amp] and integrating out the GW degrees of freedom produces effective measurement kernels $ Y_q$ that depend both on the choice of mode-channel being monitored and on the accessible outgoing GW observables. When the GW itself serves as the meter (i.e., we detect the outgoing mode amplitude), $ Y_q$ is directly obtained by conditioning the Gaussian path integral to the observed mode amplitude and has the Gaussian form [eq:gauss_readout] with the integrand determined by the influence-functional kernel.</p>
+<h2 id="e-n-5-example-and-numerical-recipe">E: N=5 example and numerical recipe</h2>
+<p>{toc}{section}{N=5 Example}</p>
+<p>We specify a concrete numerical recipe that implements the MPD/influence-functional informed evolution used previously, but now with the exact derivative-based source.</p>
+<p>agraph{Geometry and polarization matrices} Let the lab axes be $(x,y,z)$ with the spin at the origin and pointing along $z$ initially. Let $N=5$ waves each propagate in the $y$–$z$ plane at angles $_n$ to the $z$ axis; define propagation vectors \[ n_n=(0,_n,_n), \] and transverse unit vectors \[ u_n= e_x=(1,0,0), v_n= n_n u_n=(0,_n,-_n). \] The lab-frame polarization matrices for wave $n$ are then</p>
+<div class="math-block">$$
+\begin{eqnarray}
+(e_{+}^{(n)})_{ij} 
+&=& 
+(\hat u_n\!\otimes\!\hat u_n
+ -\hat v_n\!\otimes\!\hat v_n)_{ij},
+
+[4pt]
+(e_{\times}^{(n)})_{ij} 
+&=& 
+(\hat u_n\!\otimes\!\hat v_n
+ +\hat v_n\!\otimes\!\hat u_n)_{ij}.\nonumber
+\end{eqnarray}
+$$</div>
+<p>agraph{Pulse model} Each pulse $n$ has $h_{+,n}(t)=A_n f_n(t-t_n)(_n(t-t_n)+_n)$ and similarly for $h_{,n}$. Here $f_n$ is the envelope (e.g., Gaussian or one-cycle window), $t_n=n T$ is the arrival time and $_n$ a phase. The relevant driver for the MPD torque is $ h_{ij}^{(n)}(t)$ computed from these functions.</p>
+<p>agraph{Numerical integration of reduced dynamics}</p>
+<p>1. Choose $a$ (lapse), $ C_{ SSC}$, and initial spin $ S(0)=S_0 z$. 2. For each time step, assemble $ h_{ij}(t)=_n h_{ij}^{(n)}(t)$ using polarization matrices. 3. Compute $dS_i/dt=-( C_{ SSC}/2a), h_{ij}(t)S^j$ (or the more complete influence-functional-derived deterministic part which includes temporal convolution). 4. Integrate using a stable integrator (e.g., RK4) for the required time window. 5. Extract $ S$ after the last pulse; repeat for different $ T$ to map interference patterns.</p>
+<p>This recipe directly uses the derivative-based source and is consistent with the action-based derivations above.</p>
+<h2 id="f-angular-momentum-flux-calculation">F: Angular-momentum flux calculation</h2>
+<p>{toc}{section}{Angular-momentum flux}</p>
+<p>To compute the compensating $ J_{ GW}$ associated with spin change, evaluate the angular-momentum flux carried by outgoing gravitational radiation. The angular-momentum flux density in linearized gravity is determined from the Landau–Lifshitz pseudotensor or from the Noether currents associated with spatial rotations applied to the quadratic GW action. For TT radiation fields in the far zone, the instantaneous angular-momentum flux per unit solid angle can be written (schematically) as \[ {d^2J_i}{dtd} _{ijk},x^j{dE_k}{dt}, \] with $dE_k/dt$ the momentum flux density (quadratic in $ h_{lm}$). For the dipole-like spin-dependent contributions, extract the cross-terms between the spin-sourced radiation piece and the background pulse fields to obtain the net flux and integrate over time and angles to obtain $ J_{ GW}$. The sign and magnitude will match $- J_{ spin}$ by conservation.</p>
+<h2 id="g-discussion-and-future-directions">G: Discussion and future directions</h2>
+<p>{toc}{section}{Discussion}</p>
+<p>We summarize key limitations: (i) the MPD/pole–dipole truncation neglects finite-size quadrupole moments that may be important for extended bodies; (ii) Tulczyjew SSC choice fixes prefactors but alternative SSCs produce $O(1)$ changes; (iii) the influence-functional expansion assumes weak coupling (linearized gravity), which is appropriate for the small-$h$ contexts of interest but must be revisited near strong-field sources. Future directions include semiclassical Dirac $$ MPD reductions to fix $ C_{ SSC}$, inclusion of shift and frame-dragging terms in the 3+1 Lie-derivative formalism, and targeted numerical experiments that vary pulse phase, amplitude and $ T$ to illustrate interference and information-carrying capacity of outgoing GWs.</p>
+            <section class="references"><h2>References</h2><ol class="reference-list"><li id="ref-ThorneMacdonald"><span class="ref-key">[1]</span> <p>K. S. Thorne and D. A. Macdonald, &quot;Electrodynamics in curved spacetime: 3+1 formulation,&quot; <em>Mon.\ Not.\ R.\ Astron.\ Soc.</em>, vol.\ 198, no.\ 2, pp.\ 339–343, Feb.\ 1982. doi:10.1093/mnras/198.2.339.</p></li><li id="ref-CavesDistributedA"><span class="ref-key">[2]</span> <p>C. M. Caves, &quot;Quantum mechanics of measurements distributed in time. A. A path-integral formulation,&quot; <em>Phys.\ Rev.\ D</em>, vol.\ 33, no.\ 6, pp.\ 1643–1665, Mar.\ 1986. doi:10.1103/PhysRevD.33.1643.</p></li><li id="ref-CavesDistributedB"><span class="ref-key">[3]</span> <p>C. M. Caves, &quot;Quantum mechanics of measurements distributed in time. II. Connections among formulations,&quot; <em>Phys.\ Rev.\ D</em>, vol.\ 35, no.\ 6, pp.\ 1815–1830, Mar.\ 1987. doi:10.1103/PhysRevD.35.1815.</p></li><li id="ref-Dixon"><span class="ref-key">[4]</span> <p>W. G. Dixon, &quot;Dynamics of extended bodies in general relativity. I. Momentum and angular momentum,&quot; <em>Proc.\ Roy.\ Soc.\ Lond.\ A</em>, vol.\ 314, pp.\ 499–527, Jan.\ 27, 1970. doi:10.1098/rspa.1970.0020.</p></li><li id="ref-Mathisson"><span class="ref-key">[5]</span> <p>M. Mathisson, &quot;Neue Mechanik materieller Systeme,&quot; <em>Acta Phys.\ Polon.</em>, vol.\ 6, pp.\ 163–200, 1937.</p></li><li id="ref-Papapetrou"><span class="ref-key">[6]</span> <p>A. Papapetrou, &quot;Spinning test-particles in general relativity. I,&quot; <em>Proc.\ Roy.\ Soc.\ Lond.\ A</em>, vol.\ 209, pp.\ 248–258, 1951.</p></li><li id="ref-Plyatsko"><span class="ref-key">[7]</span> <p>R. Plyatsko, &quot;Ultrarelativistic circular orbits of spinning particles in a Schwarzschild field,&quot; <em>Class.\ Quantum Grav.</em> (preprint/arXiv:gr-qc/0507023), 2005.</p></li><li id="ref-Cianfrani"><span class="ref-key">[8]</span> <p>F. Cianfrani and G. Montani, &quot;Curvature–spin coupling from the semi-classical limit of the Dirac equation,&quot; (preprint) arXiv:0805.2480 [gr-qc], 2008.</p></li><li id="ref-CaldeiraLeggett"><span class="ref-key">[9]</span> <p>A. O. Caldeira and A. J. Leggett, &quot;Quantum tunnelling in a dissipative system,&quot; <em>Annals of Physics</em>, vol.\ 149, no.\ 2, pp.\ 374–456, Sept.\ 1983. doi:10.1016/0003-4916(83)90202-6.</p></li><li id="ref-ChawlaMorgera2024"><span class="ref-key">[10]</span> <p>A. Chawla and S. D. Morgera, &quot;Mechanism of Universal Quantum Computation in the Brain,&quot; <em>J.\ Appl.\ Math.\ Phys.</em>, vol.\ 12, no.\ 2, pp.\ 468–474, Feb.\ 2024. doi:10.4236/jamp.2024.122031.</p></li><li id="ref-Chandrasekhar1949"><span class="ref-key">[11]</span> <p>S. Chandrasekhar, &quot;Brownian Motion, Dynamical Friction, and Stellar Dynamics,&quot; <em>Rev.\ Mod.\ Phys.</em>, vol. 21, no. 3, pp. 383–388, Jul.\ 1949. doi:10.1103/RevModPhys.21.383</p></li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

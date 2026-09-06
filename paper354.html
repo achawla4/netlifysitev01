@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kakeya Upper Bounds for Neural Arbors - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">Kakeya Upper Bounds for Neural Arbors</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">We establish a bridge between incidence geometry and neurobiological structure by showing that the classical joints problem provides a strict upper bound on the branching complexity of neural arbors. We refine this connection using bounded-degree incidence graphs, demonstrating that pruning, directionality, and conservation laws reduce the combinatorial complexity of inter- sections from O(N 3/2) to O(N). In particular, dendritic trees modeled after Rall’s framework naturally induce bounded-degree, acyclic incidence structures, leading to sharp linear upper bounds on branching complexity. Introduction The joints problem asks: given N lines in R3, how many points can occur where three non-coplanar lines intersect? The answer is: |J| = O(N3/2). This bound reflects maximal combinatorial reuse of lines. In contrast, neural arbors (e.g., dendritic trees) exhibit: • directionality, • acyclicity, • conservation constraints. We show that these constraints correspond to bounded-degree incidence graphs, which enforce linear scaling of branching complexity. The Joints Problem Definition 1. A joint is a point in R3 where at least three lines intersect with linearly independent directions. Theorem 1 (Joints Theorem). For N lines in R3, |J| ≤CN3/2. This represents the unconstrained regime. 1</p> <p>3 Incidence Graph Formulation We encode the configuration as a bipartite graph. Definition 2. The incidence graph G = (L ∪J, E) is defined by: • vertices: lines L and joints J, • edges: (ℓ, x) ∈E if line ℓpasses through joint x. In the classical setting: • degrees of line vertices can be large, • reuse of lines across many joints is unrestricted. This high-degree freedom drives the N3/2 bound. Neural Arbor Model We now introduce constraints inspired by dendritic trees. Definition 3. An arbor is a directed, acyclic graph embedded in R3 obtained from initial trajec- tories via: • orientation (signal flow), • pruning of backward segments, • non-reuse of segments after branching. 4.1 Rall-Type Constraints In addition, branching satisfies: X j d3/2 j = constant, imposing physical limits on branching proliferation. Bounded-Degree Incidence Graphs The key structural difference is degree control. Definition 4. An incidence graph is bounded-degree if each line vertex has degree at most D, where D is independent of N. Proposition 1. The incidence graph of a neural arbor is bounded-degree. Proof. After pruning: • each trajectory can only branch forward, • each segment participates in at most one downstream branching event, • reuse is forbidden. Thus each original trajectory contributes a bounded number of incidences, implying a uniform degree bound D. 2</p> <p>6 Edge Bound Theorem 2 (Arbor Bound). Let T be an arbor derived from N initial trajectories. Then the number of edges satisfies E ≤kN for some constant k ≥2, and hence |Jarb| ≤kN. Proof. Intersections subdivide trajectories into multiple segments. For example, two intersecting trajectories may produce up to four local segments. However, pruning enforces: • directionality, • acyclicity, • non-reuse. These constraints ensure that each initial trajectory yields at most a bounded number of retained segments. Hence E ≤kN for some constant k ≥2. Since branching points are bounded by the number of edges, |Jarb| ≤E ≤kN. Comparison with Classical Regime O(N) ≪O(N3/2) Thus bounded-degree incidence graphs suppress combinatorial explosion. Graph-Theoretic Interpretation In general incidence graphs: • average degree can grow with N, • dense subgraphs enable many joints. In bounded-degree graphs: • total edges scale linearly, • number of possible joints is constrained. This aligns neural arbors with sparse graph regimes. 3</p> <p>9 Biological Interpretation Neural systems impose: • metabolic constraints, • signal propagation limits, • structural stability. These translate mathematically into: • bounded degree, • acyclicity, • constrained subdivision. Hence biological networks cannot realize extremal incidence configurations. Main Conclusion Theorem 3 (Kakeya Upper Bound for Neural Arbors). Any neural arbor derived from N spatial trajectories satisfies |Jarb| ≤kN, while the unconstrained upper bound satisfies |J| ≤CN3/2. This establishes a strict gap between geometric possibility and biological realizability. Future work will exploit this gap to bound the complexity of the neural connectome. Keywords Kakeya problem, joints theorem, incidence geometry, bounded-degree graphs, neural arbors, den- dritic trees, Rall model, connectome complexity. Acknowledgment of LLM Use This document was prepared with assistance from a large language model (LLM), which aided in structuring and drafting the mathematical exposition. The conceptual content and mathematical reasoning were critically reviewed and refined by the author. We refer the reader to standard works by Rall and Guth for dendrites and the joints problem, respectively.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/Shannon_Source_Coding_as_a_Limiting_Case_of_Structured_Source_Coding.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

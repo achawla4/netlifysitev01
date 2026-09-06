@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAL Engineering — AI & Scientific Software Engineering from Gurugram</title>
+<meta name="description" content="REAL Engineering helps US companies, AI startups, research groups and technology organizations build AI, machine-learning and scientific software from Gurugram, India.">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ink:#172536;--ink-soft:#526174;--paper:#f7f1e5;--card:#fffaf0;
+ --gold:#a87839;--gold-dark:#76511f;--red:#9d3d31;--sage:#536a54;
+ --rule:#d9c9a5;--shadow:0 12px 32px rgba(23,37,54,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Source Serif 4',Georgia,serif;background:radial-gradient(1000px 500px at 0 -5%,#fff9ec 0,transparent 65%),var(--paper);color:var(--ink);line-height:1.65}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+a{color:inherit}
+.ledger{background:var(--ink);color:#eee3ce;font:600 .7rem 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;padding:9px 0}
+.ledger .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{padding:52px 0 30px}
+.hero{background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:58px 48px;text-align:center;position:relative}
+.hero:before,.hero:after{content:"";position:absolute;top:14px;bottom:14px;width:1px;background:var(--rule)}
+.hero:before{left:14px}.hero:after{right:14px}
+.eyebrow,.mono{font:600 .72rem 'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase}
+.eyebrow{color:var(--gold-dark);margin-bottom:16px}
+h1{font:600 clamp(2.7rem,6vw,4.5rem)/1.02 'Fraunces',serif;margin-bottom:18px}
+.italic{font-style:italic;font-weight:400;color:var(--ink-soft)}
+.lede{max-width:780px;margin:auto;font-size:1.22rem;color:var(--ink-soft)}
+.hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:28px 0 10px}
+.btn{display:inline-block;padding:12px 20px;border:1px solid var(--gold);text-decoration:none;font-weight:600}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.secondary{background:transparent;color:var(--ink)}
+.stamp{display:inline-block;color:var(--red);border:2px solid var(--red);padding:7px 14px;transform:rotate(-1.5deg);font:600 .72rem 'IBM Plex Mono',monospace;margin-top:14px}
+section{padding:58px 0}
+.section-head{max-width:800px;margin-bottom:30px}
+.tab{display:inline-block;background:var(--gold);color:#fff;padding:5px 12px;margin-bottom:13px;font:600 .68rem 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+h2{font:600 clamp(1.8rem,3.5vw,2.5rem)/1.15 'Fraunces',serif}
+.sub{margin-top:10px;color:var(--ink-soft);font-size:1.05rem}
+.message{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+.card{background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:30px}
+.card h3{font:600 1.4rem 'Fraunces',serif;margin-bottom:10px}
+.card p{color:var(--ink-soft);margin-bottom:12px}
+.dark{background:var(--ink);color:#f7f1e5}
+.dark .sub,.dark p{color:#c8d2dd}
+.service-grid,.case-grid,.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service,.case,.trust{background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:25px}
+.service .num,.case .num{font:600 .7rem 'IBM Plex Mono',monospace;color:var(--gold-dark);letter-spacing:.12em}
+.service h3,.case h3,.trust h3{font:600 1.35rem 'Fraunces',serif;margin:8px 0 10px}
+.service p,.case p,.trust p{font-size:.96rem;color:var(--ink-soft)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.tag{border:1px solid var(--rule);padding:4px 8px;font:600 .67rem 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+.case-grid{grid-template-columns:repeat(2,1fr)}
+.case{min-height:250px}
+.case .status{display:inline-block;margin-top:16px;padding:4px 8px;background:#ece3cf;color:var(--gold-dark);font:600 .65rem 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--ink);box-shadow:var(--shadow)}
+.step{padding:25px 20px;border-right:1px solid rgba(255,255,255,.1);color:#f7f1e5}
+.step:last-child{border:0}.step .n{font:600 .7rem 'IBM Plex Mono',monospace;color:#e3c48a}
+.step h3{font:600 1.15rem 'Fraunces',serif;margin:8px 0}.step p{font-size:.88rem;color:#c4cfdb}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.price{background:var(--card);border:1px solid var(--rule);padding:27px;box-shadow:var(--shadow)}
+.price h3{font:600 1.35rem 'Fraunces',serif}.price .amount{font:600 2rem 'Fraunces',serif;color:var(--gold-dark);margin:10px 0}
+.price p{color:var(--ink-soft);font-size:.94rem}
+.price ul{list-style:none;margin-top:14px}.price li{padding:7px 0;border-bottom:1px dashed var(--rule);font-size:.9rem}.price li:before{content:"— ";color:var(--gold-dark)}
+.note{font:600 .72rem 'IBM Plex Mono',monospace;color:var(--sage);border-left:3px solid var(--sage);padding-left:12px;margin:20px 0}
+.cta{text-align:center;background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:45px 25px}
+.cta p{max-width:720px;margin:10px auto 22px;color:var(--ink-soft);font-size:1.08rem}
+footer{background:var(--ink);color:#d7cdbb;padding:42px 0 28px;margin-top:20px;text-align:center}
+footer h3{font:600 1.4rem 'Fraunces',serif;color:#fff;margin-bottom:10px}
+footer a{color:#e4c58c;text-decoration:none}
+.legal{max-width:800px;margin:18px auto 0;font:400 .66rem/1.5 'IBM Plex Mono',monospace;color:#8fa0b2}
+@media(max-width:850px){
+ .message,.service-grid,.case-grid,.trust-grid,.pricing{grid-template-columns:1fr}
+ .process{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
+ .hero{padding:42px 23px}
+}
+</style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+<div class="ledger"><div class="wrap"><span>REAL ENGINEERING · GURUGRAM, INDIA</span><span>AI · SCIENTIFIC SOFTWARE · RESEARCH ENGINEERING</span></div></div>
+
+<header>
+<div class="wrap">
+<div class="hero">
+<div class="eyebrow">A commercial engineering initiative of Hariharananda REAL Institute</div>
+<h1>AI Engineering</h1>
+<p class="lede"><strong>We help US companies, AI startups, research groups and technology organizations turn difficult technical ideas into working software.</strong> Senior technical leadership, scientific depth, and practical Python/AI engineering — delivered from India with direct communication and clear ownership of the work.</p>
+<div class="hero-cta">
+<a class="btn primary" href="#contact">Discuss a Project</a>
+<a class="btn secondary" href="#work">View Our Work</a>
+</div>
+<span class="stamp">RESEARCH-GROUNDED · ENGINEERING-LED</span>
+</div>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<div class="section-head">
+<span class="tab">The Client Message</span>
+<h2>Have an AI idea that needs to become a real system?</h2>
+<p class="sub">You do not need another generic outsourcing vendor. You need engineers who can understand the problem, work through the mathematics and architecture, build the prototype, and help turn it into a usable product.</p>
+</div>
+<div class="message">
+<div class="card">
+<h3>Bring us the difficult part.</h3>
+<p>REAL Engineering is designed for projects where software development intersects with AI, mathematics, scientific computing, simulation, signal processing or advanced research.</p>
+<p>We can work from a specification, research paper, prototype, algorithm, dataset or partially built codebase. Our goal is not to maximize lines of code; it is to produce a technically defensible working result.</p>
+</div>
+<div class="card">
+<h3>Why Gurugram?</h3>
+<p>India provides a deep engineering talent pool and an attractive cost structure. REAL adds a research-oriented layer: direct senior technical involvement, interdisciplinary problem-solving, and an emphasis on reproducibility and documentation.</p>
+<p><strong>US clients can start small:</strong> a narrowly defined paid pilot, followed by a larger project or continuing engineering engagement if the collaboration works.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="dark">
+<div class="wrap">
+<div class="section-head">
+<span class="tab">Core Capabilities</span>
+<h2>Three ways we can help.</h2>
+<p class="sub">Our commercial focus is deliberately narrower than the Institute's full research vision.</p>
+</div>
+<div class="service-grid">
+<div class="service"><div class="num">01 · AI / LLM ENGINEERING</div><h3>Generative AI systems</h3><p>Build practical AI applications around models, data and APIs — from research prototype to usable software.</p><div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Agents</span><span class="tag">Python</span><span class="tag">Evaluation</span></div></div>
+<div class="service"><div class="num">02 · SCIENTIFIC AI</div><h3>AI for difficult technical problems</h3><p>Translate mathematical and scientific ideas into simulations, machine-learning models, analysis pipelines and research software.</p><div class="tags"><span class="tag">ML</span><span class="tag">Simulation</span><span class="tag">Optimization</span><span class="tag">Signal Processing</span><span class="tag">Quantum</span></div></div>
+<div class="service"><div class="num">03 · RESEARCH SOFTWARE</div><h3>Prototype → production</h3><p>Take an algorithm, paper, notebook or early prototype and turn it into structured, documented, testable software.</p><div class="tags"><span class="tag">APIs</span><span class="tag">Data Pipelines</span><span class="tag">Scientific Computing</span><span class="tag">Deployment</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="work">
+<div class="wrap">
+<div class="section-head">
+<span class="tab">Selected Case Studies</span>
+<h2>Research becomes evidence of engineering capability.</h2>
+<p class="sub">These examples are drawn from the Institute's existing research and engineering direction. They are presented here to show the kinds of technical problems REAL Engineering can work on; they are not claims that every listed capability is a currently packaged commercial service.</p>
+</div>
+<div class="case-grid">
+<div class="case"><div class="num">CASE 01 · LEIBNITZ</div><h3>Signal-processing research platform</h3><p>A Python-based research application demonstrating the translation of technical signal-processing ideas into an interactive software environment. The project represents the kind of research-to-software workflow we offer.</p><div class="tags"><span class="tag">Python</span><span class="tag">Signal Processing</span><span class="tag">Research Software</span></div><span class="status">Existing project</span></div>
+<div class="case"><div class="num">CASE 02 · DISTRIBUTED LLM</div><h3>Distributed / edge LLM experimentation</h3><p>Research into building and training a small language model across distributed computing resources. This demonstrates interest in model engineering, constrained compute and non-standard AI infrastructure.</p><div class="tags"><span class="tag">LLM</span><span class="tag">Distributed Computing</span><span class="tag">AI Research</span></div><span class="status">Research prototype</span></div>
+<div class="case"><div class="num">CASE 03 · MARS AGI EXPLORER</div><h3>Autonomous-agent simulation</h3><p>A Python-based simulation exploring autonomous and AGI-oriented behavior in a Mars exploration setting. It illustrates the use of software simulation as a laboratory for intelligent-agent ideas.</p><div class="tags"><span class="tag">Python</span><span class="tag">Simulation</span><span class="tag">Autonomous Systems</span></div><span class="status">Research project</span></div>
+<div class="case"><div class="num">CASE 04 · COMPUTATIONAL NEUROSCIENCE</div><h3>Neural interaction modelling</h3><p>Computational work on ephaptic interactions in C. elegans, including distance-based coupling and numerical modelling. This demonstrates interdisciplinary work across neuroscience, mathematics and computation.</p><div class="tags"><span class="tag">Neuroscience</span><span class="tag">Numerical Modelling</span><span class="tag">Scientific Computing</span></div><span class="status">Research project</span></div>
+<div class="case"><div class="num">CASE 05 · QUANTUM INFORMATION</div><h3>Quantum research software & modelling</h3><p>Research activity spanning quantum energy teleportation, quantum information and related computational models. The work illustrates REAL's ability to engage with technically demanding mathematical and physical problems.</p><div class="tags"><span class="tag">Quantum</span><span class="tag">Information Theory</span><span class="tag">Mathematical Modelling</span></div><span class="status">Research domain</span></div>
+<div class="case"><div class="num">CASE 06 · SCIENTIFIC COMPUTING</div><h3>From equations to executable models</h3><p>Across the Institute's projects, mathematical formulations are implemented as simulations, data-processing pipelines and computational experiments — the central research-to-engineering pattern behind REAL Engineering.</p><div class="tags"><span class="tag">Algorithms</span><span class="tag">Simulation</span><span class="tag">Data Analysis</span></div><span class="status">Cross-project capability</span></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head"><span class="tab">How We Work</span><h2>A low-risk path from first conversation to long-term engineering.</h2></div>
+<div class="process">
+<div class="step"><div class="n">01</div><h3>Understand</h3><p>Clarify the technical problem, constraints, data and desired outcome.</p></div>
+<div class="step"><div class="n">02</div><h3>Scope</h3><p>Define a small, measurable pilot with concrete deliverables and acceptance criteria.</p></div>
+<div class="step"><div class="n">03</div><h3>Build</h3><p>Implement, test and document the agreed system with regular demonstrations.</p></div>
+<div class="step"><div class="n">04</div><h3>Evaluate</h3><p>Review the working result together and decide whether further engineering is justified.</p></div>
+<div class="step"><div class="n">05</div><h3>Scale</h3><p>Continue as a larger project, recurring engagement or dedicated engineering capacity.</p></div>
+</div>
+<div class="note">US clients can begin with a narrowly defined paid pilot. Larger engagements can be structured through an MSA and project-specific Statement of Work.</div>
+</div>
+</section>
+
+<section class="dark">
+<div class="wrap">
+<div class="section-head"><span class="tab">Engagement Models</span><h2>Start small. Scale when the work proves itself.</h2><p class="sub">Indicative starting structures — final scope and pricing depend on the technical problem.</p></div>
+<div class="pricing">
+<div class="price"><h3>Discovery</h3><div class="amount">$500–1,000</div><p>A focused technical assessment before substantial engineering begins.</p><p>1. Problem decomposition 2. Architecture recommendation 3. Technical feasibility 4. Written next-step plan</p></div>
+<div class="price"><h3>AI Engineering Pilot</h3><div class="amount">$2,500–5,000</div><p>A small, fixed-scope prototype designed to demonstrate working value quickly.</p><p>1. Defined deliverables 2. Working prototype 3. Source code & documentation 4. Demo and handover </p></div>
+<div class="price"><h3>Continuing Engineering</h3><div class="amount">$5k–10k+</div><p>Recurring engineering capacity for companies that want an ongoing technical partner.</p><p>1. Monthly development 2. Milestone delivery 3. Direct technical communication 4. Expandable team capacity </p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head"><span class="tab">Why REAL Engineering</span><h2>Not a generic software shop.</h2></div>
+<div class="trust-grid">
+<div class="trust"><h3>Research depth</h3><p>The Institute's foundation spans applied mathematics, information theory, quantum information, computational neuroscience, scientific computing and machine learning.</p></div>
+<div class="trust"><h3>Engineering discipline</h3><p>We emphasize executable models, reproducibility, documentation, testing and a clear path from algorithm to software.</p></div>
+<div class="trust"><h3>Direct technical leadership</h3><p>Clients work directly with the technical lead rather than being separated from the people making the core engineering decisions.</p></div>
+<div class="trust"><h3>India cost structure</h3><p>Gurugram provides access to India's technology ecosystem while allowing US clients to explore engineering capacity without immediately building another US team.</p></div>
+<div class="trust"><h3>Clear ownership</h3><p>Commercial engagements can explicitly address confidentiality, intellectual property, deliverables, acceptance and handover in the governing agreement.</p></div>
+<div class="trust"><h3>Long-term orientation</h3><p>The aim is not to maximize short-term outsourcing volume, but to build durable research and engineering partnerships.</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+<div class="cta">
+<span class="tab">Let's Talk</span>
+<h2>Have a difficult AI or software problem?</h2>
+<p>Send us the problem, prototype, paper, dataset or codebase. We will help determine whether a small engineering pilot makes sense — before asking you to commit to a larger engagement.</p>
+<a class="btn primary" href="mailto:aman.chawla@gmail.com?subject=REAL%20Engineering%20Project%20Inquiry">Email REAL Engineering</a>
+<p class="mono" style="margin-top:18px;color:var(--sage)">Gurugram · India · Working with international clients</p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<h3>REAL Engineering</h3>
+<p>AI Engineering · Scientific Software · Research Engineering</p>
+<p><a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a> · <a href="https://yogoreal.net">yogoreal.net</a></p>
+<p class="legal">REAL Engineering is presented as a commercial engineering initiative associated with the Hariharananda REAL Institute. Specific legal, tax, contracting and intellectual-property arrangements should be established for each engagement. This page describes capabilities, research projects and intended engagement models; it does not represent that every capability is currently offered as a standardized service.</p>
+</div>
+</footer>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

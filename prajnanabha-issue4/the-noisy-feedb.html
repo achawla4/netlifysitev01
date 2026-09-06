@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Noisy Feedback Converse for a Gaussian Channel | Prajnanabha</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --paper: #fffdfa;
+            --ink: #22211d;
+            --muted: #6f6658;
+            --accent: #9a6a2f;
+            --accent-soft: #e9d9c0;
+            --border: #e7dcc9;
+            --shadow: 0 18px 55px rgba(36, 25, 7, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(154, 106, 47, 0.08), transparent 28rem),
+                linear-gradient(180deg, #f8f2e8, var(--bg));
+            line-height: 1.72;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 76px 20px 54px;
+            background:
+                linear-gradient(135deg, rgba(24, 33, 60, 0.96), rgba(19, 53, 52, 0.92)),
+                radial-gradient(circle at top right, rgba(233, 217, 192, 0.25), transparent 20rem);
+            color: #f9f4ea;
+        }
+
+        .hero-inner,
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 0.83rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #dfba88;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 980px;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            line-height: 1.05;
+            font-weight: 600;
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            color: rgba(249, 244, 234, 0.88);
+            font-size: 1rem;
+        }
+
+        .content {
+            padding: 34px 20px 88px;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+            color: var(--muted);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .meta-card,
+        .article-shell {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .meta-card {
+            padding: 24px 26px;
+        }
+
+        .meta-card h2,
+        .article-shell h2 {
+            margin: 0 0 10px;
+            color: #1d2438;
+            font-size: 1.25rem;
+        }
+
+        .article-shell {
+            padding: 34px 34px 42px;
+        }
+
+        .article-shell h2 {
+            margin-top: 2.5rem;
+            padding-top: 0.2rem;
+            font-size: 1.55rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-shell h3 {
+            margin-top: 1.85rem;
+            font-size: 1.22rem;
+            color: #24304c;
+        }
+
+        .article-shell h4,
+        .article-shell h5 {
+            margin-top: 1.5rem;
+            color: #36415d;
+        }
+
+        .article-shell p {
+            margin: 0 0 1rem;
+            font-size: 1.05rem;
+        }
+
+        .article-figure,
+        .article-table {
+            margin: 2rem 0;
+            padding: 18px 18px 14px;
+            background: linear-gradient(180deg, #fffefb, #faf5ee);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(36, 25, 7, 0.06);
+            background: #ffffff;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        figcaption span {
+            color: #2c3448;
+            font-weight: 600;
+        }
+
+        .article-list {
+            margin: 0 0 1.15rem 1.1rem;
+            padding-left: 1rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .theorem-block,
+        .callout-block {
+            margin: 1.7rem 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: #fbf6ef;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .theorem-title {
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .math-block {
+            margin: 1.6rem 0;
+            padding: 1rem 1.1rem;
+            overflow-x: auto;
+            background: #f7f1e8;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            color: #24304c;
+            background: rgba(154, 106, 47, 0.08);
+        }
+
+        .citation {
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .footnote-inline {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .references {
+            margin-top: 2.4rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .reference-list {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-key {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.45rem;
+        }
+
+        .reference-note,
+        .missing-asset, .asset-placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .code-block,
+        .table-fallback pre {
+            overflow-x: auto;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #1e2433;
+            color: #f4efe6;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-shell {
+                padding: 22px 18px 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/adsense.css">
+    <script defer src="../assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="../assets/math_ai_floater.css">
+    <script src="../assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Prajnanabha Volume 1 Issue 4 · V1I4-A03</div>
+            <h1>The Noisy Feedback Converse for a Gaussian Channel</h1>
+            <div class="hero-meta">Aman Chawla | September 24, 2019</div>
+            <div class="hero-meta">Source PDF: rdsinfov4forZenodo.pdf</div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="breadcrumbs">
+            <a href="../prajnanabha_upd.html">Prajnanabha</a> / <a href="../prajnanabha-i_4.html">Issue 4</a>
+        </div>
+        <div class="meta-grid">
+            <section class="meta-card"><h2>Abstract</h2><p>The reliability function of a Gaussian noise communication system with Gaussian feedback is upper bounded by drawing an analogy with random dynamical systems.</p></section>
+            <section class="meta-card"><h2>Keywords</h2><p>Gaussian, feedback, noisy channel, reliability function.</p></section>
+        </div>
+        <article class="article-shell" data-pagefind-body data-pagefind-filter="type:Journal">
+            <h2 id="introduction">Introduction</h2>
+<p>In <span class="citation" title="chawla2006reliability">[1]</span>, one of the authors (AC) determined a lower bound on the reliability function of a Gaussian noise channel with Gaussian noisy feedback. The aim of the present paper is to provide an upper bound on the very same reliability function.</p>
+<p>Fig. [fig:my_label] shows the events which occur in a noisy feedback communication system with time increasing from left to right.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig1.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig1.jpg</div><figcaption><span>Figure 1.</span> Time evolution of a random dynamical communication system with noisy feedback</figcaption></figure>
+<p>In Fig. [fig:my_label2], which is for the noiseless or perfect feedback case, the y and f stochastic processes have been equated.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig2.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig2.jpg</div><figcaption><span>Figure 2.</span> Time evolution of a random dynamical communication system with noiseless feedback</figcaption></figure>
+<p>In the figures, the arrows indicate dependencies between the stochastic processes. In Fig. [fig:my_label3], in the &quot;g&quot; sequence, thre are two component &quot;sub-sequences&quot;:</p>
+<ol class="article-list"><li><p>The &quot;odd&quot; subsequence which is the x-sequence or input sequence, and</p></li><li><p>The &quot;even&quot; subsequence which is the y/f-sequence or output sequence.</p></li></ol>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig3.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig3.jpg</div><figcaption><span>Figure 3.</span> Time evolution of a random dynamical communication system with noiseless feedback</figcaption></figure>
+<p>In another view, if we want to just look at the inputs, we can simply `stare&#x27; at the x-sequence as in the following figure, Fig. [fig:my_label4].</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig4.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig4.jpg</div><figcaption><span>Figure 4.</span> Time evolution of a random dynamical system based on the inputs to the corresponding communication system with noiseless feedback.</figcaption></figure>
+<p>If we relabel g(1) as h(1), g(3) as h(2), and so on, upto g(2n-1) as h(n), then we obtain the next figure, Fig. [fig:my_label5].</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig5.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig5.jpg</div><figcaption><span>Figure 5.</span> Time evolution of a random dynamical system based on the inputs to the corresponding communication system with noiseless feedback.</figcaption></figure>
+<p>Define ${}={N} {E}$. Then ${}$ is a dynamical system.</p>
+<p>In an alternate approach, the following figure, Fig. [fig:my_label6], looks at the even subsequence, which is the output.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig6.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig6.jpg</div><figcaption><span>Figure 6.</span> Time evolution of a random dynamical system based on the inputs to the corresponding communication system with noiseless feedback.</figcaption></figure>
+<p>Next, we let alpha(1) be g(2), alpha(2) be g(4), alpha(3) be g(6) and so on until we let alpha(n) = g(2n), where n is a positive integer. Further, we let ${}^{'} = {E} {N}$. As a result, we have the mapping from alpha(1) to alpha(2), called ${}^{'}$. Thus, alpha(2) = ${}^{'} ((1))$ and in general,</p>
+<div class="math-block">$$
+\alpha(n) = \mathcal{\psi}^{'}(\alpha(n-1))
+$$</div>
+<p>The random dynamical system of [eq:1] will be having statistics which are independent of time because ${N}$ is time-independent and so also ${E}$ has time-independent stats.</p>
+<h2 id="noisy-feedback-case">Noisy Feedback Case</h2>
+<p>If we had a noisy feedback case, then $f(1) y(1)$ but rather $f(1) = y(1) + noise$. So the encoder can be treated as adding this noise before using y(1) to generate x(2). So it is a noisy encoder ${E}_{noisy}$. Thus ${}^{"}={E}_{noisy} {N}$ and so</p>
+<div class="math-block">$$
+\beta(n) = \psi^{''}(\beta(n-1)).
+$$</div>
+<p>The random dynamical system of ([eq:2]) will also be having statistics which are independent of time.</p>
+<h2 id="lyapunov-exponent-intuition">Lyapunov Exponent Intuition</h2>
+<p>In this section we present some intuition on the Lyapunov exponent as it relates to our problem setup.</p>
+<p>The Lyapunov exponent of our RDS ${}^{"}$ will be high iff the system diverges in phase space iff two closeby initial conditions lead to divergent trajectories of the system.</p>
+<p>But, if the two trajectories are divergent, for closeby initial conditions, then resolution of decoding would have increased. That is, you would easily be able to say, given a trajectory, which initial condition it came from, or at least, that it is from a distinct set of possible initial conditions.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig7.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/rdsinfoFig7.jpg</div><figcaption><span>Figure 7.</span> Divergence of paths starting from nearby initial conditions.</figcaption></figure>
+<p>Even if the clouds y1 and y1&#x27; clouds had some small overlap, a large Lyapunov exponent would lead to a huge gap in a short time between the resultant clouds. Under ML decoding, this would imply a very low probability of error in short time, or a huge error exponent.</p>
+<h2 id="application-of-intuition">Application of Intuition</h2>
+<p>Consider a channel with noisy feedback, such as the DMC, the Gaussian channel or a Vector Gaussian channel, which models an ephaptic tract. As per the development in the preceding pages, we can model them as random dynamical systems and find the corresponding Lyapunov exponent. The larger the LE, the larger would be the error exponent.</p>
+<p>As a procedure, we can first determine the RDS corresponding to the communication system, then perturb this so that we get a `closest&#x27; chaotic communication system. That latter system&#x27;s Lyapunov exponent will be proportional to a tight upper bound on the original random dynamical communication system&#x27;s error exponent. Here the assumption is that chaotic systems are a different class altogether.</p>
+<h2 id="finding-the-lyapunov-exponent">Finding the Lyapunov exponent</h2>
+<p>Our first step is to find the Lyapunov exponent of the random dynamical system shown in Equation [eq:2]. For this we will need to refer to the multiplicative ergodic theorem <span class="citation" title="furman1997multiplicative">[2]</span> and the book <span class="citation" title="arnold1995random">[3]</span>.</p>
+<p>Before we can write the Lyapunov exponent in the most general case, we need the map $^{'}$. We can specialize to the binary case. That is we consider only antipodal signaling over the AWGN channel on the forward link as well as the feedback link. Thus the noise is Gaussian but at each step we have either a `O&#x27; (just a label for `-1&#x27;) or `1&#x27;.</p>
+<p>The most general non-noisy encoder would be</p>
+<div class="math-block">$$
+\mathcal{E}_t: (m, Y_{1}^{t}) \to X_t
+$$</div>
+<p>Here $m$ is the message, which can also belong to a binary set (two possibilities) and $Y_{1}^{t}$ is a length $t$ bit sequence. This thus represents a feedback encoder.</p>
+<p>We cam assume initially that there is only a length 1 feedback. However, for illustration purposes (see Figure [fig:my_label8]), let us consider a length 2 feedback at each step. That is, it is a fixed length feedback code instead of a variable length one.</p>
+<figure class="article-figure"><div class="asset-placeholder" data-missing-src="../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/binaryFeedbackCode.jpg">Figure asset unavailable: ../extracted_for_prajnanabha/for_prajnanabha/V1I4-A03_rdsinfov4forZenodo/images/images/binaryFeedbackCode.jpg</div><figcaption><span>Figure 8.</span> Illustration of a binary feedback code.</figcaption></figure>
+<p>For this feedback code, we can write</p>
+<div class="math-block">$$
+\begin{eqnarray}
+X(t=2) & = & m'\cdot y_{1}^{'} \cdot y_2 + m' \cdot y_1 \cdot y_{2}^{'} + m \cdot y_1 \cdot y_{2}^{'} + m \cdot y_1 \cdot y_2 
+ \nonumber
+& = & m' (y_1 (xor) y_2) + m \cdot y_1 
+ \nonumber
+\end{eqnarray}
+$$</div>
+<p>We can write the above succinctly as</p>
+<div class="math-block">$$
+X(t) = \sum_{a,b,c} \mathbb{K}_{a,b,c} \cdot m(t-1)^a \cdot y(t-1)^b \cdot y(t-2)^c
+$$</div>
+<p>where ${a,b,c} {prime, non-prime}$ and ${K}_{a,b,c}$ is a coefficient which is either 0 or 1 and indicates if the corresponding product term is present or not.</p>
+<p>For equating with a Random Dynamical System, the encoder has to be a fixed mapping applied at every instant. So, our formulation is applicable perhaps only to fixed length codes as opposed to variable length codes. This is fine for starters, but this assumption will have to be relaxed to find the most general upper bound. A new theory, broadening that of Random Dynamical Systems as defined in Arnold&#x27;s book <span class="citation" title="arnold1995random">[3]</span>, might have to be developed <span class="footnote-inline"><sup>†</sup>Note however that if a random dynamical system is described in terms of a triple, then within the choice of maps we can include the variable length codes <span class="citation" title="bhattacharya2003random">[4]</span></span>.</p>
+<p>Next we look at the channel. Let it be an additive noise channel. The input-output mapping is therefore the identity map, perturbed by noise. Thus,</p>
+<div class="math-block">$$
+\begin{eqnarray}
+y(t) & = & x(t) + noise 
+ \nonumber
+& = & \mathbb{I} \cdot x(t) + noise 
+ \nonumber
+\end{eqnarray}
+$$</div>
+<p>Thus we can finally write $^{'}$ for this special case as $^{'}= {E} {N}$. This gives us</p>
+<div class="math-block">$$
+\psi^{'} = \sum_{a,b,c} \mathbb{K}_{a,b,c} \cdot m(t-1)^a \cdot y(t-1)^b \cdot y(t-2)^c
+$$</div>
+<p>to which noise would be added. This is the Random Dynamical System corresponding to the output $y$ of the channel. Our next step would be to consider the binary case where distances are Hamming distances and then to find the Lyapunov exponent which would tell us about the divergence rates of trajectories. We will have to find the perturbed RDS of $^{'}$ with the smallest Lyapunov exponent such that the system is still chaotic in order to upper bound the reliability function.</p>
+            <section class="references"><h2>References</h2><p class="reference-note">This article still needs manual bibliography curation because the referenced bibliography source is not available in the workspace.</p><ol class="reference-list"><li><span class="ref-key">[1]</span> chawla2006reliability</li><li><span class="ref-key">[2]</span> furman1997multiplicative</li><li><span class="ref-key">[3]</span> arnold1995random</li><li><span class="ref-key">[4]</span> bhattacharya2003random</li></ol></section>
+        </article>
+        <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+</main>
+    <script src="../assets/live_viewers.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QIHub | IBM Qiskit-Simulated Quantum Illumination — yogoreal.net</title>
+
+  <!-- MathJax Configuration & Loader -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0f172a;
+      --panel-bg: #1e293b;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --qiskit-purple: #a855f7;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --tag-internal: #10b981;
+      --tag-external: #f59e0b;
+      --tag-issue: #ef4444;
+      --code-bg: #030712;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .sub-nav {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 330px 1fr 310px;
+      gap: 24px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Systems / Accounts */
+    .system-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .system-card:hover, .system-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .system-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      background: #030712;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--accent);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .system-meta h3 {
+      font-size: 0.92rem;
+      color: #fff;
+    }
+
+    .system-meta span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .biodata-snippet {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
+
+    /* Composer */
+    .post-composer textarea {
+      width: 100%;
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px;
+      resize: vertical;
+      min-height: 75px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .meta-inputs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .composer-controls {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    select, button, input {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
+
+    button {
+      background: var(--accent);
+      color: #030712;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .btn-template {
+      background: rgba(168, 85, 247, 0.2);
+      color: var(--qiskit-purple);
+      border: 1px solid var(--qiskit-purple);
+      padding: 4px 8px;
+      font-size: 0.75rem;
+    }
+
+    .btn-template:hover {
+      background: var(--qiskit-purple);
+      color: #fff;
+    }
+
+    /* Process Thread Cards */
+    .feed-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .feed-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-internal { background: rgba(16, 185, 129, 0.15); color: var(--tag-internal); }
+    .badge-external { background: rgba(245, 158, 11, 0.15); color: var(--tag-external); }
+    .badge-issue { background: rgba(239, 68, 68, 0.15); color: var(--tag-issue); }
+
+    .qiskit-banner {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--qiskit-purple);
+      background: rgba(168, 85, 247, 0.08);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .dataset-preview {
+      background: var(--code-bg);
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+      padding: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      color: #38bdf8;
+      margin: 10px 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .feed-footer {
+      display: flex;
+      gap: 12px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+
+    /* Right column components */
+    .issue-item {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+    }
+
+    .issue-item:last-child {
+      border-bottom: none;
+    }
+
+    .issue-title {
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .issue-status {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+  </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div>
+      <span class="sub-nav">yogoreal.net / Research / Quantum Optics</span>
+      <h1>QIHub: Quantum Illumination Collaborative Platform</h1>
+      <p>Decentralized messaging powered by verified datasets from free online IBM Quantum Simulators (Qiskit Aer).</p>
+    </div>
+    <div style="font-size: 0.8rem; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); padding: 4px 10px; border-radius: 4px;">
+      Target: <code>AerSimulator(method='statevector')</code> &bull; Free Open Plan
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Left Column: Physical Systems & Simulated Nodes -->
+    <aside class="column">
+      <div class="panel">
+        <div class="panel-title">
+          <span>Registered Systems (Photos/Nodes)</span>
+          <button style="padding: 2px 8px; font-size: 0.75rem;" onclick="registerSystem()">+ Register</button>
+        </div>
+
+        <div id="systems-list">
+          <div class="system-card active" onclick="selectSystem('IBM Aer: Bell-State Pair Source')">
+            <div class="system-header">
+              <div class="avatar">⚡</div>
+              <div class="system-meta">
+                <h3>Bell Pair Source ($q_S, q_I$)</h3>
+                <span>Node: Qiskit Aer (Entangled Transmitter)</span>
+              </div>
+            </div>
+            <div class="biodata-snippet">
+              Circuit: $H(q_S) \to \text{CX}(q_S, q_I)$ | State: $|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$
+            </div>
+          </div>
+
+          <div class="system-card" onclick="selectSystem('IBM Aer: Thermal Jamming Bath')">
+            <div class="system-header">
+              <div class="avatar">🌫️</div>
+              <div class="system-meta">
+                <h3>Thermal Noise Channel</h3>
+                <span>Node: Aer NoiseModel (Mixed Bath)</span>
+              </div>
+            </div>
+            <div class="biodata-snippet">
+              $\mathcal{E}_{\text{noise}}(\rho) = (1-p)\rho + p \frac{I}{2}$ &bull; Depolarizing $p = 0.35$ + Phase-Damping
+            </div>
+          </div>
+
+          <div class="system-card" onclick="selectSystem('IBM Aer: Joint Bell Parity Receiver')">
+            <div class="system-header">
+              <div class="avatar">📡</div>
+              <div class="system-meta">
+                <h3>Joint Parity Receiver</h3>
+                <span>Node: Aer QASM (Receiver Module)</span>
+              </div>
+            </div>
+            <div class="biodata-snippet">
+              Basis: $\text{CX}(q_{\text{ret}}, q_I) \to H(q_{\text{ret}}) \to \text{Measure}(Z_0 Z_1)$
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">IBM Simulator Presets</div>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Load verified IBM Qiskit test templates into the dispatch composer:</p>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <button class="btn-template" onclick="loadTemplate('target_present')">Template 1: Target Present ($H_1$ with Noise)</button>
+          <button class="btn-template" onclick="loadTemplate('target_absent')">Template 2: Target Absent ($H_0$ Pure Noise)</button>
+          <button class="btn-template" onclick="loadTemplate('statevector_audit')">Template 3: Idler Statevector Purity Check</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Center Column: Process Streams & Qiskit Dataset Messages -->
+    <main class="column">
+      <!-- Composer -->
+      <div class="panel post-composer">
+        <div class="panel-title">Dispatch System Process (IBM Qiskit Dataset Payload)</div>
+        <textarea id="postContent" placeholder="Describe the quantum process (LaTeX enabled, e.g. Receiver correlation $\langle Z_S Z_I \rangle > 0$)"></textarea>
+
+        <div class="meta-inputs-grid">
+          <input type="text" id="simBackend" placeholder="IBM Backend (e.g. aer_simulator, fake_manila)" value="qiskit_aer.AerSimulator">
+          <input type="text" id="simShots" placeholder="Shots / Seed (e.g. shots=8192, seed=42)" value="shots=8192, seed=1024">
+        </div>
+
+        <textarea id="postDataset" style="min-height: 65px; font-family: monospace;" placeholder="Dataset strictly from IBM Simulator (Counts JSON, Statevector or Density Matrix):
+{'00': 4012, '01': 102, '10': 98, '11': 3980}"></textarea>
+        
+        <div class="composer-controls">
+          <select id="originSystem">
+            <option value="Bell Pair Source (q_S, q_I)">Origin: Bell Pair Source (q_S, q_I)</option>
+            <option value="Thermal Noise Channel">Origin: Thermal Noise Channel</option>
+            <option value="Joint Parity Receiver">Origin: Joint Parity Receiver</option>
+          </select>
+          <select id="processScope">
+            <option value="External">Inter-System Channel</option>
+            <option value="Internal">Internal Calibration</option>
+            <option value="Issue">Flag as Research Issue</option>
+          </select>
+          <button onclick="publishProcess()">Emit Validated Process</button>
+        </div>
+      </div>
+
+      <!-- Feed Container -->
+      <div id="feed-container">
+        <!-- Post 1 -->
+        <article class="feed-card">
+          <div class="feed-header">
+            <div class="author-info">
+              <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">📡</div>
+              <strong>Joint Parity Receiver</strong>
+            </div>
+            <span class="badge badge-external">Inter-System Channel</span>
+          </div>
+          <div class="qiskit-banner">
+            <span>IBM Backend: AerSimulator(matrix_product_state)</span> &bull; <span>Shots: 8192</span> &bull; <span>Mitigated: True</span>
+          </div>
+          <p>
+            Hypothesis $H_1$ (Target Present) validated via joint Bell measurement across returned probe $q_{\text{ret}}$ and stored idler $q_I$. 
+            Even though channel thermal noise degraded single-photon coherence to $\text{Tr}(\rho^2) = 0.52$, quantum correlation persists in the even parity manifold:
+            $$\mathcal{P}_{\text{even}} = \frac{N_{00} + N_{11}}{N_{\text{total}}} = 0.781 \quad \gg \quad \mathcal{P}_{\text{classical}} = 0.500$$
+          </p>
+          <div class="dataset-preview">DATASET: {
+  "counts": {"00": 3218, "01": 890, "10": 904, "11": 3180},
+  "probabilities": {"00": 0.3928, "01": 0.1086, "10": 0.1104, "11": 0.3882},
+  "expectation_values": {"<ZZ>": 0.562, "<XX>": 0.548},
+  "snr_advantage_db": 5.92
+}</div>
+          <div class="feed-footer">
+            <span>Target: Bell Pair Source ($q_S, q_I$)</span>
+            <span>Dataset ID: #IBM-AER-4091</span>
+            <span>Logged: 8 mins ago</span>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="feed-card">
+          <div class="feed-header">
+            <div class="author-info">
+              <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">⚡</div>
+              <strong>Bell Pair Source ($q_S, q_I$)</strong>
+            </div>
+            <span class="badge badge-internal">Internal Calibration</span>
+          </div>
+          <div class="qiskit-banner">
+            <span>IBM Backend: AerSimulator(method='statevector')</span> &bull; <span>Shots: N/A (Exact)</span>
+          </div>
+          <p>
+            Zero-noise baseline fidelity calculation for transmitter Bell state $|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$ prior to channel injection:
+            $$\mathcal{F}(\rho_{\text{ideal}}, \rho_{\text{prep}}) = |\langle \Phi^+ | \psi \rangle|^2 = 1.0000$$
+          </p>
+          <div class="dataset-preview">DATASET: {
+  "statevector": [0.70710678 + 0.0j, 0.0 + 0.0j, 0.0 + 0.0j, 0.70710678 + 0.0j],
+  "purity": 1.000,
+  "von_neumann_entropy_subsystem_S": 0.693147
+}</div>
+          <div class="feed-footer">
+            <span>Scope: Pre-Deployment Baseline</span>
+            <span>Dataset ID: #IBM-AER-4088</span>
+            <span>Logged: 45 mins ago</span>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Right Column: Emerging Issues & IBM Simulator Constraints -->
+    <aside class="column">
+      <div class="panel">
+        <div class="panel-title">Open Quantum Issues</div>
+        
+        <div class="issue-item">
+          <div class="issue-title">Qubit Discretization vs. Continuous-Variable Fock Space ($N_B \gg 1$)</div>
+          <div class="issue-status">Origin: Thermal Noise Channel &bull; 5 posts</div>
+        </div>
+
+        <div class="issue-item">
+          <div class="issue-title">Simulating Phase Fluctuation with Aer <code>PhaseDampingError</code></div>
+          <div class="issue-status">Origin: Joint Parity Receiver &bull; 2 posts</div>
+        </div>
+
+        <div class="issue-item">
+          <div class="issue-title">Finite-Shot Sampling Noise on Chernoff Bound Convergence ($M < 10^4$)</div>
+          <div class="issue-status">Origin: Bell Pair Source &bull; 6 posts</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">IBM Aer Simulation Bounds</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <p style="margin-bottom: 6px;"><strong>Permitted Simulators:</strong> <code>aer_simulator</code>, <code>statevector</code>, <code>mps</code></p>
+          <p style="margin-bottom: 6px;"><strong>Max Simulated Qubits:</strong> 32 (Statevector, Free)</p>
+          <p style="margin-bottom: 6px;"><strong>Max Shots / Job:</strong> $100{,}000$</p>
+          <p style="margin-bottom: 6px;"><strong>Target Metric:</strong> $\text{SNR}_{QI} - \text{SNR}_{CI} \approx 6\text{ dB}$</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function selectSystem(systemName) {
+      console.log(`Focused on simulated node: ${systemName}`);
+    }
+
+    function loadTemplate(type) {
+      const contentInput = document.getElementById('postContent');
+      const datasetInput = document.getElementById('postDataset');
+      const backendInput = document.getElementById('simBackend');
+      const shotsInput = document.getElementById('simShots');
+
+      if (type === 'target_present') {
+        backendInput.value = "qiskit_aer.AerSimulator";
+        shotsInput.value = "shots=4096, seed_simulator=42";
+        contentInput.value = "Target Present ($H_1$): Injected 30% depolarizing channel noise modeling low-reflectivity target $\\eta = 0.05$. Bell state parity retains resilient correlations above thermal background:";
+        datasetInput.value = JSON.stringify({
+          backend: "aer_simulator",
+          noise_model: "depolarizing(p=0.30)",
+          counts: { "00": 1542, "01": 506, "10": 512, "11": 1536 },
+          quantum_advantage_ratio: "1.98x over classical"
+        }, null, 2);
+      } else if (type === 'target_absent') {
+        backendInput.value = "qiskit_aer.AerSimulator";
+        shotsInput.value = "shots=4096, seed_simulator=101";
+        contentInput.value = "Target Absent ($H_0$): Pure environmental thermal noise. Returned mode $q_{\\text{ret}}$ is completely uncorrelated with idler mode $q_I$, yielding uniform measurement statistics:";
+        datasetInput.value = JSON.stringify({
+          backend: "aer_simulator",
+          counts: { "00": 1024, "01": 1018, "10": 1030, "11": 1024 },
+          parity_difference: 0.0029,
+          hypothesis: "H0_CONFIRMED"
+        }, null, 2);
+      } else if (type === 'statevector_audit') {
+        backendInput.value = "qiskit_aer.AerSimulator(method='statevector')";
+        shotsInput.value = "shots=N/A (Exact Analytic Statevector)";
+        contentInput.value = "Idler Subsystem Audit: Partial trace over signal qubit $\\rho_I = \\text{Tr}_S(|\\Phi^+\\rangle\\langle \\Phi^+|)$ results in maximally mixed state with von Neumann entropy $S = \\ln(2)$:";
+        datasetInput.value = JSON.stringify({
+          density_matrix_diag: [0.5, 0.5],
+          von_neumann_entropy: 0.693147,
+          purity: 0.500
+        }, null, 2);
+      }
+    }
+
+    function publishProcess() {
+      const content = document.getElementById('postContent').value;
+      const dataset = document.getElementById('postDataset').value;
+      const origin = document.getElementById('originSystem').value;
+      const scope = document.getElementById('processScope').value;
+      const backend = document.getElementById('simBackend').value || 'qiskit_aer.AerSimulator';
+      const shots = document.getElementById('simShots').value || 'shots=8192';
+
+      if (!content.trim()) {
+        alert('Please provide a process description.');
+        return;
+      }
+
+      // Validating dataset JSON structure for IBM simulation formats
+      if (dataset.trim()) {
+        try {
+          JSON.parse(dataset);
+        } catch (e) {
+          const proceed = confirm("Dataset is not strict JSON (standard for IBM Qiskit outputs). Do you want to post it anyway as raw text?");
+          if (!proceed) return;
+        }
+      }
+
+      let badgeClass = 'badge-internal';
+      if (scope === 'External') badgeClass = 'badge-external';
+      if (scope === 'Issue') badgeClass = 'badge-issue';
+
+      const feed = document.getElementById('feed-container');
+      const article = document.createElement('article');
+      article.className = 'feed-card';
+      
+      article.innerHTML = `
+        <div class="feed-header">
+          <div class="author-info">
+            <div class="avatar" style="width: 32px; height: 32px; font-size: 0.8rem;">🔬</div>
+            <strong>${escapeHtml(origin)}</strong>
+          </div>
+          <span class="badge ${badgeClass}">${scope} ${scope === 'Issue' ? 'Issue' : 'Process'}</span>
+        </div>
+        <div class="qiskit-banner">
+          <span>IBM Backend: ${escapeHtml(backend)}</span> &bull; <span>${escapeHtml(shots)}</span>
+        </div>
+        <p>${content}</p>
+        ${dataset ? `<div class="dataset-preview">DATASET: ${escapeHtml(dataset)}</div>` : ''}
+        <div class="feed-footer">
+          <span>Scope: ${scope}</span>
+          <span>Dataset ID: #IBM-AER-${Math.floor(1000 + Math.random() * 9000)}</span>
+          <span>Logged: Just now</span>
+        </div>
+      `;
+
+      feed.prepend(article);
+      
+      // Dynamic MathJax rendering
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([article]).catch((err) => console.error(err));
+      }
+
+      document.getElementById('postContent').value = '';
+      document.getElementById('postDataset').value = '';
+    }
+
+    function registerSystem() {
+      const name = prompt("Enter IBM Simulated System / Circuit Node (e.g. '3-Qubit GHZ Ancilla Receiver'):");
+      if (name) {
+        alert(`Registered simulated quantum entity "${name}". Ready to run Qiskit Aer experiments.`);
+      }
+    }
+  </script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

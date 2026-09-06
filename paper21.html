@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Axon Tract as a Transducer: Simulation of Gravitational Waves Coupling With an Ion at the Node of Ranvier - REAL Institute Monograph</title>
+<!-- Academic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #f7f3ec;
+            --card-bg: #fffdf9;
+            --ink: #1c1a17;
+            --accent: #8b5a2b;
+            --border: #e2d7c5;
+            --navy: #152238;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.85;
+            font-size: 1.1rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #152238, #133534);
+            color: #f9f5ed;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: -25px auto 60px;
+            padding: 0 20px;
+        }
+        .paper-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 45px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 6px;
+        }
+        p { margin-bottom: 20px; text-align: justify; }
+    
+        .paper-card p {
+            margin-bottom: 1.25rem;
+            line-height: 1.85;
+            text-align: justify;
+        }
+        .abstract {
+            background-color: #f9f6f0;
+            padding: 20px 25px;
+            border-left: 4px solid #8b5a2b;
+            border-radius: 6px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #2c2a29;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            color: #152238;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2d7c5;
+            padding-bottom: 6px;
+        }
+    
+    </style>
+<script>
+            MathJax = {
+              tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+            };
+            </script><script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="assets/math_ai_floater.css" rel="stylesheet"/><script defer="True" src="assets/math_ai_floater.js"></script>    <link rel="stylesheet" href="assets/cart.css">
+    <script src="assets/cart.js" defer></script>
+    <script src="assets/config.js"></script>
+</head>
+<body>
+<header class="hero-banner">
+<div style="max-width:800px; margin:0 auto;">
+<h1 style="font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:10px;">The Axon Tract as a Transducer: Simulation of Gravitational Waves Coupling With an Ion at the Node of Ranvier</h1>
+<div style="font-family:'Inter',sans-serif; opacity:0.9;">Chawla, Aman</div>
+</div>
+</header>
+<main class="main-container">
+<article class="paper-card"><div class="section" style="margin-bottom: 30px;">
+    <h2 class="section-heading">Abstract</h2>
+    <div class="abstract">
+        <p style="margin-bottom: 0.8rem; line-height: 1.75;">What happens when an axon tract acts as an intermediary between metric perturbations and ions in a node of Ranvier of an axon in the tract? In this paper, the authors present computer simulations of the time de- pendent Schrodinger Equation that utilize Crank-Nicolson discretization. The environment potential is provided by action potentials of two neigh- boring axons, which in turn are perturbed by gravitational waves. At about fourteen signicant gures in MATLAB precision, a clear impact of environmental potential modication on the ion wave function evolution is veried. Betwixt the metric perturbation and the quantum evolution, the axon tract can thus be seen as a classical-quantum transducer. Introduction Weinberg (Weinberg, 2012) and several other authors have considered the role of gravity in the collapse of the quantum wavefunction. The present paper does not consider this important question directly, rather, here we wish to explore further the mechanism of universal quantum computation in the brain proposed in (Chawla, 2022) and (Chawla &amp; Morgera, 2022b). Towards this end, we set up a MATLAB simulation of the time dependent Schrodinger equation for a single massive particle (representing, say, a sodium ion) at a node of Ranvier. Our mo- tivation is to couple this simulation with the simulation which provides minute timing-dierentials in axon tract action potentials when a gravitational wave is impinging on the tract versus when it is not. We are successful in our objec- tive and, when we use MATLAB's high precision, we are able to see an impact on the wave function's evolution - an impact dependent on the environmental potential. Such biophysical quantum simulations have not been performed pre- viously in the literature, to the best of our knowledge. The signicance of these simulations is that they form a stepping stone towards a similar study that looks at decoherence due to ion-ion collisions at the node of Ranvier, a task which we will take up in forthcoming work. 1</p> <p>The paper is organized as follows. In Section 2 we set up the simulation formulae for the discretized Schrodinger Equation for a single particle, where the standard Crank Nicolson method is used. The result of coupling this simulation with the programs developed in (Chawla et al., 2019) and (Chawla et al., 2021) is presented in Section 3. Finally, we conclude in Section 4. Crank Nicolson Approach to the TDSE Consider the standard time-dependent Schrodinger equation (TDSE) (Griths &amp; Schroeter, 2018), iℏ∂ψ ∂t = −ℏ2 2m ∂2ψ ∂x2 + V ψ (1) where i is the complex number √(−1), ℏis the Planck constant divided by 2π, ψ(x, t) is the wave function of interest, dependent on x and t, m is the mass of the particle and V is the environment potential in which the particle is placed. To simulate this equation, we will do a discretization rst. Thus, we will write ψ(x, t) as ψ(i, j) where i is the spatial index and j is the temporal index. The rst partial derivative with respect to time can be expressed in the form ∂ψ ∂t →(ψ(i, j + 1) −ψ(i, j)) ∆t . (2) Similarly, ∂ψ ∂x →(ψ(i + 1, j) −ψ(i, j)) ∆x . (3) And thus, the second partial derivative with respect to space can be written as ∂2ψ ∂x2 →(ψ(i + 1, j) −2ψ(i, j) + ψ(i −1, j)) (∆x)2 . (4) Plugging these discrete versions into the primary Schrodinger equation, we get iℏ[(ψ(i, j + 1) −ψ(i, j)) ∆t ] = −ℏ2 2m[(ψ(i + 1, j) −2ψ(i, j) + ψ(i −1, j)) ((∆x)2) ]+V (i, j)ψ(i, j). (5) Next, we will keep the (j + 1) term on the LHS and move all other (j) terms to the RHS. We get, iℏ[ψ(i, j + 1) ∆t ] = iℏ[ψ(i, j) ∆t ]+ℏ2 m [ψ(i, j) (∆x)2 ]+V (i, j)ψ(i, j)−ℏ2 2m[ψ(i + 1, j) (∆x)2 ]−ℏ2 2m[ψ(i −1, j) (∆x)2 ]. (6) This yields, 2</p> <p>Figure 1: Shows (A) the rst coupled axon which is stimulated, (B) the second coupled axon which responds after a delay and (C) the initial and nal wave functions (absolute-squared) that are the outcome of evolution under a potential formed from (A) and (B) and shown in the next gure. In (A) and (B) the x- axes are time in seconds and the y-axes are voltage in volts. In (C), the x-axis is position and the y-axis is the squared magnitude of the wavefunction. iℏ[ψ(i, j + 1) ∆t ] = [ iℏ ∆t]+[ℏ2 m (∆x)2 +V (i, j)]ψ(i, j)−ℏ2 2m[ψ(i + 1, j) (∆x)2 ]−ℏ2 2m[ψ(i −1, j) (∆x)2 ] (7) The above can be easily put into matrix form and thereafter put into MATLAB code form. Simulation Results We take the above model and use the MATLAB program developed in the gravitational wave section of (Chawla et al., 2021) to provide us the potential. We vary the potential and look for an impact on the TDSE-governed evolution. When we utilize upto 14 signicant gures in MATLAB, we are able to verify that there is indeed a link between the potential and the evolution; varying the potential changes the evolved state. This is consistent with (Chawla, 2022; Chawla &amp; Morgera, 2022b,a). The results of simulation are presented in Figure 1, subplot 1, which shows us the rst axon's potential train while subplot 2 shows the second (unstimulated) axon's potential train. The nal subplot of Figure 1 demonstrates evolution in the wavefunction under the evolving environmental potential shown in Figure 2. 3</p> <p>Figure 2: Shows the time-varying potential which is a dierence of the two axons' instantaneous voltage proles, taken at the last step of the evolution. The x-axis is position and the y-axis is voltage in volts. Conclusion It was reported in (Chawla &amp; Morgera, 2022a) that high precision MATLAB simulations yield an interaction between metric perturbations and the dier- ential response timing of coupled axons in an axon tract. As the capabilities of neural recording devices are improved, novel ideas such as quantum sensing (Hansen et al., 2022) can be incorporated to measure these minute eects. The next step, interventions in this mechanism, can be carried out, with the aim of studying the impact on subjective perception, especially spacetime perception (for example, (Burr &amp; Morrone, 2006)). The paper has certain limitations in that the various constants such as Planck's constant and the mass of the simulated particle, were not insisted on being accurate. This can be rectied in future work. In forthcoming work, we will extend this study to the decoherence that ensues out of collision of ions at the node. A further direction of investigation is quantum noise and how it can be studied in relation to classical noise at the ion channel level in the context of the present work. Overall, this paper oers another step forward in elucidating the mechanism of quantum computing in the brain. We must note here that this also has implications for signicant questions such as the existence of free will (Lloyd, 2012). References Burr, David, &amp; Morrone, Concetta. 2006. Time perception: spacetime in the brain. Current Biology, 16(5), R171R173. 4</p> <p>Chawla, Aman. 2022. A Gedanken Experiment on the Brain as a Quantum Computer. ResearchGate Preprint. Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022a. Computer Study of Metric Perturbations Impinging on Coupled Axon Tracts. bioRxiv. Chawla, Aman, &amp; Morgera, Salvatore Domenic. 2022b. Mechanism of Universal Quantum Computation in the Brain. Chawla, Aman, Morgera, Salvatore D, &amp; Snider, Arthur D. 2019. On axon interaction and its role in neurological networks. IEEE/ACM Transactions on Computational Biology and Bioinformatics, 18(2), 790796. Chawla, Aman, Morgera, Salvatore Domenic, &amp; Snider, Arthur D. 2021. Fields, Geometry and Their Impact on Axon Interaction. Journal of Applied Math- ematics and Physics, 9(04), 751. Griths, David J, &amp; Schroeter, Darrell F. 2018. Introduction to quantum me- chanics. Cambridge university press. Hansen, Nikolaj Winther, Webb, James Luke, Troise, Luca, Olsson, Christof- fer, Tomasevic, Leo, Brinza, Ovidiu, Achard, Jocelyn, Staacke, Robert, Ki- eschnick, Michael, Meijer, Jan, et al. 2022. Microscopic-scale recording of brain neuronal electrical activity using a diamond quantum sensor. arXiv preprint arXiv:2208.14068. Lloyd, Seth. 2012. A Turing test for free will. Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences, 370(1971), 35973610. Weinberg, Steven. 2012. Collapse of the state vector. Physical Review A, 85(6), 062116.</p>
+    </div>
+</div>
+
+<!-- PREMIUM SERVICE SECTION START -->
+        <div class="section" style="margin-top:30px;">
+            <div class="premium-box" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border: 2px solid #3498db; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);">
+                <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Premium Author Support</h2>
+                <p><strong>Get personalized help from the author:</strong></p>
+                <ul>
+                    <li>48-hour email responses on paper-related queries</li>
+                    <li>Additional notes, explanations, and clarifications</li>
+                </ul>
+                <div class="premium-price" style="font-size: 2.2em; font-weight: bold; color: #27ae60; margin: 15px 0;">$3 USD</div>
+                <p>One-time payment for this paper's premium service.</p>
+                
+                <button class="stamp-btn" onclick="addToCart('Premium Support - ' + (document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Paper'), 250)" style="border: 2px solid #3498db; color: #3498db; padding: 10px 20px; text-transform: uppercase; cursor: pointer; background: transparent; font-weight: bold; border-radius: 4px;">🛒 Add to Cart</button>
+                
+                <p style="font-size:0.9em; color:#666; margin-top:15px;">
+                    <strong>Note:</strong> After payment, please confirm your transaction details using the form or email 
+                    <a href="mailto:aman.chawla@gmail.com">aman.chawla@gmail.com</a>
+                </p>
+            </div>
+        </div>
+<!-- PREMIUM SERVICE SECTION END -->
+<div class="nav-links" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
+            <a href="assets/soft_copies/The_Axon_Tract_as_a_Transducer_Simulation_of_Gravitational_Waves_Coupling_With_an_Ion_at_the_Node_of_Ranvier.pdf" target="_blank" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">📄 View Full Paper (PDF)</a>
+            <a href="toc.html" style="display: inline-block; margin: 5px 10px; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-size: 0.95em; font-weight: bold; font-family: sans-serif;">← Back to Table of Contents</a>
+        </div></article>
+</main>
+
+<!-- Floating Cart Button -->
+<button id="cartFloatingBtn" class="cart-floating-btn" onclick="openCartModal()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #a9793c; color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  🛒 View Cart <span id="cartBadge" class="cart-badge" style="background: white; color: #a9793c; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+</button>
+
+    <script src="assets/hologram_paper_reader.js" defer></script>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>

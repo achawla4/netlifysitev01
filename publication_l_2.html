@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Hariharananda REAL Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+		    font-weight: 400;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            letter-spacing: -0.01em;
+            color: #2c3e50;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            background: #fafaf8;
+        }
+        
+
+		h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+            color: #1a252f;
+        }
+
+        h2 {
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        em {
+            font-style: italic;
+            letter-spacing: 0.01em;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(218,165,32,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            margin-top: 0;
+            color: #daa520;
+        }
+        
+		.hero a:link {
+		  color: #daa520;
+		}
+
+		.hero a:visited {
+		  color: #b8860b;
+		}
+
+		.hero a:hover {
+		  color: #ffd700;
+		  text-decoration: underline;
+		}
+
+		.hero a:active {
+		  color: #ff6347;
+		}
+
+        .hero p {
+            font-size: 1.15em;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .profile-section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .profile-info h2 {
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        
+        .profile-info .affiliation {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #daa520;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .search-filter {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1em;
+            font-family: 'Cormorant Garamond', serif;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #daa520;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background: #daa520;
+            color: white;
+            border-color: #daa520;
+        }
+        
+        .filter-btn.active {
+            background: #daa520;
+            color: white;
+            border-color: #daa520;
+        }
+        
+        .publications-list {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .year-group {
+            margin-bottom: 35px;
+        }
+        
+        .year-header {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #daa520;
+            display: inline-block;
+        }
+        
+        .publication-item {
+            padding: 18px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-item:hover {
+            background-color: #fafaf8;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .pub-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .pub-title a {
+            color: #1a1a2e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .pub-title a:hover {
+            color: #daa520;
+            text-decoration: underline;
+        }
+        
+        .pub-authors {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .pub-venue {
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .pub-meta {
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 14px;
+            background: #f5f5f5;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .pub-link:hover {
+            background: #daa520;
+            color: white;
+            border-color: #daa520;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 1.1em;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: white;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            border: 2px solid #daa520;
+        }
+        
+        .back-link:hover {
+            background: #daa520;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/adsense.css">
+    <script defer src="assets/adsense.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2520291262449804"
+     crossorigin="anonymous"></script>    <link rel="stylesheet" href="assets/math_ai_floater.css">
+    <script src="assets/math_ai_floater.js" defer></script>
+</head>
+
+<body>
+
+<div id="pub-list" class="publications-list" data-pagefind-body data-pagefind-filter="type:Other">    <h1>Publications</h1></div>
+
+
+
+<script>
+fetch('./assets/papers.json')
+  .then(response => response.json())
+  .then(papers => {
+
+    const container = document.getElementById('pub-list');
+
+    if (!Array.isArray(papers) || papers.length === 0) {
+      container.innerHTML = '<p>No publications found.</p>';
+      return;
+    }
+
+    // sort by year (handles Year or year)
+    papers.sort((a, b) => {
+      const ya = a.year || a.Year || 0;
+      const yb = b.year || b.Year || 0;
+      return yb - ya;
+    });
+
+    papers.forEach(p => {
+      const title   = p.title   || p.Title   || '';
+      const authors = p.authors || p.Authors || '';
+      const venue   = p.journal || p.Journal || p.venue || p.Venue || '';
+      const year    = p.year    || p.Year    || '';
+      const doi     = p.doi     || p.DOI     || '';
+      const url     = p.url     || p.URL     || '';
+
+      const div = document.createElement('div');
+      div.className = 'publication-item';
+
+      div.innerHTML = `
+        <div class="pub-title">${title}</div>
+        <div class="pub-authors">${authors}</div>
+        <div class="pub-venue">${venue} ${year ? '(' + year + ')' : ''}</div>
+        <div class="pub-meta">
+          ${doi ? `<a class="pub-link" href="https://doi.org/${doi}">DOI</a>` : ''}
+          ${url ? `<a class="pub-link" href="${url}">Link</a>` : ''}
+        </div>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(err => {
+    document.getElementById('pub-list').innerHTML =
+      '<p>Unable to load publications.</p>';
+    console.error(err);
+  });
+</script>
+    <aside class="real-adsense-slot" data-ad-slot-key="footer" aria-label="Advertisement"></aside>
+    <script src="assets/live_viewers.js" defer></script>
+</body>
+</html>
